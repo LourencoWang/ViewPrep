@@ -77,10 +77,12 @@
     display:flex;justify-content:space-between;align-items:center;gap:1rem;
     padding:1.75rem 0;
   }
-  .wordmark{
-    font-family:var(--display);font-size:1.05rem;
+  .wordmark{display:inline-flex;align-items:center;gap:.55rem;
+    font-family:var(--display);font-size:1.3rem;
     letter-spacing:.03em;
   }
+  .wordmark-text{display:inline;}
+  .wordmark-mark{display:block;border-radius:8px;flex:0 0 auto;}
   .wordmark-primary{font-weight:800;color:var(--ink);}
   .wordmark-secondary{font-weight:400;color:var(--ink-faint);}
   .header-arrow{
@@ -111,9 +113,9 @@
     font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
     margin-bottom:1.5rem;
   }
-  .hero-title{
+  .hero-title{text-transform:uppercase;
     font-family:var(--display);font-weight:700;
-    font-size:clamp(2.5rem,6.5vw,4.2rem);line-height:1.03;letter-spacing:-.03em;text-wrap:balance;
+    font-size:clamp(2.5rem,6.5vw,4.2rem);line-height:.99;letter-spacing:-.012em;text-wrap:balance;
     animation:rise-in .6s cubic-bezier(.2,.8,.2,1) both;
   }
   @keyframes rise-in{0%{opacity:0;transform:translateY(14px);}100%{opacity:1;transform:translateY(0);}}
@@ -139,8 +141,8 @@
 
   /* ---------- catalog ---------- */
   .catalog{padding:2.75rem 0 4rem;}
-  .section-title{border-left:5px solid var(--amber);padding-left:.7rem;
-    font-family:var(--display);font-weight:700;font-size:1.7rem;letter-spacing:-.02em;
+  .section-title{text-transform:uppercase;border-left:5px solid var(--amber);padding-left:.7rem;
+    font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:.015em;
     margin-bottom:.65rem;
   }
   .section-sub{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.9rem;max-width:56ch;}
@@ -282,9 +284,9 @@
     color:var(--blue);
   }
   .deck-info{display:flex;flex-direction:column;gap:.5rem;}
-  .deck-info .deck-name{
+  .deck-info .deck-name{text-transform:uppercase;
     display:block;
-    font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--ink);letter-spacing:-.015em;
+    font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--ink);letter-spacing:.01em;
   }
   .deck-info .deck-desc{
     display:block;
@@ -577,10 +579,10 @@
   /* ---------- auth ---------- */
   .header-actions{display:flex;align-items:center;gap:.9rem;}
   .account-btn{
-    cursor:pointer;background:none;border:1px solid var(--line-soft);color:var(--ink-soft);
-    font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-    padding:.5rem 1rem;border-radius:999px;
-    max-width:9.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    cursor:pointer;background:var(--ink);border:1px solid var(--ink);color:#fff;
+    font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:.62rem 1.35rem;border-radius:999px;
+    max-width:11rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
     transition:border-color .15s ease, color .15s ease;
   }
   .account-btn:hover{border-color:var(--blue);color:var(--ink);}
@@ -631,7 +633,7 @@
 <body>
 <div class="page">
   <header class="site-header">
-    <div class="wordmark"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></div>
+    <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0C0C0D"/><path d="M16 16 L32 46 L48 16" fill="none" stroke="#E2952E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
     <div class="header-actions">
       <button class="account-btn" id="account-btn" type="button">Sign in</button>
       <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
