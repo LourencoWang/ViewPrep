@@ -305,7 +305,7 @@ def notfound_body():
 PAGES = [
     # slug, title, description, body fn, jsonld fn or None, sitemap priority
     ("faq.html", "Frequently asked questions | ViewPrep",
-     "Is ViewPrep free, do you need an account, who writes the cards, and how the spaced "
+     "Is ViewPrep free, do you need an account, what is on the cards, and how the spaced "
      "review scheduling works.", faq_body, faq_jsonld, "0.7"),
     ("privacy.html", "Privacy policy | ViewPrep",
      "What ViewPrep stores, where it goes, which third parties see anything, and how to have "

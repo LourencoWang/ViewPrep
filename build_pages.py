@@ -34,13 +34,13 @@ def esc(s):
 
 STYLE = """
   :root{
-    --bg:#050505; --ink:#F4F3EF; --ink-soft:#9C9B95; --ink-faint:#6E6D67;
-    --line:rgba(255,255,255,0.18); --line-soft:rgba(255,255,255,0.09);
-    --surface:rgba(255,255,255,0.035); --surface-strong:rgba(255,255,255,0.07);
-    --blue:#4C7CF0; --amber:#E2952E; --green:#4FAE7A; --red:#E0574B;
-    --contrast:#08080A;
+    --bg:#F2F1EC; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(12,12,13,0.085);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#E2952E; --amber-ink:#9A5E08; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
     --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
-    --body:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
@@ -61,8 +61,8 @@ STYLE = """
     text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
   .crumb a{color:var(--ink-faint);text-decoration:none;}
   .crumb a:hover{color:var(--blue);}
-  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.03;letter-spacing:-.01em;
+  h1{font-family:var(--display);font-weight:700;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.05;letter-spacing:-.028em;
     margin:0 0 1rem;text-wrap:balance;}
   .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
   .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
@@ -73,7 +73,7 @@ STYLE = """
     border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
     font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
     text-transform:uppercase;}
-  .btn:hover{background:#fff;}
+  .btn:hover{background:#2A2A2E;}
   .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.5rem 1.6rem;margin-bottom:1rem;}
   .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
@@ -91,13 +91,14 @@ STYLE = """
   .deck-item:hover{border-color:var(--blue);}
   .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
     color:var(--blue);}
-  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
-    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1.06rem;
+    letter-spacing:-.015em;color:var(--ink);}
   .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
   .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
-  h2.track{font-family:var(--display);font-weight:700;font-size:1.15rem;
-    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.45rem;
+    letter-spacing:-.02em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
   .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.6rem;margin:2.5rem 0;text-align:center;}
   .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
@@ -133,7 +134,7 @@ def head(title, desc, canonical, deck_id=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{canonical}">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#F2F1EC">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/appletouchicon.png">
@@ -250,7 +251,7 @@ def hub_page(decks):
     out = [head(title, desc, canonical)]
     out.append(f'  <p class="crumb"><a href="{SITE}/">ViewPrep</a> / Decks</p>')
     out.append("  <h1>Every deck</h1>")
-    out.append(f'  <p class="lede">All {total} cards, written from scratch and ordered so each '
+    out.append(f'  <p class="lede">All {total} cards, ordered so each '
                'deck starts with the plainest concepts and builds toward the harder, multi-step '
                'questions interviewers use to separate candidates. Every card below shows its '
                'full answer.</p>')

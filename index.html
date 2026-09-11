@@ -10,14 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free flashcards for investment banking and consulting interviews. 400 cards across 23 decks, written so anyone can follow them with no finance background.">
 <link rel="canonical" href="https://viewprep.net/">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#F2F1EC">
 
 <!-- Social preview (LinkedIn, WhatsApp, Slack, iMessage, X). og:image must be an absolute URL. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ViewPrep">
 <meta property="og:url" content="https://viewprep.net/">
 <meta property="og:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta property="og:description" content="400 flashcards across 23 decks, written from scratch. Every card makes sense with no prior finance background. Free.">
+<meta property="og:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
 <meta property="og:image" content="https://viewprep.net/ogimage.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -25,31 +25,38 @@
 <meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 400 cards, 23 decks, free.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta name="twitter:description" content="400 flashcards across 23 decks, written from scratch. Every card makes sense with no prior finance background. Free.">
+<meta name="twitter:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
 <meta name="twitter:image" content="https://viewprep.net/ogimage.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
-    --bg:#050505;
-    --ink:#F4F3EF;
-    --ink-soft:#9C9B95;
-    --ink-faint:#6E6D67;
-    --line:rgba(255,255,255,0.18);
-    --line-soft:rgba(255,255,255,0.09);
-    --surface:rgba(255,255,255,0.035);
-    --surface-strong:rgba(255,255,255,0.07);
-    --blue:#4C7CF0;
-    --amber:#E2952E;
-    --green:#4FAE7A;
-    --red:#E0574B;
-    --contrast:#08080A;
-    --shadow:rgba(0,0,0,0.55);
-    --focus:#82A4FF;
+    --bg:#F2F1EC;
+    --ink:#0C0C0D;
+    --ink-soft:#54545A;
+    --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20);
+    --line-soft:rgba(12,12,13,0.085);
+    --surface:#FFFFFF;
+    --surface-strong:#FFFFFF;
+    --blue:#2F5FE0;
+    --amber:#E2952E; --amber-ink:#9A5E08;
+    --green:#1D8A57;
+    --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --shadow:rgba(12,12,13,0.08);
+    --focus:#2F5FE0;
 
     --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
-    --body:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
+
+  /* Amber is the brand mark, but white on amber fails contrast, so anything
+     filled with amber takes dark text instead of --contrast. */
+  .track-btn[data-track="consulting"].is-active{color:#0C0C0D;}
+  .stamp-good:hover{color:#0C0C0D;}
+  .stamp-good:hover .stamp-interval,
+  .stamp-good:hover .stamp-key{color:#0C0C0D;opacity:.7;}
 
   *,*::before,*::after{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
@@ -90,7 +97,7 @@
   .hero-blob{
     position:absolute;top:-70px;left:-4%;width:108%;height:clamp(260px,42vw,420px);
     background:linear-gradient(100deg, var(--blue) 0%, transparent 40%, transparent 60%, var(--amber) 100%);
-    filter:blur(70px);opacity:.55;transform:rotate(-6deg);border-radius:45%;
+    filter:blur(80px);opacity:.16;transform:rotate(-6deg);border-radius:45%;
     pointer-events:none;z-index:0;
   }
   .hero-blob::after{
@@ -105,8 +112,8 @@
     margin-bottom:1.5rem;
   }
   .hero-title{
-    font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(2.6rem,7vw,4.4rem);line-height:.98;letter-spacing:-.01em;text-wrap:balance;
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2.5rem,6.5vw,4.2rem);line-height:1.03;letter-spacing:-.03em;text-wrap:balance;
     animation:rise-in .6s cubic-bezier(.2,.8,.2,1) both;
   }
   @keyframes rise-in{0%{opacity:0;transform:translateY(14px);}100%{opacity:1;transform:translateY(0);}}
@@ -121,7 +128,7 @@
     text-decoration:none;border:none;cursor:pointer;
     transition:transform .15s ease, background .15s ease;
   }
-  .btn-primary:hover{background:#fff;transform:translateY(-1px);}
+  .btn-primary:hover{background:#2A2A2E;transform:translateY(-1px);}
   .hero-caption-row{
     position:relative;z-index:1;
     display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
@@ -132,8 +139,8 @@
 
   /* ---------- catalog ---------- */
   .catalog{padding:2.75rem 0 4rem;}
-  .section-title{
-    font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:.02em;text-transform:uppercase;
+  .section-title{border-left:5px solid var(--amber);padding-left:.7rem;
+    font-family:var(--display);font-weight:700;font-size:1.7rem;letter-spacing:-.02em;
     margin-bottom:.65rem;
   }
   .section-sub{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.9rem;max-width:56ch;}
@@ -151,8 +158,8 @@
   }
   .track-btn + .track-btn{border-left:1px solid var(--line-soft);}
   .track-btn:hover{color:var(--ink);}
-  .track-btn[data-track="ib"].is-active{background:var(--blue);color:var(--contrast);border-bottom-color:var(--blue);}
-  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:var(--contrast);border-bottom-color:var(--amber);}
+  .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
+  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#0C0C0D;border-bottom-color:var(--amber-ink);}
   /* ---------- signed-in progress tracker ---------- */
   .tracker{
     margin-bottom:2rem;padding:1.35rem 1.5rem 1.5rem;
@@ -179,7 +186,7 @@
     border-left:2px solid var(--line-soft);
   }
   .tracker-stat.is-again{border-left-color:var(--red);}
-  .tracker-stat.is-good{border-left-color:var(--amber);}
+  .tracker-stat.is-good{border-left-color:var(--amber-ink);}
   .tracker-stat.is-easy{border-left-color:var(--green);}
   .tracker-num{
     font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1;
@@ -257,7 +264,7 @@
   @media (max-width:600px){ .hero-demo .flashcard{min-height:300px;} }
   .hero-demo-link{
     display:inline-block;margin-top:1rem;font-family:var(--body);font-size:.92rem;
-    font-weight:600;text-decoration:none;color:var(--amber);
+    font-weight:600;text-decoration:none;color:var(--amber-ink);
   }
   .hero-demo-link:hover{text-decoration:underline;}
 
@@ -276,8 +283,8 @@
   }
   .deck-info{display:flex;flex-direction:column;gap:.5rem;}
   .deck-info .deck-name{
-    display:block;text-transform:uppercase;
-    font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--ink);letter-spacing:.01em;
+    display:block;
+    font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--ink);letter-spacing:-.015em;
   }
   .deck-info .deck-desc{
     display:block;
@@ -296,7 +303,7 @@
     font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
     color:var(--ink-faint);font-variant-numeric:tabular-nums;
   }
-  .deck-progress-label.is-complete{color:var(--amber);}
+  .deck-progress-label.is-complete{color:var(--amber-ink);}
   .deck-restart-mini{
     all:unset;cursor:pointer;
     font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
@@ -304,7 +311,7 @@
     padding:.35rem .7rem;border-radius:999px;border:1px solid var(--line-soft);
     transition:border-color .15s ease, color .15s ease;
   }
-  .deck-restart-mini:hover{border-color:var(--amber);color:var(--amber);}
+  .deck-restart-mini:hover{border-color:var(--amber-ink);color:var(--amber-ink);}
 
   /* ---------- deck intro ---------- */
   .deck-intro{padding:2.75rem 0 4rem;}
@@ -391,7 +398,7 @@
     font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
     color:var(--blue);margin-bottom:1.1rem;
   }
-  .face-back .face-label{color:var(--amber);}
+  .face-back .face-label{color:var(--amber-ink);}
   .face-text{
     position:relative;z-index:1;
     font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.42;color:var(--ink);
@@ -448,7 +455,7 @@
   .stamp-again:hover{background:var(--red);color:var(--contrast);}
   /* Outline and label carry the colour; the interval and key hint stay neutral so
      the button doesn't read as one solid block of yellow. */
-  .stamp-good{color:var(--amber);border-color:var(--amber);}
+  .stamp-good{color:var(--amber-ink);border-color:var(--amber-ink);}
   .stamp-good .stamp-interval,
   .stamp-good .stamp-key{color:var(--ink-soft);opacity:1;}
   .stamp-good:hover{background:var(--amber);color:var(--contrast);}
@@ -509,7 +516,7 @@
     padding:.7rem 1.4rem;border-radius:999px;border:none;
     background:var(--ink);color:var(--contrast);
   }
-  .btn-solid:hover{background:#fff;}
+  .btn-solid:hover{background:#2A2A2E;}
 
   .deck-open:focus-visible,
   .deck-restart-mini:focus-visible,
@@ -565,7 +572,7 @@
     font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
     color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px;
   }
-  .footer-reset:hover{color:var(--amber);text-decoration-color:var(--amber);}
+  .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
 
   /* ---------- auth ---------- */
   .header-actions{display:flex;align-items:center;gap:.9rem;}
@@ -582,12 +589,12 @@
   .auth-overlay{
     position:fixed;inset:0;z-index:50;
     display:flex;align-items:center;justify-content:center;
-    background:rgba(0,0,0,0.6);
+    background:rgba(12,12,13,0.38);
     padding:1.5rem;
   }
   .auth-modal{
     position:relative;width:100%;max-width:380px;
-    background:#0c0c0e;border:1px solid var(--line);border-radius:18px;
+    background:#FFFFFF;border:1px solid var(--line);border-radius:18px;
     padding:2rem 1.75rem 1.75rem;
     box-shadow:0 24px 60px var(--shadow);
   }
@@ -611,7 +618,7 @@
     background:var(--surface);border:1px solid var(--line-soft);color:var(--ink);
     font-family:var(--body);font-size:.92rem;
   }
-  .auth-error{margin-top:.9rem;font-size:.82rem;color:var(--amber);line-height:1.5;}
+  .auth-error{margin-top:.9rem;font-size:.82rem;color:var(--amber-ink);line-height:1.5;}
   .auth-submit{width:100%;justify-content:center;margin-top:1.5rem;}
   .auth-toggle{
     display:block;width:100%;text-align:center;margin-top:1.1rem;
@@ -678,7 +685,7 @@
 
     <section class="catalog" id="catalog">
       <h2 class="section-title">The catalog</h2>
-      <p class="section-sub">Every card is written from scratch: no scraped questions, no affiliation with any course or employer. Pick your track to see decks built for it.</p>
+      <p class="section-sub">No affiliation with any course, employer or prep provider. Pick your track to see decks built for it.</p>
       <div class="track-toggle-wrap">
         <div class="track-toggle" role="group" aria-label="Choose your interview track">
           <button type="button" class="track-btn" id="track-ib-btn" data-track="ib" aria-pressed="false">Investment Banking</button>
