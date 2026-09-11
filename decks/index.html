@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="All 400 ViewPrep flashcards across 23 decks covering investment banking and consulting interviews. Free, with full answers.">
 <link rel="canonical" href="https://viewprep.net/decks/">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#F2F1EC">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/appletouchicon.png">
@@ -25,13 +25,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
-    --bg:#050505; --ink:#F4F3EF; --ink-soft:#9C9B95; --ink-faint:#6E6D67;
-    --line:rgba(255,255,255,0.18); --line-soft:rgba(255,255,255,0.09);
-    --surface:rgba(255,255,255,0.035); --surface-strong:rgba(255,255,255,0.07);
-    --blue:#4C7CF0; --amber:#E2952E; --green:#4FAE7A; --red:#E0574B;
-    --contrast:#08080A;
+    --bg:#F2F1EC; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(12,12,13,0.085);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#E2952E; --amber-ink:#9A5E08; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
     --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
-    --body:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
@@ -52,8 +52,8 @@
     text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
   .crumb a{color:var(--ink-faint);text-decoration:none;}
   .crumb a:hover{color:var(--blue);}
-  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.03;letter-spacing:-.01em;
+  h1{font-family:var(--display);font-weight:700;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.05;letter-spacing:-.028em;
     margin:0 0 1rem;text-wrap:balance;}
   .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
   .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
@@ -64,7 +64,7 @@
     border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
     font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
     text-transform:uppercase;}
-  .btn:hover{background:#fff;}
+  .btn:hover{background:#2A2A2E;}
   .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.5rem 1.6rem;margin-bottom:1rem;}
   .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
@@ -82,13 +82,14 @@
   .deck-item:hover{border-color:var(--blue);}
   .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
     color:var(--blue);}
-  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
-    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1.06rem;
+    letter-spacing:-.015em;color:var(--ink);}
   .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
   .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
-  h2.track{font-family:var(--display);font-weight:700;font-size:1.15rem;
-    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.45rem;
+    letter-spacing:-.02em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
   .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.6rem;margin:2.5rem 0;text-align:center;}
   .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
@@ -118,24 +119,25 @@
 
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / Decks</p>
   <h1>Every deck</h1>
-  <p class="lede">All 400 cards, written from scratch and ordered so each deck starts with the plainest concepts and builds toward the harder, multi-step questions interviewers use to separate candidates. Every card below shows its full answer.</p>
+  <p class="lede">All 400 cards, ordered so each deck starts with the plainest concepts and builds toward the harder, multi-step questions interviewers use to separate candidates. Every card below shows its full answer.</p>
   <div class="meta-row"><span>400 cards</span><span>23 decks</span><span>Free, no signup</span></div>
   <h2 class="track">Investment banking &middot; 11 decks</h2>
   <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">20 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">20 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">19 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">19 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">20 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">18 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
   </div>
   <h2 class="track">Consulting &middot; 12 decks</h2>
   <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">15 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/casestructuring.html"><span class="deck-tag">Case Prep</span><span class="deck-name">Case Interview Structuring</span><span class="deck-desc">How to build, communicate, and adapt a live case structure under interview pressure, not just which frameworks to memorize.</span><span class="deck-count">18 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/marketsizing.html"><span class="deck-tag">Estimation</span><span class="deck-name">Market Sizing &amp; Guesstimates</span><span class="deck-desc">How to structure a defensible estimate under uncertainty when an interviewer asks you to size something with no data given.</span><span class="deck-count">17 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">17 cards</span></a>
@@ -147,7 +149,6 @@
     <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">17 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/marketentry.html"><span class="deck-tag">Growth</span><span class="deck-name">Growth Strategy &amp; Market Entry</span><span class="deck-desc">How to judge a new market, pick a way in, and commit to an answer.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/mnacases.html"><span class="deck-tag">M&amp;A Cases</span><span class="deck-name">M&amp;A &amp; Due Diligence Cases</span><span class="deck-desc">How to judge whether a deal is worth doing and whether the value is real.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">15 cards</span></a>
   </div>
   <div class="cta-band">
     <p>Pick a deck and study it with scheduled review, so cards come back just before you would have forgotten them.</p>
