@@ -40,7 +40,7 @@
     --surface:#FFFFFF;
     --surface-strong:#FFFFFF;
     --blue:#2F5FE0;
-    --amber:#E2952E; --amber-ink:#9A5E08;
+    --amber:#2C4E92; --amber-ink:#2C4E92;
     --green:#1D8A57;
     --red:#C63A2C;
     --contrast:#FFFFFF;
@@ -53,10 +53,10 @@
 
   /* Amber is the brand mark, but white on amber fails contrast, so anything
      filled with amber takes dark text instead of --contrast. */
-  .track-btn[data-track="consulting"].is-active{color:#0C0C0D;}
-  .stamp-good:hover{color:#0C0C0D;}
+  .track-btn[data-track="consulting"].is-active{color:#fff;}
+  .stamp-good:hover{color:#fff;}
   .stamp-good:hover .stamp-interval,
-  .stamp-good:hover .stamp-key{color:#0C0C0D;opacity:.7;}
+  .stamp-good:hover .stamp-key{color:#fff;opacity:.75;}
 
   *,*::before,*::after{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
@@ -161,7 +161,7 @@
   .track-btn + .track-btn{border-left:1px solid var(--line-soft);}
   .track-btn:hover{color:var(--ink);}
   .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
-  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#0C0C0D;border-bottom-color:var(--amber-ink);}
+  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
   /* ---------- signed-in progress tracker ---------- */
   .tracker{
     margin-bottom:2rem;padding:1.35rem 1.5rem 1.5rem;
@@ -633,7 +633,7 @@
 <body>
 <div class="page">
   <header class="site-header">
-    <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0C0C0D"/><path d="M16 16 L32 46 L48 16" fill="none" stroke="#E2952E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
+    <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="13" fill="#0C0C0D"/><path d="M14 13 L22.5 13 L32 38 L41.5 13 L50 13 L36.5 52 L27.5 52 Z" fill="#2C4E92"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
     <div class="header-actions">
       <button class="account-btn" id="account-btn" type="button">Sign in</button>
       <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
