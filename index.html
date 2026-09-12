@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free flashcards for investment banking and consulting interviews. 400 cards across 23 decks, written so anyone can follow them with no finance background.">
 <link rel="canonical" href="https://viewprep.net/">
-<meta name="theme-color" content="#F2F1EC">
+<meta name="theme-color" content="#F4F6FA">
 
 <!-- Social preview (LinkedIn, WhatsApp, Slack, iMessage, X). og:image must be an absolute URL. -->
 <meta property="og:type" content="website">
@@ -31,12 +31,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
-    --bg:#F2F1EC;
+    --bg:#F4F6FA;
     --ink:#0C0C0D;
     --ink-soft:#54545A;
     --ink-faint:#8A8A90;
     --line:rgba(12,12,13,0.20);
-    --line-soft:rgba(12,12,13,0.085);
+    --line-soft:rgba(28,36,60,0.10);
     --surface:#FFFFFF;
     --surface-strong:#FFFFFF;
     --blue:#2F5FE0;
@@ -548,6 +548,55 @@
   .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
   @media (max-width:620px){ .test-q{font-size:1.28rem;} }
 
+  /* ---------- hero actions, trust strip, the loop, study paths ---------- */
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem;}
+  .btn-primary.is-alt{background:var(--surface);color:var(--ink);border:1px solid var(--line);}
+  .btn-primary.is-alt:hover{border-color:var(--ink);background:var(--surface);}
+  .hero-secondary{display:inline-block;margin-top:1.1rem;font-family:var(--body);
+    font-size:.9rem;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;}
+  .hero-secondary:hover{color:var(--ink);}
+  .trust-strip{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .9rem;
+    margin:1.6rem 0 0;padding:0;font-family:var(--body);font-size:.72rem;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);}
+  .trust-strip li{display:flex;align-items:center;gap:.9rem;}
+  .trust-strip li:not(:last-child)::after{content:'';width:3px;height:3px;border-radius:50%;
+    background:var(--ink-faint);opacity:.6;}
+
+  .loop{max-width:var(--wrap,1100px);margin:0 auto;padding:0 1.5rem 1rem;}
+  .loop-row{list-style:none;margin:0;padding:2.2rem 0 0;display:grid;
+    grid-template-columns:repeat(3,1fr);gap:1.6rem;border-top:1px solid var(--line-soft);}
+  .loop-step{display:flex;flex-direction:column;gap:.5rem;}
+  .loop-n{font-family:var(--display);font-weight:700;font-size:.98rem;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink);}
+  .loop-n::before{content:'';display:block;width:26px;height:3px;border-radius:2px;
+    background:var(--blue);margin-bottom:.7rem;}
+  .loop-step:nth-child(2) .loop-n::before{background:var(--amber);}
+  .loop-step:nth-child(3) .loop-n::before{background:var(--green);}
+  .loop-text{font-size:.9rem;line-height:1.55;color:var(--ink-soft);margin:0;max-width:34ch;}
+  @media (max-width:760px){
+    .loop-row{grid-template-columns:1fr;gap:1.4rem;padding-top:1.8rem;}
+    .loop-text{max-width:none;}
+  }
+
+  .paths{margin:0 0 1.6rem;}
+  .paths-title{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink);margin:0 0 .9rem;}
+  .paths-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
+  .path{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.1rem 1.2rem 1.2rem;}
+  .path-name{font-family:var(--display);font-weight:700;font-size:.95rem;margin:0 0 .2rem;}
+  .path-why{font-size:.82rem;line-height:1.5;color:var(--ink-soft);margin:0 0 .9rem;}
+  .path-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;}
+  .path-step{all:unset;cursor:pointer;box-sizing:border-box;font-family:var(--body);
+    font-size:.78rem;font-weight:600;color:var(--ink);white-space:nowrap;
+    padding:.34rem .6rem;border-radius:8px;border:1px solid var(--line-soft);
+    transition:border-color .15s ease,color .15s ease;}
+  .path-step:hover{border-color:var(--blue);color:var(--blue);}
+  .path-step:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .path-step.is-done{color:var(--green);border-color:var(--green);}
+  .path-arrow{color:var(--ink-faint);font-size:.75rem;}
+  @media (max-width:760px){ .paths-list{grid-template-columns:1fr;} }
+
   /* ---------- test yourself ---------- */
   .test-h{font-family:var(--display);font-weight:700;text-transform:uppercase;
     font-size:clamp(1.5rem,3.4vw,2rem);letter-spacing:-.01em;margin:.2rem 0 .6rem;}
@@ -756,21 +805,46 @@
       <div class="hero-blob" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-content">
-          <p class="hero-eyebrow">Field notes for investment banking &amp; consulting interviews</p>
-          <h1 class="hero-title">Flip the card.<br>Know the numbers.</h1>
-          <p class="hero-sub">ViewPrep drills the financial-statement, valuation, Excel-modeling, and case-interview fundamentals that come up in investment banking and consulting interviews, one card, one concept, at a time.</p>
+          <p class="hero-eyebrow">Interview prep for spring weeks, internships and graduate roles</p>
+          <h1 class="hero-title">Know the questions<br>before they ask them.</h1>
+          <p class="hero-sub">400 flashcards and 115 written questions across investment banking and
+            consulting. Learn them with cards, test yourself from memory, and the ones you get
+            wrong keep coming back until they don&rsquo;t.</p>
         </div>
-        <!-- A real card from the deck, picked at random on each load. The page used
-             to describe the product; this shows it. -->
-        <!-- hero demo card removed -->
+        <!-- Two buttons rather than one, because the track choice has to happen anyway
+             and burying it behind a generic CTA just adds a click. -->
         <div class="hero-actions">
-          <a href="#catalog" class="btn-primary">Open the catalog &#8599;</a>
+          <button class="btn-primary" id="hero-ib-btn" type="button">Start investment banking &rarr;</button>
+          <button class="btn-primary is-alt" id="hero-consulting-btn" type="button">Start consulting &rarr;</button>
         </div>
-        <div class="hero-caption-row">
-          <span>Free &middot; No account needed</span>
-          <span>400 cards &middot; 11 IB decks &middot; 12 consulting decks</span>
-        </div>
+        <a class="hero-secondary" href="/decks/">Or browse all 400 cards without an account</a>
+        <ul class="trust-strip">
+          <li>400 cards</li><li>23 decks</li><li>115 written questions</li>
+          <li>Free</li><li>No signup</li>
+        </ul>
       </div>
+    </section>
+
+    <!-- The loop, stated once. Test yourself is the part no other free flashcard
+         site has, and it was invisible to anyone who did not scroll. -->
+    <section class="loop" aria-label="How ViewPrep works">
+      <ol class="loop-row">
+        <li class="loop-step">
+          <span class="loop-n">Learn</span>
+          <p class="loop-text">Work through a deck one card at a time. Every answer is written
+            so it makes sense with no finance background.</p>
+        </li>
+        <li class="loop-step">
+          <span class="loop-n">Test</span>
+          <p class="loop-text">Write the answer out from memory, then see which key terms you
+            actually used and which you missed.</p>
+        </li>
+        <li class="loop-step">
+          <span class="loop-n">Review</span>
+          <p class="loop-text">Anything you rate as hard comes back sooner. What you know
+            gets out of the way.</p>
+        </li>
+      </ol>
     </section>
 
     <section class="catalog" id="catalog">
@@ -782,6 +856,11 @@
           <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
         </div>
       </div>
+      <!-- 23 decks is a choice problem. These turn the catalog into a route through it. -->
+      <section class="paths" id="paths" hidden aria-labelledby="paths-title">
+        <h3 class="paths-title" id="paths-title">Not sure where to start?</h3>
+        <div class="paths-list" id="paths-list"></div>
+      </section>
       <div class="test-cta" id="test-cta" hidden>
         <div class="test-cta-copy">
           <p class="test-cta-title">Think you know it?</p>
@@ -1339,6 +1418,10 @@
 
   var els = {
     deckGrid: document.getElementById('deck-grid'),
+    paths: document.getElementById('paths'),
+    pathsList: document.getElementById('paths-list'),
+    heroIbBtn: document.getElementById('hero-ib-btn'),
+    heroConsultingBtn: document.getElementById('hero-consulting-btn'),
     trackIbBtn: document.getElementById('track-ib-btn'),
     trackConsultingBtn: document.getElementById('track-consulting-btn'),
     trackHint: document.getElementById('track-hint'),
@@ -1681,8 +1764,77 @@
     });
   }
 
+  // --- Recommended study paths -----------------------------------------------
+  //
+  // 23 decks is a choice problem, and "pick a track" does not solve it. These are
+  // two opinionated routes per track: one for someone starting from nothing, one
+  // for someone with a date in the diary. A step turns green once that deck has
+  // been started, so the path doubles as a progress line.
+
+  var STUDY_PATHS = {
+    ib: [
+      { name: 'New to investment banking',
+        why: 'Build it in the order the concepts actually depend on each other.',
+        decks: ['accounting', 'statements', 'valuation', 'mna', 'lbo'] },
+      { name: 'Interview next week',
+        why: 'Highest-frequency ground first. Skip what is unlikely to come up in time.',
+        decks: ['ibinterview', 'accounting', 'valuation', 'mna', 'excel'] }
+    ],
+    consulting: [
+      { name: 'New to consulting',
+        why: 'Structure first, then the analysis a case actually asks you to run.',
+        decks: ['casestructuring', 'profitability', 'marketsizing', 'microecon', 'strategy'] },
+      { name: 'Interview next week',
+        why: 'What a first-round case leans on, in the order you will need it.',
+        decks: ['consultinginterview', 'casestructuring', 'profitability', 'marketsizing', 'mnacases'] }
+    ]
+  };
+
+  function renderPaths(){
+    if (!els.paths) { return; }
+    var list = STUDY_PATHS[state.track];
+    if (!list || !decks.length) { els.paths.hidden = true; return; }
+    els.paths.hidden = false;
+    els.pathsList.innerHTML = '';
+
+    list.forEach(function(path){
+      var box = document.createElement('div');
+      box.className = 'path';
+      var head = '<p class="path-name">' + escHtml(path.name) + '</p>' +
+                 '<p class="path-why">' + escHtml(path.why) + '</p>';
+      box.innerHTML = head;
+
+      var steps = document.createElement('div');
+      steps.className = 'path-steps';
+      path.decks.forEach(function(id, n){
+        var idx = -1;
+        for (var i = 0; i < decks.length; i++){ if (decks[i].id === id) { idx = i; break; } }
+        if (idx === -1) { return; }   // a renamed deck drops out rather than breaking the row
+        if (n > 0){
+          var arrow = document.createElement('span');
+          arrow.className = 'path-arrow';
+          arrow.textContent = '→';
+          steps.appendChild(arrow);
+        }
+        var st = deckStats(decks[idx]);
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'path-step' + (st.started > 0 ? ' is-done' : '');
+        b.textContent = decks[idx].name;
+        b.addEventListener('click', function(){
+          track('path_click', { path: path.name, deck: id });
+          showDeckIntro(idx);
+        });
+        steps.appendChild(b);
+      });
+      box.appendChild(steps);
+      els.pathsList.appendChild(box);
+    });
+  }
+
   function renderCatalog(){
     els.deckGrid.innerHTML = '';
+    renderPaths();
 
     if (!state.track){
       els.deckGrid.hidden = true;
@@ -2494,6 +2646,14 @@
     openDeck(state.deckIndex);
   });
   els.resetBtn.addEventListener('click', resetProgress);
+  function startTrack(t){
+    setTrack(t);
+    track('hero_start', { track: t });
+    var c = document.getElementById('catalog');
+    if (c) { c.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  els.heroIbBtn.addEventListener('click', function(){ startTrack('ib'); });
+  els.heroConsultingBtn.addEventListener('click', function(){ startTrack('consulting'); });
   els.trackIbBtn.addEventListener('click', function(){ setTrack('ib'); });
   els.trackConsultingBtn.addEventListener('click', function(){ setTrack('consulting'); });
 
