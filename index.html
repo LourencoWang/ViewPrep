@@ -592,7 +592,92 @@
   }
   .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
 
+  .tracker-hero{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
+    flex-wrap:wrap;padding:.2rem 0 1.4rem;border-bottom:1px solid var(--line-soft);
+    margin-bottom:1.4rem;}
+  .tracker-hero-nums{display:flex;align-items:baseline;gap:2.2rem;flex-wrap:wrap;}
+  .tracker-due{display:flex;align-items:baseline;gap:.6rem;}
+  .tracker-due-num{font-family:var(--display);font-weight:800;font-size:2.6rem;
+    letter-spacing:-.03em;line-height:1;color:var(--ink);}
+  .tracker-due-lbl{font-family:var(--body);font-size:.86rem;font-weight:600;color:var(--ink-soft);}
+  .tracker-studied{display:flex;align-items:baseline;gap:.5rem;}
+  .tracker-studied-num{font-family:var(--display);font-weight:700;font-size:1.15rem;
+    color:var(--ink-soft);letter-spacing:-.01em;}
+  .tracker-studied-lbl{font-family:var(--body);font-size:.78rem;font-weight:600;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);}
+  .tracker-breakdown-lbl{font-family:var(--body);font-size:.68rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.7rem;}
+  @media (max-width:620px){
+    .tracker-hero{flex-direction:column;align-items:flex-start;}
+    .tracker-due-num{font-size:2.2rem;}
+  }
+
+  /* ---------- test mode ---------- */
+  .test{padding:2.5rem 0 4rem;}
+  .test-inner{max-width:700px;margin:0 auto;}
+  .test-topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding-bottom:1rem;border-bottom:1px solid var(--line-soft);margin-bottom:2rem;}
+  .test-progress{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);}
+  .test-tag{font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--amber-ink);margin-bottom:.75rem;}
+  .test-q{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1.34;
+    letter-spacing:-.015em;margin:0 0 1.5rem;}
+  .test-answer{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;
+    padding:1.3rem 1.4rem;margin-bottom:1.6rem;box-shadow:0 10px 30px var(--shadow);}
+  .test-a-label{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:.55rem;}
+  .test-a-text{font-size:1rem;line-height:1.65;color:var(--ink);}
+  .test-actions{display:flex;flex-direction:column;gap:1rem;align-items:flex-start;}
+  .test-mark{display:flex;gap:.7rem;flex-wrap:wrap;}
+  .test-score{font-family:var(--display);font-weight:700;font-size:2.6rem;letter-spacing:-.03em;
+    margin:0 0 .5rem;}
+  .test-verdict{font-size:1rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.8rem;}
+  .test-missed{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.8rem;}
+  .test-miss{border-top:1px solid var(--line-soft);padding-top:.9rem;}
+  .test-miss-q{font-family:var(--display);font-weight:700;font-size:.98rem;line-height:1.4;
+    margin-bottom:.35rem;}
+  .test-miss-a{font-size:.92rem;line-height:1.55;color:var(--ink-soft);margin-bottom:.35rem;}
+  .test-miss-deck{font-size:.74rem;color:var(--ink-faint);}
+  .test-miss-deck button{all:unset;cursor:pointer;color:var(--blue);text-decoration:underline;}
+  .test-note{font-size:.8rem;color:var(--ink-faint);margin-bottom:1.6rem;line-height:1.5;}
+  .test-end-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
+  .test-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+    border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.2rem 1.35rem;margin:1.4rem 0 .6rem;}
+  .test-cta-copy{flex:1 1 260px;}
+  .test-cta-title{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.25rem;}
+  .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
+  @media (max-width:620px){ .test-q{font-size:1.28rem;} .test-score{font-size:2.1rem;} }
+
+  .tracker-empty{display:block;}
+  .tracker-empty-text{font-size:.92rem;line-height:1.6;color:var(--ink-soft);
+    max-width:46ch;margin:.5rem 0 1.1rem;}
+
   /* ---------- auth ---------- */
+  .site-header{gap:1rem;flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{all:unset;cursor:pointer;box-sizing:border-box;
+    font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  @media (max-width:860px){
+    .site-header{flex-wrap:wrap;row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  /* Four pills do not fit on one phone-width row, and letting them wrap leaves one
+     stranded alone on the second line. A 2x2 grid keeps every section visible and
+     tappable without a horizontal scroll that hides half the nav. */
+  @media (max-width:600px){
+    .main-nav{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
+    .nav-item{text-align:center;padding:.5rem .4rem;}
+  }
   .header-actions{display:flex;align-items:center;gap:.9rem;}
   .header-link{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;
     text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;}
@@ -653,8 +738,13 @@
 <div class="page">
   <header class="site-header">
     <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="13" fill="#0C0C0D"/><path d="M14 13 L22.5 13 L32 38 L41.5 13 L50 13 L36.5 52 L27.5 52 Z" fill="#2C4E92"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
+    <nav class="main-nav" id="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" id="nav-decks" href="#catalog" data-nav="decks">Cards</a>
+      <a class="nav-item" id="nav-glossary" href="/glossary.html" data-nav="glossary">Glossary</a>
+      <button class="nav-item" id="nav-test" type="button" data-nav="test">Test yourself</button>
+      <a class="nav-item" id="nav-progress" href="#tracker" data-nav="progress">My progress</a>
+    </nav>
     <div class="header-actions">
-      <a class="header-link" href="/glossary.html">Glossary</a>
       <button class="account-btn" id="account-btn" type="button">Sign in</button>
       <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -700,6 +790,20 @@
           <h3 class="tracker-title" id="tracker-title">Your progress</h3>
           <span class="tracker-sub" id="tracker-sub"></span>
         </div>
+        <div class="tracker-hero" id="tracker-hero">
+          <div class="tracker-hero-nums">
+            <div class="tracker-due">
+              <span class="tracker-due-num" id="due-count">0</span>
+              <span class="tracker-due-lbl" id="due-label">cards due today</span>
+            </div>
+            <div class="tracker-studied">
+              <span class="tracker-studied-num" id="studied-count">0 / 0</span>
+              <span class="tracker-studied-lbl">studied</span>
+            </div>
+          </div>
+          <button class="btn-primary" id="review-due-btn" type="button">Review due cards &#8599;</button>
+        </div>
+        <p class="tracker-breakdown-lbl">How you rated them</p>
         <div class="tracker-grid">
           <div class="tracker-stat is-again">
             <span class="tracker-num" id="stat-again">0</span>
@@ -728,6 +832,19 @@
           <button class="btn-solid" id="tracker-prompt-btn" type="button">Make a free account</button>
         </div>
       </section>
+      <section class="tracker tracker-empty" id="tracker-empty" hidden aria-labelledby="tracker-empty-title">
+        <h3 class="tracker-title" id="tracker-empty-title">Your progress</h3>
+        <p class="tracker-empty-text">Nothing here yet. Study a deck and this fills up with what you
+        have covered, what is due for review, and how well you rated yourself.</p>
+        <button class="btn-primary" id="tracker-empty-btn" type="button">Start with a deck &#8599;</button>
+      </section>
+      <div class="test-cta" id="test-cta" hidden>
+        <div class="test-cta-copy">
+          <p class="test-cta-title">Think you know it?</p>
+          <p class="test-cta-sub">Ten questions pulled at random from every deck in this track. No flipping back and forth, no hints.</p>
+        </div>
+        <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
+      </div>
       <p class="track-hint" id="track-hint">Pick a track above to see its decks.</p>
       <div class="deck-grid" id="deck-grid" hidden></div>
     </section>
@@ -741,6 +858,46 @@
       <p class="intro-text" id="intro-text"></p>
       <div class="intro-meta" id="intro-card-count"></div>
       <button class="btn-primary" id="intro-start-btn">Start studying &#8599;</button>
+    </div>
+  </section>
+
+  <section class="test" id="test" hidden>
+    <div class="test-inner">
+      <div class="test-topbar">
+        <button class="link-back" id="test-exit-btn">&larr; Back to catalog</button>
+        <span class="test-progress" id="test-progress"></span>
+      </div>
+
+      <div id="test-run">
+        <p class="test-tag" id="test-tag"></p>
+        <h2 class="test-q" id="test-q" tabindex="-1"></h2>
+        <div class="test-answer" id="test-answer" hidden>
+          <p class="test-a-label">Answer</p>
+          <p class="test-a-text" id="test-a-text"></p>
+        </div>
+        <div class="test-actions">
+          <button class="btn-primary" id="test-reveal-btn" type="button">Show answer</button>
+          <div class="test-mark" id="test-mark" hidden>
+            <button class="stamp stamp-again" id="test-wrong-btn" type="button">
+              <span>Missed it</span><span class="stamp-key">1</span></button>
+            <button class="stamp stamp-easy" id="test-right-btn" type="button">
+              <span>Got it</span><span class="stamp-key">2</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="test-results" hidden>
+        <p class="test-tag">Result</p>
+        <h2 class="test-score" id="test-score" tabindex="-1"></h2>
+        <p class="test-verdict" id="test-verdict"></p>
+        <div class="test-missed" id="test-missed"></div>
+        <p class="test-note">A test does not change your review schedule. Nothing here
+          was marked as studied.</p>
+        <div class="test-end-actions">
+          <button class="btn-primary" id="test-again-btn" type="button">Test me again &#8599;</button>
+          <button class="btn-solid" id="test-done-btn" type="button">Back to catalog</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1170,6 +1327,20 @@
     return out;
   }
 
+  // Review is deck-scoped, so the button sends you to whichever deck has the most
+  // waiting. Falls back to the deck with the most unseen cards when nothing is due.
+  function bestDeckToReview(){
+    var bestDue = null, bestDueN = 0, bestNew = null, bestNewN = 0;
+    for (var i = 0; i < decks.length; i++){
+      var st = deckStats(decks[i]);
+      if (st.due > bestDueN) { bestDueN = st.due; bestDue = i; }
+      if (st.brandNew > bestNewN) { bestNewN = st.brandNew; bestNew = i; }
+    }
+    if (bestDue !== null) { return { index: bestDue, due: true }; }
+    if (bestNew !== null) { return { index: bestNew, due: false }; }
+    return null;
+  }
+
   function renderTracker(){
     if (!decks.length) { els.tracker.hidden = true; return; }
     var s = overallStats();
@@ -1178,6 +1349,27 @@
     // exactly the people who would need to see it.
     if (!currentUser && !s.started) { els.tracker.hidden = true; return; }
     els.tracker.hidden = false;
+    if (els.trackerEmpty) { els.trackerEmpty.hidden = true; }
+    // The question a returning visitor actually has is "what do I study now",
+    // not "how did I rate things last time". Due count and a way in come first;
+    // the Again/Good/Easy split stays, demoted to a breakdown.
+    var newCards = s.total - s.started;
+    var actionable = s.due + newCards;
+    els.dueCount.textContent = s.due;
+    els.dueLabel.textContent = s.due === 1 ? 'card due today' : 'cards due today';
+    els.studiedCount.textContent = s.started + ' / ' + s.total;
+
+    var best = bestDeckToReview();
+    if (s.due > 0 && best) {
+      els.reviewDueBtn.hidden = false;
+      els.reviewDueBtn.textContent = 'Review ' + s.due + ' due \u2197';
+    } else if (best) {
+      els.reviewDueBtn.hidden = false;
+      els.reviewDueBtn.textContent = 'Nothing due \u2014 learn something new \u2197';
+    } else {
+      els.reviewDueBtn.hidden = true;
+    }
+
     els.statAgain.textContent = s.again;
     els.statGood.textContent = s.good;
     els.statEasy.textContent = s.easy;
@@ -1222,6 +1414,7 @@
     els.trackConsultingBtn.classList.toggle('is-active', track === 'consulting');
     els.trackIbBtn.setAttribute('aria-pressed', String(track === 'ib'));
     els.trackConsultingBtn.setAttribute('aria-pressed', String(track === 'consulting'));
+    if (els.testCta) { els.testCta.hidden = !track; }
     renderCatalog();
   }
 
@@ -1231,7 +1424,13 @@
     trackConsultingBtn: document.getElementById('track-consulting-btn'),
     trackHint: document.getElementById('track-hint'),
     tracker: document.getElementById('tracker'),
+    trackerEmpty: document.getElementById('tracker-empty'),
+    trackerEmptyBtn: document.getElementById('tracker-empty-btn'),
     trackerSub: document.getElementById('tracker-sub'),
+    dueCount: document.getElementById('due-count'),
+    dueLabel: document.getElementById('due-label'),
+    studiedCount: document.getElementById('studied-count'),
+    reviewDueBtn: document.getElementById('review-due-btn'),
     statAgain: document.getElementById('stat-again'),
     statGood: document.getElementById('stat-good'),
     statEasy: document.getElementById('stat-easy'),
@@ -1254,6 +1453,29 @@
     segGood: document.getElementById('seg-good'),
     segEasy: document.getElementById('seg-easy'),
     mainView: document.getElementById('main-view'),
+    testView: document.getElementById('test'),
+    navDecks: document.getElementById('nav-decks'),
+    navTest: document.getElementById('nav-test'),
+    navProgress: document.getElementById('nav-progress'),
+    testCta: document.getElementById('test-cta'),
+    testStartBtn: document.getElementById('test-start-btn'),
+    testExitBtn: document.getElementById('test-exit-btn'),
+    testProgress: document.getElementById('test-progress'),
+    testRun: document.getElementById('test-run'),
+    testTag: document.getElementById('test-tag'),
+    testQ: document.getElementById('test-q'),
+    testAnswer: document.getElementById('test-answer'),
+    testAText: document.getElementById('test-a-text'),
+    testRevealBtn: document.getElementById('test-reveal-btn'),
+    testMark: document.getElementById('test-mark'),
+    testWrongBtn: document.getElementById('test-wrong-btn'),
+    testRightBtn: document.getElementById('test-right-btn'),
+    testResults: document.getElementById('test-results'),
+    testScore: document.getElementById('test-score'),
+    testVerdict: document.getElementById('test-verdict'),
+    testMissed: document.getElementById('test-missed'),
+    testAgainBtn: document.getElementById('test-again-btn'),
+    testDoneBtn: document.getElementById('test-done-btn'),
     study: document.getElementById('study'),
     backBtn: document.getElementById('back-btn'),
     deckName: document.getElementById('study-deck-name'),
@@ -1613,6 +1835,7 @@
     els.introSection.hidden = true;
     els.mainView.hidden = true;
     els.study.hidden = false;
+    setNav('decks');
     els.complete.hidden = true;
     els.cardStage.hidden = false;
     els.flipBtn.hidden = false;
@@ -1650,6 +1873,153 @@
     });
   }
 
+  // ---------- test mode ----------
+  //
+  // Deliberately separate from the study loop. Studying is spaced repetition and
+  // writes to the schedule; a test is an assessment and writes nothing. Mixing the
+  // two would mean a bad guess under exam conditions quietly wrecks a review
+  // schedule the person spent weeks building.
+
+  var TEST_LEN = 10;
+  var testState = { items: [], pos: 0, revealed: false, missed: [] };
+
+  function testPool(track){
+    var pool = [];
+    for (var i = 0; i < decks.length; i++){
+      if (decks[i].track !== track) { continue; }
+      for (var c = 0; c < decks[i].cards.length; c++){
+        pool.push({ deckIndex: i, cardIndex: c });
+      }
+    }
+    return pool;
+  }
+
+  function startTest(){
+    if (els.trackerEmpty) { els.trackerEmpty.hidden = true; }
+    var pool = testPool(state.track);
+    if (!pool.length) { return; }
+    // Fisher-Yates over a copy, so a short track still gives every card a fair chance
+    for (var i = pool.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    }
+    testState = { items: pool.slice(0, Math.min(TEST_LEN, pool.length)),
+                  pos: 0, revealed: false, missed: [] };
+    track('test_start', { track: state.track, n: testState.items.length });
+    els.mainView.hidden = true;
+    els.introSection.hidden = true;
+    els.study.hidden = true;
+    els.testView.hidden = false;
+    setNav('test');
+    els.testRun.hidden = false;
+    els.testResults.hidden = true;
+    renderTestCard();
+  }
+
+  function renderTestCard(){
+    var it = testState.items[testState.pos];
+    var deck = decks[it.deckIndex];
+    var card = deck.cards[it.cardIndex];
+    testState.revealed = false;
+    els.testProgress.textContent = (testState.pos + 1) + ' of ' + testState.items.length;
+    els.testTag.textContent = deck.name;
+    els.testQ.textContent = card.q;
+    els.testAText.textContent = card.takeaway;
+    els.testAnswer.hidden = true;
+    els.testMark.hidden = true;
+    els.testRevealBtn.hidden = false;
+    els.testQ.focus();
+  }
+
+  function revealTest(){
+    if (testState.revealed) { return; }
+    testState.revealed = true;
+    els.testAnswer.hidden = false;
+    els.testRevealBtn.hidden = true;
+    els.testMark.hidden = false;
+  }
+
+  function markTest(gotIt){
+    if (!testState.revealed) { return; }
+    if (!gotIt) { testState.missed.push(testState.items[testState.pos]); }
+    if (testState.pos + 1 < testState.items.length) {
+      testState.pos++;
+      renderTestCard();
+    } else {
+      showTestResults();
+    }
+  }
+
+  function showTestResults(){
+    var n = testState.items.length;
+    var right = n - testState.missed.length;
+    var pct = Math.round(right / n * 100);
+    track('test_complete', { track: state.track, score: right, of: n });
+    els.testRun.hidden = true;
+    els.testResults.hidden = false;
+    els.testProgress.textContent = 'Done';
+    els.testScore.textContent = right + ' of ' + n;
+    els.testVerdict.textContent =
+      pct === 100 ? 'Every one. Try the other track, or go deeper into a deck.' :
+      pct >= 70   ? 'Solid. The ones below are the gaps worth closing first.' :
+      pct >= 40   ? 'Halfway there. These are the cards to study next.' :
+                    'Plenty to go at. Nothing below is hard once you have seen it explained.';
+
+    els.testMissed.innerHTML = '';
+    for (var i = 0; i < testState.missed.length; i++){
+      (function(it){
+        var deck = decks[it.deckIndex];
+        var card = deck.cards[it.cardIndex];
+        var wrap = document.createElement('div');
+        wrap.className = 'test-miss';
+        var q = document.createElement('p');
+        q.className = 'test-miss-q'; q.textContent = card.q;
+        var a = document.createElement('p');
+        a.className = 'test-miss-a'; a.textContent = card.takeaway;
+        var d = document.createElement('p');
+        d.className = 'test-miss-deck';
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.textContent = 'Study ' + deck.name;
+        btn.addEventListener('click', function(){
+          els.testView.hidden = true;
+          openDeck(it.deckIndex);
+        });
+        d.appendChild(btn);
+        wrap.appendChild(q); wrap.appendChild(a); wrap.appendChild(d);
+        els.testMissed.appendChild(wrap);
+      })(testState.missed[i]);
+    }
+    els.testScore.focus();
+  }
+
+  function exitTest(){
+    els.testView.hidden = true;
+    els.mainView.hidden = false;
+    setNav('decks');
+    renderCatalog();
+    if (els.testStartBtn) { els.testStartBtn.focus(); }
+  }
+
+  // Single source of truth for the nav highlight. Every view change calls this
+  // rather than each one toggling classes itself, which is how these drift.
+  // A visitor with no history still clicks "My progress". Highlighting the pill and
+  // showing nothing reads as a broken link, so the empty state stands in for the
+  // tracker until there is something real to put in it.
+  function showProgress(){
+    setNav('progress');
+    var empty = els.tracker.hidden;
+    els.trackerEmpty.hidden = !empty;
+    var target = empty ? els.trackerEmpty : els.tracker;
+    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+
+  function setNav(which){
+    var items = document.querySelectorAll('.nav-item');
+    for (var i = 0; i < items.length; i++){
+      items[i].classList.toggle('is-active', items[i].getAttribute('data-nav') === which);
+    }
+  }
+
   function backToCatalog(){
     var openedDeck = decks[state.deckIndex];
     // Leaving mid-session still counts as having invested effort. Rather than block
@@ -1662,6 +2032,7 @@
     els.study.hidden = true;
     els.introSection.hidden = true;
     els.mainView.hidden = false;
+    setNav('decks');
     renderCatalog();
     var openedCard = openedDeck ? els.deckGrid.querySelector('[data-deck-id="' + openedDeck.id + '"]') : null;
     var openedBtn = openedCard ? openedCard.querySelector('.deck-open') : null;
@@ -1878,6 +2249,33 @@
       rate(map[e.key]);
     }
   });
+  els.reviewDueBtn.addEventListener('click', function(){
+    var best = bestDeckToReview();
+    if (!best) { return; }
+    track('review_due_click', { deck: decks[best.index].id, hadDue: best.due });
+    openDeck(best.index);
+  });
+  els.navTest.addEventListener('click', function(){
+    if (els.testView.hidden) { startTest(); }
+  });
+  els.navDecks.addEventListener('click', function(){
+    els.trackerEmpty.hidden = true;
+    if (!els.testView.hidden || !els.study.hidden) { exitTest(); backToCatalog(); }
+    setNav('decks');
+  });
+  els.navProgress.addEventListener('click', function(){ showProgress(); });
+  els.trackerEmptyBtn.addEventListener('click', function(){
+    setNav('decks');
+    els.trackerEmpty.hidden = true;
+    document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+  });
+  els.testStartBtn.addEventListener('click', startTest);
+  els.testExitBtn.addEventListener('click', exitTest);
+  els.testDoneBtn.addEventListener('click', exitTest);
+  els.testAgainBtn.addEventListener('click', startTest);
+  els.testRevealBtn.addEventListener('click', revealTest);
+  els.testRightBtn.addEventListener('click', function(){ markTest(true); });
+  els.testWrongBtn.addEventListener('click', function(){ markTest(false); });
   els.prevBtn.addEventListener('click', goPrevious);
   els.backBtn.addEventListener('click', backToCatalog);
   els.catalogBtn.addEventListener('click', backToCatalog);
@@ -1930,6 +2328,16 @@
     track('deep_link', { deck: decks[idx].id, track: decks[idx].track });
     openDeck(idx);
     return true;
+  }
+
+  // The static deck pages have the same four-section nav, but they are separate HTML
+  // files, so "Test yourself" and "My progress" there can only be links back here.
+  // They arrive as /#test and /#tracker, which this turns into the actual section.
+  function openFromHash(){
+    var h = (window.location.hash || '').toLowerCase();
+    if (h === '#test') { startTest(); return true; }
+    if (h === '#tracker') { showProgress(); return true; }
+    return false;
   }
 
   // --- Hero demo card ---
@@ -2000,7 +2408,7 @@
         setTrack('ib');
         track('catalog_view', { decks: decks.length });
         initHeroCard();
-        openFromQuery();
+        if (!openFromQuery()) { openFromHash(); }
       })
       .catch(function(err){
         els.deckGrid.innerHTML = '<p style="color:var(--ink-soft);padding:.5rem 0;">Couldn&rsquo;t load the deck catalog right now. Please refresh the page, or try again in a moment.</p>';
