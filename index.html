@@ -594,6 +594,9 @@
 
   /* ---------- auth ---------- */
   .header-actions{display:flex;align-items:center;gap:.9rem;}
+  .header-link{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;}
+  .header-link:hover{color:var(--ink);}
   .account-btn{
     cursor:pointer;background:var(--ink);border:1px solid var(--ink);color:#fff;
     font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
@@ -651,6 +654,7 @@
   <header class="site-header">
     <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="13" fill="#0C0C0D"/><path d="M14 13 L22.5 13 L32 38 L41.5 13 L50 13 L36.5 52 L27.5 52 Z" fill="#2C4E92"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
     <div class="header-actions">
+      <a class="header-link" href="/glossary.html">Glossary</a>
       <button class="account-btn" id="account-btn" type="button">Sign in</button>
       <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

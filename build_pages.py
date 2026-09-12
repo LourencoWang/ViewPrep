@@ -15,6 +15,7 @@ Re-run after any decks.json change.
 """
 
 import json
+import re
 import legal_pages
 import os
 import html
@@ -99,6 +100,30 @@ STYLE = """
   h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
     text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
     border-left:5px solid var(--amber);padding-left:.6rem;}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  .header-nav > a:not(.header-cta){font-family:var(--body);font-size:.78rem;font-weight:700;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
+  .header-nav > a:not(.header-cta):hover{color:var(--ink);}
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
   .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.6rem;margin:2.5rem 0;text-align:center;}
   .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
@@ -155,7 +180,10 @@ def head(title, desc, canonical, deck_id=None):
 <div class="page">
   <header class="site-header">
     <a class="wordmark" href="{SITE}/"><b>View</b><span>Prep</span></a>
-    <a class="header-cta" href="{SITE}/{('?deck=' + deck_id) if deck_id else ''}">Study these cards</a>
+    <nav class="header-nav">
+      <a href="{SITE}/glossary.html">Glossary</a>
+      <a class="header-cta" href="{SITE}/{('?deck=' + deck_id) if deck_id else ''}">Study these cards</a>
+    </nav>
   </header>
 """
 
@@ -167,6 +195,7 @@ def footer(deck_id=None):
     by, or sourced from any university, employer, or prep platform.</p>
     <p><a href="{SITE}/{('?deck=' + deck_id) if deck_id else ''}">Study these cards interactively</a> &middot;
        <a href="{SITE}/decks/">All decks</a> &middot;
+       <a href="{SITE}/glossary.html">Glossary</a> &middot;
        <a href="{SITE}/faq.html">FAQ</a> &middot;
        <a href="{SITE}/privacy.html">Privacy</a> &middot;
        <a href="{SITE}/terms.html">Terms</a></p>
@@ -298,7 +327,8 @@ def simple_page(slug, title, desc, body, jsonld=None):
 
 def sitemap(decks):
     today = datetime.date.today().isoformat()
-    urls = [(f"{SITE}/", "1.0"), (f"{SITE}/{OUT_DIR}/", "0.9")]
+    urls = [(f"{SITE}/", "1.0"), (f"{SITE}/{OUT_DIR}/", "0.9"),
+            (f"{SITE}/glossary.html", "0.8")]
     urls += [(f"{SITE}/{OUT_DIR}/{d['id']}.html", "0.8") for d in decks]
     # A 404 page carries priority None so it is generated but kept out of the sitemap.
     urls += [(f"{SITE}/{slug}", pri)
@@ -333,6 +363,134 @@ Sitemap: {SITE}/sitemap.xml
 """
 
 
+
+# ---------------------------------------------------------------- glossary ---
+# Terms are derived from the decks themselves, never written by hand: a card
+# only becomes an entry when its own takeaway opens by naming the term. That
+# keeps every definition traceable to a real card and stops the glossary
+# drifting away from what the site actually teaches.
+
+_BAD_END = {"when","before","after","minus","plus","the","a","an","and","or","of","for","to",
+            "it","is","are","that","which","on","in","with","by","from","than","you","your"}
+_GENERIC = {"company","books","grid","case","thing","business","money","number","people","work"}
+_VERB_START = {"build","buy","use","keep","start","make","take","pick","run","ask","say","tell",
+               "show","add","put","find","know","learn","name","answer","check","write","treat"}
+
+
+def _clean_term(t):
+    t = t.strip().strip(".,;:")
+    t = re.sub(r"^(?:an?|the)\s+", "", t, flags=re.I)
+    w = t.split()
+    if not w or len(w) > 4 or len(t) < 3: return None
+    if w[0].lower() in _VERB_START: return None
+    if w[-1].lower() in _BAD_END: return None
+    if t.lower() in _GENERIC: return None
+    return t
+
+
+def _defines(term, definition):
+    head = definition[:70].lower()
+    return term.lower().rstrip("s") in head or term.lower() in head
+
+
+def glossary_terms(decks):
+    out = {}
+    for d in decks:
+        for c in d["cards"]:
+            tk = c["takeaway"].strip()
+            cands = [_clean_term(q) for q in re.findall(r'[\u201c"]([^\u201d"]{2,45})[\u201d"]', c["q"])]
+            m = re.match(r"^(?:The |A |An )?([A-Za-z][A-Za-z0-9 \-/&'\u2019]{2,45}?)\s+(?:is|are|means|refers to)\s", tk)
+            if m:
+                cands.append(_clean_term(m.group(1)))
+            for t in dict.fromkeys([x for x in cands if x]):
+                if not _defines(t, tk): continue
+                k = t.lower()
+                if k in out: continue
+                out[k] = {"term": t, "deck": d["id"], "deck_name": d["name"],
+                          "track": d["track"], "definition": tk}
+    return out
+
+
+def _slug(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def glossary_page(decks):
+    terms = glossary_terms(decks)
+    keys = sorted(terms, key=lambda k: terms[k]["term"].lower())
+    letters = sorted({terms[k]["term"][0].upper() for k in keys})
+
+    title = "Finance glossary | ViewPrep"
+    desc = (f"{len(terms)} finance and consulting terms explained in one line each, "
+            "from accounting basics to case structuring. Free, no account.")
+    canonical = f"{SITE}/glossary.html"
+
+    out = [head(title, desc, canonical)]
+    out.append(f'  <p class="crumb"><a href="{SITE}/">ViewPrep</a> / Glossary</p>')
+    out.append("  <h1>Finance glossary</h1>")
+    out.append(f'  <p class="lede">{len(terms)} terms, each explained in a single sentence and '
+               "linked to the deck where it is taught properly. Every definition is taken from "
+               "a card on this site, so nothing here is longer than it needs to be.</p>")
+    out.append('  <div class="gl-tools">'
+               '<input class="gl-search" id="gl-search" type="search" '
+               'placeholder="Search a term, e.g. EBITDA" aria-label="Search the glossary">'
+               f'<span class="gl-count" id="gl-count">{len(terms)} terms</span></div>')
+    out.append('  <div class="gl-az">' + "".join(
+        f'<a href="#letter-{L}">{L}</a>' for L in letters) + "</div>")
+
+    cur = None
+    for k in keys:
+        e = terms[k]
+        L = e["term"][0].upper()
+        if L != cur:
+            cur = L
+            out.append(f'  <h2 class="gl-letter" id="letter-{L}">{L}</h2>')
+        sl = _slug(e["term"])
+        out.append(f'  <div class="gl-item" id="{sl}" data-term="{esc(e["term"].lower())} '
+                   f'{esc(e["definition"].lower())}">')
+        out.append(f'    <h3 class="gl-term">{esc(e["term"])}</h3>')
+        out.append(f'    <p class="gl-def">{esc(e["definition"])}</p>')
+        out.append(f'    <p class="gl-src">Taught in '
+                   f'<a href="{SITE}/{OUT_DIR}/{e["deck"]}.html">{esc(e["deck_name"])}</a> '
+                   f'&middot; <a href="{SITE}/?deck={e["deck"]}">study this deck</a></p>')
+        out.append("  </div>")
+    out.append('  <p class="gl-empty" id="gl-empty" hidden>No term matches that. '
+               'Try a shorter word.</p>')
+
+    out.append("""  <script>
+  (function(){
+    var box = document.getElementById('gl-search');
+    var items = [].slice.call(document.querySelectorAll('.gl-item'));
+    var heads = [].slice.call(document.querySelectorAll('.gl-letter'));
+    var count = document.getElementById('gl-count');
+    var empty = document.getElementById('gl-empty');
+    if (!box) { return; }
+    box.addEventListener('input', function(){
+      var q = box.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function(el){
+        var hit = !q || el.getAttribute('data-term').indexOf(q) !== -1;
+        el.hidden = !hit;
+        if (hit) { shown++; }
+      });
+      // hide a letter heading when everything under it is filtered out
+      heads.forEach(function(h){
+        var n = h.nextElementSibling, any = false;
+        while (n && !n.classList.contains('gl-letter')) {
+          if (n.classList.contains('gl-item') && !n.hidden) { any = true; break; }
+          n = n.nextElementSibling;
+        }
+        h.hidden = !any;
+      });
+      count.textContent = shown + (shown === 1 ? ' term' : ' terms');
+      empty.hidden = shown !== 0;
+    });
+  })();
+  </script>""")
+    out.append(footer())
+    return "\n".join(out)
+
+
 def main():
     decks = json.load(open("decks.json", encoding="utf-8"))
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -350,6 +508,9 @@ def main():
                            jsonld_fn() if jsonld_fn else None)
         open(slug, "w", encoding="utf-8").write(html)
         written.append(slug)
+
+    open("glossary.html", "w", encoding="utf-8").write(glossary_page(decks))
+    written.append("glossary.html")
 
     open("sitemap.xml", "w", encoding="utf-8").write(sitemap(decks))
     written.append("sitemap.xml")

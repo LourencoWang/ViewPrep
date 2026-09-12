@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Finance glossary | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="99 finance and consulting terms explained in one line each, from accounting basics to case structuring. Free, no account.">
+<link rel="canonical" href="https://viewprep.net/glossary.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/glossary.html">
+<meta property="og:title" content="Finance glossary | ViewPrep">
+<meta property="og:description" content="99 finance and consulting terms explained in one line each, from accounting basics to case structuring. Free, no account.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Finance glossary | ViewPrep">
+<meta name="twitter:description" content="99 finance and consulting terms explained in one line each, from accounting basics to case structuring. Free, no account.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F2F1EC; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(12,12,13,0.085);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  .header-nav > a:not(.header-cta){font-family:var(--body);font-size:.78rem;font-weight:700;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
+  .header-nav > a:not(.header-cta):hover{color:var(--ink);}
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="header-nav">
+      <a href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="header-cta" href="https://viewprep.net/">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / Glossary</p>
+  <h1>Finance glossary</h1>
+  <p class="lede">99 terms, each explained in a single sentence and linked to the deck where it is taught properly. Every definition is taken from a card on this site, so nothing here is longer than it needs to be.</p>
+  <div class="gl-tools"><input class="gl-search" id="gl-search" type="search" placeholder="Search a term, e.g. EBITDA" aria-label="Search the glossary"><span class="gl-count" id="gl-count">99 terms</span></div>
+  <div class="gl-az"><a href="#letter-4">4</a><a href="#letter-A">A</a><a href="#letter-B">B</a><a href="#letter-C">C</a><a href="#letter-D">D</a><a href="#letter-E">E</a><a href="#letter-F">F</a><a href="#letter-G">G</a><a href="#letter-I">I</a><a href="#letter-L">L</a><a href="#letter-M">M</a><a href="#letter-N">N</a><a href="#letter-O">O</a><a href="#letter-P">P</a><a href="#letter-R">R</a><a href="#letter-S">S</a><a href="#letter-T">T</a><a href="#letter-V">V</a><a href="#letter-W">W</a></div>
+  <h2 class="gl-letter" id="letter-4">4</h2>
+  <div class="gl-item" id="4-ps" data-term="4 ps the 4 ps are the four levers a company pulls to bring a product to market.">
+    <h3 class="gl-term">4 Ps</h3>
+    <p class="gl-def">The 4 Ps are the four levers a company pulls to bring a product to market.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-A">A</h2>
+  <div class="gl-item" id="attractiveness" data-term="attractiveness attractiveness is size, growth, profitability, and how concentrated the competition already is.">
+    <h3 class="gl-term">Attractiveness</h3>
+    <p class="gl-def">Attractiveness is size, growth, profitability, and how concentrated the competition already is.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketentry.html">Growth Strategy &amp; Market Entry</a> &middot; <a href="https://viewprep.net/?deck=marketentry">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-B">B</h2>
+  <div class="gl-item" id="barriers-to-entry" data-term="barriers to entry barriers to entry are whatever keeps new competitors from entering and challenging incumbents.">
+    <h3 class="gl-term">Barriers to entry</h3>
+    <p class="gl-def">Barriers to entry are whatever keeps new competitors from entering and challenging incumbents.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/microecon.html">Microeconomics &amp; Market Structures</a> &middot; <a href="https://viewprep.net/?deck=microecon">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="bid-ask-spread" data-term="bid-ask spread the bid-ask spread is the gap between what buyers offer and what sellers demand.">
+    <h3 class="gl-term">bid-ask spread</h3>
+    <p class="gl-def">The bid-ask spread is the gap between what buyers offer and what sellers demand.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="bond" data-term="bond a bond is a loan with a promised repayment; a stock is ownership with no promises either way.">
+    <h3 class="gl-term">bond</h3>
+    <p class="gl-def">A bond is a loan with a promised repayment; a stock is ownership with no promises either way.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="bottleneck" data-term="bottleneck a bottleneck is the slowest station in a process, and it caps what the whole system can produce.">
+    <h3 class="gl-term">bottleneck</h3>
+    <p class="gl-def">A bottleneck is the slowest station in a process, and it caps what the whole system can produce.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="brand-equity" data-term="brand equity brand equity is the extra value a name adds on top of what the product actually does.">
+    <h3 class="gl-term">Brand equity</h3>
+    <p class="gl-def">Brand equity is the extra value a name adds on top of what the product actually does.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="break-even-quantity" data-term="break-even quantity break-even quantity is fixed costs divided by the contribution margin on one unit.">
+    <h3 class="gl-term">Break-even quantity</h3>
+    <p class="gl-def">Break-even quantity is fixed costs divided by the contribution margin on one unit.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/profitability.html">Profitability &amp; Cost Analysis</a> &middot; <a href="https://viewprep.net/?deck=profitability">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-C">C</h2>
+  <div class="gl-item" id="cac" data-term="cac cac is what you pay to win one customer, and lifetime value over cac tells you whether it was worth paying.">
+    <h3 class="gl-term">CAC</h3>
+    <p class="gl-def">CAC is what you pay to win one customer, and lifetime value over CAC tells you whether it was worth paying.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="capital-structure" data-term="capital structure capital structure is just the mix of debt and equity a company uses to fund itself.">
+    <h3 class="gl-term">Capital structure</h3>
+    <p class="gl-def">Capital structure is just the mix of debt and equity a company uses to fund itself.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="carve-out-s-reported-profit" data-term="carve-out’s reported profit a carve-out’s reported profit is an allocation, not a business that has ever stood on its own.">
+    <h3 class="gl-term">carve-out’s reported profit</h3>
+    <p class="gl-def">A carve-out’s reported profit is an allocation, not a business that has ever stood on its own.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mnacases.html">M&amp;A &amp; Due Diligence Cases</a> &middot; <a href="https://viewprep.net/?deck=mnacases">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="case-interview" data-term="case interview a case interview is a short business problem you solve out loud, with the interviewer, in real time.">
+    <h3 class="gl-term">case interview</h3>
+    <p class="gl-def">A case interview is a short business problem you solve out loud, with the interviewer, in real time.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/casestructuring.html">Case Interview Structuring</a> &middot; <a href="https://viewprep.net/?deck=casestructuring">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="channel-conflict" data-term="channel conflict channel conflict is what happens when two routes to the same customer start competing with each other.">
+    <h3 class="gl-term">Channel conflict</h3>
+    <p class="gl-def">Channel conflict is what happens when two routes to the same customer start competing with each other.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="churn-rate" data-term="churn rate churn rate is the percentage of customers you&#x27;re losing each period, the leak in the bucket.">
+    <h3 class="gl-term">Churn rate</h3>
+    <p class="gl-def">Churn rate is the percentage of customers you&#x27;re losing each period, the leak in the bucket.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="clv" data-term="clv clv is the total profit one customer is worth over the whole relationship, not just their first order.">
+    <h3 class="gl-term">CLV</h3>
+    <p class="gl-def">CLV is the total profit one customer is worth over the whole relationship, not just their first order.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="cogs" data-term="cogs cogs is the cost of the thing you sold, operating expenses are the cost of running the company.">
+    <h3 class="gl-term">COGS</h3>
+    <p class="gl-def">COGS is the cost of the thing you sold, operating expenses are the cost of running the company.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/statements.html">Reading Financial Statements</a> &middot; <a href="https://viewprep.net/?deck=statements">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="comps" data-term="comps comps value a company by comparing it to similar public companies&#x27; current pricing.">
+    <h3 class="gl-term">comps</h3>
+    <p class="gl-def">Comps value a company by comparing it to similar public companies&#x27; current pricing.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="confidence-interval" data-term="confidence interval a confidence interval is a range of plausible values, not a single guess — it expresses how much uncertainty surrounds an estimate.">
+    <h3 class="gl-term">confidence interval</h3>
+    <p class="gl-def">A confidence interval is a range of plausible values, not a single guess — it expresses how much uncertainty surrounds an estimate.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/stats.html">Statistics &amp; Data Analysis for Business</a> &middot; <a href="https://viewprep.net/?deck=stats">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="consumer-surplus" data-term="consumer surplus consumer surplus is the extra value buyers get for paying less than they&#x27;d have accepted.">
+    <h3 class="gl-term">Consumer surplus</h3>
+    <p class="gl-def">Consumer surplus is the extra value buyers get for paying less than they&#x27;d have accepted.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/microecon.html">Microeconomics &amp; Market Structures</a> &middot; <a href="https://viewprep.net/?deck=microecon">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="contribution-margin" data-term="contribution margin contribution margin is what one extra sale leaves behind after its own variable cost, before any fixed costs.">
+    <h3 class="gl-term">Contribution margin</h3>
+    <p class="gl-def">Contribution margin is what one extra sale leaves behind after its own variable cost, before any fixed costs.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/profitability.html">Profitability &amp; Cost Analysis</a> &middot; <a href="https://viewprep.net/?deck=profitability">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="control-premium" data-term="control premium a control premium is the extra an acquirer pays to own and run the whole company rather than a slice of it.">
+    <h3 class="gl-term">control premium</h3>
+    <p class="gl-def">A control premium is the extra an acquirer pays to own and run the whole company rather than a slice of it.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mna.html">M&amp;A Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=mna">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="cost-of-capital" data-term="cost of capital cost of capital is the minimum return a company must earn on anything it invests in, or it&#x27;s destroying value.">
+    <h3 class="gl-term">cost of capital</h3>
+    <p class="gl-def">Cost of capital is the minimum return a company must earn on anything it invests in, or it&#x27;s destroying value.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="cost-synergies" data-term="cost synergies cost synergies are savings the buyer controls, revenue synergies depend on customers behaving as hoped.">
+    <h3 class="gl-term">Cost synergies</h3>
+    <p class="gl-def">Cost synergies are savings the buyer controls, revenue synergies depend on customers behaving as hoped.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mna.html">M&amp;A Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=mna">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="cost-plus" data-term="cost-plus cost-plus is easy and defensible, but it ignores the customer and can spiral once volume drops.">
+    <h3 class="gl-term">Cost-plus</h3>
+    <p class="gl-def">Cost-plus is easy and defensible, but it ignores the customer and can spiral once volume drops.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/pricing.html">Pricing Strategy</a> &middot; <a href="https://viewprep.net/?deck=pricing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="covenants" data-term="covenants covenants are the conditions attached to a loan, and breaching one hands the lenders leverage over the deal.">
+    <h3 class="gl-term">Covenants</h3>
+    <p class="gl-def">Covenants are the conditions attached to a loan, and breaching one hands the lenders leverage over the deal.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/lbo.html">LBOs &amp; Private Equity Basics</a> &middot; <a href="https://viewprep.net/?deck=lbo">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="credit" data-term="credit debit means left, credit means right — which one grows an account depends on the account type.">
+    <h3 class="gl-term">credit</h3>
+    <p class="gl-def">Debit means left, credit means right — which one grows an account depends on the account type.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="current" data-term="current current means settled within twelve months, non-current means everything longer.">
+    <h3 class="gl-term">Current</h3>
+    <p class="gl-def">Current means settled within twelve months, non-current means everything longer.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/statements.html">Reading Financial Statements</a> &middot; <a href="https://viewprep.net/?deck=statements">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="cycle-time" data-term="cycle time cycle time is the gap between finished units and throughput is how many finish per hour.">
+    <h3 class="gl-term">cycle time</h3>
+    <p class="gl-def">Cycle time is the gap between finished units and throughput is how many finish per hour.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-D">D</h2>
+  <div class="gl-item" id="dcf-says-a-company" data-term="dcf says a company a dcf says a company is worth all the cash it will ever generate, brought back to today&#x27;s dollars.">
+    <h3 class="gl-term">DCF says a company</h3>
+    <p class="gl-def">A DCF says a company is worth all the cash it will ever generate, brought back to today&#x27;s dollars.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="deal" data-term="deal a deal is accretive if the buyer’s earnings per share end up higher after it than they would be alone.">
+    <h3 class="gl-term">deal</h3>
+    <p class="gl-def">A deal is accretive if the buyer’s earnings per share end up higher after it than they would be alone.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mna.html">M&amp;A Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=mna">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="debit" data-term="debit debit means left, credit means right — which one grows an account depends on the account type.">
+    <h3 class="gl-term">debit</h3>
+    <p class="gl-def">Debit means left, credit means right — which one grows an account depends on the account type.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="debt" data-term="debt debt is paid first for a capped return, equity is paid last with no ceiling on the upside.">
+    <h3 class="gl-term">Debt</h3>
+    <p class="gl-def">Debt is paid first for a capped return, equity is paid last with no ceiling on the upside.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="demand" data-term="demand demand is what buyers would buy at every price, supply is what sellers would offer at every price.">
+    <h3 class="gl-term">Demand</h3>
+    <p class="gl-def">Demand is what buyers would buy at every price, supply is what sellers would offer at every price.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/microecon.html">Microeconomics &amp; Market Structures</a> &middot; <a href="https://viewprep.net/?deck=microecon">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="discount-rate" data-term="discount rate a discount rate is the return available elsewhere at the same risk, so it sets the price of waiting.">
+    <h3 class="gl-term">discount rate</h3>
+    <p class="gl-def">A discount rate is the return available elsewhere at the same risk, so it sets the price of waiting.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="dollar-today" data-term="dollar today a dollar today is worth more than a dollar later, because today&#x27;s dollar can already be earning a return.">
+    <h3 class="gl-term">dollar today</h3>
+    <p class="gl-def">A dollar today is worth more than a dollar later, because today&#x27;s dollar can already be earning a return.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-E">E</h2>
+  <div class="gl-item" id="each-named-framework" data-term="each named framework each named framework is a checklist for one kind of question, not a general purpose case answer.">
+    <h3 class="gl-term">Each named framework</h3>
+    <p class="gl-def">Each named framework is a checklist for one kind of question, not a general purpose case answer.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/casestructuring.html">Case Interview Structuring</a> &middot; <a href="https://viewprep.net/?deck=casestructuring">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="ebitda" data-term="ebitda ebitda is not cash, and companies fail when the cash runs out rather than when earnings look weak.">
+    <h3 class="gl-term">EBITDA</h3>
+    <p class="gl-def">EBITDA is not cash, and companies fail when the cash runs out rather than when earnings look weak.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/credit.html">Debt, Credit &amp; Leverage</a> &middot; <a href="https://viewprep.net/?deck=credit">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="economies-of-scope" data-term="economies of scope economies of scope save money by producing different products together, not just more of one.">
+    <h3 class="gl-term">economies of scope</h3>
+    <p class="gl-def">Economies of scope save money by producing different products together, not just more of one.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/strategy.html">Management &amp; Strategy Frameworks</a> &middot; <a href="https://viewprep.net/?deck=strategy">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="enterprise-value" data-term="enterprise value enterprise value is the whole business; equity value is just the shareholders&#x27; slice.">
+    <h3 class="gl-term">Enterprise value</h3>
+    <p class="gl-def">Enterprise value is the whole business; equity value is just the shareholders&#x27; slice.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="equilibrium" data-term="equilibrium equilibrium is the one price where what buyers want to buy matches what sellers want to sell.">
+    <h3 class="gl-term">Equilibrium</h3>
+    <p class="gl-def">Equilibrium is the one price where what buyers want to buy matches what sellers want to sell.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/microecon.html">Microeconomics &amp; Market Structures</a> &middot; <a href="https://viewprep.net/?deck=microecon">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="equity-holders" data-term="equity holders equity holders are paid last and promised nothing, so they demand a bigger return than lenders do.">
+    <h3 class="gl-term">Equity holders</h3>
+    <p class="gl-def">Equity holders are paid last and promised nothing, so they demand a bigger return than lenders do.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-F">F</h2>
+  <div class="gl-item" id="failure" data-term="failure the failure is only the setup, what you changed afterwards is the actual answer.">
+    <h3 class="gl-term">failure</h3>
+    <p class="gl-def">The failure is only the setup, what you changed afterwards is the actual answer.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/ibinterview.html">The Investment Banking Interview</a> &middot; <a href="https://viewprep.net/?deck=ibinterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="final-answer" data-term="final answer the final answer is seldom the differentiator, how you got there and what you were like usually is.">
+    <h3 class="gl-term">final answer</h3>
+    <p class="gl-def">The final answer is seldom the differentiator, how you got there and what you were like usually is.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/consultinginterview.html">The Consulting Interview</a> &middot; <a href="https://viewprep.net/?deck=consultinginterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="first-day-pop" data-term="first-day pop a first-day pop is partly deliberate underpricing and partly information the deal could not fully see.">
+    <h3 class="gl-term">first-day pop</h3>
+    <p class="gl-def">A first-day pop is partly deliberate underpricing and partly information the deal could not fully see.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/ecm.html">IPOs &amp; Equity Capital Markets</a> &middot; <a href="https://viewprep.net/?deck=ecm">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="free-cash-flow" data-term="free cash flow free cash flow is what’s left after paying for the spending needed to keep the business running.">
+    <h3 class="gl-term">Free cash flow</h3>
+    <p class="gl-def">Free cash flow is what’s left after paying for the spending needed to keep the business running.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/statements.html">Reading Financial Statements</a> &middot; <a href="https://viewprep.net/?deck=statements">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-G">G</h2>
+  <div class="gl-item" id="going-public" data-term="going public going public means selling shares to public investors and living under public disclosure from then on.">
+    <h3 class="gl-term">Going public</h3>
+    <p class="gl-def">Going public means selling shares to public investors and living under public disclosure from then on.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/ecm.html">IPOs &amp; Equity Capital Markets</a> &middot; <a href="https://viewprep.net/?deck=ecm">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="goodwill" data-term="goodwill goodwill is the premium a buyer pays above the fair value of what the target actually owns.">
+    <h3 class="gl-term">Goodwill</h3>
+    <p class="gl-def">Goodwill is the premium a buyer pays above the fair value of what the target actually owns.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="growth" data-term="growth growth is old or new products sold to old or new customers, and doing both at once is riskiest.">
+    <h3 class="gl-term">Growth</h3>
+    <p class="gl-def">Growth is old or new products sold to old or new customers, and doing both at once is riskiest.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/strategy.html">Management &amp; Strategy Frameworks</a> &middot; <a href="https://viewprep.net/?deck=strategy">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-I">I</h2>
+  <div class="gl-item" id="index" data-term="index an index is a rules-based basket used as a scoreboard, and passive funds just buy the whole basket.">
+    <h3 class="gl-term">index</h3>
+    <p class="gl-def">An index is a rules-based basket used as a scoreboard, and passive funds just buy the whole basket.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="installed-base" data-term="installed base the installed base is a stock, annual sales are a flow, and the replacement cycle converts between them.">
+    <h3 class="gl-term">installed base</h3>
+    <p class="gl-def">The installed base is a stock, annual sales are a flow, and the replacement cycle converts between them.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketsizing.html">Market Sizing &amp; Guesstimates</a> &middot; <a href="https://viewprep.net/?deck=marketsizing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="interest" data-term="interest interest is deducted before tax is calculated, so borrowing shrinks the tax bill and the real cost of debt.">
+    <h3 class="gl-term">Interest</h3>
+    <p class="gl-def">Interest is deducted before tax is calculated, so borrowing shrinks the tax bill and the real cost of debt.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/credit.html">Debt, Credit &amp; Leverage</a> &middot; <a href="https://viewprep.net/?deck=credit">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="ipo" data-term="ipo an ipo is a private company&#x27;s first sale of shares to the public, becoming publicly traded.">
+    <h3 class="gl-term">IPO</h3>
+    <p class="gl-def">An IPO is a private company&#x27;s first sale of shares to the public, becoming publicly traded.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="irr" data-term="irr irr is the discount rate that makes a deal&#x27;s npv exactly zero, its own break-even return.">
+    <h3 class="gl-term">IRR</h3>
+    <p class="gl-def">IRR is the discount rate that makes a deal&#x27;s NPV exactly zero, its own break-even return.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-L">L</h2>
+  <div class="gl-item" id="lead-time" data-term="lead time lead time is the full clock from placing an order to actually having it in hand.">
+    <h3 class="gl-term">Lead time</h3>
+    <p class="gl-def">Lead time is the full clock from placing an order to actually having it in hand.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="leadership" data-term="leadership leadership means you changed what a group did, whether or not you had any authority over them.">
+    <h3 class="gl-term">Leadership</h3>
+    <p class="gl-def">Leadership means you changed what a group did, whether or not you had any authority over them.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/consultinginterview.html">The Consulting Interview</a> &middot; <a href="https://viewprep.net/?deck=consultinginterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="lower-credit-rating" data-term="lower credit rating lower credit rating means higher default risk, so investors demand a higher yield.">
+    <h3 class="gl-term">Lower credit rating</h3>
+    <p class="gl-def">Lower credit rating means higher default risk, so investors demand a higher yield.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-M">M</h2>
+  <div class="gl-item" id="maintenance-covenants" data-term="maintenance covenants maintenance covenants are tested on a schedule and a breach hands lenders the right to call the loan.">
+    <h3 class="gl-term">Maintenance covenants</h3>
+    <p class="gl-def">Maintenance covenants are tested on a schedule and a breach hands lenders the right to call the loan.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/credit.html">Debt, Credit &amp; Leverage</a> &middot; <a href="https://viewprep.net/?deck=credit">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="margin" data-term="margin margin is profit as a percentage of revenue, so it can fall even while total profit rises.">
+    <h3 class="gl-term">Margin</h3>
+    <p class="gl-def">Margin is profit as a percentage of revenue, so it can fall even while total profit rises.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/profitability.html">Profitability &amp; Cost Analysis</a> &middot; <a href="https://viewprep.net/?deck=profitability">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="market-cap" data-term="market cap market cap is share price times shares outstanding, a company&#x27;s total public equity value.">
+    <h3 class="gl-term">Market cap</h3>
+    <p class="gl-def">Market cap is share price times shares outstanding, a company&#x27;s total public equity value.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="marketing" data-term="marketing marketing is the whole job of matching a product to people who want it, and ads are only the last mile.">
+    <h3 class="gl-term">Marketing</h3>
+    <p class="gl-def">Marketing is the whole job of matching a product to people who want it, and ads are only the last mile.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="mean" data-term="mean mean is the average, median is the middle, mode is the most common — skewed data favors the median.">
+    <h3 class="gl-term">Mean</h3>
+    <p class="gl-def">Mean is the average, median is the middle, mode is the most common — skewed data favors the median.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/stats.html">Statistics &amp; Data Analysis for Business</a> &middot; <a href="https://viewprep.net/?deck=stats">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="mece" data-term="mece mece means your buckets don&#x27;t overlap and together cover the whole problem, so nothing&#x27;s double-counted or missing.">
+    <h3 class="gl-term">MECE</h3>
+    <p class="gl-def">MECE means your buckets don&#x27;t overlap and together cover the whole problem, so nothing&#x27;s double-counted or missing.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/casestructuring.html">Case Interview Structuring</a> &middot; <a href="https://viewprep.net/?deck=casestructuring">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="mission" data-term="mission mission is why a company exists; strategy is how it competes to get there.">
+    <h3 class="gl-term">Mission</h3>
+    <p class="gl-def">Mission is why a company exists; strategy is how it competes to get there.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/strategy.html">Management &amp; Strategy Frameworks</a> &middot; <a href="https://viewprep.net/?deck=strategy">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="model" data-term="model a model is a spreadsheet that turns a handful of assumptions into a projected set of financials.">
+    <h3 class="gl-term">model</h3>
+    <p class="gl-def">A model is a spreadsheet that turns a handful of assumptions into a projected set of financials.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/excel.html">Excel for Financial Modeling</a> &middot; <a href="https://viewprep.net/?deck=excel">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="mouse-free-navigation" data-term="mouse-free navigation mouse-free navigation is faster and steadier, and interviewers watch for it directly in a live excel test.">
+    <h3 class="gl-term">Mouse-free navigation</h3>
+    <p class="gl-def">Mouse-free navigation is faster and steadier, and interviewers watch for it directly in a live Excel test.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/excel.html">Excel for Financial Modeling</a> &middot; <a href="https://viewprep.net/?deck=excel">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="multiple" data-term="multiple a multiple is a price per dollar of annual profit, which lets you compare companies of any size.">
+    <h3 class="gl-term">multiple</h3>
+    <p class="gl-def">A multiple is a price per dollar of annual profit, which lets you compare companies of any size.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-N">N</h2>
+  <div class="gl-item" id="net-income" data-term="net income net income is the thread that stitches the income statement, balance sheet, and cash flow statement together.">
+    <h3 class="gl-term">Net income</h3>
+    <p class="gl-def">Net income is the thread that stitches the income statement, balance sheet, and cash flow statement together.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/statements.html">Reading Financial Statements</a> &middot; <a href="https://viewprep.net/?deck=statements">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="net-income-minus-dividends" data-term="net income minus dividends net income minus dividends is what actually gets added to retained earnings each period.">
+    <h3 class="gl-term">Net income minus dividends</h3>
+    <p class="gl-def">Net income minus dividends is what actually gets added to retained earnings each period.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/statements.html">Reading Financial Statements</a> &middot; <a href="https://viewprep.net/?deck=statements">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-O">O</h2>
+  <div class="gl-item" id="operations" data-term="operations operations is everything a company does to turn inputs into a product a customer actually receives.">
+    <h3 class="gl-term">Operations</h3>
+    <p class="gl-def">Operations is everything a company does to turn inputs into a product a customer actually receives.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="opportunity-cost" data-term="opportunity cost opportunity cost is the value of the best thing you gave up in order to do the thing you chose.">
+    <h3 class="gl-term">opportunity cost</h3>
+    <p class="gl-def">Opportunity cost is the value of the best thing you gave up in order to do the thing you chose.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/corpfin.html">Corporate Finance &amp; Investment Basics</a> &middot; <a href="https://viewprep.net/?deck=corpfin">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="organic-growth" data-term="organic growth organic growth is cheaper but capped by your own capability, acquisition is the reverse.">
+    <h3 class="gl-term">Organic growth</h3>
+    <p class="gl-def">Organic growth is cheaper but capped by your own capability, acquisition is the reverse.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketentry.html">Growth Strategy &amp; Market Entry</a> &middot; <a href="https://viewprep.net/?deck=marketentry">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-P">P</h2>
+  <div class="gl-item" id="p-value" data-term="p-value a p-value is the odds you&#x27;d see a result this extreme if nothing real were actually going on.">
+    <h3 class="gl-term">p-value</h3>
+    <p class="gl-def">A p-value is the odds you&#x27;d see a result this extreme if nothing real were actually going on.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/stats.html">Statistics &amp; Data Analysis for Business</a> &middot; <a href="https://viewprep.net/?deck=stats">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="paper-lbo" data-term="paper lbo a paper lbo is the whole buyout arithmetic done by hand, from entry price to exit equity to returns.">
+    <h3 class="gl-term">paper LBO</h3>
+    <p class="gl-def">A paper LBO is the whole buyout arithmetic done by hand, from entry price to exit equity to returns.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/lbo.html">LBOs &amp; Private Equity Basics</a> &middot; <a href="https://viewprep.net/?deck=lbo">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="persuasion" data-term="persuasion persuasion is scored on whether you understood the other person’s reasons, not on whether you won.">
+    <h3 class="gl-term">Persuasion</h3>
+    <p class="gl-def">Persuasion is scored on whether you understood the other person’s reasons, not on whether you won.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/consultinginterview.html">The Consulting Interview</a> &middot; <a href="https://viewprep.net/?deck=consultinginterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="pocket-price" data-term="pocket price pocket price is what’s left after every discount and term, and it is rarely close to list price.">
+    <h3 class="gl-term">Pocket price</h3>
+    <p class="gl-def">Pocket price is what’s left after every discount and term, and it is rarely close to list price.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/pricing.html">Pricing Strategy</a> &middot; <a href="https://viewprep.net/?deck=pricing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="profit" data-term="profit profit is what is left of revenue once every cost of running the business is paid.">
+    <h3 class="gl-term">Profit</h3>
+    <p class="gl-def">Profit is what is left of revenue once every cost of running the business is paid.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/profitability.html">Profitability &amp; Cost Analysis</a> &middot; <a href="https://viewprep.net/?deck=profitability">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="prospectus" data-term="prospectus the prospectus is the company’s full public disclosure and the legal basis on which investors buy the deal.">
+    <h3 class="gl-term">prospectus</h3>
+    <p class="gl-def">The prospectus is the company’s full public disclosure and the legal basis on which investors buy the deal.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/ecm.html">IPOs &amp; Equity Capital Markets</a> &middot; <a href="https://viewprep.net/?deck=ecm">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-R">R</h2>
+  <div class="gl-item" id="ratios" data-term="ratios ratios are one snapshot, real credit work is about how durable the cash flow looks under stress.">
+    <h3 class="gl-term">Ratios</h3>
+    <p class="gl-def">Ratios are one snapshot, real credit work is about how durable the cash flow looks under stress.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/credit.html">Debt, Credit &amp; Leverage</a> &middot; <a href="https://viewprep.net/?deck=credit">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="receivables" data-term="receivables receivables are sales you have not been paid for, payables are bills you have not paid yet.">
+    <h3 class="gl-term">Receivables</h3>
+    <p class="gl-def">Receivables are sales you have not been paid for, payables are bills you have not paid yet.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="resume-walk" data-term="resume walk a resume walk is a story about choices, not a list of jobs, and it should end pointing at this seat.">
+    <h3 class="gl-term">resume walk</h3>
+    <p class="gl-def">A resume walk is a story about choices, not a list of jobs, and it should end pointing at this seat.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/ibinterview.html">The Investment Banking Interview</a> &middot; <a href="https://viewprep.net/?deck=ibinterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="revenue" data-term="revenue revenue is what customers paid you, profit is what is left after every cost of earning it.">
+    <h3 class="gl-term">Revenue</h3>
+    <p class="gl-def">Revenue is what customers paid you, profit is what is left after every cost of earning it.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="right-to-win" data-term="right to win a right to win is a specific reason this client beats incumbents, not just a wish to be in the market.">
+    <h3 class="gl-term">right to win</h3>
+    <p class="gl-def">A right to win is a specific reason this client beats incumbents, not just a wish to be in the market.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketentry.html">Growth Strategy &amp; Market Entry</a> &middot; <a href="https://viewprep.net/?deck=marketentry">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-S">S</h2>
+  <div class="gl-item" id="safety-stock" data-term="safety stock safety stock is the buffer inventory that absorbs surprise demand spikes or supply delays.">
+    <h3 class="gl-term">Safety stock</h3>
+    <p class="gl-def">Safety stock is the buffer inventory that absorbs surprise demand spikes or supply delays.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="sample-bias" data-term="sample bias sample bias means your data doesn&#x27;t represent the population you&#x27;re trying to understand, so conclusions don&#x27;t generalize.">
+    <h3 class="gl-term">Sample bias</h3>
+    <p class="gl-def">Sample bias means your data doesn&#x27;t represent the population you&#x27;re trying to understand, so conclusions don&#x27;t generalize.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/stats.html">Statistics &amp; Data Analysis for Business</a> &middot; <a href="https://viewprep.net/?deck=stats">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="sell-side" data-term="sell-side sell-side means running a process to sell a company, buy-side means helping a buyer find and buy one.">
+    <h3 class="gl-term">Sell-side</h3>
+    <p class="gl-def">Sell-side means running a process to sell a company, buy-side means helping a buyer find and buy one.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mna.html">M&amp;A Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=mna">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="senior-debt" data-term="senior debt senior debt is paid first and costs least, and equity is paid last but keeps whatever upside is left.">
+    <h3 class="gl-term">Senior debt</h3>
+    <p class="gl-def">Senior debt is paid first and costs least, and equity is paid last but keeps whatever upside is left.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/lbo.html">LBOs &amp; Private Equity Basics</a> &middot; <a href="https://viewprep.net/?deck=lbo">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="share" data-term="share a share is a small ownership slice of a company, not a loan to it.">
+    <h3 class="gl-term">share</h3>
+    <p class="gl-def">A share is a small ownership slice of a company, not a loan to it.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/markets.html">Financial Markets &amp; Instruments</a> &middot; <a href="https://viewprep.net/?deck=markets">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="supply-chain" data-term="supply chain a supply chain is the full run of hands a product passes through from raw material to end buyer.">
+    <h3 class="gl-term">supply chain</h3>
+    <p class="gl-def">A supply chain is the full run of hands a product passes through from raw material to end buyer.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-T">T</h2>
+  <div class="gl-item" id="t-account" data-term="t-account a t-account is a quick sketch of one account: debits on the left, credits on the right.">
+    <h3 class="gl-term">T-account</h3>
+    <p class="gl-def">A T-account is a quick sketch of one account: debits on the left, credits on the right.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="tam" data-term="tam tam is everyone, sam is everyone you could serve, som is the slice you could realistically win.">
+    <h3 class="gl-term">TAM</h3>
+    <p class="gl-def">TAM is everyone, SAM is everyone you could serve, SOM is the slice you could realistically win.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketentry.html">Growth Strategy &amp; Market Entry</a> &middot; <a href="https://viewprep.net/?deck=marketentry">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="teaser" data-term="teaser the teaser is anonymous bait, the nda buys silence, and the cim is the full book on the business.">
+    <h3 class="gl-term">teaser</h3>
+    <p class="gl-def">The teaser is anonymous bait, the NDA buys silence, and the CIM is the full book on the business.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/mna.html">M&amp;A Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=mna">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="terminal-value" data-term="terminal value terminal value covers everything a business earns after the forecast period ends.">
+    <h3 class="gl-term">terminal value</h3>
+    <p class="gl-def">Terminal value covers everything a business earns after the forecast period ends.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="test" data-term="test the test is whether you can hear something unwelcome, take the real point, and change something because of it.">
+    <h3 class="gl-term">test</h3>
+    <p class="gl-def">The test is whether you can hear something unwelcome, take the real point, and change something because of it.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/consultinginterview.html">The Consulting Interview</a> &middot; <a href="https://viewprep.net/?deck=consultinginterview">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="throughput" data-term="throughput cycle time is the gap between finished units and throughput is how many finish per hour.">
+    <h3 class="gl-term">throughput</h3>
+    <p class="gl-def">Cycle time is the gap between finished units and throughput is how many finish per hour.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/operations.html">Operations &amp; Supply Chain Management</a> &middot; <a href="https://viewprep.net/?deck=operations">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-V">V</h2>
+  <div class="gl-item" id="value-proposition" data-term="value proposition a value proposition is the one-line answer to &#x27;why should i buy this instead of anything else?&#x27;">
+    <h3 class="gl-term">value proposition</h3>
+    <p class="gl-def">A value proposition is the one-line answer to &#x27;why should I buy this instead of anything else?&#x27;</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/marketing.html">Marketing Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=marketing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="vertical-integration" data-term="vertical integration vertical integration means owning more of your own supply chain, upstream or downstream.">
+    <h3 class="gl-term">Vertical integration</h3>
+    <p class="gl-def">Vertical integration means owning more of your own supply chain, upstream or downstream.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/strategy.html">Management &amp; Strategy Frameworks</a> &middot; <a href="https://viewprep.net/?deck=strategy">study this deck</a></p>
+  </div>
+  <h2 class="gl-letter" id="letter-W">W</h2>
+  <div class="gl-item" id="wacc" data-term="wacc wacc is the blended cost of a company&#x27;s money, part debt, part equity.">
+    <h3 class="gl-term">WACC</h3>
+    <p class="gl-def">WACC is the blended cost of a company&#x27;s money, part debt, part equity.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/valuation.html">Valuation Basics</a> &middot; <a href="https://viewprep.net/?deck=valuation">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="willingness-to-pay" data-term="willingness to pay willingness to pay is the most a customer would hand over before walking away, and it varies by person.">
+    <h3 class="gl-term">Willingness to pay</h3>
+    <p class="gl-def">Willingness to pay is the most a customer would hand over before walking away, and it varies by person.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/pricing.html">Pricing Strategy</a> &middot; <a href="https://viewprep.net/?deck=pricing">study this deck</a></p>
+  </div>
+  <div class="gl-item" id="working-capital" data-term="working capital working capital is short-term assets minus short-term bills, the cash locked up running the business.">
+    <h3 class="gl-term">Working capital</h3>
+    <p class="gl-def">Working capital is short-term assets minus short-term bills, the cash locked up running the business.</p>
+    <p class="gl-src">Taught in <a href="https://viewprep.net/decks/accounting.html">Accounting Fundamentals</a> &middot; <a href="https://viewprep.net/?deck=accounting">study this deck</a></p>
+  </div>
+  <p class="gl-empty" id="gl-empty" hidden>No term matches that. Try a shorter word.</p>
+  <script>
+  (function(){
+    var box = document.getElementById('gl-search');
+    var items = [].slice.call(document.querySelectorAll('.gl-item'));
+    var heads = [].slice.call(document.querySelectorAll('.gl-letter'));
+    var count = document.getElementById('gl-count');
+    var empty = document.getElementById('gl-empty');
+    if (!box) { return; }
+    box.addEventListener('input', function(){
+      var q = box.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function(el){
+        var hit = !q || el.getAttribute('data-term').indexOf(q) !== -1;
+        el.hidden = !hit;
+        if (hit) { shown++; }
+      });
+      // hide a letter heading when everything under it is filtered out
+      heads.forEach(function(h){
+        var n = h.nextElementSibling, any = false;
+        while (n && !n.classList.contains('gl-letter')) {
+          if (n.classList.contains('gl-item') && !n.hidden) { any = true; break; }
+          n = n.nextElementSibling;
+        }
+        h.hidden = !any;
+      });
+      count.textContent = shown + (shown === 1 ? ' term' : ' terms');
+      empty.hidden = shown !== 0;
+    });
+  })();
+  </script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>
