@@ -90,10 +90,25 @@
   h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
     text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
     border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
   .header-nav{display:flex;align-items:center;gap:1.1rem;}
-  .header-nav > a:not(.header-cta){font-family:var(--body);font-size:.78rem;font-weight:700;
-    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
-  .header-nav > a:not(.header-cta):hover{color:var(--ink);}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .main-nav{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
+    .nav-item{text-align:center;padding:.5rem .4rem;}
+  }
   .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
   .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
     padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
@@ -138,8 +153,13 @@
 <div class="page">
   <header class="site-header">
     <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#catalog">Cards</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+      <a class="nav-item" href="https://viewprep.net/#tracker">My progress</a>
+    </nav>
     <nav class="header-nav">
-      <a href="https://viewprep.net/glossary.html">Glossary</a>
       <a class="header-cta" href="https://viewprep.net/?deck=credit">Study these cards</a>
     </nav>
   </header>
