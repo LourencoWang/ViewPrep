@@ -162,159 +162,6 @@
   .track-btn:hover{color:var(--ink);}
   .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
   .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
-  /* ---------- signed-in progress tracker ---------- */
-  .tracker{
-    margin-bottom:2rem;padding:1.35rem 1.5rem 1.5rem;
-    border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
-  }
-  .tracker-head{
-    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
-    flex-wrap:wrap;margin-bottom:1.15rem;
-  }
-  .tracker-title{
-    font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.06em;
-    text-transform:uppercase;color:var(--ink);margin:0;
-  }
-  .tracker-sub{
-    font-family:var(--body);font-size:.78rem;color:var(--ink-faint);
-    font-variant-numeric:tabular-nums;
-  }
-  .tracker-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.1rem;
-  }
-  .tracker-stat{
-    display:flex;flex-direction:column;gap:.15rem;
-    padding:.7rem .85rem;border-radius:10px;background:var(--surface-strong);
-    border-left:2px solid var(--line-soft);
-  }
-  .tracker-stat.is-again{border-left-color:var(--red);}
-  .tracker-stat.is-good{border-left-color:var(--amber-ink);}
-  .tracker-stat.is-easy{border-left-color:var(--green);}
-  .tracker-num{
-    font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1;
-    color:var(--ink);font-variant-numeric:tabular-nums;
-  }
-  .tracker-lbl{
-    font-family:var(--body);font-size:.68rem;font-weight:600;letter-spacing:.05em;
-    text-transform:uppercase;color:var(--ink-faint);
-  }
-  .tracker-bar{
-    display:flex;height:6px;border-radius:3px;overflow:hidden;background:var(--surface-strong);
-  }
-  .tracker-note{
-    margin:1rem 0 0;font-family:var(--body);font-size:.8rem;line-height:1.5;
-    color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:.35rem;align-items:baseline;
-  }
-  .link-inline{
-    all:unset;cursor:pointer;color:var(--blue);font-family:var(--body);font-size:.8rem;
-    text-decoration:underline;text-decoration-color:rgba(76,124,240,.4);text-underline-offset:2px;
-  }
-  .link-inline:hover{text-decoration-color:var(--blue);}
-  .link-inline:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:3px;}
-  .tracker-prompt{
-    margin-top:1.1rem;padding:1rem 1.15rem;border-radius:12px;
-    background:var(--surface-strong);border:1px solid var(--line-soft);
-    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  }
-  .tracker-prompt-text{
-    margin:0;font-family:var(--body);font-size:.88rem;line-height:1.5;
-    color:var(--ink-soft);max-width:46ch;
-  }
-  .tracker-prompt-text b{color:var(--ink);font-weight:700;}
-  @media (max-width:600px){
-    .tracker-prompt{flex-direction:column;align-items:stretch;text-align:center;}
-    .tracker-prompt .btn-solid{justify-content:center;text-align:center;}
-  }
-  .tracker-seg{display:block;height:100%;transition:width .3s ease;}
-  @media (prefers-reduced-motion: reduce){ .tracker-seg{transition:none;} }
-  .seg-again{background:var(--red);}
-  .seg-good{background:var(--amber);}
-  .seg-easy{background:var(--green);}
-  @media (max-width:600px){
-    .tracker{padding:1.15rem 1.15rem 1.3rem;}
-    .tracker-grid{gap:.5rem;}
-    .tracker-num{font-size:1.3rem;}
-  }
-
-  .track-hint{
-    color:var(--ink-faint);font-size:.9rem;padding:2.75rem 1rem;text-align:center;
-    border:1px dashed var(--line-soft);border-radius:16px;
-  }
-  .deck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
-  @media (max-width:600px){ .deck-grid{grid-template-columns:1fr;} .track-toggle{max-width:100%;} }
-  .deck-card{
-    position:relative;overflow:hidden;
-    display:flex;flex-direction:column;gap:1.15rem;
-    min-height:150px;padding:1.35rem 1.4rem;border-radius:16px;
-    background:var(--surface);
-    border:1px solid var(--line-soft);
-    transition:border-color .18s ease, transform .18s ease;
-  }
-  .deck-card::before{
-    content:'';position:absolute;top:-35%;right:-18%;width:60%;height:60%;
-    border-radius:50%;filter:blur(50px);opacity:.28;z-index:0;pointer-events:none;
-    background:var(--blue);
-  }
-  .deck-card:nth-child(even)::before{background:var(--amber);}
-  .deck-card:hover,.deck-card:focus-within{transform:translateY(-2px);border-color:var(--line);}
-  /* --- hero demo card ---
-     Uses .flashcard / .flashcard-inner / .face wholesale, so it is the same
-     component as the study view: same 3D flip, same fonts, same surface. Only
-     the wrapper and the size cap below are new. */
-  .hero-demo{margin:1.6rem 0 1.7rem;max-width:30rem;}
-  .hero-demo .flashcard{min-height:270px;aspect-ratio:5/3.2;}
-  @media (max-width:600px){ .hero-demo .flashcard{min-height:300px;} }
-  .hero-demo-link{
-    display:inline-block;margin-top:1rem;font-family:var(--body);font-size:.92rem;
-    font-weight:600;text-decoration:none;color:var(--amber-ink);
-  }
-  .hero-demo-link:hover{text-decoration:underline;}
-
-  .deck-open{
-    all:unset;cursor:pointer;display:flex;flex-direction:column;gap:1rem;width:100%;
-    position:relative;z-index:1;
-  }
-  .deck-open-top{display:flex;align-items:center;justify-content:space-between;gap:.75rem;}
-  .deck-open-arrow{font-size:.9rem;color:var(--ink-faint);transition:color .18s ease, transform .18s ease;}
-  .deck-card:hover .deck-open-arrow,.deck-card:focus-within .deck-open-arrow{
-    color:var(--blue);transform:translateX(2px);
-  }
-  .deck-tag{
-    font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--blue);
-  }
-  .deck-info{display:flex;flex-direction:column;gap:.5rem;}
-  .deck-info .deck-name{text-transform:uppercase;
-    display:block;
-    font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--ink);letter-spacing:.01em;
-  }
-  .deck-info .deck-desc{
-    display:block;
-    font-family:var(--body);font-size:.86rem;color:var(--ink-soft);line-height:1.5;
-  }
-  .deck-progress{display:flex;flex-direction:column;gap:.6rem;position:relative;z-index:1;}
-  .deck-progress-track{height:5px;border-radius:3px;background:var(--surface-strong);overflow:hidden;}
-  .deck-progress-fill{
-    height:100%;border-radius:3px;width:0%;
-    background:linear-gradient(90deg,var(--blue),var(--amber));
-    transition:width .4s cubic-bezier(.2,.8,.2,1);
-  }
-  @media (prefers-reduced-motion: reduce){ .deck-progress-fill{transition:none;} }
-  .deck-progress-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
-  .deck-progress-label{
-    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-    color:var(--ink-faint);font-variant-numeric:tabular-nums;
-  }
-  .deck-progress-label.is-complete{color:var(--amber-ink);}
-  .deck-restart-mini{
-    all:unset;cursor:pointer;
-    font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-    color:var(--ink-faint);
-    padding:.35rem .7rem;border-radius:999px;border:1px solid var(--line-soft);
-    transition:border-color .15s ease, color .15s ease;
-  }
-  .deck-restart-mini:hover{border-color:var(--amber-ink);color:var(--amber-ink);}
-
   /* ---------- deck intro ---------- */
   .deck-intro{padding:2.75rem 0 4rem;}
   .intro-inner{max-width:640px;}
@@ -592,67 +439,89 @@
   }
   .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
 
-  .tracker-hero{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
-    flex-wrap:wrap;padding:.2rem 0 1.4rem;border-bottom:1px solid var(--line-soft);
-    margin-bottom:1.4rem;}
-  .tracker-hero-nums{display:flex;align-items:baseline;gap:2.2rem;flex-wrap:wrap;}
-  .tracker-due{display:flex;align-items:baseline;gap:.6rem;}
-  .tracker-due-num{font-family:var(--display);font-weight:800;font-size:2.6rem;
-    letter-spacing:-.03em;line-height:1;color:var(--ink);}
-  .tracker-due-lbl{font-family:var(--body);font-size:.86rem;font-weight:600;color:var(--ink-soft);}
-  .tracker-studied{display:flex;align-items:baseline;gap:.5rem;}
-  .tracker-studied-num{font-family:var(--display);font-weight:700;font-size:1.15rem;
-    color:var(--ink-soft);letter-spacing:-.01em;}
-  .tracker-studied-lbl{font-family:var(--body);font-size:.78rem;font-weight:600;
-    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);}
-  .tracker-breakdown-lbl{font-family:var(--body);font-size:.68rem;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.7rem;}
-  @media (max-width:620px){
-    .tracker-hero{flex-direction:column;align-items:flex-start;}
-    .tracker-due-num{font-size:2.2rem;}
-  }
-
   /* ---------- test mode ---------- */
   .test{padding:2.5rem 0 4rem;}
   .test-inner{max-width:700px;margin:0 auto;}
   .test-topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-    padding-bottom:1rem;border-bottom:1px solid var(--line-soft);margin-bottom:2rem;}
+    padding-bottom:1rem;border-bottom:1px solid var(--line-soft);margin-bottom:1.8rem;
+    flex-wrap:wrap;}
   .test-progress{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.08em;
     text-transform:uppercase;color:var(--ink-faint);}
   .test-tag{font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.1em;
     text-transform:uppercase;color:var(--amber-ink);margin-bottom:.75rem;}
   .test-q{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1.34;
-    letter-spacing:-.015em;margin:0 0 1.5rem;}
+    letter-spacing:-.015em;margin:0 0 1.6rem;}
   .test-answer{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;
-    padding:1.3rem 1.4rem;margin-bottom:1.6rem;box-shadow:0 10px 30px var(--shadow);}
+    padding:1.4rem 1.4rem 1.5rem;margin:0 0 1.6rem;box-shadow:0 10px 30px var(--shadow);}
   .test-a-label{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink-faint);margin-bottom:.55rem;}
-  .test-a-text{font-size:1rem;line-height:1.65;color:var(--ink);}
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 .55rem;}
+  .test-a-text{font-size:1rem;line-height:1.65;color:var(--ink);margin:0;}
   .test-actions{display:flex;flex-direction:column;gap:1rem;align-items:flex-start;}
-  .test-mark{display:flex;gap:.7rem;flex-wrap:wrap;}
-  .test-score{font-family:var(--display);font-weight:700;font-size:2.6rem;letter-spacing:-.03em;
-    margin:0 0 .5rem;}
-  .test-verdict{font-size:1rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.8rem;}
-  .test-missed{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.8rem;}
-  .test-miss{border-top:1px solid var(--line-soft);padding-top:.9rem;}
-  .test-miss-q{font-family:var(--display);font-weight:700;font-size:.98rem;line-height:1.4;
-    margin-bottom:.35rem;}
-  .test-miss-a{font-size:.92rem;line-height:1.55;color:var(--ink-soft);margin-bottom:.35rem;}
-  .test-miss-deck{font-size:.74rem;color:var(--ink-faint);}
-  .test-miss-deck button{all:unset;cursor:pointer;color:var(--blue);text-decoration:underline;}
-  .test-note{font-size:.8rem;color:var(--ink-faint);margin-bottom:1.6rem;line-height:1.5;}
-  .test-end-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
   .test-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
     border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.2rem 1.35rem;margin:1.4rem 0 .6rem;}
   .test-cta-copy{flex:1 1 260px;}
   .test-cta-title{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.25rem;}
   .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
-  @media (max-width:620px){ .test-q{font-size:1.28rem;} .test-score{font-size:2.1rem;} }
+  @media (max-width:620px){ .test-q{font-size:1.28rem;} }
 
-  .tracker-empty{display:block;}
-  .tracker-empty-text{font-size:.92rem;line-height:1.6;color:var(--ink-soft);
-    max-width:46ch;margin:.5rem 0 1.1rem;}
+  /* ---------- test yourself ---------- */
+  .test-h{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.5rem,3.4vw,2rem);letter-spacing:-.01em;margin:.2rem 0 .6rem;}
+  .test-lede{font-size:.95rem;line-height:1.6;color:var(--ink-soft);max-width:58ch;
+    margin:0 0 1.8rem;}
+  .test-group-lbl{font-family:var(--display);font-weight:700;font-size:.86rem;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--ink);
+    border-left:4px solid var(--amber);padding-left:.55rem;margin:2rem 0 .9rem;}
+  .test-deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:.8rem;}
+  .test-deck{all:unset;cursor:pointer;box-sizing:border-box;display:flex;
+    flex-direction:column;gap:.55rem;padding:1rem 1.1rem 1.05rem;border-radius:14px;
+    border:1px solid var(--line-soft);background:var(--surface);
+    transition:border-color .15s ease,transform .15s ease;}
+  .test-deck:hover{border-color:var(--line);transform:translateY(-2px);}
+  .test-deck:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .test-deck-nm{font-family:var(--display);font-weight:700;font-size:.95rem;
+    line-height:1.3;color:var(--ink);}
+  .test-deck-meta{display:flex;align-items:baseline;justify-content:space-between;
+    gap:.6rem;font-size:.74rem;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-faint);font-variant-numeric:tabular-nums;}
+  .test-deck.is-done .test-deck-meta{color:var(--green);}
+  .test-bar{height:5px;border-radius:999px;background:var(--line-soft);overflow:hidden;}
+  .test-bar-fill{display:block;height:100%;background:var(--blue);transition:width .3s ease;}
+  .test-deck.is-done .test-bar-fill{background:var(--green);}
+  @media (prefers-reduced-motion: reduce){ .test-bar-fill{transition:none;} }
+
+  .test-q-list{list-style:none;margin:0;padding:0;counter-reset:tq;}
+  .test-q-item{all:unset;cursor:pointer;box-sizing:border-box;display:flex;
+    align-items:flex-start;gap:.9rem;width:100%;padding:1.05rem 1.1rem;
+    border:1px solid var(--line-soft);border-radius:14px;background:var(--surface);
+    margin-bottom:.7rem;transition:border-color .15s ease;}
+  .test-q-item:hover{border-color:var(--line);}
+  .test-q-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .test-q-n{flex:0 0 auto;width:1.7rem;height:1.7rem;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:700;font-size:.78rem;
+    border:1px solid var(--line);color:var(--ink-soft);}
+  .test-q-item.is-answered .test-q-n{background:var(--green);border-color:var(--green);
+    color:#fff;}
+  .test-q-body{flex:1 1 auto;min-width:0;}
+  .test-q-text{font-size:.98rem;line-height:1.5;color:var(--ink);font-weight:600;}
+  .test-q-state{display:block;font-size:.74rem;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-faint);margin-top:.35rem;}
+  .test-q-item.is-answered .test-q-state{color:var(--green);}
+  .test-write-hint{font-size:.74rem;color:var(--ink-faint);margin:.5rem 0 0;}
+  .test-onenav{display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;}
+  .test-retry{all:unset;cursor:pointer;font-family:var(--body);font-size:.82rem;
+    font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);
+    text-decoration:underline;text-underline-offset:3px;}
+  .test-retry:hover{color:var(--ink);}
+  .test-retry:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+  @media (max-width:620px){
+    .test-deck-grid{grid-template-columns:1fr;}
+    .test-onenav{width:100%;}
+    .test-onenav button{flex:1 1 auto;justify-content:center;text-align:center;}
+  }
 
   /* ---------- typed answer + marking ---------- */
   .test-write{margin:1.4rem 0 .2rem;}
@@ -695,12 +564,9 @@
     .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
     .nav-item{font-size:.7rem;padding:.45rem .8rem;}
   }
-  /* Four pills do not fit on one phone-width row, and letting them wrap leaves one
-     stranded alone on the second line. A 2x2 grid keeps every section visible and
-     tappable without a horizontal scroll that hides half the nav. */
   @media (max-width:600px){
-    .main-nav{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
-    .nav-item{text-align:center;padding:.5rem .4rem;}
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
   }
   .header-actions{display:flex;align-items:center;gap:.9rem;}
   .header-link{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;
@@ -766,7 +632,6 @@
       <a class="nav-item is-active" id="nav-decks" href="#catalog" data-nav="decks">Cards</a>
       <a class="nav-item" id="nav-glossary" href="/glossary.html" data-nav="glossary">Glossary</a>
       <button class="nav-item" id="nav-test" type="button" data-nav="test">Test yourself</button>
-      <a class="nav-item" id="nav-progress" href="#tracker" data-nav="progress">My progress</a>
     </nav>
     <div class="header-actions">
       <button class="account-btn" id="account-btn" type="button">Sign in</button>
@@ -809,63 +674,10 @@
           <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
         </div>
       </div>
-      <section class="tracker" id="tracker" hidden aria-labelledby="tracker-title">
-        <div class="tracker-head">
-          <h3 class="tracker-title" id="tracker-title">Your progress</h3>
-          <span class="tracker-sub" id="tracker-sub"></span>
-        </div>
-        <div class="tracker-hero" id="tracker-hero">
-          <div class="tracker-hero-nums">
-            <div class="tracker-due">
-              <span class="tracker-due-num" id="due-count">0</span>
-              <span class="tracker-due-lbl" id="due-label">cards due today</span>
-            </div>
-            <div class="tracker-studied">
-              <span class="tracker-studied-num" id="studied-count">0 / 0</span>
-              <span class="tracker-studied-lbl">studied</span>
-            </div>
-          </div>
-          <button class="btn-primary" id="review-due-btn" type="button">Review due cards &#8599;</button>
-        </div>
-        <p class="tracker-breakdown-lbl">How you rated them</p>
-        <div class="tracker-grid">
-          <div class="tracker-stat is-again">
-            <span class="tracker-num" id="stat-again">0</span>
-            <span class="tracker-lbl">Again</span>
-          </div>
-          <div class="tracker-stat is-good">
-            <span class="tracker-num" id="stat-good">0</span>
-            <span class="tracker-lbl">Good</span>
-          </div>
-          <div class="tracker-stat is-easy">
-            <span class="tracker-num" id="stat-easy">0</span>
-            <span class="tracker-lbl">Easy</span>
-          </div>
-        </div>
-        <div class="tracker-bar" id="tracker-bar" role="img" aria-label="Share of your studied cards at each stage">
-          <span class="tracker-seg seg-again" id="seg-again"></span>
-          <span class="tracker-seg seg-good" id="seg-good"></span>
-          <span class="tracker-seg seg-easy" id="seg-easy"></span>
-        </div>
-        <p class="tracker-note" id="tracker-note" hidden>
-          <span>Saved in this browser only.</span>
-          <button type="button" class="link-inline" id="tracker-save-btn">Make a free account to keep it across devices</button>
-        </p>
-        <div class="tracker-prompt" id="tracker-prompt" hidden>
-          <p class="tracker-prompt-text" id="tracker-prompt-text"></p>
-          <button class="btn-solid" id="tracker-prompt-btn" type="button">Make a free account</button>
-        </div>
-      </section>
-      <section class="tracker tracker-empty" id="tracker-empty" hidden aria-labelledby="tracker-empty-title">
-        <h3 class="tracker-title" id="tracker-empty-title">Your progress</h3>
-        <p class="tracker-empty-text">Nothing here yet. Study a deck and this fills up with what you
-        have covered, what is due for review, and how well you rated yourself.</p>
-        <button class="btn-primary" id="tracker-empty-btn" type="button">Start with a deck &#8599;</button>
-      </section>
       <div class="test-cta" id="test-cta" hidden>
         <div class="test-cta-copy">
           <p class="test-cta-title">Think you know it?</p>
-          <p class="test-cta-sub">Ten questions pulled at random from every deck in this track. No flipping back and forth, no hints.</p>
+          <p class="test-cta-sub">Five written questions for every deck. Type your answer out, then compare it against the model answer word by word.</p>
         </div>
         <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
       </div>
@@ -887,56 +699,65 @@
 
   <section class="test" id="test" hidden>
     <div class="test-inner">
-      <div class="test-topbar">
-        <button class="link-back" id="test-exit-btn">&larr; Back to catalog</button>
-        <span class="test-progress" id="test-progress"></span>
+
+      <!-- A. every deck, with how much of its question set you have answered -->
+      <div id="test-decks">
+        <button class="link-back" id="test-exit-btn" type="button">&larr; Back to catalog</button>
+        <h2 class="test-h" id="test-h" tabindex="-1">Test yourself</h2>
+        <p class="test-lede">Five questions per deck. Write your answer out, then compare it
+          with the model answer. Your answers are kept so you can read them back, and nothing
+          here changes your review schedule.</p>
+        <div id="test-deck-groups"></div>
       </div>
 
-      <div id="test-run">
-        <p class="test-tag" id="test-tag"></p>
+      <!-- B. the five questions in one deck -->
+      <div id="test-questions" hidden>
+        <button class="link-back" id="test-back-decks" type="button">&larr; All decks</button>
+        <h2 class="test-h" id="test-deck-name" tabindex="-1"></h2>
+        <p class="test-lede" id="test-deck-sub"></p>
+        <ol class="test-q-list" id="test-q-list"></ol>
+      </div>
+
+      <!-- C. one question, written and marked -->
+      <div id="test-one" hidden>
+        <div class="test-topbar">
+          <button class="link-back" id="test-back-list" type="button">&larr; <span id="test-back-label">Back</span></button>
+          <span class="test-progress" id="test-progress"></span>
+        </div>
         <h2 class="test-q" id="test-q" tabindex="-1"></h2>
+
         <div class="test-write" id="test-write">
           <label class="test-write-lbl" for="test-input">Write your answer</label>
-          <textarea id="test-input" class="test-input" rows="4" spellcheck="false"
-            placeholder="Type it out as you would say it. Optional &mdash; but committing to an answer first is the point."></textarea>
+          <textarea id="test-input" class="test-input" rows="5" spellcheck="false"
+            placeholder="Type it out as you would say it out loud."></textarea>
+          <p class="test-write-hint">Cmd or Ctrl + Enter to check</p>
         </div>
+
         <div class="test-answer" id="test-answer" hidden>
           <div class="test-yours" id="test-yours" hidden>
             <p class="test-a-label">What you wrote</p>
             <p class="test-yours-text" id="test-yours-text"></p>
           </div>
-          <p class="test-a-label">Answer</p>
+          <p class="test-a-label">Model answer</p>
           <p class="test-a-text" id="test-a-text"></p>
           <div class="test-terms" id="test-terms" hidden>
-            <p class="test-terms-lbl" id="test-terms-lbl">Key terms in this answer</p>
+            <p class="test-terms-lbl" id="test-terms-lbl"></p>
             <ul class="test-term-list" id="test-term-list"></ul>
             <p class="test-terms-note">Word matching only &mdash; it cannot tell that you said
-              the same thing in your own words. You are the judge.</p>
+              the same thing in your own words, so a red mark means &ldquo;not found&rdquo;,
+              not &ldquo;wrong&rdquo;. You are the judge.</p>
           </div>
         </div>
+
         <div class="test-actions">
-          <button class="btn-primary" id="test-reveal-btn" type="button">Show answer</button>
-          <div class="test-mark" id="test-mark" hidden>
-            <button class="stamp stamp-again" id="test-wrong-btn" type="button">
-              <span>Missed it</span><span class="stamp-key">1</span></button>
-            <button class="stamp stamp-easy" id="test-right-btn" type="button">
-              <span>Got it</span><span class="stamp-key">2</span></button>
+          <button class="btn-primary" id="test-reveal-btn" type="button">Check my answer</button>
+          <div class="test-onenav" id="test-onenav" hidden>
+            <button class="test-retry" id="test-retry-btn" type="button">Try again</button>
+            <button class="btn-primary" id="test-next-btn" type="button">Next question &#8594;</button>
           </div>
         </div>
       </div>
 
-      <div id="test-results" hidden>
-        <p class="test-tag">Result</p>
-        <h2 class="test-score" id="test-score" tabindex="-1"></h2>
-        <p class="test-verdict" id="test-verdict"></p>
-        <div class="test-missed" id="test-missed"></div>
-        <p class="test-note">A test does not change your review schedule. Nothing here
-          was marked as studied.</p>
-        <div class="test-end-actions">
-          <button class="btn-primary" id="test-again-btn" type="button">Test me again &#8599;</button>
-          <button class="btn-solid" id="test-done-btn" type="button">Back to catalog</button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1368,75 +1189,6 @@
 
   // Review is deck-scoped, so the button sends you to whichever deck has the most
   // waiting. Falls back to the deck with the most unseen cards when nothing is due.
-  function bestDeckToReview(){
-    var bestDue = null, bestDueN = 0, bestNew = null, bestNewN = 0;
-    for (var i = 0; i < decks.length; i++){
-      var st = deckStats(decks[i]);
-      if (st.due > bestDueN) { bestDueN = st.due; bestDue = i; }
-      if (st.brandNew > bestNewN) { bestNewN = st.brandNew; bestNew = i; }
-    }
-    if (bestDue !== null) { return { index: bestDue, due: true }; }
-    if (bestNew !== null) { return { index: bestNew, due: false }; }
-    return null;
-  }
-
-  function renderTracker(){
-    if (!decks.length) { els.tracker.hidden = true; return; }
-    var s = overallStats();
-    // Shown to signed-out visitors too, once they have something to show. Hiding it
-    // until you hold an account makes the one real benefit of an account invisible to
-    // exactly the people who would need to see it.
-    if (!currentUser && !s.started) { els.tracker.hidden = true; return; }
-    els.tracker.hidden = false;
-    if (els.trackerEmpty) { els.trackerEmpty.hidden = true; }
-    // The question a returning visitor actually has is "what do I study now",
-    // not "how did I rate things last time". Due count and a way in come first;
-    // the Again/Good/Easy split stays, demoted to a breakdown.
-    var newCards = s.total - s.started;
-    var actionable = s.due + newCards;
-    els.dueCount.textContent = s.due;
-    els.dueLabel.textContent = s.due === 1 ? 'card due today' : 'cards due today';
-    els.studiedCount.textContent = s.started + ' / ' + s.total;
-
-    var best = bestDeckToReview();
-    if (s.due > 0 && best) {
-      els.reviewDueBtn.hidden = false;
-      els.reviewDueBtn.textContent = 'Review ' + s.due + ' due \u2197';
-    } else if (best) {
-      els.reviewDueBtn.hidden = false;
-      els.reviewDueBtn.textContent = 'Nothing due \u2014 learn something new \u2197';
-    } else {
-      els.reviewDueBtn.hidden = true;
-    }
-
-    els.statAgain.textContent = s.again;
-    els.statGood.textContent = s.good;
-    els.statEasy.textContent = s.easy;
-    // Signed out, the honest thing to say is where this data actually lives. When they
-    // have just walked away from a real session, upgrade that from a passive note to an
-    // actual offer, once.
-    var showPrompt = !currentUser && pendingSavePrompt;
-    if (showPrompt) {
-      els.trackerPromptText.innerHTML = 'You&rsquo;ve studied <b>' + s.started +
-        ' cards</b> so far, saved in this browser only. A free account keeps them if you close the tab or switch device.';
-      pendingSavePrompt = false;
-      savePromptSeenThisVisit = true;
-      trackOnce('prompt_shown', { where: 'tracker', studied: s.started });
-    }
-    els.trackerPrompt.hidden = !showPrompt;
-    els.trackerNote.hidden = !!currentUser || showPrompt;
-    if (!s.started) {
-      els.trackerSub.textContent = 'No cards studied yet';
-    } else {
-      els.trackerSub.textContent = s.started + ' of ' + s.total + ' started' +
-        (s.due ? '  \u00b7  ' + s.due + ' ready now' : '  \u00b7  nothing due');
-    }
-    var denom = s.started || 1;
-    els.segAgain.style.width = (s.again / denom * 100) + '%';
-    els.segGood.style.width  = (s.good  / denom * 100) + '%';
-    els.segEasy.style.width  = (s.easy  / denom * 100) + '%';
-  }
-
   function resetDeckProgress(deck){
     delete progress[deck.id];
     saveProgress(progress);
@@ -1462,22 +1214,6 @@
     trackIbBtn: document.getElementById('track-ib-btn'),
     trackConsultingBtn: document.getElementById('track-consulting-btn'),
     trackHint: document.getElementById('track-hint'),
-    tracker: document.getElementById('tracker'),
-    trackerEmpty: document.getElementById('tracker-empty'),
-    trackerEmptyBtn: document.getElementById('tracker-empty-btn'),
-    trackerSub: document.getElementById('tracker-sub'),
-    dueCount: document.getElementById('due-count'),
-    dueLabel: document.getElementById('due-label'),
-    studiedCount: document.getElementById('studied-count'),
-    reviewDueBtn: document.getElementById('review-due-btn'),
-    statAgain: document.getElementById('stat-again'),
-    statGood: document.getElementById('stat-good'),
-    statEasy: document.getElementById('stat-easy'),
-    trackerNote: document.getElementById('tracker-note'),
-    trackerSaveBtn: document.getElementById('tracker-save-btn'),
-    trackerPrompt: document.getElementById('tracker-prompt'),
-    trackerPromptText: document.getElementById('tracker-prompt-text'),
-    trackerPromptBtn: document.getElementById('tracker-prompt-btn'),
     heroDemo: document.getElementById('hero-demo'),
     heroFlashcard: document.getElementById('hero-flashcard'),
     heroInner: document.getElementById('hero-flashcard-inner'),
@@ -1488,10 +1224,22 @@
     savePrompt: document.getElementById('save-prompt'),
     savePromptText: document.getElementById('save-prompt-text'),
     savePromptBtn: document.getElementById('save-prompt-btn'),
-    segAgain: document.getElementById('seg-again'),
-    segGood: document.getElementById('seg-good'),
-    segEasy: document.getElementById('seg-easy'),
     mainView: document.getElementById('main-view'),
+    testDecks: document.getElementById('test-decks'),
+    testExitBtn: document.getElementById('test-exit-btn'),
+    testDeckGroups: document.getElementById('test-deck-groups'),
+    testH: document.getElementById('test-h'),
+    testQuestions: document.getElementById('test-questions'),
+    testQList: document.getElementById('test-q-list'),
+    testDeckName: document.getElementById('test-deck-name'),
+    testDeckSub: document.getElementById('test-deck-sub'),
+    testBackDecks: document.getElementById('test-back-decks'),
+    testBackList: document.getElementById('test-back-list'),
+    testBackLabel: document.getElementById('test-back-label'),
+    testOne: document.getElementById('test-one'),
+    testOnenav: document.getElementById('test-onenav'),
+    testRetryBtn: document.getElementById('test-retry-btn'),
+    testNextBtn: document.getElementById('test-next-btn'),
     testView: document.getElementById('test'),
     testInput: document.getElementById('test-input'),
     testWrite: document.getElementById('test-write'),
@@ -1502,26 +1250,14 @@
     testTermList: document.getElementById('test-term-list'),
     navDecks: document.getElementById('nav-decks'),
     navTest: document.getElementById('nav-test'),
-    navProgress: document.getElementById('nav-progress'),
     testCta: document.getElementById('test-cta'),
     testStartBtn: document.getElementById('test-start-btn'),
     testExitBtn: document.getElementById('test-exit-btn'),
     testProgress: document.getElementById('test-progress'),
-    testRun: document.getElementById('test-run'),
-    testTag: document.getElementById('test-tag'),
     testQ: document.getElementById('test-q'),
     testAnswer: document.getElementById('test-answer'),
     testAText: document.getElementById('test-a-text'),
     testRevealBtn: document.getElementById('test-reveal-btn'),
-    testMark: document.getElementById('test-mark'),
-    testWrongBtn: document.getElementById('test-wrong-btn'),
-    testRightBtn: document.getElementById('test-right-btn'),
-    testResults: document.getElementById('test-results'),
-    testScore: document.getElementById('test-score'),
-    testVerdict: document.getElementById('test-verdict'),
-    testMissed: document.getElementById('test-missed'),
-    testAgainBtn: document.getElementById('test-again-btn'),
-    testDoneBtn: document.getElementById('test-done-btn'),
     study: document.getElementById('study'),
     backBtn: document.getElementById('back-btn'),
     deckName: document.getElementById('study-deck-name'),
@@ -1631,12 +1367,10 @@
   function handleLogin(user){
     currentUser = user;
     updateAuthUI();
-    // Show the tracker straight away from local data. The remote load below may
+    // Show local progress straight away. The remote load below may
     // refine the numbers or fail outright; either way the panel is already there.
-    renderTracker();
     // If they signed up from either prompt, both have done their job.
     els.savePrompt.hidden = true;
-    els.trackerPrompt.hidden = true;
     pendingSavePrompt = false;
     // A session can also arrive without the form being submitted (e.g. a restored
     // session on load), so make sure the modal isn't left sitting open.
@@ -1671,11 +1405,6 @@
 
   // Explicit wrapper: the raw listener would pass the click Event through as `mode`.
   els.accountBtn.addEventListener('click', function(){ openAuthModal('signin'); });
-  els.trackerSaveBtn.addEventListener('click', function(){ openAuthModal('signup'); });
-  els.trackerPromptBtn.addEventListener('click', function(){
-    track('prompt_click', { where: 'tracker' });
-    openAuthModal('signup');
-  });
   els.savePromptBtn.addEventListener('click', function(){
     track('prompt_click', { where: 'complete' });
     openAuthModal('signup');
@@ -1730,7 +1459,6 @@
 
   function renderCatalog(){
     els.deckGrid.innerHTML = '';
-    renderTracker();
 
     if (!state.track){
       els.deckGrid.hidden = true;
@@ -1926,54 +1654,24 @@
   // two would mean a bad guess under exam conditions quietly wrecks a review
   // schedule the person spent weeks building.
 
-  var TEST_LEN = 10;
-  var testState = { items: [], pos: 0, revealed: false, missed: [] };
-
+  var TEST_BANK = null;          // deckId -> [{q, a, key}] , loaded from testbank.json
+  var ANSWER_KEY = 'flashprep_testanswers_v1';
+  var testView = { deckId: null, qIndex: 0 };
 
   // --- Typed answers, and what the site can honestly say about them ---------------
   //
-  // This compares the words in a typed answer against the key terms of the model
-  // answer. That is all it does, and the limits matter:
+  // Every question in the bank carries its own hand-written key terms, so nothing
+  // here is guessed from the text. The marking still only compares words:
   //
   //   green  a key term appears in what they wrote        - evidence of presence
   //   red    a key term does not appear anywhere          - MISSING, not wrong
   //
-  // It deliberately never marks any part of their answer as incorrect. Word matching
-  // cannot tell that "money left after the bills" means free cash flow, and painting
-  // a correct paraphrase red on a site aimed at people with no finance background
-  // would be worse than saying nothing. The model answer is always on screen and the
-  // person still grades themselves.
+  // It never marks any part of their answer as incorrect. Word matching cannot tell
+  // that "money left after the bills" means free cash flow, and painting a correct
+  // paraphrase red on a site aimed at people with no finance background would be
+  // worse than saying nothing. The model answer is always on screen beside it and
+  // the person is the one who decides.
 
-  var TERM_STOP = (' a an the and or but so if then than that this these those it its is are was were be been ' +
-    'being am to of in on at by for from with without into onto over under about as not no nor only just also ' +
-    'very more most less least much many one two both each every any some all other another same such own you ' +
-    'your yours we our us they them their he she his her i me my what which who whom whose when where why how ' +
-    'do does did done doing can could will would shall should may might must have has had having get gets got ' +
-    'give gives given make makes made take takes taken put puts see sees seen say says said use uses used go ' +
-    'goes going come comes came up down out off there here now new old first last next still even ever never ' +
-    'always often usually means meaning mean while because since after before during between through against ' +
-    'above below thing things something anything nothing everything way ways lot lots bit kind sort actually ' +
-    'really someone people person cannot sets set part parts same different better best worse good bad big ' +
-    'small long short high low turns turn end ends want wants need needs look looks looking find finds keep ' +
-    'keeps add adds added plus minus spend spends spent moving moved move hints hint thinks think sides side ' +
-    'fake vague tells tell asks ask calls call shows show shown knows know answer answers question questions ' +
-    'interview interviewer anyone everyone behind land full falls fall already state states finding findings ' +
-    'rests rest sits sit takes leaves leave ').split(' ');
-
-  // Real multi-word terms, so "cash flow" is never split into two weak halves.
-  var TERM_PHRASES = ['free cash flow','cash flow statement','cash flow','working capital','income statement',
-    'balance sheet','terminal value','discount rate','net income','gross margin','operating margin',
-    'market share','market size','due diligence','interest rate','enterprise value','equity value',
-    'book value','net present value','cost of capital','cost of equity','cost of debt','capital structure',
-    'deferred revenue','accounts receivable','accounts payable','retained earnings','operating income',
-    'fixed costs','variable costs','break even','economies of scale','opportunity cost','sunk cost',
-    'price elasticity','switching costs','barriers to entry','value chain','profit margin','purchase price',
-    'exit multiple','interest coverage','deferred tax','minority interest','comparable companies',
-    'precedent transactions','standard deviation','sample size','willingness to pay','price discrimination',
-    'market maker','yield curve','credit rating','quantity demanded','brand equity','contribution margin',
-    'consumer surplus','control premium','installed base'];
-
-  // Things a person may reasonably write instead of the term the card uses.
   var TERM_SYNONYMS = {
     'income statement': ['p&l','profit and loss','pnl'],
     'cash flow statement': ['cfs','statement of cash flows'],
@@ -1981,20 +1679,19 @@
     'working capital': ['nwc'],
     'net present value': ['npv'],
     'enterprise value': ['ev'],
-    'depreciation': ['d&a','depreciation and amortisation','depreciation and amortization'],
-    'amortisation': ['amortization','d&a'],
-    'amortization': ['amortisation','d&a'],
+    'cost of capital': ['wacc'],
+    'depreciation': ['d&a'],
     'comparable companies': ['comps','trading comps'],
     'precedent transactions': ['precedents','transaction comps'],
-    'earnings': ['profit','profits'],
+    'earnings per share': ['eps'],
+    'mutually exclusive': ['mece'],
+    'collectively exhaustive': ['mece'],
     'revenue': ['sales','turnover','top line'],
     'net income': ['bottom line','profit after tax'],
     'customers': ['clients','users'],
-    'equilibrium': ['market clearing'],
-    'elasticity': ['elastic','inelastic']
+    'break-even': ['breakeven','break even'],
+    'just-in-time': ['jit','just in time']
   };
-
-  var termDF = null;   // how many cards each word shows up in, for distinctiveness
 
   function normText(t){
     return (' ' + String(t || '').toLowerCase() + ' ')
@@ -2002,53 +1699,10 @@
       .replace(/[–—]/g, ' ').replace(/\s+/g, ' ');
   }
 
-  function buildTermDF(){
-    if (termDF) { return; }
-    termDF = {};
-    var n = 0;
-    for (var i = 0; i < decks.length; i++){
-      for (var c = 0; c < decks[i].cards.length; c++){
-        n++;
-        var seen = {}, ws = normText(decks[i].cards[c].takeaway).match(/[a-z][a-z'\-]{3,}/g) || [];
-        for (var k = 0; k < ws.length; k++){
-          if (seen[ws[k]]) { continue; }
-          seen[ws[k]] = 1;
-          termDF[ws[k]] = (termDF[ws[k]] || 0) + 1;
-        }
-      }
-    }
-    termDF.__n = n || 1;
+  function escHtml(t){
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  // The key terms of a card: the phrases and words in its takeaway that the full
-  // answer also leans on. Requiring the word to reappear in the long answer is what
-  // filters out incidental scene-setting words like "scene" or "vague".
-  function keyTermsFor(card){
-    buildTermDF();
-    var tk = normText(card.takeaway), full = normText(card.a || ''), out = [], covered = ' ';
-    for (var p = 0; p < TERM_PHRASES.length; p++){
-      if (tk.indexOf(' ' + TERM_PHRASES[p]) !== -1 || tk.indexOf(TERM_PHRASES[p] + ' ') !== -1){
-        out.push(TERM_PHRASES[p]); covered += TERM_PHRASES[p] + ' ';
-      }
-    }
-    var words = tk.match(/[a-z][a-z'\-]{3,}/g) || [], seen = {}, cand = [];
-    for (var i = 0; i < words.length; i++){
-      var w = words[i];
-      if (seen[w] || covered.indexOf(w) !== -1) { continue; }
-      if (TERM_STOP.indexOf(w) !== -1) { continue; }
-      if (w.length > 5 && w.slice(-2) === 'ly') { continue; }
-      seen[w] = 1;
-      var stem = (w.slice(-1) === 's' && w.slice(-2) !== 'ss') ? w.slice(0, -1) : w;
-      var reps = full.split(stem).length - 1;
-      if (reps < 1) { continue; }
-      cand.push({ w: w, score: reps * Math.log(termDF.__n / (1 + (termDF[w] || 1))) });
-    }
-    cand.sort(function(a, b){ return b.score - a.score; });
-    for (var j = 0; j < cand.length && out.length < 4; j++){ out.push(cand[j].w); }
-    return out.slice(0, 4);
-  }
-
-  // Did they write this term, in any ordinary variation of it?
   function termVariants(term){
     var v = [term];
     if (term.slice(-1) === 'y') { v.push(term.slice(0, -1) + 'ies'); }
@@ -2069,7 +1723,6 @@
     return null;
   }
 
-  // Their own words, with the matched terms underlined in green.
   function markUserAnswer(raw, terms){
     var hay = normText(raw), spans = [];
     for (var i = 0; i < terms.length; i++){
@@ -2083,38 +1736,187 @@
     }
     spans.sort(function(a, b){ return a[0] - b[0]; });
     var merged = [];
-    for (var s = 0; s < spans.length; s++){
-      if (merged.length && spans[s][0] <= merged[merged.length - 1][1]){
-        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], spans[s][1]);
-      } else { merged.push(spans[s].slice()); }
+    for (var s2 = 0; s2 < spans.length; s2++){
+      if (merged.length && spans[s2][0] <= merged[merged.length - 1][1]){
+        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], spans[s2][1]);
+      } else { merged.push(spans[s2].slice()); }
     }
     var html = '', pos = 0;
     for (var k = 0; k < merged.length; k++){
-      html += escHtml(raw.slice(pos, merged[k][0])) + '<mark>' + escHtml(raw.slice(merged[k][0], merged[k][1])) + '</mark>';
+      html += escHtml(raw.slice(pos, merged[k][0])) + '<mark>' +
+              escHtml(raw.slice(merged[k][0], merged[k][1])) + '</mark>';
       pos = merged[k][1];
     }
     return html + escHtml(raw.slice(pos));
   }
 
-  function escHtml(t){
-    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // --- Saved answers -------------------------------------------------------------
+  // Kept separate from the SM-2 schedule on purpose. A test is an assessment; it
+  // must not be able to disturb a review schedule someone spent weeks building.
+
+  function loadAnswers(){
+    try {
+      var raw = localStorage.getItem(ANSWER_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch(e){ return {}; }
   }
 
-  function renderAnswerFeedback(card){
-    var raw = (els.testInput.value || '').trim();
+  function saveAnswers(obj){
+    try { localStorage.setItem(ANSWER_KEY, JSON.stringify(obj)); }
+    catch(e){ /* private mode, or full. Answering still works for this session. */ }
+  }
+
+  var answers = loadAnswers();
+
+  function getAnswer(deckId, qi){
+    return (answers[deckId] && answers[deckId][qi]) || null;
+  }
+
+  function putAnswer(deckId, qi, rec){
+    if (!answers[deckId]) { answers[deckId] = {}; }
+    answers[deckId][qi] = rec;
+    saveAnswers(answers);
+  }
+
+  function answeredCount(deckId){
+    var d = answers[deckId], n = 0;
+    if (!d) { return 0; }
+    for (var k in d){ if (Object.prototype.hasOwnProperty.call(d, k)) { n++; } }
+    return n;
+  }
+
+  function bankFor(deckId){ return (TEST_BANK && TEST_BANK[deckId]) || []; }
+
+  // --- A. the deck grid ----------------------------------------------------------
+
+  function showTestDecks(){
+    els.testDecks.hidden = false;
+    els.testQuestions.hidden = true;
+    els.testOne.hidden = true;
+    renderTestDecks();
+    els.testH.focus();
+  }
+
+  function renderTestDecks(){
+    var wrap = els.testDeckGroups;
+    wrap.innerHTML = '';
+    if (!TEST_BANK){
+      wrap.innerHTML = '<p style="color:var(--ink-soft);">Loading questions&hellip;</p>';
+      return;
+    }
+    ['ib', 'consulting'].forEach(function(tr){
+      var group = decks.filter(function(d){ return d.track === tr && bankFor(d.id).length; });
+      if (!group.length) { return; }
+      var lbl = document.createElement('p');
+      lbl.className = 'test-group-lbl';
+      lbl.textContent = tr === 'ib' ? 'Investment banking' : 'Consulting';
+      wrap.appendChild(lbl);
+
+      var grid = document.createElement('div');
+      grid.className = 'test-deck-grid';
+      group.forEach(function(deck){
+        var total = bankFor(deck.id).length;
+        var done = Math.min(answeredCount(deck.id), total);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'test-deck' + (done === total ? ' is-done' : '');
+        btn.innerHTML =
+          '<span class="test-deck-nm">' + escHtml(deck.name) + '</span>' +
+          '<span class="test-deck-meta"><span>Answered</span>' +
+          '<span>' + done + ' / ' + total + '</span></span>' +
+          '<span class="test-bar"><span class="test-bar-fill" style="width:' +
+          Math.round(done / total * 100) + '%"></span></span>';
+        btn.addEventListener('click', function(){ showTestQuestions(deck.id); });
+        grid.appendChild(btn);
+      });
+      wrap.appendChild(grid);
+    });
+  }
+
+  // --- B. the questions in one deck ----------------------------------------------
+
+  function deckById(id){
+    for (var i = 0; i < decks.length; i++){ if (decks[i].id === id) { return decks[i]; } }
+    return null;
+  }
+
+  function showTestQuestions(deckId){
+    testView.deckId = deckId;
+    var deck = deckById(deckId), items = bankFor(deckId);
+    var done = Math.min(answeredCount(deckId), items.length);
+    els.testDecks.hidden = true;
+    els.testOne.hidden = true;
+    els.testQuestions.hidden = false;
+    els.testDeckName.textContent = deck ? deck.name : '';
+    els.testDeckSub.textContent = done + ' of ' + items.length + ' answered';
+    track('test_deck_open', { deck: deckId, answered: done });
+
+    els.testQList.innerHTML = '';
+    items.forEach(function(item, qi){
+      var saved = getAnswer(deckId, qi);
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'test-q-item' + (saved ? ' is-answered' : '');
+      btn.innerHTML =
+        '<span class="test-q-n">' + (saved ? '&#10003;' : (qi + 1)) + '</span>' +
+        '<span class="test-q-body"><span class="test-q-text">' + escHtml(item.q) + '</span>' +
+        '<span class="test-q-state">' +
+        (saved ? 'Answered &middot; ' + saved.hits + ' of ' + saved.of + ' key terms &middot; read it back'
+               : 'Not answered yet') +
+        '</span></span>';
+      btn.addEventListener('click', function(){ showTestOne(deckId, qi); });
+      li.appendChild(btn);
+      els.testQList.appendChild(li);
+    });
+    els.testDeckName.focus();
+  }
+
+  // --- C. one question -----------------------------------------------------------
+
+  function showTestOne(deckId, qi){
+    var items = bankFor(deckId);
+    if (!items[qi]) { return; }
+    testView.deckId = deckId; testView.qIndex = qi;
+    var deck = deckById(deckId), item = items[qi], saved = getAnswer(deckId, qi);
+
+    els.testDecks.hidden = true;
+    els.testQuestions.hidden = true;
+    els.testOne.hidden = false;
+    els.testBackLabel.textContent = deck ? deck.name : 'Back';
+    els.testProgress.textContent = (qi + 1) + ' of ' + items.length;
+    els.testQ.textContent = item.q;
+    els.testInput.value = saved ? saved.text : '';
+
+    if (saved) {
+      // Coming back to something already answered should show the marking again
+      // rather than make them retype it.
+      renderAnswerFeedback(item, saved.text, false);
+      els.testWrite.hidden = true;
+      els.testAnswer.hidden = false;
+      els.testRevealBtn.hidden = true;
+      els.testOnenav.hidden = false;
+    } else {
+      els.testWrite.hidden = false;
+      els.testAnswer.hidden = true;
+      els.testYours.hidden = true;
+      els.testTerms.hidden = true;
+      els.testRevealBtn.hidden = false;
+      els.testOnenav.hidden = true;
+    }
+    els.testNextBtn.hidden = (qi + 1 >= items.length);
+    els.testQ.focus();
+  }
+
+  function renderAnswerFeedback(item, raw, persist){
+    raw = (raw || '').trim();
+    els.testAText.textContent = item.a;
     if (!raw){
       els.testYours.hidden = true;
       els.testTerms.hidden = true;
       return;
     }
-    var terms = keyTermsFor(card);
-    if (!terms.length){
-      els.testYours.hidden = false;
-      els.testYoursText.textContent = raw;
-      els.testTerms.hidden = true;
-      return;
-    }
-    var hay = normText(raw), hits = 0, li = '';
+    var terms = item.key || [], hay = normText(raw), hits = 0, li = '';
     for (var i = 0; i < terms.length; i++){
       var got = !!termHit(hay, terms[i]);
       if (got) { hits++; }
@@ -2123,129 +1925,57 @@
     }
     els.testYours.hidden = false;
     els.testYoursText.innerHTML = markUserAnswer(raw, terms);
-    els.testTermList.innerHTML = li;
-    els.testTermsLbl.textContent = hits === terms.length
-      ? (terms.length === 1 ? 'You used the key term' : 'You used every key term')
-      : 'You used ' + hits + ' of ' + terms.length +
-        (terms.length === 1 ? ' key term' : ' key terms');
-    els.testTerms.hidden = false;
-    track('test_typed', { terms: terms.length, hits: hits, chars: raw.length });
+    if (terms.length){
+      els.testTermList.innerHTML = li;
+      els.testTermsLbl.textContent = hits === terms.length
+        ? (terms.length === 1 ? 'You used the key term' : 'You used every key term')
+        : 'You used ' + hits + ' of ' + terms.length +
+          (terms.length === 1 ? ' key term' : ' key terms');
+      els.testTerms.hidden = false;
+    } else {
+      els.testTerms.hidden = true;
+    }
+    if (persist){
+      putAnswer(testView.deckId, testView.qIndex,
+                { text: raw, hits: hits, of: terms.length, ts: Date.now() });
+      track('test_answered', { deck: testView.deckId, q: testView.qIndex,
+                               hits: hits, of: terms.length, chars: raw.length });
+    }
   }
 
-  function testPool(track){
-    var pool = [];
-    for (var i = 0; i < decks.length; i++){
-      if (decks[i].track !== track) { continue; }
-      for (var c = 0; c < decks[i].cards.length; c++){
-        pool.push({ deckIndex: i, cardIndex: c });
-      }
-    }
-    return pool;
+  function revealTest(){
+    var item = bankFor(testView.deckId)[testView.qIndex];
+    if (!item) { return; }
+    renderAnswerFeedback(item, els.testInput.value, true);
+    els.testWrite.hidden = true;
+    els.testAnswer.hidden = false;
+    els.testRevealBtn.hidden = true;
+    els.testOnenav.hidden = false;
+  }
+
+  function retryTest(){
+    els.testWrite.hidden = false;
+    els.testAnswer.hidden = true;
+    els.testRevealBtn.hidden = false;
+    els.testOnenav.hidden = true;
+    els.testInput.focus();
+  }
+
+  function nextTestQuestion(){
+    var items = bankFor(testView.deckId);
+    if (testView.qIndex + 1 < items.length) { showTestOne(testView.deckId, testView.qIndex + 1); }
+    else { showTestQuestions(testView.deckId); }
   }
 
   function startTest(){
-    if (els.trackerEmpty) { els.trackerEmpty.hidden = true; }
-    var pool = testPool(state.track);
-    if (!pool.length) { return; }
-    // Fisher-Yates over a copy, so a short track still gives every card a fair chance
-    for (var i = pool.length - 1; i > 0; i--){
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
-    }
-    testState = { items: pool.slice(0, Math.min(TEST_LEN, pool.length)),
-                  pos: 0, revealed: false, missed: [] };
-    track('test_start', { track: state.track, n: testState.items.length });
     els.mainView.hidden = true;
     els.introSection.hidden = true;
     els.study.hidden = true;
     els.testView.hidden = false;
     setNav('test');
-    els.testRun.hidden = false;
-    els.testResults.hidden = true;
-    renderTestCard();
-  }
-
-  function renderTestCard(){
-    var it = testState.items[testState.pos];
-    var deck = decks[it.deckIndex];
-    var card = deck.cards[it.cardIndex];
-    testState.revealed = false;
-    els.testProgress.textContent = (testState.pos + 1) + ' of ' + testState.items.length;
-    els.testTag.textContent = deck.name;
-    els.testQ.textContent = card.q;
-    els.testAText.textContent = card.takeaway;
-    els.testAnswer.hidden = true;
-    els.testMark.hidden = true;
-    els.testRevealBtn.hidden = false;
-    els.testInput.value = '';
-    els.testWrite.hidden = false;
-    els.testYours.hidden = true;
-    els.testTerms.hidden = true;
-    els.testQ.focus();
-  }
-
-  function revealTest(){
-    if (testState.revealed) { return; }
-    testState.revealed = true;
-    var it = testState.items[testState.pos];
-    renderAnswerFeedback(decks[it.deckIndex].cards[it.cardIndex]);
-    els.testWrite.hidden = true;
-    els.testAnswer.hidden = false;
-    els.testRevealBtn.hidden = true;
-    els.testMark.hidden = false;
-  }
-
-  function markTest(gotIt){
-    if (!testState.revealed) { return; }
-    if (!gotIt) { testState.missed.push(testState.items[testState.pos]); }
-    if (testState.pos + 1 < testState.items.length) {
-      testState.pos++;
-      renderTestCard();
-    } else {
-      showTestResults();
-    }
-  }
-
-  function showTestResults(){
-    var n = testState.items.length;
-    var right = n - testState.missed.length;
-    var pct = Math.round(right / n * 100);
-    track('test_complete', { track: state.track, score: right, of: n });
-    els.testRun.hidden = true;
-    els.testResults.hidden = false;
-    els.testProgress.textContent = 'Done';
-    els.testScore.textContent = right + ' of ' + n;
-    els.testVerdict.textContent =
-      pct === 100 ? 'Every one. Try the other track, or go deeper into a deck.' :
-      pct >= 70   ? 'Solid. The ones below are the gaps worth closing first.' :
-      pct >= 40   ? 'Halfway there. These are the cards to study next.' :
-                    'Plenty to go at. Nothing below is hard once you have seen it explained.';
-
-    els.testMissed.innerHTML = '';
-    for (var i = 0; i < testState.missed.length; i++){
-      (function(it){
-        var deck = decks[it.deckIndex];
-        var card = deck.cards[it.cardIndex];
-        var wrap = document.createElement('div');
-        wrap.className = 'test-miss';
-        var q = document.createElement('p');
-        q.className = 'test-miss-q'; q.textContent = card.q;
-        var a = document.createElement('p');
-        a.className = 'test-miss-a'; a.textContent = card.takeaway;
-        var d = document.createElement('p');
-        d.className = 'test-miss-deck';
-        var btn = document.createElement('button');
-        btn.type = 'button'; btn.textContent = 'Study ' + deck.name;
-        btn.addEventListener('click', function(){
-          els.testView.hidden = true;
-          openDeck(it.deckIndex);
-        });
-        d.appendChild(btn);
-        wrap.appendChild(q); wrap.appendChild(a); wrap.appendChild(d);
-        els.testMissed.appendChild(wrap);
-      })(testState.missed[i]);
-    }
-    els.testScore.focus();
+    if (!TEST_BANK) { loadTestBank(); }
+    showTestDecks();
+    track('test_open', {});
   }
 
   function exitTest(){
@@ -2253,22 +1983,22 @@
     els.mainView.hidden = false;
     setNav('decks');
     renderCatalog();
-    if (els.testStartBtn) { els.testStartBtn.focus(); }
+  }
+
+  function loadTestBank(){
+    fetch('testbank.json')
+      .then(function(r){ if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
+      .then(function(data){ TEST_BANK = data; renderTestDecks(); })
+      .catch(function(err){
+        els.testDeckGroups.innerHTML =
+          '<p style="color:var(--ink-soft);">Couldn&rsquo;t load the questions right now. ' +
+          'Please refresh the page.</p>';
+        console.error('Failed to load testbank.json:', err);
+      });
   }
 
   // Single source of truth for the nav highlight. Every view change calls this
   // rather than each one toggling classes itself, which is how these drift.
-  // A visitor with no history still clicks "My progress". Highlighting the pill and
-  // showing nothing reads as a broken link, so the empty state stands in for the
-  // tracker until there is something real to put in it.
-  function showProgress(){
-    setNav('progress');
-    var empty = els.tracker.hidden;
-    els.trackerEmpty.hidden = !empty;
-    var target = empty ? els.trackerEmpty : els.tracker;
-    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-  }
-
   function setNav(which){
     var items = document.querySelectorAll('.nav-item');
     for (var i = 0; i < items.length; i++){
@@ -2505,36 +2235,23 @@
       rate(map[e.key]);
     }
   });
-  els.reviewDueBtn.addEventListener('click', function(){
-    var best = bestDeckToReview();
-    if (!best) { return; }
-    track('review_due_click', { deck: decks[best.index].id, hadDue: best.due });
-    openDeck(best.index);
-  });
   els.navTest.addEventListener('click', function(){
     if (els.testView.hidden) { startTest(); }
   });
   els.navDecks.addEventListener('click', function(){
-    els.trackerEmpty.hidden = true;
     if (!els.testView.hidden || !els.study.hidden) { exitTest(); backToCatalog(); }
     setNav('decks');
   });
-  els.navProgress.addEventListener('click', function(){ showProgress(); });
-  els.trackerEmptyBtn.addEventListener('click', function(){
-    setNav('decks');
-    els.trackerEmpty.hidden = true;
-    document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
-  });
   els.testStartBtn.addEventListener('click', startTest);
   els.testExitBtn.addEventListener('click', exitTest);
-  els.testDoneBtn.addEventListener('click', exitTest);
-  els.testAgainBtn.addEventListener('click', startTest);
+  els.testBackDecks.addEventListener('click', showTestDecks);
+  els.testBackList.addEventListener('click', function(){ showTestQuestions(testView.deckId); });
   els.testRevealBtn.addEventListener('click', revealTest);
+  els.testRetryBtn.addEventListener('click', retryTest);
+  els.testNextBtn.addEventListener('click', nextTestQuestion);
   els.testInput.addEventListener('keydown', function(e){
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); revealTest(); }
   });
-  els.testRightBtn.addEventListener('click', function(){ markTest(true); });
-  els.testWrongBtn.addEventListener('click', function(){ markTest(false); });
   els.prevBtn.addEventListener('click', goPrevious);
   els.backBtn.addEventListener('click', backToCatalog);
   els.catalogBtn.addEventListener('click', backToCatalog);
@@ -2591,11 +2308,10 @@
 
   // The static deck pages have the same four-section nav, but they are separate HTML
   // files, so "Test yourself" and "My progress" there can only be links back here.
-  // They arrive as /#test and /#tracker, which this turns into the actual section.
+  // They arrive as /#test, which this turns into the actual section.
   function openFromHash(){
     var h = (window.location.hash || '').toLowerCase();
     if (h === '#test') { startTest(); return true; }
-    if (h === '#tracker') { showProgress(); return true; }
     return false;
   }
 
