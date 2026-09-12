@@ -654,6 +654,30 @@
   .tracker-empty-text{font-size:.92rem;line-height:1.6;color:var(--ink-soft);
     max-width:46ch;margin:.5rem 0 1.1rem;}
 
+  /* ---------- typed answer + marking ---------- */
+  .test-write{margin:1.4rem 0 .2rem;}
+  .test-write-lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;}
+  .test-input{width:100%;font-family:var(--body);font-size:1rem;line-height:1.6;
+    color:var(--ink);background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:.9rem 1rem;resize:vertical;min-height:6.5rem;}
+  .test-input::placeholder{color:var(--ink-faint);}
+  .test-input:focus{outline:2px solid var(--focus);outline-offset:1px;border-color:var(--blue);}
+  .test-yours{margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line-soft);}
+  .test-yours-text{font-size:1rem;line-height:1.7;color:var(--ink);white-space:pre-wrap;margin:0;}
+  .test-yours-text mark{background:none;color:inherit;font-weight:600;
+    border-bottom:2px solid var(--green);padding-bottom:1px;}
+  .test-terms{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line-soft);}
+  .test-terms-lbl{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .7rem;}
+  .test-term-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem;}
+  .test-term-list li{display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;
+    font-weight:600;padding:.35rem .75rem;border-radius:999px;border:1px solid var(--line-soft);}
+  .test-term-list li.hit{color:var(--green);border-color:var(--green);}
+  .test-term-list li.miss{color:var(--red);border-color:var(--red);}
+  .test-term-list .tick{font-weight:700;}
+  .test-terms-note{font-size:.76rem;line-height:1.5;color:var(--ink-faint);margin:.8rem 0 0;}
+
   /* ---------- auth ---------- */
   .site-header{gap:1rem;flex-wrap:wrap;}
   .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
@@ -871,9 +895,24 @@
       <div id="test-run">
         <p class="test-tag" id="test-tag"></p>
         <h2 class="test-q" id="test-q" tabindex="-1"></h2>
+        <div class="test-write" id="test-write">
+          <label class="test-write-lbl" for="test-input">Write your answer</label>
+          <textarea id="test-input" class="test-input" rows="4" spellcheck="false"
+            placeholder="Type it out as you would say it. Optional &mdash; but committing to an answer first is the point."></textarea>
+        </div>
         <div class="test-answer" id="test-answer" hidden>
+          <div class="test-yours" id="test-yours" hidden>
+            <p class="test-a-label">What you wrote</p>
+            <p class="test-yours-text" id="test-yours-text"></p>
+          </div>
           <p class="test-a-label">Answer</p>
           <p class="test-a-text" id="test-a-text"></p>
+          <div class="test-terms" id="test-terms" hidden>
+            <p class="test-terms-lbl" id="test-terms-lbl">Key terms in this answer</p>
+            <ul class="test-term-list" id="test-term-list"></ul>
+            <p class="test-terms-note">Word matching only &mdash; it cannot tell that you said
+              the same thing in your own words. You are the judge.</p>
+          </div>
         </div>
         <div class="test-actions">
           <button class="btn-primary" id="test-reveal-btn" type="button">Show answer</button>
@@ -1454,6 +1493,13 @@
     segEasy: document.getElementById('seg-easy'),
     mainView: document.getElementById('main-view'),
     testView: document.getElementById('test'),
+    testInput: document.getElementById('test-input'),
+    testWrite: document.getElementById('test-write'),
+    testYours: document.getElementById('test-yours'),
+    testYoursText: document.getElementById('test-yours-text'),
+    testTerms: document.getElementById('test-terms'),
+    testTermsLbl: document.getElementById('test-terms-lbl'),
+    testTermList: document.getElementById('test-term-list'),
     navDecks: document.getElementById('nav-decks'),
     navTest: document.getElementById('nav-test'),
     navProgress: document.getElementById('nav-progress'),
@@ -1883,6 +1929,209 @@
   var TEST_LEN = 10;
   var testState = { items: [], pos: 0, revealed: false, missed: [] };
 
+
+  // --- Typed answers, and what the site can honestly say about them ---------------
+  //
+  // This compares the words in a typed answer against the key terms of the model
+  // answer. That is all it does, and the limits matter:
+  //
+  //   green  a key term appears in what they wrote        - evidence of presence
+  //   red    a key term does not appear anywhere          - MISSING, not wrong
+  //
+  // It deliberately never marks any part of their answer as incorrect. Word matching
+  // cannot tell that "money left after the bills" means free cash flow, and painting
+  // a correct paraphrase red on a site aimed at people with no finance background
+  // would be worse than saying nothing. The model answer is always on screen and the
+  // person still grades themselves.
+
+  var TERM_STOP = (' a an the and or but so if then than that this these those it its is are was were be been ' +
+    'being am to of in on at by for from with without into onto over under about as not no nor only just also ' +
+    'very more most less least much many one two both each every any some all other another same such own you ' +
+    'your yours we our us they them their he she his her i me my what which who whom whose when where why how ' +
+    'do does did done doing can could will would shall should may might must have has had having get gets got ' +
+    'give gives given make makes made take takes taken put puts see sees seen say says said use uses used go ' +
+    'goes going come comes came up down out off there here now new old first last next still even ever never ' +
+    'always often usually means meaning mean while because since after before during between through against ' +
+    'above below thing things something anything nothing everything way ways lot lots bit kind sort actually ' +
+    'really someone people person cannot sets set part parts same different better best worse good bad big ' +
+    'small long short high low turns turn end ends want wants need needs look looks looking find finds keep ' +
+    'keeps add adds added plus minus spend spends spent moving moved move hints hint thinks think sides side ' +
+    'fake vague tells tell asks ask calls call shows show shown knows know answer answers question questions ' +
+    'interview interviewer anyone everyone behind land full falls fall already state states finding findings ' +
+    'rests rest sits sit takes leaves leave ').split(' ');
+
+  // Real multi-word terms, so "cash flow" is never split into two weak halves.
+  var TERM_PHRASES = ['free cash flow','cash flow statement','cash flow','working capital','income statement',
+    'balance sheet','terminal value','discount rate','net income','gross margin','operating margin',
+    'market share','market size','due diligence','interest rate','enterprise value','equity value',
+    'book value','net present value','cost of capital','cost of equity','cost of debt','capital structure',
+    'deferred revenue','accounts receivable','accounts payable','retained earnings','operating income',
+    'fixed costs','variable costs','break even','economies of scale','opportunity cost','sunk cost',
+    'price elasticity','switching costs','barriers to entry','value chain','profit margin','purchase price',
+    'exit multiple','interest coverage','deferred tax','minority interest','comparable companies',
+    'precedent transactions','standard deviation','sample size','willingness to pay','price discrimination',
+    'market maker','yield curve','credit rating','quantity demanded','brand equity','contribution margin',
+    'consumer surplus','control premium','installed base'];
+
+  // Things a person may reasonably write instead of the term the card uses.
+  var TERM_SYNONYMS = {
+    'income statement': ['p&l','profit and loss','pnl'],
+    'cash flow statement': ['cfs','statement of cash flows'],
+    'free cash flow': ['fcf'],
+    'working capital': ['nwc'],
+    'net present value': ['npv'],
+    'enterprise value': ['ev'],
+    'depreciation': ['d&a','depreciation and amortisation','depreciation and amortization'],
+    'amortisation': ['amortization','d&a'],
+    'amortization': ['amortisation','d&a'],
+    'comparable companies': ['comps','trading comps'],
+    'precedent transactions': ['precedents','transaction comps'],
+    'earnings': ['profit','profits'],
+    'revenue': ['sales','turnover','top line'],
+    'net income': ['bottom line','profit after tax'],
+    'customers': ['clients','users'],
+    'equilibrium': ['market clearing'],
+    'elasticity': ['elastic','inelastic']
+  };
+
+  var termDF = null;   // how many cards each word shows up in, for distinctiveness
+
+  function normText(t){
+    return (' ' + String(t || '').toLowerCase() + ' ')
+      .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+      .replace(/[–—]/g, ' ').replace(/\s+/g, ' ');
+  }
+
+  function buildTermDF(){
+    if (termDF) { return; }
+    termDF = {};
+    var n = 0;
+    for (var i = 0; i < decks.length; i++){
+      for (var c = 0; c < decks[i].cards.length; c++){
+        n++;
+        var seen = {}, ws = normText(decks[i].cards[c].takeaway).match(/[a-z][a-z'\-]{3,}/g) || [];
+        for (var k = 0; k < ws.length; k++){
+          if (seen[ws[k]]) { continue; }
+          seen[ws[k]] = 1;
+          termDF[ws[k]] = (termDF[ws[k]] || 0) + 1;
+        }
+      }
+    }
+    termDF.__n = n || 1;
+  }
+
+  // The key terms of a card: the phrases and words in its takeaway that the full
+  // answer also leans on. Requiring the word to reappear in the long answer is what
+  // filters out incidental scene-setting words like "scene" or "vague".
+  function keyTermsFor(card){
+    buildTermDF();
+    var tk = normText(card.takeaway), full = normText(card.a || ''), out = [], covered = ' ';
+    for (var p = 0; p < TERM_PHRASES.length; p++){
+      if (tk.indexOf(' ' + TERM_PHRASES[p]) !== -1 || tk.indexOf(TERM_PHRASES[p] + ' ') !== -1){
+        out.push(TERM_PHRASES[p]); covered += TERM_PHRASES[p] + ' ';
+      }
+    }
+    var words = tk.match(/[a-z][a-z'\-]{3,}/g) || [], seen = {}, cand = [];
+    for (var i = 0; i < words.length; i++){
+      var w = words[i];
+      if (seen[w] || covered.indexOf(w) !== -1) { continue; }
+      if (TERM_STOP.indexOf(w) !== -1) { continue; }
+      if (w.length > 5 && w.slice(-2) === 'ly') { continue; }
+      seen[w] = 1;
+      var stem = (w.slice(-1) === 's' && w.slice(-2) !== 'ss') ? w.slice(0, -1) : w;
+      var reps = full.split(stem).length - 1;
+      if (reps < 1) { continue; }
+      cand.push({ w: w, score: reps * Math.log(termDF.__n / (1 + (termDF[w] || 1))) });
+    }
+    cand.sort(function(a, b){ return b.score - a.score; });
+    for (var j = 0; j < cand.length && out.length < 4; j++){ out.push(cand[j].w); }
+    return out.slice(0, 4);
+  }
+
+  // Did they write this term, in any ordinary variation of it?
+  function termVariants(term){
+    var v = [term];
+    if (term.slice(-1) === 'y') { v.push(term.slice(0, -1) + 'ies'); }
+    if (term.slice(-1) === 's' && term.slice(-2) !== 'ss') { v.push(term.slice(0, -1)); }
+    else { v.push(term + 's'); }
+    if (term.slice(-1) === 'e') { v.push(term.slice(0, -1) + 'ing'); v.push(term + 'd'); }
+    else { v.push(term + 'ing'); v.push(term + 'ed'); }
+    var syn = TERM_SYNONYMS[term];
+    if (syn) { v = v.concat(syn); }
+    return v;
+  }
+
+  function termHit(haystack, term){
+    var v = termVariants(term);
+    for (var i = 0; i < v.length; i++){
+      if (haystack.indexOf(v[i]) !== -1) { return v[i]; }
+    }
+    return null;
+  }
+
+  // Their own words, with the matched terms underlined in green.
+  function markUserAnswer(raw, terms){
+    var hay = normText(raw), spans = [];
+    for (var i = 0; i < terms.length; i++){
+      var found = termHit(hay, terms[i]);
+      if (!found) { continue; }
+      var re = new RegExp(found.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), m;
+      while ((m = re.exec(raw)) !== null){
+        spans.push([m.index, m.index + m[0].length]);
+        if (m.index === re.lastIndex) { re.lastIndex++; }
+      }
+    }
+    spans.sort(function(a, b){ return a[0] - b[0]; });
+    var merged = [];
+    for (var s = 0; s < spans.length; s++){
+      if (merged.length && spans[s][0] <= merged[merged.length - 1][1]){
+        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], spans[s][1]);
+      } else { merged.push(spans[s].slice()); }
+    }
+    var html = '', pos = 0;
+    for (var k = 0; k < merged.length; k++){
+      html += escHtml(raw.slice(pos, merged[k][0])) + '<mark>' + escHtml(raw.slice(merged[k][0], merged[k][1])) + '</mark>';
+      pos = merged[k][1];
+    }
+    return html + escHtml(raw.slice(pos));
+  }
+
+  function escHtml(t){
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderAnswerFeedback(card){
+    var raw = (els.testInput.value || '').trim();
+    if (!raw){
+      els.testYours.hidden = true;
+      els.testTerms.hidden = true;
+      return;
+    }
+    var terms = keyTermsFor(card);
+    if (!terms.length){
+      els.testYours.hidden = false;
+      els.testYoursText.textContent = raw;
+      els.testTerms.hidden = true;
+      return;
+    }
+    var hay = normText(raw), hits = 0, li = '';
+    for (var i = 0; i < terms.length; i++){
+      var got = !!termHit(hay, terms[i]);
+      if (got) { hits++; }
+      li += '<li class="' + (got ? 'hit' : 'miss') + '"><span class="tick">' +
+            (got ? '&#10003;' : '&#10007;') + '</span>' + escHtml(terms[i]) + '</li>';
+    }
+    els.testYours.hidden = false;
+    els.testYoursText.innerHTML = markUserAnswer(raw, terms);
+    els.testTermList.innerHTML = li;
+    els.testTermsLbl.textContent = hits === terms.length
+      ? (terms.length === 1 ? 'You used the key term' : 'You used every key term')
+      : 'You used ' + hits + ' of ' + terms.length +
+        (terms.length === 1 ? ' key term' : ' key terms');
+    els.testTerms.hidden = false;
+    track('test_typed', { terms: terms.length, hits: hits, chars: raw.length });
+  }
+
   function testPool(track){
     var pool = [];
     for (var i = 0; i < decks.length; i++){
@@ -1928,12 +2177,19 @@
     els.testAnswer.hidden = true;
     els.testMark.hidden = true;
     els.testRevealBtn.hidden = false;
+    els.testInput.value = '';
+    els.testWrite.hidden = false;
+    els.testYours.hidden = true;
+    els.testTerms.hidden = true;
     els.testQ.focus();
   }
 
   function revealTest(){
     if (testState.revealed) { return; }
     testState.revealed = true;
+    var it = testState.items[testState.pos];
+    renderAnswerFeedback(decks[it.deckIndex].cards[it.cardIndex]);
+    els.testWrite.hidden = true;
     els.testAnswer.hidden = false;
     els.testRevealBtn.hidden = true;
     els.testMark.hidden = false;
@@ -2274,6 +2530,9 @@
   els.testDoneBtn.addEventListener('click', exitTest);
   els.testAgainBtn.addEventListener('click', startTest);
   els.testRevealBtn.addEventListener('click', revealTest);
+  els.testInput.addEventListener('keydown', function(e){
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); revealTest(); }
+  });
   els.testRightBtn.addEventListener('click', function(){ markTest(true); });
   els.testWrongBtn.addEventListener('click', function(){ markTest(false); });
   els.prevBtn.addEventListener('click', goPrevious);
