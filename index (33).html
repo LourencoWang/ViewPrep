@@ -1,0 +1,2624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+
+<title>ViewPrep: Investment banking &amp; consulting interview flashcards</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free flashcards for investment banking and consulting interviews. 400 cards across 23 decks, written so anyone can follow them with no finance background.">
+<link rel="canonical" href="https://viewprep.net/">
+<meta name="theme-color" content="#F2F1EC">
+
+<!-- Social preview (LinkedIn, WhatsApp, Slack, iMessage, X). og:image must be an absolute URL. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/">
+<meta property="og:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
+<meta property="og:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 400 cards, 23 decks, free.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
+<meta name="twitter:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F2F1EC;
+    --ink:#0C0C0D;
+    --ink-soft:#54545A;
+    --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20);
+    --line-soft:rgba(12,12,13,0.085);
+    --surface:#FFFFFF;
+    --surface-strong:#FFFFFF;
+    --blue:#2F5FE0;
+    --amber:#2C4E92; --amber-ink:#2C4E92;
+    --green:#1D8A57;
+    --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --shadow:rgba(12,12,13,0.08);
+    --focus:#2F5FE0;
+
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+
+  /* Amber is the brand mark, but white on amber fails contrast, so anything
+     filled with amber takes dark text instead of --contrast. */
+  .track-btn[data-track="consulting"].is-active{color:#fff;}
+  .stamp-good:hover{color:#fff;}
+  .stamp-good:hover .stamp-interval,
+  .stamp-good:hover .stamp-key{color:#fff;opacity:.75;}
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,p{margin:0;}
+  button{font:inherit;color:inherit;}
+  a{color:inherit;}
+  ::selection{background:var(--blue);color:#fff;}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+  .page{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;
+  }
+  .wordmark{display:inline-flex;align-items:center;gap:.55rem;
+    font-family:var(--display);font-size:1.3rem;
+    letter-spacing:.03em;
+  }
+  .wordmark-text{display:inline;}
+  .wordmark-mark{display:block;border-radius:8px;flex:0 0 auto;}
+  .wordmark-primary{font-weight:800;color:var(--ink);}
+  .wordmark-secondary{font-weight:400;color:var(--ink-faint);}
+  .header-arrow{
+    display:grid;place-items:center;width:1.9rem;height:1.9rem;color:var(--ink-soft);
+    transition:transform .18s ease, color .18s ease;
+  }
+  .header-arrow:hover{color:var(--blue);transform:translate(2px,-2px);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;padding:2.75rem 0 0;overflow:hidden;
+    width:100vw;margin-left:calc(50% - 50vw);
+  }
+  .hero-blob{
+    position:absolute;top:-70px;left:-4%;width:108%;height:clamp(260px,42vw,420px);
+    background:linear-gradient(100deg, var(--blue) 0%, transparent 40%, transparent 60%, var(--amber) 100%);
+    filter:blur(80px);opacity:.16;transform:rotate(-6deg);border-radius:45%;
+    pointer-events:none;z-index:0;
+  }
+  .hero-blob::after{
+    content:'';position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.3;mix-blend-mode:overlay;
+  }
+  .hero-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
+  .hero-content{position:relative;z-index:1;max-width:620px;padding:1.5rem 0 2.5rem;}
+  .hero-eyebrow{
+    font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:1.5rem;
+  }
+  .hero-title{text-transform:uppercase;
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2.5rem,6.5vw,4.2rem);line-height:.99;letter-spacing:-.012em;text-wrap:balance;
+    animation:rise-in .6s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise-in{0%{opacity:0;transform:translateY(14px);}100%{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){ .hero-title{animation:none;} }
+  .hero-sub{margin-top:1.5rem;font-size:1rem;color:var(--ink-soft);max-width:48ch;line-height:1.65;}
+  .hero-actions{margin-top:2.25rem;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.85rem 1.6rem;border-radius:999px;
+    background:var(--ink);color:var(--contrast);
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;border:none;cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:#2A2A2E;transform:translateY(-1px);}
+  .hero-caption-row{
+    position:relative;z-index:1;
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+    padding:1.15rem 0;border-top:1px solid var(--line-soft);
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- catalog ---------- */
+  .catalog{padding:2.75rem 0 4rem;}
+  .section-title{text-transform:uppercase;border-left:5px solid var(--amber);padding-left:.7rem;
+    font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:.015em;
+    margin-bottom:.65rem;
+  }
+  .section-sub{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.9rem;max-width:56ch;}
+  .track-toggle-wrap{margin-bottom:2rem;}
+  .track-toggle{
+    display:flex;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
+    max-width:560px;
+  }
+  .track-btn{
+    all:unset;box-sizing:border-box;cursor:pointer;flex:1;text-align:center;
+    padding:1.15rem 1rem;
+    font-family:var(--display);font-weight:800;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-soft);background:transparent;border-bottom:2px solid transparent;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .track-btn + .track-btn{border-left:1px solid var(--line-soft);}
+  .track-btn:hover{color:var(--ink);}
+  .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
+  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
+  /* ---------- deck intro ---------- */
+  .deck-intro{padding:2.75rem 0 4rem;}
+  .intro-inner{max-width:640px;}
+  .intro-inner h2:focus{outline:none;}
+  .intro-inner .deck-tag{margin-top:1.75rem;display:inline-block;}
+  .intro-title{
+    font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.01em;
+    line-height:1.15;text-transform:uppercase;margin-top:.6rem;
+  }
+  .intro-text{
+    margin-top:1.25rem;font-family:var(--body);font-size:1.02rem;line-height:1.7;color:var(--ink-soft);
+  }
+  .intro-meta{
+    margin-top:1.5rem;font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;
+  }
+  .intro-inner .btn-primary{margin-top:2rem;}
+
+  /* ---------- study ---------- */
+  .study{padding:2.5rem 0 4rem;}
+  .study-bar{
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    margin-bottom:1.5rem;
+  }
+  .link-back{
+    all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;
+    font-family:var(--body);font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);
+    padding:.4rem .2rem;
+  }
+  .link-back:hover{color:var(--blue);}
+  .study-deck-name{
+    font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;
+  }
+  .study-progress{
+    font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;
+  }
+  .progress-track{height:4px;border-radius:2px;background:var(--surface-strong);overflow:hidden;margin-bottom:2.25rem;}
+  .progress-fill{
+    height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--amber));
+    transition:width .25s ease;
+  }
+
+  .study-desk{display:flex;flex-direction:column;align-items:center;gap:1.75rem;padding:1rem 0;}
+
+  .card-stage{-webkit-perspective:1800px;perspective:1800px;width:100%;max-width:480px;}
+
+  /* Desktop only: 86% of answers overflowed the 480px card and had to be
+     scrolled. 720px at a wider ratio fits all 400 without making the card
+     taller than the 480px version's successor would have been. Phones and
+     tablets keep the original sizing. */
+  @media (min-width:1000px){
+    #card-stage{max-width:700px;}
+    #card-stage .flashcard{aspect-ratio:5/3;}
+  }
+  .flashcard{all:unset;display:block;width:100%;aspect-ratio:5/3.3;min-height:300px;cursor:pointer;}
+  .flashcard.has-diagram{min-height:520px;}
+  @media (max-width:600px){
+    .flashcard{min-height:380px;}
+    .flashcard.has-diagram{min-height:480px;}
+  }
+  .flashcard.has-diagram .face-front .face-text{display:flex;align-items:center;}
+  .flashcard-inner{
+    position:relative;width:100%;height:100%;
+    -webkit-transform-style:preserve-3d;transform-style:preserve-3d;
+    -webkit-transform:rotateY(0deg);transform:rotateY(0deg);
+    transition:-webkit-transform .5s cubic-bezier(.2,.8,.2,1);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  @media (prefers-reduced-motion: reduce){ .flashcard-inner{transition:none;} }
+  .flashcard-inner.flipped{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
+  .face{
+    position:absolute;inset:0;border-radius:18px;overflow:hidden;
+    background:var(--surface);border:1px solid var(--line-soft);
+    box-shadow:0 18px 44px var(--shadow);
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+    -webkit-transform:rotateY(0deg) translateZ(0);transform:rotateY(0deg) translateZ(0);
+    padding:1.9rem 1.7rem 1.6rem;
+    display:flex;flex-direction:column;
+    min-height:0;
+  }
+  @media (max-width:600px){ .face{padding:1.6rem 1.4rem 1.3rem;} }
+  .face::before{
+    content:'';position:absolute;bottom:-25%;right:-15%;width:55%;height:55%;
+    border-radius:50%;filter:blur(60px);opacity:.16;z-index:0;pointer-events:none;
+  }
+  .face-front::before{background:var(--blue);}
+  .face-back::before{background:var(--amber);}
+  .face-back{-webkit-transform:rotateY(180deg) translateZ(0);transform:rotateY(180deg) translateZ(0);}
+  .face-label{
+    position:relative;z-index:1;align-self:flex-start;flex-shrink:0;
+    font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:1.1rem;
+  }
+  .face-back .face-label{color:var(--amber-ink);}
+  .face-text{
+    position:relative;z-index:1;
+    font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.42;color:var(--ink);
+    flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;letter-spacing:-.005em;
+  }
+  .face-back .face-text{font-family:var(--body);font-weight:400;font-size:1rem;line-height:1.65;}
+  @media (max-width:600px){ .face-text{font-size:1.08rem;} .face-back .face-text{font-size:.94rem;} }
+  .face-takeaway{
+    font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1.4;color:var(--ink);
+    letter-spacing:-.005em;margin-bottom:.7rem;
+  }
+  .face-detail{
+    font-family:var(--body);font-weight:400;font-size:.94rem;line-height:1.6;color:var(--ink-soft);
+  }
+  .face-diagram{
+    position:relative;z-index:1;margin:.2rem 0 1rem;
+  }
+  .face-diagram svg{display:block;width:100%;height:auto;}
+  .tap-hint{
+    position:relative;z-index:1;flex-shrink:0;
+    font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:1rem;
+  }
+
+  .flip-btn{
+    all:unset;cursor:pointer;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:.7rem 1.5rem;border-radius:999px;
+    border:1px solid var(--line-soft);color:var(--ink-soft);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .flip-btn:hover{border-color:var(--ink);color:var(--ink);}
+
+  .rating-row{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
+  .stamp{
+    all:unset;box-sizing:border-box;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:.15rem;
+    min-width:5.2rem;text-align:center;
+    font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+    padding:.6rem 1rem;border-radius:12px;border:1.5px solid;
+    transition:background .15s ease, color .15s ease, transform .12s ease;
+  }
+  .stamp:active{transform:scale(.96);}
+  @media (prefers-reduced-motion: reduce){ .stamp{transition:none;} .stamp:active{transform:none;} }
+  .stamp-interval{
+    font-family:var(--body);font-size:.64rem;font-weight:600;letter-spacing:.02em;
+    text-transform:none;opacity:.72;font-variant-numeric:tabular-nums;
+  }
+  .stamp-key{
+    display:block;font-family:var(--body);font-size:.58rem;font-weight:600;
+    letter-spacing:.06em;opacity:.5;text-transform:none;margin-top:.1rem;
+  }
+  .card-nav{display:flex;align-items:center;justify-content:center;gap:.9rem;flex-wrap:wrap;}
+  .prev-btn{all:unset;cursor:pointer;font-family:var(--body);font-size:.74rem;font-weight:700;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);
+    padding:.55rem 1.05rem;border-radius:999px;border:1px solid var(--line-soft);
+    transition:color .15s ease,border-color .15s ease;}
+  .prev-btn:hover:not([disabled]){color:var(--ink);border-color:var(--line);}
+  .prev-btn[disabled]{opacity:.3;cursor:default;}
+  .stamp-again{color:var(--red);border-color:var(--red);}
+  .stamp-again:hover{background:var(--red);color:var(--contrast);}
+  /* Outline and label carry the colour; the interval and key hint stay neutral so
+     the button doesn't read as one solid block of yellow. */
+  .stamp-good{color:var(--amber-ink);border-color:var(--amber-ink);}
+  .stamp-good .stamp-interval,
+  .stamp-good .stamp-key{color:var(--ink-soft);opacity:1;}
+  .stamp-good:hover{background:var(--amber);color:var(--contrast);}
+  .stamp-good:hover .stamp-interval,
+  .stamp-good:hover .stamp-key{color:var(--contrast);opacity:.75;}
+  .stamp-easy{color:var(--green);border-color:var(--green);}
+  .stamp-easy:hover{background:var(--green);color:var(--contrast);}
+  @media (max-width:600px){
+    .rating-row{gap:.45rem;width:100%;}
+    .stamp{flex:1 1 0;min-width:0;padding:.55rem .35rem;font-size:.72rem;}
+    .stamp-key{display:none;}
+  }
+  .due-pill{
+    display:inline-flex;align-items:center;gap:.3rem;
+    font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;
+    background:var(--surface-strong);color:var(--ink-soft);
+  }
+  .due-pill.has-due{background:rgba(76,124,240,.16);color:var(--blue);}
+  .due-pill.all-clear{background:rgba(79,174,122,.14);color:var(--green);}
+
+  .study-complete{text-align:center;max-width:420px;padding:1rem 0;}
+  .study-complete h3:focus{outline:none;}
+  .study-complete h3{
+    font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;
+    margin-bottom:.75rem;
+  }
+  .complete-tally{
+    font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--ink-soft);
+    display:flex;gap:1.5rem;justify-content:center;margin-bottom:1.75rem;flex-wrap:wrap;
+  }
+  .complete-tally b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;}
+  .complete-next{
+    font-family:var(--body);font-size:.88rem;color:var(--ink-soft);
+    margin:-.85rem 0 1.6rem;line-height:1.55;
+  }
+  .save-prompt{
+    margin:0 0 1.75rem;padding:1.15rem 1.25rem;border-radius:14px;
+    background:var(--surface);border:1px solid var(--line-soft);
+    display:flex;flex-direction:column;align-items:center;gap:.9rem;
+  }
+  .save-prompt-text{
+    margin:0;font-family:var(--body);font-size:.9rem;line-height:1.55;
+    color:var(--ink-soft);max-width:38ch;
+  }
+  .save-prompt-text b{color:var(--ink);font-weight:700;}
+
+  .complete-actions{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;}
+  .btn-ghost{
+    all:unset;cursor:pointer;
+    font-family:var(--display);font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:.7rem 1.4rem;border-radius:999px;border:1px solid var(--line-soft);color:var(--ink-soft);
+  }
+  .btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+  .btn-solid{
+    all:unset;cursor:pointer;
+    font-family:var(--display);font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:.7rem 1.4rem;border-radius:999px;border:none;
+    background:var(--ink);color:var(--contrast);
+  }
+  .btn-solid:hover{background:#2A2A2E;}
+
+  .deck-open:focus-visible,
+  .deck-restart-mini:focus-visible,
+  .link-back:focus-visible,
+  .flashcard:focus-visible,
+  .flip-btn:focus-visible,
+  .stamp:focus-visible,
+  .btn-ghost:focus-visible,
+  .btn-solid:focus-visible,
+  .footer-reset:focus-visible{
+    outline:2px solid var(--focus);outline-offset:3px;
+  }
+  .deck-restart-mini:focus-visible,
+  .flip-btn:focus-visible,
+  .stamp:focus-visible,
+  .btn-ghost:focus-visible,
+  .btn-solid:focus-visible{
+    outline-offset:2px;
+  }
+
+  [hidden]{display:none !important;}
+
+  .site-footer{
+    border-top:1px solid var(--line-soft);
+    padding:1.5rem 0 2.75rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;
+  }
+  .footer-disclaimer{max-width:58ch;}
+  .footer-credit{
+    margin-top:1.1rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+    font-family:var(--body);font-size:.83rem;color:var(--ink-soft);
+  }
+  .footer-credit a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px;}
+  .footer-credit a:hover{color:var(--blue);text-decoration-color:var(--blue);}
+  .footer-credit .sep{color:var(--line-soft);}
+  .footer-browse{
+    margin-top:1.1rem;font-family:var(--body);font-size:.85rem;
+  }
+  .footer-browse a{
+    color:var(--ink-soft);text-decoration:underline;
+    text-decoration-color:var(--line-soft);text-underline-offset:2px;
+  }
+  .footer-browse a:hover{color:var(--blue);text-decoration-color:var(--blue);}
+  .footer-links{
+    margin-top:.85rem;font-family:var(--body);font-size:.82rem;color:var(--ink-faint);
+  }
+  .footer-links a{color:var(--ink-soft);text-decoration:none;}
+  .footer-links a:hover{color:var(--blue);text-decoration:underline;}
+
+  .footer-reset{
+    all:unset;cursor:pointer;
+    margin-top:1.1rem;display:inline-block;
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px;
+  }
+  .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
+
+  /* ---------- catalog, deck cards, hero demo ---------- */
+  .track-hint{
+    color:var(--ink-faint);font-size:.9rem;padding:2.75rem 1rem;text-align:center;
+    border:1px dashed var(--line-soft);border-radius:16px;
+  }
+  .deck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+  .deck-card{
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;gap:1.15rem;
+    min-height:150px;padding:1.35rem 1.4rem;border-radius:16px;
+    background:var(--surface);
+    border:1px solid var(--line-soft);
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .deck-card::before{
+    content:'';position:absolute;top:-35%;right:-18%;width:60%;height:60%;
+    border-radius:50%;filter:blur(50px);opacity:.28;z-index:0;pointer-events:none;
+    background:var(--blue);
+  }
+  .deck-card:nth-child(even)::before{background:var(--amber);}
+  .deck-card:hover,.deck-card:focus-within{transform:translateY(-2px);border-color:var(--line);}
+  /* --- hero demo card ---
+     Uses .flashcard / .flashcard-inner / .face wholesale, so it is the same
+     component as the study view: same 3D flip, same fonts, same surface. Only
+     the wrapper and the size cap below are new. */
+  .hero-demo{margin:1.6rem 0 1.7rem;max-width:30rem;}
+  .hero-demo .flashcard{min-height:270px;aspect-ratio:5/3.2;}
+  .hero-demo-link{
+    display:inline-block;margin-top:1rem;font-family:var(--body);font-size:.92rem;
+    font-weight:600;text-decoration:none;color:var(--amber-ink);
+  }
+  .hero-demo-link:hover{text-decoration:underline;}
+
+  .deck-open{
+    all:unset;cursor:pointer;display:flex;flex-direction:column;gap:1rem;width:100%;
+    position:relative;z-index:1;
+  }
+  .deck-open-top{display:flex;align-items:center;justify-content:space-between;gap:.75rem;}
+  .deck-open-arrow{font-size:.9rem;color:var(--ink-faint);transition:color .18s ease, transform .18s ease;}
+  .deck-card:hover .deck-open-arrow,.deck-card:focus-within .deck-open-arrow{
+    color:var(--blue);transform:translateX(2px);
+  }
+  .deck-tag{
+    font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--blue);
+  }
+  .deck-info{display:flex;flex-direction:column;gap:.5rem;}
+  .deck-info .deck-name{text-transform:uppercase;
+    display:block;
+    font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--ink);letter-spacing:.01em;
+  }
+  .deck-info .deck-desc{
+    display:block;
+    font-family:var(--body);font-size:.86rem;color:var(--ink-soft);line-height:1.5;
+  }
+  .deck-progress{display:flex;flex-direction:column;gap:.6rem;position:relative;z-index:1;}
+  .deck-progress-track{height:5px;border-radius:3px;background:var(--surface-strong);overflow:hidden;}
+  .deck-progress-fill{
+    height:100%;border-radius:3px;width:0%;
+    background:linear-gradient(90deg,var(--blue),var(--amber));
+    transition:width .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .deck-progress-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
+  .deck-progress-label{
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;
+  }
+  .deck-progress-label.is-complete{color:var(--amber-ink);}
+  .deck-restart-mini{
+    all:unset;cursor:pointer;
+    font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-faint);
+    padding:.35rem .7rem;border-radius:999px;border:1px solid var(--line-soft);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .deck-restart-mini:hover{border-color:var(--amber-ink);color:var(--amber-ink);}
+
+
+
+  @media (max-width:600px){ .deck-grid{grid-template-columns:1fr;} .track-toggle{max-width:100%;} }
+  @media (max-width:600px){ .hero-demo .flashcard{min-height:300px;} }
+  @media (prefers-reduced-motion: reduce){ .deck-progress-fill{transition:none;} }
+
+  /* ---------- test mode ---------- */
+  .test{padding:2.5rem 0 4rem;}
+  .test-inner{max-width:700px;margin:0 auto;}
+  .test-topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding-bottom:1rem;border-bottom:1px solid var(--line-soft);margin-bottom:1.8rem;
+    flex-wrap:wrap;}
+  .test-progress{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);}
+  .test-tag{font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--amber-ink);margin-bottom:.75rem;}
+  .test-q{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1.34;
+    letter-spacing:-.015em;margin:0 0 1.6rem;}
+  .test-answer{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;
+    padding:1.4rem 1.4rem 1.5rem;margin:0 0 1.6rem;box-shadow:0 10px 30px var(--shadow);}
+  .test-a-label{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 .55rem;}
+  .test-a-text{font-size:1rem;line-height:1.65;color:var(--ink);margin:0;}
+  .test-actions{display:flex;flex-direction:column;gap:1rem;align-items:flex-start;}
+  .test-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+    border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.2rem 1.35rem;margin:1.4rem 0 .6rem;}
+  .test-cta-copy{flex:1 1 260px;}
+  .test-cta-title{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.25rem;}
+  .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
+  @media (max-width:620px){ .test-q{font-size:1.28rem;} }
+
+  /* ---------- test yourself ---------- */
+  .test-h{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.5rem,3.4vw,2rem);letter-spacing:-.01em;margin:.2rem 0 .6rem;}
+  .test-lede{font-size:.95rem;line-height:1.6;color:var(--ink-soft);max-width:58ch;
+    margin:0 0 1.8rem;}
+  .test-group-lbl{font-family:var(--display);font-weight:700;font-size:.86rem;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--ink);
+    border-left:4px solid var(--amber);padding-left:.55rem;margin:2rem 0 .9rem;}
+  .test-deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:.8rem;}
+  .test-deck{all:unset;cursor:pointer;box-sizing:border-box;display:flex;
+    flex-direction:column;gap:.55rem;padding:1rem 1.1rem 1.05rem;border-radius:14px;
+    border:1px solid var(--line-soft);background:var(--surface);
+    transition:border-color .15s ease,transform .15s ease;}
+  .test-deck:hover{border-color:var(--line);transform:translateY(-2px);}
+  .test-deck:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .test-deck-nm{font-family:var(--display);font-weight:700;font-size:.95rem;
+    line-height:1.3;color:var(--ink);}
+  .test-deck-meta{display:flex;align-items:baseline;justify-content:space-between;
+    gap:.6rem;font-size:.74rem;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-faint);font-variant-numeric:tabular-nums;}
+  .test-deck.is-done .test-deck-meta{color:var(--green);}
+  .test-bar{height:5px;border-radius:999px;background:var(--line-soft);overflow:hidden;}
+  .test-bar-fill{display:block;height:100%;background:var(--blue);transition:width .3s ease;}
+  .test-deck.is-done .test-bar-fill{background:var(--green);}
+  @media (prefers-reduced-motion: reduce){ .test-bar-fill{transition:none;} }
+
+  .test-q-list{list-style:none;margin:0;padding:0;counter-reset:tq;}
+  .test-q-item{all:unset;cursor:pointer;box-sizing:border-box;display:flex;
+    align-items:flex-start;gap:.9rem;width:100%;padding:1.05rem 1.1rem;
+    border:1px solid var(--line-soft);border-radius:14px;background:var(--surface);
+    margin-bottom:.7rem;transition:border-color .15s ease;}
+  .test-q-item:hover{border-color:var(--line);}
+  .test-q-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .test-q-n{flex:0 0 auto;width:1.7rem;height:1.7rem;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:700;font-size:.78rem;
+    border:1px solid var(--line);color:var(--ink-soft);}
+  .test-q-item.is-answered .test-q-n{background:var(--green);border-color:var(--green);
+    color:#fff;}
+  .test-q-body{flex:1 1 auto;min-width:0;}
+  .test-q-text{font-size:.98rem;line-height:1.5;color:var(--ink);font-weight:600;}
+  .test-q-state{display:block;font-size:.74rem;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-faint);margin-top:.35rem;}
+  .test-q-item.is-answered .test-q-state{color:var(--green);}
+  .test-write-hint{font-size:.74rem;color:var(--ink-faint);margin:.5rem 0 0;}
+  .test-onenav{display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;}
+  .test-retry{all:unset;cursor:pointer;font-family:var(--body);font-size:.82rem;
+    font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);
+    text-decoration:underline;text-underline-offset:3px;}
+  .test-retry:hover{color:var(--ink);}
+  .test-retry:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+  @media (max-width:620px){
+    .test-deck-grid{grid-template-columns:1fr;}
+    .test-onenav{width:100%;}
+    .test-onenav button{flex:1 1 auto;justify-content:center;text-align:center;}
+  }
+
+  /* ---------- typed answer + marking ---------- */
+  .test-write{margin:1.4rem 0 .2rem;}
+  .test-write-lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;}
+  .test-input{width:100%;font-family:var(--body);font-size:1rem;line-height:1.6;
+    color:var(--ink);background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:.9rem 1rem;resize:vertical;min-height:6.5rem;}
+  .test-input::placeholder{color:var(--ink-faint);}
+  .test-input:focus{outline:2px solid var(--focus);outline-offset:1px;border-color:var(--blue);}
+  .test-yours{margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line-soft);}
+  .test-yours-text{font-size:1rem;line-height:1.7;color:var(--ink);white-space:pre-wrap;margin:0;}
+  .test-yours-text mark{background:none;color:inherit;font-weight:600;
+    border-bottom:2px solid var(--green);padding-bottom:1px;}
+  .test-terms{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line-soft);}
+  .test-terms-lbl{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .7rem;}
+  .test-term-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem;}
+  .test-term-list li{display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;
+    font-weight:600;padding:.35rem .75rem;border-radius:999px;border:1px solid var(--line-soft);}
+  .test-term-list li.hit{color:var(--green);border-color:var(--green);}
+  .test-term-list li.miss{color:var(--red);border-color:var(--red);}
+  .test-term-list .tick{font-weight:700;}
+  .test-terms-note{font-size:.76rem;line-height:1.5;color:var(--ink-faint);margin:.8rem 0 0;}
+
+  /* ---------- auth ---------- */
+  .site-header{gap:1rem;flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{all:unset;cursor:pointer;box-sizing:border-box;
+    font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  @media (max-width:860px){
+    .site-header{flex-wrap:wrap;row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .header-actions{display:flex;align-items:center;gap:.9rem;}
+  .header-link{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;}
+  .header-link:hover{color:var(--ink);}
+  .account-btn{
+    cursor:pointer;background:var(--ink);border:1px solid var(--ink);color:#fff;
+    font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:.62rem 1.35rem;border-radius:999px;
+    max-width:11rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .account-btn:hover{background:#2A2A2E;border-color:#2A2A2E;color:#fff;}
+  .account-btn.is-signed-in{color:#fff;border-color:var(--ink);text-transform:none;letter-spacing:.01em;}
+
+  .auth-overlay{
+    position:fixed;inset:0;z-index:50;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(12,12,13,0.38);
+    padding:1.5rem;
+  }
+  .auth-modal{
+    position:relative;width:100%;max-width:380px;
+    background:#FFFFFF;border:1px solid var(--line);border-radius:18px;
+    padding:2rem 1.75rem 1.75rem;
+    box-shadow:0 24px 60px var(--shadow);
+  }
+  .auth-modal h2:focus{outline:none;}
+  .auth-close{
+    position:absolute;top:.85rem;right:.85rem;
+    background:none;border:none;cursor:pointer;color:var(--ink-faint);
+    font-size:1.3rem;line-height:1;padding:.3rem .6rem;border-radius:8px;
+  }
+  .auth-close:hover{color:var(--ink);}
+  .auth-title{
+    font-family:var(--display);font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:.01em;
+  }
+  .auth-sub{margin-top:.5rem;font-size:.85rem;color:var(--ink-soft);line-height:1.5;}
+  .auth-label{
+    display:block;margin-top:1.25rem;margin-bottom:.4rem;
+    font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  .auth-input{
+    width:100%;padding:.7rem .85rem;border-radius:10px;
+    background:var(--surface);border:1px solid var(--line-soft);color:var(--ink);
+    font-family:var(--body);font-size:.92rem;
+  }
+  .auth-google{
+    all:unset;box-sizing:border-box;cursor:pointer;width:100%;margin-top:1.4rem;
+    display:flex;align-items:center;justify-content:center;gap:.7rem;
+    padding:.8rem 1rem;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);font-family:var(--body);font-size:.92rem;font-weight:600;
+    color:var(--ink);transition:border-color .15s ease,background .15s ease;
+  }
+  .auth-google:hover{border-color:var(--ink);}
+  .auth-google:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .auth-google[disabled]{opacity:.6;cursor:default;}
+  .auth-google-mark{flex:0 0 auto;}
+  .auth-or{
+    display:flex;align-items:center;gap:.8rem;margin:1.15rem 0 .35rem;
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);
+  }
+  .auth-or::before,.auth-or::after{content:'';flex:1 1 auto;height:1px;background:var(--line-soft);}
+  .auth-forgot{
+    all:unset;cursor:pointer;display:inline-block;margin-top:.7rem;
+    font-family:var(--body);font-size:.8rem;color:var(--ink-soft);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .auth-forgot:hover{color:var(--blue);}
+  .auth-forgot:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+  .auth-ok{margin-top:.9rem;font-size:.82rem;color:var(--green);line-height:1.5;}
+  .auth-error{margin-top:.9rem;font-size:.82rem;color:var(--amber-ink);line-height:1.5;}
+  .auth-submit{width:100%;justify-content:center;margin-top:1.5rem;}
+  .auth-toggle{
+    display:block;width:100%;text-align:center;margin-top:1.1rem;
+    background:none;border:none;cursor:pointer;
+    font-family:var(--body);font-size:.78rem;color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px;
+  }
+  .auth-toggle:hover{color:var(--blue);text-decoration-color:var(--blue);}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="13" fill="#0C0C0D"/><path d="M14 13 L22.5 13 L32 38 L41.5 13 L50 13 L36.5 52 L27.5 52 Z" fill="#2C4E92"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
+    <nav class="main-nav" id="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" id="nav-decks" href="#catalog" data-nav="decks">Cards</a>
+      <a class="nav-item" id="nav-glossary" href="/glossary.html" data-nav="glossary">Glossary</a>
+      <button class="nav-item" id="nav-test" type="button" data-nav="test">Test yourself</button>
+    </nav>
+    <div class="header-actions">
+      <button class="account-btn" id="account-btn" type="button">Sign in</button>
+      <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-view">
+    <section class="hero" id="top">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Field notes for investment banking &amp; consulting interviews</p>
+          <h1 class="hero-title">Flip the card.<br>Know the numbers.</h1>
+          <p class="hero-sub">ViewPrep drills the financial-statement, valuation, Excel-modeling, and case-interview fundamentals that come up in investment banking and consulting interviews, one card, one concept, at a time.</p>
+        </div>
+        <!-- A real card from the deck, picked at random on each load. The page used
+             to describe the product; this shows it. -->
+        <!-- hero demo card removed -->
+        <div class="hero-actions">
+          <a href="#catalog" class="btn-primary">Open the catalog &#8599;</a>
+        </div>
+        <div class="hero-caption-row">
+          <span>Free &middot; No account needed</span>
+          <span>400 cards &middot; 11 IB decks &middot; 12 consulting decks</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <h2 class="section-title">The catalog</h2>
+      <p class="section-sub">No affiliation with any course, employer or prep provider. Pick your track to see decks built for it.</p>
+      <div class="track-toggle-wrap">
+        <div class="track-toggle" role="group" aria-label="Choose your interview track">
+          <button type="button" class="track-btn" id="track-ib-btn" data-track="ib" aria-pressed="false">Investment Banking</button>
+          <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
+        </div>
+      </div>
+      <div class="test-cta" id="test-cta" hidden>
+        <div class="test-cta-copy">
+          <p class="test-cta-title">Think you know it?</p>
+          <p class="test-cta-sub">Five written questions for every deck. Type your answer out, then compare it against the model answer word by word.</p>
+        </div>
+        <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
+      </div>
+      <p class="track-hint" id="track-hint">Pick a track above to see its decks.</p>
+      <div class="deck-grid" id="deck-grid" hidden></div>
+    </section>
+  </main>
+
+  <section class="deck-intro" id="deck-intro" hidden>
+    <div class="intro-inner">
+      <button class="link-back" id="intro-back-btn">&larr; Back to catalog</button>
+      <p class="deck-tag" id="intro-tag"></p>
+      <h2 class="intro-title" id="intro-title" tabindex="-1"></h2>
+      <p class="intro-text" id="intro-text"></p>
+      <div class="intro-meta" id="intro-card-count"></div>
+      <button class="btn-primary" id="intro-start-btn">Start studying &#8599;</button>
+    </div>
+  </section>
+
+  <section class="test" id="test" hidden>
+    <div class="test-inner">
+
+      <!-- A. every deck, with how much of its question set you have answered -->
+      <div id="test-decks">
+        <button class="link-back" id="test-exit-btn" type="button">&larr; Back to catalog</button>
+        <h2 class="test-h" id="test-h" tabindex="-1">Test yourself</h2>
+        <p class="test-lede">Five questions per deck. Write your answer out, then compare it
+          with the model answer. Your answers are kept so you can read them back, and nothing
+          here changes your review schedule.</p>
+        <div id="test-deck-groups"></div>
+      </div>
+
+      <!-- B. the five questions in one deck -->
+      <div id="test-questions" hidden>
+        <button class="link-back" id="test-back-decks" type="button">&larr; All decks</button>
+        <h2 class="test-h" id="test-deck-name" tabindex="-1"></h2>
+        <p class="test-lede" id="test-deck-sub"></p>
+        <ol class="test-q-list" id="test-q-list"></ol>
+      </div>
+
+      <!-- C. one question, written and marked -->
+      <div id="test-one" hidden>
+        <div class="test-topbar">
+          <button class="link-back" id="test-back-list" type="button">&larr; <span id="test-back-label">Back</span></button>
+          <span class="test-progress" id="test-progress"></span>
+        </div>
+        <h2 class="test-q" id="test-q" tabindex="-1"></h2>
+
+        <div class="test-write" id="test-write">
+          <label class="test-write-lbl" for="test-input">Write your answer</label>
+          <textarea id="test-input" class="test-input" rows="5" spellcheck="false"
+            placeholder="Type it out as you would say it out loud."></textarea>
+          <p class="test-write-hint">Cmd or Ctrl + Enter to check</p>
+        </div>
+
+        <div class="test-answer" id="test-answer" hidden>
+          <div class="test-yours" id="test-yours" hidden>
+            <p class="test-a-label">What you wrote</p>
+            <p class="test-yours-text" id="test-yours-text"></p>
+          </div>
+          <p class="test-a-label">Model answer</p>
+          <p class="test-a-text" id="test-a-text"></p>
+          <div class="test-terms" id="test-terms" hidden>
+            <p class="test-terms-lbl" id="test-terms-lbl"></p>
+            <ul class="test-term-list" id="test-term-list"></ul>
+            <p class="test-terms-note">Word matching only &mdash; it cannot tell that you said
+              the same thing in your own words, so a red mark means &ldquo;not found&rdquo;,
+              not &ldquo;wrong&rdquo;. You are the judge.</p>
+          </div>
+        </div>
+
+        <div class="test-actions">
+          <button class="btn-primary" id="test-reveal-btn" type="button">Check my answer</button>
+          <div class="test-onenav" id="test-onenav" hidden>
+            <button class="test-retry" id="test-retry-btn" type="button">Try again</button>
+            <button class="btn-primary" id="test-next-btn" type="button">Next question &#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="study" id="study" hidden>
+    <div class="study-bar">
+      <button class="link-back" id="back-btn">&larr; Back to catalog</button>
+      <div class="study-deck-name" id="study-deck-name"></div>
+      <div class="study-progress" id="study-progress" aria-live="polite"></div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
+    <div class="study-desk">
+      <div class="card-stage" id="card-stage">
+        <button class="flashcard" id="flashcard" aria-pressed="false">
+          <div class="flashcard-inner" id="flashcard-inner">
+            <div class="face face-front">
+              <span class="face-label">Question</span>
+              <p class="face-text" id="card-front-text"></p>
+              <span class="tap-hint">Tap to flip</span>
+            </div>
+            <div class="face face-back">
+              <span class="face-label">Answer</span>
+              <div class="face-text" id="card-back-text"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="rating-row" id="rating-row" hidden>
+        <button class="stamp stamp-again" id="again-btn" type="button">
+          <span>Again</span><span class="stamp-interval" id="again-interval"></span><span class="stamp-key">1</span>
+        </button>
+        <button class="stamp stamp-good" id="good-btn" type="button">
+          <span>Good</span><span class="stamp-interval" id="good-interval"></span><span class="stamp-key">2</span>
+        </button>
+        <button class="stamp stamp-easy" id="easy-btn" type="button">
+          <span>Easy</span><span class="stamp-interval" id="easy-interval"></span><span class="stamp-key">3</span>
+        </button>
+      </div>
+      <div class="card-nav">
+        <button class="prev-btn" id="prev-btn" type="button" disabled>&larr; Previous</button>
+        <button class="flip-btn" id="flip-btn">Flip card</button>
+      </div>
+
+      <div class="study-complete" id="study-complete" hidden>
+        <h3 id="complete-heading" tabindex="-1">Deck complete.</h3>
+        <div class="complete-tally">
+          <span>Reviewed: <b id="tally-total">0</b></span>
+          <span>Again: <b id="tally-again">0</b></span>
+          <span>Good or better: <b id="tally-good">0</b></span>
+        </div>
+        <p class="complete-next" id="complete-next"></p>
+        <div class="save-prompt" id="save-prompt" hidden>
+          <p class="save-prompt-text" id="save-prompt-text"></p>
+          <button class="btn-solid" id="save-prompt-btn" type="button">Make a free account</button>
+        </div>
+        <div class="complete-actions">
+          <button class="btn-ghost" id="restart-btn">Restart deck</button>
+          <button class="btn-solid" id="catalog-btn">Back to catalog</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="footer-disclaimer">ViewPrep is an independent study resource. It is not affiliated with, endorsed by, or sourced from any university, employer, or prep platform.</p>
+    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 400 cards &#8594;</a></p>
+    <p class="footer-links">
+      <a href="/faq.html">FAQ</a> &middot;
+      <a href="/privacy.html">Privacy</a> &middot;
+      <a href="/terms.html">Terms</a>
+    </p>
+    <button class="footer-reset" id="reset-progress-btn">Reset study progress</button>
+  </footer>
+
+  <div class="auth-overlay" id="auth-overlay" hidden>
+    <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <button class="auth-close" id="auth-close-btn" type="button" aria-label="Close">&times;</button>
+      <h2 class="auth-title" id="auth-title" tabindex="-1">Sign in</h2>
+      <p class="auth-sub" id="auth-sub">Sign in to sync your study progress across devices.</p>
+
+      <div id="auth-oauth">
+        <button class="auth-google" id="auth-google-btn" type="button">
+          <svg class="auth-google-mark" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+            <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/>
+            <path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"/>
+            <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+        <div class="auth-or"><span>or</span></div>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <div id="auth-email-row">
+          <label class="auth-label" for="auth-email">Email</label>
+          <input class="auth-input" type="email" id="auth-email" autocomplete="email">
+        </div>
+        <div id="auth-password-row">
+          <label class="auth-label" for="auth-password">Password</label>
+          <input class="auth-input" type="password" id="auth-password" minlength="6" autocomplete="current-password">
+        </div>
+        <button class="auth-forgot" id="auth-forgot-btn" type="button">Forgot your password?</button>
+        <p class="auth-error" id="auth-error" hidden></p>
+        <p class="auth-ok" id="auth-ok" hidden></p>
+        <button class="btn-primary auth-submit" id="auth-submit-btn" type="submit">Sign in</button>
+      </form>
+      <button class="auth-toggle" id="auth-toggle-btn" type="button">Don&rsquo;t have an account? Sign up</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  // --- Supabase setup ---
+  // The anon/public key below is safe to expose client-side: access to real data
+  // is enforced by the Row Level Security policies on the database, not by keeping
+  // this key secret. See the "progress" table policies in the Supabase project.
+  var SUPABASE_URL = 'https://lnbbwfzjerkjmijteuxt.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_YiNeuRdKATfVncjRIxGs0g_-e3h04mP';
+  var sb = (window.supabase && window.supabase.createClient)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
+  var currentUser = null;
+  var decks = []; // populated at runtime from decks.json, see init() below
+
+  var state = {
+    deckIndex:0, cardIndex:0, flipped:false, track:null,
+    queue:[], queuePos:0,
+    tally:{again:0, good:0, easy:0}
+  };
+
+  // --- private, owner-only visit counter ---
+  // Logs one row per page load into a "visits" table (see setup SQL kept alongside this
+  // project's notes). No UI reads this back; it's purely for checking traffic yourself
+  // via the Supabase dashboard. visitor_id is a random id stored in this browser only,
+  // not tied to any account, and only used to tell total loads apart from unique browsers.
+  var VISITOR_ID_KEY = 'flashprep_visitor_id_v1';
+  function getVisitorId(){
+    try{
+      var id = localStorage.getItem(VISITOR_ID_KEY);
+      if (!id){
+        id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : 'v-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+        localStorage.setItem(VISITOR_ID_KEY, id);
+      }
+      return id;
+    }catch(e){
+      return null; // storage unavailable (e.g. private browsing); skip tracking
+    }
+  }
+  function logVisit(){
+    if (!sb) return;
+    var visitorId = getVisitorId();
+    if (!visitorId) return;
+    sb.from('visits').insert({ visitor_id: visitorId })
+      .then(function(res){ if (res.error) console.error('logVisit:', res.error); })
+      .catch(function(err){ console.error('logVisit:', err); });
+  }
+
+  // --- Funnel events ---
+  //
+  // "Visitors but no signups" is unanswerable without knowing where people stop.
+  // These record the handful of steps between landing and creating an account:
+  //
+  //   catalog_view -> deck_open -> first_review -> session_end
+  //                                     -> prompt_shown -> prompt_click -> auth_success
+  //
+  // Deliberately coarse. One row per deck opened and one per session, not one per
+  // card, so a heavy user doesn't write fifty rows and the table stays readable.
+  // Tracking is fire-and-forget: a failure here must never interrupt studying, so
+  // errors are swallowed rather than surfaced.
+  var trackedOnce = {};
+
+  function track(name, props){
+    try{
+      if (!sb) return;
+      var visitorId = getVisitorId();
+      if (!visitorId) return; // storage unavailable, same opt-out as logVisit
+      var row = {
+        visitor_id: visitorId,
+        name: name,
+        props: props || {}
+      };
+      if (currentUser) { row.user_id = currentUser.id; }
+      sb.from('events').insert(row).then(function(){}, function(){});
+    }catch(e){ /* never let analytics break the page */ }
+  }
+
+  // For events that should fire at most once per visit.
+  function trackOnce(name, props){
+    if (trackedOnce[name]) return;
+    trackedOnce[name] = true;
+    track(name, props);
+  }
+
+  // v2: card progress is spaced-repetition state (SM-2), not a mastered/review flag.
+  // Bumping the storage key means any old v1 data is left behind rather than misread
+  // as the new shape.
+  var PROGRESS_KEY = 'flashprep_progress_v2';
+
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  // A card counts as "learned" once it has reached the longest box, i.e. the user
+  // answered Easy and it is now on the weekly rotation.
+  var MATURE_DAYS = 7;
+
+  // --- Review scheduling ---
+  //
+  // A fixed three-step schedule (a Leitner-style system): every card sits in one of
+  // three boxes and each answer moves it to that box outright, rather than the
+  // interval compounding from its own history. Chosen over an adaptive algorithm
+  // deliberately: this site is used over an 8-12 week interview run-up, where a card
+  // scheduled months out would simply never be seen again before the interview, and
+  // where a schedule the user can predict is easier to trust.
+  //
+  //   Again -> same day (also requeued later in the current session)
+  //   Good  -> 3 days
+  //   Easy  -> 1 week
+  //
+  // No licensed algorithm is involved; Leitner boxes long predate modern SRS software.
+  var QUALITY_AGAIN = 1;
+  var QUALITY_GOOD = 3;
+  var QUALITY_EASY = 5;
+
+  var SCHEDULE = {};
+  SCHEDULE[QUALITY_AGAIN] = 0;
+  SCHEDULE[QUALITY_GOOD]  = 3;
+  SCHEDULE[QUALITY_EASY]  = 7;
+
+  function schedule(card, quality){
+    var interval = SCHEDULE[quality];
+    if (interval === undefined) { interval = 0; }
+    // reps counts successful answers in a row, and resets on Again. Nothing in the
+    // schedule depends on it; it is kept as a signal for the "learned" count and so
+    // the stored shape stays stable if the scheduling is ever revisited.
+    var reps = quality === QUALITY_AGAIN ? 0 : card.reps + 1;
+    return { reps: reps, ef: card.ef, interval: interval };
+  }
+
+  function newCardState(){
+    return { reps: 0, ef: 2.5, interval: 0, due: new Date().toISOString(), last: null };
+  }
+
+  function getCardState(deckId, cardIndex){
+    return (progress[deckId] && progress[deckId][cardIndex]) || null;
+  }
+
+  function isCardDue(cardState, nowMs){
+    if (!cardState) { return true; } // never studied = due now
+    return new Date(cardState.due).getTime() <= nowMs;
+  }
+
+  // Due dates land at the START of their day, not at the clock time you happened to
+  // answer. Otherwise a card answered at 9pm Monday with a 3-day interval isn't ready
+  // until 9pm Thursday, and someone sitting down on Thursday afternoon is told there
+  // is nothing to study. Whole days are what people actually mean by "in 3 days".
+  function dueDateAfter(days){
+    var d = new Date();
+    d.setDate(d.getDate() + days);
+    d.setHours(0, 0, 0, 0);
+    return d.toISOString();
+  }
+
+  function deckStats(deck){
+    var now = Date.now();
+    var total = deck.cards.length;
+    // "due" = previously studied and ready for review. "brandNew" = never seen.
+    // Both are studiable now, but they're counted separately so "3 due" doesn't
+    // misleadingly include cards you've simply never opened.
+    var due = 0, brandNew = 0, mature = 0, started = 0, nextDueMs = null;
+    for (var i = 0; i < total; i++){
+      var cs = getCardState(deck.id, i);
+      if (!cs) {
+        brandNew++;
+      } else if (isCardDue(cs, now)) {
+        due++;
+      } else {
+        var dueMs = new Date(cs.due).getTime();
+        if (nextDueMs === null || dueMs < nextDueMs) { nextDueMs = dueMs; }
+      }
+      if (cs) {
+        started++;
+        if (cs.interval >= MATURE_DAYS) { mature++; }
+      }
+    }
+    return { total: total, due: due, brandNew: brandNew, mature: mature,
+             started: started, nextDueMs: nextDueMs };
+  }
+
+  function formatInterval(days){
+    if (days <= 0) { return 'today'; }
+    if (days === 1) { return '1 day'; }
+    if (days === 7) { return '1 week'; }
+    if (days === 14) { return '2 weeks'; }
+    if (days < 21) { return Math.round(days) + ' days'; }
+    if (days < 365) { return Math.round(days / 30) + ' mo'; }
+    return (Math.round(days / 36.5) / 10) + ' yr';
+  }
+
+  function formatWhenDue(ms){
+    // Counted in whole calendar days, so a card due at the start of Thursday reads
+    // as "in 3 days" all through Monday rather than flipping to "in 4 days" at noon.
+    var due = new Date(ms); due.setHours(0, 0, 0, 0);
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var days = Math.round((due.getTime() - today.getTime()) / DAY_MS);
+    if (days <= 0) { return 'now'; }
+    if (days === 1) { return 'tomorrow'; }
+    if (days === 7) { return 'in a week'; }
+    if (days < 30) { return 'in ' + days + ' days'; }
+    if (days < 365) { return 'in ' + Math.round(days / 30) + ' months'; }
+    return 'in ' + (Math.round(days / 36.5) / 10) + ' years';
+  }
+
+  // Anyone who studied before the v2 change has binary mastered/review flags with no
+  // scheduling data. Rather than silently discard that, convert it once: a "mastered"
+  // card starts as if answered Good twice, a "review" card as if answered once. Both
+  // come due immediately, so the schedule rebuilds from the user's next real answer.
+  function migrateV1(){
+    try{
+      var oldRaw = localStorage.getItem('flashprep_progress_v1');
+      if (!oldRaw) { return null; }
+      var old = JSON.parse(oldRaw);
+      var now = new Date().toISOString();
+      var out = {};
+      Object.keys(old).forEach(function(deckId){
+        out[deckId] = {};
+        Object.keys(old[deckId]).forEach(function(idx){
+          var wasMastered = old[deckId][idx] === 'mastered';
+          out[deckId][idx] = {
+            reps: wasMastered ? 2 : 1,
+            ef: 2.5,
+            interval: wasMastered ? 6 : 1,
+            due: now,
+            last: null
+          };
+        });
+      });
+      return out;
+    }catch(e){
+      return null;
+    }
+  }
+
+  function loadProgress(){
+    try{
+      var raw = localStorage.getItem(PROGRESS_KEY);
+      if (raw) { return JSON.parse(raw); }
+      var migrated = migrateV1();
+      if (migrated) {
+        localStorage.setItem(PROGRESS_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+      return {};
+    }catch(e){
+      return {};
+    }
+  }
+
+  function saveProgress(progress){
+    try{
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+    }catch(e){
+      /* storage unavailable, e.g. private browsing; progress just won't persist */
+    }
+  }
+
+  var progress = loadProgress();
+
+  // --- remote (Supabase) progress sync, active only while signed in ---
+  function loadRemoteProgress(userId){
+    if (!sb) return Promise.resolve(null);
+    return sb.from('progress')
+      .select('deck_id, card_index, reps, ef, interval_days, due_at, last_reviewed_at')
+      .eq('user_id', userId)
+      .then(function(res){
+        if (res.error) { console.error('loadRemoteProgress:', res.error); return null; }
+        var p = {};
+        res.data.forEach(function(row){
+          // Skip rows written by the old v1 schema, which have no scheduling data.
+          if (row.due_at === null || row.due_at === undefined) { return; }
+          p[row.deck_id] = p[row.deck_id] || {};
+          p[row.deck_id][row.card_index] = {
+            reps: row.reps || 0,
+            ef: row.ef || 2.5,
+            interval: row.interval_days || 0,
+            due: row.due_at,
+            last: row.last_reviewed_at || null
+          };
+        });
+        return p;
+      })
+      .catch(function(err){ console.error('loadRemoteProgress:', err); return null; });
+  }
+
+  function upsertRemoteProgress(userId, deckId, cardIndex, cardState){
+    if (!sb) return Promise.resolve();
+    return sb.from('progress').upsert({
+      user_id: userId, deck_id: deckId, card_index: cardIndex,
+      reps: cardState.reps, ef: cardState.ef, interval_days: cardState.interval,
+      due_at: cardState.due, last_reviewed_at: cardState.last,
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'user_id,deck_id,card_index' })
+      .then(function(res){ if (res.error) console.error('upsertRemoteProgress:', res.error); })
+      .catch(function(err){ console.error('upsertRemoteProgress:', err); });
+  }
+
+  function deleteRemoteDeckProgress(userId, deckId){
+    if (!sb) return Promise.resolve();
+    return sb.from('progress').delete().eq('user_id', userId).eq('deck_id', deckId)
+      .then(function(res){ if (res.error) console.error('deleteRemoteDeckProgress:', res.error); })
+      .catch(function(err){ console.error('deleteRemoteDeckProgress:', err); });
+  }
+
+  function deleteAllRemoteProgress(userId){
+    if (!sb) return Promise.resolve();
+    return sb.from('progress').delete().eq('user_id', userId)
+      .then(function(res){ if (res.error) console.error('deleteAllRemoteProgress:', res.error); })
+      .catch(function(err){ console.error('deleteAllRemoteProgress:', err); });
+  }
+
+  function deckStudiedCount(deck){
+    return Object.keys(progress[deck.id] || {}).length;
+  }
+
+  // Totals across every deck, grouped by which box each card currently sits in.
+  // Derived from the schedule itself rather than a separate log, so it can never
+  // drift out of step with what the site will actually show you.
+  function overallStats(){
+    var now = Date.now();
+    var out = { started:0, again:0, good:0, easy:0, due:0, total:0 };
+    decks.forEach(function(deck){
+      out.total += deck.cards.length;
+      var dp = progress[deck.id] || {};
+      Object.keys(dp).forEach(function(k){
+        var cs = dp[k];
+        if (!cs || typeof cs.interval !== 'number') { return; }
+        out.started++;
+        if (isCardDue(cs, now)) { out.due++; }
+        if (cs.interval >= SCHEDULE[QUALITY_EASY]) { out.easy++; }
+        else if (cs.interval >= SCHEDULE[QUALITY_GOOD]) { out.good++; }
+        else { out.again++; }
+      });
+    });
+    return out;
+  }
+
+  // Review is deck-scoped, so the button sends you to whichever deck has the most
+  // waiting. Falls back to the deck with the most unseen cards when nothing is due.
+  function resetDeckProgress(deck){
+    delete progress[deck.id];
+    saveProgress(progress);
+    if (currentUser) { deleteRemoteDeckProgress(currentUser.id, deck.id); }
+    renderCatalog();
+    var card = els.deckGrid.querySelector('[data-deck-id="' + deck.id + '"]');
+    var focusTarget = card ? (card.querySelector('.deck-restart-mini') || card.querySelector('.deck-open')) : null;
+    if (focusTarget) focusTarget.focus();
+  }
+
+  function setTrack(track){
+    state.track = track;
+    els.trackIbBtn.classList.toggle('is-active', track === 'ib');
+    els.trackConsultingBtn.classList.toggle('is-active', track === 'consulting');
+    els.trackIbBtn.setAttribute('aria-pressed', String(track === 'ib'));
+    els.trackConsultingBtn.setAttribute('aria-pressed', String(track === 'consulting'));
+    if (els.testCta) { els.testCta.hidden = !track; }
+    renderCatalog();
+  }
+
+  var els = {
+    deckGrid: document.getElementById('deck-grid'),
+    trackIbBtn: document.getElementById('track-ib-btn'),
+    trackConsultingBtn: document.getElementById('track-consulting-btn'),
+    trackHint: document.getElementById('track-hint'),
+    heroDemo: document.getElementById('hero-demo'),
+    heroFlashcard: document.getElementById('hero-flashcard'),
+    heroInner: document.getElementById('hero-flashcard-inner'),
+    heroFaceLabel: document.getElementById('hero-face-label'),
+    heroFrontText: document.getElementById('hero-front-text'),
+    heroBackText: document.getElementById('hero-back-text'),
+    heroDemoLink: document.getElementById('hero-demo-link'),
+    savePrompt: document.getElementById('save-prompt'),
+    savePromptText: document.getElementById('save-prompt-text'),
+    savePromptBtn: document.getElementById('save-prompt-btn'),
+    mainView: document.getElementById('main-view'),
+    testDecks: document.getElementById('test-decks'),
+    testExitBtn: document.getElementById('test-exit-btn'),
+    testDeckGroups: document.getElementById('test-deck-groups'),
+    testH: document.getElementById('test-h'),
+    testQuestions: document.getElementById('test-questions'),
+    testQList: document.getElementById('test-q-list'),
+    testDeckName: document.getElementById('test-deck-name'),
+    testDeckSub: document.getElementById('test-deck-sub'),
+    testBackDecks: document.getElementById('test-back-decks'),
+    testBackList: document.getElementById('test-back-list'),
+    testBackLabel: document.getElementById('test-back-label'),
+    testOne: document.getElementById('test-one'),
+    testOnenav: document.getElementById('test-onenav'),
+    testRetryBtn: document.getElementById('test-retry-btn'),
+    testNextBtn: document.getElementById('test-next-btn'),
+    testView: document.getElementById('test'),
+    testInput: document.getElementById('test-input'),
+    testWrite: document.getElementById('test-write'),
+    testYours: document.getElementById('test-yours'),
+    testYoursText: document.getElementById('test-yours-text'),
+    testTerms: document.getElementById('test-terms'),
+    testTermsLbl: document.getElementById('test-terms-lbl'),
+    testTermList: document.getElementById('test-term-list'),
+    navDecks: document.getElementById('nav-decks'),
+    navTest: document.getElementById('nav-test'),
+    testCta: document.getElementById('test-cta'),
+    testStartBtn: document.getElementById('test-start-btn'),
+    testExitBtn: document.getElementById('test-exit-btn'),
+    testProgress: document.getElementById('test-progress'),
+    testQ: document.getElementById('test-q'),
+    testAnswer: document.getElementById('test-answer'),
+    testAText: document.getElementById('test-a-text'),
+    testRevealBtn: document.getElementById('test-reveal-btn'),
+    study: document.getElementById('study'),
+    backBtn: document.getElementById('back-btn'),
+    deckName: document.getElementById('study-deck-name'),
+    progressText: document.getElementById('study-progress'),
+    progressFill: document.getElementById('progress-fill'),
+    cardStage: document.getElementById('card-stage'),
+    flashcard: document.getElementById('flashcard'),
+    prevBtn: document.getElementById('prev-btn'),
+    inner: document.getElementById('flashcard-inner'),
+    front: document.getElementById('card-front-text'),
+    back: document.getElementById('card-back-text'),
+    ratingRow: document.getElementById('rating-row'),
+    againBtn: document.getElementById('again-btn'),
+    goodBtn: document.getElementById('good-btn'),
+    easyBtn: document.getElementById('easy-btn'),
+    againInterval: document.getElementById('again-interval'),
+    goodInterval: document.getElementById('good-interval'),
+    easyInterval: document.getElementById('easy-interval'),
+    completeNext: document.getElementById('complete-next'),
+    flipBtn: document.getElementById('flip-btn'),
+    complete: document.getElementById('study-complete'),
+    tallyTotal: document.getElementById('tally-total'),
+    tallyAgain: document.getElementById('tally-again'),
+    tallyGood: document.getElementById('tally-good'),
+    restartBtn: document.getElementById('restart-btn'),
+    completeHeading: document.getElementById('complete-heading'),
+    catalogBtn: document.getElementById('catalog-btn'),
+    resetBtn: document.getElementById('reset-progress-btn'),
+    introSection: document.getElementById('deck-intro'),
+    introBackBtn: document.getElementById('intro-back-btn'),
+    introTag: document.getElementById('intro-tag'),
+    introTitle: document.getElementById('intro-title'),
+    introText: document.getElementById('intro-text'),
+    introCardCount: document.getElementById('intro-card-count'),
+    introStartBtn: document.getElementById('intro-start-btn'),
+    accountBtn: document.getElementById('account-btn'),
+    authOverlay: document.getElementById('auth-overlay'),
+    authForm: document.getElementById('auth-form'),
+    authEmail: document.getElementById('auth-email'),
+    authPassword: document.getElementById('auth-password'),
+    authError: document.getElementById('auth-error'),
+    authTitle: document.getElementById('auth-title'),
+    authSub: document.getElementById('auth-sub'),
+    authSubmitBtn: document.getElementById('auth-submit-btn'),
+    authToggleBtn: document.getElementById('auth-toggle-btn'),
+    authGoogleBtn: document.getElementById('auth-google-btn'),
+    authOauth: document.getElementById('auth-oauth'),
+    authEmailRow: document.getElementById('auth-email-row'),
+    authPasswordRow: document.getElementById('auth-password-row'),
+    authForgotBtn: document.getElementById('auth-forgot-btn'),
+    authOk: document.getElementById('auth-ok'),
+    authCloseBtn: document.getElementById('auth-close-btn')
+  };
+
+  // --- auth UI ---
+  var authMode = 'signin';
+  var authLastFocused = null;
+
+  // Four states in one modal: sign in, sign up, ask for a reset link, and set a new
+  // password after following that link. Kept in one dialog rather than separate pages
+  // so the recovery link can land on the homepage and be handled in place.
+  function updateAuthModalMode(){
+    var showOauth = (authMode === 'signin' || authMode === 'signup');
+    els.authOauth.hidden = !showOauth;
+    els.authEmailRow.hidden = (authMode === 'recover');
+    els.authPasswordRow.hidden = (authMode === 'reset');
+    els.authForgotBtn.hidden = (authMode !== 'signin');
+    els.authToggleBtn.hidden = (authMode === 'recover');
+    els.authOk.hidden = true;
+
+    if (authMode === 'signin') {
+      els.authTitle.textContent = 'Sign in';
+      els.authSub.textContent = 'Pick your study progress back up on any device.';
+      els.authSubmitBtn.textContent = 'Sign in';
+      els.authToggleBtn.textContent = 'No account yet? Create one, it’s free';
+      els.authPassword.setAttribute('autocomplete', 'current-password');
+    } else if (authMode === 'signup') {
+      els.authTitle.textContent = 'Create account';
+      els.authSub.textContent = 'Free, and it takes a few seconds. Without one, your progress lives in this browser only and disappears if you clear your history or switch device.';
+      els.authSubmitBtn.textContent = 'Create account';
+      els.authToggleBtn.textContent = 'Already have an account? Sign in';
+      els.authPassword.setAttribute('autocomplete', 'new-password');
+    } else if (authMode === 'reset') {
+      els.authTitle.textContent = 'Reset your password';
+      els.authSub.textContent = 'Enter the email you signed up with and we’ll send you a link to set a new password.';
+      els.authSubmitBtn.textContent = 'Send reset link';
+      els.authToggleBtn.textContent = 'Back to sign in';
+    } else { // recover
+      els.authTitle.textContent = 'Set a new password';
+      els.authSub.textContent = 'Choose a new password for your account. At least six characters.';
+      els.authSubmitBtn.textContent = 'Save new password';
+      els.authPassword.setAttribute('autocomplete', 'new-password');
+    }
+  }
+
+  function onAuthKeydown(e){
+    if (e.key === 'Escape') { closeAuthModal(); }
+  }
+
+  // mode: 'signin' (default) or 'signup'. The prompts that offer to save progress open
+  // straight into signup, since anyone arriving from them has no account yet.
+  function openAuthModal(mode){
+    if (currentUser) { sb && sb.auth.signOut(); return; }
+    authMode = (mode === 'signup') ? 'signup' : 'signin';
+    updateAuthModalMode();
+    els.authError.hidden = true;
+    els.authForm.reset();
+    authLastFocused = document.activeElement;
+    els.authOverlay.hidden = false;
+    els.authTitle.focus();
+    document.addEventListener('keydown', onAuthKeydown);
+  }
+
+  function closeAuthModal(){
+    els.authOverlay.hidden = true;
+    document.removeEventListener('keydown', onAuthKeydown);
+    if (authLastFocused && typeof authLastFocused.focus === 'function') { authLastFocused.focus(); }
+  }
+
+  function updateAuthUI(){
+    if (currentUser) {
+      els.accountBtn.textContent = currentUser.email;
+      els.accountBtn.title = 'Signed in as ' + currentUser.email + '. Click to sign out.';
+      els.accountBtn.setAttribute('aria-label', 'Signed in as ' + currentUser.email + '. Click to sign out.');
+      els.accountBtn.classList.add('is-signed-in');
+    } else {
+      els.accountBtn.textContent = 'Sign in';
+      els.accountBtn.removeAttribute('title');
+      els.accountBtn.setAttribute('aria-label', 'Sign in to sync progress across devices');
+      els.accountBtn.classList.remove('is-signed-in');
+    }
+  }
+
+  function handleLogin(user){
+    currentUser = user;
+    updateAuthUI();
+    // Show local progress straight away. The remote load below may
+    // refine the numbers or fail outright; either way the panel is already there.
+    // If they signed up from either prompt, both have done their job.
+    els.savePrompt.hidden = true;
+    pendingSavePrompt = false;
+    // A session can also arrive without the form being submitted (e.g. a restored
+    // session on load), so make sure the modal isn't left sitting open.
+    if (!els.authOverlay.hidden) { closeAuthModal(); }
+    loadRemoteProgress(user.id).then(function(remote){
+      if (remote === null) { return; } // load failed; keep local progress as-is rather than risk wiping it
+      var remoteHasData = Object.keys(remote).length > 0;
+      var localHasData = Object.keys(progress).length > 0;
+      if (!remoteHasData && localHasData) {
+        // first sign-in on this browser with existing guest progress: upload it once
+        var migrations = [];
+        Object.keys(progress).forEach(function(deckId){
+          Object.keys(progress[deckId]).forEach(function(cardIdx){
+            migrations.push(upsertRemoteProgress(user.id, deckId, parseInt(cardIdx, 10), progress[deckId][cardIdx]));
+          });
+        });
+        Promise.all(migrations);
+      } else {
+        progress = remote;
+        saveProgress(progress);
+      }
+      if (decks.length) { renderCatalog(); }
+    });
+  }
+
+  function handleLogout(){
+    currentUser = null;
+    updateAuthUI();
+    progress = loadProgress();
+    if (decks.length) { renderCatalog(); }
+  }
+
+  // Explicit wrapper: the raw listener would pass the click Event through as `mode`.
+  els.accountBtn.addEventListener('click', function(){ openAuthModal('signin'); });
+  els.savePromptBtn.addEventListener('click', function(){
+    track('prompt_click', { where: 'complete' });
+    openAuthModal('signup');
+  });
+  els.authCloseBtn.addEventListener('click', closeAuthModal);
+  els.authOverlay.addEventListener('click', function(e){ if (e.target === els.authOverlay) { closeAuthModal(); } });
+  els.authGoogleBtn.addEventListener('click', function(){
+    if (!sb) {
+      els.authError.textContent = 'Accounts aren’t available right now. Please try again shortly.';
+      els.authError.hidden = false;
+      return;
+    }
+    els.authError.hidden = true;
+    els.authGoogleBtn.disabled = true;
+    track('auth_google_click', {});
+    sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin + '/' }
+    }).then(function(res){
+      // On success the browser is redirected to Google, so nothing after this runs.
+      if (res && res.error) { throw res.error; }
+    }).catch(function(err){
+      els.authGoogleBtn.disabled = false;
+      track('auth_error', { mode: 'google', message: (err && err.message) ? String(err.message).slice(0, 120) : 'unknown' });
+      els.authError.textContent = (err && err.message) ? err.message : 'Couldn’t start Google sign-in. Please try again.';
+      els.authError.hidden = false;
+    });
+  });
+  els.authForgotBtn.addEventListener('click', function(){
+    authMode = 'reset';
+    updateAuthModalMode();
+    els.authError.hidden = true;
+    els.authEmail.focus();
+  });
+  els.authToggleBtn.addEventListener('click', function(){
+    authMode = (authMode === 'signin') ? 'signup' : 'signin';  // reset falls back here too
+    els.authError.hidden = true;
+    updateAuthModalMode();
+    els.authEmail.focus();
+  });
+  els.authForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!sb) {
+      els.authError.textContent = 'Accounts aren’t available right now. Please try again shortly.';
+      els.authError.hidden = false;
+      return;
+    }
+    els.authError.hidden = true;
+    els.authOk.hidden = true;
+    els.authSubmitBtn.disabled = true;
+    var email = els.authEmail.value.trim();
+    var password = els.authPassword.value;
+    var mode = authMode;
+    var authCall;
+    if (mode === 'signin') {
+      authCall = sb.auth.signInWithPassword({ email: email, password: password });
+    } else if (mode === 'signup') {
+      authCall = sb.auth.signUp({ email: email, password: password });
+    } else if (mode === 'reset') {
+      // redirectTo must be on the allow-list in Supabase -> Authentication -> URL
+      // Configuration, otherwise the link in the email silently drops the token.
+      authCall = sb.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/#recover'
+      });
+    } else {
+      authCall = sb.auth.updateUser({ password: password });
+    }
+    authCall.then(function(result){
+      if (result.error) { throw result.error; }
+      track('auth_success', { mode: mode });
+      if (mode === 'reset') {
+        // Deliberately the same message whether or not that email has an account.
+        // Saying "no account found" would let anyone test which emails are registered.
+        els.authOk.textContent = 'If that email has an account, a reset link is on its way. Check your inbox, and your spam folder.';
+        els.authOk.hidden = false;
+        return;
+      }
+      if (mode === 'recover') {
+        els.authOk.textContent = 'Password updated. You’re signed in.';
+        els.authOk.hidden = false;
+        setTimeout(closeAuthModal, 1200);
+        return;
+      }
+      if (mode === 'signup' && result.data && result.data.user && !result.data.session) {
+        authMode = 'signin';
+        updateAuthModalMode();
+        els.authSub.textContent = 'Almost there, check your email to confirm your account, then sign in here.';
+        return;
+      }
+      closeAuthModal();
+    }).catch(function(err){
+      track('auth_error', { mode: mode, message: (err && err.message) ? String(err.message).slice(0, 120) : 'unknown' });
+      els.authError.textContent = (err && err.message) ? err.message : 'Something went wrong. Please try again.';
+      els.authError.hidden = false;
+    }).finally(function(){
+      els.authSubmitBtn.disabled = false;
+    });
+  });
+
+  if (sb) {
+    sb.auth.onAuthStateChange(function(event, session){
+      if (event === 'PASSWORD_RECOVERY') {
+        // Arriving from a reset email. Supabase has already put the browser in a
+        // temporary signed-in state, which is what allows updateUser to set the
+        // new password; the modal is the only thing that should be on screen.
+        if (session && session.user) { handleLogin(session.user); }
+        authMode = 'recover';
+        updateAuthModalMode();
+        els.authError.hidden = true;
+        els.authForm.reset();
+        authLastFocused = document.activeElement;
+        els.authOverlay.hidden = false;
+        els.authTitle.focus();
+        document.addEventListener('keydown', onAuthKeydown);
+        return;
+      }
+      if (session && session.user) { handleLogin(session.user); }
+      else { handleLogout(); }
+    });
+  }
+
+  function renderCatalog(){
+    els.deckGrid.innerHTML = '';
+
+    if (!state.track){
+      els.deckGrid.hidden = true;
+      els.trackHint.hidden = false;
+      return;
+    }
+    els.deckGrid.hidden = false;
+    els.trackHint.hidden = true;
+
+    var visibleDecks = decks.filter(function(d){ return d.track === state.track; });
+
+    visibleDecks.forEach(function(deck){
+      var i = decks.indexOf(deck);
+      var st = deckStats(deck);
+      var total = st.total;
+      var studied = st.started;
+      // The bar tracks how much of the deck is genuinely learned (mature), not how
+      // much has been clicked through once.
+      var pct = total ? Math.round((st.mature / total) * 100) : 0;
+      var studiable = st.due + st.brandNew;
+      var complete = total > 0 && studiable === 0;
+
+      var label;
+      if (studied === 0) {
+        label = total + ' cards';
+      } else if (studiable > 0) {
+        var bits = [];
+        if (st.due > 0) { bits.push(st.due + ' due'); }
+        if (st.brandNew > 0) { bits.push(st.brandNew + ' new'); }
+        label = bits.join(' · ');
+      } else {
+        label = st.nextDueMs ? 'Next review ' + formatWhenDue(st.nextDueMs) : 'All caught up';
+      }
+
+      var card = document.createElement('div');
+      card.className = 'deck-card';
+      card.dataset.deckId = deck.id;
+
+      var open = document.createElement('button');
+      open.className = 'deck-open';
+      open.type = 'button';
+      open.innerHTML =
+        '<span class="deck-open-top"><span class="deck-tag">' + deck.tag + '</span><span class="deck-open-arrow">&#8594;</span></span>' +
+        '<span class="deck-info"><span class="deck-name">' + deck.name + '</span>' +
+        '<span class="deck-desc">' + deck.description + '</span></span>';
+      open.addEventListener('click', function(){ showDeckIntro(i); });
+      card.appendChild(open);
+
+      var progressWrap = document.createElement('div');
+      progressWrap.className = 'deck-progress';
+
+      var track = document.createElement('div');
+      track.className = 'deck-progress-track';
+      var fill = document.createElement('div');
+      fill.className = 'deck-progress-fill';
+      fill.style.width = pct + '%';
+      track.appendChild(fill);
+      progressWrap.appendChild(track);
+
+      var row = document.createElement('div');
+      row.className = 'deck-progress-row';
+      var labelEl = document.createElement('span');
+      labelEl.className = 'deck-progress-label' + (complete ? ' is-complete' : '');
+      labelEl.textContent = label;
+      row.appendChild(labelEl);
+
+      if (studied > 0 && st.mature > 0){
+        var matureEl = document.createElement('span');
+        matureEl.className = 'deck-progress-label';
+        matureEl.textContent = st.mature + ' learned';
+        row.appendChild(matureEl);
+      }
+
+      if(studied > 0){
+        var restartBtn = document.createElement('button');
+        restartBtn.className = 'deck-restart-mini';
+        restartBtn.type = 'button';
+        restartBtn.textContent = 'Restart deck';
+        restartBtn.addEventListener('click', function(){ resetDeckProgress(deck); });
+        row.appendChild(restartBtn);
+      }
+
+      progressWrap.appendChild(row);
+      card.appendChild(progressWrap);
+
+      els.deckGrid.appendChild(card);
+    });
+  }
+
+  function showDeckIntro(i){
+    state.deckIndex = i;
+    var deck = decks[i];
+    els.introTag.textContent = deck.tag;
+    els.introTitle.textContent = deck.name;
+    els.introText.textContent = deck.intro;
+    var ist = deckStats(deck);
+    var studiable = ist.due + ist.brandNew;
+    if (ist.started === 0) {
+      els.introCardCount.textContent = ist.total + ' cards in this deck';
+    } else if (studiable > 0) {
+      els.introCardCount.textContent =
+        studiable + ' of ' + ist.total + ' ready to study' +
+        (ist.due > 0 ? ' (' + ist.due + ' due for review)' : '');
+    } else {
+      els.introCardCount.textContent = ist.nextDueMs
+        ? 'Caught up. Next review ' + formatWhenDue(ist.nextDueMs)
+        : 'Caught up on this deck';
+    }
+    els.introStartBtn.textContent = studiable > 0 || ist.started === 0
+      ? 'Start studying ↗' : 'Review anyway ↗';
+    els.mainView.hidden = true;
+    els.study.hidden = true;
+    els.introSection.hidden = false;
+    window.scrollTo({top:0, behavior:'auto'});
+    els.introBackBtn.focus();
+  }
+
+  // A session is the cards that are actually due, in deck order, with never-seen
+  // cards after the reviews. Cards scheduled for the future are skipped entirely,
+  // which is the whole point of spaced repetition.
+  // includeAll ignores the schedule and queues the whole deck. Used when a deck is
+  // caught up but the user wants to run through it anyway, e.g. the night before an
+  // interview. Ratings still apply normally, so an early review just reschedules.
+  function buildSession(deck, includeAll){
+    var now = Date.now();
+    var reviews = [], fresh = [];
+    for (var i = 0; i < deck.cards.length; i++){
+      var cs = getCardState(deck.id, i);
+      if (!cs) { fresh.push(i); }
+      else if (includeAll || isCardDue(cs, now)) { reviews.push(i); }
+    }
+    return reviews.concat(fresh);
+  }
+
+  function openDeck(i, includeAll){
+    state.deckIndex = i;
+    state.queue = buildSession(decks[i], includeAll);
+    state.queuePos = 0;
+    sessionEnded = false;
+    track('deck_open', {
+      deck: decks[i].id,
+      track: decks[i].track,
+      due: state.queue.length,
+      all: !!includeAll
+    });
+    state.cardIndex = state.queue.length ? state.queue[0] : 0;
+    state.tally = {again:0, good:0, easy:0};
+    els.introSection.hidden = true;
+    els.mainView.hidden = true;
+    els.study.hidden = false;
+    setNav('decks');
+    els.complete.hidden = true;
+    els.cardStage.hidden = false;
+    els.flipBtn.hidden = false;
+    window.scrollTo({top:0, behavior:'auto'});
+    // Nothing due means nothing to study; go straight to the summary rather than
+    // showing a card the scheduler deliberately deferred.
+    if (!state.queue.length) { showComplete(); }
+    else { renderCard(); }
+    els.backBtn.focus();
+  }
+
+  // Set when a signed-out visitor leaves a session part-way having done real work.
+  // Cleared once shown, so the offer appears at most once per visit rather than every
+  // time they come back to the catalog.
+  var SAVE_PROMPT_MIN_CARDS = 5;
+  var pendingSavePrompt = false;
+  var savePromptSeenThisVisit = false;
+  // A session ends either by finishing the queue or by walking away from it. Both
+  // are worth recording, but only once, so the two paths share this flag.
+  var sessionEnded = false;
+
+  function endSession(how){
+    if (sessionEnded) return;
+    sessionEnded = true;
+    var deck = decks[state.deckIndex];
+    var reviewed = state.tally.again + state.tally.good + state.tally.easy;
+    track('session_end', {
+      how: how,
+      deck: deck ? deck.id : null,
+      reviewed: reviewed,
+      again: state.tally.again,
+      good: state.tally.good,
+      easy: state.tally.easy,
+      signed_in: !!currentUser
+    });
+  }
+
+  // ---------- test mode ----------
+  //
+  // Deliberately separate from the study loop. Studying is spaced repetition and
+  // writes to the schedule; a test is an assessment and writes nothing. Mixing the
+  // two would mean a bad guess under exam conditions quietly wrecks a review
+  // schedule the person spent weeks building.
+
+  var TEST_BANK = null;          // deckId -> [{q, a, key}] , loaded from testbank.json
+  var ANSWER_KEY = 'flashprep_testanswers_v1';
+  var testView = { deckId: null, qIndex: 0 };
+
+  // --- Typed answers, and what the site can honestly say about them ---------------
+  //
+  // Every question in the bank carries its own hand-written key terms, so nothing
+  // here is guessed from the text. The marking still only compares words:
+  //
+  //   green  a key term appears in what they wrote        - evidence of presence
+  //   red    a key term does not appear anywhere          - MISSING, not wrong
+  //
+  // It never marks any part of their answer as incorrect. Word matching cannot tell
+  // that "money left after the bills" means free cash flow, and painting a correct
+  // paraphrase red on a site aimed at people with no finance background would be
+  // worse than saying nothing. The model answer is always on screen beside it and
+  // the person is the one who decides.
+
+  var TERM_SYNONYMS = {
+    'income statement': ['p&l','profit and loss','pnl'],
+    'cash flow statement': ['cfs','statement of cash flows'],
+    'free cash flow': ['fcf'],
+    'working capital': ['nwc'],
+    'net present value': ['npv'],
+    'enterprise value': ['ev'],
+    'cost of capital': ['wacc'],
+    'depreciation': ['d&a'],
+    'comparable companies': ['comps','trading comps'],
+    'precedent transactions': ['precedents','transaction comps'],
+    'earnings per share': ['eps'],
+    'mutually exclusive': ['mece'],
+    'collectively exhaustive': ['mece'],
+    'revenue': ['sales','turnover','top line'],
+    'net income': ['bottom line','profit after tax'],
+    'customers': ['clients','users'],
+    'break-even': ['breakeven','break even'],
+    'just-in-time': ['jit','just in time']
+  };
+
+  function normText(t){
+    return (' ' + String(t || '').toLowerCase() + ' ')
+      .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+      .replace(/[–—]/g, ' ').replace(/\s+/g, ' ');
+  }
+
+  function escHtml(t){
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function termVariants(term){
+    var v = [term];
+    if (term.slice(-1) === 'y') { v.push(term.slice(0, -1) + 'ies'); }
+    if (term.slice(-1) === 's' && term.slice(-2) !== 'ss') { v.push(term.slice(0, -1)); }
+    else { v.push(term + 's'); }
+    if (term.slice(-1) === 'e') { v.push(term.slice(0, -1) + 'ing'); v.push(term + 'd'); }
+    else { v.push(term + 'ing'); v.push(term + 'ed'); }
+    var syn = TERM_SYNONYMS[term];
+    if (syn) { v = v.concat(syn); }
+    return v;
+  }
+
+  function termHit(haystack, term){
+    var v = termVariants(term);
+    for (var i = 0; i < v.length; i++){
+      if (haystack.indexOf(v[i]) !== -1) { return v[i]; }
+    }
+    return null;
+  }
+
+  function markUserAnswer(raw, terms){
+    var hay = normText(raw), spans = [];
+    for (var i = 0; i < terms.length; i++){
+      var found = termHit(hay, terms[i]);
+      if (!found) { continue; }
+      var re = new RegExp(found.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), m;
+      while ((m = re.exec(raw)) !== null){
+        spans.push([m.index, m.index + m[0].length]);
+        if (m.index === re.lastIndex) { re.lastIndex++; }
+      }
+    }
+    spans.sort(function(a, b){ return a[0] - b[0]; });
+    var merged = [];
+    for (var s2 = 0; s2 < spans.length; s2++){
+      if (merged.length && spans[s2][0] <= merged[merged.length - 1][1]){
+        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], spans[s2][1]);
+      } else { merged.push(spans[s2].slice()); }
+    }
+    var html = '', pos = 0;
+    for (var k = 0; k < merged.length; k++){
+      html += escHtml(raw.slice(pos, merged[k][0])) + '<mark>' +
+              escHtml(raw.slice(merged[k][0], merged[k][1])) + '</mark>';
+      pos = merged[k][1];
+    }
+    return html + escHtml(raw.slice(pos));
+  }
+
+  // --- Saved answers -------------------------------------------------------------
+  // Kept separate from the SM-2 schedule on purpose. A test is an assessment; it
+  // must not be able to disturb a review schedule someone spent weeks building.
+
+  function loadAnswers(){
+    try {
+      var raw = localStorage.getItem(ANSWER_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch(e){ return {}; }
+  }
+
+  function saveAnswers(obj){
+    try { localStorage.setItem(ANSWER_KEY, JSON.stringify(obj)); }
+    catch(e){ /* private mode, or full. Answering still works for this session. */ }
+  }
+
+  var answers = loadAnswers();
+
+  function getAnswer(deckId, qi){
+    return (answers[deckId] && answers[deckId][qi]) || null;
+  }
+
+  function putAnswer(deckId, qi, rec){
+    if (!answers[deckId]) { answers[deckId] = {}; }
+    answers[deckId][qi] = rec;
+    saveAnswers(answers);
+  }
+
+  function answeredCount(deckId){
+    var d = answers[deckId], n = 0;
+    if (!d) { return 0; }
+    for (var k in d){ if (Object.prototype.hasOwnProperty.call(d, k)) { n++; } }
+    return n;
+  }
+
+  function bankFor(deckId){ return (TEST_BANK && TEST_BANK[deckId]) || []; }
+
+  // --- A. the deck grid ----------------------------------------------------------
+
+  function showTestDecks(){
+    els.testDecks.hidden = false;
+    els.testQuestions.hidden = true;
+    els.testOne.hidden = true;
+    renderTestDecks();
+    els.testH.focus();
+  }
+
+  function renderTestDecks(){
+    var wrap = els.testDeckGroups;
+    wrap.innerHTML = '';
+    if (!TEST_BANK){
+      wrap.innerHTML = '<p style="color:var(--ink-soft);">Loading questions&hellip;</p>';
+      return;
+    }
+    ['ib', 'consulting'].forEach(function(tr){
+      var group = decks.filter(function(d){ return d.track === tr && bankFor(d.id).length; });
+      if (!group.length) { return; }
+      var lbl = document.createElement('p');
+      lbl.className = 'test-group-lbl';
+      lbl.textContent = tr === 'ib' ? 'Investment banking' : 'Consulting';
+      wrap.appendChild(lbl);
+
+      var grid = document.createElement('div');
+      grid.className = 'test-deck-grid';
+      group.forEach(function(deck){
+        var total = bankFor(deck.id).length;
+        var done = Math.min(answeredCount(deck.id), total);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'test-deck' + (done === total ? ' is-done' : '');
+        btn.innerHTML =
+          '<span class="test-deck-nm">' + escHtml(deck.name) + '</span>' +
+          '<span class="test-deck-meta"><span>Answered</span>' +
+          '<span>' + done + ' / ' + total + '</span></span>' +
+          '<span class="test-bar"><span class="test-bar-fill" style="width:' +
+          Math.round(done / total * 100) + '%"></span></span>';
+        btn.addEventListener('click', function(){ showTestQuestions(deck.id); });
+        grid.appendChild(btn);
+      });
+      wrap.appendChild(grid);
+    });
+  }
+
+  // --- B. the questions in one deck ----------------------------------------------
+
+  function deckById(id){
+    for (var i = 0; i < decks.length; i++){ if (decks[i].id === id) { return decks[i]; } }
+    return null;
+  }
+
+  function showTestQuestions(deckId){
+    testView.deckId = deckId;
+    var deck = deckById(deckId), items = bankFor(deckId);
+    var done = Math.min(answeredCount(deckId), items.length);
+    els.testDecks.hidden = true;
+    els.testOne.hidden = true;
+    els.testQuestions.hidden = false;
+    els.testDeckName.textContent = deck ? deck.name : '';
+    els.testDeckSub.textContent = done + ' of ' + items.length + ' answered';
+    track('test_deck_open', { deck: deckId, answered: done });
+
+    els.testQList.innerHTML = '';
+    items.forEach(function(item, qi){
+      var saved = getAnswer(deckId, qi);
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'test-q-item' + (saved ? ' is-answered' : '');
+      btn.innerHTML =
+        '<span class="test-q-n">' + (saved ? '&#10003;' : (qi + 1)) + '</span>' +
+        '<span class="test-q-body"><span class="test-q-text">' + escHtml(item.q) + '</span>' +
+        '<span class="test-q-state">' +
+        (saved ? 'Answered &middot; ' + saved.hits + ' of ' + saved.of + ' key terms &middot; read it back'
+               : 'Not answered yet') +
+        '</span></span>';
+      btn.addEventListener('click', function(){ showTestOne(deckId, qi); });
+      li.appendChild(btn);
+      els.testQList.appendChild(li);
+    });
+    els.testDeckName.focus();
+  }
+
+  // --- C. one question -----------------------------------------------------------
+
+  function showTestOne(deckId, qi){
+    var items = bankFor(deckId);
+    if (!items[qi]) { return; }
+    testView.deckId = deckId; testView.qIndex = qi;
+    var deck = deckById(deckId), item = items[qi], saved = getAnswer(deckId, qi);
+
+    els.testDecks.hidden = true;
+    els.testQuestions.hidden = true;
+    els.testOne.hidden = false;
+    els.testBackLabel.textContent = deck ? deck.name : 'Back';
+    els.testProgress.textContent = (qi + 1) + ' of ' + items.length;
+    els.testQ.textContent = item.q;
+    els.testInput.value = saved ? saved.text : '';
+
+    if (saved) {
+      // Coming back to something already answered should show the marking again
+      // rather than make them retype it.
+      renderAnswerFeedback(item, saved.text, false);
+      els.testWrite.hidden = true;
+      els.testAnswer.hidden = false;
+      els.testRevealBtn.hidden = true;
+      els.testOnenav.hidden = false;
+    } else {
+      els.testWrite.hidden = false;
+      els.testAnswer.hidden = true;
+      els.testYours.hidden = true;
+      els.testTerms.hidden = true;
+      els.testRevealBtn.hidden = false;
+      els.testOnenav.hidden = true;
+    }
+    els.testNextBtn.hidden = (qi + 1 >= items.length);
+    els.testQ.focus();
+  }
+
+  function renderAnswerFeedback(item, raw, persist){
+    raw = (raw || '').trim();
+    els.testAText.textContent = item.a;
+    if (!raw){
+      els.testYours.hidden = true;
+      els.testTerms.hidden = true;
+      return;
+    }
+    var terms = item.key || [], hay = normText(raw), hits = 0, li = '';
+    for (var i = 0; i < terms.length; i++){
+      var got = !!termHit(hay, terms[i]);
+      if (got) { hits++; }
+      li += '<li class="' + (got ? 'hit' : 'miss') + '"><span class="tick">' +
+            (got ? '&#10003;' : '&#10007;') + '</span>' + escHtml(terms[i]) + '</li>';
+    }
+    els.testYours.hidden = false;
+    els.testYoursText.innerHTML = markUserAnswer(raw, terms);
+    if (terms.length){
+      els.testTermList.innerHTML = li;
+      els.testTermsLbl.textContent = hits === terms.length
+        ? (terms.length === 1 ? 'You used the key term' : 'You used every key term')
+        : 'You used ' + hits + ' of ' + terms.length +
+          (terms.length === 1 ? ' key term' : ' key terms');
+      els.testTerms.hidden = false;
+    } else {
+      els.testTerms.hidden = true;
+    }
+    if (persist){
+      putAnswer(testView.deckId, testView.qIndex,
+                { text: raw, hits: hits, of: terms.length, ts: Date.now() });
+      track('test_answered', { deck: testView.deckId, q: testView.qIndex,
+                               hits: hits, of: terms.length, chars: raw.length });
+    }
+  }
+
+  function revealTest(){
+    var item = bankFor(testView.deckId)[testView.qIndex];
+    if (!item) { return; }
+    renderAnswerFeedback(item, els.testInput.value, true);
+    els.testWrite.hidden = true;
+    els.testAnswer.hidden = false;
+    els.testRevealBtn.hidden = true;
+    els.testOnenav.hidden = false;
+  }
+
+  function retryTest(){
+    els.testWrite.hidden = false;
+    els.testAnswer.hidden = true;
+    els.testRevealBtn.hidden = false;
+    els.testOnenav.hidden = true;
+    els.testInput.focus();
+  }
+
+  function nextTestQuestion(){
+    var items = bankFor(testView.deckId);
+    if (testView.qIndex + 1 < items.length) { showTestOne(testView.deckId, testView.qIndex + 1); }
+    else { showTestQuestions(testView.deckId); }
+  }
+
+  function startTest(){
+    els.mainView.hidden = true;
+    els.introSection.hidden = true;
+    els.study.hidden = true;
+    els.testView.hidden = false;
+    setNav('test');
+    if (!TEST_BANK) { loadTestBank(); }
+    showTestDecks();
+    track('test_open', {});
+  }
+
+  function exitTest(){
+    els.testView.hidden = true;
+    els.mainView.hidden = false;
+    setNav('decks');
+    renderCatalog();
+  }
+
+  function loadTestBank(){
+    fetch('testbank.json')
+      .then(function(r){ if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
+      .then(function(data){ TEST_BANK = data; renderTestDecks(); })
+      .catch(function(err){
+        els.testDeckGroups.innerHTML =
+          '<p style="color:var(--ink-soft);">Couldn&rsquo;t load the questions right now. ' +
+          'Please refresh the page.</p>';
+        console.error('Failed to load testbank.json:', err);
+      });
+  }
+
+  // Single source of truth for the nav highlight. Every view change calls this
+  // rather than each one toggling classes itself, which is how these drift.
+  function setNav(which){
+    var items = document.querySelectorAll('.nav-item');
+    for (var i = 0; i < items.length; i++){
+      items[i].classList.toggle('is-active', items[i].getAttribute('data-nav') === which);
+    }
+  }
+
+  function backToCatalog(){
+    var openedDeck = decks[state.deckIndex];
+    // Leaving mid-session still counts as having invested effort. Rather than block
+    // the click, note it and let the catalog they land on make the offer.
+    var reviewed = state.tally.again + state.tally.good + state.tally.easy;
+    if (!currentUser && !savePromptSeenThisVisit && reviewed >= SAVE_PROMPT_MIN_CARDS) {
+      pendingSavePrompt = true;
+    }
+    endSession('left');
+    els.study.hidden = true;
+    els.introSection.hidden = true;
+    els.mainView.hidden = false;
+    setNav('decks');
+    renderCatalog();
+    var openedCard = openedDeck ? els.deckGrid.querySelector('[data-deck-id="' + openedDeck.id + '"]') : null;
+    var openedBtn = openedCard ? openedCard.querySelector('.deck-open') : null;
+    if (openedBtn) openedBtn.focus();
+  }
+
+  function currentDeck(){ return decks[state.deckIndex]; }
+
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // Cards can either be plain {q, a} (rendered as before) or enriched with an
+  // optional {takeaway, image} on top of {q, a}: takeaway is a short bolded
+  // summary shown first, a becomes the supporting detail text, and image is
+  // trusted inline SVG markup authored as part of the deck content (never
+  // user-submitted), so it's safe to insert directly.
+  function renderBackFace(card){
+    if (!card.takeaway && !card.image){
+      els.back.textContent = card.a;
+      return;
+    }
+    var html = '';
+    if (card.image){ html += '<div class="face-diagram">' + card.image + '</div>'; }
+    if (card.takeaway){ html += '<div class="face-takeaway">' + escapeHtml(card.takeaway) + '</div>'; }
+    html += '<div class="face-detail">' + escapeHtml(card.a) + '</div>';
+    els.back.innerHTML = html;
+  }
+
+  // Shows what each button would schedule, so the choice is informed rather than blind.
+  function updateIntervalPreviews(){
+    var deck = currentDeck();
+    var current = getCardState(deck.id, state.cardIndex) || newCardState();
+    els.goodInterval.textContent = formatInterval(schedule(current, QUALITY_GOOD).interval);
+    els.easyInterval.textContent = formatInterval(schedule(current, QUALITY_EASY).interval);
+    els.againInterval.textContent = 'today';
+  }
+
+  function renderCard(){
+    var deck = currentDeck();
+    state.cardIndex = state.queue[state.queuePos];
+    var card = deck.cards[state.cardIndex];
+    els.deckName.textContent = deck.name;
+    els.progressText.textContent = (state.queuePos + 1) + ' of ' + state.queue.length + ' due';
+    els.progressFill.style.width =
+      (state.queue.length ? (state.queuePos / state.queue.length * 100) : 0) + '%';
+    els.front.textContent = card.q;
+    renderBackFace(card);
+    els.flashcard.classList.toggle('has-diagram', !!card.image);
+    state.flipped = false;
+    els.inner.classList.remove('flipped');
+    els.flashcard.setAttribute('aria-pressed', 'false');
+    els.ratingRow.hidden = true;
+    els.flipBtn.textContent = 'Flip card';
+    if (els.prevBtn) { els.prevBtn.disabled = state.queuePos <= 0; }
+    updateIntervalPreviews();
+  }
+
+  // Step back through the session so a card can be re-read. The earlier rating
+  // stays as it was unless the card is rated again, which simply overwrites it.
+  function goPrevious(){
+    if (state.queuePos <= 0) { return; }
+    state.queuePos--;
+    renderCard();
+  }
+
+  function flip(){
+    state.flipped = !state.flipped;
+    els.inner.classList.toggle('flipped', state.flipped);
+    els.flashcard.setAttribute('aria-pressed', String(state.flipped));
+    els.ratingRow.hidden = !state.flipped;
+    els.flipBtn.textContent = state.flipped ? 'Flip back' : 'Flip card';
+  }
+
+  function rate(quality){
+    if (!state.flipped) { return; } // can't rate a card you haven't looked at
+    var deck = currentDeck();
+    var cardIdx = state.cardIndex;
+    var current = getCardState(deck.id, cardIdx) || newCardState();
+    var result = schedule(current, quality);
+    var now = new Date();
+    var newState = {
+      reps: result.reps,
+      ef: result.ef,
+      interval: result.interval,
+      due: dueDateAfter(result.interval),
+      last: now.toISOString()
+    };
+    progress[deck.id] = progress[deck.id] || {};
+    progress[deck.id][cardIdx] = newState;
+    saveProgress(progress);
+    if (currentUser) { upsertRemoteProgress(currentUser.id, deck.id, cardIdx, newState); }
+    // The single most important step in the funnel: did they actually study
+    // anything, or just look at the catalog and leave?
+    trackOnce('first_review', { deck: deck.id, track: deck.track });
+
+    if (quality === QUALITY_AGAIN) {
+      state.tally.again++;
+      // Requeue a few cards later in this same session rather than immediately next,
+      // so it gets another attempt before the session ends but isn't just repeated.
+      var insertAt = Math.min(state.queue.length, state.queuePos + 4);
+      state.queue.splice(insertAt, 0, cardIdx);
+    } else if (quality === QUALITY_GOOD) { state.tally.good++; }
+    else { state.tally.easy++; }
+
+    if (state.queuePos + 1 < state.queue.length) {
+      state.queuePos++;
+      renderCard();
+    } else {
+      showComplete();
+    }
+  }
+
+  var resetArmed = false;
+  var resetArmTimer = null;
+
+  function resetProgress(){
+    if(!resetArmed){
+      resetArmed = true;
+      els.resetBtn.textContent = 'Click again to confirm';
+      resetArmTimer = setTimeout(function(){
+        resetArmed = false;
+        els.resetBtn.textContent = 'Reset study progress';
+      }, 3000);
+      return;
+    }
+    clearTimeout(resetArmTimer);
+    resetArmed = false;
+    els.resetBtn.textContent = 'Reset study progress';
+    progress = {};
+    saveProgress(progress);
+    if (currentUser) { deleteAllRemoteProgress(currentUser.id); }
+    renderCatalog();
+  }
+
+  function showComplete(){
+    var deck = currentDeck();
+    var st = deckStats(deck);
+    endSession('finished');
+    els.progressFill.style.width = '100%';
+    els.progressText.textContent = 'Session complete';
+    els.cardStage.hidden = true;
+    els.flipBtn.hidden = true;
+    els.ratingRow.hidden = true;
+
+    var reviewed = state.tally.again + state.tally.good + state.tally.easy;
+    els.tallyTotal.textContent = reviewed;
+    els.tallyAgain.textContent = state.tally.again;
+    els.tallyGood.textContent = state.tally.good + state.tally.easy;
+
+    // Ask about an account only once a session has actually been done, and only for
+    // signed-out users. Below the threshold they haven't invested enough for the
+    // offer to mean anything, and asking anyway is just another site demanding a
+    // signup before it has been useful.
+    if (!currentUser && reviewed >= SAVE_PROMPT_MIN_CARDS) {
+      savePromptSeenThisVisit = true;
+      trackOnce('prompt_shown', { where: 'complete', reviewed: reviewed });
+      els.savePromptText.innerHTML = 'You&rsquo;ve reviewed <b>' + reviewed +
+        ' cards</b>. Right now that&rsquo;s saved in this browser only. A free account keeps it if you close the tab or switch device.';
+      els.savePrompt.hidden = false;
+    } else {
+      els.savePrompt.hidden = true;
+    }
+
+    if (reviewed === 0) {
+      els.completeHeading.textContent = 'Nothing due right now.';
+      els.completeNext.textContent = st.nextDueMs
+        ? 'You are caught up on this deck. The next card is scheduled ' + formatWhenDue(st.nextDueMs) + '.'
+        : 'You are caught up on this deck.';
+    } else {
+      els.completeHeading.textContent = 'Session complete.';
+      els.completeNext.textContent = st.nextDueMs
+        ? 'Next review ' + formatWhenDue(st.nextDueMs) + '. Cards you found hard will come back sooner.'
+        : 'Cards you found hard will come back sooner than the ones you knew.';
+    }
+    els.complete.hidden = false;
+    els.completeHeading.focus();
+  }
+
+  els.flashcard.addEventListener('click', flip);
+  els.flipBtn.addEventListener('click', flip);
+  els.againBtn.addEventListener('click', function(){ rate(QUALITY_AGAIN); });
+  els.goodBtn.addEventListener('click', function(){ rate(QUALITY_GOOD); });
+  els.easyBtn.addEventListener('click', function(){ rate(QUALITY_EASY); });
+
+  // Keyboard shortcuts, the way people expect a spaced-repetition tool to work:
+  // space or enter flips, 1-4 rate. Ignored while a dialog or text field has focus.
+  document.addEventListener('keydown', function(e){
+    if (els.study.hidden || !els.authOverlay.hidden) { return; }
+    if (e.metaKey || e.ctrlKey || e.altKey) { return; }
+    var tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA') { return; }
+    if (!els.complete.hidden) { return; }
+
+    if (e.key === ' ' || e.key === 'Enter') {
+      // If focus is on a control that already responds to Space/Enter (the card
+      // itself, the flip button, a rating button), let the browser activate it
+      // rather than handling the key twice. Anywhere else, Space flips.
+      var t = e.target;
+      var onOwnControl = t === els.flashcard || t === els.flipBtn ||
+        (t && t.closest && t.closest('.rating-row'));
+      if (onOwnControl) { return; }
+      e.preventDefault();
+      flip();
+      return;
+    }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goPrevious(); return; }
+    if (!state.flipped) { return; }
+    var map = { '1': QUALITY_AGAIN, '2': QUALITY_GOOD, '3': QUALITY_EASY };
+    if (Object.prototype.hasOwnProperty.call(map, e.key)) {
+      e.preventDefault();
+      rate(map[e.key]);
+    }
+  });
+  els.navTest.addEventListener('click', function(){
+    if (els.testView.hidden) { startTest(); }
+  });
+  els.navDecks.addEventListener('click', function(){
+    if (!els.testView.hidden || !els.study.hidden) { exitTest(); backToCatalog(); }
+    setNav('decks');
+  });
+  els.testStartBtn.addEventListener('click', startTest);
+  els.testExitBtn.addEventListener('click', exitTest);
+  els.testBackDecks.addEventListener('click', showTestDecks);
+  els.testBackList.addEventListener('click', function(){ showTestQuestions(testView.deckId); });
+  els.testRevealBtn.addEventListener('click', revealTest);
+  els.testRetryBtn.addEventListener('click', retryTest);
+  els.testNextBtn.addEventListener('click', nextTestQuestion);
+  els.testInput.addEventListener('keydown', function(e){
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); revealTest(); }
+  });
+  els.prevBtn.addEventListener('click', goPrevious);
+  els.backBtn.addEventListener('click', backToCatalog);
+  els.catalogBtn.addEventListener('click', backToCatalog);
+  els.introBackBtn.addEventListener('click', backToCatalog);
+  els.introStartBtn.addEventListener('click', function(){
+    // If the deck is caught up, the button reads "Review anyway" and should honour that.
+    var st = deckStats(decks[state.deckIndex]);
+    var caughtUp = st.started > 0 && (st.due + st.brandNew) === 0;
+    openDeck(state.deckIndex, caughtUp);
+  });
+  els.restartBtn.addEventListener('click', function(){
+    var deck = currentDeck();
+    delete progress[deck.id];
+    saveProgress(progress);
+    if (currentUser) { deleteRemoteDeckProgress(currentUser.id, deck.id); }
+    openDeck(state.deckIndex);
+  });
+  els.resetBtn.addEventListener('click', resetProgress);
+  els.trackIbBtn.addEventListener('click', function(){ setTrack('ib'); });
+  els.trackConsultingBtn.addEventListener('click', function(){ setTrack('consulting'); });
+
+  // Deep link. viewprep.net/?deck=marketsizing opens that deck straight away, so a
+  // link from a social post or from one of the static deck pages lands on the cards
+  // the person came for instead of the homepage, which they then have to scroll and
+  // click through twice. ?track=consulting is the looser version of the same idea.
+  // An unknown deck id falls through to the normal catalog rather than erroring.
+  function openFromQuery(){
+    var params;
+    try { params = new URLSearchParams(window.location.search); }
+    catch(e){ return false; }
+
+    var wanted = params.get('deck');
+    if (!wanted) {
+      var t = params.get('track');
+      if (t === 'ib' || t === 'consulting') {
+        setTrack(t);
+        track('deep_link', { track: t });
+        return true;
+      }
+      return false;
+    }
+
+    var idx = -1;
+    for (var i = 0; i < decks.length; i++) {
+      if (decks[i].id === wanted) { idx = i; break; }
+    }
+    if (idx === -1) { return false; }
+
+    setTrack(decks[idx].track);
+    track('deep_link', { deck: decks[idx].id, track: decks[idx].track });
+    openDeck(idx);
+    return true;
+  }
+
+  // The static deck pages have the same four-section nav, but they are separate HTML
+  // files, so "Test yourself" and "My progress" there can only be links back here.
+  // They arrive as /#test, which this turns into the actual section.
+  function openFromHash(){
+    var h = (window.location.hash || '').toLowerCase();
+    if (h === '#test') { startTest(); return true; }
+    return false;
+  }
+
+  // --- Hero demo card ---
+  //
+  // Which card? Not a hand-picked favourite: a pool chosen by the constraints the
+  // hero actually imposes. No diagram (the hero card is shorter than a study card),
+  // a question and takeaway short enough to read at a glance, and no fictional-company
+  // setup that needs context a first-time visitor has not got. One is drawn at random
+  // per load, so a repeat visitor sees a different card.
+  //
+  // It renders through the same .flashcard markup and CSS as the study view, so the
+  // flip, the type and the surface are identical rather than a lookalike.
+  var HERO_MAX_Q = 110, HERO_MAX_A = 110;
+  var HERO_FICTIONAL = /\b(Ferrow|Corvale|Dunmoor|Aldmere|Velmara|Bramwell|Calder|Northbay|Vantor|Kestrel|Marrow|Alder|Brightwater)\b/i;
+  var heroPick = null, heroFlipped = false;
+
+  function heroEligible(){
+    var out = [];
+    decks.forEach(function(deck){
+      deck.cards.forEach(function(card, i){
+        if (card.image || !card.takeaway) { return; }
+        if (card.q.length > HERO_MAX_Q || card.takeaway.length > HERO_MAX_A) { return; }
+        if (HERO_FICTIONAL.test(card.q) || HERO_FICTIONAL.test(card.takeaway)) { return; }
+        out.push({ deck: deck, index: i, card: card });
+      });
+    });
+    return out;
+  }
+
+  function initHeroCard(){
+    if (!els.heroFlashcard) { return; }
+    var pool = heroEligible();
+    if (!pool.length) { return; }
+    heroPick = pool[Math.floor(Math.random() * pool.length)];
+    heroFlipped = false;
+    els.heroInner.classList.remove('flipped');
+    els.heroFlashcard.setAttribute('aria-pressed', 'false');
+    els.heroFaceLabel.textContent = heroPick.deck.name;
+    els.heroFrontText.textContent = heroPick.card.q;
+    els.heroBackText.textContent = heroPick.card.takeaway;
+    els.heroDemoLink.href = '?deck=' + encodeURIComponent(heroPick.deck.id);
+    els.heroDemo.hidden = false;
+  }
+
+  if (els.heroFlashcard) {
+    els.heroFlashcard.addEventListener('click', function(){
+      heroFlipped = !heroFlipped;
+      els.heroInner.classList.toggle('flipped', heroFlipped);
+      els.heroFlashcard.setAttribute('aria-pressed', String(heroFlipped));
+      if (heroFlipped) { trackOnce('hero_flip', { deck: heroPick.deck.id }); }
+    });
+  }
+  if (els.heroDemoLink) {
+    els.heroDemoLink.addEventListener('click', function(){
+      track('hero_cta', { deck: heroPick ? heroPick.deck.id : null });
+    });
+  }
+
+  function init(){
+    els.deckGrid.innerHTML = '<p style="color:var(--ink-soft);padding:.5rem 0;">Loading catalog&hellip;</p>';
+    fetch('decks.json')
+      .then(function(res){
+        if(!res.ok){ throw new Error('HTTP ' + res.status); }
+        return res.json();
+      })
+      .then(function(data){
+        decks = data;
+        setTrack('ib');
+        track('catalog_view', { decks: decks.length });
+        initHeroCard();
+        if (!openFromQuery()) { openFromHash(); }
+      })
+      .catch(function(err){
+        els.deckGrid.innerHTML = '<p style="color:var(--ink-soft);padding:.5rem 0;">Couldn&rsquo;t load the deck catalog right now. Please refresh the page, or try again in a moment.</p>';
+        console.error('Failed to load decks.json:', err);
+      });
+  }
+
+  init();
+  logVisit();
+})();
+</script>
+
+</body>
+</html>
