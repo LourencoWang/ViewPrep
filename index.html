@@ -697,6 +697,31 @@
     background:var(--surface);border:1px solid var(--line-soft);color:var(--ink);
     font-family:var(--body);font-size:.92rem;
   }
+  .auth-google{
+    all:unset;box-sizing:border-box;cursor:pointer;width:100%;margin-top:1.4rem;
+    display:flex;align-items:center;justify-content:center;gap:.7rem;
+    padding:.8rem 1rem;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);font-family:var(--body);font-size:.92rem;font-weight:600;
+    color:var(--ink);transition:border-color .15s ease,background .15s ease;
+  }
+  .auth-google:hover{border-color:var(--ink);}
+  .auth-google:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+  .auth-google[disabled]{opacity:.6;cursor:default;}
+  .auth-google-mark{flex:0 0 auto;}
+  .auth-or{
+    display:flex;align-items:center;gap:.8rem;margin:1.15rem 0 .35rem;
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);
+  }
+  .auth-or::before,.auth-or::after{content:'';flex:1 1 auto;height:1px;background:var(--line-soft);}
+  .auth-forgot{
+    all:unset;cursor:pointer;display:inline-block;margin-top:.7rem;
+    font-family:var(--body);font-size:.8rem;color:var(--ink-soft);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .auth-forgot:hover{color:var(--blue);}
+  .auth-forgot:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+  .auth-ok{margin-top:.9rem;font-size:.82rem;color:var(--green);line-height:1.5;}
   .auth-error{margin-top:.9rem;font-size:.82rem;color:var(--amber-ink);line-height:1.5;}
   .auth-submit{width:100%;justify-content:center;margin-top:1.5rem;}
   .auth-toggle{
@@ -921,12 +946,32 @@
       <button class="auth-close" id="auth-close-btn" type="button" aria-label="Close">&times;</button>
       <h2 class="auth-title" id="auth-title" tabindex="-1">Sign in</h2>
       <p class="auth-sub" id="auth-sub">Sign in to sync your study progress across devices.</p>
+
+      <div id="auth-oauth">
+        <button class="auth-google" id="auth-google-btn" type="button">
+          <svg class="auth-google-mark" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+            <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/>
+            <path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"/>
+            <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+        <div class="auth-or"><span>or</span></div>
+      </div>
+
       <form id="auth-form" novalidate>
-        <label class="auth-label" for="auth-email">Email</label>
-        <input class="auth-input" type="email" id="auth-email" required autocomplete="email">
-        <label class="auth-label" for="auth-password">Password</label>
-        <input class="auth-input" type="password" id="auth-password" required minlength="6" autocomplete="current-password">
+        <div id="auth-email-row">
+          <label class="auth-label" for="auth-email">Email</label>
+          <input class="auth-input" type="email" id="auth-email" autocomplete="email">
+        </div>
+        <div id="auth-password-row">
+          <label class="auth-label" for="auth-password">Password</label>
+          <input class="auth-input" type="password" id="auth-password" minlength="6" autocomplete="current-password">
+        </div>
+        <button class="auth-forgot" id="auth-forgot-btn" type="button">Forgot your password?</button>
         <p class="auth-error" id="auth-error" hidden></p>
+        <p class="auth-ok" id="auth-ok" hidden></p>
         <button class="btn-primary auth-submit" id="auth-submit-btn" type="submit">Sign in</button>
       </form>
       <button class="auth-toggle" id="auth-toggle-btn" type="button">Don&rsquo;t have an account? Sign up</button>
@@ -1386,6 +1431,12 @@
     authSub: document.getElementById('auth-sub'),
     authSubmitBtn: document.getElementById('auth-submit-btn'),
     authToggleBtn: document.getElementById('auth-toggle-btn'),
+    authGoogleBtn: document.getElementById('auth-google-btn'),
+    authOauth: document.getElementById('auth-oauth'),
+    authEmailRow: document.getElementById('auth-email-row'),
+    authPasswordRow: document.getElementById('auth-password-row'),
+    authForgotBtn: document.getElementById('auth-forgot-btn'),
+    authOk: document.getElementById('auth-ok'),
     authCloseBtn: document.getElementById('auth-close-btn')
   };
 
@@ -1393,18 +1444,39 @@
   var authMode = 'signin';
   var authLastFocused = null;
 
+  // Four states in one modal: sign in, sign up, ask for a reset link, and set a new
+  // password after following that link. Kept in one dialog rather than separate pages
+  // so the recovery link can land on the homepage and be handled in place.
   function updateAuthModalMode(){
+    var showOauth = (authMode === 'signin' || authMode === 'signup');
+    els.authOauth.hidden = !showOauth;
+    els.authEmailRow.hidden = (authMode === 'recover');
+    els.authPasswordRow.hidden = (authMode === 'reset');
+    els.authForgotBtn.hidden = (authMode !== 'signin');
+    els.authToggleBtn.hidden = (authMode === 'recover');
+    els.authOk.hidden = true;
+
     if (authMode === 'signin') {
       els.authTitle.textContent = 'Sign in';
       els.authSub.textContent = 'Pick your study progress back up on any device.';
       els.authSubmitBtn.textContent = 'Sign in';
       els.authToggleBtn.textContent = 'No account yet? Create one, it’s free';
       els.authPassword.setAttribute('autocomplete', 'current-password');
-    } else {
+    } else if (authMode === 'signup') {
       els.authTitle.textContent = 'Create account';
       els.authSub.textContent = 'Free, and it takes a few seconds. Without one, your progress lives in this browser only and disappears if you clear your history or switch device.';
       els.authSubmitBtn.textContent = 'Create account';
       els.authToggleBtn.textContent = 'Already have an account? Sign in';
+      els.authPassword.setAttribute('autocomplete', 'new-password');
+    } else if (authMode === 'reset') {
+      els.authTitle.textContent = 'Reset your password';
+      els.authSub.textContent = 'Enter the email you signed up with and we’ll send you a link to set a new password.';
+      els.authSubmitBtn.textContent = 'Send reset link';
+      els.authToggleBtn.textContent = 'Back to sign in';
+    } else { // recover
+      els.authTitle.textContent = 'Set a new password';
+      els.authSub.textContent = 'Choose a new password for your account. At least six characters.';
+      els.authSubmitBtn.textContent = 'Save new password';
       els.authPassword.setAttribute('autocomplete', 'new-password');
     }
   }
@@ -1494,8 +1566,36 @@
   });
   els.authCloseBtn.addEventListener('click', closeAuthModal);
   els.authOverlay.addEventListener('click', function(e){ if (e.target === els.authOverlay) { closeAuthModal(); } });
+  els.authGoogleBtn.addEventListener('click', function(){
+    if (!sb) {
+      els.authError.textContent = 'Accounts aren’t available right now. Please try again shortly.';
+      els.authError.hidden = false;
+      return;
+    }
+    els.authError.hidden = true;
+    els.authGoogleBtn.disabled = true;
+    track('auth_google_click', {});
+    sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin + '/' }
+    }).then(function(res){
+      // On success the browser is redirected to Google, so nothing after this runs.
+      if (res && res.error) { throw res.error; }
+    }).catch(function(err){
+      els.authGoogleBtn.disabled = false;
+      track('auth_error', { mode: 'google', message: (err && err.message) ? String(err.message).slice(0, 120) : 'unknown' });
+      els.authError.textContent = (err && err.message) ? err.message : 'Couldn’t start Google sign-in. Please try again.';
+      els.authError.hidden = false;
+    });
+  });
+  els.authForgotBtn.addEventListener('click', function(){
+    authMode = 'reset';
+    updateAuthModalMode();
+    els.authError.hidden = true;
+    els.authEmail.focus();
+  });
   els.authToggleBtn.addEventListener('click', function(){
-    authMode = (authMode === 'signin') ? 'signup' : 'signin';
+    authMode = (authMode === 'signin') ? 'signup' : 'signin';  // reset falls back here too
     els.authError.hidden = true;
     updateAuthModalMode();
     els.authEmail.focus();
@@ -1508,16 +1608,42 @@
       return;
     }
     els.authError.hidden = true;
+    els.authOk.hidden = true;
     els.authSubmitBtn.disabled = true;
     var email = els.authEmail.value.trim();
     var password = els.authPassword.value;
-    var authCall = (authMode === 'signin')
-      ? sb.auth.signInWithPassword({ email: email, password: password })
-      : sb.auth.signUp({ email: email, password: password });
+    var mode = authMode;
+    var authCall;
+    if (mode === 'signin') {
+      authCall = sb.auth.signInWithPassword({ email: email, password: password });
+    } else if (mode === 'signup') {
+      authCall = sb.auth.signUp({ email: email, password: password });
+    } else if (mode === 'reset') {
+      // redirectTo must be on the allow-list in Supabase -> Authentication -> URL
+      // Configuration, otherwise the link in the email silently drops the token.
+      authCall = sb.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/#recover'
+      });
+    } else {
+      authCall = sb.auth.updateUser({ password: password });
+    }
     authCall.then(function(result){
       if (result.error) { throw result.error; }
-      track('auth_success', { mode: authMode });
-      if (authMode === 'signup' && result.data && result.data.user && !result.data.session) {
+      track('auth_success', { mode: mode });
+      if (mode === 'reset') {
+        // Deliberately the same message whether or not that email has an account.
+        // Saying "no account found" would let anyone test which emails are registered.
+        els.authOk.textContent = 'If that email has an account, a reset link is on its way. Check your inbox, and your spam folder.';
+        els.authOk.hidden = false;
+        return;
+      }
+      if (mode === 'recover') {
+        els.authOk.textContent = 'Password updated. You’re signed in.';
+        els.authOk.hidden = false;
+        setTimeout(closeAuthModal, 1200);
+        return;
+      }
+      if (mode === 'signup' && result.data && result.data.user && !result.data.session) {
         authMode = 'signin';
         updateAuthModalMode();
         els.authSub.textContent = 'Almost there, check your email to confirm your account, then sign in here.';
@@ -1525,7 +1651,7 @@
       }
       closeAuthModal();
     }).catch(function(err){
-      track('auth_error', { mode: authMode, message: (err && err.message) ? String(err.message).slice(0, 120) : 'unknown' });
+      track('auth_error', { mode: mode, message: (err && err.message) ? String(err.message).slice(0, 120) : 'unknown' });
       els.authError.textContent = (err && err.message) ? err.message : 'Something went wrong. Please try again.';
       els.authError.hidden = false;
     }).finally(function(){
@@ -1535,6 +1661,21 @@
 
   if (sb) {
     sb.auth.onAuthStateChange(function(event, session){
+      if (event === 'PASSWORD_RECOVERY') {
+        // Arriving from a reset email. Supabase has already put the browser in a
+        // temporary signed-in state, which is what allows updateUser to set the
+        // new password; the modal is the only thing that should be on screen.
+        if (session && session.user) { handleLogin(session.user); }
+        authMode = 'recover';
+        updateAuthModalMode();
+        els.authError.hidden = true;
+        els.authForm.reset();
+        authLastFocused = document.activeElement;
+        els.authOverlay.hidden = false;
+        els.authTitle.focus();
+        document.addEventListener('keydown', onAuthKeydown);
+        return;
+      }
       if (session && session.user) { handleLogin(session.user); }
       else { handleLogout(); }
     });
