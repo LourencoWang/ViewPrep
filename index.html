@@ -361,6 +361,15 @@
   .study-desk{display:flex;flex-direction:column;align-items:center;gap:1.75rem;padding:1rem 0;}
 
   .card-stage{-webkit-perspective:1800px;perspective:1800px;width:100%;max-width:480px;}
+
+  /* Desktop only: 86% of answers overflowed the 480px card and had to be
+     scrolled. 720px at a wider ratio fits all 400 without making the card
+     taller than the 480px version's successor would have been. Phones and
+     tablets keep the original sizing. */
+  @media (min-width:1000px){
+    #card-stage{max-width:700px;}
+    #card-stage .flashcard{aspect-ratio:5/3;}
+  }
   .flashcard{all:unset;display:block;width:100%;aspect-ratio:5/3.3;min-height:300px;cursor:pointer;}
   .flashcard.has-diagram{min-height:520px;}
   @media (max-width:600px){
@@ -453,6 +462,13 @@
     display:block;font-family:var(--body);font-size:.58rem;font-weight:600;
     letter-spacing:.06em;opacity:.5;text-transform:none;margin-top:.1rem;
   }
+  .card-nav{display:flex;align-items:center;justify-content:center;gap:.9rem;flex-wrap:wrap;}
+  .prev-btn{all:unset;cursor:pointer;font-family:var(--body);font-size:.74rem;font-weight:700;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);
+    padding:.55rem 1.05rem;border-radius:999px;border:1px solid var(--line-soft);
+    transition:color .15s ease,border-color .15s ease;}
+  .prev-btn:hover:not([disabled]){color:var(--ink);border-color:var(--line);}
+  .prev-btn[disabled]{opacity:.3;cursor:default;}
   .stamp-again{color:var(--red);border-color:var(--red);}
   .stamp-again:hover{background:var(--red);color:var(--contrast);}
   /* Outline and label carry the colour; the interval and key hint stay neutral so
@@ -585,8 +601,8 @@
     max-width:11rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
     transition:border-color .15s ease, color .15s ease;
   }
-  .account-btn:hover{border-color:var(--blue);color:var(--ink);}
-  .account-btn.is-signed-in{color:var(--ink);border-color:var(--line);}
+  .account-btn:hover{background:#2A2A2E;border-color:#2A2A2E;color:#fff;}
+  .account-btn.is-signed-in{color:#fff;border-color:var(--ink);text-transform:none;letter-spacing:.01em;}
 
   .auth-overlay{
     position:fixed;inset:0;z-index:50;
@@ -655,26 +671,7 @@
         </div>
         <!-- A real card from the deck, picked at random on each load. The page used
              to describe the product; this shows it. -->
-        <div class="hero-demo" id="hero-demo" hidden>
-          <div class="card-stage">
-            <button class="flashcard" id="hero-flashcard" aria-pressed="false">
-              <div class="flashcard-inner" id="hero-flashcard-inner">
-                <div class="face face-front">
-                  <span class="face-label" id="hero-face-label">Question</span>
-                  <p class="face-text" id="hero-front-text"></p>
-                  <span class="tap-hint">Tap to flip</span>
-                </div>
-                <div class="face face-back">
-                  <span class="face-label">Answer</span>
-                  <div class="face-text" id="hero-back-text"></div>
-                </div>
-              </div>
-            </button>
-          </div>
-          <a class="hero-demo-link" id="hero-demo-link" href="#catalog">
-            See this deck and 399 more cards &#8594;
-          </a>
-        </div>
+        <!-- hero demo card removed -->
         <div class="hero-actions">
           <a href="#catalog" class="btn-primary">Open the catalog &#8599;</a>
         </div>
@@ -779,7 +776,10 @@
           <span>Easy</span><span class="stamp-interval" id="easy-interval"></span><span class="stamp-key">3</span>
         </button>
       </div>
-      <button class="flip-btn" id="flip-btn">Flip card</button>
+      <div class="card-nav">
+        <button class="prev-btn" id="prev-btn" type="button" disabled>&larr; Previous</button>
+        <button class="flip-btn" id="flip-btn">Flip card</button>
+      </div>
 
       <div class="study-complete" id="study-complete" hidden>
         <h3 id="complete-heading" tabindex="-1">Deck complete.</h3>
@@ -1257,6 +1257,7 @@
     progressFill: document.getElementById('progress-fill'),
     cardStage: document.getElementById('card-stage'),
     flashcard: document.getElementById('flashcard'),
+    prevBtn: document.getElementById('prev-btn'),
     inner: document.getElementById('flashcard-inner'),
     front: document.getElementById('card-front-text'),
     back: document.getElementById('card-back-text'),
@@ -1713,7 +1714,16 @@
     els.flashcard.setAttribute('aria-pressed', 'false');
     els.ratingRow.hidden = true;
     els.flipBtn.textContent = 'Flip card';
+    if (els.prevBtn) { els.prevBtn.disabled = state.queuePos <= 0; }
     updateIntervalPreviews();
+  }
+
+  // Step back through the session so a card can be re-read. The earlier rating
+  // stays as it was unless the card is rated again, which simply overwrites it.
+  function goPrevious(){
+    if (state.queuePos <= 0) { return; }
+    state.queuePos--;
+    renderCard();
   }
 
   function flip(){
@@ -1856,6 +1866,7 @@
       flip();
       return;
     }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goPrevious(); return; }
     if (!state.flipped) { return; }
     var map = { '1': QUALITY_AGAIN, '2': QUALITY_GOOD, '3': QUALITY_EASY };
     if (Object.prototype.hasOwnProperty.call(map, e.key)) {
@@ -1863,6 +1874,7 @@
       rate(map[e.key]);
     }
   });
+  els.prevBtn.addEventListener('click', goPrevious);
   els.backBtn.addEventListener('click', backToCatalog);
   els.catalogBtn.addEventListener('click', backToCatalog);
   els.introBackBtn.addEventListener('click', backToCatalog);
