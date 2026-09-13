@@ -1202,46 +1202,48 @@
   }
 
   // --- Report card ---
-  // Score sends on tap (one row); the free-text, if any, updates that same row so
-  // one person is one row. Remembered in this browser so it isn't shown twice.
+  // The score sends on tap; the free-text, if any, updates that same row. The row
+  // is addressed by a client-made id so nothing ever needs to be read back (the
+  // table has no read access from the site, on purpose). Shown once per browser.
   (function(){
     var box = document.getElementById('rc-box'); if (!box) return;
     var KEY = 'flashprep_feedback_v1';
     try { if (localStorage.getItem(KEY)) { box.hidden = true; return; } } catch(e){}
-    var rowId = null, score = null;
+    var clientId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+      : 'fb-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+    var inserted = false, score = null;
     var scale = document.getElementById('rc-scale'), more = document.getElementById('rc-more'),
         text = document.getElementById('rc-text'), send = document.getElementById('rc-send'),
         done = document.getElementById('rc-done');
-    function payload(){
-      var row = { score: score, page: location.pathname + location.hash, visitor_id: getVisitorId(),
-                  ua: navigator.userAgent.slice(0, 160) };
+    function payload(extra){
+      var row = { client_id: clientId, score: score, page: location.pathname + location.hash,
+                  visitor_id: getVisitorId(), ua: navigator.userAgent.slice(0, 160) };
       if (currentUser) row.user_id = currentUser.id;
+      for (var k in (extra || {})) row[k] = extra[k];
       return row;
+    }
+    function write(extra){
+      if (!sb) return;
+      var q = inserted ? sb.from('feedback').update(Object.assign({ score: score }, extra || {})).eq('client_id', clientId)
+                       : sb.from('feedback').insert(payload(extra));
+      inserted = true;
+      q.then(function(res){ if (res && res.error) console.error('feedback:', res.error); }, function(){});
     }
     scale.addEventListener('click', function(e){
       var b = e.target.closest('.rc-n'); if (!b) return;
       score = Number(b.getAttribute('data-score'));
       Array.prototype.forEach.call(scale.querySelectorAll('.rc-n'), function(x){ x.classList.toggle('is-on', x === b); });
       more.hidden = false; text.focus();
-      if (!sb) return;
-      var q = rowId ? sb.from('feedback').update({ score: score }).eq('id', rowId).select('id')
-                    : sb.from('feedback').insert(payload()).select('id');
-      q.then(function(res){ if (!res.error && res.data && res.data[0]) rowId = res.data[0].id; }, function(){});
+      write();
       track('feedback_score', { score: score });
     });
     send.addEventListener('click', function(){
       var t = text.value.trim();
       send.disabled = true;
-      var finish = function(){
-        more.hidden = true; scale.hidden = true; done.hidden = false;
-        document.querySelector('.rc-ends').hidden = true;
-        try { localStorage.setItem(KEY, String(Date.now())); } catch(e){}
-      };
-      if (!t || !sb) { finish(); return; }
-      var q = rowId ? sb.from('feedback').update({ text: t }).eq('id', rowId)
-                    : sb.from('feedback').insert(Object.assign(payload(), { text: t }));
-      q.then(finish, finish);
-      track('feedback_text', { len: t.length });
+      more.hidden = true; scale.hidden = true; done.hidden = false;
+      document.querySelector('.rc-ends').hidden = true;
+      try { localStorage.setItem(KEY, String(Date.now())); } catch(e){}
+      if (t) { write({ text: t }); track('feedback_text', { len: t.length }); }
     });
   })();
 
