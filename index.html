@@ -404,6 +404,33 @@
 
   [hidden]{display:none !important;}
 
+  /* Report card: one tap for a score, an optional line, sent to Supabase. Small on
+     purpose; it sits above the footer and never interrupts studying. */
+  .rc{max-width:var(--wrap,1100px);margin:2.6rem auto 0;padding:0 1.5rem;}
+  .rc-box{border:1px solid var(--line-soft);border-radius:14px;background:var(--surface);padding:1.15rem 1.25rem 1.2rem;
+    max-width:520px;}
+  .rc-title{font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin:0;}
+  .rc-sub{font-size:.8rem;color:var(--ink-faint);margin:.25rem 0 .85rem;line-height:1.5;}
+  .rc-scale{display:flex;gap:.4rem;flex-wrap:wrap;}
+  .rc-n{all:unset;box-sizing:border-box;cursor:pointer;width:42px;height:42px;display:grid;place-items:center;
+    border:1px solid var(--line);border-radius:10px;font-family:var(--body);font-weight:700;font-size:.9rem;color:var(--ink-soft);
+    transition:background .12s,color .12s,border-color .12s;}
+  .rc-n:hover{border-color:var(--ink);color:var(--ink);}
+  .rc-n.is-on{background:var(--ink);color:var(--contrast,#fff);border-color:var(--ink);}
+  .rc-n:focus-visible{outline:2px solid var(--focus,var(--blue));outline-offset:2px;}
+  .rc-ends{display:flex;justify-content:space-between;font-size:.7rem;color:var(--ink-faint);margin:.35rem 0 0;max-width:222px;}
+  .rc-more{margin-top:.9rem;}
+  .rc-more[hidden]{display:none;}
+  .rc-text{width:100%;min-height:78px;resize:vertical;font-family:var(--body);font-size:.88rem;line-height:1.5;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.65rem .75rem;}
+  .rc-text:focus-visible{outline:2px solid var(--focus,var(--blue));outline-offset:1px;}
+  .rc-row{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;flex-wrap:wrap;}
+  .rc-send{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--contrast,#fff);background:var(--ink);border-radius:999px;padding:.6rem 1.1rem;}
+  .rc-send:disabled{opacity:.5;cursor:default;}
+  .rc-send:focus-visible{outline:2px solid var(--focus,var(--blue));outline-offset:2px;}
+  .rc-skip{font-size:.78rem;color:var(--ink-faint);}
+  .rc-done{font-size:.88rem;color:var(--green);font-weight:600;margin:0;}
   .site-footer{
     border-top:1px solid var(--line-soft);
     padding:1.5rem 0 2.75rem;
@@ -1013,6 +1040,32 @@
     </div>
   </section>
 
+  <!-- Report card. A score is one tap and sends immediately; the text box only
+       appears after a score, so the ask is tiny. Rows land in the "feedback" table. -->
+  <section class="rc" aria-label="Rate ViewPrep">
+    <div class="rc-box" id="rc-box">
+      <p class="rc-title">How's ViewPrep so far?</p>
+      <p class="rc-sub">One tap. Anonymous. It goes straight to the person who built it.</p>
+      <div class="rc-scale" id="rc-scale" role="group" aria-label="Score out of 5">
+        <button class="rc-n" type="button" data-score="1">1</button>
+        <button class="rc-n" type="button" data-score="2">2</button>
+        <button class="rc-n" type="button" data-score="3">3</button>
+        <button class="rc-n" type="button" data-score="4">4</button>
+        <button class="rc-n" type="button" data-score="5">5</button>
+      </div>
+      <p class="rc-ends"><span>Not useful</span><span>Very useful</span></p>
+      <div class="rc-more" id="rc-more" hidden>
+        <label class="rc-sub" for="rc-text">Anything confusing, missing, or wrong? One line is plenty.</label>
+        <textarea class="rc-text" id="rc-text" maxlength="600" placeholder="e.g. the LBO deck lost me at step 3"></textarea>
+        <div class="rc-row">
+          <button class="rc-send" id="rc-send" type="button">Send</button>
+          <span class="rc-skip">Score already sent. This bit's optional.</span>
+        </div>
+      </div>
+      <p class="rc-done" id="rc-done" hidden>Thanks. Read by a human, promise.</p>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <p class="footer-disclaimer">ViewPrep is an independent study resource. It is not affiliated with, endorsed by, or sourced from any university, employer, or prep platform.</p>
     <p class="footer-browse"><a href="/decks/">Browse every deck and read all 400 cards &#8594;</a></p>
@@ -1147,6 +1200,50 @@
     trackedOnce[name] = true;
     track(name, props);
   }
+
+  // --- Report card ---
+  // Score sends on tap (one row); the free-text, if any, updates that same row so
+  // one person is one row. Remembered in this browser so it isn't shown twice.
+  (function(){
+    var box = document.getElementById('rc-box'); if (!box) return;
+    var KEY = 'flashprep_feedback_v1';
+    try { if (localStorage.getItem(KEY)) { box.hidden = true; return; } } catch(e){}
+    var rowId = null, score = null;
+    var scale = document.getElementById('rc-scale'), more = document.getElementById('rc-more'),
+        text = document.getElementById('rc-text'), send = document.getElementById('rc-send'),
+        done = document.getElementById('rc-done');
+    function payload(){
+      var row = { score: score, page: location.pathname + location.hash, visitor_id: getVisitorId(),
+                  ua: navigator.userAgent.slice(0, 160) };
+      if (currentUser) row.user_id = currentUser.id;
+      return row;
+    }
+    scale.addEventListener('click', function(e){
+      var b = e.target.closest('.rc-n'); if (!b) return;
+      score = Number(b.getAttribute('data-score'));
+      Array.prototype.forEach.call(scale.querySelectorAll('.rc-n'), function(x){ x.classList.toggle('is-on', x === b); });
+      more.hidden = false; text.focus();
+      if (!sb) return;
+      var q = rowId ? sb.from('feedback').update({ score: score }).eq('id', rowId).select('id')
+                    : sb.from('feedback').insert(payload()).select('id');
+      q.then(function(res){ if (!res.error && res.data && res.data[0]) rowId = res.data[0].id; }, function(){});
+      track('feedback_score', { score: score });
+    });
+    send.addEventListener('click', function(){
+      var t = text.value.trim();
+      send.disabled = true;
+      var finish = function(){
+        more.hidden = true; scale.hidden = true; done.hidden = false;
+        document.querySelector('.rc-ends').hidden = true;
+        try { localStorage.setItem(KEY, String(Date.now())); } catch(e){}
+      };
+      if (!t || !sb) { finish(); return; }
+      var q = rowId ? sb.from('feedback').update({ text: t }).eq('id', rowId)
+                    : sb.from('feedback').insert(Object.assign(payload(), { text: t }));
+      q.then(finish, finish);
+      track('feedback_text', { len: t.length });
+    });
+  })();
 
   // v2: card progress is spaced-repetition state (SM-2), not a mastered/review flag.
   // Bumping the storage key means any old v1 data is left behind rather than misread
