@@ -562,6 +562,35 @@
   .trust-strip li:not(:last-child)::after{content:'';width:3px;height:3px;border-radius:50%;
     background:var(--ink-faint);opacity:.6;}
 
+  /* Firms strip: the places these questions get asked, as a slow marquee.
+     Names set in our own type, not logos, so nothing implies endorsement. */
+  .firms{max-width:var(--wrap,1100px);margin:0 auto;padding:1.4rem 1.5rem .4rem;}
+  .firms-head{text-align:center;max-width:56ch;margin:0 auto 1.4rem;}
+  .firms-eyebrow{font-family:var(--body);font-size:.7rem;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin:0 0 .6rem;}
+  .firms-title{font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,3vw,1.9rem);
+    letter-spacing:-.02em;line-height:1.15;margin:0;color:var(--ink);text-wrap:balance;}
+  .firms-sub{font-size:.9rem;line-height:1.55;color:var(--ink-soft);margin:.7rem auto 0;max-width:52ch;}
+  .marquee{position:relative;overflow:hidden;padding:.45rem 0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .marquee-track{display:flex;gap:.7rem;width:max-content;animation:marquee 46s linear infinite;}
+  .marquee.is-reverse .marquee-track{animation-direction:reverse;animation-duration:52s;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .firm{display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;
+    background:var(--surface);border:1px solid var(--line-soft);border-radius:999px;
+    padding:.5rem .95rem .5rem .55rem;font-family:var(--display);font-weight:700;font-size:.86rem;
+    letter-spacing:.01em;color:var(--ink);}
+  .firm i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;
+    background:var(--amber);color:#fff;font-style:normal;font-size:.58rem;font-weight:800;letter-spacing:0;}
+  .marquee.is-reverse .firm i{background:var(--ink);}
+  .firms-note{text-align:center;font-size:.72rem;color:var(--ink-faint);margin:1rem auto 0;max-width:60ch;line-height:1.5;}
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;}
+    .marquee-track > .firm:nth-child(n+17){display:none;}
+    .marquee{mask-image:none;-webkit-mask-image:none;}
+  }
   .loop{max-width:var(--wrap,1100px);margin:0 auto;padding:0 1.5rem 1rem;}
   .loop-row{list-style:none;margin:0;padding:2.2rem 0 0;display:grid;
     grid-template-columns:repeat(3,1fr);gap:1.6rem;border-top:1px solid var(--line-soft);}
@@ -823,6 +852,21 @@
           <li>Free</li><li>No signup</li>
         </ul>
       </div>
+    </section>
+
+    <!-- Where these questions get asked. Names in our own type: no logos, no
+         implied endorsement, and it still reads as "the real places". -->
+    <section class="firms" aria-label="Where these questions get asked">
+      <div class="firms-head">
+        <p class="firms-eyebrow">Spring weeks &middot; Internships &middot; Graduate roles</p>
+        <h2 class="firms-title">The questions these firms ask start with what's in these decks.</h2>
+        <p class="firms-sub">Every technical a first-year gets asked at these places is built on the
+          accounting, valuation and case fundamentals covered here. Nothing exotic. Just known cold.</p>
+      </div>
+      <div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="firm"><i aria-hidden="true">GS</i>Goldman Sachs</span><span class="firm"><i aria-hidden="true">JPM</i>J.P. Morgan</span><span class="firm"><i aria-hidden="true">MS</i>Morgan Stanley</span><span class="firm"><i aria-hidden="true">B</i>Barclays</span><span class="firm"><i aria-hidden="true">H</i>HSBC</span><span class="firm"><i aria-hidden="true">C</i>Citi</span><span class="firm"><i aria-hidden="true">BA</i>Bank of America</span><span class="firm"><i aria-hidden="true">U</i>UBS</span><span class="firm"><i aria-hidden="true">DB</i>Deutsche Bank</span><span class="firm"><i aria-hidden="true">BNP</i>BNP Paribas</span><span class="firm"><i aria-hidden="true">R</i>Rothschild & Co</span><span class="firm"><i aria-hidden="true">L</i>Lazard</span><span class="firm"><i aria-hidden="true">EV</i>Evercore</span><span class="firm"><i aria-hidden="true">J</i>Jefferies</span><span class="firm"><i aria-hidden="true">N</i>Nomura</span><span class="firm"><i aria-hidden="true">MQ</i>Macquarie</span><span class="firm"><i aria-hidden="true">GS</i>Goldman Sachs</span><span class="firm"><i aria-hidden="true">JPM</i>J.P. Morgan</span><span class="firm"><i aria-hidden="true">MS</i>Morgan Stanley</span><span class="firm"><i aria-hidden="true">B</i>Barclays</span><span class="firm"><i aria-hidden="true">H</i>HSBC</span><span class="firm"><i aria-hidden="true">C</i>Citi</span><span class="firm"><i aria-hidden="true">BA</i>Bank of America</span><span class="firm"><i aria-hidden="true">U</i>UBS</span><span class="firm"><i aria-hidden="true">DB</i>Deutsche Bank</span><span class="firm"><i aria-hidden="true">BNP</i>BNP Paribas</span><span class="firm"><i aria-hidden="true">R</i>Rothschild & Co</span><span class="firm"><i aria-hidden="true">L</i>Lazard</span><span class="firm"><i aria-hidden="true">EV</i>Evercore</span><span class="firm"><i aria-hidden="true">J</i>Jefferies</span><span class="firm"><i aria-hidden="true">N</i>Nomura</span><span class="firm"><i aria-hidden="true">MQ</i>Macquarie</span></div></div>
+      <div class="marquee is-reverse" aria-hidden="true"><div class="marquee-track"><span class="firm"><i aria-hidden="true">McK</i>McKinsey & Company</span><span class="firm"><i aria-hidden="true">BCG</i>Boston Consulting Group</span><span class="firm"><i aria-hidden="true">B</i>Bain & Company</span><span class="firm"><i aria-hidden="true">OW</i>Oliver Wyman</span><span class="firm"><i aria-hidden="true">K</i>Kearney</span><span class="firm"><i aria-hidden="true">RB</i>Roland Berger</span><span class="firm"><i aria-hidden="true">LEK</i>L.E.K. Consulting</span><span class="firm"><i aria-hidden="true">S&</i>Strategy&</span><span class="firm"><i aria-hidden="true">EYP</i>EY-Parthenon</span><span class="firm"><i aria-hidden="true">D</i>Deloitte</span><span class="firm"><i aria-hidden="true">PwC</i>PwC</span><span class="firm"><i aria-hidden="true">KP</i>KPMG</span><span class="firm"><i aria-hidden="true">A</i>Accenture Strategy</span><span class="firm"><i aria-hidden="true">A&M</i>Alvarez & Marsal</span><span class="firm"><i aria-hidden="true">FTI</i>FTI Consulting</span><span class="firm"><i aria-hidden="true">MD</i>Monitor Deloitte</span><span class="firm"><i aria-hidden="true">McK</i>McKinsey & Company</span><span class="firm"><i aria-hidden="true">BCG</i>Boston Consulting Group</span><span class="firm"><i aria-hidden="true">B</i>Bain & Company</span><span class="firm"><i aria-hidden="true">OW</i>Oliver Wyman</span><span class="firm"><i aria-hidden="true">K</i>Kearney</span><span class="firm"><i aria-hidden="true">RB</i>Roland Berger</span><span class="firm"><i aria-hidden="true">LEK</i>L.E.K. Consulting</span><span class="firm"><i aria-hidden="true">S&</i>Strategy&</span><span class="firm"><i aria-hidden="true">EYP</i>EY-Parthenon</span><span class="firm"><i aria-hidden="true">D</i>Deloitte</span><span class="firm"><i aria-hidden="true">PwC</i>PwC</span><span class="firm"><i aria-hidden="true">KP</i>KPMG</span><span class="firm"><i aria-hidden="true">A</i>Accenture Strategy</span><span class="firm"><i aria-hidden="true">A&M</i>Alvarez & Marsal</span><span class="firm"><i aria-hidden="true">FTI</i>FTI Consulting</span><span class="firm"><i aria-hidden="true">MD</i>Monitor Deloitte</span></div></div>
+      <p class="firms-note">Firm names are for context only. ViewPrep is independent and is not
+        affiliated with, endorsed by, or a partner of any firm named.</p>
     </section>
 
     <!-- The loop, stated once. Test yourself is the part no other free flashcard
