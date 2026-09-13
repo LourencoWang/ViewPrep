@@ -563,6 +563,10 @@
     background:var(--ink-faint);opacity:.6;}
 
   .loop{max-width:var(--wrap,1100px);margin:0 auto;padding:0 1.5rem 1rem;}
+  .loop.in-hero{max-width:none;margin:0;padding:0;position:relative;z-index:1;}
+  .loop.in-hero .loop-row{padding:.4rem 0 1.9rem;border-top:none;border-bottom:1px solid var(--line-soft);
+    margin-bottom:1.9rem;}
+  @media (max-width:760px){ .loop.in-hero .loop-row{padding-top:.2rem;padding-bottom:1.5rem;margin-bottom:1.5rem;} }
   .loop-row{list-style:none;margin:0;padding:2.2rem 0 0;display:grid;
     grid-template-columns:repeat(3,1fr);gap:1.6rem;border-top:1px solid var(--line-soft);}
   .loop-step{display:flex;flex-direction:column;gap:.5rem;}
@@ -813,6 +817,27 @@
         </div>
         <!-- Two buttons rather than one, because the track choice has to happen anyway
              and burying it behind a generic CTA just adds a click. -->
+    <!-- The loop, stated once. Test yourself is the part no other free flashcard
+           site has, and it was invisible to anyone who did not scroll. -->
+      <section class="loop in-hero" aria-label="How ViewPrep works">
+        <ol class="loop-row">
+          <li class="loop-step">
+            <span class="loop-n">Learn</span>
+            <p class="loop-text">Work through a deck one card at a time. Every answer is written
+              so it makes sense with no finance background.</p>
+          </li>
+          <li class="loop-step">
+            <span class="loop-n">Test</span>
+            <p class="loop-text">Write the answer out from memory, then see which key terms you
+              actually used and which you missed.</p>
+          </li>
+          <li class="loop-step">
+            <span class="loop-n">Review</span>
+            <p class="loop-text">Anything you rate as hard comes back sooner. What you know
+              gets out of the way.</p>
+          </li>
+        </ol>
+      </section>
         <div class="hero-actions">
           <button class="btn-primary" id="hero-ib-btn" type="button">Start investment banking &rarr;</button>
           <button class="btn-primary is-alt" id="hero-consulting-btn" type="button">Start consulting &rarr;</button>
@@ -825,27 +850,6 @@
       </div>
     </section>
 
-    <!-- The loop, stated once. Test yourself is the part no other free flashcard
-         site has, and it was invisible to anyone who did not scroll. -->
-    <section class="loop" aria-label="How ViewPrep works">
-      <ol class="loop-row">
-        <li class="loop-step">
-          <span class="loop-n">Learn</span>
-          <p class="loop-text">Work through a deck one card at a time. Every answer is written
-            so it makes sense with no finance background.</p>
-        </li>
-        <li class="loop-step">
-          <span class="loop-n">Test</span>
-          <p class="loop-text">Write the answer out from memory, then see which key terms you
-            actually used and which you missed.</p>
-        </li>
-        <li class="loop-step">
-          <span class="loop-n">Review</span>
-          <p class="loop-text">Anything you rate as hard comes back sooner. What you know
-            gets out of the way.</p>
-        </li>
-      </ol>
-    </section>
 
     <section class="catalog" id="catalog">
       <h2 class="section-title">The catalog</h2>
