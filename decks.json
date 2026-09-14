@@ -246,6 +246,97 @@
     ]
   },
   {
+    "id": "ratios",
+    "tag": "Ratios",
+    "name": "Ratio Analysis",
+    "description": "Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.",
+    "intro": "When an interviewer asks how you would assess a company, they want ratios, and they want you to say what each one tells you rather than just name it. This deck covers the handful that come up: the liquidity ratios that say whether a company can pay its bills, the leverage ratios that say how much debt it carries, the profitability ratios that say how good the business is, and the efficiency ratios that say how hard its assets work. Every one is explained from the statement it comes from, so you can rebuild it under pressure instead of remembering a formula.",
+    "track": "ib",
+    "level": "intermediate",
+    "cards": [
+      {
+        "q": "What is a financial ratio, and why do analysts use ratios instead of the raw numbers?",
+        "takeaway": "A ratio turns two numbers into one that can be compared across companies, years and sizes.",
+        "a": "A ratio divides one figure from the financial statements by another so the result means something on its own. Calder Foods making £40m of profit tells you little; £40m on £400m of sales, a 10% margin, tells you how good the business is, and lets you compare it with a rival ten times its size. Ratios strip out scale, so you can line a company up against its peers, against its own history, and against what a lender or investor expects. The skill is not calculating them, it is knowing which one answers the question being asked."
+      },
+      {
+        "q": "What is the current ratio, and what does it tell you?",
+        "takeaway": "Current assets over current liabilities: whether the company can cover what it owes in the next year.",
+        "a": "The current ratio is current assets divided by current liabilities, both from the balance sheet. Current assets are cash and things that turn into cash within a year, like receivables and inventory; current liabilities are what falls due in the same window. A ratio above one means the company could, in principle, pay everything due this year from what it has. Below one is a warning, though some businesses run there comfortably, like supermarkets that get paid in cash before they pay suppliers. A very high ratio can also mean cash or stock sitting idle."
+      },
+      {
+        "q": "What is the quick ratio, and why would you use it instead of the current ratio?",
+        "takeaway": "The quick ratio drops inventory, because stock is the current asset that may not turn into cash when you need it.",
+        "a": "The quick ratio, sometimes called the acid test, is current assets minus inventory, divided by current liabilities. It asks the same question as the current ratio but is stricter: if the company had to pay everything due this year without selling any stock, could it? Inventory is the current asset most likely to be worth less than the balance sheet says, or to sell slowly, which is why it is excluded. For Ferrow Retail, with warehouses full of seasonal clothing, the two ratios can differ a lot; for a software company with no stock they are the same."
+      },
+      {
+        "q": "What is the debt-to-equity ratio, and what does a high number mean?",
+        "takeaway": "Total debt over shareholders' equity: how much of the company is funded by lenders rather than owners.",
+        "a": "Debt to equity is total borrowings divided by shareholders' equity, both from the balance sheet. It shows how the company is financed. A ratio of 2 means lenders have put in twice what the owners have. Higher leverage magnifies returns to shareholders when things go well and losses when they do not, because interest has to be paid regardless. What counts as high depends on the industry: Redhill Utilities, with steady regulated cash flows, can carry far more than a fashion retailer whose sales swing with the season. Compare with peers, not against a universal number."
+      },
+      {
+        "q": "What is net debt to EBITDA, and why do lenders prefer it to debt to equity?",
+        "takeaway": "Net debt over EBITDA says how many years of operating cash it would take to repay the debt.",
+        "a": "Net debt is total borrowings minus cash. Dividing it by EBITDA, a rough measure of the cash the operations generate before interest, tax and non-cash charges, tells you how many years of that cash would clear the debt. A company at 2x could pay off its debt in about two years of earnings; at 6x it is heavily levered. Lenders like it because it compares debt with the thing that actually services debt, cash flow, rather than with equity, which is an accounting number that can be distorted by write-downs and buybacks. Loan agreements often set a maximum on it."
+      },
+      {
+        "q": "What is interest cover, and what level starts to worry a lender?",
+        "takeaway": "EBIT over interest expense: how many times the company's operating profit covers its interest bill.",
+        "a": "Interest cover is operating profit, EBIT, divided by the interest expense for the year. It answers a simple question: if profits fell, how far could they fall before the company could not pay its interest? Cover of 8x is comfortable; below 2x means a modest bad year could tip the company into default, and lenders will price the loan accordingly or refuse it. Bramwell & Co. reporting EBIT of £60m against £30m of interest has cover of 2x, and its bankers would be watching. Cover is the ratio that connects the income statement to the credit story."
+      },
+      {
+        "q": "What are gross margin, operating margin and net margin, and why look at all three?",
+        "takeaway": "Each margin strips out one more layer of cost, so the gaps between them show where the money goes.",
+        "a": "Gross margin is revenue minus the direct cost of what was sold, divided by revenue: what is left after making the product. Operating margin also takes off overheads like rent, salaries and marketing: what is left from running the business. Net margin takes off interest and tax too: what is left for shareholders. Looking at all three shows where a company is strong or weak. Calder Foods with a 45% gross margin but a 4% operating margin has a good product and a bloated cost base. A rival with 30% and 8% is worse at making things and better at running the company."
+      },
+      {
+        "q": "What is return on equity, and why can a high ROE be a warning sign as well as a good one?",
+        "takeaway": "Net income over shareholders' equity: the return owners earn on their money, which leverage can flatter.",
+        "a": "Return on equity is net income divided by shareholders' equity. It tells owners what they earn on what they have put in and left in the business. A steady 15% is good; 30% is exceptional. The catch is that borrowing raises it: if a company funds itself mostly with debt, the equity base is small, so even ordinary profits look like a big return on it. That is why a high ROE alongside a high debt-to-equity ratio is a lender's story, not a great-business story. Return on capital employed, which uses debt plus equity in the denominator, strips that effect out."
+      },
+      {
+        "q": "What is return on capital employed, and why do many analysts prefer it to ROE?",
+        "takeaway": "EBIT over debt plus equity: how well the business uses all the money in it, whoever provided it.",
+        "a": "Return on capital employed is operating profit divided by the total capital in the business, debt plus equity, or equivalently total assets minus current liabilities. Because it uses profit before interest and capital from all sources, it is not flattered by how the company is financed. Two companies with the same operations will show the same ROCE whether one borrowed heavily and the other did not, whereas their ROEs would differ. A ROCE well above the company's cost of capital means every pound invested in the business is creating value; below it, growth destroys value."
+      },
+      {
+        "q": "What is asset turnover, and how does it explain why a supermarket and a luxury brand can earn the same return?",
+        "takeaway": "Revenue over total assets: how many pounds of sales each pound of assets produces.",
+        "a": "Asset turnover is revenue divided by total assets. It measures how hard the assets work. A supermarket has a low margin but turns its assets many times a year, because stock flies off the shelves; a luxury watchmaker turns its assets slowly but earns a huge margin on each sale. Multiply margin by turnover and you get return on assets, so two very different businesses can arrive at the same return by different routes. That decomposition, called DuPont analysis, is a favourite interview question because it shows whether you understand what drives returns rather than just naming them."
+      },
+      {
+        "q": "What are receivable days, inventory days and payable days, and what does the working capital cycle tell you?",
+        "takeaway": "How long the company waits to be paid, holds stock, and takes to pay suppliers, and therefore how much cash is tied up.",
+        "a": "Receivable days is receivables divided by revenue, times 365: how long customers take to pay. Inventory days is inventory over cost of sales, times 365: how long stock sits before it sells. Payable days is payables over cost of sales, times 365: how long the company takes to pay suppliers. Add the first two and subtract the third and you get the cash conversion cycle, the number of days the company's own cash is tied up. Northbay Logistics with 60 receivable days and 30 payable days is lending its customers a month of cash. Shortening the cycle frees cash without any change in profit."
+      },
+      {
+        "q": "What is earnings per share, and why does a company's EPS matter more to the share price than its total profit?",
+        "takeaway": "Net income divided by shares outstanding: the profit that belongs to each share, which is what a shareholder actually owns.",
+        "a": "Earnings per share is net income divided by the number of shares. A shareholder does not own the company's profit, she owns a share of it, so the number that matters to her is profit per share. It is why a company can grow profit and still see its share price fall: if it issued lots of new shares to do it, each share's slice shrank. It is also why buybacks lift the share price, since fewer shares means more profit per share. Diluted EPS also counts shares that could exist from options and convertibles, and is the more honest figure."
+      },
+      {
+        "q": "What is the price-to-earnings ratio, and what does a high one actually tell you?",
+        "takeaway": "Share price over EPS: how many years of current earnings the market is paying for, which reflects expected growth.",
+        "a": "The P/E ratio is the share price divided by earnings per share, or equivalently market capitalisation over net income. At 15x, investors are paying £15 for every £1 of this year's profit. A high P/E does not mean a share is expensive so much as that the market expects earnings to grow fast; a low one means it expects little growth, or sees risk. Comparing P/Es only makes sense between similar companies. The ratio also breaks when earnings are near zero or negative, which is why analysts fall back on EV/EBITDA for loss-making or heavily indebted companies."
+      },
+      {
+        "q": "What is dividend yield, and what is the payout ratio?",
+        "takeaway": "Yield is the dividend as a percentage of the share price; payout is the dividend as a share of profit.",
+        "a": "Dividend yield is the annual dividend per share divided by the share price. It tells an investor the cash return they get for holding the share, like interest on a bond. The payout ratio is dividends divided by net income, the share of profit paid out rather than reinvested. A high yield with a payout ratio above 100% means the company is paying more than it earns, which cannot last, and the market is usually pricing in a cut. Redhill Utilities paying out 70% of steady earnings is normal; a growth company paying nothing and reinvesting everything is normal too."
+      },
+      {
+        "q": "Ferrow Retail has a current ratio of 0.8, net debt to EBITDA of 4.5x and interest cover of 1.8x. What is the picture, and what would you ask next?",
+        "takeaway": "Tight liquidity, heavy leverage and thin cover together say the company is one bad season from trouble.",
+        "a": "Each number alone could be explained away: retailers often run current ratios below one, and 4.5x leverage is high but survivable for a stable business. Together they tell one story. Ferrow owes more this year than it has coming in, carries four and a half years of earnings in debt, and has less than two pounds of operating profit for every pound of interest. A weak Christmas would push cover below one. The questions to ask next are when the debt matures, whether the loans have covenants tied to these ratios, and how much of the current liabilities is trade credit that can be stretched."
+      },
+      {
+        "q": "An interviewer asks how you would compare Calder Foods with a listed rival using ratios. How do you structure the answer?",
+        "takeaway": "Pick one ratio from each family, compare against the peer and against the company's own history, and say what the differences mean.",
+        "a": "Go family by family so you never freeze. Profitability: gross and operating margin, to see which company has the better product and the leaner cost base. Returns: ROCE, to see which one turns capital into profit more efficiently. Leverage: net debt to EBITDA and interest cover, to see which balance sheet is safer. Liquidity: current or quick ratio. Efficiency: inventory and receivable days, to see who runs tighter. For each, say the number, say what it means, and say why it might differ, since a lower margin could be a worse business or a deliberately cheaper strategy. That is the whole answer."
+      }
+    ]
+  },
+  {
     "id": "corpfin",
     "tag": "Corporate Finance",
     "name": "Corporate Finance & Investment Basics",
@@ -581,6 +672,97 @@
     ]
   },
   {
+    "id": "earnings",
+    "tag": "Earnings",
+    "name": "Earnings & Guidance",
+    "description": "What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.",
+    "intro": "Four times a year every listed company reports its results, and the way the share price reacts confuses almost everyone at first. This deck explains the machinery: what consensus is, what a beat and a miss actually mean, why guidance often matters more than the numbers, how the market prices the surprise rather than the result, and what to look for in a company's statement. It is the practical half of talking about markets, the part that lets you explain why Calder Foods fell 6% on a record quarter.",
+    "track": "ib",
+    "level": "intermediate",
+    "cards": [
+      {
+        "q": "What is an earnings release, and what is in it?",
+        "takeaway": "The quarterly or half-yearly statement of results, with the numbers, the management commentary and the outlook.",
+        "a": "An earnings release is the announcement a listed company puts out each quarter, or each half-year in the UK, reporting how it performed. It contains the headline numbers, revenue, profit and earnings per share, usually compared with the same period a year earlier; a commentary from the chief executive explaining what drove them; the financial statements in summary form; and an outlook or guidance section saying what management expects next. It is released before the market opens or after it closes, and is usually followed by a call where analysts question management. The share price reacts to all of it, not just the headline."
+      },
+      {
+        "q": "What is consensus, and where does it come from?",
+        "takeaway": "The average of analysts' forecasts for a company's results, which is the number the market has already priced in.",
+        "a": "Consensus is the average, or sometimes the median, of the forecasts published by the analysts who cover a company. If fifteen analysts expect Calder Foods to earn between 40p and 46p a share, consensus might be 43p. Because investors read those forecasts, the share price before results already reflects roughly that expectation. So results are judged not against last year but against consensus: the question is not whether the company did well but whether it did better or worse than everyone assumed. Consensus figures are collected by data providers like Bloomberg and Refinitiv, and companies often publish a compiled version themselves."
+      },
+      {
+        "q": "What does it mean to beat or miss, and why does a beat not guarantee the share price rises?",
+        "takeaway": "A beat is a result above consensus; the price only rises if the beat is bigger than what the market had quietly hoped for.",
+        "a": "A beat is reporting a number above consensus; a miss is below. In principle a beat is good news, but the market often expects one, especially from companies that reliably guide conservatively and then beat. If investors had been positioned for a big beat, a small one disappoints, and the price falls. The market also looks past the headline: a company can beat on earnings through a one-off tax gain while revenue misses, or beat this quarter while cutting guidance for the next. The move on the day reflects the whole package against what was already priced in, not the single number."
+      },
+      {
+        "q": "What is guidance, and why does it often move the share price more than the results themselves?",
+        "takeaway": "Guidance is management's forecast for the coming period, and shares are priced on the future, not the quarter just finished.",
+        "a": "Guidance is management's own forecast for the next quarter or year: a range for revenue, profit or margin, sometimes for capital spending or cash flow too. It matters more than the results because the results are history and the share price is a bet on the future. A quarter that beats by 2% while guidance for next year is cut by 10% is a bad day. Companies are careful with guidance because missing it destroys credibility, so many guide conservatively, which is why the same companies beat quarter after quarter. Reading whether guidance was raised, held or lowered is the first thing to do on results day."
+      },
+      {
+        "q": "Calder Foods reports record profit, beats consensus by 3%, and the shares fall 6% by lunchtime. Explain to a client what happened.",
+        "takeaway": "The market prices the surprise, not the result, and a beat that was smaller than hoped, or paired with weaker guidance, is a negative surprise.",
+        "a": "Start with what was priced in: the shares had run up 15% into results, so investors were expecting more than consensus, and a 3% beat was less than the whisper number. Then look at what else was in the statement: guidance for next year was held rather than raised, margins fell despite the profit growth, and on the call management sounded cautious about input costs. The record profit was true and already known to be likely; the new information was that growth is slowing. The price moves on new information. This is the single most useful idea in the whole topic, and interviewers love it."
+      },
+      {
+        "q": "What is the whisper number?",
+        "takeaway": "The unofficial expectation among investors, usually higher than published consensus, that a company really has to beat.",
+        "a": "Published consensus is the average of analyst forecasts, which can be stale because analysts update slowly and some are deliberately cautious. The whisper number is what active investors actually expect, formed from more recent data, conversations and the way the shares have traded. For a company with a habit of beating, the whisper sits above consensus, so a beat against consensus can still be a miss against the whisper, and the shares fall. There is no official source for it, which is exactly why it matters: it is the expectation that is not written down, and therefore the one that surprises."
+      },
+      {
+        "q": "What is the earnings call, and what should you listen for beyond the numbers?",
+        "takeaway": "Management's tone, what they refuse to answer, and what the best analysts push on, which shows where the doubt is.",
+        "a": "After the release, management hosts a call: a prepared presentation, then questions from analysts. The numbers are already public, so the value is in what is said around them. Listen for tone, whether the chief executive sounds confident or defensive; for the questions analysts ask twice, which reveal what the market is worried about; for anything management declines to quantify; and for changes in language from last quarter, a business that was growing strongly now growing solidly. Traders often move the price during the call, and transcripts are read for months afterwards. Preparing one call properly is a strong interview story."
+      },
+      {
+        "q": "What are adjusted earnings, and why should you be sceptical of them?",
+        "takeaway": "Earnings with items management calls one-off stripped out, which is useful until the one-offs happen every year.",
+        "a": "Companies report statutory earnings under accounting rules and, alongside them, an adjusted figure that removes items they say do not reflect the underlying business: restructuring costs, impairments, share-based pay, acquisition expenses. Sometimes that is fair, since a one-time factory closure really does distort the year. But the choice of what to exclude is management's, and companies that adjust out restructuring costs every single year are describing a permanent cost as a one-off. Compare adjusted with statutory over several years; a gap that never closes tells you the adjusted number is flattering."
+      },
+      {
+        "q": "What is a profit warning, and why does the share price react so violently to one?",
+        "takeaway": "A statement, outside the normal calendar, that results will fall short of expectations; the market punishes the surprise and the loss of trust.",
+        "a": "A profit warning is an unscheduled announcement that profits will be materially below what the market expects. UK rules oblige companies to issue one as soon as they know, rather than wait for results day. Shares often drop 20% or more, for two reasons. The first is the information: expectations were wrong and have to be reset. The second is credibility: management either did not see it coming or did not say so, and investors now doubt everything else they were told. There is an old market saying that profit warnings come in threes, because the problem that caused the first is rarely fixed by the second."
+      },
+      {
+        "q": "What is the difference between organic growth and reported growth, and why do analysts strip out acquisitions and currency?",
+        "takeaway": "Organic growth is what the existing business did on its own; reported growth includes what was bought and what exchange rates did.",
+        "a": "Reported revenue growth is the simple change from last year. Organic, or like-for-like, growth removes the effect of businesses acquired or sold during the period and of currency movements, so it shows how the underlying operations performed. Bramwell & Co. reporting 12% growth is less impressive if 8% came from a company it bought in March and 3% from a weaker pound flattering its dollar sales. Analysts and interviewers focus on organic growth because it is repeatable; acquisitions and currency are not. Retailers report the same idea as like-for-like sales, stripping out new store openings."
+      },
+      {
+        "q": "Why do companies buy back their own shares around results, and how does it affect earnings per share?",
+        "takeaway": "Fewer shares means the same profit is spread over less, so EPS rises even if profit does not.",
+        "a": "A buyback is a company using cash to purchase its own shares in the market and cancel them. Profit is unchanged, but it is now divided among fewer shares, so earnings per share rises. Because analysts and the press focus on EPS, buybacks can make a flat year look like a growing one, and companies know it. They are also a way of returning cash to shareholders without committing to a dividend that would be embarrassing to cut. The question to ask is whether the company is buying back because the shares are cheap or because it has run out of better uses for the money."
+      },
+      {
+        "q": "What is an earnings season, and why does it matter for markets as a whole, not just individual companies?",
+        "takeaway": "The few weeks when most companies report; taken together, the results are the most direct reading of how the economy is doing.",
+        "a": "Earnings season is the period, starting a couple of weeks after each quarter ends, when the bulk of listed companies report. The big US banks usually open it. Individually each result moves one stock; together they move the market, because they answer the question macro data can only approximate: are companies actually making more money? A season where most companies beat and raise guidance can lift an index even with poor economic headlines, and a season of margin pressure and cautious outlooks can sink one. Bank results in particular are read as a signal about credit and the consumer."
+      },
+      {
+        "q": "How do results feed into a bank's day-to-day work, in advisory and in research?",
+        "takeaway": "Research analysts rewrite their models and ratings; deal teams update comps, pitch books and the story they tell clients.",
+        "a": "In research, results day is the busiest day of the quarter: the analyst updates the forecast model within hours, publishes a note on whether the thesis has changed, and may raise or lower the rating and price target. In investment banking, every result changes the inputs to comps and precedents, so valuations in live pitches are refreshed, and a client's strong or weak quarter changes the timing advice on a sale or a capital raise. A sudden fall after a miss can also make a company a takeover target, which is where the coverage banker's phone starts ringing."
+      },
+      {
+        "q": "Ferrow Retail reports a 4% revenue miss but raises full-year profit guidance. What is the market likely to do, and why?",
+        "takeaway": "Probably up, because guidance about the future outweighs a miss on the past, but the reason matters.",
+        "a": "The revenue miss says sales were weaker than expected; the raised profit guidance says management expects to earn more than the market assumed for the whole year. Investors weigh the future more heavily, so the likely reaction is positive, provided the raise is credible. The detail decides it. If profit is rising because Ferrow closed loss-making stores and cut costs, the market will believe it. If it is rising because of a one-off property sale, it will not. And if the revenue miss is the start of a trend, the guidance may not survive the next quarter. Say all three and you have answered like an analyst."
+      },
+      {
+        "q": "What should you read on a company before an interview at the bank that covers it?",
+        "takeaway": "The last two results releases, the guidance, the share price reaction, and one thing you think about it.",
+        "a": "Read the last two earnings releases, including the outlook paragraph, and note whether guidance was raised, held or cut. Check how the shares moved on each results day and work out why, using the ideas in this deck. Skim the transcript of the latest call for the questions analysts asked twice. Then form one opinion, for example that the market is underestimating the cost savings or overestimating the growth. That takes an evening, and it lets you answer both the technical question, walk me through their results, and the fit question, why this company, with the same preparation."
+      },
+      {
+        "q": "Why do analysts model a company at all if consensus already exists?",
+        "takeaway": "Consensus is where the market is; a model is how you decide whether the market is wrong.",
+        "a": "A financial model is a forecast of the company's income statement, balance sheet and cash flow, built from assumptions about volumes, prices, costs and investment. Consensus is the average of many such models. The point of building your own is to have a view that differs, and to know why. If your model says Calder Foods will earn 10% more than consensus because you think its new factory ramps faster, and you turn out to be right, the shares will rise when everyone else catches up. Investing and equity research are the business of having a better forecast than consensus, which is why the model matters more than the number."
+      }
+    ]
+  },
+  {
     "id": "valuation",
     "tag": "Valuation",
     "name": "Valuation Basics",
@@ -704,6 +886,97 @@
     ]
   },
   {
+    "id": "comps",
+    "tag": "Comps",
+    "name": "Comparable Companies",
+    "description": "Building a comps set, choosing the multiples, and reading the answer they give.",
+    "intro": "Trading comparables are the valuation method analysts actually run most days, and the one interviewers dig into once you have named the three methods. This deck takes you through the process: choosing the peer group, deciding which multiples matter and why, calculating enterprise value properly, adjusting for the things that make one company's numbers look unlike another's, and reading the range you end up with. It also covers the traps, from mixing enterprise and equity metrics to trusting a multiple without knowing what drives it.",
+    "track": "ib",
+    "level": "advanced",
+    "cards": [
+      {
+        "q": "What is comparable companies analysis, and what question is it actually answering?",
+        "takeaway": "Comps value a company by asking what the market pays for similar businesses today.",
+        "a": "Comparable companies analysis, or trading comps, values a company by looking at how the stock market prices similar listed companies. You take a set of peers, work out what multiple of earnings or EBITDA each trades at, and apply that range to your company's own numbers. The question it answers is not what the company is worth in some absolute sense but what investors would pay for it today, given what they pay for its rivals. That makes it a market-based method, quick and grounded in real prices, but only as good as the peer group and the day you run it."
+      },
+      {
+        "q": "How do you choose the peer group, and why is it the step that matters most?",
+        "takeaway": "Same industry, similar size, similar growth and margins; the multiple only means something if the peers really are alike.",
+        "a": "Start with companies in the same business, selling similar products to similar customers. Then narrow by size, geography, growth rate and margin, because a company growing at 20% a year will trade at a higher multiple than one growing at 3% even if they make the same thing. Five to ten names is typical. The peer group matters most because every number that follows is inherited from it: if you put a fast-growing US software company in the set for a slow UK one, your valuation will be wrong before you calculate anything. Interviewers often ask which peers you would pick and why, not how to do the maths."
+      },
+      {
+        "q": "What is enterprise value, and how is it different from market capitalisation?",
+        "takeaway": "Market cap is the value of the equity; enterprise value is the value of the whole business, debt included, cash netted off.",
+        "a": "Market capitalisation is the share price times the number of shares: what the equity is worth. Enterprise value adds net debt, plus minority interests and preferred stock if there are any, and subtracts cash. It is the price of the entire operating business, regardless of who funded it. If you bought all of Bramwell & Co.'s shares for £500m and took on its £200m of debt, the business cost you £700m, minus whatever cash was in the bank. Enterprise value is what you compare across companies with different amounts of debt, because it does not change when a company borrows to buy back shares."
+      },
+      {
+        "q": "Why must enterprise value multiples use metrics before interest, and equity multiples use metrics after it?",
+        "takeaway": "Match the numerator to the denominator: whole-business value goes over whole-business profit, equity value over equity profit.",
+        "a": "EBITDA and EBIT are earned by the business before lenders take their interest, so they belong to both debt and equity holders. Enterprise value is the value belonging to both, so EV/EBITDA lines up. Net income is what is left after interest, so it belongs only to shareholders, and market cap is the value of what shareholders own, so P/E lines up. Cross them and the ratio is meaningless: EV over net income compares a whole-business value with a shareholders-only profit, and a company with more debt would look cheaper for no real reason. Mixing them is the most common comps mistake and a standard interview trap."
+      },
+      {
+        "q": "What is EV/EBITDA, and why is it the multiple bankers reach for first?",
+        "takeaway": "It compares whole-business value with cash operating profit, so it works across companies with different debt, tax and depreciation.",
+        "a": "EV/EBITDA is enterprise value divided by earnings before interest, tax, depreciation and amortisation. Because EBITDA sits above interest, it ignores how the company is financed; because it sits above tax, it ignores differences in tax rates and jurisdictions; because it sits above depreciation, it ignores differences in how old the assets are and how they are accounted for. That makes it the fairest comparison across a peer group, and usable even when a company makes an accounting loss. Its weakness is the same as its strength: it ignores capital spending, so a business that has to reinvest heavily looks better than it is."
+      },
+      {
+        "q": "When would you use P/E, EV/Sales, or EV/EBIT instead of EV/EBITDA?",
+        "takeaway": "P/E for stable, profitable companies where equity investors think in earnings; EV/Sales when there are no profits; EV/EBIT when capital intensity differs.",
+        "a": "P/E is the multiple equity investors and the financial press use, and it works well for mature, profitable companies with similar capital structures, like banks, where EBITDA is meaningless anyway. EV/Sales is the fallback for companies with no profits yet, like early-stage tech or a turnaround, though it says nothing about whether the sales will ever make money. EV/EBIT is better than EV/EBITDA when peers differ in how much they spend on assets, because depreciation is a real cost of running a capital-heavy business. Some industries have their own: price per subscriber, EV per bed, EV per tonne of capacity."
+      },
+      {
+        "q": "What does LTM mean, and why do analysts show both LTM and forward multiples?",
+        "takeaway": "LTM is the last twelve months of actual results; forward multiples use next year's forecasts, which is what buyers actually pay for.",
+        "a": "LTM, last twelve months, means the four most recent quarters added together, so the figure is actual and up to date rather than tied to a financial year end. Forward multiples divide today's value by forecast earnings for the next year or two, usually the average of analysts' estimates. Investors pay for the future, so forward multiples are usually the more relevant, especially for fast-growing companies whose LTM numbers understate them. Showing both makes the growth visible: a company at 20x LTM and 14x forward is expected to grow earnings by about 40%."
+      },
+      {
+        "q": "What does it mean to normalise or adjust a company's earnings before running comps?",
+        "takeaway": "Strip out one-off items so the multiple reflects what the business earns in a normal year.",
+        "a": "Reported earnings often include things that will not repeat: a restructuring charge, a gain on selling a building, litigation costs, an impairment. If Calder Foods reported EBITDA of £50m including a £15m one-off legal settlement, its underlying earning power is £65m, and applying a peer multiple to £50m would undervalue it. Normalising means removing those items so every company in the set is compared on a recurring basis. Companies publish their own adjusted figures, but they tend to be generous about what counts as one-off, so analysts form their own view."
+      },
+      {
+        "q": "You have a peer range of 8x to 12x EV/EBITDA. How do you decide where in the range your company sits?",
+        "takeaway": "Compare growth, margins, scale and risk against the peers; better than the median means above the median.",
+        "a": "The range is the starting point, not the answer. Line your company up against the peers on the things that drive multiples: revenue growth, margins, size, market position and risk. If it is growing faster with better margins than the median peer, it deserves a multiple toward the top of the range; if it is smaller, slower or riskier, toward the bottom. Then apply a narrower band, say 9x to 11x, to the company's EBITDA to get an enterprise value range, and subtract net debt to get equity value. Interviewers care about this reasoning far more than the arithmetic."
+      },
+      {
+        "q": "Why do comps and a DCF often give different answers, and which do you trust?",
+        "takeaway": "Comps say what the market pays now; a DCF says what the cash flows are worth; the gap is information, not an error.",
+        "a": "A DCF values the company from its own forecast cash flows and a discount rate, so it reflects your assumptions and is indifferent to market mood. Comps reflect what investors are actually paying today, including whatever optimism or fear is in the market. When the DCF comes in well above comps, either your forecasts are generous or the sector is out of favour; when it comes in below, the reverse. Neither is simply right. Bankers show both, usually as a football field chart, and use the overlap as the range. Explaining the difference is the mark of understanding both."
+      },
+      {
+        "q": "What is the difference between trading comps and precedent transactions?",
+        "takeaway": "Trading comps use stock-market prices for similar companies; precedents use prices paid in actual takeovers, which include a control premium.",
+        "a": "Trading comparables look at how similar listed companies are priced by the market day to day, which is the value of a minority stake. Precedent transactions look at what acquirers paid to buy whole companies in past deals. Buyers pay a premium for control, typically 20% to 40% over the share price, because they can change how the business is run and capture synergies. So precedents give higher multiples than trading comps, and are the right benchmark when valuing a company for sale, while trading comps are the benchmark for where the shares should trade."
+      },
+      {
+        "q": "Why can a company trade at a lower multiple than its peers without being cheap?",
+        "takeaway": "A low multiple usually reflects lower growth, higher risk, worse governance or a reason the market knows and you do not yet.",
+        "a": "A multiple is a price per unit of earnings, and the market lowers it when it expects those earnings to grow more slowly, to be more volatile, or to be less trustworthy. Northbay Logistics at 6x when peers are at 9x might have a customer that provides half its revenue, a founder who controls the board, a pension deficit, or a history of missed guidance. Sometimes the discount really is a mispricing, which is what value investors hunt for, but the first assumption should be that the market has a reason. Saying that in an interview shows judgement rather than a calculator."
+      },
+      {
+        "q": "How do you handle a company in the peer set that has a very different financial year or reports in another currency?",
+        "takeaway": "Calendarise the numbers to the same twelve months and convert at a consistent exchange rate before comparing.",
+        "a": "If one peer's year ends in March and another's in December, their annual figures cover different periods and different economic conditions, so you calendarise: use quarterly figures to rebuild each company's earnings over the same twelve months. If a peer reports in dollars and your company in pounds, convert the earnings and the market data at consistent rates, usually the average rate for the period for income statement items and the spot rate for balance sheet items. Multiples themselves are currency-free, since numerator and denominator are in the same currency, but the inputs must be built consistently."
+      },
+      {
+        "q": "Talbrook Capital asks for a quick comps valuation of Bramwell & Co. Peers trade at 10x EBITDA. Bramwell has EBITDA of £80m, debt of £300m, cash of £50m and 100m shares. What is the share price implied?",
+        "takeaway": "Multiply to get enterprise value, subtract net debt to get equity value, divide by shares: £5.50.",
+        "a": "Enterprise value is 10 times £80m, which is £800m. Net debt is £300m of debt minus £50m of cash, which is £250m. Equity value is £800m minus £250m, which is £550m. Divided by 100 million shares, that is £5.50 a share. The interviewer is checking that you know to subtract net debt rather than gross debt, and that you subtract it at all: applying 10x and dividing straight by shares would give £8.00, which is the classic error. If Bramwell had preferred stock or a minority interest, those would come off too."
+      },
+      {
+        "q": "What is a football field chart, and what is it for?",
+        "takeaway": "One chart showing the valuation range from every method side by side, so the reader sees where they agree.",
+        "a": "A football field is a horizontal bar chart with one bar per valuation method: trading comps, precedent transactions, DCF, sometimes an LBO analysis and the 52-week share price range. Each bar runs from the low end of that method's range to the high end. Laid side by side, the bars show where the methods overlap, which is usually taken as the most defensible valuation range, and where one method is an outlier, which prompts a question about why. It is the last page of most valuation sections in a pitch book and the picture a managing director looks at first."
+      },
+      {
+        "q": "An interviewer says: walk me through how you would value Ferrow Retail using comps. Give the answer in order.",
+        "takeaway": "Peers, metrics, multiples, adjustments, range, then equity value per share, with one sentence on the limits.",
+        "a": "First, choose five to ten listed retailers similar in size, format, geography and growth. Second, gather each one's enterprise value and equity value, and their LTM and forward EBITDA, EBIT and net income, normalised for one-offs. Third, calculate EV/EBITDA, EV/EBIT and P/E for each, and look at the median and the range. Fourth, judge where Ferrow sits in that range on growth, margins and risk. Fifth, apply the chosen multiples to Ferrow's own numbers for an enterprise value range, subtract net debt, and divide by shares for a price per share. Finish by noting that comps reflect today's market and should be cross-checked against a DCF and precedents."
+      }
+    ]
+  },
+  {
     "id": "credit",
     "tag": "Credit",
     "name": "Debt, Credit & Leverage",
@@ -801,6 +1074,97 @@
         "takeaway": "EBITDA is not cash, and companies fail when the cash runs out rather than when earnings look weak.",
         "a": "EBITDA deliberately ignores the things that actually drain cash: interest, tax, capital spending, and working capital. A retailer growing quickly has to buy inventory and pay suppliers long before customers pay it, so reported profit climbs while the bank balance falls. Add an amortisation payment, a revolver the bank declines to renew, or a maturity landing in a closed market, and a genuinely profitable business can miss a payment. That gap between accounting earnings and cash actually available is the most useful thing to carry out of credit work, and it is why analysts build all the way down to free cash flow instead of stopping at EBITDA.",
         "image": "<svg viewBox=\"0 0 440 200\" class=\"card-diagram\" xmlns=\"http://www.w3.org/2000/svg\">\n  <style>\n    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}\n    .lbl-strong{font:700 11px Arial;fill:var(--ink);}\n    .axis{stroke:var(--line-soft);stroke-width:1.5;}\n    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}\n    .amt{font:700 11px Arial;fill:var(--ink);}\n  </style>\n  <line x1=\"20\" y1=\"150\" x2=\"420\" y2=\"150\" class=\"axis\"/>\n  <rect x=\"30\" y=\"50\" width=\"55\" height=\"100\" fill=\"var(--blue)\"/>\n  <rect x=\"95\" y=\"50\" width=\"55\" height=\"25\" fill=\"var(--surface-strong)\" stroke=\"var(--amber)\" stroke-width=\"1.5\"/>\n  <rect x=\"160\" y=\"75\" width=\"55\" height=\"8\" fill=\"var(--surface-strong)\" stroke=\"var(--amber)\" stroke-width=\"1.5\"/>\n  <rect x=\"225\" y=\"83\" width=\"55\" height=\"30\" fill=\"var(--surface-strong)\" stroke=\"var(--amber)\" stroke-width=\"1.5\"/>\n  <rect x=\"290\" y=\"113\" width=\"55\" height=\"42\" fill=\"var(--surface-strong)\" stroke=\"var(--amber)\" stroke-width=\"1.5\"/>\n  <rect x=\"355\" y=\"150\" width=\"55\" height=\"6\" rx=\"2\" fill=\"var(--amber)\"/>\n\n  <text x=\"57\" y=\"168\" text-anchor=\"middle\" class=\"cap\">EBITDA</text>\n  <text x=\"57\" y=\"182\" text-anchor=\"middle\" class=\"amt\">100</text>\n  <text x=\"122\" y=\"168\" text-anchor=\"middle\" class=\"cap\">INTEREST</text>\n  <text x=\"122\" y=\"182\" text-anchor=\"middle\" class=\"amt\" style=\"fill:var(--amber);\">−25</text>\n  <text x=\"187\" y=\"168\" text-anchor=\"middle\" class=\"cap\">CASH TAX</text>\n  <text x=\"187\" y=\"182\" text-anchor=\"middle\" class=\"amt\" style=\"fill:var(--amber);\">−8</text>\n  <text x=\"252\" y=\"168\" text-anchor=\"middle\" class=\"cap\">CAPEX</text>\n  <text x=\"252\" y=\"182\" text-anchor=\"middle\" class=\"amt\" style=\"fill:var(--amber);\">−30</text>\n  <text x=\"317\" y=\"168\" text-anchor=\"middle\" class=\"cap\">WORKING CAP</text>\n  <text x=\"317\" y=\"182\" text-anchor=\"middle\" class=\"amt\" style=\"fill:var(--amber);\">−42</text>\n  <text x=\"382\" y=\"168\" text-anchor=\"middle\" class=\"cap\">FREE CASH</text>\n  <text x=\"382\" y=\"182\" text-anchor=\"middle\" class=\"amt\" style=\"fill:var(--amber);\">−5</text>\n  <text x=\"20\" y=\"20\" class=\"lbl\">EBITDA DOWN TO REAL CASH</text>\n</svg>"
+      }
+    ]
+  },
+  {
+    "id": "capstructure",
+    "tag": "Capital structure",
+    "name": "Capital Structure & Leverage",
+    "description": "Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.",
+    "intro": "Every company has to decide how to fund itself, with money from lenders or money from owners, and the mix shapes everything from its cost of capital to whether it survives a downturn. This deck explains the choice: why debt is cheaper than equity, why it stops being cheaper past a point, what WACC is and how it is used, what the Modigliani-Miller idea says and why it matters even though its assumptions are unrealistic, and how a company actually settles on its structure. It connects the credit deck to the valuation and LBO decks, and it answers the interview question that follows any DCF: what discount rate, and why.",
+    "track": "ib",
+    "level": "advanced",
+    "cards": [
+      {
+        "q": "What is capital structure?",
+        "takeaway": "The mix of debt and equity a company uses to fund its assets.",
+        "a": "Capital structure is how a company pays for what it owns: some money borrowed from lenders, which is debt, and some put in by owners or retained from profits, which is equity. Bramwell & Co. with £300m of loans and £700m of shareholders' equity has a capital structure of 30% debt, 70% equity. The mix determines who gets paid first, how much the company must pay out regardless of how it is trading, and what return each provider of money expects. Changing it, by borrowing to buy back shares or issuing shares to repay debt, changes the risk and the value of the company even if the business itself is untouched."
+      },
+      {
+        "q": "Why is debt cheaper than equity?",
+        "takeaway": "Lenders get paid first and get paid a fixed amount, so they take less risk and demand less return; interest is also tax-deductible.",
+        "a": "A lender has a contract: interest on set dates, principal back at maturity, and first claim on the assets if the company fails. A shareholder has none of that; she gets whatever is left after everyone else, if anything. Less risk means a lower required return, so debt at 6% is normal when equity investors want 10% or more. On top of that, interest is deducted before corporation tax is calculated, so at a 25% tax rate a 6% loan really costs the company 4.5%. Dividends are paid from taxed profit and get no such relief. Cheaper and tax-advantaged is why companies borrow at all."
+      },
+      {
+        "q": "If debt is cheaper, why not fund the company entirely with debt?",
+        "takeaway": "Because more debt makes both the debt and the equity riskier, and past a point the rising cost of distress outweighs the tax saving.",
+        "a": "As a company borrows more, its interest bill rises relative to its profits, and a bad year that was once uncomfortable becomes fatal. Lenders see that and charge more for each additional loan, and shareholders, who now sit behind a bigger pile of claims, demand a higher return too. There are also the costs of financial distress: customers and suppliers pull back from a company that might fail, good staff leave, and management spends its time on the bank rather than the business. At some level of debt those costs grow faster than the tax benefit, and the overall cost of capital starts rising again. That level is the optimal structure."
+      },
+      {
+        "q": "What is the cost of equity, and how is it usually estimated?",
+        "takeaway": "The return shareholders require for the risk they take, typically estimated with the capital asset pricing model.",
+        "a": "The cost of equity is the return investors need to be persuaded to hold the company's shares rather than something safer. It is not a cash cost the company pays, like interest, but it is real: if the company earns less than it, the shares fall. The standard estimate is the CAPM: the risk-free rate, usually a government bond yield, plus the company's beta times the equity risk premium. Beta measures how much the shares move with the market; a beta of 1.2 means 20% more volatile than average. With a 4% risk-free rate, a beta of 1.2 and a 5% premium, the cost of equity is 10%."
+      },
+      {
+        "q": "What is the cost of debt, and why is it taken after tax?",
+        "takeaway": "The interest rate the company would pay to borrow today, reduced by the tax relief on interest.",
+        "a": "The cost of debt is the rate at which the company could raise new borrowing now, not the rate on loans it took out years ago. It can be read from the yield on its traded bonds, or estimated as the risk-free rate plus the credit spread appropriate to its rating. Because interest is deductible, the effective cost is the rate times one minus the tax rate: a 6% pre-tax cost at 25% tax is 4.5% after tax. That after-tax figure is what goes into WACC, since the tax saving is a real cash benefit of borrowing that the equity does not get."
+      },
+      {
+        "q": "What is WACC, and what is it used for?",
+        "takeaway": "The weighted average cost of capital: the blended return the company must earn on its assets to satisfy both lenders and shareholders, and the discount rate in a DCF.",
+        "a": "WACC combines the cost of equity and the after-tax cost of debt, weighted by how much of each the company uses, measured at market values. If Bramwell is 30% debt at 4.5% after tax and 70% equity at 10%, WACC is 0.3 times 4.5 plus 0.7 times 10, which is 8.35%. It is the minimum return the company's investments must earn to create value, so it is the hurdle rate for projects and the discount rate for the company's free cash flows in a DCF. It is the single number an interviewer is most likely to ask you to build from scratch."
+      },
+      {
+        "q": "Why does WACC use market values of debt and equity rather than book values?",
+        "takeaway": "Investors' required returns are on what their claims are worth today, not on what the accounts recorded years ago.",
+        "a": "The weights in WACC represent how much of the company's value each investor group owns, and the return they require is a percentage of that value. A company whose shares have risen fivefold since it listed has an equity book value far below its market value; using the book figure would understate the equity weight and the resulting WACC. Debt is usually close to book value unless the bonds trade at a large discount, so the practical difference is on the equity side. For a private company with no market value, analysts estimate it from comparable companies or use a target structure."
+      },
+      {
+        "q": "What does the Modigliani-Miller theorem say, and why is it useful if its assumptions are unrealistic?",
+        "takeaway": "In a world with no taxes or distress costs, capital structure does not change firm value; the theorem tells you that taxes and distress are the whole story.",
+        "a": "Modigliani and Miller showed that in a perfect market, with no taxes, no bankruptcy costs and no information problems, the value of a company does not depend on how it is financed. Slicing the same cash flows into debt and equity in different proportions changes who gets what, not the total. Borrowing more raises the cost of equity exactly enough to offset the cheaper debt, so WACC stays flat. Nobody thinks the assumptions hold. The point is what happens when you relax them: the tax deductibility of interest makes debt add value, and the costs of distress make too much debt destroy it. That is the whole modern theory in one sentence."
+      },
+      {
+        "q": "What is financial leverage, and how does it magnify returns to shareholders in both directions?",
+        "takeaway": "Funding assets with debt means the same operating result produces a bigger swing in the return on the owners' smaller stake.",
+        "a": "Suppose Ferrow Retail's assets earn 10%. Funded entirely with £100m of equity, shareholders earn 10%. Funded with £50m of equity and £50m of debt at 6%, the assets still earn £10m, the lenders take £3m, and shareholders earn £7m on £50m, which is 14%. Leverage lifted their return. Now suppose the assets earn only 4%: £4m, minus £3m of interest, leaves £1m on £50m, a 2% return, against 4% unlevered. The interest is fixed, so every swing in operating profit lands entirely on the equity. That is why levered equity is riskier and why lenders care about cover."
+      },
+      {
+        "q": "What is a credit rating, and how does it feed back into capital structure decisions?",
+        "takeaway": "An agency's grade for how likely a borrower is to repay; a lower grade means dearer debt, so companies manage their structure to keep a target rating.",
+        "a": "Agencies like Moody's and S&P grade companies from AAA down to D on their ability to repay. Investment grade, BBB- and above, means access to the deepest pools of lenders at low spreads; below that is high yield, where borrowing costs jump and some investors cannot buy at all. Because the rating drives the cost of debt, many companies manage their leverage to hold a target, often BBB, and will issue equity or cut dividends rather than lose it. The rating agencies publish the ratios they look at, net debt to EBITDA and interest cover among them, so the target rating becomes a constraint on the whole structure."
+      },
+      {
+        "q": "What is the pecking order theory, and what does it predict about how companies actually raise money?",
+        "takeaway": "Companies prefer retained profits, then debt, then equity as a last resort, because issuing shares signals the shares are overpriced.",
+        "a": "The pecking order theory says managers fund investment first from cash the business generates, then by borrowing, and only then by issuing new shares. The reason is information: managers know more than investors, and would only sell shares if they thought the price was full, so an equity issue is read as a signal and the price falls. Debt carries less of that signal because its value depends less on the company's private prospects. The theory predicts that profitable companies carry little debt, because they never need it, which is what you observe, and that share issues are rare and greeted badly, which is also what you observe."
+      },
+      {
+        "q": "Why do companies in different industries carry such different amounts of debt?",
+        "takeaway": "Stable, asset-heavy businesses can borrow a lot; volatile or intangible ones cannot, because lenders want predictable cash and something to seize.",
+        "a": "Lenders look for two things: cash flows steady enough to cover interest every year, and assets they could sell if the company failed. Redhill Utilities has both, regulated revenues and a network of pipes and cables, so it can run at five times EBITDA. A software company has neither, its revenue can halve if a product fails and its assets are people and code, so it carries little debt and funds itself with equity. Retailers sit in between, and cyclical businesses like airlines borrow against aircraft but suffer in downturns. When you see a leverage ratio, ask what industry before asking whether it is high."
+      },
+      {
+        "q": "What is a leveraged recapitalisation, and why would a company do one?",
+        "takeaway": "Borrowing a large sum to pay shareholders a special dividend or buy back shares, swapping equity for debt to lower the cost of capital or fend off a bidder.",
+        "a": "A leveraged recap is a deliberate change in structure: the company takes on significant new debt and hands the cash to shareholders. The business is unchanged but is now funded with more debt and less equity. Companies do it when they think they are under-levered, because the tax shield on the new debt adds value and the remaining shares are worth more each; or as a defence, because a company already loaded with debt is a less attractive takeover target. The risk is the same as any leverage: if the business then weakens, the debt that looked comfortable becomes a problem. Private equity does the same thing to companies it already owns, called a dividend recap."
+      },
+      {
+        "q": "Bramwell & Co. is considering funding a £200m acquisition with either new shares or a new loan. What are the arguments each way?",
+        "takeaway": "Debt is cheaper and avoids dilution but adds fixed obligations and rating risk; equity is safer but dilutes and signals the shares are full.",
+        "a": "Debt: the after-tax cost is lower, so the deal adds more to earnings per share; existing shareholders keep their full stake; and the interest shield adds value. Against it: leverage rises, interest cover falls, the rating agencies may downgrade, and a bad year after the deal is more dangerous. Equity: the balance sheet stays strong and the company keeps borrowing capacity for the next opportunity. Against it: shareholders are diluted, the deal adds less to EPS, and the market may read the issue as management thinking the shares are overpriced. Most companies use a mix, sized to hold their target leverage and rating after the deal."
+      },
+      {
+        "q": "How does capital structure connect to an LBO?",
+        "takeaway": "An LBO is an extreme capital structure choice: fund most of the purchase with debt, use the company's cash to repay it, and let leverage magnify the equity return.",
+        "a": "A leveraged buyout is capital structure theory turned into a business model. The private equity buyer funds perhaps 60% of the price with debt secured on the company itself, so its own equity cheque is small. The company's cash flows then pay down that debt over five years or so, which shifts value from lenders to the equity as the debt shrinks. When the company is sold, the equity has grown far faster than the business did, because leverage magnified the return. Everything in this deck applies: the deal only works on a business with steady cash flows, the debt costs more as leverage rises, and too much of it turns a good business into a distressed one."
+      },
+      {
+        "q": "An interviewer asks: what discount rate would you use for Calder Foods' DCF, and how would you get it? Give the answer in order.",
+        "takeaway": "WACC, built from the CAPM cost of equity and the after-tax cost of debt, weighted at market values, with a sentence on each input.",
+        "a": "Use WACC, because the free cash flows in a standard DCF belong to all providers of capital. Cost of equity from the CAPM: the current government bond yield as the risk-free rate, a beta from Calder's own share price or from comparable food companies if it is private, and an equity risk premium of around 5%. Cost of debt from the yield on Calder's bonds or the risk-free rate plus a spread for its rating, taken after tax. Weights from the market value of its equity and debt, or a target structure if the current one is unusual. Combine, and say the number, and then say which input you are least sure of, since that is the follow-up."
       }
     ]
   },
@@ -1557,6 +1921,97 @@
     ]
   },
   {
+    "id": "casemaths",
+    "tag": "Case maths",
+    "name": "Case Maths & Mental Arithmetic",
+    "description": "The arithmetic cases actually ask for, done quickly, out loud and without a calculator.",
+    "intro": "Most case interviews contain three or four calculations, none of them hard, all of them done under a stare. Candidates lose more marks on arithmetic than on frameworks, because they either go silent for a minute or come back with a number that is off by a factor of ten. This deck teaches the small set of moves that fix that: rounding sensibly, working in units that keep numbers small, percentages and growth rates, breakevens, and the habit of saying the calculation out loud as you do it. Nothing here needs more than school maths.",
+    "track": "consulting",
+    "level": "beginner",
+    "cards": [
+      {
+        "q": "Why does an interviewer care how you do arithmetic, when the job has Excel?",
+        "takeaway": "They are testing whether you can stay structured and calm with numbers in front of a client, not whether you can multiply.",
+        "a": "A consultant sits in meetings where a client says a number and expects a reaction within seconds: is that big, is that plausible, what does it imply? Nobody opens a spreadsheet. The interviewer wants to see that you can take a number, decide what to do with it, do it roughly right, and say what it means, all while talking. Silence and panic are the failures, not being 3% out. So the skills are narration, sensible rounding, and sanity-checking, and a candidate who rounds 47 to 50, says so, and lands close is rated higher than one who gets 47 exactly after a long pause."
+      },
+      {
+        "q": "How should you round in a case, and when should you not?",
+        "takeaway": "Round to one or two significant figures, say that you are doing it, and keep the direction of the error in mind.",
+        "a": "Round aggressively but honestly. 47 million customers becomes 50 million; £3.8 becomes £4; 23% becomes a quarter. Say it as you do it, so the interviewer knows the final figure is an estimate, and note which way you rounded, so you can say the true answer is slightly lower. Do not round when the answer hinges on a small difference, such as whether a margin is 4% or 6%, or when the interviewer has given exact figures and clearly wants an exact result. If a rounded answer comes out close to a decision threshold, go back and redo it precisely."
+      },
+      {
+        "q": "What is the fastest way to multiply two awkward numbers, like 340 × 25?",
+        "takeaway": "Break one number into pieces that are easy to multiply, or swap in a friendlier equivalent like 25 = 100 ÷ 4.",
+        "a": "Two moves cover most cases. Decompose: 340 × 25 is 300 × 25 plus 40 × 25, which is 7,500 plus 1,000, so 8,500. Or substitute: multiplying by 25 is the same as multiplying by 100 and dividing by 4, so 34,000 ÷ 4 is 8,500. The same trick works for 50 (× 100 ÷ 2), 125 (× 1,000 ÷ 8), and 75 (× 100 × 3 ÷ 4). For something like 18 × 22, use the near-square: 20² minus 2², which is 400 minus 4, so 396. Practise these until they are reflexes and multiplication stops being where you slow down."
+      },
+      {
+        "q": "How do you keep units under control when a case moves between thousands, millions and billions?",
+        "takeaway": "Pick one unit for the whole calculation, write it down, and convert everything into it before you multiply anything.",
+        "a": "Most factor-of-a-thousand errors come from mixing units mid-calculation. Before you start, decide: this case is in millions of pounds. Convert every input into that unit and say so. 40 million customers times £15 a year is then 40 × 15 = £600 million, not 600 of something. When you multiply two big numbers, count the zeros separately from the digits: 300,000 × 20,000 is 3 × 2 = 6 followed by five plus four zeros, so 6 billion. Writing the unit at the top of your page and checking each result against it catches nearly every slip."
+      },
+      {
+        "q": "Ferrow Retail's revenue was £820m last year and £900m this year. What is the growth rate, and how do you get it quickly?",
+        "takeaway": "Growth is the change divided by the starting value: £80m on £820m is a little under 10%.",
+        "a": "Growth rate is the increase divided by the original figure. The increase is £900m minus £820m, which is £80m. Divided by £820m: 80 ÷ 820 is a bit less than 80 ÷ 800, which would be exactly 10%, so call it just under 10%, about 9.8%. Say the reasoning, because it shows you know the exact answer is slightly below the round one. The classic mistake is dividing by the new figure, 80 ÷ 900, which gives 8.9% and is the wrong ratio. Always divide by where you started."
+      },
+      {
+        "q": "What is the rule of 72, and how do you use it in a case?",
+        "takeaway": "Divide 72 by the growth rate to get the years it takes something to double; divide by the years to get the rate.",
+        "a": "At a steady growth rate, a quantity doubles in roughly 72 divided by the rate in years. Growing at 8% a year, revenue doubles in about nine years; at 12%, in six. It works backwards too: if a market doubled in four years, it grew at about 18% a year. In a case this lets you answer questions like what revenue will be in ten years at 7% without compounding by hand: 72 ÷ 7 is about ten, so it doubles. It is an approximation, accurate enough for rates under about 20%, and interviewers know and respect it."
+      },
+      {
+        "q": "How do you calculate a percentage of a number quickly, like 17% of £340m?",
+        "takeaway": "Build it from 10% and 1%, or from a nearby friendly percentage, and adjust.",
+        "a": "Ten per cent of £340m is £34m. One per cent is £3.4m, so 7% is about £24m. Add them: £58m. Or go from a friendly number: 20% is £68m, and 3% is about £10m, so 17% is about £58m. Either route takes a few seconds and can be said aloud. The same building blocks handle almost any percentage, and 5% (half of 10%), 25% (a quarter) and 33% (a third) are worth having as reflexes. If the interviewer gives you 17.3%, round to 17% first and mention it."
+      },
+      {
+        "q": "What is breakeven, and how do you calculate it in a case?",
+        "takeaway": "Fixed costs divided by contribution per unit: the number of units you must sell to cover the costs that do not change with volume.",
+        "a": "Breakeven is the volume at which revenue exactly covers all costs. Split costs into fixed, which do not change with volume, like rent and salaries, and variable, which do, like materials. Contribution per unit is price minus variable cost per unit, the amount each sale puts toward fixed costs. Breakeven units are fixed costs divided by contribution. If Calder Foods' new bakery costs £2m a year to run, sells loaves at £2 with £1.20 of ingredients, contribution is 80p, and breakeven is £2m ÷ £0.80, which is 2.5 million loaves. Then ask whether that is plausible against the market."
+      },
+      {
+        "q": "How do you estimate a payback period, and why do clients ask for it?",
+        "takeaway": "Investment divided by the annual cash it generates: the years until the money is back, which is the number a nervous client wants.",
+        "a": "Payback is the upfront cost of an investment divided by the cash it returns each year. A £6m warehouse for Northbay Logistics that saves £2m a year pays back in three years. It ignores what happens after payback and ignores the time value of money, so it is cruder than NPV, but it answers the question a client actually asks, which is how long they are exposed. In a case, calculate it, say whether three years is fast or slow for the industry, and mention that a full analysis would discount the cash flows. If savings ramp up over time, add year by year until the total passes the investment."
+      },
+      {
+        "q": "Sales went from 100 to 120, then from 120 to 100. Why is the second change not the same percentage as the first?",
+        "takeaway": "A 20% rise followed by a 20% fall does not get you back to where you started, because the base changed.",
+        "a": "The rise is 20 on a base of 100, which is 20%. The fall is 20 on a base of 120, which is 16.7%. Percentages are always relative to the starting point, so the same absolute move is a different percentage going up and coming down. This matters in cases about recoveries: a market that fell 50% needs to rise 100% to recover, not 50%. Interviewers use it to check whether you think about bases. When you calculate any percentage change, say the base you are using out loud."
+      },
+      {
+        "q": "How do you sanity-check an answer before you say it?",
+        "takeaway": "Compare it with something you already know: population, GDP, a big company's revenue, a typical price.",
+        "a": "Before you deliver a number, hold it against a benchmark. If your estimate of the UK coffee-shop market comes out at £200 billion, that is about a tenth of GDP, so something is wrong. If it comes to £5 billion, that is roughly £75 per person per year, which is plausible. Keep a few anchors in your head: the UK has about 68 million people and 28 million households; UK GDP is around £2.5 trillion; a large supermarket chain has revenue in the tens of billions. Saying the check aloud is itself impressive, and catching your own error is far better than the interviewer catching it."
+      },
+      {
+        "q": "The interviewer gives you a table with revenue by product line and asks what share the top product is. How do you avoid getting lost?",
+        "takeaway": "Total first, then the one line you need, then divide, narrating each step.",
+        "a": "Add the column to get the total, rounding each line as you go and saying the running sum. Then take the top line and divide it by the total. If the top product is £340m of a £1.2bn total, 340 ÷ 1,200 is a bit over a quarter, about 28%. Say what it means: one product is over a quarter of the business, so it is a concentration risk or the core to protect, depending on the case. The failure mode is trying to hold six numbers in your head; write the total down and work from the page."
+      },
+      {
+        "q": "How do you handle a calculation where you realise halfway through that you made a mistake?",
+        "takeaway": "Say so immediately, fix it, and carry on; the recovery counts for more than the slip cost.",
+        "a": "Interviewers expect errors, and they are watching how you handle them. The right move is to stop, say that you think you have made a mistake, identify it, and redo that step. Do not try to hide it or fudge the final number to match. A candidate who says 'that should be 60 not 600, let me correct it' has shown exactly the self-checking a firm wants. The wrong move is to carry a number you doubt through three more steps and present it. If you are unsure whether it is wrong, do the sanity check and let that decide."
+      },
+      {
+        "q": "A client asks whether a 3% price rise or a 3% cost cut adds more profit. How do you answer without knowing the numbers?",
+        "takeaway": "Price rises usually add more, because they go straight to profit while cost cuts only apply to the cost base, which is smaller than revenue.",
+        "a": "A 3% price rise, if volume holds, adds 3% of revenue to profit, because there is no extra cost. A 3% cut in costs adds 3% of costs to profit. Since costs are less than revenue for any profitable company, the price rise is worth more. If Bramwell & Co. has revenue of £1bn and costs of £900m, the price rise adds £30m and the cost cut adds £27m. The catch is the phrase if volume holds: price rises can lose customers, cost cuts usually do not. So the honest answer is that price is the bigger lever but the riskier one."
+      },
+      {
+        "q": "How do you structure a calculation out loud so the interviewer can follow it?",
+        "takeaway": "Say the formula first, then the inputs, then each step, then the answer, then what it means.",
+        "a": "Announce what you are going to calculate and how: 'Breakeven is fixed costs over contribution per unit.' State the inputs and any rounding: 'Fixed costs are £2m; contribution is £2 minus £1.20, so 80p.' Do the arithmetic in steps, each spoken: '£2m over 80p is 2.5 million units.' Give the answer with its unit, and then the implication: 'That is 2.5 million loaves a year, about 7,000 a day, which seems high for one bakery.' Five beats, always in that order. The interviewer can correct an input early, and never has to wonder what you are doing."
+      },
+      {
+        "q": "What are the numbers every candidate should know cold before a case interview?",
+        "takeaway": "Population and households for your country, a rough GDP, working days in a year, hours in a working week, and a few everyday prices.",
+        "a": "Have these ready: UK population about 68 million, roughly 28 million households, GDP around £2.5 trillion; US population about 335 million; the world about 8 billion. A working year is about 250 days or 2,000 hours; a year is 52 weeks and 8,760 hours. A typical UK salary is in the low £30,000s. Everyday prices for a coffee, a meal out, a phone contract, a car. Fractions as decimals: 1/8 is 12.5%, 1/6 about 17%, 1/7 about 14%, 1/3 33%. With these you can start any market-sizing or sanity check without having to guess the foundations."
+      }
+    ]
+  },
+  {
     "id": "microecon",
     "tag": "Microeconomics",
     "name": "Microeconomics & Market Structures",
@@ -1776,6 +2231,97 @@
     ]
   },
   {
+    "id": "bizmodels",
+    "tag": "Business models",
+    "name": "Business Models & Unit Economics",
+    "description": "How different kinds of company actually make money, and the numbers that decide whether they do.",
+    "intro": "A case is easier when you already know how the client's kind of business works: what it sells, what it costs, where the margin comes from and what can go wrong. This deck walks through the models that come up most, from retailers and subscription businesses to marketplaces, airlines and banks, and the unit economics behind each one: the profit on a single customer, a single seat, a single store. With that in your head you ask better questions in the first two minutes of a case and spot the problem faster in the last ten.",
+    "track": "consulting",
+    "level": "intermediate",
+    "cards": [
+      {
+        "q": "What is a business model, and why does a consultant start by asking about it?",
+        "takeaway": "How a company creates value for customers and captures some of it as profit; every case problem sits somewhere in that chain.",
+        "a": "A business model is the answer to four questions: who the customer is, what they get, how the company delivers it, and how it gets paid. Ferrow Retail sells clothes to shoppers through stores and a website and earns the gap between what it pays suppliers and what customers pay. A subscription software firm sells access to a tool to businesses through a sales team and earns recurring monthly fees. Consultants ask first because the diagnosis depends on it: falling profit means something different at a retailer, where it is usually margin or footfall, than at a software company, where it is usually churn or sales cost."
+      },
+      {
+        "q": "What are unit economics, and why do investors and consultants obsess over them?",
+        "takeaway": "The profit or loss on one unit of the business, a customer, an order, a store, which tells you whether growth helps or hurts.",
+        "a": "Unit economics are the revenue and cost of one unit: one customer over their lifetime, one delivery, one seat on one flight, one shop. If a unit makes money, the company can grow by adding units and each one adds profit. If a unit loses money, growth makes the losses bigger, and the company is buying revenue. Total profit can hide this, because a business can show growing revenue and shrinking losses while each new customer still costs more to win than they ever pay. Asking for the numbers on one unit is the fastest way to see whether a business is fundamentally sound."
+      },
+      {
+        "q": "What are customer acquisition cost and lifetime value, and what ratio between them is healthy?",
+        "takeaway": "CAC is what it costs to win a customer; LTV is the profit they generate before they leave; LTV should be about three times CAC.",
+        "a": "Customer acquisition cost is total sales and marketing spend divided by the number of new customers won. Lifetime value is the profit a customer generates over their time with the company: contribution per period, times how long they stay. If a subscription costs £10 a month with £7 of contribution and the average customer stays 20 months, LTV is £140. If it cost £50 to win them, LTV to CAC is about 3, which is the usual benchmark for a healthy business. Below 1 the company loses money on every customer; a very high ratio suggests it is underinvesting in growth."
+      },
+      {
+        "q": "What is churn, and why does a small change in it move a subscription business so much?",
+        "takeaway": "Churn is the share of customers who leave each period; because lifetime is one over churn, halving churn doubles lifetime value.",
+        "a": "Churn is the percentage of customers lost in a period. A monthly churn of 5% means one in twenty customers leaves each month, so the average customer stays about 20 months. Cut churn to 2.5% and the average customer stays 40 months, doubling revenue per customer without winning anyone new. That is why subscription companies spend so heavily on retention, and why a case about a struggling streaming service or gym is almost always about churn before it is about acquisition. Always ask for churn early in any recurring-revenue case."
+      },
+      {
+        "q": "How does a retailer make money, and what are the two numbers that decide it?",
+        "takeaway": "Gross margin on what it sells, and sales per square foot or per store, against a largely fixed cost of stores and staff.",
+        "a": "A retailer buys goods and sells them for more; the gap is gross margin, typically 30% to 60% depending on the category. Against that sit costs that barely move with sales: rent, staff, energy, the website. So profit depends on pushing enough sales through each store to cover its fixed cost, which is why sales per square foot and like-for-like growth are the metrics retailers live by. A store with falling footfall goes from profitable to loss-making quickly because its costs do not fall with it. In a retail case, ask for margin and store-level sales before anything else."
+      },
+      {
+        "q": "How does a marketplace like an app connecting drivers and riders make money, and what is the chicken-and-egg problem?",
+        "takeaway": "A marketplace takes a cut of each transaction between two sides, and it only works once both sides are big enough to attract each other.",
+        "a": "A marketplace does not own the product; it connects buyers and sellers and takes a percentage of each deal, the take rate, usually 10% to 30%. Its cost is mainly technology and the marketing to bring both sides in. The difficulty is that riders only come if there are drivers, and drivers only come if there are riders, so a new marketplace has to subsidise one side, often heavily, until the other arrives. Once it works, it is hard to dislodge, because everyone is where everyone else is. Cases about marketplaces are usually about take rate, subsidies, or whether a market is big enough to reach that tipping point."
+      },
+      {
+        "q": "Why is software so profitable once it works, and what does that do to how the company grows?",
+        "takeaway": "The product costs almost nothing to copy, so gross margins are 80% or more and most spending goes on winning customers.",
+        "a": "Writing software is expensive; serving one more customer is nearly free, because it is the same code. That gives gross margins of 70% to 90%, compared with 30% to 50% for a company that makes physical things. So a software firm's cost base is people, mostly engineers building the product and salespeople selling it. Early on, it spends far more on sales and marketing than it earns, betting that each customer's lifetime value repays the acquisition cost many times over. A software case is usually about that bet: is CAC falling, is churn low, is the sales team productive, and when does the company stop needing outside money."
+      },
+      {
+        "q": "How does an airline make money, and why are its economics so brutal?",
+        "takeaway": "It sells seats on flights whose cost is almost entirely fixed once they take off, so a few empty seats decide the profit.",
+        "a": "The cost of a flight, the aircraft, the crew, the fuel, the landing fees, is nearly the same whether the plane is full or half empty. Revenue depends on how many seats are sold and at what price. So the whole business comes down to load factor, the share of seats filled, and yield, revenue per seat. A plane that breaks even at 80% full makes all its profit from the last 20% of seats, which is why airlines cut prices at the last minute rather than fly empty. Add fuel prices they cannot control and fierce competition on every route, and you have an industry that loses money in most downturns."
+      },
+      {
+        "q": "How does a bank make money?",
+        "takeaway": "Mostly from the gap between what it pays depositors and what it charges borrowers, plus fees; its risk is that borrowers do not pay back.",
+        "a": "A bank takes deposits, paying savers a low rate, and lends the money out at a higher rate. The difference is net interest income, and the gap as a percentage of assets is the net interest margin, usually one to three per cent. On top sit fees, for accounts, cards, advice and transactions. The costs are branches, staff and technology, and the big variable is credit losses: loans that are not repaid. That is why banks do well when rates rise, because the margin widens, and badly in recessions, because defaults rise. A bank case is usually about margin, cost-to-income ratio, or bad loans."
+      },
+      {
+        "q": "What is a franchise model, and why do companies like fast-food chains use it?",
+        "takeaway": "The company licenses its brand and system to local operators who put up the capital and take the operating risk, in return for a royalty.",
+        "a": "In a franchise, the parent owns the brand, the recipes and the rules, and a franchisee owns the individual outlet, pays for the fit-out, hires the staff and keeps most of the profit. The parent earns an upfront fee and a royalty, typically 4% to 8% of sales, plus rent if it owns the property. The parent grows fast without spending its own capital and earns a high-margin, steady income; the franchisee gets a proven format. The tension is control: the parent cannot manage every outlet, so quality can slip. Cases about franchise chains usually turn on the split of economics between the two sides."
+      },
+      {
+        "q": "What is the difference between a high-volume, low-margin business and a low-volume, high-margin one, and how does a case differ for each?",
+        "takeaway": "The first lives on efficiency and scale, the second on pricing and brand; the levers you pull are different.",
+        "a": "A supermarket makes two or three pence on every pound of sales and survives by selling enormous volumes efficiently: logistics, buying power, store productivity. A luxury brand makes fifty pence on every pound and survives by protecting the price: brand, scarcity, control of distribution. In a case about the first, look at costs, throughput and scale; in a case about the second, look at pricing, positioning and whether growth is diluting the brand. Applying the wrong lens is a common error, like recommending a luxury house cut prices to win volume, which would destroy the thing it sells."
+      },
+      {
+        "q": "What is operating leverage, and why does it explain why some companies' profits swing so much more than their sales?",
+        "takeaway": "The higher the share of fixed costs, the more a small change in sales moves profit, up or down.",
+        "a": "If most of a company's costs are fixed, extra sales come with almost no extra cost, so profit rises much faster than revenue; but a fall in sales cuts profit just as sharply, because the costs stay. A cinema with 90% fixed costs might see profit double on a 10% rise in ticket sales and vanish on a 10% fall. A consultancy with mostly variable costs, its staff can be flexed, sees much smaller swings. In a case, high operating leverage means volume is everything, and a small forecast error matters enormously. It is worth naming explicitly when you see a business with big fixed costs."
+      },
+      {
+        "q": "Calder Foods sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?",
+        "takeaway": "Direct sales keep the retailer's margin but add the costs the retailer used to bear: marketing, delivery, returns and customer service.",
+        "a": "Selling direct means Calder keeps the full retail price instead of 65% of it, which looks like a huge gain. But the supermarket was doing work for that margin: putting the product in front of millions of shoppers, holding stock, handling the sale and delivery. Direct, Calder must win customers itself, which costs marketing; ship small orders, which costs more per unit than pallets to a warehouse; and handle returns and queries. For a £3 jar of sauce, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and as a way to learn about customers; for cheap groceries it rarely does."
+      },
+      {
+        "q": "What is a two-sided subsidy, like a free service paid for by advertisers, and what is its weakness?",
+        "takeaway": "Users get the product free and advertisers pay for access to them; the model depends on attention that competitors can steal.",
+        "a": "Many media and internet businesses charge the user nothing and sell the user's attention to advertisers. Revenue is audience size times the price advertisers pay per thousand views. The costs are content and technology. It scales well, because a bigger audience commands both more views and a higher price. The weakness is that attention is fickle and advertisers follow it; a rival with a better product takes users, and revenue follows immediately. It also ties the company's fortunes to the advertising market, which collapses in recessions. Cases here are about audience growth, engagement, and whether to add a paid tier."
+      },
+      {
+        "q": "How do you work out whether a new store, route or product is worth opening, in a case?",
+        "takeaway": "Estimate its unit economics, revenue against its own costs, then compare the return on the investment with what the client could do instead.",
+        "a": "Build the case for one unit. For a new Ferrow store: expected sales, from footfall or comparable stores, times gross margin, minus the store's own costs, rent, staff, energy, gives store-level profit. Compare it with the upfront investment for a payback or return. Then ask three questions: is the forecast sales figure plausible against nearby stores; does the new store steal sales from existing ones, called cannibalisation; and could the money earn more elsewhere. A recommendation that covers those, with a number and the biggest risk named, is a complete answer."
+      },
+      {
+        "q": "An interviewer asks how a company you admire makes money. How do you answer in under a minute?",
+        "takeaway": "Customer, product, channel, revenue model, cost structure, and the one number that drives it.",
+        "a": "Use a fixed order. Who buys it and why. What they get. How it reaches them. How the company is paid: per unit, subscription, commission, advertising. What its main costs are and whether they are fixed or variable. Then the single metric that decides success: load factor for an airline, churn for a subscription, sales per square foot for a retailer, net interest margin for a bank. Finish with what could go wrong. That is six sentences, it works for any company, and it shows the interviewer that you think about businesses as systems rather than brands."
+      }
+    ]
+  },
+  {
     "id": "stats",
     "tag": "Statistics",
     "name": "Statistics & Data Analysis for Business",
@@ -1879,6 +2425,97 @@
         "q": "It's Thursday, the client readout is Monday, and your one real finding is that a segment's margin looks six points better — but it rests on nine months of data from a single region. How do you present it without overselling or burying it?",
         "takeaway": "State the finding, then the evidence it rests on, then what would change your mind, in that order.",
         "a": "Lead with the finding in plain language and the number behind it, then state the basis in the same breath: nine months, one region, so treat it as a signal rather than a settled result. Say what would confirm it, another region or a full year of data, and be explicit about which decisions it can carry and which it can't. Clients rarely punish a caveat that arrives with a clear next step, and they never forgive a number that quietly falls apart in a board meeting, which is why senior people scrutinise how a finding is framed as hard as they scrutinise the analysis under it."
+      }
+    ]
+  },
+  {
+    "id": "exhibits",
+    "tag": "Exhibits",
+    "name": "Charts, Exhibits & Data Interpretation",
+    "description": "Reading the chart the interviewer slides across the table: what it shows, what it hides, and the so-what.",
+    "intro": "Halfway through most cases the interviewer hands you a chart or a table and waits. What they want is not a description of the axes but a reading: the one insight the exhibit contains and what it means for the client. This deck covers the exhibits that come up, from bar charts and line charts to segmented tables and waterfall charts, the traps built into each, from truncated axes to mixed units, and a repeatable way to go from looking at a page to saying something useful about it in thirty seconds.",
+    "track": "consulting",
+    "level": "intermediate",
+    "cards": [
+      {
+        "q": "What is the interviewer testing when they hand you a chart?",
+        "takeaway": "Whether you can extract the one thing that matters and connect it to the case, quickly and out loud.",
+        "a": "The chart usually contains one insight the case turns on: one segment is losing money, one competitor is growing, one cost has doubled. The interviewer wants to see whether you find it, how quickly, and whether you can say why it matters for the client's question. They are also watching for discipline: do you read the title and axes before speaking, do you notice the units, do you get lost in the details. A good answer takes half a minute, names the insight, gives one number to support it, and links it to the recommendation. A bad answer describes every bar."
+      },
+      {
+        "q": "What is the first thing to do with any exhibit, before saying anything?",
+        "takeaway": "Read the title, the axes, the units and the source, then take ten seconds of silence to find the pattern.",
+        "a": "Say that you would like a moment, then read in order: the title, which tells you what the chart claims to show; the axis labels and units, which tell you what the numbers are; the legend; the time period; and any footnotes, which is where the tricks hide. Only then look at the data, and look for the pattern rather than the points: what is biggest, what is growing, what stands out. Ten seconds of silence is fine and expected. Speaking before you have read the axes is how candidates confidently describe revenue when the chart shows units, or 2019 when it shows 2024."
+      },
+      {
+        "q": "How do you describe what a chart shows without just listing the bars?",
+        "takeaway": "Lead with the headline, support it with one or two numbers, then say what it means; the details can wait for questions.",
+        "a": "Structure the reading in three beats. Headline: 'This shows that Ferrow's online sales have tripled since 2021 while store sales have fallen a fifth.' Evidence: 'Online has gone from £100m to £300m; stores from £900m to £720m.' Implication: 'So total revenue is flat, but the mix has shifted sharply toward the channel with lower margins, which may explain the profit decline we are investigating.' That is the whole answer. If the interviewer wants more, they will ask. Listing every data point signals that you cannot tell what matters."
+      },
+      {
+        "q": "What is a truncated axis, and how does it mislead?",
+        "takeaway": "An axis that starts above zero exaggerates differences; check where the axis begins before judging how big a gap is.",
+        "a": "If a bar chart's vertical axis starts at 90 rather than 0, a bar at 95 looks twice the height of one at 92, although the real difference is 3%. Charts in company presentations do this constantly, sometimes carelessly and sometimes on purpose. The check takes one glance at the bottom of the axis. In an interview, noticing it and saying 'the axis starts at 90, so the differences are smaller than they look, about 3%' is exactly the kind of observation that earns credit, because it shows you read the chart rather than the picture."
+      },
+      {
+        "q": "A chart shows revenue growing every year. What questions should you ask before concluding the business is healthy?",
+        "takeaway": "Growth in what units, against what, with what margin, and whether it is organic or bought.",
+        "a": "Revenue growing does not mean profit growing: ask about margin. It does not mean the company is winning: ask how fast the market grew, since 5% growth in a market growing 15% is losing share. It does not mean the business is doing it: ask whether growth came from acquisitions or currency. And check the units: is it nominal, so inflation is inside it; is it in a currency that moved. A candidate who sees an upward line and says the company is doing well has fallen for the chart. One who asks two of these questions has shown judgement."
+      },
+      {
+        "q": "What is a waterfall chart, and how do you read one?",
+        "takeaway": "It walks from a starting value to an ending value through the steps that changed it; read the biggest step first.",
+        "a": "A waterfall starts with one bar, say last year's profit, then shows a floating bar for each factor that added or subtracted, ending with this year's profit. It answers 'what happened between then and now'. Read it by finding the largest positive and largest negative steps, since those are the story: profit fell from £50m to £30m mostly because raw material costs rose £25m, partly offset by £8m of price increases. Ignore the small steps until asked. Waterfalls are how consultants present profit bridges, so being fluent with one shows familiarity with the work."
+      },
+      {
+        "q": "A table shows profit by customer segment: large accounts £40m, mid-size £25m, small £-15m. What do you say?",
+        "takeaway": "Small customers lose money, and the question is why and whether to fix, reprice or exit them.",
+        "a": "The headline is that one segment is destroying value: small customers lose £15m, which wipes out more than a third of what the other two earn. Then the questions: is it a cost-to-serve problem, where each small account costs more to handle than it generates; is it a pricing problem, where small customers get the same discounts as large ones; or is it strategic, where small customers grow into large ones and the losses are an investment. The recommendation depends on which. Saying that, rather than just reading the three numbers, is what the exhibit is for."
+      },
+      {
+        "q": "What is the difference between absolute and relative numbers on a chart, and why does it matter?",
+        "takeaway": "A big percentage on a small base can be a small number; always ask what the base is.",
+        "a": "A chart showing a segment growing 80% a year looks like the story, until you learn it is £2m of a £2bn business. Conversely, a segment growing 3% might be adding £30m. Charts that show percentages hide the base; charts that show absolute values hide the rate. When you see either, ask for the other. In a case, the common trap is a fast-growing small segment presented as the answer to a big problem. The question to ask aloud is 'what is that as a share of total revenue', and the interviewer will usually tell you."
+      },
+      {
+        "q": "Two lines on a chart, market size and the client's revenue, both rising. How do you tell whether the client is gaining or losing share?",
+        "takeaway": "Compare the growth rates, or compute the ratio at the start and end; a slower-growing line is losing share even while rising.",
+        "a": "Rising revenue in a rising market says nothing about share until you compare rates. If the market went from £10bn to £15bn, up 50%, and the client from £1bn to £1.2bn, up 20%, the client's share fell from 10% to 8%. Compute the share at both ends and say it. That is the insight the chart was built to test: a company can be growing and losing at the same time, and a client who is celebrating growth may need to hear that competitors are growing faster. Then ask who is taking the share and why."
+      },
+      {
+        "q": "What is a stacked bar chart, and what does it tend to hide?",
+        "takeaway": "It shows the total and its composition, but makes it hard to read changes in the middle segments.",
+        "a": "A stacked bar piles segments on top of each other so the full bar is the total and each band is a part. It is good for seeing the total and the bottom segment, whose base is the axis, and bad for the segments in the middle, whose position depends on everything beneath them. A middle segment can look like it is growing when it is only being pushed up by the one below. If the case turns on a middle segment, ask for the numbers or mentally subtract. Saying 'the middle band is hard to read from a stacked chart, can I have the figures' is a legitimate and impressive request."
+      },
+      {
+        "q": "An exhibit shows costs per unit falling as volume rises. What is it showing, and what is the trap?",
+        "takeaway": "Economies of scale: fixed costs spread over more units; the trap is assuming the curve continues forever.",
+        "a": "Cost per unit falls with volume because fixed costs are spread more thinly, and sometimes because buying power and learning improve. That supports a strategy of growing to cut costs. The trap is extrapolating: at some point the factory is full, the next unit needs a new factory, and cost per unit jumps. Diseconomies also appear, as coordination gets harder. So read the chart, name the mechanism, and then ask where the current capacity limit is and what the step cost of the next one would be. That turns a chart into a decision."
+      },
+      {
+        "q": "The chart is in a currency and time period different from the rest of the case. What do you do?",
+        "takeaway": "Say so, convert or align if you can, and if you cannot, state the assumption you are making.",
+        "a": "Mixed units are a deliberate test. If the case has been in pounds and the exhibit is in dollars, note it and ask for or estimate an exchange rate before comparing anything. If the exhibit covers 2020 to 2023 and the case question is about 2024, say that you are assuming the trend continued, or ask for 2024. Interviewers reward the noticing more than the conversion. The failure is to compare a dollar figure with a pound figure as if they were the same, which happens surprisingly often under pressure."
+      },
+      {
+        "q": "How do you go from a chart insight to a recommendation in the same breath?",
+        "takeaway": "Insight, cause, action: what the chart shows, why it is probably happening, and what the client should do about it.",
+        "a": "After the headline reading, add two sentences. First, a hypothesis for the cause: 'Store sales are falling, most likely because footfall is shifting online rather than because of pricing, given online is growing.' Second, an action: 'That suggests the client should look at closing the weakest stores and investing in fulfilment rather than discounting in-store.' You have then turned an exhibit into a piece of the answer. Even if the hypothesis is wrong, the interviewer sees you reasoning toward a decision, which is the job. Ending on a description leaves the work to them."
+      },
+      {
+        "q": "What is a scatter plot with a trend line telling you, and what is the classic mistake in reading it?",
+        "takeaway": "It shows whether two things move together; the mistake is assuming one causes the other.",
+        "a": "A scatter plot puts one variable on each axis and each point is one observation, one store or one customer. A trend line shows correlation: stores with more staff have higher sales, say. The classic error is to conclude that adding staff would raise sales, when it may be that busy stores get more staff. Say what the chart shows, note the correlation, and then ask what might be driving both, or whether there is a natural experiment. Interviewers set this up deliberately, and a candidate who says 'correlation, not necessarily causation, and here is why' stands out."
+      },
+      {
+        "q": "An exhibit contradicts something the interviewer said earlier in the case. What do you do?",
+        "takeaway": "Point it out politely and ask which to rely on; the contradiction may be the point.",
+        "a": "Sometimes the interviewer said the market was growing and the exhibit shows it shrinking. That is either a test or a mistake, and either way you should raise it: 'This shows the market declining 2% a year, which is different from the growth we discussed earlier; should I rely on the exhibit?' Never quietly pick one, and never pretend not to notice. Consultants are paid to catch inconsistencies in client data, and an interview is the first place to show that you will. Most interviewers will smile and tell you which is right."
+      },
+      {
+        "q": "Give a complete thirty-second reading of an exhibit, in order, that would satisfy any interviewer.",
+        "takeaway": "Read silently, headline, two numbers, implication, hypothesis, next step.",
+        "a": "Take ten seconds and read the title, axes, units and footnotes. Then: 'This chart shows Ferrow's profit by channel from 2021 to 2024. The headline is that store profit has halved, from £80m to £40m, while online has gone from a £10m loss to break-even. Total profit is down £50m, almost all of it from stores. My hypothesis is that fixed store costs have not come down as sales moved online. I would like to test that by looking at store-level sales and costs next.' Headline, evidence, implication, cause, next step. Practise it on any chart in a newspaper until it is automatic."
       }
     ]
   },
@@ -2494,6 +3131,97 @@
         "q": "Final page, and the evidence is mixed. Kestrel Plastics sits in a growing market with credible cost synergies, but customer concentration is high and two key managers plan to leave. Your partner wants a recommendation, not a list.",
         "takeaway": "Lead with the answer, then the two or three facts behind it, then what would change your mind.",
         "a": "Land on a conditional yes: proceed, but only at or below the walk-away price, and only with retention packages agreed for the two managers and a multi-year commitment from the largest customer before signing. Then give the two facts driving it, the market growth and the defensible cost synergies, and name the risk you are knowingly accepting. Conditions are not hedging, they convert your two open risks into things the client can act on while it still has leverage. A findings list with no decision in it is unfinished work."
+      }
+    ]
+  },
+  {
+    "id": "synthesis",
+    "tag": "Synthesis",
+    "name": "Synthesis & Structured Communication",
+    "description": "Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.",
+    "intro": "The last two minutes of a case decide more than most candidates realise. The interviewer says 'the CEO walks in, what do you tell her', and wants a recommendation, delivered answer-first, with the reasons underneath and the risks named, in under a minute. This deck covers that skill and the thinking behind it: the pyramid principle, top-down communication, the so-what test, how to handle being interrupted, and how to summarise a page of analysis in one sentence. It is the difference between having done the analysis and being able to sell it.",
+    "track": "consulting",
+    "level": "advanced",
+    "cards": [
+      {
+        "q": "What does 'answer first' mean, and why do consulting firms insist on it?",
+        "takeaway": "State the conclusion before the reasoning, because senior people decide in the first sentence whether to keep listening.",
+        "a": "Answer first means the recommendation comes before the analysis: 'Ferrow should close its twelve weakest stores', followed by why. Most people were taught the opposite at school, building up to a conclusion, which is fine for an essay and disastrous in a boardroom, where the chief executive may leave after two minutes. Leading with the answer lets the listener decide how much of the reasoning they need, and it signals confidence. It is also harder, because you have to know what you think before you open your mouth. Firms test it in the final synthesis of every case and in every conversation afterwards."
+      },
+      {
+        "q": "What is the pyramid principle?",
+        "takeaway": "One main point at the top, supported by a few grouped arguments, each supported by evidence; every level answers 'why' for the one above.",
+        "a": "The pyramid principle, from Barbara Minto at McKinsey, is a way of organising anything you say or write. At the top is the single message. Beneath it are the two to four arguments that support it, grouped so they do not overlap. Beneath each argument is the evidence. Reading down, each layer answers 'why do you say that'; reading up, each layer answers 'so what'. A recommendation built this way can be delivered in one sentence, one minute or one hour depending on the audience, because you just stop at a different level. It is the structure behind every consulting slide and every case synthesis."
+      },
+      {
+        "q": "How do you deliver the final recommendation in a case, in order?",
+        "takeaway": "Recommendation, two or three reasons with numbers, the main risk, and the next step, all in under a minute.",
+        "a": "Use one fixed shape. Recommendation: 'I recommend Calder Foods enters the frozen category.' Reasons, each with a number: 'The market is £2bn and growing 6%; Calder's brand already tests well in the segment; and the existing plant can produce at a 35% margin.' Risk: 'The main risk is the two incumbents responding on price, which could cut margin to 25%.' Next step: 'I would pilot in one region before a national launch.' That is forty seconds. The interviewer hears a decision, the support, honesty about what could go wrong, and a practical move. Nothing else is needed."
+      },
+      {
+        "q": "What is the so-what test?",
+        "takeaway": "Every finding must end with what it means for the decision; a fact without an implication is not yet a finding.",
+        "a": "After every statement, ask 'so what'. 'Online sales tripled' is a fact. So what? 'So the mix has moved to the lower-margin channel.' So what? 'So profit fell even though revenue held.' So what? 'So the client needs to either raise online margins or cut store costs.' Stop when you reach something the client could act on. Consultants apply it to every bullet on every slide, and interviewers apply it to everything you say in a case. If you cannot answer so-what for a point, either dig further or leave the point out."
+      },
+      {
+        "q": "The interviewer interrupts your synthesis after the first sentence. What do you do?",
+        "takeaway": "Answer their question directly, then return to your structure; being interrupted is a test of whether the structure was real.",
+        "a": "Interruptions are deliberate. If you have led with the answer, the interviewer already has the recommendation and is probing a reason or a risk. Answer what was asked, briefly and directly, then say 'coming back to the reasons, the second was' and continue. Do not restart from the top, and do not abandon the structure and ramble. A candidate who can be knocked off course and come back to the same place shows that the pyramid was in their head, not on a script. A candidate who has to start again shows it was memorised."
+      },
+      {
+        "q": "How do you summarise a page of analysis in one sentence?",
+        "takeaway": "Find the single number that changes the decision and say what it means; everything else is supporting detail.",
+        "a": "Look at the page and ask which one figure the decision turns on. If the analysis shows twelve stores each losing money, the sentence is 'Twelve stores lose £15m a year between them, and closing them would raise group profit by a third.' Not 'we looked at store profitability across the estate and found a range of outcomes'. The discipline is choosing: one number, one implication. If you cannot find it, the analysis is not finished. Practise on articles and reports: read one, close it, and say what it showed in a sentence with a number in it."
+      },
+      {
+        "q": "What is MECE, and how does it apply to how you speak, not just how you structure a case?",
+        "takeaway": "Points that do not overlap and together cover the question; it makes an argument feel complete and easy to follow.",
+        "a": "Mutually exclusive, collectively exhaustive: a set of categories with no overlaps and no gaps. Applied to speaking, it means the two or three reasons you give for a recommendation should each be a different kind of reason, market, capability, financials, rather than three versions of the same one, and together they should cover the question. The listener can then tell where you are in the argument and when it is complete. 'There are three reasons: the market, our ability to serve it, and the economics' is MECE and lands. 'There are lots of reasons, for example' is not, and drifts."
+      },
+      {
+        "q": "How do you handle a case where your analysis does not support a clear recommendation?",
+        "takeaway": "Say which way it leans, name what would decide it, and recommend the step that resolves the uncertainty.",
+        "a": "Sometimes the numbers are close: the new market looks marginally profitable, the risks are real, the data is thin. Do not pretend to certainty and do not refuse to answer. Say 'On the evidence, I lean toward entering, but it is close: the case rests on whether we can hold a 30% margin against the incumbents' response. I would recommend a six-month pilot in one region to test that before committing.' That is a recommendation. It is honest about uncertainty, specific about what would resolve it, and still gives the client something to do on Monday. Interviewers rate that far above false confidence."
+      },
+      {
+        "q": "What is the difference between being concise and being brief?",
+        "takeaway": "Concise is saying everything that matters in the fewest words; brief is just stopping early.",
+        "a": "A brief answer to 'should we enter the market' is 'yes'. A concise one is 'Yes, because the market is large and growing, we can serve it at margin, and the main risk is manageable with a pilot.' Both are short, only one is complete. Consultants aim for concise: every necessary point, no unnecessary word, no repetition, no preamble like 'that's a great question'. In a synthesis, cut the recap of what you did, cut hedging phrases, cut anything the listener already knows. Then check that the recommendation, reasons, risk and next step are all still there."
+      },
+      {
+        "q": "How should you structure a verbal answer to a question you did not expect?",
+        "takeaway": "Buy five seconds, give a headline, then two or three points, then stop.",
+        "a": "Say 'let me think about that for a moment', which is acceptable, and use the pause to find a headline and a structure, not to find the perfect answer. Then: headline, 'I think the biggest issue is X', followed by 'for two reasons', each in one sentence, then stop. Stopping is the hard part; nervous candidates keep adding points until one is weak. If you genuinely cannot find a structure, name the dimensions you would think along: 'I would look at this from the customer's side and the cost side.' That shows method even without an answer."
+      },
+      {
+        "q": "What does a good consulting slide title look like, and why does it matter for how you talk?",
+        "takeaway": "The title is the conclusion in a full sentence; if you can write the title, you can say the point.",
+        "a": "A consulting slide title is not 'Revenue by channel, 2021 to 2024'. It is 'Online growth has not offset store decline, leaving profit down £50m'. The title states the so-what, and the chart beneath is the evidence. This is the pyramid on one page. The habit transfers directly to speaking: before you describe anything, ask what the title would be, and say that. Interviewers sometimes ask you to sketch a slide or to say what its headline would be, and the answer is always a full sentence with a verb and, ideally, a number."
+      },
+      {
+        "q": "How do you present a number so it lands with a client?",
+        "takeaway": "Round it, compare it to something they know, and say what it is worth to them.",
+        "a": "Numbers land when they are round, relative and relevant. Not '£14.7 million' but 'about £15 million, roughly a third of last year's profit, which is what closing the twelve stores would add back'. Rounding makes it memorable, comparison makes it big or small, and relevance makes it theirs. In a case synthesis, every number you cite should pass that test. A string of precise figures with no comparison sounds like a spreadsheet; one rounded figure with a comparison sounds like advice. Senior consultants do this instinctively, and it is learnable in a week."
+      },
+      {
+        "q": "The CEO asks 'what would you do if you were me'. How is that different from a recommendation, and how do you answer?",
+        "takeaway": "It asks for a decision with a personal stake, so give a choice, not a menu, and own it.",
+        "a": "A recommendation can be delivered from a distance: the analysis suggests. 'What would you do' asks you to take the chair. Answer as a decision: 'I would close the stores, this quarter, starting with the four in the north.' Then the reasons, briefly, and one honest acknowledgement of what makes it hard: 'It means about four hundred redundancies, which is why I would pair it with redeployment to the fulfilment centres.' Do not offer three options and let them choose; that is what they were doing before they hired you. Interviewers ask it to see whether you will commit."
+      },
+      {
+        "q": "How do you close a case when you have run out of time before finishing the analysis?",
+        "takeaway": "Give the recommendation the evidence so far supports, say what you did not get to, and what it would change.",
+        "a": "Time pressure is part of the test. Do not say you have not finished. Say: 'Based on what we have covered, I would recommend entering, driven by the market size and the margin we found. I have not yet looked at the competitive response, which is the one thing that could change the answer, so my next step would be to model the incumbents' likely pricing.' That is a complete synthesis that is honest about its limits. The interviewer knows exactly what was and was not covered; pretending otherwise costs credibility, while framing the gap as a next step earns it."
+      },
+      {
+        "q": "Why do consultants speak in threes?",
+        "takeaway": "Three points is the most a listener holds in their head, and it feels complete; two feels thin and four feels like a list.",
+        "a": "Three is a convention with a reason. One reason sounds like an opinion, two sounds like you stopped early, four or more becomes a list the listener cannot retain. Three points feel considered and complete and can be signposted: 'for three reasons'. It also forces prioritisation, since you have to choose the best three, which is itself the skill. If you genuinely have only two strong reasons, say two; padding with a weak third is worse than stopping. But when preparing any synthesis, aim for three and you will usually find the structure falls into place."
+      },
+      {
+        "q": "Give a complete, timed case synthesis for a client deciding whether to acquire a smaller rival.",
+        "takeaway": "Recommendation, three reasons with numbers, the risk, the next step, in about forty-five seconds.",
+        "a": "'I recommend Bramwell & Co. proceeds with the acquisition at up to £400m. Three reasons. First, the target adds £60m of EBITDA, so at £400m we are paying under seven times, below the sector's nine. Second, we identified £15m of cost synergies in overlapping distribution, which would take the effective multiple to about five. Third, it takes Bramwell to number two in the market, which improves pricing power. The main risk is integration: the two firms have different systems, and delays could push the synergies out by a year. My next step would be a detailed integration plan before signing, and a price walk-away at £420m.' That is the whole answer. Practise it out loud, timed, until it is under a minute."
       }
     ]
   },

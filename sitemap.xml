@@ -26,6 +26,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/decks/ratios.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/decks/corpfin.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
@@ -41,12 +46,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/decks/earnings.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/decks/valuation.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/decks/comps.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/decks/credit.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/capstructure.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
   </url>
@@ -86,6 +106,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/decks/casemaths.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/decks/microecon.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
@@ -96,7 +121,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/decks/bizmodels.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/decks/stats.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/exhibits.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
   </url>
@@ -127,6 +162,11 @@
   </url>
   <url>
     <loc>https://viewprep.net/decks/mnacases.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/synthesis.html</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
   </url>

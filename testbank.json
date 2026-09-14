@@ -103,6 +103,58 @@
       ]
     }
   ],
+  "ratios": [
+    {
+      "q": "What is the difference between the current ratio and the quick ratio, and why does it matter for a retailer?",
+      "a": "The current ratio is current assets over current liabilities. The quick ratio removes inventory from the numerator, so it asks whether the company could pay what falls due this year without selling any stock. For a retailer with warehouses full of seasonal goods, inventory is the current asset most likely to sell slowly or for less than it is carried at, so the quick ratio can be far lower and is the more honest test of liquidity.",
+      "key": [
+        "current assets",
+        "current liabilities",
+        "inventory",
+        "liquidity"
+      ]
+    },
+    {
+      "q": "Why do lenders look at net debt to EBITDA and interest cover rather than debt to equity?",
+      "a": "Debt to equity compares borrowings with an accounting figure that buybacks and write-downs distort. Net debt to EBITDA compares debt with the cash the operations generate, so it says how many years of earnings would repay the debt. Interest cover, EBIT over interest, says how far profit could fall before the company could not pay its interest. Both compare debt with what actually services it, which is what a lender cares about.",
+      "key": [
+        "EBITDA",
+        "cash",
+        "interest",
+        "EBIT"
+      ]
+    },
+    {
+      "q": "Explain why a high return on equity can be a warning sign, and which ratio fixes the problem.",
+      "a": "ROE is net income over shareholders' equity. A company funded mostly with debt has a small equity base, so ordinary profits look like a large return on it. A high ROE alongside high debt to equity reflects leverage, not a great business. Return on capital employed, EBIT over debt plus equity, uses profit before interest and capital from all sources, so it is not flattered by how the company is financed.",
+      "key": [
+        "leverage",
+        "equity",
+        "capital employed",
+        "debt"
+      ]
+    },
+    {
+      "q": "Explain DuPont analysis and what it tells you about a supermarket versus a luxury brand.",
+      "a": "Return on assets equals profit margin times asset turnover. A supermarket has a thin margin but turns its assets many times a year, because stock sells fast. A luxury brand turns its assets slowly but earns a large margin on each sale. Both can arrive at the same return by different routes, and splitting the return into margin and turnover shows which lever each business relies on.",
+      "key": [
+        "margin",
+        "asset turnover",
+        "return",
+        "supermarket"
+      ]
+    },
+    {
+      "q": "A company has 60 receivable days, 45 inventory days and 30 payable days. What is its cash conversion cycle and what does it mean?",
+      "a": "Receivable days plus inventory days minus payable days: 60 plus 45 minus 30 is 75 days. The company's own cash is tied up for 75 days between paying for stock and being paid by customers. Shortening it, by collecting faster, holding less stock or paying suppliers later, frees cash without any change in profit.",
+      "key": [
+        "receivable",
+        "inventory",
+        "payable",
+        "cash"
+      ]
+    }
+  ],
   "corpfin": [
     {
       "q": "What is the time value of money, and why does it matter for every valuation?",
@@ -258,6 +310,58 @@
       ]
     }
   ],
+  "earnings": [
+    {
+      "q": "Why can a company beat consensus and still see its share price fall on results day?",
+      "a": "The market prices the surprise, not the result. If the shares had run up and investors expected a bigger beat, a small one is a negative surprise. The market also weighs the rest of the package: guidance held or cut, margins falling, cautious comments on the call. New information about the future moves the price more than confirmation of the past.",
+      "key": [
+        "surprise",
+        "expected",
+        "guidance",
+        "future"
+      ]
+    },
+    {
+      "q": "What is guidance and why does it usually matter more than the reported numbers?",
+      "a": "Guidance is management's own forecast for the coming quarter or year, for revenue, profit or margins. Shares are a claim on future earnings, so a change in the forecast changes their value more than a result that is already history. A quarter that beats while next year's guidance is cut is a bad day; a miss with raised guidance is often a good one.",
+      "key": [
+        "forecast",
+        "management",
+        "future",
+        "raised"
+      ]
+    },
+    {
+      "q": "What is a profit warning, and why does the share price react so violently?",
+      "a": "An unscheduled announcement that profits will be materially below market expectations, which UK rules require as soon as the company knows. The price falls hard for two reasons: expectations have to be reset, and management's credibility is damaged because they either did not see the shortfall coming or did not say so, so investors now doubt the rest of what they were told.",
+      "key": [
+        "expectations",
+        "unscheduled",
+        "credibility",
+        "reset"
+      ]
+    },
+    {
+      "q": "What is the difference between reported and organic growth, and why do analysts focus on organic?",
+      "a": "Reported growth is the simple change in revenue from last year. Organic growth strips out businesses acquired or sold during the period and the effect of currency movements, so it shows what the underlying operations did. Analysts focus on it because it is repeatable; acquisitions and exchange rates are not.",
+      "key": [
+        "acquisitions",
+        "currency",
+        "underlying",
+        "repeatable"
+      ]
+    },
+    {
+      "q": "How does a share buyback affect earnings per share, and what question should you ask about it?",
+      "a": "A buyback uses cash to purchase and cancel the company's own shares. Profit is unchanged but is divided among fewer shares, so EPS rises even if the business did not grow. The question is whether the company is buying because the shares are cheap or because it has run out of better uses for the cash.",
+      "key": [
+        "fewer shares",
+        "EPS",
+        "profit",
+        "cash"
+      ]
+    }
+  ],
   "valuation": [
     {
       "q": "What are the three main ways to value a company, and how do they usually compare?",
@@ -310,6 +414,58 @@
       ]
     }
   ],
+  "comps": [
+    {
+      "q": "What is enterprise value, how is it calculated, and why is it used in comps instead of market capitalisation?",
+      "a": "Enterprise value is market capitalisation plus net debt, plus preferred stock and minority interests if any, minus cash. It is the value of the whole operating business regardless of who funded it. It is used because it does not change when a company borrows to buy back shares, so companies with different amounts of debt can be compared fairly.",
+      "key": [
+        "market capitalisation",
+        "net debt",
+        "cash",
+        "whole"
+      ]
+    },
+    {
+      "q": "Why must EV multiples use EBITDA or EBIT while equity multiples use net income?",
+      "a": "EBITDA and EBIT are earned before interest, so they belong to both lenders and shareholders, and enterprise value is what both own together. Net income is after interest, so it belongs only to shareholders, and market cap is what shareholders own. Matching numerator to denominator keeps the ratio meaningful; crossing them makes a company with more debt look cheaper for no real reason.",
+      "key": [
+        "interest",
+        "lenders",
+        "shareholders",
+        "net income"
+      ]
+    },
+    {
+      "q": "Peers trade at 10x EBITDA. A company has EBITDA of £80m, debt of £300m, cash of £50m and 100m shares. What is the implied share price?",
+      "a": "Enterprise value is 10 times £80m, which is £800m. Net debt is £300m minus £50m, which is £250m. Equity value is £800m minus £250m, which is £550m, and divided by 100 million shares gives £5.50 a share. The common error is forgetting to subtract net debt, which would give £8.00.",
+      "key": [
+        "800",
+        "net debt",
+        "550",
+        "5.50"
+      ]
+    },
+    {
+      "q": "What is the difference between trading comps and precedent transactions, and why do precedents give higher multiples?",
+      "a": "Trading comps use current stock-market prices of similar listed companies, which value a minority stake. Precedent transactions use prices paid in actual acquisitions of whole companies. Buyers pay a control premium, typically 20% to 40%, because they can run the business differently and capture synergies, so precedent multiples are higher and are the right benchmark for a sale.",
+      "key": [
+        "minority",
+        "control",
+        "premium",
+        "synergies"
+      ]
+    },
+    {
+      "q": "Why can a company trade at a lower multiple than its peers without being cheap?",
+      "a": "A multiple is the price per unit of earnings, and the market lowers it when it expects slower growth, more volatile earnings, worse governance or a specific risk like customer concentration. The first assumption should be that the market has a reason for the discount. Only if the reason turns out to be wrong is the company actually cheap.",
+      "key": [
+        "growth",
+        "risk",
+        "market",
+        "discount"
+      ]
+    }
+  ],
   "credit": [
     {
       "q": "What does leverage mean, and why does it cut both ways?",
@@ -359,6 +515,58 @@
         "interest rate",
         "downgrade",
         "investment grade"
+      ]
+    }
+  ],
+  "capstructure": [
+    {
+      "q": "Why is debt cheaper than equity, and why does a company not fund itself entirely with debt?",
+      "a": "Lenders are paid first and paid a fixed amount, so they take less risk and require a lower return, and interest is tax-deductible while dividends are not. But as debt rises the interest bill grows relative to profit, lenders and shareholders both demand more, and the costs of financial distress grow until they outweigh the tax saving. The cost of capital falls at first and then rises, and the low point is the optimal structure.",
+      "key": [
+        "risk",
+        "tax",
+        "distress",
+        "cost of capital"
+      ]
+    },
+    {
+      "q": "Build WACC for a company that is 30% debt at 6% pre-tax, 70% equity at 10%, with a 25% tax rate.",
+      "a": "After-tax cost of debt is 6% times one minus 0.25, which is 4.5%. WACC is 0.3 times 4.5% plus 0.7 times 10%, which is 1.35% plus 7%, giving 8.35%. It is the weighted, blended return the company must earn on its assets to satisfy lenders and shareholders, and the discount rate for its free cash flows.",
+      "key": [
+        "4.5",
+        "8.35",
+        "after-tax",
+        "weighted"
+      ]
+    },
+    {
+      "q": "How is the cost of equity estimated with the CAPM, and what does beta measure?",
+      "a": "Cost of equity equals the risk-free rate, usually a government bond yield, plus beta times the equity risk premium. Beta measures how much the company's shares move relative to the market as a whole; a beta of 1.2 means the shares are 20% more volatile than the market. With a 4% risk-free rate, a beta of 1.2 and a 5% premium, the cost of equity is 10%.",
+      "key": [
+        "risk-free",
+        "beta",
+        "risk premium",
+        "volatile"
+      ]
+    },
+    {
+      "q": "What does Modigliani-Miller say, and why is it useful even though its assumptions are unrealistic?",
+      "a": "In a perfect market with no taxes, no bankruptcy costs and no information problems, capital structure does not change the value of a company, because borrowing more raises the cost of equity exactly enough to offset the cheaper debt. The value of the theorem is in relaxing the assumptions: tax deductibility of interest makes debt add value, and distress costs make too much debt destroy it, which is the whole modern theory.",
+      "key": [
+        "taxes",
+        "bankruptcy",
+        "cost of equity",
+        "value"
+      ]
+    },
+    {
+      "q": "Explain how leverage magnifies shareholder returns in both directions, with numbers.",
+      "a": "If assets earn 10% and are funded with £100m of equity, shareholders earn 10%. Funded with £50m of equity and £50m of debt at 6%, the assets earn £10m, lenders take £3m, and shareholders earn £7m on £50m, which is 14%. If the assets earn only 4%, that is £4m minus £3m of interest, leaving £1m on £50m, which is 2%. Interest is fixed, so every swing in operating profit lands on the equity.",
+      "key": [
+        "interest",
+        "fixed",
+        "14",
+        "equity"
       ]
     }
   ],
@@ -726,6 +934,58 @@
       ]
     }
   ],
+  "casemaths": [
+    {
+      "q": "Revenue went from £820m to £900m. What is the growth rate, and what is the common mistake?",
+      "a": "The increase is £80m. Divided by the starting figure, £820m, it is a little under 10%, about 9.8%, because 80 over 800 would be exactly 10% and the real base is slightly larger. The common mistake is dividing by the new figure, £900m, which gives 8.9% and is the wrong base.",
+      "key": [
+        "80",
+        "820",
+        "starting",
+        "10%"
+      ]
+    },
+    {
+      "q": "A bakery has £2m of fixed costs, sells loaves at £2 with £1.20 of variable cost. What is breakeven, and what would you say next?",
+      "a": "Contribution per loaf is £2 minus £1.20, which is 80p. Breakeven is fixed costs over contribution, £2m divided by £0.80, which is 2.5 million loaves a year, about 7,000 a day. The next thing to say is whether that is plausible for one bakery against the local market, which it probably is not.",
+      "key": [
+        "contribution",
+        "0.80",
+        "2.5 million",
+        "fixed"
+      ]
+    },
+    {
+      "q": "Explain the rule of 72 with an example.",
+      "a": "At a steady growth rate, a quantity doubles in about 72 divided by the rate in years. Revenue growing at 8% a year doubles in about nine years; a market that doubled in four years grew at about 18% a year. It is an approximation that works well for rates under about 20%.",
+      "key": [
+        "72",
+        "double",
+        "years",
+        "rate"
+      ]
+    },
+    {
+      "q": "Why is a 3% price rise usually worth more profit than a 3% cost cut, and what is the catch?",
+      "a": "A price rise with volume held adds 3% of revenue straight to profit, while a cost cut adds 3% of costs, and costs are smaller than revenue for any profitable company. With £1bn of revenue and £900m of costs, the price rise adds £30m and the cost cut £27m. The catch is that price rises can lose customers while cost cuts usually do not, so price is the bigger lever but the riskier one.",
+      "key": [
+        "revenue",
+        "costs",
+        "volume",
+        "customers"
+      ]
+    },
+    {
+      "q": "Describe how to say a calculation out loud so an interviewer can follow it.",
+      "a": "State the formula first, then the inputs and any rounding, then each arithmetic step as you do it, then the answer with its unit, then what it means for the case. That order lets the interviewer correct an input early and never leaves them guessing what you are doing.",
+      "key": [
+        "formula",
+        "inputs",
+        "rounding",
+        "unit"
+      ]
+    }
+  ],
   "microecon": [
     {
       "q": "What is price elasticity of demand, and what does it tell a business?",
@@ -830,6 +1090,58 @@
       ]
     }
   ],
+  "bizmodels": [
+    {
+      "q": "Define CAC and LTV, and explain what ratio between them is healthy and why.",
+      "a": "Customer acquisition cost is sales and marketing spend divided by new customers won. Lifetime value is contribution per period times how long a customer stays. LTV of about three times CAC is the usual benchmark: below one the company loses money on every customer, and a very high ratio suggests it is underinvesting in growth.",
+      "key": [
+        "acquisition",
+        "lifetime",
+        "contribution",
+        "three"
+      ]
+    },
+    {
+      "q": "Why does halving churn have such a large effect on a subscription business?",
+      "a": "Churn is the share of customers who leave each period, and average customer lifetime is roughly one over churn. Monthly churn of 5% means customers stay about 20 months; at 2.5% they stay about 40. Halving churn doubles lifetime value without winning a single new customer, which is why retention is the first thing to examine in any recurring-revenue case.",
+      "key": [
+        "churn",
+        "lifetime",
+        "doubles",
+        "retention"
+      ]
+    },
+    {
+      "q": "Explain how an airline makes money and why its profits are so volatile.",
+      "a": "It sells seats on flights whose costs, aircraft, crew, fuel and fees, are almost entirely fixed once the plane takes off. Profit depends on load factor, the share of seats filled, and yield, revenue per seat. A flight that breaks even at 80% full makes all its profit from the last seats, so small changes in demand swing profit sharply, and fuel prices and competition are outside its control.",
+      "key": [
+        "fixed",
+        "load factor",
+        "yield",
+        "seats"
+      ]
+    },
+    {
+      "q": "What is operating leverage, and what does it mean for a business with mostly fixed costs?",
+      "a": "Operating leverage is the sensitivity of profit to sales, and it is high when most costs are fixed costs. Extra sales come with almost no extra cost so profit rises much faster than revenue, but a fall in sales cuts profit just as sharply because the costs stay. For such a business volume is everything and a small forecast error matters enormously.",
+      "key": [
+        "fixed costs",
+        "profit",
+        "sales",
+        "volume"
+      ]
+    },
+    {
+      "q": "A food brand sells through supermarkets that take a 35% margin and is considering selling direct online. What changes?",
+      "a": "It keeps the retailer's margin but takes on the work the retailer did: marketing to win customers, holding stock, shipping small orders, handling returns and service. For a cheap grocery item, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and for learning about customers, rarely for low-priced groceries.",
+      "key": [
+        "margin",
+        "marketing",
+        "delivery",
+        "returns"
+      ]
+    }
+  ],
   "stats": [
     {
       "q": "What is the difference between correlation and causation?",
@@ -879,6 +1191,58 @@
         "evidence",
         "change your mind",
         "conclusion"
+      ]
+    }
+  ],
+  "exhibits": [
+    {
+      "q": "What should you do in the first ten seconds after being handed a chart?",
+      "a": "Ask for a moment, then read the title, the axes, their labels and units, the legend, the time period and any footnotes, before looking at the data. Then look for the pattern rather than the points: what is biggest, what is growing, what stands out. Only then speak, leading with the headline insight.",
+      "key": [
+        "title",
+        "axes",
+        "units",
+        "headline"
+      ]
+    },
+    {
+      "q": "Market size rose from £10bn to £15bn and the client's revenue from £1bn to £1.2bn. Is the client winning or losing?",
+      "a": "Losing share. The market grew 50% and the client 20%, so its share fell from 10% to 8%. Revenue rising in a rising market says nothing about share until the growth rates are compared, and the next question is which competitor took the share and why.",
+      "key": [
+        "50%",
+        "20%",
+        "share",
+        "8%"
+      ]
+    },
+    {
+      "q": "What is a truncated axis and why does it matter?",
+      "a": "A vertical axis that starts above zero, which exaggerates differences between bars so they look larger than they are. A bar at 95 on an axis starting at 90 looks twice the height of one at 92 although the real gap is about 3%. Checking where the axis begins before judging a gap is a basic discipline and worth saying aloud.",
+      "key": [
+        "zero",
+        "differences",
+        "exaggerate",
+        "axis"
+      ]
+    },
+    {
+      "q": "Profit by segment shows large accounts at £40m, mid-size at £25m and small at minus £15m. Give the reading.",
+      "a": "Small customers lose £15m, wiping out more than a third of what the other segments earn. The question is why: cost to serve exceeding revenue, pricing and discounts too generous for small accounts, or a deliberate investment because small customers grow into large ones. The recommendation, fix, reprice or exit, depends on which.",
+      "key": [
+        "lose",
+        "cost to serve",
+        "pricing",
+        "exit"
+      ]
+    },
+    {
+      "q": "Explain why a scatter plot with a trend line does not prove causation, with an example.",
+      "a": "The plot shows that two things move together, for example stores with more staff have higher sales. That is correlation, not causation; it does not show that adding staff raises sales, because busy stores may simply be given more staff. The right response is to name the correlation, ask what might drive both, and look for a natural experiment.",
+      "key": [
+        "correlation",
+        "causation",
+        "staff",
+        "both"
       ]
     }
   ],
@@ -1191,6 +1555,58 @@
         "synergies",
         "price",
         "walk"
+      ]
+    }
+  ],
+  "synthesis": [
+    {
+      "q": "What does answer-first mean and why do consulting firms insist on it?",
+      "a": "Stating the recommendation before the reasoning, so a senior listener gets the conclusion in the first sentence and decides how much support they need. It signals confidence and forces you to know what you think before speaking. It is tested in every case synthesis and used in every client conversation afterwards.",
+      "key": [
+        "recommendation",
+        "first",
+        "reasoning",
+        "listener"
+      ]
+    },
+    {
+      "q": "Describe the pyramid principle and how it lets one argument work at any length.",
+      "a": "One main message at the top, two to four grouped supporting arguments beneath it, and evidence beneath each. Each layer answers why for the one above and so what for the one below. Because of that, the same argument can be delivered in one sentence, one minute or one hour by stopping at a different level.",
+      "key": [
+        "main",
+        "supporting",
+        "evidence",
+        "why"
+      ]
+    },
+    {
+      "q": "Give the structure of a case synthesis in order, with timing.",
+      "a": "Recommendation in one sentence; two or three reasons each with a number; the main risk; and the next step. About forty-five seconds to a minute in total. The listener hears a decision, the support, honesty about what could go wrong and a practical action.",
+      "key": [
+        "recommendation",
+        "reasons",
+        "risk",
+        "next step"
+      ]
+    },
+    {
+      "q": "What is the so-what test and how do you apply it to a finding?",
+      "a": "After every statement ask 'so what', meaning what it means for the decision, and keep asking until you reach something the client could act on. 'Online sales tripled' becomes 'the mix moved to the lower-margin channel', which becomes 'profit fell despite flat revenue', which becomes 'raise online margins or cut store costs'. A fact without an implication is not yet a finding.",
+      "key": [
+        "so what",
+        "decision",
+        "act",
+        "implication"
+      ]
+    },
+    {
+      "q": "Your analysis does not clearly support one answer. How do you still give a recommendation?",
+      "a": "Say which way the evidence leans, name the single factor that would decide it, and recommend the step that resolves that uncertainty, such as a pilot in one region. That is honest about the limits, specific about what matters, and still gives the client something to do, which interviewers rate far above false confidence.",
+      "key": [
+        "leans",
+        "decide",
+        "pilot",
+        "uncertainty"
       ]
     }
   ],
