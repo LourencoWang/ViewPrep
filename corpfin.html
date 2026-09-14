@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Corporate Finance &amp; Investment Basics flashcards | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Time value of money, NPV, IRR, and how companies decide where to put capital. 19 free flashcards with answers, written for people with no finance background.">
+<link rel="canonical" href="https://viewprep.net/decks/corpfin.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/decks/corpfin.html">
+<meta property="og:title" content="Corporate Finance &amp; Investment Basics flashcards | ViewPrep">
+<meta property="og:description" content="Time value of money, NPV, IRR, and how companies decide where to put capital. 19 free flashcards with answers, written for people with no finance background.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Corporate Finance &amp; Investment Basics flashcards | ViewPrep">
+<meta name="twitter:description" content="Time value of money, NPV, IRR, and how companies decide where to put capital. 19 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#catalog">Cards</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+    </nav>
+    <nav class="header-nav">
+      <a class="header-cta" href="https://viewprep.net/?deck=corpfin">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
+  <h1>Corporate Finance &amp; Investment Basics</h1>
+  <p class="lede">This deck is about how companies actually decide where to put their money, using ideas like the time value of money, net present value, and internal rate of return. These concepts sound abstract until you realize interviewers use them to test whether you can reason about a decision the way a finance team actually would. Expect a mix of &quot;what does this term mean&quot; and &quot;how would you use it to make a call,&quot; both of which come up in real interviews.</p>
+  <div class="meta-row"><span>19 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <article class="card">
+    <div class="card-n">Card 1 of 19</div>
+    <h2>What is the time value of money, and why does it matter?</h2>
+    <p class="takeaway">A dollar today is worth more than a dollar later, because today&#x27;s dollar can already be earning a return.</p>
+    <p class="answer">Money in hand today is worth more than the same amount later, because it can be invested right away to start earning a return, and because inflation and risk chip away at what a future dollar can actually buy. This is the foundational idea behind discounting, NPV, and virtually every valuation method bankers build: you can&#x27;t compare a dollar today to a dollar in five years, or line up cash flows from different points in a deal timeline, without adjusting for that gap first.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 2 of 19</div>
+    <h2>What does “opportunity cost” mean, and why does it come up in almost every finance decision?</h2>
+    <p class="takeaway">Opportunity cost is the value of the best thing you gave up in order to do the thing you chose.</p>
+    <p class="answer">Opportunity cost is the value of the next-best option you passed up when you committed money, time, or people to something else. If Calder Foods puts $10mm into a new depot, the real cost isn’t only the $10mm, it’s whatever that $10mm would have earned in its best alternative use, maybe paying down debt or upgrading an existing line. That’s why finance rarely asks “is this good?” and almost always asks “is this better than the next thing we could do with the same money?”, and it’s the reason a discount rate exists at all.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 3 of 19</div>
+    <h2>A client sees $100,000 due in three years shown as roughly $79,000 on your summary page and asks why. What’s the difference between present value and future value?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .grow{fill:none;stroke:var(--blue);stroke-width:2;}
+    .back{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:5,3;}
+  </style>
+  <text x="224" y="20" text-anchor="middle" class="lbl-strong" style="fill:var(--blue);">FUTURE VALUE</text>
+  <text x="224" y="34" text-anchor="middle" class="lbl">GROW ×1.08 EACH YEAR</text>
+  <path class="grow" d="M92,86 C150,52 300,52 354,80"/>
+  <polygon points="362,84 350,74 350,88" fill="var(--blue)"/>
+  <line x1="40" y1="104" x2="410" y2="104" class="axis"/>
+  <circle cx="86" cy="104" r="6" fill="var(--amber)"/>
+  <circle cx="360" cy="104" r="6" fill="var(--blue)"/>
+  <text x="86" y="124" text-anchor="middle" class="lbl">TODAY</text>
+  <text x="86" y="140" text-anchor="middle" class="lbl-strong">$79,000</text>
+  <text x="360" y="124" text-anchor="middle" class="lbl">YEAR 3</text>
+  <text x="360" y="140" text-anchor="middle" class="lbl-strong">$100,000</text>
+  <path class="back" d="M354,154 C300,170 150,170 96,156"/>
+  <polygon points="86,152 98,146 96,160" fill="var(--amber)"/>
+  <text x="224" y="188" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">PRESENT VALUE</text>
+  <text x="224" y="201" text-anchor="middle" class="lbl">DISCOUNT ÷1.08 EACH YEAR</text>
+</svg></div>
+    <p class="takeaway">Future value grows a sum forward at a rate, present value shrinks a future sum back to today.</p>
+    <p class="answer">Future value asks what a sum today becomes if it grows at some rate, so $79,000 growing at 8% a year turns into about $100,000 in three years. Present value runs the same arithmetic backwards, asking what a future sum is worth in today’s dollars, so $100,000 three years out discounted at 8% is that same $79,000. They are two views of one relationship, and the rate is what links them. Models are almost always built in present value, because that is the only basis on which cash flows from different years can be added together.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 4 of 19</div>
+    <h2>What’s the difference between simple and compound interest, and why does compounding matter so much over a long horizon?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .simple{fill:none;stroke:var(--amber);stroke-width:2;}
+    .compound{fill:none;stroke:var(--blue);stroke-width:2;}
+    .gap{stroke:var(--green);stroke-width:4;}
+  </style>
+  <line x1="44" y1="24" x2="44" y2="140" class="axis"/>
+  <line x1="44" y1="140" x2="412" y2="140" class="axis"/>
+  <path class="simple" d="M52,128 L400,84"/>
+  <path class="compound" d="M52,128 C160,123 285,104 400,58"/>
+  <text x="60" y="40" class="lbl-strong" style="fill:var(--blue);">COMPOUND</text>
+  <text x="60" y="53" class="lbl">$1,000 AT 10% → $2,594</text>
+  <text x="392" y="106" text-anchor="end" class="lbl-strong" style="fill:var(--amber);">SIMPLE → $2,000</text>
+  <line x1="400" y1="58" x2="400" y2="84" class="gap"/>
+  <text x="52" y="156" text-anchor="middle" class="lbl">YR 0</text>
+  <text x="400" y="156" text-anchor="middle" class="lbl">YR 10</text>
+  <text x="404" y="176" text-anchor="end" class="lbl" style="fill:var(--green);">GAP = INTEREST ON INTEREST</text>
+</svg></div>
+    <p class="takeaway">Simple interest earns only on the original sum, compound interest earns on the interest as well.</p>
+    <p class="answer">Simple interest pays a fixed amount on the original principal every period, so $1,000 at 10% simple interest earns $100 a year and reaches $2,000 after ten years. Compound interest pays on the principal plus all the interest already earned, so year two earns 10% on $1,100 rather than on $1,000, and after ten years the same $1,000 is worth about $2,594. The gap widens the longer money sits, and that is the engine underneath discounting: if money grows on a compounded basis going forward, it has to be brought back on a compounded basis too.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 5 of 19</div>
+    <h2>You’re setting up the discounting row on a project model and an intern asks where the 9% came from. What does a discount rate actually represent?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <text x="24" y="20" class="lbl">PRESENT VALUE OF $100 RECEIVED IN 5 YEARS</text>
+  <line x1="24" y1="150" x2="416" y2="150" class="axis"/>
+  <rect x="66" y="68" width="66" height="82" rx="4" fill="var(--blue)"/>
+  <rect x="187" y="85" width="66" height="65" rx="4" fill="var(--amber)"/>
+  <rect x="308" y="100" width="66" height="50" rx="4" fill="var(--blue)"/>
+  <text x="99" y="60" text-anchor="middle" class="lbl-strong">$82</text>
+  <text x="220" y="77" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">$65</text>
+  <text x="341" y="92" text-anchor="middle" class="lbl-strong">$50</text>
+  <text x="99" y="166" text-anchor="middle" class="lbl">4% RATE</text>
+  <text x="220" y="166" text-anchor="middle" class="lbl">9% RATE</text>
+  <text x="341" y="166" text-anchor="middle" class="lbl">15% RATE</text>
+  <text x="220" y="183" text-anchor="middle" class="lbl-strong">HIGHER RATE, SMALLER VALUE TODAY</text>
+</svg></div>
+    <p class="takeaway">A discount rate is the return available elsewhere at the same risk, so it sets the price of waiting.</p>
+    <p class="answer">A discount rate is the annual return an investor could earn from an alternative use of the same money at the same level of risk, and it is what converts future dollars into today’s dollars. Two things push it up: the plain cost of waiting, which even a risk-free government bond compensates you for, and a risk premium for the chance the cash never shows up at all. So that 9% is really a claim about how risky this project’s cash flows are. Move it a point or two and the present value swings noticeably, which is why it is usually the first assumption an MD questions.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 6 of 19</div>
+    <h2>You&#x27;re on the deal team pitching Bramwell &amp; Co., a mid-market packaging manufacturer, on a $40mm plant expansion. Your VP asks you to walk him through what Net Present Value is and how you&#x27;d use it to tell the client whether the expansion is worth funding.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .stem{stroke:var(--line-soft);stroke-width:1.5;}
+    .arc{fill:none;stroke:var(--blue);stroke-width:1.5;opacity:.55;}
+    .arc-neg{fill:none;stroke:var(--amber);stroke-width:1.5;opacity:.75;stroke-dasharray:4,3;}
+  </style>
+  <rect x="14" y="60" width="96" height="50" rx="10" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="62" y="80" text-anchor="middle" class="lbl">NPV</text>
+  <text x="62" y="96" text-anchor="middle" class="lbl-strong">TODAY</text>
+  <line x1="150" y1="140" x2="420" y2="140" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <path class="arc-neg" d="M110,82 C145,60 165,110 150,138"/>
+  <path class="arc" d="M110,86 C155,68 195,118 215,138"/>
+  <path class="arc" d="M110,90 C185,78 250,116 280,138"/>
+  <path class="arc" d="M110,94 C215,88 305,114 345,138"/>
+  <path class="arc" d="M110,98 C255,68 365,88 410,138"/>
+  <circle cx="150" cy="140" r="6" fill="var(--amber)"/>
+  <circle cx="215" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="280" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="345" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="410" cy="140" r="5" fill="var(--blue)"/>
+  <line x1="150" y1="140" x2="150" y2="150" class="stem"/>
+  <line x1="215" y1="140" x2="215" y2="150" class="stem"/>
+  <line x1="280" y1="140" x2="280" y2="150" class="stem"/>
+  <line x1="345" y1="140" x2="345" y2="150" class="stem"/>
+  <line x1="410" y1="140" x2="410" y2="150" class="stem"/>
+  <text x="150" y="163" text-anchor="middle" class="lbl" style="fill:var(--amber);">− INVEST</text>
+  <text x="215" y="163" text-anchor="middle" class="lbl">YR 1</text>
+  <text x="280" y="163" text-anchor="middle" class="lbl">YR 2</text>
+  <text x="345" y="163" text-anchor="middle" class="lbl">YR 3</text>
+  <text x="410" y="163" text-anchor="middle" class="lbl">YR 4</text>
+</svg></div>
+    <p class="takeaway">NPV converts a project&#x27;s future cash flows into today&#x27;s dollars and nets out what it cost to get started.</p>
+    <p class="answer">NPV takes the expansion&#x27;s expected future cash flows, discounts each one back to present value using Bramwell&#x27;s cost of capital, and adds them all up. Then it subtracts the initial $40mm outlay, leaving the net value the project is actually expected to create. The decision rule follows directly: recommend the project if NPV is positive, since it&#x27;s expected to earn more than the cost of capital, and recommend against it if NPV is negative.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 7 of 19</div>
+    <h2>What is the payback period, and what&#x27;s its main limitation?</h2>
+    <p class="takeaway">Payback period tells you how fast you get your money back, but ignores everything after that.</p>
+    <p class="answer">The payback period is simply how long it takes for a project&#x27;s cumulative cash flows to add back up to the initial investment. Its main blind spot is that it ignores the time value of money, treating a dollar in year one the same as a dollar in year four, and it ignores any cash flows after the payback point. Bankers will sometimes use it as a quick sanity-check gut number, but it&#x27;s usually paired with NPV or IRR rather than used as a stand-alone decision tool.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 8 of 19</div>
+    <h2>You&#x27;re building the returns page for a leveraged buyout of Ferrow Retail ahead of the investment committee meeting. The senior associate asks you to explain what the IRR line in the model actually represents.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .curve{fill:none;stroke:var(--blue);stroke-width:2;}
+    .hurdle{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3,3;}
+  </style>
+  <line x1="40" y1="20" x2="40" y2="140" class="axis"/>
+  <line x1="40" y1="100" x2="420" y2="100" class="axis"/>
+  <text x="34" y="34" text-anchor="end" class="lbl">+NPV</text>
+  <text x="34" y="128" text-anchor="end" class="lbl">−NPV</text>
+  <text x="410" y="155" text-anchor="end" class="lbl">DISCOUNT RATE</text>
+  <path class="curve" d="M55,32 C130,45 190,80 250,100 C300,116 350,132 405,145"/>
+  <line x1="170" y1="20" x2="170" y2="140" class="hurdle"/>
+  <text x="170" y="14" text-anchor="middle" class="lbl">HURDLE RATE</text>
+  <circle cx="250" cy="100" r="6" fill="var(--amber)"/>
+  <line x1="250" y1="100" x2="250" y2="140" class="hurdle" stroke="var(--amber)"/>
+  <text x="250" y="155" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">IRR</text>
+</svg></div>
+    <p class="takeaway">IRR is the discount rate that makes a deal&#x27;s NPV exactly zero, its own break-even return.</p>
+    <p class="answer">IRR is the discount rate at which the deal&#x27;s projected cash flows produce an NPV of exactly zero, so it&#x27;s essentially the LBO&#x27;s built-in break-even rate of return. To judge whether the Ferrow Retail deal clears the bar, you&#x27;d compare its IRR against the fund&#x27;s required return, or hurdle rate: if the projected IRR beats that hurdle, the deal is generally worth pursuing.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 9 of 19</div>
+    <h2>Northbay Logistics has already spent $6mm on a warehouse build that now looks marginal, and the CFO says they can’t walk away after committing that much. Where’s the flaw in that reasoning?</h2>
+    <p class="takeaway">Money already spent and unrecoverable should have no weight in a go or no-go decision made today.</p>
+    <p class="answer">The $6mm is a sunk cost, meaning it is gone whether Northbay finishes the warehouse or stops this afternoon, so no decision made now can bring it back. The only question that matters is whether the cash still to be spent will create more value than that same cash would somewhere else, which means running the NPV on the remaining outlay and the remaining cash flows and leaving the $6mm out entirely. Interviewers like this one because the instinctive answer, protecting money already committed, is precisely the wrong one.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 10 of 19</div>
+    <h2>Why do riskier investments have to offer higher expected returns?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .path{fill:none;stroke:var(--blue);stroke-width:2;}
+    .rf{stroke:var(--amber);stroke-width:1.3;stroke-dasharray:4,3;}
+  </style>
+  <line x1="48" y1="22" x2="48" y2="152" class="axis"/>
+  <line x1="48" y1="152" x2="414" y2="152" class="axis"/>
+  <text x="54" y="18" class="lbl">EXPECTED RETURN ↑</text>
+  <text x="414" y="170" text-anchor="end" class="lbl">RISK →</text>
+  <line x1="48" y1="130" x2="414" y2="130" class="rf"/>
+  <text x="414" y="126" text-anchor="end" class="lbl" style="fill:var(--amber);">RISK-FREE RATE</text>
+  <path class="path" d="M95,130 C160,124 210,96 260,80 C305,66 325,54 350,44"/>
+  <circle cx="95" cy="130" r="5" fill="var(--blue)"/>
+  <circle cx="175" cy="108" r="5" fill="var(--blue)"/>
+  <circle cx="260" cy="80" r="5" fill="var(--blue)"/>
+  <circle cx="350" cy="44" r="5" fill="var(--blue)"/>
+  <text x="95" y="146" text-anchor="middle" class="lbl">T-BILLS</text>
+  <text x="175" y="124" text-anchor="middle" class="lbl">BONDS</text>
+  <text x="260" y="96" text-anchor="middle" class="lbl">PUBLIC EQUITY</text>
+  <text x="350" y="60" text-anchor="middle" class="lbl">EARLY-STAGE</text>
+</svg></div>
+    <p class="takeaway">Nobody takes on more uncertainty for free, so higher risk has to come with a higher required return.</p>
+    <p class="answer">An investor can always park money somewhere very safe, such as short-term government debt, so anything with a real chance of losing money has to offer more than that to attract funding at all. The extra return demanded on top of that risk-free rate is the risk premium, and it grows with how uncertain the payoff is. Notice that this is an expected return rather than a promise: a risky project offers a higher return precisely because it might not deliver one. Every hurdle rate and every discount rate you build is an application of this single idea.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 11 of 19</div>
+    <h2>What is the difference between a bond and a stock, at a basic level?</h2>
+    <p class="takeaway">A bond is a loan with a promised repayment; a stock is ownership with no promises either way.</p>
+    <p class="answer">A bond is essentially a loan: an investor gives a company or government money, and in return it promises to pay back the principal plus periodic interest (coupons) on a fixed schedule. A stock is different: it represents partial ownership in a company, with no promised repayment at all. Its value simply depends on the company&#x27;s future performance and however the market chooses to price that, which is exactly why equity and debt sit on opposite ends of the risk-return spectrum in a deal&#x27;s financing mix.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 12 of 19</div>
+    <h2>Your MD wants a one-line capital structure summary for Halloway Industrial ahead of tomorrow&#x27;s board deck: how much of the balance sheet is funded with debt versus equity, and why the mix is worth flagging.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
+    .tag{font:700 11px Arial;fill:#08080A;}
+    .note{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <text x="170" y="12" class="lbl">FUNDING STACK</text>
+  <rect x="170" y="18" width="100" height="66" rx="6" fill="var(--blue)"/>
+  <text x="220" y="55" text-anchor="middle" class="tag">EQUITY</text>
+  <rect x="170" y="84" width="100" height="46" rx="6" fill="var(--amber)"/>
+  <text x="220" y="111" text-anchor="middle" class="tag">DEBT</text>
+  <line x1="270" y1="51" x2="300" y2="51" class="conn"/>
+  <text x="306" y="46" class="lbl-strong">EQUITY</text>
+  <text x="306" y="60" class="note">RESIDUAL CLAIM</text>
+  <line x1="270" y1="107" x2="300" y2="107" class="conn"/>
+  <text x="306" y="102" class="lbl-strong">DEBT</text>
+  <text x="306" y="116" class="note">FIXED OBLIGATION</text>
+  <line x1="220" y1="130" x2="220" y2="146" class="conn"/>
+  <rect x="140" y="146" width="160" height="26" rx="13" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/>
+  <text x="220" y="163" text-anchor="middle" class="lbl-strong" style="letter-spacing:.06em;">CAPITAL STRUCTURE</text>
+</svg></div>
+    <p class="takeaway">Capital structure is just the mix of debt and equity a company uses to fund itself.</p>
+    <p class="answer">Capital structure is the mix of debt and equity Halloway uses to fund its operations and growth. That mix matters because it shapes the company&#x27;s cost of capital, risk, and flexibility: debt is generally cheaper and doesn&#x27;t dilute ownership, but it comes with fixed repayment obligations regardless of how the business performs, while equity carries no repayment obligation but costs more and dilutes existing owners.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 13 of 19</div>
+    <h2>Your MD asks you to sanity-check the WACC on the Corven Aerospace model before the 9am call. Walk him through what &quot;cost of capital&quot; actually means and why it&#x27;s the number sitting at the center of that check.</h2>
+    <p class="takeaway">Cost of capital is the minimum return a company must earn on anything it invests in, or it&#x27;s destroying value.</p>
+    <p class="answer">Cost of capital is the return Corven has to offer to attract funding, whether that&#x27;s interest paid to lenders (cost of debt) or the return shareholders expect (cost of equity), and it rises with how risky investors perceive the company to be. Think of it as a hurdle rate: any project or investment Corven takes on needs to earn more than this just to be worth doing, which is exactly why a WACC that&#x27;s out of line with the company&#x27;s risk profile is worth flagging before it goes in front of the client.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 14 of 19</div>
+    <h2>A junior notices the Marden Chemical model carries cost of debt at 5% and cost of equity at 11%, and asks why equity is the more expensive of the two. What do you tell her?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .tag{font:700 12px Arial;fill:var(--contrast);}
+    .sub{font:600 9.5px Arial;fill:var(--contrast);letter-spacing:.03em;}
+    .val{font:700 13px Arial;}
+    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <text x="22" y="18" class="lbl">WHO GETS PAID FIRST</text>
+  <rect x="22" y="26" width="150" height="42" rx="6" fill="var(--amber)"/>
+  <text x="36" y="46" class="tag">DEBT</text>
+  <text x="36" y="60" class="sub">PAID FIRST</text>
+  <line x1="97" y1="68" x2="97" y2="84" class="conn"/>
+  <rect x="22" y="84" width="150" height="42" rx="6" fill="var(--blue)"/>
+  <text x="36" y="104" class="tag">EQUITY</text>
+  <text x="36" y="118" class="sub">PAID LAST</text>
+  <text x="200" y="40" class="lbl">COST OF DEBT</text>
+  <text x="200" y="60" class="val" style="fill:var(--amber);">5%</text>
+  <text x="234" y="59" class="lbl">CONTRACTUAL, TAX-DEDUCTIBLE</text>
+  <text x="200" y="98" class="lbl">COST OF EQUITY</text>
+  <text x="200" y="118" class="val" style="fill:var(--blue);">11%</text>
+  <text x="240" y="117" class="lbl">NO PROMISE, LAST IN LINE</text>
+  <line x1="22" y1="142" x2="416" y2="142" stroke="var(--line-soft)" stroke-width="1"/>
+  <text x="22" y="162" class="lbl-strong">LAST IN LINE MEANS MORE RISK MEANS A HIGHER REQUIRED RETURN</text>
+</svg></div>
+    <p class="takeaway">Equity holders are paid last and promised nothing, so they demand a bigger return than lenders do.</p>
+    <p class="answer">Lenders sit at the front of the line. They are owed a contractual interest payment, they get repaid before shareholders see anything, and if the company fails their claim is settled first, so their risk is lower and the return they will accept is lower. Shareholders are last in line, with no promised payment and no guarantee of getting their money back, and they price that uncertainty into a higher required return. Interest is also usually tax-deductible while dividends are not, which pushes the effective cost of debt lower still.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 15 of 19</div>
+    <h2>What is diversification, and why does it reduce risk?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .assetA{fill:none;stroke:var(--blue);stroke-width:1.8;opacity:.8;}
+    .assetB{fill:none;stroke:var(--amber);stroke-width:1.8;opacity:.8;}
+    .assetC{fill:none;stroke:var(--green);stroke-width:1.8;opacity:.8;}
+    .combined{fill:none;stroke:var(--ink);stroke-width:2.2;}
+  </style>
+  <text x="40" y="14" class="lbl">INDIVIDUAL ASSETS, UNCORRELATED</text>
+  <path class="assetA" d="M40,55 C80,15 120,15 160,55 C200,95 240,95 280,55 C320,15 360,15 400,55"/>
+  <path class="assetB" d="M40,55 C80,95 120,95 160,55 C200,15 240,15 280,55 C320,95 360,95 400,55"/>
+  <path class="assetC" d="M40,55 C80,55 120,15 160,15 C200,55 240,95 280,95 C320,55 360,15 400,15"/>
+  <line x1="220" y1="100" x2="220" y2="116" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <polygon points="220,122 214,112 226,112" fill="var(--line-soft)"/>
+  <path class="combined" d="M40,140 C120,132 160,148 220,140 C280,132 320,148 400,140"/>
+  <text x="220" y="160" text-anchor="middle" class="lbl-strong">DIVERSIFIED PORTFOLIO</text>
+</svg></div>
+    <p class="takeaway">Diversification spreads money across assets that don&#x27;t all move together, smoothing out the bumps.</p>
+    <p class="answer">Diversification means spreading your money across multiple assets whose returns don&#x27;t move in lockstep, so when one investment dips, others are likely holding steady or gaining, cushioning the blow. Because different assets react differently to the same events, a diversified portfolio typically ends up with lower overall volatility than any single holding inside it.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 16 of 19</div>
+    <h2>What is the difference between systematic and unsystematic risk?</h2>
+    <p class="takeaway">Systematic risk hits the whole market and can&#x27;t be diversified away; unsystematic risk is company-specific and can.</p>
+    <p class="answer">Systematic risk is market-wide, things like interest rate moves or a recession, and it affects nearly every asset at once, so no amount of diversification eliminates it. Unsystematic risk is specific to a single company or industry, like a product recall or a lawsuit, and this is the risk diversification actually protects against: spread your holdings widely enough, and one asset&#x27;s specific problems just get absorbed by the others. It&#x27;s also why beta in a WACC calculation only ever measures the systematic piece.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 17 of 19</div>
+    <h2>Two mutually exclusive projects land on your desk: one has the higher NPV, the other the higher IRR, and you can only fund one. Your VP asks which you’d recommend and why.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <text x="16" y="86" class="lbl">NPV</text>
+  <line x1="16" y1="140" x2="416" y2="140" class="axis"/>
+  <text x="130" y="24" text-anchor="middle" class="lbl-strong">PROJECT A</text>
+  <text x="310" y="24" text-anchor="middle" class="lbl-strong">PROJECT B</text>
+  <text x="130" y="40" text-anchor="middle" class="lbl">IRR 40%</text>
+  <text x="310" y="40" text-anchor="middle" class="lbl">IRR 18%</text>
+  <rect x="100" y="120" width="60" height="20" rx="3" fill="var(--blue)"/>
+  <rect x="280" y="50" width="60" height="90" rx="3" fill="var(--amber)"/>
+  <text x="130" y="114" text-anchor="middle" class="lbl-strong">$4MM</text>
+  <text x="310" y="44" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">$18MM</text>
+  <text x="130" y="156" text-anchor="middle" class="lbl">INVEST $10MM</text>
+  <text x="310" y="156" text-anchor="middle" class="lbl">INVEST $100MM</text>
+  <text x="220" y="180" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">DOLLARS OF VALUE WIN, NOT THE PERCENTAGE</text>
+</svg></div>
+    <p class="takeaway">When NPV and IRR disagree on projects you must choose between, follow the NPV.</p>
+    <p class="answer">IRR is a percentage, so it says nothing about how much money is actually at stake, and a small project can post a spectacular rate of return while creating less value than a large project earning a modest one. IRR also quietly assumes interim cash flows get reinvested at the IRR itself, which is usually optimistic, and it can produce more than one answer when cash flows swing between negative and positive. NPV measures dollars of value created at the company’s real cost of capital, so when the two conflict, NPV is the one you follow.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 18 of 19</div>
+    <h2>Ardsley Media is sitting on $200mm of cash with no obvious acquisition in sight. Your MD asks you to lay out what management can actually do with it.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <rect x="160" y="14" width="120" height="34" rx="8" fill="var(--surface-strong)" stroke="var(--ink)" stroke-width="1.3"/>
+  <text x="220" y="36" text-anchor="middle" class="lbl-strong">SPARE CASH</text>
+  <line x1="220" y1="48" x2="220" y2="80" class="conn"/>
+  <line x1="61" y1="80" x2="379" y2="80" class="conn"/>
+  <line x1="61" y1="80" x2="61" y2="104" class="conn"/>
+  <line x1="167" y1="80" x2="167" y2="104" class="conn"/>
+  <line x1="273" y1="80" x2="273" y2="104" class="conn"/>
+  <line x1="379" y1="80" x2="379" y2="104" class="conn"/>
+  <rect x="13" y="104" width="96" height="44" rx="6" fill="var(--surface)" stroke="var(--green)" stroke-width="1.4"/>
+  <rect x="119" y="104" width="96" height="44" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.4"/>
+  <rect x="225" y="104" width="96" height="44" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.4"/>
+  <rect x="331" y="104" width="96" height="44" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.4"/>
+  <text x="61" y="124" text-anchor="middle" class="lbl-strong">REINVEST</text>
+  <text x="61" y="139" text-anchor="middle" class="lbl">IF NPV &gt; 0</text>
+  <text x="167" y="124" text-anchor="middle" class="lbl-strong">PAY DOWN DEBT</text>
+  <text x="167" y="139" text-anchor="middle" class="lbl">CUTS INTEREST</text>
+  <text x="273" y="124" text-anchor="middle" class="lbl-strong">DIVIDEND</text>
+  <text x="273" y="139" text-anchor="middle" class="lbl">STEADY PAYOUT</text>
+  <text x="379" y="124" text-anchor="middle" class="lbl-strong">BUY BACK STOCK</text>
+  <text x="379" y="139" text-anchor="middle" class="lbl">FEWER SHARES</text>
+  <text x="220" y="170" text-anchor="middle" class="lbl">REINVEST ONLY IF IT BEATS THE COST OF CAPITAL</text>
+</svg></div>
+    <p class="takeaway">Spare cash can be reinvested, used to cut debt, or handed back, and the best use is whatever earns most.</p>
+    <p class="answer">There are four basic doors. Ardsley can reinvest in the business through new projects, capacity, or an acquisition, which is the right call whenever those uses have a positive NPV. It can pay down debt, lowering interest expense and financial risk. Or it can return the cash to shareholders, either as a dividend or by buying back its own shares. The discipline underneath all of it is that reinvestment only wins if it clears the cost of capital, since a company earning less than that on new projects is destroying value and would serve its owners better by handing the money back.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 19 of 19</div>
+    <h2>What’s the difference between paying a dividend and buying back stock, and why might a company prefer one over the other?</h2>
+    <p class="takeaway">Both hand cash to shareholders, but a dividend pays everyone while a buyback shrinks the share count.</p>
+    <p class="answer">A dividend is a cash payment made to every shareholder on a per-share basis, and once a company starts one, cutting it later reads as a distress signal, so the market treats it as close to a commitment. A buyback has the company purchase its own shares in the market, which reduces the share count so each remaining share owns a larger slice of the same business, and it can be slowed or paused quietly. Buybacks therefore give management more flexibility, though they only create value if the shares are bought below what they are actually worth.</p>
+  </article>
+  <div class="cta-band">
+    <p>Reading is not the same as remembering. Study this deck with scheduled review so the cards come back before you forget them.</p>
+    <a class="btn" href="https://viewprep.net/?deck=corpfin">Study Corporate Finance &amp; Investment Basics</a>
+  </div>
+  <h2 class="track">More investment banking decks</h2>
+  <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the time value of money, and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "A dollar today is worth more than a dollar later, because today's dollar can already be earning a return. Money in hand today is worth more than the same amount later, because it can be invested right away to start earning a return, and because inflation and risk chip away at what a future dollar can actually buy. This is the foundational idea behind discounting, NPV, and virtually every valuation method bankers build: you can't compare a dollar today to a dollar in five years, or line up cash flows from different points in a deal timeline, without adjusting for that gap first."}}, {"@type": "Question", "name": "What does “opportunity cost” mean, and why does it come up in almost every finance decision?", "acceptedAnswer": {"@type": "Answer", "text": "Opportunity cost is the value of the best thing you gave up in order to do the thing you chose. Opportunity cost is the value of the next-best option you passed up when you committed money, time, or people to something else. If Calder Foods puts $10mm into a new depot, the real cost isn’t only the $10mm, it’s whatever that $10mm would have earned in its best alternative use, maybe paying down debt or upgrading an existing line. That’s why finance rarely asks “is this good?” and almost always asks “is this better than the next thing we could do with the same money?”, and it’s the reason a discount rate exists at all."}}, {"@type": "Question", "name": "A client sees $100,000 due in three years shown as roughly $79,000 on your summary page and asks why. What’s the difference between present value and future value?", "acceptedAnswer": {"@type": "Answer", "text": "Future value grows a sum forward at a rate, present value shrinks a future sum back to today. Future value asks what a sum today becomes if it grows at some rate, so $79,000 growing at 8% a year turns into about $100,000 in three years. Present value runs the same arithmetic backwards, asking what a future sum is worth in today’s dollars, so $100,000 three years out discounted at 8% is that same $79,000. They are two views of one relationship, and the rate is what links them. Models are almost always built in present value, because that is the only basis on which cash flows from different years can be added together."}}, {"@type": "Question", "name": "What’s the difference between simple and compound interest, and why does compounding matter so much over a long horizon?", "acceptedAnswer": {"@type": "Answer", "text": "Simple interest earns only on the original sum, compound interest earns on the interest as well. Simple interest pays a fixed amount on the original principal every period, so $1,000 at 10% simple interest earns $100 a year and reaches $2,000 after ten years. Compound interest pays on the principal plus all the interest already earned, so year two earns 10% on $1,100 rather than on $1,000, and after ten years the same $1,000 is worth about $2,594. The gap widens the longer money sits, and that is the engine underneath discounting: if money grows on a compounded basis going forward, it has to be brought back on a compounded basis too."}}, {"@type": "Question", "name": "You’re setting up the discounting row on a project model and an intern asks where the 9% came from. What does a discount rate actually represent?", "acceptedAnswer": {"@type": "Answer", "text": "A discount rate is the return available elsewhere at the same risk, so it sets the price of waiting. A discount rate is the annual return an investor could earn from an alternative use of the same money at the same level of risk, and it is what converts future dollars into today’s dollars. Two things push it up: the plain cost of waiting, which even a risk-free government bond compensates you for, and a risk premium for the chance the cash never shows up at all. So that 9% is really a claim about how risky this project’s cash flows are. Move it a point or two and the present value swings noticeably, which is why it is usually the first assumption an MD questions."}}, {"@type": "Question", "name": "You're on the deal team pitching Bramwell & Co., a mid-market packaging manufacturer, on a $40mm plant expansion. Your VP asks you to walk him through what Net Present Value is and how you'd use it to tell the client whether the expansion is worth funding.", "acceptedAnswer": {"@type": "Answer", "text": "NPV converts a project's future cash flows into today's dollars and nets out what it cost to get started. NPV takes the expansion's expected future cash flows, discounts each one back to present value using Bramwell's cost of capital, and adds them all up. Then it subtracts the initial $40mm outlay, leaving the net value the project is actually expected to create. The decision rule follows directly: recommend the project if NPV is positive, since it's expected to earn more than the cost of capital, and recommend against it if NPV is negative."}}, {"@type": "Question", "name": "What is the payback period, and what's its main limitation?", "acceptedAnswer": {"@type": "Answer", "text": "Payback period tells you how fast you get your money back, but ignores everything after that. The payback period is simply how long it takes for a project's cumulative cash flows to add back up to the initial investment. Its main blind spot is that it ignores the time value of money, treating a dollar in year one the same as a dollar in year four, and it ignores any cash flows after the payback point. Bankers will sometimes use it as a quick sanity-check gut number, but it's usually paired with NPV or IRR rather than used as a stand-alone decision tool."}}, {"@type": "Question", "name": "You're building the returns page for a leveraged buyout of Ferrow Retail ahead of the investment committee meeting. The senior associate asks you to explain what the IRR line in the model actually represents.", "acceptedAnswer": {"@type": "Answer", "text": "IRR is the discount rate that makes a deal's NPV exactly zero, its own break-even return. IRR is the discount rate at which the deal's projected cash flows produce an NPV of exactly zero, so it's essentially the LBO's built-in break-even rate of return. To judge whether the Ferrow Retail deal clears the bar, you'd compare its IRR against the fund's required return, or hurdle rate: if the projected IRR beats that hurdle, the deal is generally worth pursuing."}}, {"@type": "Question", "name": "Northbay Logistics has already spent $6mm on a warehouse build that now looks marginal, and the CFO says they can’t walk away after committing that much. Where’s the flaw in that reasoning?", "acceptedAnswer": {"@type": "Answer", "text": "Money already spent and unrecoverable should have no weight in a go or no-go decision made today. The $6mm is a sunk cost, meaning it is gone whether Northbay finishes the warehouse or stops this afternoon, so no decision made now can bring it back. The only question that matters is whether the cash still to be spent will create more value than that same cash would somewhere else, which means running the NPV on the remaining outlay and the remaining cash flows and leaving the $6mm out entirely. Interviewers like this one because the instinctive answer, protecting money already committed, is precisely the wrong one."}}, {"@type": "Question", "name": "Why do riskier investments have to offer higher expected returns?", "acceptedAnswer": {"@type": "Answer", "text": "Nobody takes on more uncertainty for free, so higher risk has to come with a higher required return. An investor can always park money somewhere very safe, such as short-term government debt, so anything with a real chance of losing money has to offer more than that to attract funding at all. The extra return demanded on top of that risk-free rate is the risk premium, and it grows with how uncertain the payoff is. Notice that this is an expected return rather than a promise: a risky project offers a higher return precisely because it might not deliver one. Every hurdle rate and every discount rate you build is an application of this single idea."}}, {"@type": "Question", "name": "What is the difference between a bond and a stock, at a basic level?", "acceptedAnswer": {"@type": "Answer", "text": "A bond is a loan with a promised repayment; a stock is ownership with no promises either way. A bond is essentially a loan: an investor gives a company or government money, and in return it promises to pay back the principal plus periodic interest (coupons) on a fixed schedule. A stock is different: it represents partial ownership in a company, with no promised repayment at all. Its value simply depends on the company's future performance and however the market chooses to price that, which is exactly why equity and debt sit on opposite ends of the risk-return spectrum in a deal's financing mix."}}, {"@type": "Question", "name": "Your MD wants a one-line capital structure summary for Halloway Industrial ahead of tomorrow's board deck: how much of the balance sheet is funded with debt versus equity, and why the mix is worth flagging.", "acceptedAnswer": {"@type": "Answer", "text": "Capital structure is just the mix of debt and equity a company uses to fund itself. Capital structure is the mix of debt and equity Halloway uses to fund its operations and growth. That mix matters because it shapes the company's cost of capital, risk, and flexibility: debt is generally cheaper and doesn't dilute ownership, but it comes with fixed repayment obligations regardless of how the business performs, while equity carries no repayment obligation but costs more and dilutes existing owners."}}, {"@type": "Question", "name": "Your MD asks you to sanity-check the WACC on the Corven Aerospace model before the 9am call. Walk him through what \"cost of capital\" actually means and why it's the number sitting at the center of that check.", "acceptedAnswer": {"@type": "Answer", "text": "Cost of capital is the minimum return a company must earn on anything it invests in, or it's destroying value. Cost of capital is the return Corven has to offer to attract funding, whether that's interest paid to lenders (cost of debt) or the return shareholders expect (cost of equity), and it rises with how risky investors perceive the company to be. Think of it as a hurdle rate: any project or investment Corven takes on needs to earn more than this just to be worth doing, which is exactly why a WACC that's out of line with the company's risk profile is worth flagging before it goes in front of the client."}}, {"@type": "Question", "name": "A junior notices the Marden Chemical model carries cost of debt at 5% and cost of equity at 11%, and asks why equity is the more expensive of the two. What do you tell her?", "acceptedAnswer": {"@type": "Answer", "text": "Equity holders are paid last and promised nothing, so they demand a bigger return than lenders do. Lenders sit at the front of the line. They are owed a contractual interest payment, they get repaid before shareholders see anything, and if the company fails their claim is settled first, so their risk is lower and the return they will accept is lower. Shareholders are last in line, with no promised payment and no guarantee of getting their money back, and they price that uncertainty into a higher required return. Interest is also usually tax-deductible while dividends are not, which pushes the effective cost of debt lower still."}}, {"@type": "Question", "name": "What is diversification, and why does it reduce risk?", "acceptedAnswer": {"@type": "Answer", "text": "Diversification spreads money across assets that don't all move together, smoothing out the bumps. Diversification means spreading your money across multiple assets whose returns don't move in lockstep, so when one investment dips, others are likely holding steady or gaining, cushioning the blow. Because different assets react differently to the same events, a diversified portfolio typically ends up with lower overall volatility than any single holding inside it."}}, {"@type": "Question", "name": "What is the difference between systematic and unsystematic risk?", "acceptedAnswer": {"@type": "Answer", "text": "Systematic risk hits the whole market and can't be diversified away; unsystematic risk is company-specific and can. Systematic risk is market-wide, things like interest rate moves or a recession, and it affects nearly every asset at once, so no amount of diversification eliminates it. Unsystematic risk is specific to a single company or industry, like a product recall or a lawsuit, and this is the risk diversification actually protects against: spread your holdings widely enough, and one asset's specific problems just get absorbed by the others. It's also why beta in a WACC calculation only ever measures the systematic piece."}}, {"@type": "Question", "name": "Two mutually exclusive projects land on your desk: one has the higher NPV, the other the higher IRR, and you can only fund one. Your VP asks which you’d recommend and why.", "acceptedAnswer": {"@type": "Answer", "text": "When NPV and IRR disagree on projects you must choose between, follow the NPV. IRR is a percentage, so it says nothing about how much money is actually at stake, and a small project can post a spectacular rate of return while creating less value than a large project earning a modest one. IRR also quietly assumes interim cash flows get reinvested at the IRR itself, which is usually optimistic, and it can produce more than one answer when cash flows swing between negative and positive. NPV measures dollars of value created at the company’s real cost of capital, so when the two conflict, NPV is the one you follow."}}, {"@type": "Question", "name": "Ardsley Media is sitting on $200mm of cash with no obvious acquisition in sight. Your MD asks you to lay out what management can actually do with it.", "acceptedAnswer": {"@type": "Answer", "text": "Spare cash can be reinvested, used to cut debt, or handed back, and the best use is whatever earns most. There are four basic doors. Ardsley can reinvest in the business through new projects, capacity, or an acquisition, which is the right call whenever those uses have a positive NPV. It can pay down debt, lowering interest expense and financial risk. Or it can return the cash to shareholders, either as a dividend or by buying back its own shares. The discipline underneath all of it is that reinvestment only wins if it clears the cost of capital, since a company earning less than that on new projects is destroying value and would serve its owners better by handing the money back."}}, {"@type": "Question", "name": "What’s the difference between paying a dividend and buying back stock, and why might a company prefer one over the other?", "acceptedAnswer": {"@type": "Answer", "text": "Both hand cash to shareholders, but a dividend pays everyone while a buyback shrinks the share count. A dividend is a cash payment made to every shareholder on a per-share basis, and once a company starts one, cutting it later reads as a distress signal, so the market treats it as close to a commitment. A buyback has the company purchase its own shares in the market, which reduces the share count so each remaining share owns a larger slice of the same business, and it can be slowed or paused quietly. Buybacks therefore give management more flexibility, though they only create value if the shares are bought below what they are actually worth."}}]}</script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/?deck=corpfin">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>

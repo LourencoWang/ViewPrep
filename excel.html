@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Excel for Financial Modeling flashcards | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The modeling habits and shortcuts a first-year analyst is expected to know cold. 18 free flashcards with answers, written for people with no finance background.">
+<link rel="canonical" href="https://viewprep.net/decks/excel.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/decks/excel.html">
+<meta property="og:title" content="Excel for Financial Modeling flashcards | ViewPrep">
+<meta property="og:description" content="The modeling habits and shortcuts a first-year analyst is expected to know cold. 18 free flashcards with answers, written for people with no finance background.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Excel for Financial Modeling flashcards | ViewPrep">
+<meta name="twitter:description" content="The modeling habits and shortcuts a first-year analyst is expected to know cold. 18 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#catalog">Cards</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+    </nav>
+    <nav class="header-nav">
+      <a class="header-cta" href="https://viewprep.net/?deck=excel">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
+  <h1>Excel for Financial Modeling</h1>
+  <p class="lede">Excel is the quiet backbone of every IB analyst seat, and interviewers use it as a proxy for whether you can actually build and check a model under time pressure, not just talk about one. This deck covers the linking discipline, formatting conventions, and modeling habits that come up constantly: keeping a 3-statement model tied together, handling circular references cleanly, building sensitivity tables, and the small checks that separate a clean model from a fragile one. If you&#x27;ve mostly used Excel for basic formulas so far, start here.</p>
+  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <article class="card">
+    <div class="card-n">Card 1 of 18</div>
+    <h2>It’s your first week and a VP tells you to take a first pass at the model for Calder Foods. You’ve never opened one. What actually is a financial model?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+ .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
+ .val{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
+ </style>
+ <text x="220" y="16" text-anchor="middle" class="lbl">WHAT A MODEL DOES</text>
+ <rect x="12" y="30" width="126" height="90" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+ <text x="75" y="50" class="hd" style="fill:var(--blue);">ASSUMPTIONS</text>
+ <text x="75" y="72" class="val">revenue growth 6%</text>
+ <text x="75" y="90" class="val">EBITDA margin 22%</text>
+ <text x="75" y="108" class="val">capex 4% of sales</text>
+ <rect x="157" y="30" width="126" height="90" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+ <text x="220" y="50" class="hd">CALCULATIONS</text>
+ <text x="220" y="72" class="val">income statement</text>
+ <text x="220" y="90" class="val">balance sheet</text>
+ <text x="220" y="108" class="val">cash flow</text>
+ <rect x="302" y="30" width="126" height="90" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+ <text x="365" y="50" class="hd" style="fill:var(--amber);">OUTPUTS</text>
+ <text x="365" y="72" class="val">value per share</text>
+ <text x="365" y="90" class="val">credit metrics</text>
+ <text x="365" y="108" class="val">returns</text>
+ <path d="M138,75 H157" stroke="var(--line)" stroke-width="2" fill="none"/>
+ <path d="M149,68 L158,75 L149,82" stroke="var(--line)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M283,75 H302" stroke="var(--line)" stroke-width="2" fill="none"/>
+ <path d="M294,68 L303,75 L294,82" stroke="var(--line)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="220" y="146" text-anchor="middle" class="lbl">CHANGE ONE INPUT AND EVERYTHING RIGHT OF IT UPDATES</text>
+</svg></div>
+    <p class="takeaway">A model is a spreadsheet that turns a handful of assumptions into a projected set of financials.</p>
+    <p class="answer">Strip away the formatting and a model is a spreadsheet that takes a small set of assumptions, how fast revenue grows, what margin the business holds, how much it spends on equipment, and projects the company’s financial statements forward five or ten years. Every projected number is a formula that traces back to one of those assumptions, so changing a single input rewrites the entire forecast in front of you. That’s the point of building one: it lets a deal team ask what a business is worth, or how much debt it could carry, and show exactly which assumptions are driving the answer.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 2 of 18</div>
+    <h2>How should a model be laid out across tabs, and why does that structure matter more than it sounds like it should?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
+ .tab{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+ </style>
+ <text x="220" y="16" text-anchor="middle" class="lbl">WORKBOOK TABS, LEFT TO RIGHT</text>
+ <rect x="12" y="30" width="100" height="36" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+ <text x="62" y="53" class="tab" style="fill:var(--blue);">ASSUMPTIONS</text>
+ <text x="62" y="84" class="lbl">ALL BLUE INPUTS</text>
+ <rect x="118" y="30" width="100" height="36" rx="6" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+ <text x="168" y="53" class="tab">MODEL</text>
+ <text x="168" y="84" class="lbl">THE STATEMENTS</text>
+ <rect x="224" y="30" width="100" height="36" rx="6" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+ <text x="274" y="53" class="tab">SCHEDULES</text>
+ <text x="274" y="84" class="lbl">DEBT AND PP&amp;E</text>
+ <rect x="330" y="30" width="98" height="36" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+ <text x="379" y="53" class="tab" style="fill:var(--amber);">OUTPUTS</text>
+ <text x="379" y="84" class="lbl">SUMMARY PAGES</text>
+ <path d="M18,110 H414" stroke="var(--line-soft)" stroke-width="2" fill="none"/>
+ <path d="M404,103 L415,110 L404,117" stroke="var(--line-soft)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="220" y="136" class="lbl">NOTHING EVER READS BACKWARDS UP THIS CHAIN</text>
+</svg></div>
+    <p class="takeaway">Inputs on one tab, calculations in the middle, outputs at the end, with information only flowing forward.</p>
+    <p class="answer">The convention is to move left to right: an assumptions tab holding every input the model needs, then the calculation tabs, the three financial statements plus supporting schedules for debt and fixed assets, then an outputs tab carrying the handful of numbers that actually end up in the deck. Information should travel in that one direction, so a calculation tab never reaches forward into an output tab for a value. It matters because models get handed around constantly, and the first thing anyone opening yours will do is hunt for where the inputs live.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 3 of 18</div>
+    <h2>Why do banker-built models color hardcoded inputs blue and formulas black, and what does a green cell usually mean?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+  </style>
+  <text x="20" y="18" class="lbl">CELL</text>
+  <text x="145" y="18" class="lbl">MEANS</text>
+
+  <rect x="20" y="28" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="72" y="51" text-anchor="middle" style="font:700 14px Arial; fill:var(--blue);">8.5%</text>
+  <text x="145" y="45" class="lbl-strong">Hardcoded input</text>
+  <text x="145" y="59" class="lbl">typed by hand, safe to edit</text>
+
+  <rect x="20" y="76" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="72" y="99" text-anchor="middle" style="font:700 13px Arial; fill:var(--ink);">=B4*B5</text>
+  <text x="145" y="93" class="lbl-strong">Formula</text>
+  <text x="145" y="107" class="lbl">calculates from cells on this tab</text>
+
+  <rect x="20" y="124" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="72" y="147" text-anchor="middle" style="font:700 10.5px Arial; fill:var(--green);">='Debt'!C12</text>
+  <text x="145" y="141" class="lbl-strong">Link</text>
+  <text x="145" y="155" class="lbl">pulled from another tab or workbook</text>
+</svg></div>
+    <p class="takeaway">Color-coding cells by type lets anyone audit a model&#x27;s logic at a glance, without opening the formula bar.</p>
+    <p class="answer">On the Street, font color is a substitute for documentation: blue marks a hardcoded input typed directly into the cell, black marks a formula that calculates from other cells, and green marks a link pulling in a value from another worksheet or workbook. That convention lets anyone glance at a tab and instantly separate the assumptions someone is allowed to change from the calculations that shouldn&#x27;t be touched by hand. Breaking it, a blue cell that&#x27;s secretly a formula, or a formula colored blue, is one of the fastest ways to look sloppy in front of an MD, because it hides where the model&#x27;s real control panel is.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 4 of 18</div>
+    <h2>Your associate opens your revenue build for Ferrow Retail and finds =1200*1.05 typed into a cell. The number it produces is correct. Why is she still unhappy?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
+ .hd{font:700 11px Arial;text-anchor:middle;}
+ .cell{font:700 12px Arial;fill:var(--ink);text-anchor:middle;}
+ </style>
+ <text x="220" y="16" text-anchor="middle" class="lbl">SAME ANSWER, VERY DIFFERENT MODEL</text>
+ <rect x="12" y="26" width="200" height="134" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+ <text x="112" y="48" class="hd" style="fill:var(--amber);">BURIED</text>
+ <text x="112" y="76" class="lbl">NO INPUT CELL EXISTS</text>
+ <rect x="32" y="90" width="160" height="32" rx="5" fill="var(--surface-strong)" stroke="var(--amber)" stroke-width="1.3"/>
+ <text x="112" y="111" class="cell">=1200*1.05</text>
+ <text x="112" y="144" class="lbl">THE 5% IS INVISIBLE</text>
+ <rect x="228" y="26" width="200" height="134" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+ <text x="328" y="48" class="hd" style="fill:var(--blue);">DRIVEN</text>
+ <rect x="248" y="60" width="72" height="26" rx="5" fill="var(--surface-strong)" stroke="var(--blue)" stroke-width="1.3"/>
+ <text x="284" y="78" class="cell" style="fill:var(--blue);">5.0%</text>
+ <text x="376" y="78" class="lbl">INPUT CELL B2</text>
+ <rect x="248" y="90" width="160" height="32" rx="5" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.3"/>
+ <text x="328" y="111" class="cell">=B4*(1+$B$2)</text>
+ <text x="328" y="144" class="lbl">ONE PLACE TO CHANGE IT</text>
+</svg></div>
+    <p class="takeaway">A number typed inside a formula is an assumption nobody can find and nobody can flex.</p>
+    <p class="answer">The 1.05 is a growth assumption, and burying it inside a formula makes it invisible: the cell displays black like every other calculation, so a reviewer scanning the tab has no way of knowing an input is hiding in there. When the MD asks to see 3% growth instead, you have to hunt through formulas one cell at a time rather than retyping one labelled number. The fix is to put 5.0% in its own blue input cell and write =B4*(1+$B$2). Reviewers genuinely go looking for buried hardcodes, and finding one costs you the benefit of the doubt on everything else in the file.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 5 of 18</div>
+    <h2>You drag your growth formula across the forecast row and every year after the first comes back as zero, even though the growth rate is sitting right there in cell B2. What happened?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+ .fm{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
+ .rs{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
+ .div{stroke:var(--line-soft);stroke-width:1;}
+ </style>
+ <text x="14" y="16" class="lbl">GROWTH RATE LIVES IN B2</text>
+ <rect x="14" y="24" width="70" height="24" rx="5" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
+ <text x="49" y="41" class="fm" style="fill:var(--blue);">5.0%</text>
+ <text x="96" y="41" class="lbl">NOW DRAG THE FORMULA RIGHT</text>
+ <text x="14" y="88" class="lbl" style="fill:var(--amber);">RELATIVE</text>
+ <text x="14" y="102" class="lbl">REFS SLIDE</text>
+ <rect x="140" y="62" width="286" height="46" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.2"/>
+ <line x1="235" y1="62" x2="235" y2="108" class="div"/>
+ <line x1="330" y1="62" x2="330" y2="108" class="div"/>
+ <text x="187" y="82" class="fm">=B4*B2</text>
+ <text x="187" y="99" class="rs">1,050</text>
+ <text x="282" y="82" class="fm">=C4*C2</text>
+ <text x="282" y="99" class="rs" style="fill:var(--amber);">0</text>
+ <text x="378" y="82" class="fm">=D4*D2</text>
+ <text x="378" y="99" class="rs" style="fill:var(--amber);">0</text>
+ <text x="14" y="146" class="lbl" style="fill:var(--green);">LOCKED</text>
+ <text x="14" y="160" class="lbl">$ PINS IT</text>
+ <rect x="140" y="120" width="286" height="46" rx="5" fill="var(--surface)" stroke="var(--green)" stroke-width="1.2"/>
+ <line x1="235" y1="120" x2="235" y2="166" class="div"/>
+ <line x1="330" y1="120" x2="330" y2="166" class="div"/>
+ <text x="187" y="140" class="fm">=B4*$B$2</text>
+ <text x="187" y="157" class="rs">1,050</text>
+ <text x="282" y="140" class="fm">=C4*$B$2</text>
+ <text x="282" y="157" class="rs" style="fill:var(--green);">1,103</text>
+ <text x="378" y="140" class="fm">=D4*$B$2</text>
+ <text x="378" y="157" class="rs" style="fill:var(--green);">1,158</text>
+ <text x="14" y="188" class="lbl">F4 CYCLES A REFERENCE THROUGH THE $ VARIANTS</text>
+</svg></div>
+    <p class="takeaway">Copying a formula shifts every reference along with it unless dollar signs pin it in place.</p>
+    <p class="answer">Excel references are relative by default, meaning they describe a direction rather than an address: a formula in C4 pointing at B2 really says “two rows up, one column left,” so dragging it right turns B2 into C2, then D2, both of which are empty, and anything multiplied by an empty cell is zero. Typing dollar signs, $B$2, locks the column and the row so the reference stays put wherever the formula lands, and F4 cycles a highlighted reference through the variants. The mixed forms matter too: B$2 locks only the row, which is what you want when the same formula gets copied both across and down a grid.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 6 of 18</div>
+    <h2>Why do IB analysts build models almost entirely with the keyboard, and which shortcuts should you know cold?</h2>
+    <p class="takeaway">Mouse-free navigation is faster and steadier, and interviewers watch for it directly in a live Excel test.</p>
+    <p class="answer">Analysts spend most of the workweek inside Excel, so a second saved on every cell-to-cell move compounds fast, and reaching for the mouse breaks the train of thought while building a formula. Interviewers watch how a candidate moves around the sheet almost as closely as whether the final number is right, because mouse-heavy navigation is a tell for inexperience. Know cold: Ctrl+Arrow to jump to the edge of a data block, Ctrl+Shift+Arrow to select to that edge, F4 to cycle a reference between relative and absolute, Ctrl+Alt+V for Paste Special, and Ctrl+` to toggle formula view. These aren&#x27;t optional polish, they&#x27;re assumed baseline fluency by the time you&#x27;re in the room.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 7 of 18</div>
+    <h2>Walk me through the errors you run into most often in a model, #REF!, #DIV/0!, #VALUE! and #N/A. What is each one actually telling you?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+ .code{font:700 11px Arial;fill:var(--amber);text-anchor:middle;}
+ .mean{font:700 10.5px Arial;fill:var(--ink);}
+ </style>
+ <text x="14" y="16" class="lbl">WHAT THE ERROR IS TELLING YOU</text>
+ <rect x="14" y="26" width="96" height="32" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+ <text x="62" y="47" class="code">#REF!</text>
+ <text x="124" y="41" class="mean">Points at a cell that is gone</text>
+ <text x="124" y="55" class="lbl">A ROW, COLUMN OR TAB WAS DELETED</text>
+ <rect x="14" y="66" width="96" height="32" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+ <text x="62" y="87" class="code">#DIV/0!</text>
+ <text x="124" y="81" class="mean">Divided by zero or a blank</text>
+ <text x="124" y="95" class="lbl">A MARGIN ON A PERIOD WITH NO DATA</text>
+ <rect x="14" y="106" width="96" height="32" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+ <text x="62" y="127" class="code">#VALUE!</text>
+ <text x="124" y="121" class="mean">Arithmetic done on text</text>
+ <text x="124" y="135" class="lbl">A STRAY SPACE OR A FOOTNOTE MARK</text>
+ <rect x="14" y="146" width="96" height="32" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+ <text x="62" y="167" class="code">#N/A</text>
+ <text x="124" y="161" class="mean">A lookup found no match</text>
+ <text x="124" y="175" class="lbl">THE NAME IS SPELLED DIFFERENTLY</text>
+</svg></div>
+    <p class="takeaway">Each Excel error names its own cause, so the text in the cell tells you where to start looking.</p>
+    <p class="answer">#REF! means a formula is pointing at a cell that no longer exists, almost always because someone deleted a row, a column or a whole tab, and it’s the most destructive of the four because it spreads to everything downstream. #DIV/0! means you divided by zero or by a blank, which turns up constantly in margin and growth lines for a period with no data yet. #VALUE! means you did arithmetic on text, usually a pasted figure carrying a footnote marker or a stray space. #N/A means a lookup ran but found no match, typically a name spelled differently on the two tabs.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 8 of 18</div>
+    <h2>In your Northbay Logistics model the company should only repay its loan in years when it actually throws off spare cash. How do you write that, and where do IF statements start to get dangerous?</h2>
+    <p class="takeaway">IF chooses between two outcomes based on a test, but MIN or MAX usually reads better than nesting them.</p>
+    <p class="answer">An IF takes three arguments, a test, the result if the test is true, and the result if it’s false, so =IF(D18&gt;0,D18,0) says sweep the year’s spare cash into the loan if there is any, otherwise pay nothing. You’d also want to cap that payment at the loan still outstanding, and that’s where MIN, which simply returns the smaller of two numbers, is cleaner than a second IF nested inside the first: =MIN(D18,D25). That’s the real point. Two or three IFs stacked inside each other become almost impossible to audit, so reach for MIN or MAX whenever the logic is really just a cap or a floor.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 9 of 18</div>
+    <h2>You need to pull a comp company&#x27;s EV/EBITDA multiple from a Comps tab into your output page, but the row order won&#x27;t stay fixed as companies get added or re-sorted. What&#x27;s the safer approach?</h2>
+    <p class="takeaway">INDEX/MATCH or XLOOKUP survives inserted rows and reordering; a hardcoded row reference does not.</p>
+    <p class="answer">Use INDEX/MATCH, or in modern Excel, XLOOKUP, rather than pointing directly at a specific row, because comps lists get re-sorted, re-ranked, or have companies added mid-deal. MATCH, or XLOOKUP&#x27;s lookup argument, finds the row position of the company name, and INDEX, or XLOOKUP&#x27;s return array, pulls the multiple from that row in whichever column you choose, so the formula still finds the right value even after the list changes shape. XLOOKUP is the newer single-function version of the same idea, defaults to an exact match, and can search in either direction, but INDEX/MATCH is still worth knowing cold since not every bank&#x27;s template or Excel version has XLOOKUP available.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 10 of 18</div>
+    <h2>You&#x27;ve pulled comps output for Ferrow Retail into a summary page using live formulas, and now need to send a static snapshot to the deal team that won&#x27;t change later. What&#x27;s the move?</h2>
+    <p class="takeaway">Paste Special &gt; Values converts live formulas into fixed numbers, severing the link to their source cells.</p>
+    <p class="answer">Copy the range, then Paste Special (Ctrl+Alt+V, or the classic Alt+E, S, V) and choose &quot;Values&quot; instead of a normal paste, which pastes the calculated result as a static number and strips out the underlying formula along with any link to the source cells or tabs. That&#x27;s the standard way to freeze a snapshot before sending a model externally, turning a live comps pull into a fixed exhibit that won&#x27;t silently change if someone edits the source tab later, and it&#x27;s also the way to break a link when copying data between workbooks so the destination file doesn&#x27;t stay dependent on a file that might get moved or deleted. It gets used constantly inside a model too, for example hardcoding a final negotiated purchase price so it stops moving every time a live market-data pull updates.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 11 of 18</div>
+    <h2>Your VP asks you to build the debt schedule for Northbay Logistics. How should each year be laid out so the balances genuinely carry forward?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>
+ .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+ .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
+ .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
+ .div{stroke:var(--line-soft);stroke-width:1;}
+ .arw{stroke:var(--green);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+ </style>
+ <text x="187" y="42" class="hd">YEAR 1</text>
+ <text x="285" y="42" class="hd">YEAR 2</text>
+ <text x="383" y="42" class="hd">YEAR 3</text>
+ <rect x="140" y="50" width="288" height="112" rx="5" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+ <rect x="140" y="134" width="288" height="28" fill="var(--surface-strong)" stroke="var(--blue)" stroke-width="1.3"/>
+ <line x1="238" y1="50" x2="238" y2="162" class="div"/>
+ <line x1="336" y1="50" x2="336" y2="162" class="div"/>
+ <line x1="140" y1="78" x2="428" y2="78" class="div"/>
+ <line x1="140" y1="106" x2="428" y2="106" class="div"/>
+ <text x="12" y="69" class="lbl">BEGINNING BALANCE</text>
+ <text x="187" y="69" class="val">400</text>
+ <text x="285" y="69" class="val">340</text>
+ <text x="383" y="69" class="val">305</text>
+ <text x="12" y="97" class="lbl">PLUS BORROWINGS</text>
+ <text x="187" y="97" class="val">0</text>
+ <text x="285" y="97" class="val">25</text>
+ <text x="383" y="97" class="val">0</text>
+ <text x="12" y="125" class="lbl">LESS REPAYMENTS</text>
+ <text x="187" y="125" class="val">(60)</text>
+ <text x="285" y="125" class="val">(60)</text>
+ <text x="383" y="125" class="val">(60)</text>
+ <text x="12" y="153" class="lbl" style="fill:var(--blue);">ENDING BALANCE</text>
+ <text x="187" y="153" class="val" style="fill:var(--blue);">340</text>
+ <text x="285" y="153" class="val" style="fill:var(--blue);">305</text>
+ <text x="383" y="153" class="val" style="fill:var(--blue);">245</text>
+ <path class="arw" d="M225,148 H238 V64 H249"/>
+ <path class="arw" d="M243,59 L250,64 L243,69"/>
+ <path class="arw" d="M323,148 H336 V64 H347"/>
+ <path class="arw" d="M341,59 L348,64 L341,69"/>
+ <text x="12" y="192" class="lbl">ENDING BECOMES NEXT PERIOD’S BEGINNING, AS A DIRECT LINK</text>
+</svg></div>
+    <p class="takeaway">Every schedule reads beginning balance, plus and minus the period’s activity, equals ending balance.</p>
+    <p class="answer">Every roll-forward uses the same four lines: a beginning balance, the additions during the period, the reductions during the period, and an ending balance that is just those three added together. What makes it a schedule rather than a table is that the next period’s beginning balance is a direct reference to the prior period’s ending balance and nothing else, no retyping and no arithmetic in that cell. The identical block works for debt, where the activity is borrowings and repayments, for fixed assets, where it’s capital spending and depreciation, and for share count. Interviewers like it because any wrong number traces back to one line in one year.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 12 of 18</div>
+    <h2>How would you build a clean scenario toggle in a model, say switching between a Base Case and Downside Case set of assumptions, without breaking anything downstream?</h2>
+    <p class="takeaway">A single toggle cell, driven by one dropdown, should be the only thing every downstream formula reads.</p>
+    <p class="answer">The clean pattern is one dedicated toggle cell, built with a data validation dropdown. Number the cases, 1 for Base and 2 for Downside, and every assumption with more than one version can be written as =CHOOSE($B$2,BaseValue,DownsideValue). If you would rather the dropdown showed the words, use =IF($B$2=&quot;Base&quot;,BaseValue,DownsideValue) instead, since CHOOSE needs a number from 1 upwards and errors on text or on zero. Either way every such formula reads that same single toggle, so flipping the dropdown once cascades through the entire model instantly. The discipline is that no downstream formula ever hardcodes its own scenario choice; everything points back to the one switch, so there&#x27;s exactly one cell to check to know which case the model is currently showing.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 13 of 18</div>
+    <h2>Your associate flags that changing the D&amp;A assumption in your Ferrow Retail model doesn&#x27;t move the ending cash balance. What&#x27;s the likely problem?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .box-lbl{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
+  </style>
+  <text x="220" y="14" text-anchor="middle" class="lbl">HOW ONE CHANGE FLOWS THROUGH</text>
+
+  <rect x="14" y="30" width="128" height="54" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="78" y="61" class="box-lbl">INCOME STMT</text>
+
+  <rect x="156" y="30" width="128" height="54" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="220" y="61" class="box-lbl">CASH FLOW STMT</text>
+
+  <rect x="298" y="30" width="128" height="54" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="362" y="61" class="box-lbl">BALANCE SHEET</text>
+
+  <path d="M142,57 H156" stroke="var(--blue)" stroke-width="2" fill="none"/>
+  <path d="M148,50 L157,57 L148,64" stroke="var(--blue)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="149" y="24" text-anchor="middle" class="lbl">NET INCOME</text>
+
+  <path d="M284,57 H298" stroke="var(--blue)" stroke-width="2" fill="none"/>
+  <path d="M290,50 L299,57 L290,64" stroke="var(--blue)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="291" y="24" text-anchor="middle" class="lbl">ENDING CASH</text>
+
+  <path d="M78,84 C78,140 362,140 362,84" stroke="var(--green)" stroke-width="2" fill="none"/>
+  <path d="M354,92 L362,84 L370,92" stroke="var(--green)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="220" y="160" text-anchor="middle" class="lbl">RETAINED EARNINGS TIES INTO EQUITY</text>
+  <text x="220" y="176" text-anchor="middle" class="lbl">IF A LINK IS BROKEN, THE CHANGE STOPS MOVING HERE</text>
+</svg></div>
+    <p class="takeaway">In a properly linked model, one input change ripples through all three statements to the cash balance.</p>
+    <p class="answer">In a correctly built model, D&amp;A hits the income statement, reducing pre-tax income and taxes, flows into the cash flow statement as a non-cash add-back, and reduces the PP&amp;E balance on the balance sheet; the cash flow statement&#x27;s ending cash then becomes the balance sheet&#x27;s cash line. If changing D&amp;A doesn&#x27;t move ending cash, a link is broken somewhere in that chain, most often the CFS add-back is hardcoded instead of pulling from the income statement, or the balance sheet&#x27;s cash cell isn&#x27;t actually pointing at the CFS&#x27;s ending-cash line. Trace it cell by cell with Ctrl+[ to find precedents rather than guessing, confirming each statement genuinely pulls live from the one before it.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 14 of 18</div>
+    <h2>Before sending your Bramwell &amp; Co. LBO model to the MD, how do you sanity-check that it isn&#x27;t secretly broken?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .val{font:600 11px Arial;fill:var(--ink);text-anchor:middle;}
+  </style>
+  <text x="20" y="16" class="lbl">CHECK ROW</text>
+
+  <rect x="20" y="26" width="400" height="42" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <line x1="190" y1="26" x2="190" y2="68" stroke="var(--line-soft)" stroke-width="1"/>
+  <line x1="335" y1="26" x2="335" y2="68" stroke="var(--line-soft)" stroke-width="1"/>
+  <text x="105" y="52" class="val">ASSETS: 1,240</text>
+  <text x="262" y="52" class="val">LIAB + EQUITY: 1,240</text>
+  <rect x="348" y="36" width="58" height="22" rx="11" fill="var(--green)" fill-opacity="0.18" stroke="var(--green)" stroke-width="1.3"/>
+  <text x="377" y="51" text-anchor="middle" style="font:700 10px Arial; fill:var(--green);">OK</text>
+
+  <rect x="20" y="90" width="400" height="42" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <line x1="190" y1="90" x2="190" y2="132" stroke="var(--line-soft)" stroke-width="1"/>
+  <line x1="335" y1="90" x2="335" y2="132" stroke="var(--line-soft)" stroke-width="1"/>
+  <text x="105" y="116" class="val">ASSETS: 1,240</text>
+  <text x="262" y="116" class="val">LIAB + EQUITY: 1,205</text>
+  <rect x="340" y="100" width="72" height="22" rx="11" fill="var(--amber)" fill-opacity="0.2" stroke="var(--amber)" stroke-width="1.3"/>
+  <text x="376" y="115" text-anchor="middle" style="font:700 10px Arial; fill:var(--amber);">ERROR</text>
+</svg></div>
+    <p class="takeaway">A visible balance check and error traps catch a broken model before your MD does.</p>
+    <p class="answer">Every balance sheet should carry a check row, typically =Total Assets - Total Liabilities and Equity, wrapped in something like =IF(ROUND(Assets-Liabilities,0)=0,&quot;OK&quot;,&quot;ERROR&quot;) so it&#x27;s impossible to miss the moment the sheet stops balancing. Beyond that, wrap fragile formulas, lookups, divisions, anything that depends on an input existing, in IFERROR so a missing value produces a visible flag instead of a #N/A or #DIV/0! buried in a cell nobody&#x27;s looking at, and scan the model with Ctrl+` or Excel&#x27;s formula-auditing tools before circulating it. The habit that actually matters in an interview is naming this discipline unprompted: a model that runs without errors but was never checked for balance is not considered done on the Street.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 15 of 18</div>
+    <h2>While building the debt schedule for the Bramwell &amp; Co. LBO, Excel throws a circular reference warning. Why did that happen, and how do you handle it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 230" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    .box-lbl{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+  </style>
+  <rect x="155" y="10" width="130" height="44" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="220" y="36" class="box-lbl">INTEREST EXPENSE</text>
+
+  <rect x="14" y="160" width="150" height="44" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="89" y="186" class="box-lbl">CASH FOR PAYDOWN</text>
+
+  <rect x="276" y="160" width="150" height="44" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <text x="351" y="186" class="box-lbl">DEBT BALANCE</text>
+
+  <path d="M185,54 C130,95 105,120 95,158" stroke="var(--blue)" stroke-width="2" fill="none"/>
+  <path d="M85,145 L94,159 L104,146" stroke="var(--blue)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M164,182 H276" stroke="var(--blue)" stroke-width="2" fill="none"/>
+  <path d="M266,174 L277,182 L266,190" stroke="var(--blue)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M345,158 C340,120 300,90 258,58" stroke="var(--blue)" stroke-width="2" fill="none" stroke-dasharray="1,0"/>
+  <path d="M262,68 L256,57 L268,59" stroke="var(--blue)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="176" y="94" width="88" height="30" rx="15" fill="var(--surface-strong)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="113" text-anchor="middle" style="font:700 9px Arial; fill:var(--amber);">BREAKER SWITCH</text>
+
+  <text x="220" y="222" text-anchor="middle" class="lbl">A CLOSED LOOP: EACH BOX FEEDS THE NEXT</text>
+</svg></div>
+    <p class="takeaway">Interest on an average or closing debt balance creates the loop; interest on the opening balance avoids it entirely.</p>
+    <p class="answer">The loop appears when interest expense is calculated on a debt balance that the interest itself helps determine. Compute interest on the average or closing balance for the period and you get a genuine circle: interest reduces the cash flow available to repay debt, the repayment changes the closing balance, and the closing balance changes the interest. Excel cannot resolve that on its own, so it throws a circular reference warning, or returns zeros and errors. It is worth being precise here, because it is a modelling choice rather than something inherent to debt schedules: calculating interest on the opening balance breaks the loop completely, which is why plenty of models do exactly that and never see a circular reference at all. If you do want average-balance interest, turn on iterative calculation (File &gt; Options &gt; Formulas &gt; Enable iterative calculation) so Excel recalculates until it converges, and build in a circularity breaker switch, a cell or checkbox that can force interest expense to zero, so an unrelated error elsewhere does not spin the whole model into cascading #REF or #VALUE errors.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 16 of 18</div>
+    <h2>Your MD wants a table showing the Bramwell &amp; Co. LBO&#x27;s exit IRR across a range of exit multiples and entry leverage levels. What Excel feature builds this in one shot?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
+    .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
+  </style>
+  <text x="250" y="16" text-anchor="middle" class="lbl">COLUMN INPUT: LEVERAGE</text>
+  <text x="30" y="105" text-anchor="middle" class="lbl" transform="rotate(-90 30 105)">ROW INPUT: EXIT MULTIPLE</text>
+
+  <rect x="60" y="40" width="95" height="34" rx="6" fill="var(--blue)" fill-opacity="0.15" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="107" y="61" style="font:700 12px Arial; fill:var(--blue);" text-anchor="middle">IRR</text>
+
+  <rect x="155" y="40" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="202" y="61" class="hd">3.0x</text>
+  <rect x="250" y="40" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="297" y="61" class="hd">4.0x</text>
+  <rect x="345" y="40" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="392" y="61" class="hd">5.0x</text>
+
+  <rect x="60" y="74" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="107" y="95" class="hd">6x</text>
+  <rect x="60" y="108" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="107" y="129" class="hd">7x</text>
+  <rect x="60" y="142" width="95" height="34" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="107" y="163" class="hd">8x</text>
+
+  <rect x="155" y="74" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="202" y="95" class="val">18%</text>
+  <rect x="250" y="74" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="297" y="95" class="val">22%</text>
+  <rect x="345" y="74" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="392" y="95" class="val">26%</text>
+
+  <rect x="155" y="108" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="202" y="129" class="val">20%</text>
+  <rect x="250" y="108" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="297" y="129" class="val">24%</text>
+  <rect x="345" y="108" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="392" y="129" class="val">29%</text>
+
+  <rect x="155" y="142" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="202" y="163" class="val">22%</text>
+  <rect x="250" y="142" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="297" y="163" class="val">27%</text>
+  <rect x="345" y="142" width="95" height="34" fill="var(--surface-strong)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <text x="392" y="163" class="val">32%</text>
+</svg></div>
+    <p class="takeaway">A two-variable data table recalculates one output across every combination of two input ranges automatically.</p>
+    <p class="answer">Excel&#x27;s Data Table, under What-If Analysis, recalculates a single output formula across every combination of two input ranges without you writing a formula in each cell. You lay out a grid with one variable&#x27;s values down the left column (say, exit multiples), the other across the top row (leverage levels), put the output formula, like IRR, in the top-left corner cell, then select the whole grid and tell Excel which cell each axis should feed as the row input and column input. Excel substitutes each combination in turn and fills the grid, which is also why large data tables can noticeably slow down recalculation. It&#x27;s the standard way to hand an MD a range of outcomes instead of a single point estimate.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 17 of 18</div>
+    <h2>The MD wants to know what gross margin Calder Foods has to reach for EBITDA to break even. The model is built, but it only runs forwards. What do you reach for?</h2>
+    <p class="takeaway">Goal Seek runs a model backwards, solving for the one input that lands an output on a chosen target.</p>
+    <p class="answer">Goal Seek, under What-If Analysis, asks for exactly three things: the cell holding the output, the value you want that cell to equal, and the single input cell Excel is allowed to change. It then iterates until the output hits the target. Think of it as the mirror image of a data table: a data table shows you many outputs across a grid of inputs, while Goal Seek fixes the output and hands you back the input. Two cautions worth saying out loud in an interview, it overwrites the input cell permanently, so note the original value first, and it solves for one variable only.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 18 of 18</div>
+    <h2>An analyst rolls off the deal and you inherit her half-finished Ferrow Retail model the night before it goes to the client. How do you get comfortable with it?</h2>
+    <p class="takeaway">Find the inputs first, then trace one important output all the way back to them before touching anything.</p>
+    <p class="answer">Orient before you edit. Read the tab order to see how the model is meant to flow, then find the blue cells, since those are the control panel and they tell you what the builder treated as an assumption. Pick one number that matters, ending cash or the final value, and walk it backwards with Ctrl+[ or Trace Precedents until you land on those inputs, which tells you quickly whether the plumbing is live or partly typed in. F5 then Special then Constants will surface hardcoded values typed loose into cells. It will not catch a number buried inside a formula, because that cell counts as a formula rather than a constant; for those, Ctrl+` toggles Show Formulas so you can scan a row and see them. Finally, flex an assumption whose direction you already know and confirm the outputs move the right way.</p>
+  </article>
+  <div class="cta-band">
+    <p>Reading is not the same as remembering. Study this deck with scheduled review so the cards come back before you forget them.</p>
+    <a class="btn" href="https://viewprep.net/?deck=excel">Study Excel for Financial Modeling</a>
+  </div>
+  <h2 class="track">More investment banking decks</h2>
+  <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "It’s your first week and a VP tells you to take a first pass at the model for Calder Foods. You’ve never opened one. What actually is a financial model?", "acceptedAnswer": {"@type": "Answer", "text": "A model is a spreadsheet that turns a handful of assumptions into a projected set of financials. Strip away the formatting and a model is a spreadsheet that takes a small set of assumptions, how fast revenue grows, what margin the business holds, how much it spends on equipment, and projects the company’s financial statements forward five or ten years. Every projected number is a formula that traces back to one of those assumptions, so changing a single input rewrites the entire forecast in front of you. That’s the point of building one: it lets a deal team ask what a business is worth, or how much debt it could carry, and show exactly which assumptions are driving the answer."}}, {"@type": "Question", "name": "How should a model be laid out across tabs, and why does that structure matter more than it sounds like it should?", "acceptedAnswer": {"@type": "Answer", "text": "Inputs on one tab, calculations in the middle, outputs at the end, with information only flowing forward. The convention is to move left to right: an assumptions tab holding every input the model needs, then the calculation tabs, the three financial statements plus supporting schedules for debt and fixed assets, then an outputs tab carrying the handful of numbers that actually end up in the deck. Information should travel in that one direction, so a calculation tab never reaches forward into an output tab for a value. It matters because models get handed around constantly, and the first thing anyone opening yours will do is hunt for where the inputs live."}}, {"@type": "Question", "name": "Why do banker-built models color hardcoded inputs blue and formulas black, and what does a green cell usually mean?", "acceptedAnswer": {"@type": "Answer", "text": "Color-coding cells by type lets anyone audit a model's logic at a glance, without opening the formula bar. On the Street, font color is a substitute for documentation: blue marks a hardcoded input typed directly into the cell, black marks a formula that calculates from other cells, and green marks a link pulling in a value from another worksheet or workbook. That convention lets anyone glance at a tab and instantly separate the assumptions someone is allowed to change from the calculations that shouldn't be touched by hand. Breaking it, a blue cell that's secretly a formula, or a formula colored blue, is one of the fastest ways to look sloppy in front of an MD, because it hides where the model's real control panel is."}}, {"@type": "Question", "name": "Your associate opens your revenue build for Ferrow Retail and finds =1200*1.05 typed into a cell. The number it produces is correct. Why is she still unhappy?", "acceptedAnswer": {"@type": "Answer", "text": "A number typed inside a formula is an assumption nobody can find and nobody can flex. The 1.05 is a growth assumption, and burying it inside a formula makes it invisible: the cell displays black like every other calculation, so a reviewer scanning the tab has no way of knowing an input is hiding in there. When the MD asks to see 3% growth instead, you have to hunt through formulas one cell at a time rather than retyping one labelled number. The fix is to put 5.0% in its own blue input cell and write =B4*(1+$B$2). Reviewers genuinely go looking for buried hardcodes, and finding one costs you the benefit of the doubt on everything else in the file."}}, {"@type": "Question", "name": "You drag your growth formula across the forecast row and every year after the first comes back as zero, even though the growth rate is sitting right there in cell B2. What happened?", "acceptedAnswer": {"@type": "Answer", "text": "Copying a formula shifts every reference along with it unless dollar signs pin it in place. Excel references are relative by default, meaning they describe a direction rather than an address: a formula in C4 pointing at B2 really says “two rows up, one column left,” so dragging it right turns B2 into C2, then D2, both of which are empty, and anything multiplied by an empty cell is zero. Typing dollar signs, $B$2, locks the column and the row so the reference stays put wherever the formula lands, and F4 cycles a highlighted reference through the variants. The mixed forms matter too: B$2 locks only the row, which is what you want when the same formula gets copied both across and down a grid."}}, {"@type": "Question", "name": "Why do IB analysts build models almost entirely with the keyboard, and which shortcuts should you know cold?", "acceptedAnswer": {"@type": "Answer", "text": "Mouse-free navigation is faster and steadier, and interviewers watch for it directly in a live Excel test. Analysts spend most of the workweek inside Excel, so a second saved on every cell-to-cell move compounds fast, and reaching for the mouse breaks the train of thought while building a formula. Interviewers watch how a candidate moves around the sheet almost as closely as whether the final number is right, because mouse-heavy navigation is a tell for inexperience. Know cold: Ctrl+Arrow to jump to the edge of a data block, Ctrl+Shift+Arrow to select to that edge, F4 to cycle a reference between relative and absolute, Ctrl+Alt+V for Paste Special, and Ctrl+` to toggle formula view. These aren't optional polish, they're assumed baseline fluency by the time you're in the room."}}, {"@type": "Question", "name": "Walk me through the errors you run into most often in a model, #REF!, #DIV/0!, #VALUE! and #N/A. What is each one actually telling you?", "acceptedAnswer": {"@type": "Answer", "text": "Each Excel error names its own cause, so the text in the cell tells you where to start looking. #REF! means a formula is pointing at a cell that no longer exists, almost always because someone deleted a row, a column or a whole tab, and it’s the most destructive of the four because it spreads to everything downstream. #DIV/0! means you divided by zero or by a blank, which turns up constantly in margin and growth lines for a period with no data yet. #VALUE! means you did arithmetic on text, usually a pasted figure carrying a footnote marker or a stray space. #N/A means a lookup ran but found no match, typically a name spelled differently on the two tabs."}}, {"@type": "Question", "name": "In your Northbay Logistics model the company should only repay its loan in years when it actually throws off spare cash. How do you write that, and where do IF statements start to get dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "IF chooses between two outcomes based on a test, but MIN or MAX usually reads better than nesting them. An IF takes three arguments, a test, the result if the test is true, and the result if it’s false, so =IF(D18>0,D18,0) says sweep the year’s spare cash into the loan if there is any, otherwise pay nothing. You’d also want to cap that payment at the loan still outstanding, and that’s where MIN, which simply returns the smaller of two numbers, is cleaner than a second IF nested inside the first: =MIN(D18,D25). That’s the real point. Two or three IFs stacked inside each other become almost impossible to audit, so reach for MIN or MAX whenever the logic is really just a cap or a floor."}}, {"@type": "Question", "name": "You need to pull a comp company's EV/EBITDA multiple from a Comps tab into your output page, but the row order won't stay fixed as companies get added or re-sorted. What's the safer approach?", "acceptedAnswer": {"@type": "Answer", "text": "INDEX/MATCH or XLOOKUP survives inserted rows and reordering; a hardcoded row reference does not. Use INDEX/MATCH, or in modern Excel, XLOOKUP, rather than pointing directly at a specific row, because comps lists get re-sorted, re-ranked, or have companies added mid-deal. MATCH, or XLOOKUP's lookup argument, finds the row position of the company name, and INDEX, or XLOOKUP's return array, pulls the multiple from that row in whichever column you choose, so the formula still finds the right value even after the list changes shape. XLOOKUP is the newer single-function version of the same idea, defaults to an exact match, and can search in either direction, but INDEX/MATCH is still worth knowing cold since not every bank's template or Excel version has XLOOKUP available."}}, {"@type": "Question", "name": "You've pulled comps output for Ferrow Retail into a summary page using live formulas, and now need to send a static snapshot to the deal team that won't change later. What's the move?", "acceptedAnswer": {"@type": "Answer", "text": "Paste Special > Values converts live formulas into fixed numbers, severing the link to their source cells. Copy the range, then Paste Special (Ctrl+Alt+V, or the classic Alt+E, S, V) and choose \"Values\" instead of a normal paste, which pastes the calculated result as a static number and strips out the underlying formula along with any link to the source cells or tabs. That's the standard way to freeze a snapshot before sending a model externally, turning a live comps pull into a fixed exhibit that won't silently change if someone edits the source tab later, and it's also the way to break a link when copying data between workbooks so the destination file doesn't stay dependent on a file that might get moved or deleted. It gets used constantly inside a model too, for example hardcoding a final negotiated purchase price so it stops moving every time a live market-data pull updates."}}, {"@type": "Question", "name": "Your VP asks you to build the debt schedule for Northbay Logistics. How should each year be laid out so the balances genuinely carry forward?", "acceptedAnswer": {"@type": "Answer", "text": "Every schedule reads beginning balance, plus and minus the period’s activity, equals ending balance. Every roll-forward uses the same four lines: a beginning balance, the additions during the period, the reductions during the period, and an ending balance that is just those three added together. What makes it a schedule rather than a table is that the next period’s beginning balance is a direct reference to the prior period’s ending balance and nothing else, no retyping and no arithmetic in that cell. The identical block works for debt, where the activity is borrowings and repayments, for fixed assets, where it’s capital spending and depreciation, and for share count. Interviewers like it because any wrong number traces back to one line in one year."}}, {"@type": "Question", "name": "How would you build a clean scenario toggle in a model, say switching between a Base Case and Downside Case set of assumptions, without breaking anything downstream?", "acceptedAnswer": {"@type": "Answer", "text": "A single toggle cell, driven by one dropdown, should be the only thing every downstream formula reads. The clean pattern is one dedicated toggle cell, built with a data validation dropdown. Number the cases, 1 for Base and 2 for Downside, and every assumption with more than one version can be written as =CHOOSE($B$2,BaseValue,DownsideValue). If you would rather the dropdown showed the words, use =IF($B$2=\"Base\",BaseValue,DownsideValue) instead, since CHOOSE needs a number from 1 upwards and errors on text or on zero. Either way every such formula reads that same single toggle, so flipping the dropdown once cascades through the entire model instantly. The discipline is that no downstream formula ever hardcodes its own scenario choice; everything points back to the one switch, so there's exactly one cell to check to know which case the model is currently showing."}}, {"@type": "Question", "name": "Your associate flags that changing the D&A assumption in your Ferrow Retail model doesn't move the ending cash balance. What's the likely problem?", "acceptedAnswer": {"@type": "Answer", "text": "In a properly linked model, one input change ripples through all three statements to the cash balance. In a correctly built model, D&A hits the income statement, reducing pre-tax income and taxes, flows into the cash flow statement as a non-cash add-back, and reduces the PP&E balance on the balance sheet; the cash flow statement's ending cash then becomes the balance sheet's cash line. If changing D&A doesn't move ending cash, a link is broken somewhere in that chain, most often the CFS add-back is hardcoded instead of pulling from the income statement, or the balance sheet's cash cell isn't actually pointing at the CFS's ending-cash line. Trace it cell by cell with Ctrl+[ to find precedents rather than guessing, confirming each statement genuinely pulls live from the one before it."}}, {"@type": "Question", "name": "Before sending your Bramwell & Co. LBO model to the MD, how do you sanity-check that it isn't secretly broken?", "acceptedAnswer": {"@type": "Answer", "text": "A visible balance check and error traps catch a broken model before your MD does. Every balance sheet should carry a check row, typically =Total Assets - Total Liabilities and Equity, wrapped in something like =IF(ROUND(Assets-Liabilities,0)=0,\"OK\",\"ERROR\") so it's impossible to miss the moment the sheet stops balancing. Beyond that, wrap fragile formulas, lookups, divisions, anything that depends on an input existing, in IFERROR so a missing value produces a visible flag instead of a #N/A or #DIV/0! buried in a cell nobody's looking at, and scan the model with Ctrl+` or Excel's formula-auditing tools before circulating it. The habit that actually matters in an interview is naming this discipline unprompted: a model that runs without errors but was never checked for balance is not considered done on the Street."}}, {"@type": "Question", "name": "While building the debt schedule for the Bramwell & Co. LBO, Excel throws a circular reference warning. Why did that happen, and how do you handle it?", "acceptedAnswer": {"@type": "Answer", "text": "Interest on an average or closing debt balance creates the loop; interest on the opening balance avoids it entirely. The loop appears when interest expense is calculated on a debt balance that the interest itself helps determine. Compute interest on the average or closing balance for the period and you get a genuine circle: interest reduces the cash flow available to repay debt, the repayment changes the closing balance, and the closing balance changes the interest. Excel cannot resolve that on its own, so it throws a circular reference warning, or returns zeros and errors. It is worth being precise here, because it is a modelling choice rather than something inherent to debt schedules: calculating interest on the opening balance breaks the loop completely, which is why plenty of models do exactly that and never see a circular reference at all. If you do want average-balance interest, turn on iterative calculation (File > Options > Formulas > Enable iterative calculation) so Excel recalculates until it converges, and build in a circularity breaker switch, a cell or checkbox that can force interest expense to zero, so an unrelated error elsewhere does not spin the whole model into cascading #REF or #VALUE errors."}}, {"@type": "Question", "name": "Your MD wants a table showing the Bramwell & Co. LBO's exit IRR across a range of exit multiples and entry leverage levels. What Excel feature builds this in one shot?", "acceptedAnswer": {"@type": "Answer", "text": "A two-variable data table recalculates one output across every combination of two input ranges automatically. Excel's Data Table, under What-If Analysis, recalculates a single output formula across every combination of two input ranges without you writing a formula in each cell. You lay out a grid with one variable's values down the left column (say, exit multiples), the other across the top row (leverage levels), put the output formula, like IRR, in the top-left corner cell, then select the whole grid and tell Excel which cell each axis should feed as the row input and column input. Excel substitutes each combination in turn and fills the grid, which is also why large data tables can noticeably slow down recalculation. It's the standard way to hand an MD a range of outcomes instead of a single point estimate."}}, {"@type": "Question", "name": "The MD wants to know what gross margin Calder Foods has to reach for EBITDA to break even. The model is built, but it only runs forwards. What do you reach for?", "acceptedAnswer": {"@type": "Answer", "text": "Goal Seek runs a model backwards, solving for the one input that lands an output on a chosen target. Goal Seek, under What-If Analysis, asks for exactly three things: the cell holding the output, the value you want that cell to equal, and the single input cell Excel is allowed to change. It then iterates until the output hits the target. Think of it as the mirror image of a data table: a data table shows you many outputs across a grid of inputs, while Goal Seek fixes the output and hands you back the input. Two cautions worth saying out loud in an interview, it overwrites the input cell permanently, so note the original value first, and it solves for one variable only."}}, {"@type": "Question", "name": "An analyst rolls off the deal and you inherit her half-finished Ferrow Retail model the night before it goes to the client. How do you get comfortable with it?", "acceptedAnswer": {"@type": "Answer", "text": "Find the inputs first, then trace one important output all the way back to them before touching anything. Orient before you edit. Read the tab order to see how the model is meant to flow, then find the blue cells, since those are the control panel and they tell you what the builder treated as an assumption. Pick one number that matters, ending cash or the final value, and walk it backwards with Ctrl+[ or Trace Precedents until you land on those inputs, which tells you quickly whether the plumbing is live or partly typed in. F5 then Special then Constants will surface hardcoded values typed loose into cells. It will not catch a number buried inside a formula, because that cell counts as a formula rather than a constant; for those, Ctrl+` toggles Show Formulas so you can scan a row and see them. Finally, flex an assumption whose direction you already know and confirm the outputs move the right way."}}]}</script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/?deck=excel">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>

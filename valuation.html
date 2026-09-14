@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Valuation Basics flashcards | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DCF, comps, and the multiples analysts actually use. 20 free flashcards with answers, written for people with no finance background.">
+<link rel="canonical" href="https://viewprep.net/decks/valuation.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/decks/valuation.html">
+<meta property="og:title" content="Valuation Basics flashcards | ViewPrep">
+<meta property="og:description" content="DCF, comps, and the multiples analysts actually use. 20 free flashcards with answers, written for people with no finance background.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valuation Basics flashcards | ViewPrep">
+<meta name="twitter:description" content="DCF, comps, and the multiples analysts actually use. 20 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#catalog">Cards</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+    </nav>
+    <nav class="header-nav">
+      <a class="header-cta" href="https://viewprep.net/?deck=valuation">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
+  <h1>Valuation Basics</h1>
+  <p class="lede">Valuation is the skill of putting a number on what a company or investment is actually worth, and it is one of the most commonly tested topics in finance interviews, from &quot;walk me through a DCF&quot; to &quot;how would you value this company.&quot; This deck introduces the core methods, discounted cash flow, comparable companies, and the multiples analysts lean on, in plain language first, then in the more technical form interviewers expect. No prior valuation experience assumed, just a willingness to think in terms of cash flow and comparison.</p>
+  <div class="meta-row"><span>20 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <article class="card">
+    <div class="card-n">Card 1 of 20</div>
+    <h2>What does it actually mean to say a company is worth $400 million, and how can two serious buyers look at the same business and land on very different numbers?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .val{font:700 13px Arial;fill:var(--ink);}
+    .flow{fill:none;stroke:var(--line-soft);stroke-width:1.5;}
+  </style>
+  <rect x="8" y="50" width="120" height="70" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+  <text x="68" y="78" text-anchor="middle" class="lbl">ONE BUSINESS</text>
+  <text x="68" y="98" text-anchor="middle" class="lbl-strong">SAME FORECAST</text>
+  <path class="flow" d="M132,74 C180,58 210,50 240,46"/>
+  <path d="M240,41 L251,46 L240,51 Z" fill="var(--line-soft)"/>
+  <path class="flow" d="M132,96 C180,112 210,120 240,124"/>
+  <path d="M240,119 L251,124 L240,129 Z" fill="var(--line-soft)"/>
+  <rect x="254" y="22" width="178" height="50" rx="10" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="268" y="44" class="lbl-strong">STRATEGIC BUYER</text>
+  <text x="268" y="61" class="lbl">CUTS DUPLICATE COSTS</text>
+  <text x="420" y="44" text-anchor="end" class="val" style="fill:var(--amber);">$520M</text>
+  <rect x="254" y="100" width="178" height="50" rx="10" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="268" y="122" class="lbl-strong">FINANCIAL BUYER</text>
+  <text x="268" y="139" class="lbl">CHANGES NOTHING</text>
+  <text x="420" y="122" text-anchor="end" class="val" style="fill:var(--blue);">$400M</text>
+</svg></div>
+    <p class="takeaway">A company is worth the future cash it produces, so buyers differ whenever their forecasts differ.</p>
+    <p class="answer">Valuing a company means estimating what someone should rationally pay today for the right to everything the business earns from here on. Two buyers can both be rigorous and still disagree, because that estimate rests on forecasts nobody can verify: how fast the business grows, how risky its cash flows feel, and what each buyer could do with the company once they own it. A rival in the same industry who can strip out duplicate warehouses honestly sees more value than a passive investor who changes nothing. That is why this work produces a defensible range, not a fact.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 2 of 20</div>
+    <h2>A first-year tells you Calder Foods “trades at 9 times.” Nine times what, and what is a multiple actually telling you?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .amt{font:600 10px Arial;fill:var(--ink-soft);}
+    .mult{font:700 15px Arial;fill:var(--ink);}
+  </style>
+  <text x="8" y="16" class="lbl">PRICE PER DOLLAR OF ANNUAL PROFIT</text>
+  <text x="8" y="44" class="lbl-strong">CALDER FOODS</text>
+  <rect x="8" y="52" width="240" height="15" rx="4" fill="var(--blue)"/>
+  <text x="254" y="64" class="amt">VALUE $900M</text>
+  <rect x="8" y="72" width="27" height="15" rx="4" fill="var(--amber)"/>
+  <text x="42" y="84" class="amt">PROFIT $100M</text>
+  <text x="380" y="76" text-anchor="end" class="mult">9.0x</text>
+  <line x1="8" y1="100" x2="432" y2="100" class="axis"/>
+  <text x="8" y="124" class="lbl-strong">HARLOW GROUP</text>
+  <rect x="8" y="132" width="240" height="15" rx="4" fill="var(--blue)"/>
+  <text x="254" y="144" class="amt">VALUE $4.5B</text>
+  <rect x="8" y="152" width="27" height="15" rx="4" fill="var(--amber)"/>
+  <text x="42" y="164" class="amt">PROFIT $500M</text>
+  <text x="380" y="156" text-anchor="end" class="mult">9.0x</text>
+</svg></div>
+    <p class="takeaway">A multiple is a price per dollar of annual profit, which lets you compare companies of any size.</p>
+    <p class="answer">A multiple is just a ratio: what a company is valued at, divided by some measure of what it produces in a year, usually a profit figure. If Calder is valued at $900 million and earns $100 million of operating profit a year, that is 9 times, meaning a buyer is paying nine dollars for every dollar of annual profit. Dividing by profit strips size out of the comparison, so a $900 million company and a $4.5 billion one can sit in the same table. A higher multiple usually means the market expects faster growth or sees less risk.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 3 of 20</div>
+    <h2>Marlstone Capital is evaluating a buyout of Ferrow Retail and wants to know the total price tag versus what&#x27;s left for shareholders. What&#x27;s the difference between enterprise value and equity value?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:700 10.5px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+  </style>
+  <rect x="0" y="28" width="88" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="44" y="48" text-anchor="middle" class="lbl">EQUITY</text>
+  <text x="44" y="62" text-anchor="middle" class="lbl">VALUE</text>
+  <text x="100" y="58" class="op">+</text>
+  <rect x="118" y="28" width="88" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="56" text-anchor="middle" class="lbl">DEBT</text>
+  <text x="218" y="58" class="op">−</text>
+  <rect x="236" y="28" width="88" height="46" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="280" y="56" text-anchor="middle" class="lbl">CASH</text>
+  <text x="336" y="58" class="op">=</text>
+  <rect x="354" y="20" width="86" height="62" rx="8" fill="var(--ink)" />
+  <text x="397" y="46" text-anchor="middle" class="lbl" style="fill:#08080A;">ENTERPRISE</text>
+  <text x="397" y="60" text-anchor="middle" class="lbl" style="fill:#08080A;">VALUE</text>
+</svg></div>
+    <p class="takeaway">Enterprise value is the whole business; equity value is just the shareholders&#x27; slice.</p>
+    <p class="answer">Enterprise value represents the value of the whole business — what Marlstone would need to pay to acquire Ferrow outright, including taking on its debt and stripping out its cash. Equity value is just the value belonging to shareholders (what market cap represents). The bridge between them: enterprise value = equity value + debt − cash.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 4 of 20</div>
+    <h2>A client asks why your team is quoting Halsey Aerospace&#x27;s value on an EV/EBITDA basis instead of just comparing share prices. What does EV/EBITDA measure, and why use enterprise value instead of market cap?</h2>
+    <p class="takeaway">EV/EBITDA compares total company value to operating earnings, ignoring how the company is financed.</p>
+    <p class="answer">Enterprise value is used instead of market cap because it also accounts for debt and cash, making it possible to compare companies fairly even when they have very different capital structures: market cap alone ignores how much of the business is funded by debt. EBITDA (earnings before interest, taxes, depreciation and amortization) strips out financing and accounting choices, so you&#x27;re comparing pure operating performance, which is exactly why the multiple travels well across a set of comps.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 5 of 20</div>
+    <h2>What is a P/E ratio, and what does a high P/E typically signal to a banker sizing up a target?</h2>
+    <p class="takeaway">P/E shows how much investors pay today for each dollar the company currently earns.</p>
+    <p class="answer">The price-to-earnings ratio divides a company&#x27;s share price by its earnings per share. A high P/E usually signals that the market expects strong future earnings growth, since investors are willing to pay more today for the same current profit; it can also simply mean the target is overvalued relative to its fundamentals, so P/E alone doesn&#x27;t tell you which story is true.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 6 of 20</div>
+    <h2>Your associate drops a metric you&#x27;ve never used, EV/EBIT, into the comps tab and asks whether the numerator should be enterprise value or share price. How do you decide which metrics pair with which?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .pill{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+    .hd{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;}
+  </style>
+  <rect x="8" y="10" width="200" height="26" rx="6" fill="var(--blue)"/>
+  <text x="108" y="28" class="hd">ENTERPRISE VALUE</text>
+  <rect x="232" y="10" width="200" height="26" rx="6" fill="var(--amber)"/>
+  <text x="332" y="28" class="hd">EQUITY VALUE</text>
+  <text x="108" y="54" text-anchor="middle" class="lbl">PAIRS WITH</text>
+  <text x="332" y="54" text-anchor="middle" class="lbl">PAIRS WITH</text>
+  <rect x="8" y="62" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
+  <text x="108" y="78" class="pill">REVENUE</text>
+  <rect x="8" y="92" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
+  <text x="108" y="108" class="pill">EBITDA</text>
+  <rect x="8" y="122" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
+  <text x="108" y="138" class="pill">EBIT</text>
+  <rect x="232" y="62" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+  <text x="332" y="78" class="pill">NET INCOME</text>
+  <rect x="232" y="92" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+  <text x="332" y="108" class="pill">EARNINGS PER SHARE</text>
+  <rect x="232" y="122" width="200" height="24" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
+  <text x="332" y="138" class="pill">BOOK EQUITY</text>
+  <line x1="8" y1="158" x2="432" y2="158" class="axis"/>
+  <text x="108" y="176" text-anchor="middle" class="lbl">BEFORE INTEREST</text>
+  <text x="332" y="176" text-anchor="middle" class="lbl">AFTER INTEREST</text>
+</svg></div>
+    <p class="takeaway">Match the top of the ratio to whoever owns the bottom of it, before interest or after.</p>
+    <p class="answer">Ask who has a claim on the number in the denominator. Revenue, EBITDA and EBIT are all measured before interest is paid, so lenders and shareholders both still have a claim on them, and the numerator has to be enterprise value, the value of the whole business. Net income and earnings per share are what is left after lenders are paid, so they belong to shareholders alone and pair with equity value or share price. Market cap over EBITDA quietly compares a shareholder claim with a whole-company profit, and interviewers use exactly that mismatch to see whether you understand the bridge.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 7 of 20</div>
+    <h2>You&#x27;re building a comps page where one company is loaded with debt and another has none. Why lead with EV/EBITDA rather than P/E, and when would you still want the P/E column on the page?</h2>
+    <p class="takeaway">EV/EBITDA compares businesses whatever their debt load, P/E compares what shareholders keep after it.</p>
+    <p class="answer">EV/EBITDA takes debt out of both halves of the ratio, so a heavily borrowed company and a debt-free one can be judged on operating performance alone, which is why it usually leads an industrials or consumer comps page. P/E is not useless, though: it reflects interest and taxes, which is what an actual public shareholder experiences, and it is the default where borrowing is part of the operating model rather than a financing choice, such as banks and insurers, where EBITDA barely means anything. Most teams show both and are ready to explain the gap between them.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 8 of 20</div>
+    <h2>What is comparable company analysis (“comps”), and why do bankers reach for it before running a full DCF?</h2>
+    <p class="takeaway">Comps value a company by comparing it to similar public companies&#x27; current pricing.</p>
+    <p class="answer">Instead of building a value from scratch like a DCF does, comps anchor to what the market is already paying for similar businesses, typically using a ratio like EV/EBITDA or P/E, then apply that same multiple to the company being valued. It&#x27;s a relative valuation method: quicker to turn around for a pitch book than a DCF, and it reflects real market sentiment, for better or worse.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 9 of 20</div>
+    <h2>Your VP sends back the Northbay Logistics comps set saying it “isn&#x27;t clean.” What actually makes a company comparable, and what quietly disqualifies one?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .step{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+    .final{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;}
+  </style>
+  <text x="8" y="16" class="lbl">SCREENING DOWN TO A DEFENSIBLE SET</text>
+  <rect x="30" y="26" width="380" height="28" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="1.3"/>
+  <text x="220" y="45" class="step">SAME BROAD SECTOR</text>
+  <rect x="70" y="60" width="300" height="28" rx="6" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.3"/>
+  <text x="220" y="79" class="step">SAME WAY OF MAKING MONEY</text>
+  <rect x="105" y="94" width="230" height="28" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
+  <text x="220" y="113" class="step">SIMILAR SIZE, GROWTH, MARGIN</text>
+  <rect x="140" y="128" width="160" height="30" rx="6" fill="var(--amber)"/>
+  <text x="220" y="148" class="final">5 TO 6 NAMES</text>
+</svg></div>
+    <p class="takeaway">Good comps share a business model, size and growth profile, not just an industry label.</p>
+    <p class="answer">Start with what the company really does, its products, its customers and how it earns money, because two firms filed under the same industry code can run completely different businesses. Then screen on size, growth rate and profit margins, since a company growing twenty percent a year will always command a higher multiple than one growing two percent, and mixing the two widens the range until it says nothing. Geography and regulation matter for the same reason. Five or six names you can defend line by line beat fifteen you cannot when the client starts pushing.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 10 of 20</div>
+    <h2>Your VP asks why the precedent transaction multiples you pulled for the Bramwell &amp; Co. pitch are running higher than the trading comps for the same sector. What is precedent transactions analysis, and how does it differ from comps?</h2>
+    <p class="takeaway">Precedent transactions value a company using prices actually paid in past M&amp;A deals.</p>
+    <p class="answer">Unlike comps, which look at how similar companies trade on public markets day-to-day, this method looks at what acquirers have actually paid to buy similar businesses outright. Because acquisitions usually include a control premium (extra paid to gain control of the company), precedent transaction multiples tend to run higher than trading comps — which is exactly the gap your VP is asking about.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 11 of 20</div>
+    <h2>Your VP asks you to talk her through the DCF tab before tomorrow&#x27;s client call: why discount every year of projected free cash flow back to today instead of just adding the numbers up? What is a DCF actually doing?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .stem{stroke:var(--line-soft);stroke-width:1.5;}
+    .arc{fill:none;stroke:var(--blue);stroke-width:1.5;opacity:.55;}
+    .arc-tv{fill:none;stroke:var(--amber);stroke-width:1.5;opacity:.7;}
+  </style>
+  <rect x="14" y="60" width="96" height="50" rx="10" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="62" y="80" text-anchor="middle" class="lbl">VALUE</text>
+  <text x="62" y="96" text-anchor="middle" class="lbl-strong">TODAY</text>
+  <line x1="150" y1="140" x2="420" y2="140" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <path class="arc" d="M110,80 C150,60 170,120 180,138"/>
+  <path class="arc" d="M110,84 C160,70 210,118 232,138"/>
+  <path class="arc" d="M110,88 C180,80 250,116 284,138"/>
+  <path class="arc" d="M110,92 C200,95 300,114 336,138"/>
+  <path class="arc-tv" d="M110,96 C230,60 340,90 400,138"/>
+  <circle cx="180" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="232" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="284" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="336" cy="140" r="5" fill="var(--blue)"/>
+  <circle cx="400" cy="140" r="6" fill="var(--amber)"/>
+  <line x1="180" y1="140" x2="180" y2="150" class="stem"/>
+  <line x1="232" y1="140" x2="232" y2="150" class="stem"/>
+  <line x1="284" y1="140" x2="284" y2="150" class="stem"/>
+  <line x1="336" y1="140" x2="336" y2="150" class="stem"/>
+  <text x="180" y="163" text-anchor="middle" class="lbl">YR 1</text>
+  <text x="232" y="163" text-anchor="middle" class="lbl">YR 2</text>
+  <text x="284" y="163" text-anchor="middle" class="lbl">YR 3</text>
+  <text x="336" y="163" text-anchor="middle" class="lbl">YR 4</text>
+  <text x="400" y="163" text-anchor="middle" class="lbl" style="fill:var(--amber);">TERMINAL</text>
+</svg></div>
+    <p class="takeaway">A DCF says a company is worth all the cash it will ever generate, brought back to today&#x27;s dollars.</p>
+    <p class="answer">You forecast the company&#x27;s free cash flow for the next several years, then discount each year back to present value using a discount rate (usually WACC), since a dollar next year is worth less than a dollar today: it carries risk, and that same dollar could be earning a return elsewhere. Add those discounted years together, plus a terminal value for everything beyond the forecast window, and that sum is what lands in the model as today&#x27;s value.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 12 of 20</div>
+    <h2>Your MD asks you to sanity-check the WACC on the Ferrow Retail LBO model before the 9am call. What is WACC actually representing, and why does it belong in the discount rate?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
+    .pct{font:700 13px Arial;fill:#08080A;}
+  </style>
+  <text x="20" y="24" class="lbl">SOURCES OF CAPITAL</text>
+  <rect x="20" y="34" width="180" height="34" rx="6" fill="var(--blue)"/>
+  <text x="110" y="56" text-anchor="middle" class="pct">EQUITY · 70%</text>
+  <rect x="205" y="34" width="80" height="34" rx="6" fill="var(--amber)"/>
+  <text x="245" y="56" text-anchor="middle" class="pct">DEBT · 30%</text>
+  <line x1="60" y1="76" x2="60" y2="96" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <line x1="245" y1="76" x2="245" y2="96" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <path d="M60,96 C60,112 245,112 245,96" fill="none" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <line x1="152" y1="112" x2="152" y2="122" stroke="var(--line-soft)" stroke-width="1.5"/>
+  <rect x="72" y="122" width="160" height="26" rx="13" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/>
+  <text x="152" y="139" text-anchor="middle" class="lbl-strong" style="letter-spacing:.06em;">BLENDED WACC</text>
+</svg></div>
+    <p class="takeaway">WACC is the blended cost of a company&#x27;s money, part debt, part equity.</p>
+    <p class="answer">Every company funds itself with some mix of debt and equity, and each has a cost: debt costs interest (though it&#x27;s tax-deductible, making it effectively cheaper than its stated rate), equity costs the return shareholders expect. WACC blends those two costs, weighted by how much of each the company actually uses. It&#x27;s used as the discount rate in the model because it represents the minimum return Ferrow&#x27;s investments need to clear to be worth funding — if the WACC input is off, everything downstream is off with it.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 13 of 20</div>
+    <h2>An analyst discounted levered free cash flow at WACC and the VP called the output nonsense. Which cash flow pairs with which discount rate, and what does each one land you on?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 205" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .bx{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
+    .out{font:700 10.5px Arial;fill:var(--contrast);text-anchor:middle;}
+  </style>
+  <rect x="10" y="12" width="190" height="32" rx="7" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="105" y="32" class="bx">UNLEVERED FREE CASH FLOW</text>
+  <line x1="60" y1="44" x2="60" y2="84" class="axis"/>
+  <text x="70" y="68" class="lbl">DISCOUNT AT WACC</text>
+  <rect x="10" y="84" width="190" height="32" rx="7" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="105" y="104" class="bx">ENTERPRISE VALUE</text>
+  <line x1="60" y1="116" x2="60" y2="156" class="axis"/>
+  <text x="70" y="140" class="lbl">LESS NET DEBT</text>
+  <rect x="10" y="156" width="190" height="32" rx="7" fill="var(--blue)"/>
+  <text x="105" y="176" class="out">EQUITY VALUE</text>
+  <rect x="240" y="12" width="190" height="32" rx="7" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="335" y="32" class="bx">LEVERED FREE CASH FLOW</text>
+  <line x1="290" y1="44" x2="290" y2="156" class="axis"/>
+  <text x="300" y="96" class="lbl">DISCOUNT AT</text>
+  <text x="300" y="112" class="lbl">COST OF EQUITY</text>
+  <rect x="240" y="156" width="190" height="32" rx="7" fill="var(--amber)"/>
+  <text x="335" y="176" class="out">EQUITY VALUE</text>
+</svg></div>
+    <p class="takeaway">Unlevered cash flow at WACC gives enterprise value, levered cash flow at cost of equity gives equity value.</p>
+    <p class="answer">Unlevered free cash flow is the cash the business throws off before any interest is paid, so it belongs to lenders and shareholders together, and the matching rate is WACC, the blended cost of both. Discount it and you get enterprise value, then subtract net debt to reach equity value. Levered free cash flow is what remains after interest and debt repayments, so it belongs to shareholders alone and gets discounted at the cost of equity, landing directly on equity value. Discounting levered cash flow at WACC counts the benefit of debt twice, which is why the VP handed it straight back.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 14 of 20</div>
+    <h2>What is “terminal value” in a DCF, and why does it get so much scrutiny in a model review?</h2>
+    <p class="takeaway">Terminal value covers everything a business earns after the forecast period ends.</p>
+    <p class="answer">A DCF only forecasts explicitly for about 5–10 years, but the company is assumed to keep operating indefinitely beyond that. Terminal value estimates all of that remaining future in one lump sum, discounted back to today just like any other cash flow. It&#x27;s typically the single largest piece of a DCF&#x27;s total value — which is exactly why an MD will push hard on the assumptions behind it, a long-run growth rate or an exit multiple, before a number goes in front of a client.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 15 of 20</div>
+    <h2>What are the two ways to calculate terminal value, and how do you check that they agree with each other?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
+    .fx{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
+  </style>
+  <rect x="8" y="14" width="196" height="94" rx="9" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="106" y="36" class="hd">PERPETUITY GROWTH</text>
+  <text x="106" y="66" class="fx">FINAL FCF × (1 + g)</text>
+  <line x1="46" y1="74" x2="166" y2="74" class="axis"/>
+  <text x="106" y="92" class="fx">WACC − g</text>
+  <rect x="236" y="14" width="196" height="94" rx="9" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="334" y="36" class="hd">EXIT MULTIPLE</text>
+  <text x="334" y="68" class="fx">FINAL YEAR EBITDA</text>
+  <text x="334" y="90" class="fx">× COMPS MULTIPLE</text>
+  <path d="M204,128 L236,128" class="axis"/>
+  <path d="M204,123 L194,128 L204,133 Z" fill="var(--line-soft)"/>
+  <path d="M236,123 L246,128 L236,133 Z" fill="var(--line-soft)"/>
+  <text x="220" y="156" text-anchor="middle" class="lbl">EACH ONE CHECKS THE OTHER</text>
+</svg></div>
+    <p class="takeaway">Grow the last cash flow forever, or assume you sell the business at a market multiple.</p>
+    <p class="answer">The perpetuity growth method assumes the final forecast year&#x27;s free cash flow keeps growing at a modest constant rate forever, usually somewhere near long-run inflation or economy-wide growth, and capitalises it at the discount rate less that growth rate. The exit multiple method instead assumes the business is sold at the end of the forecast for a multiple of its final-year EBITDA, normally taken from the comps set. Teams usually run one as the primary and back into the other as a check: if a two percent growth rate implies a 25 times exit multiple, one of the two assumptions is wrong.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 16 of 20</div>
+    <h2>Before the Corrigan Foods model goes into the deck your associate asks you to “add the grid.” What is a sensitivity table, and which two inputs almost always sit on its axes?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .cell{font:600 12px Arial;fill:var(--ink-soft);text-anchor:middle;}
+    .base{font:700 12px Arial;fill:var(--contrast);text-anchor:middle;}
+    .hd{font:600 10px Arial;fill:var(--ink);text-anchor:middle;}
+  </style>
+  <text x="110" y="18" class="lbl">DISCOUNT RATE</text>
+  <text x="8" y="46" class="lbl">GROWTH</text>
+  <text x="164" y="46" class="hd">8.0%</text>
+  <text x="272" y="46" class="hd">8.75%</text>
+  <text x="380" y="46" class="hd">9.5%</text>
+  <rect x="110" y="56" width="324" height="108" rx="6" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
+  <rect x="218" y="92" width="108" height="36" fill="var(--amber)"/>
+  <line x1="218" y1="56" x2="218" y2="164" class="axis"/>
+  <line x1="326" y1="56" x2="326" y2="164" class="axis"/>
+  <line x1="110" y1="92" x2="434" y2="92" class="axis"/>
+  <line x1="110" y1="128" x2="434" y2="128" class="axis"/>
+  <text x="100" y="79" text-anchor="end" class="hd">1.5%</text>
+  <text x="164" y="79" class="cell">$58</text>
+  <text x="272" y="79" class="cell">$52</text>
+  <text x="380" y="79" class="cell">$47</text>
+  <text x="100" y="115" text-anchor="end" class="hd">2.25%</text>
+  <text x="164" y="115" class="cell">$66</text>
+  <text x="272" y="115" class="base">$58</text>
+  <text x="380" y="115" class="cell">$52</text>
+  <text x="100" y="151" text-anchor="end" class="hd">3.0%</text>
+  <text x="164" y="151" class="cell">$77</text>
+  <text x="272" y="151" class="cell">$67</text>
+  <text x="380" y="151" class="cell">$59</text>
+  <text x="434" y="176" text-anchor="end" class="lbl" style="fill:var(--amber);">BASE CASE</text>
+</svg></div>
+    <p class="takeaway">A sensitivity table shows how far the answer moves when the two shakiest assumptions move.</p>
+    <p class="answer">A sensitivity table re-runs the whole DCF across a grid of values for two inputs and prints the resulting per-share values in a matrix. The two axes are nearly always the discount rate and whichever terminal value assumption you used, the long-run growth rate or the exit multiple, because those are the inputs the answer moves most on and the ones a client will challenge first. Watching the value swing from forty-seven dollars to seventy-seven across a perfectly plausible grid tells you far more than the base case alone, and that spread is what becomes the DCF bar on the valuation page.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 17 of 20</div>
+    <h2>In the elevator an MD asks you to rank a DCF, trading comps and precedent transactions from highest value to lowest. What do you say, and what do you refuse to commit to?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    .hd{font:700 10.5px Arial;fill:var(--contrast);text-anchor:middle;}
+    .cell{font:600 9.5px Arial;fill:var(--ink);text-anchor:middle;}
+    .rw{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;}
+  </style>
+  <rect x="96" y="10" width="106" height="26" rx="6" fill="var(--blue)"/>
+  <text x="149" y="28" class="hd">DCF</text>
+  <rect x="210" y="10" width="106" height="26" rx="6" fill="var(--amber)"/>
+  <text x="263" y="28" class="hd">TRADING COMPS</text>
+  <rect x="324" y="10" width="106" height="26" rx="6" fill="var(--green)"/>
+  <text x="377" y="28" class="hd">PRECEDENTS</text>
+  <text x="8" y="62" class="rw">BUILT FROM</text>
+  <text x="149" y="62" class="cell">YOUR FORECAST</text>
+  <text x="263" y="62" class="cell">MARKET PRICES</text>
+  <text x="377" y="62" class="cell">DEALS DONE</text>
+  <line x1="8" y1="76" x2="432" y2="76" class="axis"/>
+  <text x="8" y="104" class="rw">STAKE PRICED</text>
+  <text x="149" y="104" class="cell">WHOLE BUSINESS</text>
+  <text x="263" y="104" class="cell">SMALL STAKE</text>
+  <text x="377" y="104" class="cell">WHOLE COMPANY</text>
+  <line x1="8" y1="118" x2="432" y2="118" class="axis"/>
+  <text x="8" y="146" class="rw">CONTROL PREMIUM</text>
+  <text x="149" y="146" class="cell">NOT INCLUDED</text>
+  <text x="263" y="146" class="cell">NOT INCLUDED</text>
+  <text x="377" y="146" class="cell">INCLUDED</text>
+  <line x1="8" y1="160" x2="432" y2="160" class="axis"/>
+  <text x="8" y="178" class="rw">USUAL LEVEL</text>
+  <text x="149" y="178" class="cell" style="fill:var(--blue);">ANYWHERE</text>
+  <text x="263" y="178" class="cell" style="fill:var(--amber);">LOWER</text>
+  <text x="377" y="178" class="cell" style="fill:var(--green);">HIGHER</text>
+</svg></div>
+    <p class="takeaway">Precedents normally sit above comps because of the control premium, and a DCF can land anywhere.</p>
+    <p class="answer">Trading comps and precedent transactions both price a company off other companies, but comps use daily market prices for small stakes while precedents use prices paid for whole companies, which carry a control premium, so precedents sit above comps as a rule. The DCF is the one you should not commit to: it is built from your own forecasts rather than the market&#x27;s, so it can land above or below either, though in practice it often comes in high because management projections are optimistic. Naming the reliable ordering and flagging the DCF as assumption-driven is the answer that survives a follow-up.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 18 of 20</div>
+    <h2>Before the Corrigan Foods pitch book goes to print, your MD asks why the valuation page shows a range instead of one clean number. Why does a valuation usually get presented as a range (a “football field”) rather than a single number?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 158" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    .axislbl{font:600 9px Arial;fill:var(--ink-faint);}
+  </style>
+  <text x="0" y="14" class="lbl">DCF</text>
+  <rect x="90" y="4" width="150" height="18" rx="9" fill="var(--blue)" opacity="0.85"/>
+  <text x="0" y="46" class="lbl">COMPS</text>
+  <rect x="60" y="36" width="170" height="18" rx="9" fill="var(--amber)" opacity="0.85"/>
+  <text x="0" y="78" class="lbl">PRECEDENT</text>
+  <rect x="130" y="68" width="180" height="18" rx="9" fill="var(--green)" opacity="0.85"/>
+  <line x1="120" y1="100" x2="120" y2="122" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="260" y1="100" x2="260" y2="122" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="120" y="122" width="140" height="18" rx="9" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="190" y="152" text-anchor="middle" class="axislbl">CONVERGED RANGE</text>
+</svg></div>
+    <p class="takeaway">A valuation range, not one number, because every method rests on assumptions that can shift.</p>
+    <p class="answer">Growth rates, discount rates, which comps are truly comparable: small changes in any of these assumptions can shift the output meaningfully. Presenting a range across multiple methods (DCF, comps, precedent transactions) is more honest about that uncertainty than putting one falsely precise number in front of a client.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 19 of 20</div>
+    <h2>An interviewer says Ferrow Retail raises $200 million of new debt and leaves every dollar of it sitting in the bank. What happens to its enterprise value, and what happens to its equity value?</h2>
+    <p class="takeaway">Neither one moves, because the new debt and the new cash cancel inside the bridge.</p>
+    <p class="answer">Enterprise value is equity value plus debt minus cash, so raising two hundred million adds two hundred million to the debt line and exactly the same amount to the cash line, and the two offset: enterprise value is unchanged. Equity value does not move either, since shareholders own the same operating business plus a pile of cash the company also owes. The point being tested is that enterprise value measures the operating business itself, so a pure financing decision cannot create or destroy it. The honest nuance to add is that if investors expect the cash to be wasted, the share price can still fall.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 20 of 20</div>
+    <h2>A junior hands you a DCF whose output lands suspiciously close to the number the client was hoping for. Where does a DCF usually get pushed, and what do you check first?</h2>
+    <p class="takeaway">Check what share of value sits in terminal value, then the growth rate and the margin ramp.</p>
+    <p class="answer">The three easiest places to bend a DCF are the long-run growth rate, the exit multiple and the final-year operating margin, because each is a single cell that moves the answer a lot and is hard to disprove. Start with how much of the total value sits in terminal value: much above roughly eighty percent and the forecast years are barely doing any work, so the model is really one assumption wearing a spreadsheet. Then check that the growth rate is not above long-run economic growth, which would have the company eventually swallowing the economy, and that margin expansion has a reason behind it rather than a straight line.</p>
+  </article>
+  <div class="cta-band">
+    <p>Reading is not the same as remembering. Study this deck with scheduled review so the cards come back before you forget them.</p>
+    <a class="btn" href="https://viewprep.net/?deck=valuation">Study Valuation Basics</a>
+  </div>
+  <h2 class="track">More investment banking decks</h2>
+  <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">20 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does it actually mean to say a company is worth $400 million, and how can two serious buyers look at the same business and land on very different numbers?", "acceptedAnswer": {"@type": "Answer", "text": "A company is worth the future cash it produces, so buyers differ whenever their forecasts differ. Valuing a company means estimating what someone should rationally pay today for the right to everything the business earns from here on. Two buyers can both be rigorous and still disagree, because that estimate rests on forecasts nobody can verify: how fast the business grows, how risky its cash flows feel, and what each buyer could do with the company once they own it. A rival in the same industry who can strip out duplicate warehouses honestly sees more value than a passive investor who changes nothing. That is why this work produces a defensible range, not a fact."}}, {"@type": "Question", "name": "A first-year tells you Calder Foods “trades at 9 times.” Nine times what, and what is a multiple actually telling you?", "acceptedAnswer": {"@type": "Answer", "text": "A multiple is a price per dollar of annual profit, which lets you compare companies of any size. A multiple is just a ratio: what a company is valued at, divided by some measure of what it produces in a year, usually a profit figure. If Calder is valued at $900 million and earns $100 million of operating profit a year, that is 9 times, meaning a buyer is paying nine dollars for every dollar of annual profit. Dividing by profit strips size out of the comparison, so a $900 million company and a $4.5 billion one can sit in the same table. A higher multiple usually means the market expects faster growth or sees less risk."}}, {"@type": "Question", "name": "Marlstone Capital is evaluating a buyout of Ferrow Retail and wants to know the total price tag versus what's left for shareholders. What's the difference between enterprise value and equity value?", "acceptedAnswer": {"@type": "Answer", "text": "Enterprise value is the whole business; equity value is just the shareholders' slice. Enterprise value represents the value of the whole business — what Marlstone would need to pay to acquire Ferrow outright, including taking on its debt and stripping out its cash. Equity value is just the value belonging to shareholders (what market cap represents). The bridge between them: enterprise value = equity value + debt − cash."}}, {"@type": "Question", "name": "A client asks why your team is quoting Halsey Aerospace's value on an EV/EBITDA basis instead of just comparing share prices. What does EV/EBITDA measure, and why use enterprise value instead of market cap?", "acceptedAnswer": {"@type": "Answer", "text": "EV/EBITDA compares total company value to operating earnings, ignoring how the company is financed. Enterprise value is used instead of market cap because it also accounts for debt and cash, making it possible to compare companies fairly even when they have very different capital structures: market cap alone ignores how much of the business is funded by debt. EBITDA (earnings before interest, taxes, depreciation and amortization) strips out financing and accounting choices, so you're comparing pure operating performance, which is exactly why the multiple travels well across a set of comps."}}, {"@type": "Question", "name": "What is a P/E ratio, and what does a high P/E typically signal to a banker sizing up a target?", "acceptedAnswer": {"@type": "Answer", "text": "P/E shows how much investors pay today for each dollar the company currently earns. The price-to-earnings ratio divides a company's share price by its earnings per share. A high P/E usually signals that the market expects strong future earnings growth, since investors are willing to pay more today for the same current profit; it can also simply mean the target is overvalued relative to its fundamentals, so P/E alone doesn't tell you which story is true."}}, {"@type": "Question", "name": "Your associate drops a metric you've never used, EV/EBIT, into the comps tab and asks whether the numerator should be enterprise value or share price. How do you decide which metrics pair with which?", "acceptedAnswer": {"@type": "Answer", "text": "Match the top of the ratio to whoever owns the bottom of it, before interest or after. Ask who has a claim on the number in the denominator. Revenue, EBITDA and EBIT are all measured before interest is paid, so lenders and shareholders both still have a claim on them, and the numerator has to be enterprise value, the value of the whole business. Net income and earnings per share are what is left after lenders are paid, so they belong to shareholders alone and pair with equity value or share price. Market cap over EBITDA quietly compares a shareholder claim with a whole-company profit, and interviewers use exactly that mismatch to see whether you understand the bridge."}}, {"@type": "Question", "name": "You're building a comps page where one company is loaded with debt and another has none. Why lead with EV/EBITDA rather than P/E, and when would you still want the P/E column on the page?", "acceptedAnswer": {"@type": "Answer", "text": "EV/EBITDA compares businesses whatever their debt load, P/E compares what shareholders keep after it. EV/EBITDA takes debt out of both halves of the ratio, so a heavily borrowed company and a debt-free one can be judged on operating performance alone, which is why it usually leads an industrials or consumer comps page. P/E is not useless, though: it reflects interest and taxes, which is what an actual public shareholder experiences, and it is the default where borrowing is part of the operating model rather than a financing choice, such as banks and insurers, where EBITDA barely means anything. Most teams show both and are ready to explain the gap between them."}}, {"@type": "Question", "name": "What is comparable company analysis (“comps”), and why do bankers reach for it before running a full DCF?", "acceptedAnswer": {"@type": "Answer", "text": "Comps value a company by comparing it to similar public companies' current pricing. Instead of building a value from scratch like a DCF does, comps anchor to what the market is already paying for similar businesses, typically using a ratio like EV/EBITDA or P/E, then apply that same multiple to the company being valued. It's a relative valuation method: quicker to turn around for a pitch book than a DCF, and it reflects real market sentiment, for better or worse."}}, {"@type": "Question", "name": "Your VP sends back the Northbay Logistics comps set saying it “isn't clean.” What actually makes a company comparable, and what quietly disqualifies one?", "acceptedAnswer": {"@type": "Answer", "text": "Good comps share a business model, size and growth profile, not just an industry label. Start with what the company really does, its products, its customers and how it earns money, because two firms filed under the same industry code can run completely different businesses. Then screen on size, growth rate and profit margins, since a company growing twenty percent a year will always command a higher multiple than one growing two percent, and mixing the two widens the range until it says nothing. Geography and regulation matter for the same reason. Five or six names you can defend line by line beat fifteen you cannot when the client starts pushing."}}, {"@type": "Question", "name": "Your VP asks why the precedent transaction multiples you pulled for the Bramwell & Co. pitch are running higher than the trading comps for the same sector. What is precedent transactions analysis, and how does it differ from comps?", "acceptedAnswer": {"@type": "Answer", "text": "Precedent transactions value a company using prices actually paid in past M&A deals. Unlike comps, which look at how similar companies trade on public markets day-to-day, this method looks at what acquirers have actually paid to buy similar businesses outright. Because acquisitions usually include a control premium (extra paid to gain control of the company), precedent transaction multiples tend to run higher than trading comps — which is exactly the gap your VP is asking about."}}, {"@type": "Question", "name": "Your VP asks you to talk her through the DCF tab before tomorrow's client call: why discount every year of projected free cash flow back to today instead of just adding the numbers up? What is a DCF actually doing?", "acceptedAnswer": {"@type": "Answer", "text": "A DCF says a company is worth all the cash it will ever generate, brought back to today's dollars. You forecast the company's free cash flow for the next several years, then discount each year back to present value using a discount rate (usually WACC), since a dollar next year is worth less than a dollar today: it carries risk, and that same dollar could be earning a return elsewhere. Add those discounted years together, plus a terminal value for everything beyond the forecast window, and that sum is what lands in the model as today's value."}}, {"@type": "Question", "name": "Your MD asks you to sanity-check the WACC on the Ferrow Retail LBO model before the 9am call. What is WACC actually representing, and why does it belong in the discount rate?", "acceptedAnswer": {"@type": "Answer", "text": "WACC is the blended cost of a company's money, part debt, part equity. Every company funds itself with some mix of debt and equity, and each has a cost: debt costs interest (though it's tax-deductible, making it effectively cheaper than its stated rate), equity costs the return shareholders expect. WACC blends those two costs, weighted by how much of each the company actually uses. It's used as the discount rate in the model because it represents the minimum return Ferrow's investments need to clear to be worth funding — if the WACC input is off, everything downstream is off with it."}}, {"@type": "Question", "name": "An analyst discounted levered free cash flow at WACC and the VP called the output nonsense. Which cash flow pairs with which discount rate, and what does each one land you on?", "acceptedAnswer": {"@type": "Answer", "text": "Unlevered cash flow at WACC gives enterprise value, levered cash flow at cost of equity gives equity value. Unlevered free cash flow is the cash the business throws off before any interest is paid, so it belongs to lenders and shareholders together, and the matching rate is WACC, the blended cost of both. Discount it and you get enterprise value, then subtract net debt to reach equity value. Levered free cash flow is what remains after interest and debt repayments, so it belongs to shareholders alone and gets discounted at the cost of equity, landing directly on equity value. Discounting levered cash flow at WACC counts the benefit of debt twice, which is why the VP handed it straight back."}}, {"@type": "Question", "name": "What is “terminal value” in a DCF, and why does it get so much scrutiny in a model review?", "acceptedAnswer": {"@type": "Answer", "text": "Terminal value covers everything a business earns after the forecast period ends. A DCF only forecasts explicitly for about 5–10 years, but the company is assumed to keep operating indefinitely beyond that. Terminal value estimates all of that remaining future in one lump sum, discounted back to today just like any other cash flow. It's typically the single largest piece of a DCF's total value — which is exactly why an MD will push hard on the assumptions behind it, a long-run growth rate or an exit multiple, before a number goes in front of a client."}}, {"@type": "Question", "name": "What are the two ways to calculate terminal value, and how do you check that they agree with each other?", "acceptedAnswer": {"@type": "Answer", "text": "Grow the last cash flow forever, or assume you sell the business at a market multiple. The perpetuity growth method assumes the final forecast year's free cash flow keeps growing at a modest constant rate forever, usually somewhere near long-run inflation or economy-wide growth, and capitalises it at the discount rate less that growth rate. The exit multiple method instead assumes the business is sold at the end of the forecast for a multiple of its final-year EBITDA, normally taken from the comps set. Teams usually run one as the primary and back into the other as a check: if a two percent growth rate implies a 25 times exit multiple, one of the two assumptions is wrong."}}, {"@type": "Question", "name": "Before the Corrigan Foods model goes into the deck your associate asks you to “add the grid.” What is a sensitivity table, and which two inputs almost always sit on its axes?", "acceptedAnswer": {"@type": "Answer", "text": "A sensitivity table shows how far the answer moves when the two shakiest assumptions move. A sensitivity table re-runs the whole DCF across a grid of values for two inputs and prints the resulting per-share values in a matrix. The two axes are nearly always the discount rate and whichever terminal value assumption you used, the long-run growth rate or the exit multiple, because those are the inputs the answer moves most on and the ones a client will challenge first. Watching the value swing from forty-seven dollars to seventy-seven across a perfectly plausible grid tells you far more than the base case alone, and that spread is what becomes the DCF bar on the valuation page."}}, {"@type": "Question", "name": "In the elevator an MD asks you to rank a DCF, trading comps and precedent transactions from highest value to lowest. What do you say, and what do you refuse to commit to?", "acceptedAnswer": {"@type": "Answer", "text": "Precedents normally sit above comps because of the control premium, and a DCF can land anywhere. Trading comps and precedent transactions both price a company off other companies, but comps use daily market prices for small stakes while precedents use prices paid for whole companies, which carry a control premium, so precedents sit above comps as a rule. The DCF is the one you should not commit to: it is built from your own forecasts rather than the market's, so it can land above or below either, though in practice it often comes in high because management projections are optimistic. Naming the reliable ordering and flagging the DCF as assumption-driven is the answer that survives a follow-up."}}, {"@type": "Question", "name": "Before the Corrigan Foods pitch book goes to print, your MD asks why the valuation page shows a range instead of one clean number. Why does a valuation usually get presented as a range (a “football field”) rather than a single number?", "acceptedAnswer": {"@type": "Answer", "text": "A valuation range, not one number, because every method rests on assumptions that can shift. Growth rates, discount rates, which comps are truly comparable: small changes in any of these assumptions can shift the output meaningfully. Presenting a range across multiple methods (DCF, comps, precedent transactions) is more honest about that uncertainty than putting one falsely precise number in front of a client."}}, {"@type": "Question", "name": "An interviewer says Ferrow Retail raises $200 million of new debt and leaves every dollar of it sitting in the bank. What happens to its enterprise value, and what happens to its equity value?", "acceptedAnswer": {"@type": "Answer", "text": "Neither one moves, because the new debt and the new cash cancel inside the bridge. Enterprise value is equity value plus debt minus cash, so raising two hundred million adds two hundred million to the debt line and exactly the same amount to the cash line, and the two offset: enterprise value is unchanged. Equity value does not move either, since shareholders own the same operating business plus a pile of cash the company also owes. The point being tested is that enterprise value measures the operating business itself, so a pure financing decision cannot create or destroy it. The honest nuance to add is that if investors expect the cash to be wasted, the share price can still fall."}}, {"@type": "Question", "name": "A junior hands you a DCF whose output lands suspiciously close to the number the client was hoping for. Where does a DCF usually get pushed, and what do you check first?", "acceptedAnswer": {"@type": "Answer", "text": "Check what share of value sits in terminal value, then the growth rate and the margin ramp. The three easiest places to bend a DCF are the long-run growth rate, the exit multiple and the final-year operating margin, because each is a single cell that moves the answer a lot and is hard to disprove. Start with how much of the total value sits in terminal value: much above roughly eighty percent and the forecast years are barely doing any work, so the model is really one assumption wearing a spreadsheet. Then check that the growth rate is not above long-run economic growth, which would have the company eventually swallowing the economy, and that margin expansion has a reason behind it rather than a straight line."}}]}</script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/?deck=valuation">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>
