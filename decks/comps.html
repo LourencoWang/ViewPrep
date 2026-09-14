@@ -170,54 +170,275 @@
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is comparable companies analysis, and what question is it actually answering?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Trading comps in four moves</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Choose</text>
+  <text x="47" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">peers</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Gather EV</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">and earnings</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Calculate</text>
+  <text x="278" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">multiples</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Apply to</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">your company</text>
+</svg></div>
     <p class="takeaway">Comps value a company by asking what the market pays for similar businesses today.</p>
     <p class="answer">Comparable companies analysis, or trading comps, values a company by looking at how the stock market prices similar listed companies. You take a set of peers, work out what multiple of earnings or EBITDA each trades at, and apply that range to your company&#x27;s own numbers. The question it answers is not what the company is worth in some absolute sense but what investors would pay for it today, given what they pay for its rivals. That makes it a market-based method, quick and grounded in real prices, but only as good as the peer group and the day you run it.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>How do you choose the peer group, and why is it the step that matters most?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="12" y="24" class="lbl-strong" style="fill:var(--green)">Good peer</text>
+  <text x="12" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Same products, same customers</text>
+  <text x="12" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Similar size and geography</text>
+  <text x="12" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Similar growth and margins</text>
+  <text x="12" y="90" class="cap" style="font-size:10px;fill:var(--ink)">Listed, with clean numbers</text>
+  <rect x="226" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="238" y="24" class="lbl-strong" style="fill:var(--amber)">Bad peer</text>
+  <text x="238" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Same sector, different model</text>
+  <text x="238" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Ten times the size</text>
+  <text x="238" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Growing 20% vs your 3%</text>
+  <text x="238" y="90" class="cap" style="font-size:10px;fill:var(--ink)">Loss-making or being acquired</text>
+</svg></div>
     <p class="takeaway">Same industry, similar size, similar growth and margins; the multiple only means something if the peers really are alike.</p>
     <p class="answer">Start with companies in the same business, selling similar products to similar customers. Then narrow by size, geography, growth rate and margin, because a company growing at 20% a year will trade at a higher multiple than one growing at 3% even if they make the same thing. Five to ten names is typical. The peer group matters most because every number that follows is inherited from it: if you put a fast-growing US software company in the set for a slow UK one, your valuation will be wrong before you calculate anything. Interviewers often ask which peers you would pick and why, not how to do the maths.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What is enterprise value, and how is it different from market capitalisation?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">The price of the whole business, whoever funded it</text>
+  <rect x="0" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="38" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Market</text>
+  <text x="38" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">cap</text>
+  <text x="98" y="76" text-anchor="middle" class="op">+</text>
+  <rect x="122" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="159" y="73" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Debt</text>
+  <text x="220" y="76" text-anchor="middle" class="op">−</text>
+  <rect x="243" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="281" y="73" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Cash</text>
+  <text x="342" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="364" y="38" width="76" height="62" rx="8" fill="var(--ink)"/>
+  <text x="402" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Enterprise</text>
+  <text x="402" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">value</text>
+</svg></div>
     <p class="takeaway">Market cap is the value of the equity; enterprise value is the value of the whole business, debt included, cash netted off.</p>
     <p class="answer">Market capitalisation is the share price times the number of shares: what the equity is worth. Enterprise value adds net debt, plus minority interests and preferred stock if there are any, and subtracts cash. It is the price of the entire operating business, regardless of who funded it. If you bought all of Bramwell &amp; Co.&#x27;s shares for £500m and took on its £200m of debt, the business cost you £700m, minus whatever cash was in the bank. Enterprise value is what you compare across companies with different amounts of debt, because it does not change when a company borrows to buy back shares.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>Why must enterprise value multiples use metrics before interest, and equity multiples use metrics after it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Match numerator to denominator</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Value</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">Pair with</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">Why</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Enterprise value</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">EBITDA, EBIT, sales</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">earned before interest</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Equity value</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">Net income</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">left after interest</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">EV ÷ net income</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">✗ never</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">mixes the two</text>
+</svg></div>
     <p class="takeaway">Match the numerator to the denominator: whole-business value goes over whole-business profit, equity value over equity profit.</p>
     <p class="answer">EBITDA and EBIT are earned by the business before lenders take their interest, so they belong to both debt and equity holders. Enterprise value is the value belonging to both, so EV/EBITDA lines up. Net income is what is left after interest, so it belongs only to shareholders, and market cap is the value of what shareholders own, so P/E lines up. Cross them and the ratio is meaningless: EV over net income compares a whole-business value with a shareholders-only profit, and a company with more debt would look cheaper for no real reason. Mixing them is the most common comps mistake and a standard interview trap.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>What is EV/EBITDA, and why is it the multiple bankers reach for first?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">EV/EBITDA sits above what differs between peers</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">EBITDA</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">− D&amp;A</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">= EBIT</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">− Interest</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">− Tax</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">= Net income</text>
+</svg></div>
     <p class="takeaway">It compares whole-business value with cash operating profit, so it works across companies with different debt, tax and depreciation.</p>
     <p class="answer">EV/EBITDA is enterprise value divided by earnings before interest, tax, depreciation and amortisation. Because EBITDA sits above interest, it ignores how the company is financed; because it sits above tax, it ignores differences in tax rates and jurisdictions; because it sits above depreciation, it ignores differences in how old the assets are and how they are accounted for. That makes it the fairest comparison across a peer group, and usable even when a company makes an accounting loss. Its weakness is the same as its strength: it ignores capital spending, so a business that has to reinvest heavily looks better than it is.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>When would you use P/E, EV/Sales, or EV/EBIT instead of EV/EBITDA?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 124" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <rect x="0" y="6" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="21" text-anchor="start" class="lbl">Multiple</text>
+  <text x="275" y="21" text-anchor="middle" class="lbl">Use it for</text>
+  <line x1="0" y1="50" x2="440" y2="50" class="axis"/>
+  <text x="6" y="43" text-anchor="start" class="lbl-strong" style="font-size:10.5px">EV / EBITDA</text>
+  <text x="275" y="43" text-anchor="middle" class="val" style="font-size:10.5px">most companies; ignores financing, tax, asset age</text>
+  <line x1="0" y1="72" x2="440" y2="72" class="axis"/>
+  <text x="6" y="65" text-anchor="start" class="lbl-strong" style="font-size:10.5px">P / E</text>
+  <text x="275" y="65" text-anchor="middle" class="val" style="font-size:10.5px">stable, profitable firms; banks</text>
+  <line x1="0" y1="94" x2="440" y2="94" class="axis"/>
+  <text x="6" y="87" text-anchor="start" class="lbl-strong" style="font-size:10.5px">EV / Sales</text>
+  <text x="275" y="87" text-anchor="middle" class="val" style="font-size:10.5px">no profits yet</text>
+  <line x1="0" y1="116" x2="440" y2="116" class="axis"/>
+  <text x="6" y="109" text-anchor="start" class="lbl-strong" style="font-size:10.5px">EV / EBIT</text>
+  <text x="275" y="109" text-anchor="middle" class="val" style="font-size:10.5px">peers with different capital intensity</text>
+</svg></div>
     <p class="takeaway">P/E for stable, profitable companies where equity investors think in earnings; EV/Sales when there are no profits; EV/EBIT when capital intensity differs.</p>
     <p class="answer">P/E is the multiple equity investors and the financial press use, and it works well for mature, profitable companies with similar capital structures, like banks, where EBITDA is meaningless anyway. EV/Sales is the fallback for companies with no profits yet, like early-stage tech or a turnaround, though it says nothing about whether the sales will ever make money. EV/EBIT is better than EV/EBITDA when peers differ in how much they spend on assets, because depreciation is a real cost of running a capital-heavy business. Some industries have their own: price per subscriber, EV per bed, EV per tonne of capacity.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>What does LTM mean, and why do analysts show both LTM and forward multiples?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Same price, higher forecast earnings: ~40% growth expected</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="44" width="56" height="102" rx="4" fill="var(--amber)"/>
+  <text x="110" y="39" text-anchor="middle" class="val">20x</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">LTM</text>
+  <text x="110" y="171" text-anchor="middle" class="lbl">multiple</text>
+  <rect x="302" y="75" width="56" height="71" rx="4" fill="var(--blue)"/>
+  <text x="330" y="70" text-anchor="middle" class="val">14x</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">Forward</text>
+  <text x="330" y="171" text-anchor="middle" class="lbl">multiple</text>
+</svg></div>
     <p class="takeaway">LTM is the last twelve months of actual results; forward multiples use next year&#x27;s forecasts, which is what buyers actually pay for.</p>
     <p class="answer">LTM, last twelve months, means the four most recent quarters added together, so the figure is actual and up to date rather than tied to a financial year end. Forward multiples divide today&#x27;s value by forecast earnings for the next year or two, usually the average of analysts&#x27; estimates. Investors pay for the future, so forward multiples are usually the more relevant, especially for fast-growing companies whose LTM numbers understate them. Showing both makes the growth visible: a company at 20x LTM and 14x forward is expected to grow earnings by about 40%.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>What does it mean to normalise or adjust a company&#x27;s earnings before running comps?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Calder Foods: add back the one-off before applying a multiple</text>
+  <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
+  <rect x="47" y="71" width="52" height="85" rx="3" fill="var(--ink)"/>
+  <text x="73" y="66" text-anchor="middle" class="val">50</text>
+  <text x="73" y="170" text-anchor="middle" class="lbl">Reported</text>
+  <text x="73" y="181" text-anchor="middle" class="lbl">EBITDA</text>
+  <rect x="194" y="46" width="52" height="25" rx="3" fill="var(--green)"/>
+  <text x="220" y="41" text-anchor="middle" class="val">+15</text>
+  <text x="220" y="170" text-anchor="middle" class="lbl">Legal</text>
+  <text x="220" y="181" text-anchor="middle" class="lbl">settlement</text>
+  <rect x="341" y="46" width="52" height="110" rx="3" fill="var(--ink)"/>
+  <text x="367" y="41" text-anchor="middle" class="val">65</text>
+  <text x="367" y="170" text-anchor="middle" class="lbl">Underlying</text>
+  <text x="367" y="181" text-anchor="middle" class="lbl">EBITDA</text>
+</svg></div>
     <p class="takeaway">Strip out one-off items so the multiple reflects what the business earns in a normal year.</p>
     <p class="answer">Reported earnings often include things that will not repeat: a restructuring charge, a gain on selling a building, litigation costs, an impairment. If Calder Foods reported EBITDA of £50m including a £15m one-off legal settlement, its underlying earning power is £65m, and applying a peer multiple to £50m would undervalue it. Normalising means removing those items so every company in the set is compared on a recurring basis. Companies publish their own adjusted figures, but they tend to be generous about what counts as one-off, so analysts form their own view.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>You have a peer range of 8x to 12x EV/EBITDA. How do you decide where in the range your company sits?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Where in the peer range does your company sit?</text>
+  <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
+  <text x="20" y="78" class="lbl">8x  low end</text>
+  <text x="420" y="78" text-anchor="end" class="lbl">12x  high end</text>
+  <circle cx="80" cy="52" r="7" fill="var(--amber)"/>
+  <text x="80" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">slower, riskier</text>
+  <circle cx="220" cy="52" r="7" fill="var(--blue)"/>
+  <text x="220" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">median peer</text>
+  <circle cx="360" cy="52" r="7" fill="var(--green)"/>
+  <text x="360" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">faster, better margins</text>
+</svg></div>
     <p class="takeaway">Compare growth, margins, scale and risk against the peers; better than the median means above the median.</p>
     <p class="answer">The range is the starting point, not the answer. Line your company up against the peers on the things that drive multiples: revenue growth, margins, size, market position and risk. If it is growing faster with better margins than the median peer, it deserves a multiple toward the top of the range; if it is smaller, slower or riskier, toward the bottom. Then apply a narrower band, say 9x to 11x, to the company&#x27;s EBITDA to get an enterprise value range, and subtract net debt to get equity value. Interviewers care about this reasoning far more than the arithmetic.</p>
   </article>
@@ -230,6 +451,27 @@
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>What is the difference between trading comps and precedent transactions?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">The control premium: precedents run 20–40% higher</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="70" width="56" height="76" rx="4" fill="var(--blue)"/>
+  <text x="110" y="64" text-anchor="middle" class="val">9x</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">Trading</text>
+  <text x="110" y="171" text-anchor="middle" class="lbl">comps</text>
+  <rect x="302" y="44" width="56" height="102" rx="4" fill="var(--amber)"/>
+  <text x="330" y="39" text-anchor="middle" class="val">12x</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">Precedent</text>
+  <text x="330" y="171" text-anchor="middle" class="lbl">transactions</text>
+</svg></div>
     <p class="takeaway">Trading comps use stock-market prices for similar companies; precedents use prices paid in actual takeovers, which include a control premium.</p>
     <p class="answer">Trading comparables look at how similar listed companies are priced by the market day to day, which is the value of a minority stake. Precedent transactions look at what acquirers paid to buy whole companies in past deals. Buyers pay a premium for control, typically 20% to 40% over the share price, because they can change how the business is run and capture synergies. So precedents give higher multiples than trading comps, and are the right benchmark when valuing a company for sale, while trading comps are the benchmark for where the shares should trade.</p>
   </article>
@@ -248,18 +490,111 @@
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>Talbrook Capital asks for a quick comps valuation of Bramwell &amp; Co. Peers trade at 10x EBITDA. Bramwell has EBITDA of £80m, debt of £300m, cash of £50m and 100m shares. What is the share price implied?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Bramwell: 10x × £80m = £800m EV → £550m equity → £5.50 a share</text>
+  <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
+  <rect x="29" y="46" width="52" height="110" rx="3" fill="var(--ink)"/>
+  <text x="55" y="41" text-anchor="middle" class="val">800</text>
+  <text x="55" y="170" text-anchor="middle" class="lbl">Enterprise</text>
+  <text x="55" y="181" text-anchor="middle" class="lbl">value</text>
+  <rect x="139" y="46" width="52" height="41" rx="3" fill="var(--amber)"/>
+  <text x="165" y="41" text-anchor="middle" class="val">−300</text>
+  <text x="165" y="170" text-anchor="middle" class="lbl">Debt</text>
+  <rect x="249" y="80" width="52" height="7" rx="3" fill="var(--green)"/>
+  <text x="275" y="75" text-anchor="middle" class="val">+50</text>
+  <text x="275" y="170" text-anchor="middle" class="lbl">Cash</text>
+  <rect x="359" y="80" width="52" height="76" rx="3" fill="var(--ink)"/>
+  <text x="385" y="75" text-anchor="middle" class="val">550</text>
+  <text x="385" y="170" text-anchor="middle" class="lbl">Equity</text>
+  <text x="385" y="181" text-anchor="middle" class="lbl">value</text>
+</svg></div>
     <p class="takeaway">Multiply to get enterprise value, subtract net debt to get equity value, divide by shares: £5.50.</p>
     <p class="answer">Enterprise value is 10 times £80m, which is £800m. Net debt is £300m of debt minus £50m of cash, which is £250m. Equity value is £800m minus £250m, which is £550m. Divided by 100 million shares, that is £5.50 a share. The interviewer is checking that you know to subtract net debt rather than gross debt, and that you subtract it at all: applying 10x and dividing straight by shares would give £8.00, which is the classic error. If Bramwell had preferred stock or a minority interest, those would come off too.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>What is a football field chart, and what is it for?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">The football field: where the methods overlap is the range</text>
+  <text x="0" y="39" class="lbl-strong" style="font-size:10px">Trading comps</text>
+  <line x1="130" y1="35" x2="430" y2="35" class="axis"/>
+  <rect x="197" y="26" width="100" height="18" rx="4" fill="var(--blue)"/>
+  <text x="193" y="39" text-anchor="end" class="cap">8x</text>
+  <text x="301" y="39" class="cap">11x</text>
+  <text x="0" y="69" class="lbl-strong" style="font-size:10px">Precedents</text>
+  <line x1="130" y1="65" x2="430" y2="65" class="axis"/>
+  <rect x="263" y="56" width="100" height="18" rx="4" fill="var(--amber)"/>
+  <text x="259" y="69" text-anchor="end" class="cap">10x</text>
+  <text x="367" y="69" class="cap">13x</text>
+  <text x="0" y="99" class="lbl-strong" style="font-size:10px">DCF</text>
+  <line x1="130" y1="95" x2="430" y2="95" class="axis"/>
+  <rect x="230" y="86" width="167" height="18" rx="4" fill="var(--green)"/>
+  <text x="226" y="99" text-anchor="end" class="cap">9x</text>
+  <text x="401" y="99" class="cap">14x</text>
+  <text x="0" y="129" class="lbl-strong" style="font-size:10px">52-week range</text>
+  <line x1="130" y1="125" x2="430" y2="125" class="axis"/>
+  <rect x="163" y="116" width="100" height="18" rx="4" fill="var(--ink)"/>
+  <text x="159" y="129" text-anchor="end" class="cap">7x</text>
+  <text x="267" y="129" class="cap">10x</text>
+</svg></div>
     <p class="takeaway">One chart showing the valuation range from every method side by side, so the reader sees where they agree.</p>
     <p class="answer">A football field is a horizontal bar chart with one bar per valuation method: trading comps, precedent transactions, DCF, sometimes an LBO analysis and the 52-week share price range. Each bar runs from the low end of that method&#x27;s range to the high end. Laid side by side, the bars show where the methods overlap, which is usually taken as the most defensible valuation range, and where one method is an outlier, which prompts a question about why. It is the last page of most valuation sections in a pitch book and the picture a managing director looks at first.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>An interviewer says: walk me through how you would value Ferrow Retail using comps. Give the answer in order.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Walk me through comps</text>
+  <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Pick 5–10</text>
+  <text x="66" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">peers</text>
+  <path d="M136 49 L148 49 M143 44 L148 49 L143 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">EV, equity value,</text>
+  <text x="220" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">LTM &amp; forward</text>
+  <path d="M290 49 L302 49 M297 44 L302 49 L297 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Multiples,</text>
+  <text x="374" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">median, range</text>
+  <rect x="0" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Judge where</text>
+  <text x="66" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">you sit</text>
+  <path d="M136 119 L148 119 M143 114 L148 119 L143 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Apply, subtract</text>
+  <text x="220" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">net debt</text>
+  <path d="M290 119 L302 119 M297 114 L302 119 L297 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Cross-check</text>
+  <text x="374" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">DCF, precedents</text>
+</svg></div>
     <p class="takeaway">Peers, metrics, multiples, adjustments, range, then equity value per share, with one sentence on the limits.</p>
     <p class="answer">First, choose five to ten listed retailers similar in size, format, geography and growth. Second, gather each one&#x27;s enterprise value and equity value, and their LTM and forward EBITDA, EBIT and net income, normalised for one-offs. Third, calculate EV/EBITDA, EV/EBIT and P/E for each, and look at the median and the range. Fourth, judge where Ferrow sits in that range on growth, margins and risk. Fifth, apply the chosen multiples to Ferrow&#x27;s own numbers for an enterprise value range, subtract net debt, and divide by shares for a price per share. Finish by noting that comps reflect today&#x27;s market and should be cross-checked against a DCF and precedents.</p>
   </article>

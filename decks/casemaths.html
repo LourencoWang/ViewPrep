@@ -176,12 +176,72 @@
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>How should you round in a case, and when should you not?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Round out loud, and know which way</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Given</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">Say</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">Note</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">47 million</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">50 million</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">rounded up, answer slightly high</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">£3.80</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£4</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">up</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">23%</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">a quarter</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">up</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">4% vs 6% margin</text>
+  <text x="220" y="125" text-anchor="middle" class="val" style="font-size:10.5px">exact</text>
+  <text x="367" y="125" text-anchor="middle" class="val" style="font-size:10.5px">decision hinges on it</text>
+</svg></div>
     <p class="takeaway">Round to one or two significant figures, say that you are doing it, and keep the direction of the error in mind.</p>
     <p class="answer">Round aggressively but honestly. 47 million customers becomes 50 million; £3.8 becomes £4; 23% becomes a quarter. Say it as you do it, so the interviewer knows the final figure is an estimate, and note which way you rounded, so you can say the true answer is slightly lower. Do not round when the answer hinges on a small difference, such as whether a margin is 4% or 6%, or when the interviewer has given exact figures and clearly wants an exact result. If a rounded answer comes out close to a decision threshold, go back and redo it precisely.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What is the fastest way to multiply two awkward numbers, like 340 × 25?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Two moves cover most case arithmetic</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Problem</text>
+  <text x="175" y="37" text-anchor="middle" class="lbl">Move</text>
+  <text x="350" y="37" text-anchor="middle" class="lbl">Result</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">340 × 25</text>
+  <text x="175" y="59" text-anchor="middle" class="val" style="font-size:10.5px">300×25 + 40×25</text>
+  <text x="350" y="59" text-anchor="middle" class="val" style="font-size:10.5px">7,500 + 1,000 = 8,500</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">340 × 25</text>
+  <text x="175" y="81" text-anchor="middle" class="val" style="font-size:10.5px">× 100 ÷ 4</text>
+  <text x="350" y="81" text-anchor="middle" class="val" style="font-size:10.5px">34,000 ÷ 4 = 8,500</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">18 × 22</text>
+  <text x="175" y="103" text-anchor="middle" class="val" style="font-size:10.5px">20² − 2²</text>
+  <text x="350" y="103" text-anchor="middle" class="val" style="font-size:10.5px">400 − 4 = 396</text>
+</svg></div>
     <p class="takeaway">Break one number into pieces that are easy to multiply, or swap in a friendlier equivalent like 25 = 100 ÷ 4.</p>
     <p class="answer">Two moves cover most cases. Decompose: 340 × 25 is 300 × 25 plus 40 × 25, which is 7,500 plus 1,000, so 8,500. Or substitute: multiplying by 25 is the same as multiplying by 100 and dividing by 4, so 34,000 ÷ 4 is 8,500. The same trick works for 50 (× 100 ÷ 2), 125 (× 1,000 ÷ 8), and 75 (× 100 × 3 ÷ 4). For something like 18 × 22, use the near-square: 20² minus 2², which is 400 minus 4, so 396. Practise these until they are reflexes and multiplication stops being where you slow down.</p>
   </article>
@@ -194,42 +254,219 @@
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>Ferrow Retail&#x27;s revenue was £820m last year and £900m this year. What is the growth rate, and how do you get it quickly?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Growth = change ÷ where you started</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">900 − 820</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">= 80</text>
+  <text x="139" y="76" text-anchor="middle" class="op">÷</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">820</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">starting value</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">≈ 9.8%</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">just under 10%</text>
+</svg></div>
     <p class="takeaway">Growth is the change divided by the starting value: £80m on £820m is a little under 10%.</p>
     <p class="answer">Growth rate is the increase divided by the original figure. The increase is £900m minus £820m, which is £80m. Divided by £820m: 80 ÷ 820 is a bit less than 80 ÷ 800, which would be exactly 10%, so call it just under 10%, about 9.8%. Say the reasoning, because it shows you know the exact answer is slightly below the round one. The classic mistake is dividing by the new figure, 80 ÷ 900, which gives 8.9% and is the wrong ratio. Always divide by where you started.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>What is the rule of 72, and how do you use it in a case?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Rule of 72</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Growth rate</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">72 ÷ rate</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">Doubles in</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">6%</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">72 ÷ 6</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">12 years</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">8%</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">72 ÷ 8</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">9 years</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">12%</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">72 ÷ 12</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">6 years</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">18%</text>
+  <text x="220" y="125" text-anchor="middle" class="val" style="font-size:10.5px">72 ÷ 18</text>
+  <text x="367" y="125" text-anchor="middle" class="val" style="font-size:10.5px">4 years</text>
+</svg></div>
     <p class="takeaway">Divide 72 by the growth rate to get the years it takes something to double; divide by the years to get the rate.</p>
     <p class="answer">At a steady growth rate, a quantity doubles in roughly 72 divided by the rate in years. Growing at 8% a year, revenue doubles in about nine years; at 12%, in six. It works backwards too: if a market doubled in four years, it grew at about 18% a year. In a case this lets you answer questions like what revenue will be in ten years at 7% without compounding by hand: 72 ÷ 7 is about ten, so it doubles. It is an approximation, accurate enough for rates under about 20%, and interviewers know and respect it.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>How do you calculate a percentage of a number quickly, like 17% of £340m?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Build any percentage from 10% and 1%</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">10% of 340</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">= 34</text>
+  <text x="139" y="76" text-anchor="middle" class="op">+</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">7% of 340</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">≈ 24</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="73" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">17% ≈ 58</text>
+</svg></div>
     <p class="takeaway">Build it from 10% and 1%, or from a nearby friendly percentage, and adjust.</p>
     <p class="answer">Ten per cent of £340m is £34m. One per cent is £3.4m, so 7% is about £24m. Add them: £58m. Or go from a friendly number: 20% is £68m, and 3% is about £10m, so 17% is about £58m. Either route takes a few seconds and can be said aloud. The same building blocks handle almost any percentage, and 5% (half of 10%), 25% (a quarter) and 33% (a third) are worth having as reflexes. If the interviewer gives you 17.3%, round to 17% first and mention it.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>What is breakeven, and how do you calculate it in a case?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Then ask: is 7,000 loaves a day plausible?</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Fixed costs</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£2m</text>
+  <text x="139" y="76" text-anchor="middle" class="op">÷</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Contribution</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£2 − £1.20 = 80p</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Breakeven</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">2.5m loaves</text>
+</svg></div>
     <p class="takeaway">Fixed costs divided by contribution per unit: the number of units you must sell to cover the costs that do not change with volume.</p>
     <p class="answer">Breakeven is the volume at which revenue exactly covers all costs. Split costs into fixed, which do not change with volume, like rent and salaries, and variable, which do, like materials. Contribution per unit is price minus variable cost per unit, the amount each sale puts toward fixed costs. Breakeven units are fixed costs divided by contribution. If Calder Foods&#x27; new bakery costs £2m a year to run, sells loaves at £2 with £1.20 of ingredients, contribution is 80p, and breakeven is £2m ÷ £0.80, which is 2.5 million loaves. Then ask whether that is plausible against the market.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>How do you estimate a payback period, and why do clients ask for it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">£2m a year of savings pays back £6m in three years</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="28" y="112" width="55" height="34" rx="4" fill="var(--blue)"/>
+  <text x="55" y="107" text-anchor="middle" class="val">2£m</text>
+  <text x="55" y="160" text-anchor="middle" class="lbl">Year 1</text>
+  <rect x="138" y="78" width="55" height="68" rx="4" fill="var(--blue)"/>
+  <text x="165" y="73" text-anchor="middle" class="val">4£m</text>
+  <text x="165" y="160" text-anchor="middle" class="lbl">Year 2</text>
+  <rect x="248" y="44" width="55" height="102" rx="4" fill="var(--green)"/>
+  <text x="275" y="39" text-anchor="middle" class="val">6£m</text>
+  <text x="275" y="160" text-anchor="middle" class="lbl">Year 3</text>
+  <rect x="358" y="44" width="55" height="102" rx="4" fill="var(--amber)"/>
+  <text x="385" y="39" text-anchor="middle" class="val">6£m</text>
+  <text x="385" y="160" text-anchor="middle" class="lbl">Investment</text>
+</svg></div>
     <p class="takeaway">Investment divided by the annual cash it generates: the years until the money is back, which is the number a nervous client wants.</p>
     <p class="answer">Payback is the upfront cost of an investment divided by the cash it returns each year. A £6m warehouse for Northbay Logistics that saves £2m a year pays back in three years. It ignores what happens after payback and ignores the time value of money, so it is cruder than NPV, but it answers the question a client actually asks, which is how long they are exposed. In a case, calculate it, say whether three years is fast or slow for the industry, and mention that a full analysis would discount the cash flows. If savings ramp up over time, add year by year until the total passes the investment.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>Sales went from 100 to 120, then from 120 to 100. Why is the second change not the same percentage as the first?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Same 20 up and down, different percentages</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="45" y="61" width="56" height="85" rx="4" fill="var(--ink-faint)"/>
+  <text x="73" y="56" text-anchor="middle" class="val">100</text>
+  <text x="73" y="160" text-anchor="middle" class="lbl">Start</text>
+  <rect x="192" y="44" width="56" height="102" rx="4" fill="var(--green)"/>
+  <text x="220" y="39" text-anchor="middle" class="val">120</text>
+  <text x="220" y="160" text-anchor="middle" class="lbl">+20%</text>
+  <rect x="339" y="61" width="56" height="85" rx="4" fill="var(--amber)"/>
+  <text x="367" y="56" text-anchor="middle" class="val">100</text>
+  <text x="367" y="160" text-anchor="middle" class="lbl">−16.7%</text>
+</svg></div>
     <p class="takeaway">A 20% rise followed by a 20% fall does not get you back to where you started, because the base changed.</p>
     <p class="answer">The rise is 20 on a base of 100, which is 20%. The fall is 20 on a base of 120, which is 16.7%. Percentages are always relative to the starting point, so the same absolute move is a different percentage going up and coming down. This matters in cases about recoveries: a market that fell 50% needs to rise 100% to recover, not 50%. Interviewers use it to check whether you think about bases. When you calculate any percentage change, say the base you are using out loud.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>How do you sanity-check an answer before you say it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Sanity-check every answer against one of these</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Anchor</text>
+  <text x="320" y="37" text-anchor="middle" class="lbl">Rough figure</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">UK population</text>
+  <text x="320" y="59" text-anchor="middle" class="val" style="font-size:10.5px">68 million</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">UK households</text>
+  <text x="320" y="81" text-anchor="middle" class="val" style="font-size:10.5px">28 million</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">UK GDP</text>
+  <text x="320" y="103" text-anchor="middle" class="val" style="font-size:10.5px">£2.5 trillion</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Working year</text>
+  <text x="320" y="125" text-anchor="middle" class="val" style="font-size:10.5px">250 days / 2,000 hours</text>
+  <line x1="0" y1="154" x2="440" y2="154" class="axis"/>
+  <text x="6" y="147" text-anchor="start" class="lbl-strong" style="font-size:10.5px">World population</text>
+  <text x="320" y="147" text-anchor="middle" class="val" style="font-size:10.5px">8 billion</text>
+</svg></div>
     <p class="takeaway">Compare it with something you already know: population, GDP, a big company&#x27;s revenue, a typical price.</p>
     <p class="answer">Before you deliver a number, hold it against a benchmark. If your estimate of the UK coffee-shop market comes out at £200 billion, that is about a tenth of GDP, so something is wrong. If it comes to £5 billion, that is roughly £75 per person per year, which is plausible. Keep a few anchors in your head: the UK has about 68 million people and 28 million households; UK GDP is around £2.5 trillion; a large supermarket chain has revenue in the tens of billions. Saying the check aloud is itself impressive, and catching your own error is far better than the interviewer catching it.</p>
   </article>
@@ -248,18 +485,97 @@
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>A client asks whether a 3% price rise or a 3% cost cut adds more profit. How do you answer without knowing the numbers?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Revenue £1bn, costs £900m: price wins, if volume holds</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="44" width="56" height="102" rx="4" fill="var(--green)"/>
+  <text x="110" y="39" text-anchor="middle" class="val">30£m</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">3% price</text>
+  <text x="110" y="171" text-anchor="middle" class="lbl">rise</text>
+  <rect x="302" y="54" width="56" height="92" rx="4" fill="var(--amber)"/>
+  <text x="330" y="49" text-anchor="middle" class="val">27£m</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">3% cost</text>
+  <text x="330" y="171" text-anchor="middle" class="lbl">cut</text>
+</svg></div>
     <p class="takeaway">Price rises usually add more, because they go straight to profit while cost cuts only apply to the cost base, which is smaller than revenue.</p>
     <p class="answer">A 3% price rise, if volume holds, adds 3% of revenue to profit, because there is no extra cost. A 3% cut in costs adds 3% of costs to profit. Since costs are less than revenue for any profitable company, the price rise is worth more. If Bramwell &amp; Co. has revenue of £1bn and costs of £900m, the price rise adds £30m and the cost cut adds £27m. The catch is the phrase if volume holds: price rises can lose customers, cost cuts usually do not. So the honest answer is that price is the bigger lever but the riskier one.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>How do you structure a calculation out loud so the interviewer can follow it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Five beats, always in this order</text>
+  <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">Formula</text>
+  <path d="M136 49 L148 49 M143 44 L148 49 L143 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Inputs &amp;</text>
+  <text x="220" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">rounding</text>
+  <path d="M290 49 L302 49 M297 44 L302 49 L297 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Each step</text>
+  <text x="374" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">out loud</text>
+  <rect x="0" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="104" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Answer</text>
+  <text x="104" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">with unit</text>
+  <path d="M213 119 L225 119 M220 114 L225 119 L220 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="336" y="123" text-anchor="middle" class="lbl-strong" style="font-size:10px">So what</text>
+</svg></div>
     <p class="takeaway">Say the formula first, then the inputs, then each step, then the answer, then what it means.</p>
     <p class="answer">Announce what you are going to calculate and how: &#x27;Breakeven is fixed costs over contribution per unit.&#x27; State the inputs and any rounding: &#x27;Fixed costs are £2m; contribution is £2 minus £1.20, so 80p.&#x27; Do the arithmetic in steps, each spoken: &#x27;£2m over 80p is 2.5 million units.&#x27; Give the answer with its unit, and then the implication: &#x27;That is 2.5 million loaves a year, about 7,000 a day, which seems high for one bakery.&#x27; Five beats, always in that order. The interviewer can correct an input early, and never has to wonder what you are doing.</p>
   </article>
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>What are the numbers every candidate should know cold before a case interview?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Reflexes worth having</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Fraction</text>
+  <text x="320" y="37" text-anchor="middle" class="lbl">As a %</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">1/3</text>
+  <text x="320" y="59" text-anchor="middle" class="val" style="font-size:10.5px">33%</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">1/6</text>
+  <text x="320" y="81" text-anchor="middle" class="val" style="font-size:10.5px">17%</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">1/7</text>
+  <text x="320" y="103" text-anchor="middle" class="val" style="font-size:10.5px">14%</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">1/8</text>
+  <text x="320" y="125" text-anchor="middle" class="val" style="font-size:10.5px">12.5%</text>
+  <line x1="0" y1="154" x2="440" y2="154" class="axis"/>
+  <text x="6" y="147" text-anchor="start" class="lbl-strong" style="font-size:10.5px">1/12</text>
+  <text x="320" y="147" text-anchor="middle" class="val" style="font-size:10.5px">8.3%</text>
+</svg></div>
     <p class="takeaway">Population and households for your country, a rough GDP, working days in a year, hours in a working week, and a few everyday prices.</p>
     <p class="answer">Have these ready: UK population about 68 million, roughly 28 million households, GDP around £2.5 trillion; US population about 335 million; the world about 8 billion. A working year is about 250 days or 2,000 hours; a year is 52 weeks and 8,760 hours. A typical UK salary is in the low £30,000s. Everyday prices for a coffee, a meal out, a phone contract, a car. Fractions as decimals: 1/8 is 12.5%, 1/6 about 17%, 1/7 about 14%, 1/3 33%. With these you can start any market-sizing or sanity check without having to guess the foundations.</p>
   </article>
