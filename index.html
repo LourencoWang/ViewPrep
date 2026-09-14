@@ -1447,6 +1447,15 @@
       })
       .catch(function(err){ console.error('loadRemoteProgress:', err); return null; });
   }
+  // Right after sign-in the first read can go out before the fresh token is
+  // attached and come back 401. One retry a second later covers it.
+  var _loadRemoteProgress = loadRemoteProgress;
+  loadRemoteProgress = function(userId){
+    return _loadRemoteProgress(userId).then(function(p){
+      if (p !== null) { return p; }
+      return new Promise(function(r){ setTimeout(r, 1000); }).then(function(){ return _loadRemoteProgress(userId); });
+    });
+  };
 
   function upsertRemoteProgress(userId, deckId, cardIndex, cardState){
     if (!sb) return Promise.resolve();
