@@ -1,1197 +1,1249 @@
 {
- "accounting": [
-  {
-   "q": "What are the three financial statements, and what does each one tell you?",
-   "a": "The income statement shows profit over a period. The balance sheet shows what the company owns and owes at a single moment in time. The cash flow statement explains why the cash balance moved. The income statement is about what was earned, not what was received, which is exactly why the cash flow statement exists as the reality check on it.",
-   "key": [
-    "income statement",
-    "balance sheet",
-    "cash flow statement",
-    "profit"
-   ]
-  },
-  {
-   "q": "What does the accounting equation say, and why does it always have to hold?",
-   "a": "Assets equal liabilities plus equity. Everything a company owns was paid for either by borrowing or by its owners, so the two sides are the same pile of resources described from different angles: what you have, and who has a claim on it. Double-entry bookkeeping records both halves of every transaction, which is what keeps the equation balanced.",
-   "key": [
-    "assets",
-    "liabilities",
-    "equity",
-    "double-entry"
-   ]
-  },
-  {
-   "q": "What is the difference between accrual accounting and cash accounting?",
-   "a": "Accrual accounting records revenue when it is earned and costs when they are incurred, whether or not cash has moved. Cash accounting records them only when money actually changes hands. Accruals give a truer picture of how a period actually went, which is why they are required, but they are also where judgement, estimates and manipulation enter the accounts.",
-   "key": [
-    "accrual",
-    "earned",
-    "incurred",
-    "cash"
-   ]
-  },
-  {
-   "q": "What do the words debit and credit actually mean in accounting?",
-   "a": "They are simply the left and right side of an entry, not good and bad. A debit increases assets and expenses. A credit increases liabilities, equity and revenue. Every transaction is recorded with equal debits and credits, which is the mechanism that keeps the balance sheet balancing.",
-   "key": [
-    "debit",
-    "credit",
-    "assets",
-    "liabilities"
-   ]
-  },
-  {
-   "q": "What is depreciation, and why does it exist at all?",
-   "a": "Depreciation spreads the cost of a long-lived asset across the years it is actually used, rather than expensing the whole thing in the year it was bought. The point is to match the cost to the periods that get the benefit. It reduces profit without reducing cash in the year it is charged, because the cash already left when the asset was purchased.",
-   "key": [
-    "depreciation",
-    "cost",
-    "profit",
-    "cash"
-   ]
-  }
- ],
- "statements": [
-  {
-   "q": "What are the three sections of the cash flow statement, and what belongs in each?",
-   "a": "Operating covers cash from running the business day to day. Investing covers buying and selling long-term assets, such as equipment or whole companies. Financing covers raising and returning capital: debt drawn or repaid, shares issued or bought back, and dividends paid. The three together explain every pound of movement in the cash balance.",
-   "key": [
-    "operating",
-    "investing",
-    "financing",
-    "cash"
-   ]
-  },
-  {
-   "q": "How does depreciation affect the income statement differently from the cash flow statement?",
-   "a": "On the income statement depreciation is an expense, so it reduces operating profit and therefore net income. On the cash flow statement it is added straight back, because no cash left the business that year. It is the clearest example of the gap between profit and cash, and of why a profitable company can still run out of money.",
-   "key": [
-    "depreciation",
-    "expense",
-    "net income",
-    "added straight back"
-   ]
-  },
-  {
-   "q": "What is working capital, and what does a change in it do to cash?",
-   "a": "Working capital is the money tied up in running the business day to day, typically receivables plus inventory less payables. When it rises the company has more cash stuck in stock or owed by customers, so cash falls. When it falls, cash is released. Growth almost always consumes working capital, which is why fast-growing companies can be profitable and still short of cash.",
-   "key": [
-    "working capital",
-    "receivables",
-    "inventory",
-    "payables"
-   ]
-  },
-  {
-   "q": "If net income goes up by one hundred, what happens across all three statements?",
-   "a": "On the income statement net income rises by one hundred. On the cash flow statement it is the starting line, so cash from operations rises by one hundred, assuming nothing else moves. On the balance sheet cash rises by one hundred on the asset side and retained earnings rise by one hundred within equity, so the balance sheet still balances.",
-   "key": [
-    "net income",
-    "cash",
-    "retained earnings",
-    "equity"
-   ]
-  },
-  {
-   "q": "Where do you look first if you suspect a company's reported profit is flattered?",
-   "a": "Compare operating cash flow with net income over several years. Profit is an opinion shaped by estimates; cash is closer to fact. If profit keeps rising while operating cash flow does not follow, the gap is sitting in working capital or in accruals such as revenue recognised early or costs capitalised rather than expensed.",
-   "key": [
-    "operating cash flow",
-    "net income",
-    "working capital",
-    "accruals"
-   ]
-  }
- ],
- "corpfin": [
-  {
-   "q": "What is the time value of money, and why does it matter for every valuation?",
-   "a": "A pound today is worth more than a pound next year, because today's pound can be invested and because the future is uncertain. Every valuation method is a way of converting future money into today's money, which is what discounting does. The rate you discount at is the price you put on waiting and on risk.",
-   "key": [
-    "time value",
-    "discounting",
-    "risk",
-    "future"
-   ]
-  },
-  {
-   "q": "What is net present value, and what does a positive NPV actually mean?",
-   "a": "Net present value is the sum of a project's future cash flows discounted back to today, minus what it costs to start. A positive NPV means the project is expected to return more than the cost of the money used to fund it, so it adds value. It is the cleanest decision rule in corporate finance because it is measured in money rather than in percentages.",
-   "key": [
-    "net present value",
-    "cash flows",
-    "discounted",
-    "cost"
-   ]
-  },
-  {
-   "q": "What is a sunk cost, and how should it affect a decision?",
-   "a": "A sunk cost is money already spent that cannot be recovered whatever you now choose. It should carry no weight at all in a go or no-go decision, because the only question that matters is what happens from here. People find this genuinely hard, which is why so much money gets thrown after bad projects.",
-   "key": [
-    "sunk cost",
-    "recovered",
-    "decision"
-   ]
-  },
-  {
-   "q": "What is the weighted average cost of capital, in plain terms?",
-   "a": "It is the blended rate a company pays for all the money it uses, weighting the cost of its debt and the cost of its equity by how much of each it has. Debt is cheaper because lenders rank ahead of owners and interest is tax deductible. It is the hurdle a project has to clear to be worth doing.",
-   "key": [
-    "cost of capital",
-    "debt",
-    "equity",
-    "hurdle"
-   ]
-  },
-  {
-   "q": "Why would a healthy, profitable company deliberately take on debt?",
-   "a": "Debt costs less than equity and it hands over no ownership, so as long as the business earns more than the interest it pays, borrowing lifts the returns that owners earn. Interest is also deductible against tax. The cost is fixed obligations that must be paid whatever happens, which is what makes leverage cut both ways.",
-   "key": [
-    "debt",
-    "equity",
-    "interest",
-    "returns"
-   ]
-  }
- ],
- "markets": [
-  {
-   "q": "What is the difference between the primary market and the secondary market?",
-   "a": "In the primary market a company issues new securities and receives the money itself, as in an IPO or a bond issue. In the secondary market investors trade those securities with each other and the company receives nothing. Secondary trading still matters to the company, because the price set there determines what it can raise next time.",
-   "key": [
-    "primary",
-    "secondary",
-    "issues",
-    "investors"
-   ]
-  },
-  {
-   "q": "What does a market maker do, and how do they make money?",
-   "a": "A market maker quotes both a price to buy and a price to sell, continuously, so that other people can always trade. They earn the spread between those two prices rather than betting on direction. The service they provide is liquidity: the ability to get in or out without moving the price much.",
-   "key": [
-    "market maker",
-    "spread",
-    "liquidity",
-    "quote"
-   ]
-  },
-  {
-   "q": "What is the relationship between bond prices and interest rates?",
-   "a": "They move in opposite directions. A bond pays a fixed amount, so if rates in the market rise, newly issued bonds pay more and the older, lower-paying bond has to fall in price for anyone to want it. The longer the bond has left to run, the more its price moves for a given change in rates.",
-   "key": [
-    "bond",
-    "interest rates",
-    "price",
-    "opposite"
-   ]
-  },
-  {
-   "q": "What is the difference between equity and debt from an investor's point of view?",
-   "a": "Debt is a loan: fixed payments, a fixed end date, and a claim that ranks ahead of owners if things go wrong, but no share of the upside. Equity is ownership: no promised payment and last in line if the company fails, but the entire remaining value once everyone else has been paid. You are paid for where you sit in the queue.",
-   "key": [
-    "debt",
-    "equity",
-    "ownership",
-    "ranks"
-   ]
-  },
-  {
-   "q": "What does liquidity mean, and why do investors care so much about it?",
-   "a": "Liquidity is how easily you can turn a holding into cash without moving the price against yourself. An illiquid asset may be worth a great deal on paper and still be hard to sell at that figure. Investors demand a higher return for illiquidity, because being unable to get out when you need to is a real cost.",
-   "key": [
-    "liquidity",
-    "cash",
-    "price",
-    "return"
-   ]
-  }
- ],
- "valuation": [
-  {
-   "q": "What are the three main ways to value a company, and how do they usually compare?",
-   "a": "Comparable companies, precedent transactions and a discounted cash flow. Precedents usually sit highest because an acquirer pays a control premium to take the whole company. Comparable companies reflect where the market prices similar businesses today. A DCF can land anywhere, because it is driven by your own assumptions rather than by observed prices.",
-   "key": [
-    "comparable companies",
-    "precedent transactions",
-    "discounted cash flow",
-    "control premium"
-   ]
-  },
-  {
-   "q": "What is a discounted cash flow, step by step?",
-   "a": "You forecast the cash the business will generate over several years, work out a terminal value for everything after that, then discount all of it back to today at the cost of capital. That gives enterprise value. Subtract net debt and you have the value of the equity. Every step rests on assumptions, which is why the output is a range and not a number.",
-   "key": [
-    "cash",
-    "terminal value",
-    "discount",
-    "enterprise value"
-   ]
-  },
-  {
-   "q": "What is terminal value, and why does it attract so much scrutiny?",
-   "a": "Terminal value is the worth of everything the business earns beyond the explicit forecast period. It routinely accounts for well over half the total value in a DCF, so a small change in the growth rate or exit multiple used to calculate it swings the whole answer. Reviewers check it first because that is where the answer is actually decided.",
-   "key": [
-    "terminal value",
-    "forecast",
-    "growth",
-    "multiple"
-   ]
-  },
-  {
-   "q": "What is the difference between enterprise value and equity value?",
-   "a": "Enterprise value is the value of the operating business itself, regardless of how it is funded. Equity value is what is left for shareholders after the debt is paid off, so it is enterprise value less net debt. Metrics before interest, such as EBITDA, pair with enterprise value; metrics after interest, such as net income, pair with equity value.",
-   "key": [
-    "enterprise value",
-    "equity value",
-    "net debt",
-    "EBITDA"
-   ]
-  },
-  {
-   "q": "Why would you use EV/EBITDA rather than the price to earnings ratio?",
-   "a": "EV/EBITDA sits above interest and tax, so it compares businesses on their underlying operating performance whatever their debt load or tax position. P/E is after both, so two identical businesses with different borrowing look different on it. P/E also breaks down entirely when earnings are negative.",
-   "key": [
-    "EBITDA",
-    "debt",
-    "earnings",
-    "operating"
-   ]
-  }
- ],
- "credit": [
-  {
-   "q": "What does leverage mean, and why does it cut both ways?",
-   "a": "Leverage is using borrowed money to fund part of the business. Because the interest is a fixed cost, every pound of profit above it belongs to the owners, so returns on equity are magnified when things go well. The same fixed cost magnifies losses when they go badly, and unlike a dividend, interest still has to be paid.",
-   "key": [
-    "leverage",
-    "borrowed",
-    "interest",
-    "returns"
-   ]
-  },
-  {
-   "q": "What is a covenant, and what happens when one is breached?",
-   "a": "A covenant is a condition in a loan agreement, often a limit on leverage or a minimum interest coverage, tested regularly. Breaching one is an event of default: it does not automatically mean the loan is called, but control shifts to the lender, who can demand repayment, reprice the debt or force changes. In practice it triggers a renegotiation from a weak position.",
-   "key": [
-    "covenant",
-    "default",
-    "lender",
-    "leverage"
-   ]
-  },
-  {
-   "q": "What is the difference between secured and unsecured debt?",
-   "a": "Secured debt is backed by specific assets the lender can seize if the borrower fails to pay, so it carries lower risk and a lower interest rate. Unsecured debt has only a general claim and ranks behind the secured lenders in a bankruptcy. The ranking of who gets paid first is what the whole pricing of credit is built on.",
-   "key": [
-    "secured",
-    "unsecured",
-    "assets",
-    "ranks"
-   ]
-  },
-  {
-   "q": "What does interest coverage tell you, and why is it watched so closely?",
-   "a": "Interest coverage divides operating profit by the interest bill, so it measures how many times over the company can pay what it owes its lenders from the profits it makes. A ratio near one means almost nothing is left after the interest, so a modest downturn causes a default. It is a more immediate danger signal than the leverage ratio.",
-   "key": [
-    "interest coverage",
-    "operating profit",
-    "default",
-    "leverage"
-   ]
-  },
-  {
-   "q": "Why does a credit rating matter to a company beyond looking respectable?",
-   "a": "The rating sets the interest rate the company pays, so a downgrade directly raises the cost of every pound it borrows. It also determines who is allowed to lend: many funds are barred from holding anything below investment grade, so falling below that line removes a large part of the buyer base at once.",
-   "key": [
-    "credit rating",
-    "interest rate",
-    "downgrade",
-    "investment grade"
-   ]
-  }
- ],
- "mna": [
-  {
-   "q": "What are synergies, and which type should you trust?",
-   "a": "Synergies are the value created by combining two companies that neither would have alone. Cost synergies come from removing duplicated overheads, sites or systems and are relatively reliable because they are within the buyer's control. Revenue synergies assume customers will buy more from the combined firm and are much softer, which is why they are discounted heavily or excluded.",
-   "key": [
-    "synergies",
-    "cost",
-    "revenue",
-    "duplicated"
-   ]
-  },
-  {
-   "q": "Why does an acquirer pay a premium over the market price?",
-   "a": "Because it is buying control, not a passive stake. Control brings the ability to change management, strategy and cost base, and to capture the synergies. Shareholders also have to be persuaded to give up a holding they chose to own, so the premium is the price of getting them to agree.",
-   "key": [
-    "premium",
-    "control",
-    "synergies",
-    "shareholders"
-   ]
-  },
-  {
-   "q": "What is the difference between an asset purchase and a share purchase?",
-   "a": "In a share purchase the buyer acquires the company itself and inherits everything with it, including liabilities and legal history it may not know about. In an asset purchase the buyer picks the specific assets and contracts it wants and leaves the rest behind. Buyers usually prefer asset deals, sellers usually prefer share deals, and tax treatment often decides it.",
-   "key": [
-    "asset purchase",
-    "share purchase",
-    "liabilities",
-    "assets"
-   ]
-  },
-  {
-   "q": "What does it mean for a deal to be accretive or dilutive?",
-   "a": "It refers to what the deal does to the acquirer's earnings per share. Accretive means EPS goes up after the deal, dilutive means it goes down. Roughly, paying with cash or cheap debt tends to be accretive and issuing expensive shares tends to be dilutive. It is a useful signal but a poor measure of whether the deal actually creates value.",
-   "key": [
-    "accretive",
-    "dilutive",
-    "earnings per share",
-    "shares"
-   ]
-  },
-  {
-   "q": "What happens to goodwill in an acquisition, and what is actually in it?",
-   "a": "Goodwill is the amount paid above the fair value of the identifiable net assets acquired. Less of it survives than people assume: identifiable intangibles such as brands and customer relationships are recognised separately when they are separable or arise from a contract. What genuinely remains in goodwill is the assembled workforce and the expected synergies.",
-   "key": [
-    "goodwill",
-    "fair value",
-    "intangibles",
-    "synergies"
-   ]
-  }
- ],
- "lbo": [
-  {
-   "q": "What actually happens in a leveraged buyout, step by step?",
-   "a": "A private equity firm buys a company using a small slice of its own equity and a large amount of debt raised against the target's own cash flows. The company then uses those cash flows to service and pay down the debt over several years. The firm sells the business at the end, and because the debt has shrunk while the value has ideally grown, its equity is worth far more than it put in.",
-   "key": [
-    "private equity",
-    "debt",
-    "cash flows",
-    "equity"
-   ]
-  },
-  {
-   "q": "What makes a company a good LBO candidate?",
-   "a": "Stable, predictable cash flows above all, because the debt has to be paid whatever happens. Beyond that: low existing debt, modest capital expenditure needs, a defensible market position, assets that can be used as security and a credible route to sell in a few years. Fast growth is nice but it is far less important than predictability.",
-   "key": [
-    "cash flows",
-    "debt",
-    "capital expenditure",
-    "predictable"
-   ]
-  },
-  {
-   "q": "What are the three ways a private equity firm makes money on a deal?",
-   "a": "Paying down debt, so a larger share of the same company value belongs to the equity. Improving the business, by growing revenue or margins so there is more value to own. And multiple expansion, selling at a higher multiple than was paid. The first is mechanical, the second is real work, and the third is largely the market doing you a favour.",
-   "key": [
-    "debt",
-    "margins",
-    "multiple expansion",
-    "equity"
-   ]
-  },
-  {
-   "q": "Why does more leverage increase the return but also the risk in an LBO?",
-   "a": "Putting in less equity means any gain in company value is spread over a smaller base, so the percentage return on that equity is larger. But the debt payments are fixed and come first, so if cash flow falls short the equity is wiped out before the lenders lose anything. Leverage does not create value, it concentrates whatever happens onto a thinner slice.",
-   "key": [
-    "leverage",
-    "equity",
-    "return",
-    "cash flow"
-   ]
-  },
-  {
-   "q": "What does an exit look like, and why is it planned before the deal is signed?",
-   "a": "The usual routes are a sale to another company, a sale to another private equity firm, or a flotation. A fund has a finite life and has to return money to its investors, so a deal with no realistic buyer in five years is not a deal. The exit assumption also drives the price, because the return depends on what it can be sold for.",
-   "key": [
-    "exit",
-    "sale",
-    "return",
-    "price"
-   ]
-  }
- ],
- "ecm": [
-  {
-   "q": "What is an IPO, and why do companies do one?",
-   "a": "An initial public offering is the first sale of a company's shares to public investors, after which the shares trade on an exchange. The usual reasons are raising money to grow, giving early investors and employees a way to sell, and gaining a traded currency for acquisitions. The costs are disclosure, scrutiny and the pressure of quarterly reporting.",
-   "key": [
-    "shares",
-    "public",
-    "raising",
-    "investors"
-   ]
-  },
-  {
-   "q": "What is a prospectus, and why does it matter legally?",
-   "a": "The prospectus is the company's full public disclosure: the business, the accounts, the risks and the terms of the offer. It is the legal basis on which investors buy, so anything material left out or misstated creates liability for the company and its directors. It is the reason IPO diligence is as heavy as it is.",
-   "key": [
-    "prospectus",
-    "disclosure",
-    "risks",
-    "liability"
-   ]
-  },
-  {
-   "q": "What is bookbuilding, and how is the IPO price actually set?",
-   "a": "The banks market the deal within a price range and collect indications from investors of how much they would buy and at what price. That book of demand shows where real appetite sits, and the price is set from it. It is deliberately priced slightly below what the market would bear, so the shares trade up and investors come back for the next deal.",
-   "key": [
-    "bookbuilding",
-    "demand",
-    "price",
-    "investors"
-   ]
-  },
-  {
-   "q": "What is a lock-up period and why does it exist?",
-   "a": "A lock-up bars existing shareholders, typically founders, employees and early investors, from selling for a set period after listing, commonly ninety to one hundred and eighty days. It stops a flood of shares hitting a market that has not yet found a stable price, and it signals that insiders are not rushing for the door.",
-   "key": [
-    "lock-up",
-    "shareholders",
-    "selling",
-    "shares"
-   ]
-  },
-  {
-   "q": "What is the difference between a primary and a secondary component in an offering?",
-   "a": "Primary shares are newly created and the money goes to the company. Secondary shares are existing ones sold by current holders, and that money goes to them, not the business. Investors look closely at the mix, because a deal that is mostly insiders cashing out reads very differently from one funding growth.",
-   "key": [
-    "primary",
-    "secondary",
-    "company",
-    "holders"
-   ]
-  }
- ],
- "excel": [
-  {
-   "q": "Why should a model separate inputs, calculations and outputs?",
-   "a": "So that anyone can see what is an assumption and what is a consequence. Hard-coded numbers buried inside formulas are the single most common source of errors, because nobody knows they are there. Conventionally inputs are one colour and formulas another, so a reviewer can tell at a glance which cells they are allowed to change.",
-   "key": [
-    "inputs",
-    "calculations",
-    "assumption",
-    "hard-coded"
-   ]
-  },
-  {
-   "q": "What is a circular reference in a financial model, and where does one typically come from?",
-   "a": "It is a loop where a cell depends on itself through a chain of formulas. The classic case is interest: interest depends on the debt balance, the balance depends on cash flow, and cash flow depends on interest. It is normally handled with an iterative calculation setting or by deliberately breaking the loop, for example by using the opening balance.",
-   "key": [
-    "circular",
-    "interest",
-    "debt",
-    "cash flow"
-   ]
-  },
-  {
-   "q": "How would you build a clean scenario toggle in a model?",
-   "a": "Hold each scenario's assumptions in its own clearly labelled block, then use a single switch cell and a lookup such as INDEX or CHOOSE to pull the selected set into one live input row. Everything downstream points only at that live row. The point is that switching cases changes one cell, not fifty, so nothing can be left on the wrong case.",
-   "key": [
-    "scenario",
-    "assumptions",
-    "INDEX",
-    "input"
-   ]
-  },
-  {
-   "q": "What is the difference between a relative and an absolute cell reference?",
-   "a": "A relative reference shifts when the formula is copied, so A1 becomes B1 a column across. An absolute reference, written with dollar signs, stays fixed. Getting this wrong is the most common way a formula that looks right in one cell is quietly wrong across a whole row.",
-   "key": [
-    "relative",
-    "absolute",
-    "copied",
-    "formula"
-   ]
-  },
-  {
-   "q": "How do you check whether a financial model is actually working?",
-   "a": "Build in checks that must be true and flag loudly when they are not: the balance sheet balancing, cash flow tying to the movement in the cash balance, sources equalling uses. Then flex the key assumptions to extremes and see whether the outputs move in the direction and magnitude you would expect. A model that never breaks under stress is usually one that is not connected.",
-   "key": [
-    "checks",
-    "balance sheet",
-    "cash",
-    "assumptions"
-   ]
-  }
- ],
- "ibinterview": [
-  {
-   "q": "How should you structure an answer to \"walk me through your CV\"?",
-   "a": "Chronologically and briefly, in about two minutes, shaped as a line rather than a list: where you started, the decision that moved you to the next thing, and why that leads here. Spend the time on the parts relevant to the job and compress the rest. The interviewer is listening for whether the story has a direction, not for completeness.",
-   "key": [
-    "chronologically",
-    "story",
-    "relevant",
-    "direction"
-   ]
-  },
-  {
-   "q": "How do you answer a behavioural question well?",
-   "a": "Set the scene quickly, then spend most of the answer on what you personally did rather than what the team did, and close on a concrete result. The common failure is a long setup and a vague ending. Specifics and numbers are what make it memorable and checkable.",
-   "key": [
-    "scene",
-    "personally",
-    "result",
-    "specifics"
-   ]
-  },
-  {
-   "q": "What is the interviewer actually testing with a technical question?",
-   "a": "Whether you understand the mechanics well enough to explain them simply and under mild pressure, not whether you have memorised a definition. They are also watching what you do when you do not know: saying so and reasoning out loud is far better received than bluffing, because bluffing on a desk is genuinely dangerous.",
-   "key": [
-    "explain",
-    "pressure",
-    "reasoning",
-    "bluffing"
-   ]
-  },
-  {
-   "q": "How should you answer \"why investment banking\" without sounding rehearsed?",
-   "a": "Give a reason that is true of banking and not of every other job, tie it to something you have actually done, and be honest about what you know of the trade-offs including the hours. Answers about learning quickly and working on transactions are fine, but only when they are anchored to a specific experience rather than left as a slogan.",
-   "key": [
-    "reason",
-    "specific",
-    "trade-offs",
-    "experience"
-   ]
-  },
-  {
-   "q": "What should you ask at the end of an interview?",
-   "a": "Something you actually want to know and could only learn from this person: what their last few months have looked like, how the team works, what they would change. Avoid anything answerable from the website, and avoid questions that are really a pitch for yourself. It is a short conversation, not a test.",
-   "key": [
-    "ask",
-    "this person",
-    "website",
-    "conversation"
-   ]
-  }
- ],
- "casestructuring": [
-  {
-   "q": "What does MECE mean, and why does it matter for how you structure a case?",
-   "a": "Mutually exclusive, collectively exhaustive: your buckets should not overlap and together should cover everything. It matters because it stops you double-counting and stops you missing a whole branch of the problem. A structure that is genuinely MECE also makes it obvious which branch to test first, which is what turns a list into an argument.",
-   "key": [
-    "mutually exclusive",
-    "collectively exhaustive",
-    "overlap",
-    "buckets"
-   ]
-  },
-  {
-   "q": "How should you open a case interview?",
-   "a": "Play the problem back in your own words to confirm you have it right, ask what success looks like and over what horizon, then take a moment to structure before speaking. Asking for that moment is expected and is not a weakness. Answering immediately is the main way strong candidates talk themselves into the wrong problem.",
-   "key": [
-    "own words",
-    "success",
-    "structure",
-    "moment"
-   ]
-  },
-  {
-   "q": "Why is a tailored structure better than a memorised framework?",
-   "a": "Standard frameworks were built for a general case, not yours, so applying one wholesale produces branches that do not matter and misses the ones that do. Interviewers have heard every framework many times and are listening for whether you thought about this business. Borrow the useful piece, discard the rest, and say why.",
-   "key": [
-    "framework",
-    "tailored",
-    "branches",
-    "business"
-   ]
-  },
-  {
-   "q": "What is hypothesis-driven problem solving?",
-   "a": "Forming an early, explicit view of what is most likely causing the problem, then testing it rather than analysing everything evenly. It focuses the work on the branch most likely to matter and makes you faster. The discipline is holding it loosely: a hypothesis you refuse to drop when the data disagrees is worse than having none.",
-   "key": [
-    "hypothesis",
-    "testing",
-    "data",
-    "focus"
-   ]
-  },
-  {
-   "q": "How should you close a case?",
-   "a": "Lead with the recommendation, then give the two or three reasons that support it, then name the biggest risk and what you would check next. Do not recap the journey. The listener wants the answer first and the reasoning second, which is the opposite of how the analysis was actually done.",
-   "key": [
-    "recommendation",
-    "reasons",
-    "risk",
-    "answer first"
-   ]
-  }
- ],
- "marketsizing": [
-  {
-   "q": "How do you approach a market sizing question from scratch?",
-   "a": "Start from a number you genuinely know, such as a population, then break it down with a small number of assumptions you state out loud: what share is relevant, how often they buy, at what price. Do the arithmetic in round numbers. The interviewer is grading the logic and the stated assumptions, not whether the final figure is right.",
-   "key": [
-    "population",
-    "assumptions",
-    "logic",
-    "arithmetic"
-   ]
-  },
-  {
-   "q": "What is the difference between a top-down and a bottom-up estimate?",
-   "a": "Top-down starts from a large total, such as a national population or total spending, and narrows it with percentages. Bottom-up builds from a single unit, such as one store's sales, and scales it up. Doing both and seeing whether they land in the same place is the strongest possible check on either.",
-   "key": [
-    "top-down",
-    "bottom-up",
-    "scales",
-    "check"
-   ]
-  },
-  {
-   "q": "What is the difference between a stock and a flow, and why does it trip people up?",
-   "a": "A stock is the amount in existence at a moment, such as the number of cars on the road. A flow is the amount added or replaced in a period, such as annual car sales. Confusing the two is the single most common sizing error; the replacement cycle is what converts between them.",
-   "key": [
-    "stock",
-    "flow",
-    "replacement",
-    "annual"
-   ]
-  },
-  {
-   "q": "How do you sanity-check a market sizing answer?",
-   "a": "Compare it with something you already know: a per-person figure, a known company's revenue, or the size of a related market. If your estimate implies every adult buys twelve of something a year, the assumption chain is wrong somewhere. Saying the number is implausible and finding where is worth more marks than defending it.",
-   "key": [
-    "sanity-check",
-    "per-person",
-    "implausible",
-    "assumption"
-   ]
-  },
-  {
-   "q": "What kinds of errors should you actively watch for in your own estimate?",
-   "a": "Nesting errors where you apply two percentages that already overlap, unstated assumptions you slipped past, and any single input that is implausible on its face. Round numbers early so the arithmetic stays clean, because most visible mistakes in sizing are arithmetic, not judgement.",
-   "key": [
-    "nesting",
-    "unstated assumptions",
-    "implausible",
-    "arithmetic"
-   ]
-  }
- ],
- "microecon": [
-  {
-   "q": "What is price elasticity of demand, and what does it tell a business?",
-   "a": "Elasticity measures how sharply the quantity demanded reacts when price moves. Demand is elastic when a small price rise loses a lot of volume, and inelastic when it barely moves. It decides whether raising price raises revenue, which is why it is the first thing to establish in any pricing question.",
-   "key": [
-    "elasticity",
-    "quantity demanded",
-    "price",
-    "revenue"
-   ]
-  },
-  {
-   "q": "What is equilibrium, and what happens when price sits above it?",
-   "a": "Equilibrium is the single price at which the amount buyers want to buy equals the amount sellers want to sell. Above it, sellers are offering more than buyers will take, so stock builds up and the surplus pushes price back down. Below it, shortages push price back up.",
-   "key": [
-    "equilibrium",
-    "buyers",
-    "sellers",
-    "surplus"
-   ]
-  },
-  {
-   "q": "What is consumer surplus?",
-   "a": "The extra value buyers get from paying less than the most they would have been willing to pay. If you would have paid fifty and the price is thirty, you captured twenty of surplus. Much of pricing strategy is about converting that surplus into revenue without losing the customers who genuinely will not pay more.",
-   "key": [
-    "consumer surplus",
-    "willing to pay",
-    "price",
-    "revenue"
-   ]
-  },
-  {
-   "q": "What are economies of scale, and where do they come from?",
-   "a": "They are the fall in cost per unit as volume rises, because fixed costs are spread over more units and larger operations can buy and produce more efficiently. They are a real barrier to entry, because a newcomer starts small and therefore starts expensive. They do not continue forever: past a point, coordination costs rise again.",
-   "key": [
-    "economies of scale",
-    "fixed costs",
-    "volume",
-    "barrier"
-   ]
-  },
-  {
-   "q": "How does a competitive market differ from a monopoly in how prices get set?",
-   "a": "In a competitive market no single seller can set the price; they take whatever the market gives and compete the margin down towards cost. A monopolist faces the whole demand curve and chooses the point on it that maximises profit, which means a higher price and lower quantity. Most real markets sit somewhere between the two.",
-   "key": [
-    "competitive",
-    "monopoly",
-    "price",
-    "demand"
-   ]
-  }
- ],
- "profitability": [
-  {
-   "q": "How do you structure a profitability case?",
-   "a": "Profit is revenue minus cost, so split it there first, then work out which side moved before going deeper. Revenue breaks into price and volume; cost breaks into fixed and variable. The discipline is isolating the branch that actually changed before analysing anything, rather than investigating all four at once.",
-   "key": [
-    "revenue",
-    "cost",
-    "price",
-    "volume"
-   ]
-  },
-  {
-   "q": "What is contribution margin, and what is it used for?",
-   "a": "Contribution margin is what one extra sale leaves behind after its own variable cost, before any fixed costs. It tells you what each additional unit contributes towards covering overheads and then towards profit. It is the right measure for decisions about one more sale, whereas full cost per unit is not.",
-   "key": [
-    "contribution margin",
-    "variable cost",
-    "fixed costs",
-    "unit"
-   ]
-  },
-  {
-   "q": "What is the difference between fixed and variable costs, and why does the mix matter?",
-   "a": "Variable costs rise and fall with volume; fixed costs do not change within a normal range. A business with high fixed costs makes a lot of money once it passes break-even and loses a lot quickly when volume falls, because each lost unit takes its full contribution with it. The mix determines how risky a given fall in demand actually is.",
-   "key": [
-    "fixed costs",
-    "variable costs",
-    "volume",
-    "break-even"
-   ]
-  },
-  {
-   "q": "What is break-even, and how do you calculate it?",
-   "a": "Break-even is the volume at which total contribution exactly covers fixed costs, so profit is zero. Divide fixed costs by the contribution margin per unit. It is useful because it converts a vague question about whether something is viable into a specific number of units you can judge against the market.",
-   "key": [
-    "break-even",
-    "fixed costs",
-    "contribution margin",
-    "volume"
-   ]
-  },
-  {
-   "q": "A client's revenue is flat but profit has fallen. Where do you look?",
-   "a": "Since revenue has not moved, something in the cost base has, or the mix within revenue has shifted. Check whether input costs rose, whether volume moved while price offset it, and whether sales shifted towards lower-margin products or customers. A stable top line often hides two changes underneath that happen to cancel out.",
-   "key": [
-    "cost",
-    "mix",
-    "price",
-    "volume"
-   ]
-  }
- ],
- "stats": [
-  {
-   "q": "What is the difference between correlation and causation?",
-   "a": "Correlation means two things move together. Causation means one actually brings the other about. Two variables can move together because a hidden third factor drives both, or because the relationship runs the other way round. Establishing cause needs an experiment or a design that rules those out, not a stronger correlation.",
-   "key": [
-    "correlation",
-    "causation",
-    "third factor",
-    "experiment"
-   ]
-  },
-  {
-   "q": "What does statistical significance actually mean?",
-   "a": "It means a result is unlikely to have arisen by chance alone, given the sample. It says nothing about whether the effect is large or whether it matters commercially. With a big enough sample, trivial differences become significant, which is why significance and importance have to be judged separately.",
-   "key": [
-    "chance",
-    "sample",
-    "effect",
-    "significant"
-   ]
-  },
-  {
-   "q": "Why does sample size matter, and what does a small sample do to a conclusion?",
-   "a": "Smaller samples produce noisier estimates, so the range the true value could plausibly sit in is wide. A result from a handful of customers may be real or may be nothing, and the data alone cannot tell you. The honest response is to give the range rather than to quote the point estimate as if it were fact.",
-   "key": [
-    "sample",
-    "noisier",
-    "range",
-    "estimate"
-   ]
-  },
-  {
-   "q": "What is the difference between the mean and the median, and when does it matter?",
-   "a": "The mean is the average; the median is the middle value. When a distribution is skewed, as incomes, deal sizes and customer values usually are, a few very large values drag the mean well above the median. For skewed business data the median usually describes the typical case better.",
-   "key": [
-    "mean",
-    "median",
-    "skewed",
-    "typical"
-   ]
-  },
-  {
-   "q": "How should you present a data finding to a client?",
-   "a": "State the finding, then the evidence it rests on, then what would change your mind. Leading with the method loses the room. Being explicit about what would falsify the conclusion is what separates an analysis from an assertion, and it is what senior clients listen for.",
-   "key": [
-    "finding",
-    "evidence",
-    "change your mind",
-    "conclusion"
-   ]
-  }
- ],
- "marketing": [
-  {
-   "q": "What is segmentation, and what makes a segment useful?",
-   "a": "Segmentation splits a market into groups that behave differently. A segment is useful only if it is identifiable, reachable, large enough to be worth serving, and genuinely differs in what it wants or will pay. Splits that fail those tests are description rather than strategy.",
-   "key": [
-    "segmentation",
-    "reachable",
-    "differs",
-    "pay"
-   ]
-  },
-  {
-   "q": "What is customer lifetime value, and why is it compared with acquisition cost?",
-   "a": "Lifetime value is the total profit expected from a customer over the whole relationship, not from the first sale. It is compared with what it costs to acquire them because a business only works if the value exceeds the cost, with enough margin to cover overheads. The ratio between them is what tells you whether growth is worth buying.",
-   "key": [
-    "lifetime value",
-    "profit",
-    "acquisition cost",
-    "ratio"
-   ]
-  },
-  {
-   "q": "What is churn, and why does a small change in it matter so much?",
-   "a": "Churn is the percentage of customers lost each period, the leak in the bucket. It compounds: a small rise in churn shortens the average customer lifetime, which cuts lifetime value, which can make previously profitable acquisition unprofitable. In a subscription business it is usually the single most powerful number.",
-   "key": [
-    "churn",
-    "customers",
-    "lifetime value",
-    "acquisition"
-   ]
-  },
-  {
-   "q": "What is a marketing funnel used for?",
-   "a": "It turns a vague statement such as sales are flat into one specific stage where people are dropping out: awareness, consideration, purchase, repeat. Knowing the stage tells you what to fix, because a problem in awareness needs a completely different response from a problem at checkout.",
-   "key": [
-    "funnel",
-    "stage",
-    "dropping out",
-    "awareness"
-   ]
-  },
-  {
-   "q": "What is brand equity, and how does discounting damage it?",
-   "a": "Brand equity is the extra amount customers will pay because of who is selling, rather than what is being sold. Matching a discounter buys volume today by spending down that equity, because it teaches customers the real price is lower and that waiting for a discount works. It is quick to spend and slow to rebuild.",
-   "key": [
-    "brand equity",
-    "pay",
-    "discount",
-    "volume"
-   ]
-  }
- ],
- "pricing": [
-  {
-   "q": "What are the three main approaches to setting a price?",
-   "a": "Cost-plus adds a margin to what it costs you, which is simple and ignores the customer entirely. Competition-based prices against rivals, which is safe and drifts towards commoditisation. Value-based prices against what the product is worth to the buyer, which is hardest to work out and almost always captures the most.",
-   "key": [
-    "cost-plus",
-    "competition",
-    "value-based",
-    "margin"
-   ]
-  },
-  {
-   "q": "Why is a small discount so expensive in margin terms?",
-   "a": "Because the discount comes entirely out of profit, not out of revenue evenly. A ten percent discount on a forty percent margin needs roughly a third more volume just to stand still. Discounts are usually granted as if they cost ten percent when they actually cost a quarter of the profit.",
-   "key": [
-    "discount",
-    "margin",
-    "volume",
-    "profit"
-   ]
-  },
-  {
-   "q": "What is price discrimination, and what makes it work?",
-   "a": "Charging different buyers different prices for essentially the same thing, according to what each will pay. It works only if you can fence the groups apart with something customers cannot easily fake, such as a student card, booking timing or a stripped-down version. Without a credible fence, everyone pays the lowest price.",
-   "key": [
-    "price discrimination",
-    "fence",
-    "pay",
-    "groups"
-   ]
-  },
-  {
-   "q": "What is the difference between penetration and skimming pricing?",
-   "a": "Penetration launches low to win share quickly, betting that scale or lock-in pays for the sacrificed margin. Skimming launches high to capture the customers who value it most, then steps down over time. Skimming suits a genuinely differentiated product; penetration suits markets where share is hard to take later.",
-   "key": [
-    "penetration",
-    "skimming",
-    "share",
-    "margin"
-   ]
-  },
-  {
-   "q": "How should a business decide whether to raise prices?",
-   "a": "Establish how elastic demand is, then work out the volume you could afford to lose and still be better off, which is usually much more than people expect. Then check competitor response and whether the price is visible enough that customers will notice. The arithmetic is the easy part; the judgement is about reaction.",
-   "key": [
-    "elastic",
-    "volume",
-    "competitor",
-    "price"
-   ]
-  }
- ],
- "strategy": [
-  {
-   "q": "What is the difference between a goal and a strategy?",
-   "a": "A goal says where you want to end up. A strategy is the set of choices about how you get there, and crucially about what you will not do. If a statement contains no trade-off and nobody could disagree with it, it is an aspiration wearing a strategy's clothes.",
-   "key": [
-    "goal",
-    "strategy",
-    "choices",
-    "trade-off"
-   ]
-  },
-  {
-   "q": "What is a competitive advantage, and what makes one durable?",
-   "a": "It is a reason customers choose you that rivals cannot easily copy. Durability comes from something structural: scale economics, network effects, switching costs, a protected asset or a genuinely better cost position. A good product alone is not an advantage, because it can be matched.",
-   "key": [
-    "competitive advantage",
-    "copy",
-    "switching costs",
-    "scale"
-   ]
-  },
-  {
-   "q": "What does Porter's five forces actually help you work out?",
-   "a": "Whether an industry is structurally attractive, by looking at rivalry, buyer power, supplier power, substitutes and the threat of new entrants. It explains why some industries earn good returns for decades and others do not. It describes the industry, not your company, so it answers whether to be in the market rather than how to win it.",
-   "key": [
-    "five forces",
-    "rivalry",
-    "buyer power",
-    "substitutes"
-   ]
-  },
-  {
-   "q": "What is opportunity cost, and why do managers underweight it?",
-   "a": "Opportunity cost is what you give up by not choosing the next-best alternative. It is underweighted because it never appears on a budget or in the accounts, unlike the visible cost of what you did choose. A project earning a small positive return can still be a bad decision if the resources had a better use.",
-   "key": [
-    "opportunity cost",
-    "next-best",
-    "alternative",
-    "return"
-   ]
-  },
-  {
-   "q": "How would you assess whether a company should enter a new business?",
-   "a": "Three questions in order: is the market attractive, can we win in it, and is it worth more to us than to anyone else. The third is the one people skip, and it is what separates a sensible move from buying a fair business at a fair price and creating nothing.",
-   "key": [
-    "attractive",
-    "win",
-    "worth more",
-    "market"
-   ]
-  }
- ],
- "operations": [
-  {
-   "q": "What is a bottleneck, and what does it mean for the whole process?",
-   "a": "The bottleneck is the slowest step, and it sets the throughput of the entire process no matter how fast everything else runs. Improving any other step just builds inventory in front of it. The practical consequence is that all effort goes to the constraint first, and once it moves, the bottleneck shifts somewhere else.",
-   "key": [
-    "bottleneck",
-    "throughput",
-    "constraint",
-    "inventory"
-   ]
-  },
-  {
-   "q": "What is inventory actually for, and what does holding it cost?",
-   "a": "Inventory buffers against variability in demand and supply, so customers are served when either moves unexpectedly. It costs capital tied up, storage, and the risk of obsolescence or spoilage. Every inventory decision is that trade-off: service level against cash and risk.",
-   "key": [
-    "inventory",
-    "variability",
-    "capital",
-    "obsolescence"
-   ]
-  },
-  {
-   "q": "What is the difference between lead time and cycle time?",
-   "a": "Lead time is what the customer experiences, from placing an order to receiving it. Cycle time is how often the process completes a unit internally. They are frequently confused, and a business can have a short cycle time and a long lead time because most of the wait is queueing, not working.",
-   "key": [
-    "lead time",
-    "cycle time",
-    "customer",
-    "queueing"
-   ]
-  },
-  {
-   "q": "What does just-in-time do, and what is its weakness?",
-   "a": "Just-in-time brings materials in as they are needed rather than holding buffers, which frees cash and exposes quality problems early because there is no stock to hide them. The weakness is fragility: with no buffer, a single supplier failure or delay stops the line immediately. It trades resilience for efficiency.",
-   "key": [
-    "just-in-time",
-    "buffers",
-    "cash",
-    "fragility"
-   ]
-  },
-  {
-   "q": "How would you approach a case about reducing operating costs?",
-   "a": "Break the cost base down and find where the money actually is before touching anything, because effort belongs where the spend is. Then separate costs driven by volume from those driven by complexity or by choices, since they need different remedies. Check the effect on service and quality, because savings that lose customers are not savings.",
-   "key": [
-    "cost base",
-    "volume",
-    "complexity",
-    "service"
-   ]
-  }
- ],
- "marketentry": [
-  {
-   "q": "How do you structure a market entry case?",
-   "a": "Is the market attractive in size, growth and profitability. Can we win, given competitors and what we are actually good at. And how should we enter: building, partnering or buying. The final step is the economics, because an attractive market you enter badly still loses money.",
-   "key": [
-    "attractive",
-    "win",
-    "enter",
-    "economics"
-   ]
-  },
-  {
-   "q": "What are the main ways to enter a new market, and what is the trade-off?",
-   "a": "Build organically, partner or joint venture, or acquire. Building is slowest and cheapest and keeps full control. Acquiring is fastest and buys position and local knowledge, but you pay a premium and inherit whatever comes with it. Partnering splits the risk and the reward, and usually the control too.",
-   "key": [
-    "build",
-    "partner",
-    "acquire",
-    "control"
-   ]
-  },
-  {
-   "q": "What are barriers to entry, and why do they matter to a new entrant?",
-   "a": "They are the things that make it hard or expensive for a newcomer to compete: capital requirements, scale economics, regulation, brand, distribution access and switching costs. High barriers protect whoever is already inside, so they are simultaneously the reason the market is profitable and the reason you may not get in.",
-   "key": [
-    "barriers to entry",
-    "scale",
-    "regulation",
-    "switching costs"
-   ]
-  },
-  {
-   "q": "What is the difference between organic growth and growth by acquisition?",
-   "a": "Organic growth comes from selling more of what you build yourself: slower, cheaper, and it compounds capability. Acquisition buys revenue and position immediately, but at a premium and with integration risk, which is where most of the value is lost. The honest test is whether you can run it better than the seller did.",
-   "key": [
-    "organic",
-    "acquisition",
-    "premium",
-    "integration"
-   ]
-  },
-  {
-   "q": "A client's growth has stalled. How do you find out why?",
-   "a": "Separate market growth from share: the market may have slowed, or it may be growing while the client loses ground, and those are completely different problems. Then split share by segment and by product, because an aggregate that looks flat often hides one part growing and another falling.",
-   "key": [
-    "market growth",
-    "share",
-    "segment",
-    "product"
-   ]
-  }
- ],
- "mnacases": [
-  {
-   "q": "What are the questions a commercial due diligence actually has to answer?",
-   "a": "Is the market as attractive as the seller says, is the target's position in it genuine and defensible, are the forecasts credible, and where could the value break. It is not an audit of the numbers; it is a test of whether the business will still be worth this in five years.",
-   "key": [
-    "market",
-    "position",
-    "forecasts",
-    "value"
-   ]
-  },
-  {
-   "q": "Why do so many acquisitions fail to create value?",
-   "a": "Usually because the buyer overpaid for synergies that were assumed rather than tested, or because integration was underestimated. The premium is paid on day one with certainty; the benefits arrive later and only if the work is done. Culture and losing key people account for more failures than the financial modelling does.",
-   "key": [
-    "overpaid",
-    "synergies",
-    "integration",
-    "premium"
-   ]
-  },
-  {
-   "q": "How would you test whether claimed synergies are real?",
-   "a": "Ask who specifically does the thing that stops, by when, and what it costs to make it stop. Cost synergies survive that questioning more often than revenue synergies, which usually rest on customers behaving in a way nobody has asked them about. Anything that cannot be named and owned should be taken out of the price.",
-   "key": [
-    "synergies",
-    "cost",
-    "revenue",
-    "price"
-   ]
-  },
-  {
-   "q": "What is integration risk, and where does it actually show up?",
-   "a": "It is the risk that combining the two businesses destroys what was bought. It shows up in systems that do not talk, incompatible ways of working, customers who dislike the new owner, and the quiet departure of the people who made the target work. It is greatest exactly where the synergies were supposed to come from.",
-   "key": [
-    "integration",
-    "systems",
-    "customers",
-    "people"
-   ]
-  },
-  {
-   "q": "How do you decide what a target is worth to your client specifically?",
-   "a": "Value it standalone first, then add only the synergies your client can realistically capture and that another buyer could not, since anything available to everyone is already in the market price. The gap between that number and the asking price is the negotiating room, and if there is none the answer is to walk.",
-   "key": [
-    "standalone",
-    "synergies",
-    "price",
-    "walk"
-   ]
-  }
- ],
- "consultinginterview": [
-  {
-   "q": "What is the interviewer actually assessing in a case interview?",
-   "a": "How you think and what you are like to work with, more than the final answer. They are watching whether you structure before diving in, whether you stay organised out loud, whether you change your mind when the data says so, and whether they would put you in front of a client. The final number is seldom the differentiator.",
-   "key": [
-    "structure",
-    "out loud",
-    "data",
-    "client"
-   ]
-  },
-  {
-   "q": "What should you do when you get stuck in a case?",
-   "a": "Say so and say where. Restate what you know, what you have ruled out and the two options you see, then ask for a steer if you need one. Interviewers are far more comfortable with that than with silence or with confident nonsense, because it is exactly what they want a junior colleague to do on a real project.",
-   "key": [
-    "say so",
-    "restate",
-    "ruled out",
-    "ask"
-   ]
-  },
-  {
-   "q": "How do you handle a maths error in the middle of a case?",
-   "a": "Catch it, say it plainly, correct it and move on without apologising three times. Errors themselves are ordinary; not noticing them is the problem, as is losing composure afterwards. Sanity-checking as you go, and saying the check out loud, is what stops a small slip becoming a wrong recommendation.",
-   "key": [
-    "correct",
-    "move on",
-    "noticing",
-    "sanity-check"
-   ]
-  },
-  {
-   "q": "How should you answer \"why consulting\" convincingly?",
-   "a": "Give a reason specific to the work itself, such as the variety of problems or the pace of learning across industries, and anchor it in something you have actually done rather than leaving it as a claim. Show you know the trade-offs, including the travel and the hours, because that is what makes it read as a decision rather than a default.",
-   "key": [
-    "specific",
-    "anchor",
-    "trade-offs",
-    "decision"
-   ]
-  },
-  {
-   "q": "How do you present a recommendation at the end of a case?",
-   "a": "Answer first: state the recommendation in one sentence, then give the two or three reasons, then the main risk and what you would do about it. Keep it under a minute. Resist recapping the analysis; the partner wants your conclusion and your confidence in it, not the tour.",
-   "key": [
-    "answer first",
-    "recommendation",
-    "reasons",
-    "risk"
-   ]
-  }
- ]
+  "accounting": [
+    {
+      "q": "What are the three financial statements, and what does each one tell you?",
+      "a": "The income statement shows profit over a period. The balance sheet shows what the company owns and owes at a single moment in time. The cash flow statement explains why the cash balance moved. The income statement is about what was earned, not what was received, which is exactly why the cash flow statement exists as the reality check on it.",
+      "key": [
+        "income statement",
+        "balance sheet",
+        "cash flow statement",
+        "profit"
+      ]
+    },
+    {
+      "q": "What does the accounting equation say, and why does it always have to hold?",
+      "a": "Assets equal liabilities plus equity. Everything a company owns was paid for either by borrowing or by its owners, so the two sides are the same pile of resources described from different angles: what you have, and who has a claim on it. Double-entry bookkeeping records both halves of every transaction, which is what keeps the equation balanced.",
+      "key": [
+        "assets",
+        "liabilities",
+        "equity",
+        "double-entry"
+      ]
+    },
+    {
+      "q": "What is the difference between accrual accounting and cash accounting?",
+      "a": "Accrual accounting records revenue when it is earned and costs when they are incurred, whether or not cash has moved. Cash accounting records them only when money actually changes hands. Accruals give a truer picture of how a period actually went, which is why they are required, but they are also where judgement, estimates and manipulation enter the accounts.",
+      "key": [
+        "accrual",
+        "earned",
+        "incurred",
+        "cash"
+      ]
+    },
+    {
+      "q": "What do the words debit and credit actually mean in accounting?",
+      "a": "They are simply the left and right side of an entry, not good and bad. A debit increases assets and expenses. A credit increases liabilities, equity and revenue. Every transaction is recorded with equal debits and credits, which is the mechanism that keeps the balance sheet balancing.",
+      "key": [
+        "debit",
+        "credit",
+        "assets",
+        "liabilities"
+      ]
+    },
+    {
+      "q": "What is depreciation, and why does it exist at all?",
+      "a": "Depreciation spreads the cost of a long-lived asset across the years it is actually used, rather than expensing the whole thing in the year it was bought. The point is to match the cost to the periods that get the benefit. It reduces profit without reducing cash in the year it is charged, because the cash already left when the asset was purchased.",
+      "key": [
+        "depreciation",
+        "cost",
+        "profit",
+        "cash"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "q": "What are the three sections of the cash flow statement, and what belongs in each?",
+      "a": "Operating covers cash from running the business day to day. Investing covers buying and selling long-term assets, such as equipment or whole companies. Financing covers raising and returning capital: debt drawn or repaid, shares issued or bought back, and dividends paid. The three together explain every pound of movement in the cash balance.",
+      "key": [
+        "operating",
+        "investing",
+        "financing",
+        "cash"
+      ]
+    },
+    {
+      "q": "How does depreciation affect the income statement differently from the cash flow statement?",
+      "a": "On the income statement depreciation is an expense, so it reduces operating profit and therefore net income. On the cash flow statement it is added straight back, because no cash left the business that year. It is the clearest example of the gap between profit and cash, and of why a profitable company can still run out of money.",
+      "key": [
+        "depreciation",
+        "expense",
+        "net income",
+        "added straight back"
+      ]
+    },
+    {
+      "q": "What is working capital, and what does a change in it do to cash?",
+      "a": "Working capital is the money tied up in running the business day to day, typically receivables plus inventory less payables. When it rises the company has more cash stuck in stock or owed by customers, so cash falls. When it falls, cash is released. Growth almost always consumes working capital, which is why fast-growing companies can be profitable and still short of cash.",
+      "key": [
+        "working capital",
+        "receivables",
+        "inventory",
+        "payables"
+      ]
+    },
+    {
+      "q": "If net income goes up by one hundred, what happens across all three statements?",
+      "a": "On the income statement net income rises by one hundred. On the cash flow statement it is the starting line, so cash from operations rises by one hundred, assuming nothing else moves. On the balance sheet cash rises by one hundred on the asset side and retained earnings rise by one hundred within equity, so the balance sheet still balances.",
+      "key": [
+        "net income",
+        "cash",
+        "retained earnings",
+        "equity"
+      ]
+    },
+    {
+      "q": "Where do you look first if you suspect a company's reported profit is flattered?",
+      "a": "Compare operating cash flow with net income over several years. Profit is an opinion shaped by estimates; cash is closer to fact. If profit keeps rising while operating cash flow does not follow, the gap is sitting in working capital or in accruals such as revenue recognised early or costs capitalised rather than expensed.",
+      "key": [
+        "operating cash flow",
+        "net income",
+        "working capital",
+        "accruals"
+      ]
+    }
+  ],
+  "corpfin": [
+    {
+      "q": "What is the time value of money, and why does it matter for every valuation?",
+      "a": "A pound today is worth more than a pound next year, because today's pound can be invested and because the future is uncertain. Every valuation method is a way of converting future money into today's money, which is what discounting does. The rate you discount at is the price you put on waiting and on risk.",
+      "key": [
+        "time value",
+        "discounting",
+        "risk",
+        "future"
+      ]
+    },
+    {
+      "q": "What is net present value, and what does a positive NPV actually mean?",
+      "a": "Net present value is the sum of a project's future cash flows discounted back to today, minus what it costs to start. A positive NPV means the project is expected to return more than the cost of the money used to fund it, so it adds value. It is the cleanest decision rule in corporate finance because it is measured in money rather than in percentages.",
+      "key": [
+        "net present value",
+        "cash flows",
+        "discounted",
+        "cost"
+      ]
+    },
+    {
+      "q": "What is a sunk cost, and how should it affect a decision?",
+      "a": "A sunk cost is money already spent that cannot be recovered whatever you now choose. It should carry no weight at all in a go or no-go decision, because the only question that matters is what happens from here. People find this genuinely hard, which is why so much money gets thrown after bad projects.",
+      "key": [
+        "sunk cost",
+        "recovered",
+        "decision"
+      ]
+    },
+    {
+      "q": "What is the weighted average cost of capital, in plain terms?",
+      "a": "It is the blended rate a company pays for all the money it uses, weighting the cost of its debt and the cost of its equity by how much of each it has. Debt is cheaper because lenders rank ahead of owners and interest is tax deductible. It is the hurdle a project has to clear to be worth doing.",
+      "key": [
+        "cost of capital",
+        "debt",
+        "equity",
+        "hurdle"
+      ]
+    },
+    {
+      "q": "Why would a healthy, profitable company deliberately take on debt?",
+      "a": "Debt costs less than equity and it hands over no ownership, so as long as the business earns more than the interest it pays, borrowing lifts the returns that owners earn. Interest is also deductible against tax. The cost is fixed obligations that must be paid whatever happens, which is what makes leverage cut both ways.",
+      "key": [
+        "debt",
+        "equity",
+        "interest",
+        "returns"
+      ]
+    }
+  ],
+  "markets": [
+    {
+      "q": "What is the difference between the primary market and the secondary market?",
+      "a": "In the primary market a company issues new securities and receives the money itself, as in an IPO or a bond issue. In the secondary market investors trade those securities with each other and the company receives nothing. Secondary trading still matters to the company, because the price set there determines what it can raise next time.",
+      "key": [
+        "primary",
+        "secondary",
+        "issues",
+        "investors"
+      ]
+    },
+    {
+      "q": "What does a market maker do, and how do they make money?",
+      "a": "A market maker quotes both a price to buy and a price to sell, continuously, so that other people can always trade. They earn the spread between those two prices rather than betting on direction. The service they provide is liquidity: the ability to get in or out without moving the price much.",
+      "key": [
+        "market maker",
+        "spread",
+        "liquidity",
+        "quote"
+      ]
+    },
+    {
+      "q": "What is the relationship between bond prices and interest rates?",
+      "a": "They move in opposite directions. A bond pays a fixed amount, so if rates in the market rise, newly issued bonds pay more and the older, lower-paying bond has to fall in price for anyone to want it. The longer the bond has left to run, the more its price moves for a given change in rates.",
+      "key": [
+        "bond",
+        "interest rates",
+        "price",
+        "opposite"
+      ]
+    },
+    {
+      "q": "What is the difference between equity and debt from an investor's point of view?",
+      "a": "Debt is a loan: fixed payments, a fixed end date, and a claim that ranks ahead of owners if things go wrong, but no share of the upside. Equity is ownership: no promised payment and last in line if the company fails, but the entire remaining value once everyone else has been paid. You are paid for where you sit in the queue.",
+      "key": [
+        "debt",
+        "equity",
+        "ownership",
+        "ranks"
+      ]
+    },
+    {
+      "q": "What does liquidity mean, and why do investors care so much about it?",
+      "a": "Liquidity is how easily you can turn a holding into cash without moving the price against yourself. An illiquid asset may be worth a great deal on paper and still be hard to sell at that figure. Investors demand a higher return for illiquidity, because being unable to get out when you need to is a real cost.",
+      "key": [
+        "liquidity",
+        "cash",
+        "price",
+        "return"
+      ]
+    }
+  ],
+  "macro": [
+    {
+      "q": "What does a central bank do when it raises rates, and how does that bring inflation down?",
+      "a": "It raises the policy rate that all other borrowing costs price off. Mortgages and loans get dearer, saving pays more, so households and businesses spend and invest less. With less demand chasing the same goods, businesses lose the ability to keep raising prices, and inflation slows. The effect takes a year or more to fully work through.",
+      "key": [
+        "borrowing",
+        "demand",
+        "spending",
+        "inflation"
+      ]
+    },
+    {
+      "q": "Why do higher interest rates tend to push share prices down?",
+      "a": "A share is worth the present value of the company's future cash flows, discounted at a rate. Higher rates raise the discount rate, so the same future cash is worth less today and the valuation falls. Companies whose profits are far in the future, like growth stocks, are hit hardest. Safer bonds paying more also pull investors out of equities.",
+      "key": [
+        "discount rate",
+        "future cash",
+        "present value",
+        "bonds"
+      ]
+    },
+    {
+      "q": "Sterling weakens sharply against the dollar. What happens to a UK company that imports in dollars, and to one that exports to the US?",
+      "a": "The importer needs more pounds to buy the same dollars, so its costs rise and it either raises prices or accepts a lower margin. The exporter's dollar revenue converts into more pounds, so its revenue and margin rise, and it could cut dollar prices to win share. A weak pound tends to lift the FTSE 100, which is full of exporters and overseas earners.",
+      "key": [
+        "importer",
+        "costs",
+        "exporter",
+        "margin"
+      ]
+    },
+    {
+      "q": "What is a credit spread, and what does it tell you when spreads widen?",
+      "a": "The spread is the extra yield a company's bond pays over a government bond of the same maturity. It is the price of the risk that the company defaults. Widening spreads mean investors want more compensation for that risk, so the market is getting nervous about the economy and expects more defaults.",
+      "key": [
+        "yield",
+        "government",
+        "risk",
+        "default"
+      ]
+    },
+    {
+      "q": "How would you structure an answer to the question: what is going on in markets right now?",
+      "a": "Rates first: where the central bank is and which way it is leaning. Then inflation: the latest number against the target. Then growth: expanding, slowing or in recession, and what jobs data say. Then one story you actually follow, with a view on why it matters and what happens next. Under two minutes, in cause and effect.",
+      "key": [
+        "rates",
+        "inflation",
+        "growth",
+        "view"
+      ]
+    }
+  ],
+  "valuation": [
+    {
+      "q": "What are the three main ways to value a company, and how do they usually compare?",
+      "a": "Comparable companies, precedent transactions and a discounted cash flow. Precedents usually sit highest because an acquirer pays a control premium to take the whole company. Comparable companies reflect where the market prices similar businesses today. A DCF can land anywhere, because it is driven by your own assumptions rather than by observed prices.",
+      "key": [
+        "comparable companies",
+        "precedent transactions",
+        "discounted cash flow",
+        "control premium"
+      ]
+    },
+    {
+      "q": "What is a discounted cash flow, step by step?",
+      "a": "You forecast the cash the business will generate over several years, work out a terminal value for everything after that, then discount all of it back to today at the cost of capital. That gives enterprise value. Subtract net debt and you have the value of the equity. Every step rests on assumptions, which is why the output is a range and not a number.",
+      "key": [
+        "cash",
+        "terminal value",
+        "discount",
+        "enterprise value"
+      ]
+    },
+    {
+      "q": "What is terminal value, and why does it attract so much scrutiny?",
+      "a": "Terminal value is the worth of everything the business earns beyond the explicit forecast period. It routinely accounts for well over half the total value in a DCF, so a small change in the growth rate or exit multiple used to calculate it swings the whole answer. Reviewers check it first because that is where the answer is actually decided.",
+      "key": [
+        "terminal value",
+        "forecast",
+        "growth",
+        "multiple"
+      ]
+    },
+    {
+      "q": "What is the difference between enterprise value and equity value?",
+      "a": "Enterprise value is the value of the operating business itself, regardless of how it is funded. Equity value is what is left for shareholders after the debt is paid off, so it is enterprise value less net debt. Metrics before interest, such as EBITDA, pair with enterprise value; metrics after interest, such as net income, pair with equity value.",
+      "key": [
+        "enterprise value",
+        "equity value",
+        "net debt",
+        "EBITDA"
+      ]
+    },
+    {
+      "q": "Why would you use EV/EBITDA rather than the price to earnings ratio?",
+      "a": "EV/EBITDA sits above interest and tax, so it compares businesses on their underlying operating performance whatever their debt load or tax position. P/E is after both, so two identical businesses with different borrowing look different on it. P/E also breaks down entirely when earnings are negative.",
+      "key": [
+        "EBITDA",
+        "debt",
+        "earnings",
+        "operating"
+      ]
+    }
+  ],
+  "credit": [
+    {
+      "q": "What does leverage mean, and why does it cut both ways?",
+      "a": "Leverage is using borrowed money to fund part of the business. Because the interest is a fixed cost, every pound of profit above it belongs to the owners, so returns on equity are magnified when things go well. The same fixed cost magnifies losses when they go badly, and unlike a dividend, interest still has to be paid.",
+      "key": [
+        "leverage",
+        "borrowed",
+        "interest",
+        "returns"
+      ]
+    },
+    {
+      "q": "What is a covenant, and what happens when one is breached?",
+      "a": "A covenant is a condition in a loan agreement, often a limit on leverage or a minimum interest coverage, tested regularly. Breaching one is an event of default: it does not automatically mean the loan is called, but control shifts to the lender, who can demand repayment, reprice the debt or force changes. In practice it triggers a renegotiation from a weak position.",
+      "key": [
+        "covenant",
+        "default",
+        "lender",
+        "leverage"
+      ]
+    },
+    {
+      "q": "What is the difference between secured and unsecured debt?",
+      "a": "Secured debt is backed by specific assets the lender can seize if the borrower fails to pay, so it carries lower risk and a lower interest rate. Unsecured debt has only a general claim and ranks behind the secured lenders in a bankruptcy. The ranking of who gets paid first is what the whole pricing of credit is built on.",
+      "key": [
+        "secured",
+        "unsecured",
+        "assets",
+        "ranks"
+      ]
+    },
+    {
+      "q": "What does interest coverage tell you, and why is it watched so closely?",
+      "a": "Interest coverage divides operating profit by the interest bill, so it measures how many times over the company can pay what it owes its lenders from the profits it makes. A ratio near one means almost nothing is left after the interest, so a modest downturn causes a default. It is a more immediate danger signal than the leverage ratio.",
+      "key": [
+        "interest coverage",
+        "operating profit",
+        "default",
+        "leverage"
+      ]
+    },
+    {
+      "q": "Why does a credit rating matter to a company beyond looking respectable?",
+      "a": "The rating sets the interest rate the company pays, so a downgrade directly raises the cost of every pound it borrows. It also determines who is allowed to lend: many funds are barred from holding anything below investment grade, so falling below that line removes a large part of the buyer base at once.",
+      "key": [
+        "credit rating",
+        "interest rate",
+        "downgrade",
+        "investment grade"
+      ]
+    }
+  ],
+  "mna": [
+    {
+      "q": "What are synergies, and which type should you trust?",
+      "a": "Synergies are the value created by combining two companies that neither would have alone. Cost synergies come from removing duplicated overheads, sites or systems and are relatively reliable because they are within the buyer's control. Revenue synergies assume customers will buy more from the combined firm and are much softer, which is why they are discounted heavily or excluded.",
+      "key": [
+        "synergies",
+        "cost",
+        "revenue",
+        "duplicated"
+      ]
+    },
+    {
+      "q": "Why does an acquirer pay a premium over the market price?",
+      "a": "Because it is buying control, not a passive stake. Control brings the ability to change management, strategy and cost base, and to capture the synergies. Shareholders also have to be persuaded to give up a holding they chose to own, so the premium is the price of getting them to agree.",
+      "key": [
+        "premium",
+        "control",
+        "synergies",
+        "shareholders"
+      ]
+    },
+    {
+      "q": "What is the difference between an asset purchase and a share purchase?",
+      "a": "In a share purchase the buyer acquires the company itself and inherits everything with it, including liabilities and legal history it may not know about. In an asset purchase the buyer picks the specific assets and contracts it wants and leaves the rest behind. Buyers usually prefer asset deals, sellers usually prefer share deals, and tax treatment often decides it.",
+      "key": [
+        "asset purchase",
+        "share purchase",
+        "liabilities",
+        "assets"
+      ]
+    },
+    {
+      "q": "What does it mean for a deal to be accretive or dilutive?",
+      "a": "It refers to what the deal does to the acquirer's earnings per share. Accretive means EPS goes up after the deal, dilutive means it goes down. Roughly, paying with cash or cheap debt tends to be accretive and issuing expensive shares tends to be dilutive. It is a useful signal but a poor measure of whether the deal actually creates value.",
+      "key": [
+        "accretive",
+        "dilutive",
+        "earnings per share",
+        "shares"
+      ]
+    },
+    {
+      "q": "What happens to goodwill in an acquisition, and what is actually in it?",
+      "a": "Goodwill is the amount paid above the fair value of the identifiable net assets acquired. Less of it survives than people assume: identifiable intangibles such as brands and customer relationships are recognised separately when they are separable or arise from a contract. What genuinely remains in goodwill is the assembled workforce and the expected synergies.",
+      "key": [
+        "goodwill",
+        "fair value",
+        "intangibles",
+        "synergies"
+      ]
+    }
+  ],
+  "lbo": [
+    {
+      "q": "What actually happens in a leveraged buyout, step by step?",
+      "a": "A private equity firm buys a company using a small slice of its own equity and a large amount of debt raised against the target's own cash flows. The company then uses those cash flows to service and pay down the debt over several years. The firm sells the business at the end, and because the debt has shrunk while the value has ideally grown, its equity is worth far more than it put in.",
+      "key": [
+        "private equity",
+        "debt",
+        "cash flows",
+        "equity"
+      ]
+    },
+    {
+      "q": "What makes a company a good LBO candidate?",
+      "a": "Stable, predictable cash flows above all, because the debt has to be paid whatever happens. Beyond that: low existing debt, modest capital expenditure needs, a defensible market position, assets that can be used as security and a credible route to sell in a few years. Fast growth is nice but it is far less important than predictability.",
+      "key": [
+        "cash flows",
+        "debt",
+        "capital expenditure",
+        "predictable"
+      ]
+    },
+    {
+      "q": "What are the three ways a private equity firm makes money on a deal?",
+      "a": "Paying down debt, so a larger share of the same company value belongs to the equity. Improving the business, by growing revenue or margins so there is more value to own. And multiple expansion, selling at a higher multiple than was paid. The first is mechanical, the second is real work, and the third is largely the market doing you a favour.",
+      "key": [
+        "debt",
+        "margins",
+        "multiple expansion",
+        "equity"
+      ]
+    },
+    {
+      "q": "Why does more leverage increase the return but also the risk in an LBO?",
+      "a": "Putting in less equity means any gain in company value is spread over a smaller base, so the percentage return on that equity is larger. But the debt payments are fixed and come first, so if cash flow falls short the equity is wiped out before the lenders lose anything. Leverage does not create value, it concentrates whatever happens onto a thinner slice.",
+      "key": [
+        "leverage",
+        "equity",
+        "return",
+        "cash flow"
+      ]
+    },
+    {
+      "q": "What does an exit look like, and why is it planned before the deal is signed?",
+      "a": "The usual routes are a sale to another company, a sale to another private equity firm, or a flotation. A fund has a finite life and has to return money to its investors, so a deal with no realistic buyer in five years is not a deal. The exit assumption also drives the price, because the return depends on what it can be sold for.",
+      "key": [
+        "exit",
+        "sale",
+        "return",
+        "price"
+      ]
+    }
+  ],
+  "ecm": [
+    {
+      "q": "What is an IPO, and why do companies do one?",
+      "a": "An initial public offering is the first sale of a company's shares to public investors, after which the shares trade on an exchange. The usual reasons are raising money to grow, giving early investors and employees a way to sell, and gaining a traded currency for acquisitions. The costs are disclosure, scrutiny and the pressure of quarterly reporting.",
+      "key": [
+        "shares",
+        "public",
+        "raising",
+        "investors"
+      ]
+    },
+    {
+      "q": "What is a prospectus, and why does it matter legally?",
+      "a": "The prospectus is the company's full public disclosure: the business, the accounts, the risks and the terms of the offer. It is the legal basis on which investors buy, so anything material left out or misstated creates liability for the company and its directors. It is the reason IPO diligence is as heavy as it is.",
+      "key": [
+        "prospectus",
+        "disclosure",
+        "risks",
+        "liability"
+      ]
+    },
+    {
+      "q": "What is bookbuilding, and how is the IPO price actually set?",
+      "a": "The banks market the deal within a price range and collect indications from investors of how much they would buy and at what price. That book of demand shows where real appetite sits, and the price is set from it. It is deliberately priced slightly below what the market would bear, so the shares trade up and investors come back for the next deal.",
+      "key": [
+        "bookbuilding",
+        "demand",
+        "price",
+        "investors"
+      ]
+    },
+    {
+      "q": "What is a lock-up period and why does it exist?",
+      "a": "A lock-up bars existing shareholders, typically founders, employees and early investors, from selling for a set period after listing, commonly ninety to one hundred and eighty days. It stops a flood of shares hitting a market that has not yet found a stable price, and it signals that insiders are not rushing for the door.",
+      "key": [
+        "lock-up",
+        "shareholders",
+        "selling",
+        "shares"
+      ]
+    },
+    {
+      "q": "What is the difference between a primary and a secondary component in an offering?",
+      "a": "Primary shares are newly created and the money goes to the company. Secondary shares are existing ones sold by current holders, and that money goes to them, not the business. Investors look closely at the mix, because a deal that is mostly insiders cashing out reads very differently from one funding growth.",
+      "key": [
+        "primary",
+        "secondary",
+        "company",
+        "holders"
+      ]
+    }
+  ],
+  "excel": [
+    {
+      "q": "Why should a model separate inputs, calculations and outputs?",
+      "a": "So that anyone can see what is an assumption and what is a consequence. Hard-coded numbers buried inside formulas are the single most common source of errors, because nobody knows they are there. Conventionally inputs are one colour and formulas another, so a reviewer can tell at a glance which cells they are allowed to change.",
+      "key": [
+        "inputs",
+        "calculations",
+        "assumption",
+        "hard-coded"
+      ]
+    },
+    {
+      "q": "What is a circular reference in a financial model, and where does one typically come from?",
+      "a": "It is a loop where a cell depends on itself through a chain of formulas. The classic case is interest: interest depends on the debt balance, the balance depends on cash flow, and cash flow depends on interest. It is normally handled with an iterative calculation setting or by deliberately breaking the loop, for example by using the opening balance.",
+      "key": [
+        "circular",
+        "interest",
+        "debt",
+        "cash flow"
+      ]
+    },
+    {
+      "q": "How would you build a clean scenario toggle in a model?",
+      "a": "Hold each scenario's assumptions in its own clearly labelled block, then use a single switch cell and a lookup such as INDEX or CHOOSE to pull the selected set into one live input row. Everything downstream points only at that live row. The point is that switching cases changes one cell, not fifty, so nothing can be left on the wrong case.",
+      "key": [
+        "scenario",
+        "assumptions",
+        "INDEX",
+        "input"
+      ]
+    },
+    {
+      "q": "What is the difference between a relative and an absolute cell reference?",
+      "a": "A relative reference shifts when the formula is copied, so A1 becomes B1 a column across. An absolute reference, written with dollar signs, stays fixed. Getting this wrong is the most common way a formula that looks right in one cell is quietly wrong across a whole row.",
+      "key": [
+        "relative",
+        "absolute",
+        "copied",
+        "formula"
+      ]
+    },
+    {
+      "q": "How do you check whether a financial model is actually working?",
+      "a": "Build in checks that must be true and flag loudly when they are not: the balance sheet balancing, cash flow tying to the movement in the cash balance, sources equalling uses. Then flex the key assumptions to extremes and see whether the outputs move in the direction and magnitude you would expect. A model that never breaks under stress is usually one that is not connected.",
+      "key": [
+        "checks",
+        "balance sheet",
+        "cash",
+        "assumptions"
+      ]
+    }
+  ],
+  "ibinterview": [
+    {
+      "q": "How should you structure an answer to \"walk me through your CV\"?",
+      "a": "Chronologically and briefly, in about two minutes, shaped as a line rather than a list: where you started, the decision that moved you to the next thing, and why that leads here. Spend the time on the parts relevant to the job and compress the rest. The interviewer is listening for whether the story has a direction, not for completeness.",
+      "key": [
+        "chronologically",
+        "story",
+        "relevant",
+        "direction"
+      ]
+    },
+    {
+      "q": "How do you answer a behavioural question well?",
+      "a": "Set the scene quickly, then spend most of the answer on what you personally did rather than what the team did, and close on a concrete result. The common failure is a long setup and a vague ending. Specifics and numbers are what make it memorable and checkable.",
+      "key": [
+        "scene",
+        "personally",
+        "result",
+        "specifics"
+      ]
+    },
+    {
+      "q": "What is the interviewer actually testing with a technical question?",
+      "a": "Whether you understand the mechanics well enough to explain them simply and under mild pressure, not whether you have memorised a definition. They are also watching what you do when you do not know: saying so and reasoning out loud is far better received than bluffing, because bluffing on a desk is genuinely dangerous.",
+      "key": [
+        "explain",
+        "pressure",
+        "reasoning",
+        "bluffing"
+      ]
+    },
+    {
+      "q": "How should you answer \"why investment banking\" without sounding rehearsed?",
+      "a": "Give a reason that is true of banking and not of every other job, tie it to something you have actually done, and be honest about what you know of the trade-offs including the hours. Answers about learning quickly and working on transactions are fine, but only when they are anchored to a specific experience rather than left as a slogan.",
+      "key": [
+        "reason",
+        "specific",
+        "trade-offs",
+        "experience"
+      ]
+    },
+    {
+      "q": "What should you ask at the end of an interview?",
+      "a": "Something you actually want to know and could only learn from this person: what their last few months have looked like, how the team works, what they would change. Avoid anything answerable from the website, and avoid questions that are really a pitch for yourself. It is a short conversation, not a test.",
+      "key": [
+        "ask",
+        "this person",
+        "website",
+        "conversation"
+      ]
+    }
+  ],
+  "casestructuring": [
+    {
+      "q": "What does MECE mean, and why does it matter for how you structure a case?",
+      "a": "Mutually exclusive, collectively exhaustive: your buckets should not overlap and together should cover everything. It matters because it stops you double-counting and stops you missing a whole branch of the problem. A structure that is genuinely MECE also makes it obvious which branch to test first, which is what turns a list into an argument.",
+      "key": [
+        "mutually exclusive",
+        "collectively exhaustive",
+        "overlap",
+        "buckets"
+      ]
+    },
+    {
+      "q": "How should you open a case interview?",
+      "a": "Play the problem back in your own words to confirm you have it right, ask what success looks like and over what horizon, then take a moment to structure before speaking. Asking for that moment is expected and is not a weakness. Answering immediately is the main way strong candidates talk themselves into the wrong problem.",
+      "key": [
+        "own words",
+        "success",
+        "structure",
+        "moment"
+      ]
+    },
+    {
+      "q": "Why is a tailored structure better than a memorised framework?",
+      "a": "Standard frameworks were built for a general case, not yours, so applying one wholesale produces branches that do not matter and misses the ones that do. Interviewers have heard every framework many times and are listening for whether you thought about this business. Borrow the useful piece, discard the rest, and say why.",
+      "key": [
+        "framework",
+        "tailored",
+        "branches",
+        "business"
+      ]
+    },
+    {
+      "q": "What is hypothesis-driven problem solving?",
+      "a": "Forming an early, explicit view of what is most likely causing the problem, then testing it rather than analysing everything evenly. It focuses the work on the branch most likely to matter and makes you faster. The discipline is holding it loosely: a hypothesis you refuse to drop when the data disagrees is worse than having none.",
+      "key": [
+        "hypothesis",
+        "testing",
+        "data",
+        "focus"
+      ]
+    },
+    {
+      "q": "How should you close a case?",
+      "a": "Lead with the recommendation, then give the two or three reasons that support it, then name the biggest risk and what you would check next. Do not recap the journey. The listener wants the answer first and the reasoning second, which is the opposite of how the analysis was actually done.",
+      "key": [
+        "recommendation",
+        "reasons",
+        "risk",
+        "answer first"
+      ]
+    }
+  ],
+  "marketsizing": [
+    {
+      "q": "How do you approach a market sizing question from scratch?",
+      "a": "Start from a number you genuinely know, such as a population, then break it down with a small number of assumptions you state out loud: what share is relevant, how often they buy, at what price. Do the arithmetic in round numbers. The interviewer is grading the logic and the stated assumptions, not whether the final figure is right.",
+      "key": [
+        "population",
+        "assumptions",
+        "logic",
+        "arithmetic"
+      ]
+    },
+    {
+      "q": "What is the difference between a top-down and a bottom-up estimate?",
+      "a": "Top-down starts from a large total, such as a national population or total spending, and narrows it with percentages. Bottom-up builds from a single unit, such as one store's sales, and scales it up. Doing both and seeing whether they land in the same place is the strongest possible check on either.",
+      "key": [
+        "top-down",
+        "bottom-up",
+        "scales",
+        "check"
+      ]
+    },
+    {
+      "q": "What is the difference between a stock and a flow, and why does it trip people up?",
+      "a": "A stock is the amount in existence at a moment, such as the number of cars on the road. A flow is the amount added or replaced in a period, such as annual car sales. Confusing the two is the single most common sizing error; the replacement cycle is what converts between them.",
+      "key": [
+        "stock",
+        "flow",
+        "replacement",
+        "annual"
+      ]
+    },
+    {
+      "q": "How do you sanity-check a market sizing answer?",
+      "a": "Compare it with something you already know: a per-person figure, a known company's revenue, or the size of a related market. If your estimate implies every adult buys twelve of something a year, the assumption chain is wrong somewhere. Saying the number is implausible and finding where is worth more marks than defending it.",
+      "key": [
+        "sanity-check",
+        "per-person",
+        "implausible",
+        "assumption"
+      ]
+    },
+    {
+      "q": "What kinds of errors should you actively watch for in your own estimate?",
+      "a": "Nesting errors where you apply two percentages that already overlap, unstated assumptions you slipped past, and any single input that is implausible on its face. Round numbers early so the arithmetic stays clean, because most visible mistakes in sizing are arithmetic, not judgement.",
+      "key": [
+        "nesting",
+        "unstated assumptions",
+        "implausible",
+        "arithmetic"
+      ]
+    }
+  ],
+  "microecon": [
+    {
+      "q": "What is price elasticity of demand, and what does it tell a business?",
+      "a": "Elasticity measures how sharply the quantity demanded reacts when price moves. Demand is elastic when a small price rise loses a lot of volume, and inelastic when it barely moves. It decides whether raising price raises revenue, which is why it is the first thing to establish in any pricing question.",
+      "key": [
+        "elasticity",
+        "quantity demanded",
+        "price",
+        "revenue"
+      ]
+    },
+    {
+      "q": "What is equilibrium, and what happens when price sits above it?",
+      "a": "Equilibrium is the single price at which the amount buyers want to buy equals the amount sellers want to sell. Above it, sellers are offering more than buyers will take, so stock builds up and the surplus pushes price back down. Below it, shortages push price back up.",
+      "key": [
+        "equilibrium",
+        "buyers",
+        "sellers",
+        "surplus"
+      ]
+    },
+    {
+      "q": "What is consumer surplus?",
+      "a": "The extra value buyers get from paying less than the most they would have been willing to pay. If you would have paid fifty and the price is thirty, you captured twenty of surplus. Much of pricing strategy is about converting that surplus into revenue without losing the customers who genuinely will not pay more.",
+      "key": [
+        "consumer surplus",
+        "willing to pay",
+        "price",
+        "revenue"
+      ]
+    },
+    {
+      "q": "What are economies of scale, and where do they come from?",
+      "a": "They are the fall in cost per unit as volume rises, because fixed costs are spread over more units and larger operations can buy and produce more efficiently. They are a real barrier to entry, because a newcomer starts small and therefore starts expensive. They do not continue forever: past a point, coordination costs rise again.",
+      "key": [
+        "economies of scale",
+        "fixed costs",
+        "volume",
+        "barrier"
+      ]
+    },
+    {
+      "q": "How does a competitive market differ from a monopoly in how prices get set?",
+      "a": "In a competitive market no single seller can set the price; they take whatever the market gives and compete the margin down towards cost. A monopolist faces the whole demand curve and chooses the point on it that maximises profit, which means a higher price and lower quantity. Most real markets sit somewhere between the two.",
+      "key": [
+        "competitive",
+        "monopoly",
+        "price",
+        "demand"
+      ]
+    }
+  ],
+  "profitability": [
+    {
+      "q": "How do you structure a profitability case?",
+      "a": "Profit is revenue minus cost, so split it there first, then work out which side moved before going deeper. Revenue breaks into price and volume; cost breaks into fixed and variable. The discipline is isolating the branch that actually changed before analysing anything, rather than investigating all four at once.",
+      "key": [
+        "revenue",
+        "cost",
+        "price",
+        "volume"
+      ]
+    },
+    {
+      "q": "What is contribution margin, and what is it used for?",
+      "a": "Contribution margin is what one extra sale leaves behind after its own variable cost, before any fixed costs. It tells you what each additional unit contributes towards covering overheads and then towards profit. It is the right measure for decisions about one more sale, whereas full cost per unit is not.",
+      "key": [
+        "contribution margin",
+        "variable cost",
+        "fixed costs",
+        "unit"
+      ]
+    },
+    {
+      "q": "What is the difference between fixed and variable costs, and why does the mix matter?",
+      "a": "Variable costs rise and fall with volume; fixed costs do not change within a normal range. A business with high fixed costs makes a lot of money once it passes break-even and loses a lot quickly when volume falls, because each lost unit takes its full contribution with it. The mix determines how risky a given fall in demand actually is.",
+      "key": [
+        "fixed costs",
+        "variable costs",
+        "volume",
+        "break-even"
+      ]
+    },
+    {
+      "q": "What is break-even, and how do you calculate it?",
+      "a": "Break-even is the volume at which total contribution exactly covers fixed costs, so profit is zero. Divide fixed costs by the contribution margin per unit. It is useful because it converts a vague question about whether something is viable into a specific number of units you can judge against the market.",
+      "key": [
+        "break-even",
+        "fixed costs",
+        "contribution margin",
+        "volume"
+      ]
+    },
+    {
+      "q": "A client's revenue is flat but profit has fallen. Where do you look?",
+      "a": "Since revenue has not moved, something in the cost base has, or the mix within revenue has shifted. Check whether input costs rose, whether volume moved while price offset it, and whether sales shifted towards lower-margin products or customers. A stable top line often hides two changes underneath that happen to cancel out.",
+      "key": [
+        "cost",
+        "mix",
+        "price",
+        "volume"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "q": "What is the difference between correlation and causation?",
+      "a": "Correlation means two things move together. Causation means one actually brings the other about. Two variables can move together because a hidden third factor drives both, or because the relationship runs the other way round. Establishing cause needs an experiment or a design that rules those out, not a stronger correlation.",
+      "key": [
+        "correlation",
+        "causation",
+        "third factor",
+        "experiment"
+      ]
+    },
+    {
+      "q": "What does statistical significance actually mean?",
+      "a": "It means a result is unlikely to have arisen by chance alone, given the sample. It says nothing about whether the effect is large or whether it matters commercially. With a big enough sample, trivial differences become significant, which is why significance and importance have to be judged separately.",
+      "key": [
+        "chance",
+        "sample",
+        "effect",
+        "significant"
+      ]
+    },
+    {
+      "q": "Why does sample size matter, and what does a small sample do to a conclusion?",
+      "a": "Smaller samples produce noisier estimates, so the range the true value could plausibly sit in is wide. A result from a handful of customers may be real or may be nothing, and the data alone cannot tell you. The honest response is to give the range rather than to quote the point estimate as if it were fact.",
+      "key": [
+        "sample",
+        "noisier",
+        "range",
+        "estimate"
+      ]
+    },
+    {
+      "q": "What is the difference between the mean and the median, and when does it matter?",
+      "a": "The mean is the average; the median is the middle value. When a distribution is skewed, as incomes, deal sizes and customer values usually are, a few very large values drag the mean well above the median. For skewed business data the median usually describes the typical case better.",
+      "key": [
+        "mean",
+        "median",
+        "skewed",
+        "typical"
+      ]
+    },
+    {
+      "q": "How should you present a data finding to a client?",
+      "a": "State the finding, then the evidence it rests on, then what would change your mind. Leading with the method loses the room. Being explicit about what would falsify the conclusion is what separates an analysis from an assertion, and it is what senior clients listen for.",
+      "key": [
+        "finding",
+        "evidence",
+        "change your mind",
+        "conclusion"
+      ]
+    }
+  ],
+  "marketing": [
+    {
+      "q": "What is segmentation, and what makes a segment useful?",
+      "a": "Segmentation splits a market into groups that behave differently. A segment is useful only if it is identifiable, reachable, large enough to be worth serving, and genuinely differs in what it wants or will pay. Splits that fail those tests are description rather than strategy.",
+      "key": [
+        "segmentation",
+        "reachable",
+        "differs",
+        "pay"
+      ]
+    },
+    {
+      "q": "What is customer lifetime value, and why is it compared with acquisition cost?",
+      "a": "Lifetime value is the total profit expected from a customer over the whole relationship, not from the first sale. It is compared with what it costs to acquire them because a business only works if the value exceeds the cost, with enough margin to cover overheads. The ratio between them is what tells you whether growth is worth buying.",
+      "key": [
+        "lifetime value",
+        "profit",
+        "acquisition cost",
+        "ratio"
+      ]
+    },
+    {
+      "q": "What is churn, and why does a small change in it matter so much?",
+      "a": "Churn is the percentage of customers lost each period, the leak in the bucket. It compounds: a small rise in churn shortens the average customer lifetime, which cuts lifetime value, which can make previously profitable acquisition unprofitable. In a subscription business it is usually the single most powerful number.",
+      "key": [
+        "churn",
+        "customers",
+        "lifetime value",
+        "acquisition"
+      ]
+    },
+    {
+      "q": "What is a marketing funnel used for?",
+      "a": "It turns a vague statement such as sales are flat into one specific stage where people are dropping out: awareness, consideration, purchase, repeat. Knowing the stage tells you what to fix, because a problem in awareness needs a completely different response from a problem at checkout.",
+      "key": [
+        "funnel",
+        "stage",
+        "dropping out",
+        "awareness"
+      ]
+    },
+    {
+      "q": "What is brand equity, and how does discounting damage it?",
+      "a": "Brand equity is the extra amount customers will pay because of who is selling, rather than what is being sold. Matching a discounter buys volume today by spending down that equity, because it teaches customers the real price is lower and that waiting for a discount works. It is quick to spend and slow to rebuild.",
+      "key": [
+        "brand equity",
+        "pay",
+        "discount",
+        "volume"
+      ]
+    }
+  ],
+  "pricing": [
+    {
+      "q": "What are the three main approaches to setting a price?",
+      "a": "Cost-plus adds a margin to what it costs you, which is simple and ignores the customer entirely. Competition-based prices against rivals, which is safe and drifts towards commoditisation. Value-based prices against what the product is worth to the buyer, which is hardest to work out and almost always captures the most.",
+      "key": [
+        "cost-plus",
+        "competition",
+        "value-based",
+        "margin"
+      ]
+    },
+    {
+      "q": "Why is a small discount so expensive in margin terms?",
+      "a": "Because the discount comes entirely out of profit, not out of revenue evenly. A ten percent discount on a forty percent margin needs roughly a third more volume just to stand still. Discounts are usually granted as if they cost ten percent when they actually cost a quarter of the profit.",
+      "key": [
+        "discount",
+        "margin",
+        "volume",
+        "profit"
+      ]
+    },
+    {
+      "q": "What is price discrimination, and what makes it work?",
+      "a": "Charging different buyers different prices for essentially the same thing, according to what each will pay. It works only if you can fence the groups apart with something customers cannot easily fake, such as a student card, booking timing or a stripped-down version. Without a credible fence, everyone pays the lowest price.",
+      "key": [
+        "price discrimination",
+        "fence",
+        "pay",
+        "groups"
+      ]
+    },
+    {
+      "q": "What is the difference between penetration and skimming pricing?",
+      "a": "Penetration launches low to win share quickly, betting that scale or lock-in pays for the sacrificed margin. Skimming launches high to capture the customers who value it most, then steps down over time. Skimming suits a genuinely differentiated product; penetration suits markets where share is hard to take later.",
+      "key": [
+        "penetration",
+        "skimming",
+        "share",
+        "margin"
+      ]
+    },
+    {
+      "q": "How should a business decide whether to raise prices?",
+      "a": "Establish how elastic demand is, then work out the volume you could afford to lose and still be better off, which is usually much more than people expect. Then check competitor response and whether the price is visible enough that customers will notice. The arithmetic is the easy part; the judgement is about reaction.",
+      "key": [
+        "elastic",
+        "volume",
+        "competitor",
+        "price"
+      ]
+    }
+  ],
+  "strategy": [
+    {
+      "q": "What is the difference between a goal and a strategy?",
+      "a": "A goal says where you want to end up. A strategy is the set of choices about how you get there, and crucially about what you will not do. If a statement contains no trade-off and nobody could disagree with it, it is an aspiration wearing a strategy's clothes.",
+      "key": [
+        "goal",
+        "strategy",
+        "choices",
+        "trade-off"
+      ]
+    },
+    {
+      "q": "What is a competitive advantage, and what makes one durable?",
+      "a": "It is a reason customers choose you that rivals cannot easily copy. Durability comes from something structural: scale economics, network effects, switching costs, a protected asset or a genuinely better cost position. A good product alone is not an advantage, because it can be matched.",
+      "key": [
+        "competitive advantage",
+        "copy",
+        "switching costs",
+        "scale"
+      ]
+    },
+    {
+      "q": "What does Porter's five forces actually help you work out?",
+      "a": "Whether an industry is structurally attractive, by looking at rivalry, buyer power, supplier power, substitutes and the threat of new entrants. It explains why some industries earn good returns for decades and others do not. It describes the industry, not your company, so it answers whether to be in the market rather than how to win it.",
+      "key": [
+        "five forces",
+        "rivalry",
+        "buyer power",
+        "substitutes"
+      ]
+    },
+    {
+      "q": "What is opportunity cost, and why do managers underweight it?",
+      "a": "Opportunity cost is what you give up by not choosing the next-best alternative. It is underweighted because it never appears on a budget or in the accounts, unlike the visible cost of what you did choose. A project earning a small positive return can still be a bad decision if the resources had a better use.",
+      "key": [
+        "opportunity cost",
+        "next-best",
+        "alternative",
+        "return"
+      ]
+    },
+    {
+      "q": "How would you assess whether a company should enter a new business?",
+      "a": "Three questions in order: is the market attractive, can we win in it, and is it worth more to us than to anyone else. The third is the one people skip, and it is what separates a sensible move from buying a fair business at a fair price and creating nothing.",
+      "key": [
+        "attractive",
+        "win",
+        "worth more",
+        "market"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "q": "What is a bottleneck, and what does it mean for the whole process?",
+      "a": "The bottleneck is the slowest step, and it sets the throughput of the entire process no matter how fast everything else runs. Improving any other step just builds inventory in front of it. The practical consequence is that all effort goes to the constraint first, and once it moves, the bottleneck shifts somewhere else.",
+      "key": [
+        "bottleneck",
+        "throughput",
+        "constraint",
+        "inventory"
+      ]
+    },
+    {
+      "q": "What is inventory actually for, and what does holding it cost?",
+      "a": "Inventory buffers against variability in demand and supply, so customers are served when either moves unexpectedly. It costs capital tied up, storage, and the risk of obsolescence or spoilage. Every inventory decision is that trade-off: service level against cash and risk.",
+      "key": [
+        "inventory",
+        "variability",
+        "capital",
+        "obsolescence"
+      ]
+    },
+    {
+      "q": "What is the difference between lead time and cycle time?",
+      "a": "Lead time is what the customer experiences, from placing an order to receiving it. Cycle time is how often the process completes a unit internally. They are frequently confused, and a business can have a short cycle time and a long lead time because most of the wait is queueing, not working.",
+      "key": [
+        "lead time",
+        "cycle time",
+        "customer",
+        "queueing"
+      ]
+    },
+    {
+      "q": "What does just-in-time do, and what is its weakness?",
+      "a": "Just-in-time brings materials in as they are needed rather than holding buffers, which frees cash and exposes quality problems early because there is no stock to hide them. The weakness is fragility: with no buffer, a single supplier failure or delay stops the line immediately. It trades resilience for efficiency.",
+      "key": [
+        "just-in-time",
+        "buffers",
+        "cash",
+        "fragility"
+      ]
+    },
+    {
+      "q": "How would you approach a case about reducing operating costs?",
+      "a": "Break the cost base down and find where the money actually is before touching anything, because effort belongs where the spend is. Then separate costs driven by volume from those driven by complexity or by choices, since they need different remedies. Check the effect on service and quality, because savings that lose customers are not savings.",
+      "key": [
+        "cost base",
+        "volume",
+        "complexity",
+        "service"
+      ]
+    }
+  ],
+  "marketentry": [
+    {
+      "q": "How do you structure a market entry case?",
+      "a": "Is the market attractive in size, growth and profitability. Can we win, given competitors and what we are actually good at. And how should we enter: building, partnering or buying. The final step is the economics, because an attractive market you enter badly still loses money.",
+      "key": [
+        "attractive",
+        "win",
+        "enter",
+        "economics"
+      ]
+    },
+    {
+      "q": "What are the main ways to enter a new market, and what is the trade-off?",
+      "a": "Build organically, partner or joint venture, or acquire. Building is slowest and cheapest and keeps full control. Acquiring is fastest and buys position and local knowledge, but you pay a premium and inherit whatever comes with it. Partnering splits the risk and the reward, and usually the control too.",
+      "key": [
+        "build",
+        "partner",
+        "acquire",
+        "control"
+      ]
+    },
+    {
+      "q": "What are barriers to entry, and why do they matter to a new entrant?",
+      "a": "They are the things that make it hard or expensive for a newcomer to compete: capital requirements, scale economics, regulation, brand, distribution access and switching costs. High barriers protect whoever is already inside, so they are simultaneously the reason the market is profitable and the reason you may not get in.",
+      "key": [
+        "barriers to entry",
+        "scale",
+        "regulation",
+        "switching costs"
+      ]
+    },
+    {
+      "q": "What is the difference between organic growth and growth by acquisition?",
+      "a": "Organic growth comes from selling more of what you build yourself: slower, cheaper, and it compounds capability. Acquisition buys revenue and position immediately, but at a premium and with integration risk, which is where most of the value is lost. The honest test is whether you can run it better than the seller did.",
+      "key": [
+        "organic",
+        "acquisition",
+        "premium",
+        "integration"
+      ]
+    },
+    {
+      "q": "A client's growth has stalled. How do you find out why?",
+      "a": "Separate market growth from share: the market may have slowed, or it may be growing while the client loses ground, and those are completely different problems. Then split share by segment and by product, because an aggregate that looks flat often hides one part growing and another falling.",
+      "key": [
+        "market growth",
+        "share",
+        "segment",
+        "product"
+      ]
+    }
+  ],
+  "mnacases": [
+    {
+      "q": "What are the questions a commercial due diligence actually has to answer?",
+      "a": "Is the market as attractive as the seller says, is the target's position in it genuine and defensible, are the forecasts credible, and where could the value break. It is not an audit of the numbers; it is a test of whether the business will still be worth this in five years.",
+      "key": [
+        "market",
+        "position",
+        "forecasts",
+        "value"
+      ]
+    },
+    {
+      "q": "Why do so many acquisitions fail to create value?",
+      "a": "Usually because the buyer overpaid for synergies that were assumed rather than tested, or because integration was underestimated. The premium is paid on day one with certainty; the benefits arrive later and only if the work is done. Culture and losing key people account for more failures than the financial modelling does.",
+      "key": [
+        "overpaid",
+        "synergies",
+        "integration",
+        "premium"
+      ]
+    },
+    {
+      "q": "How would you test whether claimed synergies are real?",
+      "a": "Ask who specifically does the thing that stops, by when, and what it costs to make it stop. Cost synergies survive that questioning more often than revenue synergies, which usually rest on customers behaving in a way nobody has asked them about. Anything that cannot be named and owned should be taken out of the price.",
+      "key": [
+        "synergies",
+        "cost",
+        "revenue",
+        "price"
+      ]
+    },
+    {
+      "q": "What is integration risk, and where does it actually show up?",
+      "a": "It is the risk that combining the two businesses destroys what was bought. It shows up in systems that do not talk, incompatible ways of working, customers who dislike the new owner, and the quiet departure of the people who made the target work. It is greatest exactly where the synergies were supposed to come from.",
+      "key": [
+        "integration",
+        "systems",
+        "customers",
+        "people"
+      ]
+    },
+    {
+      "q": "How do you decide what a target is worth to your client specifically?",
+      "a": "Value it standalone first, then add only the synergies your client can realistically capture and that another buyer could not, since anything available to everyone is already in the market price. The gap between that number and the asking price is the negotiating room, and if there is none the answer is to walk.",
+      "key": [
+        "standalone",
+        "synergies",
+        "price",
+        "walk"
+      ]
+    }
+  ],
+  "consultinginterview": [
+    {
+      "q": "What is the interviewer actually assessing in a case interview?",
+      "a": "How you think and what you are like to work with, more than the final answer. They are watching whether you structure before diving in, whether you stay organised out loud, whether you change your mind when the data says so, and whether they would put you in front of a client. The final number is seldom the differentiator.",
+      "key": [
+        "structure",
+        "out loud",
+        "data",
+        "client"
+      ]
+    },
+    {
+      "q": "What should you do when you get stuck in a case?",
+      "a": "Say so and say where. Restate what you know, what you have ruled out and the two options you see, then ask for a steer if you need one. Interviewers are far more comfortable with that than with silence or with confident nonsense, because it is exactly what they want a junior colleague to do on a real project.",
+      "key": [
+        "say so",
+        "restate",
+        "ruled out",
+        "ask"
+      ]
+    },
+    {
+      "q": "How do you handle a maths error in the middle of a case?",
+      "a": "Catch it, say it plainly, correct it and move on without apologising three times. Errors themselves are ordinary; not noticing them is the problem, as is losing composure afterwards. Sanity-checking as you go, and saying the check out loud, is what stops a small slip becoming a wrong recommendation.",
+      "key": [
+        "correct",
+        "move on",
+        "noticing",
+        "sanity-check"
+      ]
+    },
+    {
+      "q": "How should you answer \"why consulting\" convincingly?",
+      "a": "Give a reason specific to the work itself, such as the variety of problems or the pace of learning across industries, and anchor it in something you have actually done rather than leaving it as a claim. Show you know the trade-offs, including the travel and the hours, because that is what makes it read as a decision rather than a default.",
+      "key": [
+        "specific",
+        "anchor",
+        "trade-offs",
+        "decision"
+      ]
+    },
+    {
+      "q": "How do you present a recommendation at the end of a case?",
+      "a": "Answer first: state the recommendation in one sentence, then give the two or three reasons, then the main risk and what you would do about it. Keep it under a minute. Resist recapping the analysis; the partner wants your conclusion and your confidence in it, not the tour.",
+      "key": [
+        "answer first",
+        "recommendation",
+        "reasons",
+        "risk"
+      ]
+    }
+  ]
 }

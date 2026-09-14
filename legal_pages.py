@@ -202,7 +202,7 @@ def terms_body():
 # ------------------------------------------------------------------------------- faq
 FAQ = [
     ("Is ViewPrep really free?",
-     "Yes, completely. All 400 cards across all 23 decks are free, there is no paid tier, no "
+     "Yes, completely. All 418 cards across all 24 decks are free, there is no paid tier, no "
      "trial, and no card is held back behind an account."),
     ("Do I need an account?",
      "No. You can study every card signed out, and your progress is saved in your browser. An "
@@ -229,7 +229,7 @@ FAQ = [
     ("Can I use it on my phone?",
      "Yes. The site is built to work on a phone, which is where most people actually revise."),
     ("How is this different from Anki?",
-     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 400 cards already "
+     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 418 cards already "
      "written and ordered, so there is nothing to build before you can start. If you already have "
      "a deck you like, Anki is excellent."),
     ("Will you add more cards?",
@@ -290,7 +290,7 @@ def notfound_body():
                 "moved. Nothing is broken; this address just has nothing behind it."))
     o.append(_h("Try one of these instead"))
     o.append(_ul([
-        '<a href="/">Start studying</a> &ndash; 400 free cards, no account needed',
+        '<a href="/">Start studying</a> &ndash; 418 free cards, no account needed',
         '<a href="/decks/">Every deck</a> &ndash; browse all 23 and read the cards as text',
         '<a href="/faq.html">FAQ</a> &ndash; what this is and how the review scheduling works',
     ]))
@@ -311,7 +311,7 @@ PAGES = [
      "What ViewPrep stores, where it goes, which third parties see anything, and how to have "
      "your data deleted.", privacy_body, None, "0.3"),
     ("404.html", "Page not found | ViewPrep",
-     "That page does not exist. Browse the decks or start studying 400 free investment "
+     "That page does not exist. Browse the decks or start studying 418 free investment "
      "banking and consulting interview flashcards.", notfound_body, None, None),
     ("terms.html", "Terms of use | ViewPrep",
      "Terms of use for ViewPrep, including the educational content disclaimer and acceptable "

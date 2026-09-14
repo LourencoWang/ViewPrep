@@ -8,7 +8,7 @@
 
 <title>ViewPrep: Investment banking &amp; consulting interview flashcards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free flashcards for investment banking and consulting interviews. 400 cards across 23 decks, written so anyone can follow them with no finance background.">
+<meta name="description" content="Free flashcards for investment banking and consulting interviews. 418 cards across 24 decks, written so anyone can follow them with no finance background.">
 <link rel="canonical" href="https://viewprep.net/">
 <meta name="theme-color" content="#F4F6FA">
 
@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="ViewPrep">
 <meta property="og:url" content="https://viewprep.net/">
 <meta property="og:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta property="og:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
+<meta property="og:description" content="418 flashcards across 24 decks. Every card makes sense with no prior finance background. Free.">
 <meta property="og:image" content="https://viewprep.net/ogimage.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 400 cards, 23 decks, free.">
+<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 418 cards, 24 decks, free.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta name="twitter:description" content="400 flashcards across 23 decks. Every card makes sense with no prior finance background. Free.">
+<meta name="twitter:description" content="418 flashcards across 24 decks. Every card makes sense with no prior finance background. Free.">
 <meta name="twitter:image" content="https://viewprep.net/ogimage.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
@@ -162,6 +162,30 @@
   .track-btn:hover{color:var(--ink);}
   .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
   .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
+  /* ---------- levels: a small toggle in the middle, and a quiet break between groups ---------- */
+  .level-toggle-wrap{display:flex;justify-content:center;margin:0 0 1.6rem;}
+  .level-toggle{display:inline-flex;border:1px solid var(--line-soft);border-radius:999px;overflow:hidden;background:var(--surface);}
+  .level-btn{
+    all:unset;box-sizing:border-box;cursor:pointer;padding:.55rem 1.05rem;
+    font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-soft);transition:background .15s ease,color .15s ease;
+  }
+  .level-btn + .level-btn{border-left:1px solid var(--line-soft);}
+  .level-btn:hover{color:var(--ink);}
+  .level-btn.is-active{background:var(--ink);color:#fff;}
+  .level-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+  .level-break{
+    grid-column:1 / -1;display:flex;align-items:center;gap:.8rem;
+    margin:1.1rem 0 0;scroll-margin-top:92px;
+  }
+  .level-break:first-child{margin-top:0;}
+  .level-break-label{
+    font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .level-break-count{font-size:.72rem;color:var(--ink-faint);white-space:nowrap;}
+  .level-break::after{content:'';flex:1;height:1px;background:var(--line-soft);}
+  @media (max-width:600px){ .level-btn{padding:.5rem .8rem;font-size:.72rem;} }
   /* ---------- deck intro ---------- */
   .deck-intro{padding:2.75rem 0 4rem;}
   .intro-inner{max-width:640px;}
@@ -838,7 +862,7 @@
         <div class="hero-content">
           <p class="hero-eyebrow">Interview prep for spring weeks, internships and graduate roles</p>
           <h1 class="hero-title">Know the questions<br>before they ask them.</h1>
-          <p class="hero-sub">400 flashcards and 115 written questions across investment banking and
+          <p class="hero-sub">418 flashcards and 120 written questions across investment banking and
             consulting. Learn them with cards, test yourself from memory, and the ones you get
             wrong keep coming back until they don&rsquo;t.</p>
         </div>
@@ -869,9 +893,9 @@
           <button class="btn-primary" id="hero-ib-btn" type="button">Start investment banking &rarr;</button>
           <button class="btn-primary is-alt" id="hero-consulting-btn" type="button">Start consulting &rarr;</button>
         </div>
-        <a class="hero-secondary" href="/decks/">Or browse all 400 cards without an account</a>
+        <a class="hero-secondary" href="/decks/">Or browse all 418 cards without an account</a>
         <ul class="trust-strip">
-          <li>400 cards</li><li>23 decks</li><li>115 written questions</li>
+          <li>418 cards</li><li>24 decks</li><li>120 written questions</li>
           <li>Free</li><li>No signup</li>
         </ul>
       </div>
@@ -887,7 +911,7 @@
           <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
         </div>
       </div>
-      <!-- 23 decks is a choice problem. These turn the catalog into a route through it. -->
+      <!-- 24 decks is a choice problem. These turn the catalog into a route through it. -->
       <section class="paths" id="paths" hidden aria-labelledby="paths-title">
         <h3 class="paths-title" id="paths-title">Not sure where to start?</h3>
         <div class="paths-list" id="paths-list"></div>
@@ -900,6 +924,13 @@
         <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
       </div>
       <p class="track-hint" id="track-hint">Pick a track above to see its decks.</p>
+      <div class="level-toggle-wrap" id="level-toggle-wrap" hidden>
+        <div class="level-toggle" role="group" aria-label="Jump to a level">
+          <button type="button" class="level-btn" data-level="beginner">Beginner</button>
+          <button type="button" class="level-btn" data-level="intermediate">Intermediate</button>
+          <button type="button" class="level-btn" data-level="advanced">Advanced</button>
+        </div>
+      </div>
       <div class="deck-grid" id="deck-grid" hidden></div>
     </section>
   </main>
@@ -1068,7 +1099,7 @@
 
   <footer class="site-footer">
     <p class="footer-disclaimer">ViewPrep is an independent study resource. It is not affiliated with, endorsed by, or sourced from any university, employer, or prep platform.</p>
-    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 400 cards &#8594;</a></p>
+    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 418 cards &#8594;</a></p>
     <p class="footer-links">
       <a href="/faq.html">FAQ</a> &middot;
       <a href="/privacy.html">Privacy</a> &middot;
@@ -1869,7 +1900,7 @@
 
   // --- Recommended study paths -----------------------------------------------
   //
-  // 23 decks is a choice problem, and "pick a track" does not solve it. These are
+  // 24 decks is a choice problem, and "pick a track" does not solve it. These are
   // two opinionated routes per track: one for someone starting from nothing, one
   // for someone with a date in the diary. A step turns green once that deck has
   // been started, so the path doubles as a progress line.
@@ -1881,7 +1912,7 @@
         decks: ['accounting', 'statements', 'valuation', 'mna', 'lbo'] },
       { name: 'Interview next week',
         why: 'Highest-frequency ground first. Skip what is unlikely to come up in time.',
-        decks: ['ibinterview', 'accounting', 'valuation', 'mna', 'excel'] }
+        decks: ['ibinterview', 'accounting', 'valuation', 'macro', 'mna'] }
     ],
     consulting: [
       { name: 'New to consulting',
@@ -1942,15 +1973,39 @@
     if (!state.track){
       els.deckGrid.hidden = true;
       els.trackHint.hidden = false;
+      var lw = document.getElementById('level-toggle-wrap');
+      if (lw) { lw.hidden = true; }
       return;
     }
     els.deckGrid.hidden = false;
     els.trackHint.hidden = true;
+    var levelWrap = document.getElementById('level-toggle-wrap');
+    if (levelWrap) { levelWrap.hidden = false; }
 
-    var visibleDecks = decks.filter(function(d){ return d.track === state.track; });
+    // Everything stays on one scroll. The levels are a quiet break between groups
+    // and a way to jump, not a filter, so nobody loses sight of what comes next.
+    var LEVEL_ORDER = ['beginner', 'intermediate', 'advanced'];
+    var LEVEL_NAMES = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
+    var visibleDecks = [];
+    LEVEL_ORDER.forEach(function(lv){
+      decks.forEach(function(d){ if (d.track === state.track && (d.level || 'beginner') === lv) { visibleDecks.push(d); } });
+    });
+    var lastLevel = null;
 
     visibleDecks.forEach(function(deck){
       var i = decks.indexOf(deck);
+      var lv = deck.level || 'beginner';
+      if (lv !== lastLevel){
+        lastLevel = lv;
+        var n = visibleDecks.filter(function(d){ return (d.level || 'beginner') === lv; }).length;
+        var brk = document.createElement('div');
+        brk.className = 'level-break';
+        brk.id = 'level-' + lv;
+        brk.dataset.level = lv;
+        brk.innerHTML = '<span class="level-break-label">' + LEVEL_NAMES[lv] + '</span>'
+          + '<span class="level-break-count">' + n + (n === 1 ? ' deck' : ' decks') + '</span>';
+        els.deckGrid.appendChild(brk);
+      }
       var st = deckStats(deck);
       var total = st.total;
       var studied = st.started;
@@ -2734,6 +2789,39 @@
   els.prevBtn.addEventListener('click', goPrevious);
   els.backBtn.addEventListener('click', backToCatalog);
   els.catalogBtn.addEventListener('click', backToCatalog);
+
+  // Level toggle: a jump, not a filter. Click scrolls to that group's break; as
+  // the page scrolls, whichever group is under the reader lights up.
+  (function(){
+    var wrap = document.getElementById('level-toggle-wrap');
+    if (!wrap) { return; }
+    var btns = Array.prototype.slice.call(wrap.querySelectorAll('.level-btn'));
+    function setActive(level){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b.dataset.level === level); });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var target = document.getElementById('level-' + b.dataset.level);
+        if (!target) { return; }
+        setActive(b.dataset.level);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if (ticking || wrap.hidden) { return; }
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var breaks = Array.prototype.slice.call(document.querySelectorAll('.level-break'));
+        if (!breaks.length) { return; }
+        var line = 140, current = breaks[0].dataset.level;
+        breaks.forEach(function(br){ if (br.getBoundingClientRect().top <= line) { current = br.dataset.level; } });
+        setActive(current);
+      });
+    }, { passive: true });
+  })();
+
   els.introBackBtn.addEventListener('click', backToCatalog);
   els.introStartBtn.addEventListener('click', function(){
     // If the deck is caught up, the button reads "Review anyway" and should honour that.
