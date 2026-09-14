@@ -750,7 +750,22 @@
     .nav-item{padding:.45rem .7rem;font-size:.66rem;}
     .main-nav{gap:.25rem;}
   }
-  .header-actions{display:flex;align-items:center;gap:.9rem;}
+  .header-actions{display:flex;align-items:center;gap:.9rem;position:relative;}
+  /* Account menu: what the button opens once you are signed in. */
+  .account-menu{position:absolute;top:calc(100% + .6rem);right:0;z-index:60;width:min(300px,calc(100vw - 2rem));
+    background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;box-shadow:0 18px 44px var(--shadow);
+    padding:1rem 1.1rem 1rem;text-align:left;}
+  .am-label{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 .25rem;}
+  .am-email{font-family:var(--body);font-size:.9rem;font-weight:600;color:var(--ink);margin:0 0 .9rem;overflow-wrap:anywhere;}
+  .am-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;padding:.75rem 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);margin-bottom:.9rem;}
+  .am-n{font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .am-l{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:.15rem;}
+  .am-note{font-size:.78rem;color:var(--ink-soft);margin:0 0 .9rem;line-height:1.5;}
+  .am-out{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;text-align:center;
+    font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.6rem 1rem;}
+  .am-out:hover{border-color:var(--ink);}
+  .am-out:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
   .header-link{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;
     text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;}
   .header-link:hover{color:var(--ink);}
@@ -841,7 +856,18 @@
       <button class="nav-item" id="nav-test" type="button" data-nav="test">Test yourself</button>
     </nav>
     <div class="header-actions">
-      <button class="account-btn" id="account-btn" type="button">Sign in</button>
+      <button class="account-btn" id="account-btn" type="button" aria-haspopup="true" aria-expanded="false">Sign in</button>
+      <div class="account-menu" id="account-menu" hidden>
+        <p class="am-label">Signed in as</p>
+        <p class="am-email" id="am-email"></p>
+        <div class="am-stats">
+          <div><div class="am-n" id="am-started">0</div><div class="am-l">Started</div></div>
+          <div><div class="am-n" id="am-learned">0</div><div class="am-l">Learned</div></div>
+          <div><div class="am-n" id="am-due">0</div><div class="am-l">Due now</div></div>
+        </div>
+        <p class="am-note">Progress is saved to your account and follows you across devices.</p>
+        <button class="am-out" id="am-signout" type="button">Sign out</button>
+      </div>
       <a class="header-arrow" href="#catalog" aria-label="Open the catalog">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1688,7 +1714,6 @@
   // mode: 'signin' (default) or 'signup'. The prompts that offer to save progress open
   // straight into signup, since anyone arriving from them has no account yet.
   function openAuthModal(mode){
-    if (currentUser) { sb && sb.auth.signOut(); return; }
     authMode = (mode === 'signup') ? 'signup' : 'signin';
     updateAuthModalMode();
     els.authError.hidden = true;
@@ -1708,8 +1733,8 @@
   function updateAuthUI(){
     if (currentUser) {
       els.accountBtn.textContent = currentUser.email;
-      els.accountBtn.title = 'Signed in as ' + currentUser.email + '. Click to sign out.';
-      els.accountBtn.setAttribute('aria-label', 'Signed in as ' + currentUser.email + '. Click to sign out.');
+      els.accountBtn.title = 'Signed in as ' + currentUser.email;
+      els.accountBtn.setAttribute('aria-label', 'Account menu, signed in as ' + currentUser.email);
       els.accountBtn.classList.add('is-signed-in');
     } else {
       els.accountBtn.textContent = 'Sign in';
@@ -1754,12 +1779,45 @@
   function handleLogout(){
     currentUser = null;
     updateAuthUI();
+    var am = document.getElementById('account-menu'); if (am) { am.hidden = true; }
     progress = loadProgress();
     if (decks.length) { renderCatalog(); }
   }
 
-  // Explicit wrapper: the raw listener would pass the click Event through as `mode`.
-  els.accountBtn.addEventListener('click', function(){ openAuthModal('signin'); });
+  // Signed out: the button opens the sign-in form. Signed in: it opens the account
+  // menu, and signing out is a deliberate second click inside it.
+  var accountMenu = document.getElementById('account-menu');
+  function fillAccountMenu(){
+    if (!currentUser) { return; }
+    document.getElementById('am-email').textContent = currentUser.email || '';
+    var started = 0, learned = 0, due = 0;
+    decks.forEach(function(d){ var st = deckStats(d); started += st.started; learned += st.mature; due += st.due; });
+    document.getElementById('am-started').textContent = started;
+    document.getElementById('am-learned').textContent = learned;
+    document.getElementById('am-due').textContent = due;
+  }
+  function closeAccountMenu(){
+    if (!accountMenu || accountMenu.hidden) { return; }
+    accountMenu.hidden = true;
+    els.accountBtn.setAttribute('aria-expanded', 'false');
+  }
+  function toggleAccountMenu(){
+    if (accountMenu.hidden) { fillAccountMenu(); accountMenu.hidden = false; els.accountBtn.setAttribute('aria-expanded', 'true'); }
+    else { closeAccountMenu(); }
+  }
+  els.accountBtn.addEventListener('click', function(){
+    if (currentUser) { toggleAccountMenu(); } else { openAuthModal('signin'); }
+  });
+  document.getElementById('am-signout').addEventListener('click', function(){
+    closeAccountMenu();
+    if (sb) { sb.auth.signOut(); }
+  });
+  document.addEventListener('click', function(e){
+    if (accountMenu.hidden) { return; }
+    if (accountMenu.contains(e.target) || els.accountBtn.contains(e.target)) { return; }
+    closeAccountMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeAccountMenu(); } });
   els.savePromptBtn.addEventListener('click', function(){
     track('prompt_click', { where: 'complete' });
     openAuthModal('signup');
