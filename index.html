@@ -1211,7 +1211,7 @@
     try { if (localStorage.getItem(KEY)) { box.hidden = true; return; } } catch(e){}
     var clientId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
       : 'fb-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-    var inserted = false, score = null;
+    var score = null;
     var scale = document.getElementById('rc-scale'), more = document.getElementById('rc-more'),
         text = document.getElementById('rc-text'), send = document.getElementById('rc-send'),
         done = document.getElementById('rc-done');
@@ -1222,12 +1222,12 @@
       for (var k in (extra || {})) row[k] = extra[k];
       return row;
     }
+    // Insert only, never update: a second row with the same client_id carries the
+    // text, and the feedback_recent view keeps the latest row per client_id.
     function write(extra){
       if (!sb) return;
-      var q = inserted ? sb.from('feedback').update(Object.assign({ score: score }, extra || {})).eq('client_id', clientId)
-                       : sb.from('feedback').insert(payload(extra));
-      inserted = true;
-      q.then(function(res){ if (res && res.error) console.error('feedback:', res.error); }, function(){});
+      sb.from('feedback').insert(payload(extra))
+        .then(function(res){ if (res && res.error) console.error('feedback:', res.error); }, function(){});
     }
     scale.addEventListener('click', function(e){
       var b = e.target.closest('.rc-n'); if (!b) return;
