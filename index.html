@@ -449,6 +449,8 @@
   .rc-send:focus-visible{outline:2px solid var(--focus,var(--blue));outline-offset:2px;}
   .rc-skip{font-size:.78rem;color:var(--ink-faint);}
   .rc-done{font-size:.88rem;color:var(--green);font-weight:600;margin:0;}
+  /* Only on the catalog: the main view is hidden while a deck, intro or test is open. */
+  #main-view[hidden] ~ .rc{display:none;}
   .site-footer{
     border-top:1px solid var(--line-soft);
     padding:1.5rem 0 2.75rem;
