@@ -160,7 +160,7 @@
       "q": "What is the time value of money, and why does it matter for every valuation?",
       "a": "A pound today is worth more than a pound next year, because today's pound can be invested and because the future is uncertain. Every valuation method is a way of converting future money into today's money, which is what discounting does. The rate you discount at is the price you put on waiting and on risk.",
       "key": [
-        "time value",
+        "invested",
         "discounting",
         "risk",
         "future"
@@ -189,7 +189,7 @@
       "q": "What is the weighted average cost of capital, in plain terms?",
       "a": "It is the blended rate a company pays for all the money it uses, weighting the cost of its debt and the cost of its equity by how much of each it has. Debt is cheaper because lenders rank ahead of owners and interest is tax deductible. It is the hurdle a project has to clear to be worth doing.",
       "key": [
-        "cost of capital",
+        "blended",
         "debt",
         "equity",
         "hurdle"
@@ -232,7 +232,7 @@
       "a": "They move in opposite directions. A bond pays a fixed amount, so if rates in the market rise, newly issued bonds pay more and the older, lower-paying bond has to fall in price for anyone to want it. The longer the bond has left to run, the more its price moves for a given change in rates.",
       "key": [
         "bond",
-        "interest rates",
+        "fixed",
         "price",
         "opposite"
       ]
@@ -265,7 +265,7 @@
       "key": [
         "borrowing",
         "demand",
-        "spending",
+        "spend",
         "inflation"
       ]
     },
@@ -511,7 +511,7 @@
       "q": "Why does a credit rating matter to a company beyond looking respectable?",
       "a": "The rating sets the interest rate the company pays, so a downgrade directly raises the cost of every pound it borrows. It also determines who is allowed to lend: many funds are barred from holding anything below investment grade, so falling below that line removes a large part of the buyer base at once.",
       "key": [
-        "credit rating",
+        "lend",
         "interest rate",
         "downgrade",
         "investment grade"
@@ -699,7 +699,7 @@
       "q": "What is bookbuilding, and how is the IPO price actually set?",
       "a": "The banks market the deal within a price range and collect indications from investors of how much they would buy and at what price. That book of demand shows where real appetite sits, and the price is set from it. It is deliberately priced slightly below what the market would bear, so the shares trade up and investors come back for the next deal.",
       "key": [
-        "bookbuilding",
+        "book",
         "demand",
         "price",
         "investors"
@@ -732,7 +732,7 @@
       "a": "So that anyone can see what is an assumption and what is a consequence. Hard-coded numbers buried inside formulas are the single most common source of errors, because nobody knows they are there. Conventionally inputs are one colour and formulas another, so a reviewer can tell at a glance which cells they are allowed to change.",
       "key": [
         "inputs",
-        "calculations",
+        "formulas",
         "assumption",
         "hard-coded"
       ]
@@ -741,7 +741,7 @@
       "q": "What is a circular reference in a financial model, and where does one typically come from?",
       "a": "It is a loop where a cell depends on itself through a chain of formulas. The classic case is interest: interest depends on the debt balance, the balance depends on cash flow, and cash flow depends on interest. It is normally handled with an iterative calculation setting or by deliberately breaking the loop, for example by using the opening balance.",
       "key": [
-        "circular",
+        "loop",
         "interest",
         "debt",
         "cash flow"
@@ -823,7 +823,7 @@
       "q": "What should you ask at the end of an interview?",
       "a": "Something you actually want to know and could only learn from this person: what their last few months have looked like, how the team works, what they would change. Avoid anything answerable from the website, and avoid questions that are really a pitch for yourself. It is a short conversation, not a test.",
       "key": [
-        "ask",
+        "learn",
         "this person",
         "website",
         "conversation"
@@ -856,7 +856,7 @@
       "a": "Standard frameworks were built for a general case, not yours, so applying one wholesale produces branches that do not matter and misses the ones that do. Interviewers have heard every framework many times and are listening for whether you thought about this business. Borrow the useful piece, discard the rest, and say why.",
       "key": [
         "framework",
-        "tailored",
+        "general",
         "branches",
         "business"
       ]
@@ -917,7 +917,7 @@
       "q": "How do you sanity-check a market sizing answer?",
       "a": "Compare it with something you already know: a per-person figure, a known company's revenue, or the size of a related market. If your estimate implies every adult buys twelve of something a year, the assumption chain is wrong somewhere. Saying the number is implausible and finding where is worth more marks than defending it.",
       "key": [
-        "sanity-check",
+        "compare",
         "per-person",
         "implausible",
         "assumption"
@@ -1011,7 +1011,7 @@
       "q": "What is consumer surplus?",
       "a": "The extra value buyers get from paying less than the most they would have been willing to pay. If you would have paid fifty and the price is thirty, you captured twenty of surplus. Much of pricing strategy is about converting that surplus into revenue without losing the customers who genuinely will not pay more.",
       "key": [
-        "consumer surplus",
+        "extra value",
         "willing to pay",
         "price",
         "revenue"
@@ -1021,7 +1021,7 @@
       "q": "What are economies of scale, and where do they come from?",
       "a": "They are the fall in cost per unit as volume rises, because fixed costs are spread over more units and larger operations can buy and produce more efficiently. They are a real barrier to entry, because a newcomer starts small and therefore starts expensive. They do not continue forever: past a point, coordination costs rise again.",
       "key": [
-        "economies of scale",
+        "cost per unit",
         "fixed costs",
         "volume",
         "barrier"
@@ -1032,7 +1032,7 @@
       "a": "In a competitive market no single seller can set the price; they take whatever the market gives and compete the margin down towards cost. A monopolist faces the whole demand curve and chooses the point on it that maximises profit, which means a higher price and lower quantity. Most real markets sit somewhere between the two.",
       "key": [
         "competitive",
-        "monopoly",
+        "monopolist",
         "price",
         "demand"
       ]
@@ -1263,7 +1263,7 @@
       "key": [
         "lifetime value",
         "profit",
-        "acquisition cost",
+        "acquire",
         "ratio"
       ]
     },
@@ -1281,7 +1281,7 @@
       "q": "What is a marketing funnel used for?",
       "a": "It turns a vague statement such as sales are flat into one specific stage where people are dropping out: awareness, consideration, purchase, repeat. Knowing the stage tells you what to fix, because a problem in awareness needs a completely different response from a problem at checkout.",
       "key": [
-        "funnel",
+        "consideration",
         "stage",
         "dropping out",
         "awareness"
@@ -1323,7 +1323,7 @@
       "q": "What is price discrimination, and what makes it work?",
       "a": "Charging different buyers different prices for essentially the same thing, according to what each will pay. It works only if you can fence the groups apart with something customers cannot easily fake, such as a student card, booking timing or a stripped-down version. Without a credible fence, everyone pays the lowest price.",
       "key": [
-        "price discrimination",
+        "different prices",
         "fence",
         "pay",
         "groups"
@@ -1365,7 +1365,7 @@
       "q": "What is a competitive advantage, and what makes one durable?",
       "a": "It is a reason customers choose you that rivals cannot easily copy. Durability comes from something structural: scale economics, network effects, switching costs, a protected asset or a genuinely better cost position. A good product alone is not an advantage, because it can be matched.",
       "key": [
-        "competitive advantage",
+        "rivals",
         "copy",
         "switching costs",
         "scale"
@@ -1375,7 +1375,7 @@
       "q": "What does Porter's five forces actually help you work out?",
       "a": "Whether an industry is structurally attractive, by looking at rivalry, buyer power, supplier power, substitutes and the threat of new entrants. It explains why some industries earn good returns for decades and others do not. It describes the industry, not your company, so it answers whether to be in the market rather than how to win it.",
       "key": [
-        "five forces",
+        "attractive",
         "rivalry",
         "buyer power",
         "substitutes"
@@ -1479,7 +1479,7 @@
       "q": "What are barriers to entry, and why do they matter to a new entrant?",
       "a": "They are the things that make it hard or expensive for a newcomer to compete: capital requirements, scale economics, regulation, brand, distribution access and switching costs. High barriers protect whoever is already inside, so they are simultaneously the reason the market is profitable and the reason you may not get in.",
       "key": [
-        "barriers to entry",
+        "newcomer",
         "scale",
         "regulation",
         "switching costs"
@@ -1541,7 +1541,7 @@
       "q": "What is integration risk, and where does it actually show up?",
       "a": "It is the risk that combining the two businesses destroys what was bought. It shows up in systems that do not talk, incompatible ways of working, customers who dislike the new owner, and the quiet departure of the people who made the target work. It is greatest exactly where the synergies were supposed to come from.",
       "key": [
-        "integration",
+        "combining",
         "systems",
         "customers",
         "people"

@@ -233,21 +233,15 @@
 
   .card-stage{-webkit-perspective:1800px;perspective:1800px;width:100%;max-width:480px;}
 
-  /* Desktop only: 86% of answers overflowed the 480px card and had to be
-     scrolled. 720px at a wider ratio fits all 400 without making the card
-     taller than the 480px version's successor would have been. Phones and
-     tablets keep the original sizing. */
-  @media (min-width:1000px){
-    #card-stage{max-width:700px;}
-    #card-stage .flashcard{aspect-ratio:5/3;}
-  }
-  .flashcard{all:unset;display:block;width:100%;aspect-ratio:5/3.3;min-height:300px;cursor:pointer;}
-  .flashcard.has-diagram{min-height:520px;}
-  @media (max-width:600px){
-    .flashcard{min-height:380px;}
-    .flashcard.has-diagram{min-height:480px;}
-  }
-  .flashcard.has-diagram .face-front .face-text{display:flex;align-items:center;}
+  /* The card is as tall as what is on it. The front is compact, and flipping
+     it grows the card to the answer's full height, so the explanation and its
+     diagram are read in one go rather than scrolled. Heights are measured in
+     JS (sizeCard) because the two faces are stacked absolutely for the flip. */
+  @media (min-width:1000px){ #card-stage{max-width:700px;} }
+  .flashcard{all:unset;display:block;width:100%;min-height:200px;height:var(--card-h,auto);cursor:pointer;
+    transition:height .5s cubic-bezier(.2,.8,.2,1);}
+  @media (prefers-reduced-motion: reduce){ .flashcard{transition:none;} }
+  .face-front .face-text{display:flex;align-items:center;}
   .flashcard-inner{
     position:relative;width:100%;height:100%;
     -webkit-transform-style:preserve-3d;transform-style:preserve-3d;
@@ -2216,6 +2210,8 @@
   }
 
   function termVariants(term){
+    // The haystack is lowercased, so the term must be too, or EBITDA never matches.
+    term = String(term).toLowerCase();
     var v = [term];
     if (term.slice(-1) === 'y') { v.push(term.slice(0, -1) + 'ies'); }
     if (term.slice(-1) === 's' && term.slice(-2) !== 'ss') { v.push(term.slice(0, -1)); }
@@ -2223,6 +2219,7 @@
     if (term.slice(-1) === 'e') { v.push(term.slice(0, -1) + 'ing'); v.push(term + 'd'); }
     else { v.push(term + 'ing'); v.push(term + 'ed'); }
     var syn = TERM_SYNONYMS[term];
+    if (!syn) { for (var k in TERM_SYNONYMS) { if (k.toLowerCase() === term) { syn = TERM_SYNONYMS[k]; break; } } }
     if (syn) { v = v.concat(syn); }
     return v;
   }
@@ -2571,6 +2568,27 @@
     els.againInterval.textContent = 'today';
   }
 
+  // Natural height of a face: its padding plus each child's full content height.
+  function faceNeed(face){
+    var cs = getComputedStyle(face);
+    var h = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    Array.prototype.forEach.call(face.children, function(ch){
+      var m = getComputedStyle(ch);
+      h += ch.scrollHeight + (parseFloat(m.marginTop) || 0) + (parseFloat(m.marginBottom) || 0);
+    });
+    return Math.ceil(h) + 2;
+  }
+  function sizeCard(){
+    if (!els.flashcard || !els.inner) { return; }
+    var front = els.inner.querySelector('.face-front'), back = els.inner.querySelector('.face-back');
+    if (!front || !back) { return; }
+    var fh = Math.max(200, faceNeed(front));
+    var cap = Math.max(fh, Math.round(window.innerHeight * 0.84));
+    var bh = Math.min(cap, Math.max(fh, faceNeed(back)));
+    els.flashcard.style.setProperty('--card-h', (state.flipped ? bh : fh) + 'px');
+  }
+  window.addEventListener('resize', function(){ sizeCard(); });
+
   function renderCard(){
     var deck = currentDeck();
     state.cardIndex = state.queue[state.queuePos];
@@ -2589,6 +2607,7 @@
     els.flipBtn.textContent = 'Flip card';
     if (els.prevBtn) { els.prevBtn.disabled = state.queuePos <= 0; }
     updateIntervalPreviews();
+    sizeCard();
   }
 
   // Step back through the session so a card can be re-read. The earlier rating
@@ -2602,6 +2621,7 @@
   function flip(){
     state.flipped = !state.flipped;
     els.inner.classList.toggle('flipped', state.flipped);
+    sizeCard();
     els.flashcard.setAttribute('aria-pressed', String(state.flipped));
     els.ratingRow.hidden = !state.flipped;
     els.flipBtn.textContent = state.flipped ? 'Flip back' : 'Flip card';
