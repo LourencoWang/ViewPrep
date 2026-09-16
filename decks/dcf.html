@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DCF &amp; WACC Drills flashcards | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups. 18 free flashcards with answers, written for people with no finance background.">
+<link rel="canonical" href="https://viewprep.net/decks/dcf.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/decks/dcf.html">
+<meta property="og:title" content="DCF &amp; WACC Drills flashcards | ViewPrep">
+<meta property="og:description" content="The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups. 18 free flashcards with answers, written for people with no finance background.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DCF &amp; WACC Drills flashcards | ViewPrep">
+<meta name="twitter:description" content="The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups. 18 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .opts{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:.45rem;}
+  .opt{display:flex;align-items:flex-start;gap:.7rem;border:1px solid var(--line-soft);
+    border-radius:12px;padding:.6rem .8rem;font-size:.92rem;line-height:1.45;color:var(--ink-soft);}
+  .opt-k{flex:0 0 auto;width:1.3rem;height:1.3rem;border-radius:50%;border:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;
+    color:var(--ink-faint);}
+  .opt.is-right{border-color:var(--green);color:var(--ink);}
+  .opt.is-right .opt-k{border-color:var(--green);background:var(--green);color:#fff;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  /* .prose a would otherwise beat .btn on specificity and tint the button text. */
+  .prose a.btn{color:var(--contrast);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#track-ib">Investment Banking</a>
+      <a class="nav-item" href="https://viewprep.net/#track-consulting">Consulting</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+    </nav>
+    <nav class="header-nav">
+      <a class="header-cta" href="https://viewprep.net/?deck=dcf">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
+  <h1>DCF &amp; WACC Drills</h1>
+  <p class="lede">Knowing what a DCF is gets you through the first question. The second question is always a number: build me the free cash flow, give me the cost of equity, what does the terminal value come to, what happens if WACC moves a point. Interviewers drill this because a candidate who can run the arithmetic out loud has clearly built one, and a candidate who cannot has only read about it. This deck is that drill. It starts with a single cash flow build and a single discount factor, assembles a cost of equity and a WACC from their inputs, unlevers and relevers a beta, values a terminal year both ways, then runs a full three-year DCF through to a share price. The closing cards cover the follow-up chains: sensitivities, the capex trick, levered DCFs, banks, a DCF that disagrees with the comps, and why a PE fund’s hurdle rate looks nothing like WACC.</p>
+  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <article class="card">
+    <div class="card-n">Card 1 of 18</div>
+    <h2>Calder Foods has EBIT of £100m, a 25% tax rate, £20m of depreciation, £30m of capex, and working capital that grows by £5m this year. Build me its unlevered free cash flow and give me the number.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Unlevered free cash flow build</text>
+  <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">EBIT</text>
+  <text x="66" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">£100m</text>
+  <path d="M136 49 L148 49 M143 44 L148 49 L143 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">− tax at 25%</text>
+  <text x="220" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">£75m</text>
+  <path d="M290 49 L302 49 M297 44 L302 49 L297 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">+ D&amp;A £20m</text>
+  <text x="374" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">£95m</text>
+  <rect x="0" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="104" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">− capex £30m</text>
+  <text x="104" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">£65m</text>
+  <path d="M213 119 L225 119 M220 114 L225 119 L220 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="336" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">− ΔNWC £5m</text>
+  <text x="336" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">UFCF £60m</text>
+</svg></div>
+    <p class="takeaway">UFCF = EBIT × (1 − tax) + D&amp;A − capex − increase in NWC, which here comes to £60m.</p>
+    <p class="answer">EBIT is operating profit before interest and tax. Tax it as if there were no debt: £100m less 25% leaves £75m. Depreciation and amortisation (D&amp;A) was deducted to reach EBIT but no cash left the building, so add the £20m back for £95m. Capex, the cash spent on plant and equipment, is real money out, so subtract £30m to reach £65m. Net working capital (NWC) is stock plus unpaid customer invoices minus unpaid supplier bills, and when it grows by £5m that cash is tied up in the business, so subtract it too. Unlevered free cash flow is £60m, the cash available to everyone who funded the company before a penny goes to lenders.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 2 of 18</div>
+    <h2>Calder actually paid £18m of tax last year, not the £25m your model charges on EBIT. Your associate asks why you don’t just use the real tax bill. What do you tell her?</h2>
+    <p class="takeaway">Unlevered means debt-free, so you tax EBIT as if no interest existed and let WACC carry the interest tax saving.</p>
+    <p class="answer">Unlevered cash flow is the cash the business would throw off if it carried no debt at all. Calder’s real bill is lower because interest is deducted before tax, and that saving, called the tax shield, only exists because of how the company is financed, not how it operates. In a WACC-based DCF the benefit of debt is already built into the discount rate through the after-tax cost of debt, so if you also used the lower real tax bill you would count the same saving twice and overstate value. You tax EBIT at the rate the company would pay on operating profit alone, usually the statutory or long-run effective rate.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 3 of 18</div>
+    <h2>A cash flow of £60m arrives in three years and the discount rate is 10%. What is the discount factor, what is the present value, and what does that factor actually represent?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Discounting one cash flow</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Cash flow</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£60m</text>
+  <text x="139" y="76" text-anchor="middle" class="op">×</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">1 ÷ 1.10³</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">= 0.751</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Present value</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">£45.1m</text>
+</svg></div>
+    <p class="takeaway">Discount factor = 1 ÷ (1 + r) to the power n, so £60m in year 3 at 10% is worth 60 × 0.751 = £45.1m today.</p>
+    <p class="answer">The discount rate is the yearly return investors demand for waiting and for bearing risk, and for a whole company it is usually WACC, the blended rate across its lenders and shareholders, which the next few cards build. The discount factor for year n is 1 divided by (1 + r) to the power n. At 10%, 1.10 cubed is 1.331, so the factor is 1 ÷ 1.331 = 0.751, and 60 × 0.751 gives a present value of £45.1m. The factor answers ‘how much would I need today, growing at 10% a year, to have exactly £60m in three years’, and every line of a DCF is that same sum repeated.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 4 of 18</div>
+    <h2>Your model discounts year 1 by a full year even though Talbrook Industries collects cash every month. What is the mid-year convention, and what does switching to it do to the valuation?</h2>
+    <p class="takeaway">Mid-year discounting uses n − 0.5 as the exponent, lifting the explicit years by about (1 + r) to the half, roughly 5% at 10%.</p>
+    <p class="answer">End-of-year discounting pretends each year’s cash lands on 31 December, which is too harsh when it really arrives steadily through the year. The mid-year convention treats it as arriving halfway on average, so year 1 is discounted over 0.5 years, year 2 over 1.5 and so on. At 10% the year-1 factor rises from 0.909 to 0.953 and the year-3 factor from 0.751 to 0.788, and since every year moves the same way the explicit forecast is worth about 4.9% more. Terminal value follows its method: a perpetuity-growth value shifts half a year too, but an exit-multiple value stays at the full year, because a sale is a single event at the end.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 5 of 18</div>
+    <h2>Build me Talbrook’s cost of equity. The ten-year gilt yields 4.5%, its beta is 1.3 and the house equity risk premium is 5%. Show the number and tell me where each input comes from.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">CAPM inputs</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Input</text>
+  <text x="215" y="37" text-anchor="middle" class="lbl">Value</text>
+  <text x="355" y="37" text-anchor="middle" class="lbl">Where from</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Risk-free rate</text>
+  <text x="215" y="59" text-anchor="middle" class="val" style="font-size:10.5px">4.5%</text>
+  <text x="355" y="59" text-anchor="middle" class="val" style="font-size:10.5px">10-yr gilt</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Beta</text>
+  <text x="215" y="81" text-anchor="middle" class="val" style="font-size:10.5px">1.3</text>
+  <text x="355" y="81" text-anchor="middle" class="val" style="font-size:10.5px">Regression</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Equity premium</text>
+  <text x="215" y="103" text-anchor="middle" class="val" style="font-size:10.5px">5.0%</text>
+  <text x="355" y="103" text-anchor="middle" class="val" style="font-size:10.5px">Long-run data</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Cost of equity</text>
+  <text x="215" y="125" text-anchor="middle" class="val" style="font-size:10.5px">11.0%</text>
+  <text x="355" y="125" text-anchor="middle" class="val" style="font-size:10.5px">4.5 + 1.3×5</text>
+</svg></div>
+    <p class="takeaway">Cost of equity = risk-free rate + beta × equity risk premium, so 4.5% + 1.3 × 5% = 11.0%.</p>
+    <p class="answer">The cost of equity is the return shareholders need to hold the shares, and the capital asset pricing model builds it from three parts. The risk-free rate is what you earn with no risk at all, taken from a government bond in the same currency and with a similar life to the cash flows, here a ten-year gilt at 4.5%. The equity risk premium is the extra return the whole stock market has delivered over that safe rate, around 5% from long-run data or the bank’s house number. Beta measures how hard the share moves with the market, from regressing its returns against the index or from peers, and 1.3 means it swings 30% harder. So 4.5% plus 1.3 times 5% is 11.0%.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 6 of 18</div>
+    <h2>Talbrook borrows at 8% and pays 25% tax. Its shares are worth £800m in total and its debt £200m. Give me the after-tax cost of debt and the WACC, and remind me why interest gets the tax treatment it does.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">WACC at market-value weights</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Source</text>
+  <text x="190" y="37" text-anchor="middle" class="lbl">Weight</text>
+  <text x="290" y="37" text-anchor="middle" class="lbl">Cost</text>
+  <text x="390" y="37" text-anchor="middle" class="lbl">Weighted</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Equity £800m</text>
+  <text x="190" y="59" text-anchor="middle" class="val" style="font-size:10.5px">80%</text>
+  <text x="290" y="59" text-anchor="middle" class="val" style="font-size:10.5px">11.0%</text>
+  <text x="390" y="59" text-anchor="middle" class="val" style="font-size:10.5px">8.8%</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Debt £200m</text>
+  <text x="190" y="81" text-anchor="middle" class="val" style="font-size:10.5px">20%</text>
+  <text x="290" y="81" text-anchor="middle" class="val" style="font-size:10.5px">6.0%</text>
+  <text x="390" y="81" text-anchor="middle" class="val" style="font-size:10.5px">1.2%</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">WACC</text>
+  <text x="190" y="103" text-anchor="middle" class="val" style="font-size:10.5px">100%</text>
+  <text x="290" y="103" text-anchor="middle" class="val" style="font-size:10.5px"></text>
+  <text x="390" y="103" text-anchor="middle" class="val" style="font-size:10.5px">10.0%</text>
+</svg></div>
+    <p class="takeaway">After-tax cost of debt = 8% × (1 − 25%) = 6%, and WACC = 80% × 11% + 20% × 6% = 10.0%.</p>
+    <p class="answer">Interest is an expense deducted before tax on the income statement, so every £1 of interest cuts taxable profit by £1 and the tax bill by 25p: the government effectively picks up a quarter of the coupon. The true cost of debt is therefore 8% × (1 − 0.25) = 6%. WACC, the weighted average cost of capital, blends that with the 11% cost of equity from the last card in proportion to how the company is funded at market value. Equity is £800m of the £1,000m total, or 80%, and debt 20%, so WACC is 0.8 × 11% + 0.2 × 6% = 8.8% + 1.2% = 10.0%, the rate every unlevered cash flow is discounted at.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 7 of 18</div>
+    <h2>Talbrook’s balance sheet shows shareholders’ equity of £300m, yet you weighted WACC on £800m of market value. An MD challenges you. Why market values?</h2>
+    <p class="takeaway">Investors price risk on what their stake is worth today, so weights use market value, and book equity is just history.</p>
+    <p class="answer">Book equity is an accounting residue: share capital raised years ago plus retained profits, minus buybacks and dividends. It says nothing about what shareholders have at stake now. The 11% cost of equity is what investors demand on the £800m they could sell the shares for today, so that £800m is the weight it deserves. Book values would give 300 against 200, or 60% equity and 40% debt, and a WACC of 0.6 × 11% + 0.4 × 6% = 9.0%, a full point too low and a much higher valuation. Debt is the one place book is usually acceptable, since a loan’s carrying value sits close to its market value unless the company is in distress or rates have moved sharply.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 8 of 18</div>
+    <h2>Halstead Foods, your closest peer, has a beta of 1.15 with debt equal to 20% of its equity. Windmere Foods runs debt at 60% of equity. Take me from Halstead’s beta to one you can use for Windmere, at a 25% tax rate.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Unlever, then relever</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Unlevered β</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">1.00</text>
+  <text x="139" y="76" text-anchor="middle" class="op">×</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">1 + 0.75 × 0.6</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">= 1.45</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Levered β</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">1.45</text>
+</svg></div>
+    <p class="takeaway">βL = βU × (1 + (1 − t) × D/E): strip Halstead’s debt out to get 1.00, then relever at Windmere’s 0.6 to get 1.45.</p>
+    <p class="answer">A levered beta carries two kinds of risk: the business itself, and the extra swing that debt adds to shareholders’ returns. To compare companies you strip the debt effect out. Unlever Halstead: 1.15 ÷ (1 + 0.75 × 0.2) = 1.15 ÷ 1.15 = 1.00, the pure operating risk of a food business. Then relever at Windmere’s own mix: 1.00 × (1 + 0.75 × 0.6) = 1.45. The (1 − t) is there because the tax saving on interest softens some of debt’s risk. In practice you unlever a handful of peers, take the median unlevered beta, and relever it at the target’s own or intended debt-to-equity ratio.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 9 of 18</div>
+    <h2>Talbrook’s final forecast year shows £70m of free cash flow. With WACC at 10% and long-run growth of 2%, give me the perpetuity-growth terminal value and the sanity check on that 2%.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Perpetuity growth terminal value</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">FCF year 4</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£71.4m</text>
+  <text x="139" y="76" text-anchor="middle" class="op">÷</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">WACC − g</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">10% − 2%</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Terminal value</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">£892.5m</text>
+</svg></div>
+    <p class="takeaway">TV = FCF × (1 + g) ÷ (WACC − g) = 71.4 ÷ 0.08 = £892.5m, and g must sit below long-run nominal GDP growth.</p>
+    <p class="answer">The perpetuity growth method assumes cash flow grows at a steady rate g forever after the last forecast year, and the value of that stream on that date is next year’s cash flow divided by the gap between the discount rate and growth. Next year’s flow is 70 × 1.02 = £71.4m, and 71.4 ÷ (0.10 − 0.02) gives £892.5m as at the end of year 3. The check is that g is growth forever, so it cannot exceed the long-run growth of the whole economy in money terms, roughly 2% real plus 2% inflation, about 4% in the UK. A company growing at 5% forever would one day be bigger than the economy, so most models use 1.5% to 3%.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 10 of 18</div>
+    <h2>Talbrook’s year-3 EBITDA is £120m and peers trade at 8x, so your associate uses an 8x exit multiple. What terminal value does that give, and how do you check it against the growth method?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Growth implied by an 8x exit</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">TV × WACC − FCF</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">96 − 70 = 26</text>
+  <text x="139" y="76" text-anchor="middle" class="op">÷</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">TV + FCF</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">960 + 70 = 1,030</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Implied g</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">2.5%</text>
+</svg></div>
+    <p class="takeaway">TV = 8 × 120 = £960m, and implied growth g = (TV × WACC − FCF) ÷ (TV + FCF) = 2.5%, close to the 2% assumed.</p>
+    <p class="answer">The exit multiple method values the business at the end of the forecast the way a buyer would, as a multiple of its final-year EBITDA: 8 × £120m = £960m. To cross-check, solve the perpetuity formula for growth: rearranging TV = FCF × (1 + g) ÷ (WACC − g) gives g = (TV × WACC − FCF) ÷ (TV + FCF). Here that is (96 − 70) ÷ (960 + 70) = 26 ÷ 1,030 = 2.5%. That sits close to the 2% behind the growth method’s £892.5m, which in turn implies 892.5 ÷ 120 = 7.4x, so the two methods agree. Had the implied growth come out at 6%, the multiple, not the growth rate, would be the number to challenge.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 11 of 18</div>
+    <h2>In your three-year Talbrook DCF the terminal value is 81% of enterprise value. The MD frowns. Is that a problem, and what do you do about it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Terminal value as a share of EV</text>
+  <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
+  <text x="20" y="78" class="lbl">0% terminal</text>
+  <text x="420" y="78" text-anchor="end" class="lbl">100% terminal</text>
+  <circle cx="280" cy="52" r="7" fill="var(--blue)"/>
+  <text x="280" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">Typical</text>
+  <circle cx="344" cy="52" r="7" fill="var(--amber)"/>
+  <text x="344" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">81% here</text>
+</svg></div>
+    <p class="takeaway">Terminal value is usually 60–80% of EV, so the fix is a forecast run to steady state, cross-checks and a sensitivity table.</p>
+    <p class="answer">It is normal, not a bug. A company keeps earning long after year 3, so most of its value lives past the forecast, and a short forecast pushes the share higher still: three years gives 81% here, ten might give 60%. The real risk is that one growth rate or one multiple is driving four-fifths of the answer. So you extend the forecast until the business reaches a steady state, with margins, capex and growth settled at levels that can hold forever, you cross-check the terminal value both ways as in the last card, and you show a sensitivity table so the client can see how value moves as WACC and growth shift by half a point.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 12 of 18</div>
+    <h2>Talbrook: free cash flow of £60m, £65m and £70m over three years, a terminal value of £892.5m, WACC 10%, £200m of debt, £40m of cash and 100m shares. Take me all the way to a share price.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Talbrook mini-DCF at 10%</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Year</text>
+  <text x="190" y="37" text-anchor="middle" class="lbl">FCF £m</text>
+  <text x="290" y="37" text-anchor="middle" class="lbl">Factor</text>
+  <text x="390" y="37" text-anchor="middle" class="lbl">PV £m</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Year 1</text>
+  <text x="190" y="59" text-anchor="middle" class="val" style="font-size:10.5px">60.0</text>
+  <text x="290" y="59" text-anchor="middle" class="val" style="font-size:10.5px">0.909</text>
+  <text x="390" y="59" text-anchor="middle" class="val" style="font-size:10.5px">54.5</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Year 2</text>
+  <text x="190" y="81" text-anchor="middle" class="val" style="font-size:10.5px">65.0</text>
+  <text x="290" y="81" text-anchor="middle" class="val" style="font-size:10.5px">0.826</text>
+  <text x="390" y="81" text-anchor="middle" class="val" style="font-size:10.5px">53.7</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Year 3</text>
+  <text x="190" y="103" text-anchor="middle" class="val" style="font-size:10.5px">70.0</text>
+  <text x="290" y="103" text-anchor="middle" class="val" style="font-size:10.5px">0.751</text>
+  <text x="390" y="103" text-anchor="middle" class="val" style="font-size:10.5px">52.6</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Terminal</text>
+  <text x="190" y="125" text-anchor="middle" class="val" style="font-size:10.5px">892.5</text>
+  <text x="290" y="125" text-anchor="middle" class="val" style="font-size:10.5px">0.751</text>
+  <text x="390" y="125" text-anchor="middle" class="val" style="font-size:10.5px">670.3</text>
+  <line x1="0" y1="154" x2="440" y2="154" class="axis"/>
+  <text x="6" y="147" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Enterprise value</text>
+  <text x="190" y="147" text-anchor="middle" class="val" style="font-size:10.5px"></text>
+  <text x="290" y="147" text-anchor="middle" class="val" style="font-size:10.5px"></text>
+  <text x="390" y="147" text-anchor="middle" class="val" style="font-size:10.5px">831.1</text>
+</svg></div>
+    <p class="takeaway">PV of flows 160.8 plus PV of terminal 670.3 gives EV £831.1m, less £160m net debt is £671.1m, so £6.71 a share.</p>
+    <p class="answer">Discount factors at 10% are 0.909, 0.826 and 0.751, so the three years are worth 54.5, 53.7 and 52.6, or £160.8m together. The terminal value sits at the end of year 3, so it takes the year-3 factor: 892.5 × 0.751 = £670.3m. Enterprise value is 160.8 + 670.3 = £831.1m. To reach what shareholders own, subtract net debt, the £200m owed to lenders less the £40m of cash that could repay part of it: 831.1 − 160 = £671.1m of equity value. Over 100m shares that is £6.71 each, which you then set against the market price to say whether the shares look cheap or dear.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 13 of 18</div>
+    <h2>The client asks what your £831m enterprise value does if WACC goes to 9% or 11%, or long-run growth to 1% or 3%. Walk me through the direction and rough size of each move.</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Enterprise value, £m</text>
+  <text x="0" y="39" class="lbl-strong" style="font-size:10px">WACC 9%</text>
+  <rect x="140" y="26" width="220" height="18" rx="4" fill="var(--green)"/>
+  <text x="366" y="39" class="val">951.1</text>
+  <text x="440" y="39" text-anchor="end" class="cap">g at 2%</text>
+  <text x="0" y="69" class="lbl-strong" style="font-size:10px">Base case</text>
+  <rect x="140" y="56" width="192" height="18" rx="4" fill="var(--blue)"/>
+  <text x="338" y="69" class="val">831.1</text>
+  <text x="440" y="69" text-anchor="end" class="cap">WACC 10%, g 2%</text>
+  <text x="0" y="99" class="lbl-strong" style="font-size:10px">WACC 11%</text>
+  <rect x="140" y="86" width="171" height="18" rx="4" fill="var(--amber)"/>
+  <text x="317" y="99" class="val">738.0</text>
+  <text x="440" y="99" text-anchor="end" class="cap">g at 2%</text>
+  <text x="0" y="129" class="lbl-strong" style="font-size:10px">Growth 3%</text>
+  <rect x="140" y="116" width="216" height="18" rx="4" fill="var(--green)"/>
+  <text x="362" y="129" class="val">934.3</text>
+  <text x="440" y="129" text-anchor="end" class="cap">WACC at 10%</text>
+  <text x="0" y="159" class="lbl-strong" style="font-size:10px">Growth 1%</text>
+  <rect x="140" y="146" width="174" height="18" rx="4" fill="var(--amber)"/>
+  <text x="320" y="159" class="val">750.8</text>
+  <text x="440" y="159" text-anchor="end" class="cap">WACC at 10%</text>
+</svg></div>
+    <p class="takeaway">Value falls as WACC rises and rises with growth, and one point moves this DCF by £80m to £120m, mostly via the terminal value.</p>
+    <p class="answer">A higher WACC shrinks every discount factor and widens the gap between WACC and growth in the terminal formula, so value drops on both fronts: at 11% the EV is about £738m, while at 9% it climbs to £951m. Growth works the other way but only through the terminal value, since the three explicit years are fixed: 3% lifts EV to £934m and 1% cuts it to £751m. Notice the moves are lopsided, with a point of cheaper capital adding more than a point of dearer capital removes, because the terminal formula divides by (WACC − g) and small denominators explode. That asymmetry is exactly why a sensitivity grid goes to the client rather than one number.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 14 of 18</div>
+    <h2>An associate ‘finds’ £100m of value by trimming Talbrook’s year-3 capex from £30m to £20m just before the terminal value. Why does such a small cut move the number so much, and why is it not free?</h2>
+    <p class="takeaway">A capex cut in the terminal year is capitalised forever, so £10m less capex adds about £103m, unless the assets can no longer carry the growth.</p>
+    <p class="answer">Year-3 free cash flow rises from £70m to £80m, which on its own adds 10 × 0.751 = £7.5m of present value. But the terminal value is built on that same year-3 flow, so it jumps from £892.5m to 80 × 1.02 ÷ 0.08 = £1,020m, worth an extra 127.5 × 0.751 = £95.8m today, £103.3m in all. The model is now claiming Talbrook can grow at 2% forever while investing less. It cannot: if capex sits below depreciation the asset base is shrinking, and a shrinking base does not deliver growth. In the terminal year capex should at least match D&amp;A and slightly exceed it for a growing business, so the cut has to be justified or reversed.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 15 of 18</div>
+    <h2>When would you drop the WACC approach and instead discount levered free cash flow at the cost of equity, and what does that version hand you at the end?</h2>
+    <p class="takeaway">Use a levered DCF when the debt schedule is fixed or is the point, and it gives equity value directly with no bridge.</p>
+    <p class="answer">Levered free cash flow is what is left for shareholders after interest, net of its tax saving, and after debt repayments or new borrowing. Because it already reflects the financing, you discount it at the cost of equity, not WACC, and the answer is equity value straight away, with no net debt to subtract afterwards. It suits cases where the debt schedule is known and changing: a project with a fixed loan, a company paying down debt after a buyout, or a business whose capital structure is the whole story. Most bank DCFs stay unlevered because that keeps operations separate from financing and lets you compare companies with different leverage on the same footing.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 16 of 18</div>
+    <h2>Your team is pitching to a mid-sized retail bank and someone opens the standard DCF template. Why does that template break for a bank, and what do you build instead?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Bank DDM: what gets valued</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">Net income</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Retain capital</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">for regulator</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Cash that can</text>
+  <text x="278" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">be paid out</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Discount at</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">cost of equity</text>
+</svg></div>
+    <p class="takeaway">For a bank, debt is raw material not financing, so you value the equity directly with a dividend discount model or residual income.</p>
+    <p class="answer">The unlevered DCF splits operations from financing, but for a bank the two are the same thing: deposits and borrowings are the inputs it turns into loans, and interest is both its revenue and its main cost, so EBIT, unlevered free cash flow and WACC have no clean meaning. Capex and working capital barely feature either. Instead you value the equity directly. A dividend discount model forecasts the cash the bank can pay out after retaining enough capital to meet the regulator’s minimum ratios, and discounts it at the cost of equity. Residual income adds to today’s book value the present value of profits above what shareholders require. Cross-check on price to book and price to earnings, not EV multiples.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 17 of 18</div>
+    <h2>Your DCF says Talbrook is worth £1.2bn but the comps put it near £850m, roughly 40% lower. Before the VP sees it, what do you check first, and in what order?</h2>
+    <p class="takeaway">Start with the terminal value, its implied exit multiple and growth, then the WACC inputs, then whether the forecast is heroic.</p>
+    <p class="answer">Go straight to the terminal value, because that is where most of the value and most of the mistakes live. Back out the implied exit multiple and the implied growth rate and set them against the peers: an implied 12x when the sector trades at 8x, or growth above nominal GDP, usually ends the search there. Next check the WACC inputs, a beta that is too low, a stale risk-free rate, or book-value weights. Then read the forecast for heroics: margins expanding past every peer, revenue compounding faster than the market, capex drifting below depreciation. Only after that do you question the comps set itself. A 40% gap is almost never the market being wrong.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 18 of 18</div>
+    <h2>Talbrook’s WACC is 10%, yet Marlstone Capital says it needs a 22% return before it will look at buying the company. Why is a PE fund’s hurdle so much higher than WACC, and how do the two connect?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Required return, lowest to highest</text>
+  <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
+  <text x="20" y="78" class="lbl">Cheapest capital</text>
+  <text x="420" y="78" text-anchor="end" class="lbl">Dearest capital</text>
+  <circle cx="120" cy="52" r="7" fill="var(--green)"/>
+  <text x="120" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">Kd 6%</text>
+  <circle cx="187" cy="52" r="7" fill="var(--blue)"/>
+  <text x="187" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">WACC 10%</text>
+  <circle cx="320" cy="52" r="7" fill="var(--amber)"/>
+  <text x="320" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">LBO Ke 18%</text>
+  <circle cx="387" cy="52" r="7" fill="var(--ink)"/>
+  <text x="387" y="38" text-anchor="middle" class="lbl-strong" style="font-size:10px">Hurdle 22%</text>
+</svg></div>
+    <p class="takeaway">WACC is the blended cost of all capital, while a PE hurdle is the required return on a thin, levered, illiquid equity slice.</p>
+    <p class="answer">WACC averages the 6% lenders accept with the 11% shareholders want, weighted by a fairly safe 80/20 mix. Marlstone would buy with far more debt, perhaps two pounds for every pound of equity, and its money is the equity, the slice that absorbs every swing. Talbrook’s 1.3 beta unlevers to about 1.1 at its current 0.25 debt-to-equity; relevered at 2.0 it becomes roughly 1.1 × 2.5 = 2.7, so the cost of equity is near 4.5% + 2.7 × 5% = 18% before anything for a five-year lock-up, control risk and the fund’s own fees. A 20% to 25% hurdle is the same CAPM logic pushed to a levered corner. In an LBO nothing is discounted at it: you fix the return and solve for the price.</p>
+  </article>
+  <div class="cta-band">
+    <p>Reading is not the same as remembering. Study this deck with scheduled review so the cards come back before you forget them.</p>
+    <a class="btn" href="https://viewprep.net/?deck=dcf">Study DCF &amp; WACC Drills</a>
+  </div>
+  <h2 class="track">More investment banking decks</h2>
+  <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/quickmaths.html"><span class="deck-tag">Mental maths</span><span class="deck-name">Quick Maths: Banking</span><span class="deck-desc">Timed-feel multiple-choice drills on the mental arithmetic an analyst does out loud, no calculator.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Calder Foods has EBIT of £100m, a 25% tax rate, £20m of depreciation, £30m of capex, and working capital that grows by £5m this year. Build me its unlevered free cash flow and give me the number.", "acceptedAnswer": {"@type": "Answer", "text": "UFCF = EBIT × (1 − tax) + D&A − capex − increase in NWC, which here comes to £60m. EBIT is operating profit before interest and tax. Tax it as if there were no debt: £100m less 25% leaves £75m. Depreciation and amortisation (D&A) was deducted to reach EBIT but no cash left the building, so add the £20m back for £95m. Capex, the cash spent on plant and equipment, is real money out, so subtract £30m to reach £65m. Net working capital (NWC) is stock plus unpaid customer invoices minus unpaid supplier bills, and when it grows by £5m that cash is tied up in the business, so subtract it too. Unlevered free cash flow is £60m, the cash available to everyone who funded the company before a penny goes to lenders."}}, {"@type": "Question", "name": "Calder actually paid £18m of tax last year, not the £25m your model charges on EBIT. Your associate asks why you don’t just use the real tax bill. What do you tell her?", "acceptedAnswer": {"@type": "Answer", "text": "Unlevered means debt-free, so you tax EBIT as if no interest existed and let WACC carry the interest tax saving. Unlevered cash flow is the cash the business would throw off if it carried no debt at all. Calder’s real bill is lower because interest is deducted before tax, and that saving, called the tax shield, only exists because of how the company is financed, not how it operates. In a WACC-based DCF the benefit of debt is already built into the discount rate through the after-tax cost of debt, so if you also used the lower real tax bill you would count the same saving twice and overstate value. You tax EBIT at the rate the company would pay on operating profit alone, usually the statutory or long-run effective rate."}}, {"@type": "Question", "name": "A cash flow of £60m arrives in three years and the discount rate is 10%. What is the discount factor, what is the present value, and what does that factor actually represent?", "acceptedAnswer": {"@type": "Answer", "text": "Discount factor = 1 ÷ (1 + r) to the power n, so £60m in year 3 at 10% is worth 60 × 0.751 = £45.1m today. The discount rate is the yearly return investors demand for waiting and for bearing risk, and for a whole company it is usually WACC, the blended rate across its lenders and shareholders, which the next few cards build. The discount factor for year n is 1 divided by (1 + r) to the power n. At 10%, 1.10 cubed is 1.331, so the factor is 1 ÷ 1.331 = 0.751, and 60 × 0.751 gives a present value of £45.1m. The factor answers ‘how much would I need today, growing at 10% a year, to have exactly £60m in three years’, and every line of a DCF is that same sum repeated."}}, {"@type": "Question", "name": "Your model discounts year 1 by a full year even though Talbrook Industries collects cash every month. What is the mid-year convention, and what does switching to it do to the valuation?", "acceptedAnswer": {"@type": "Answer", "text": "Mid-year discounting uses n − 0.5 as the exponent, lifting the explicit years by about (1 + r) to the half, roughly 5% at 10%. End-of-year discounting pretends each year’s cash lands on 31 December, which is too harsh when it really arrives steadily through the year. The mid-year convention treats it as arriving halfway on average, so year 1 is discounted over 0.5 years, year 2 over 1.5 and so on. At 10% the year-1 factor rises from 0.909 to 0.953 and the year-3 factor from 0.751 to 0.788, and since every year moves the same way the explicit forecast is worth about 4.9% more. Terminal value follows its method: a perpetuity-growth value shifts half a year too, but an exit-multiple value stays at the full year, because a sale is a single event at the end."}}, {"@type": "Question", "name": "Build me Talbrook’s cost of equity. The ten-year gilt yields 4.5%, its beta is 1.3 and the house equity risk premium is 5%. Show the number and tell me where each input comes from.", "acceptedAnswer": {"@type": "Answer", "text": "Cost of equity = risk-free rate + beta × equity risk premium, so 4.5% + 1.3 × 5% = 11.0%. The cost of equity is the return shareholders need to hold the shares, and the capital asset pricing model builds it from three parts. The risk-free rate is what you earn with no risk at all, taken from a government bond in the same currency and with a similar life to the cash flows, here a ten-year gilt at 4.5%. The equity risk premium is the extra return the whole stock market has delivered over that safe rate, around 5% from long-run data or the bank’s house number. Beta measures how hard the share moves with the market, from regressing its returns against the index or from peers, and 1.3 means it swings 30% harder. So 4.5% plus 1.3 times 5% is 11.0%."}}, {"@type": "Question", "name": "Talbrook borrows at 8% and pays 25% tax. Its shares are worth £800m in total and its debt £200m. Give me the after-tax cost of debt and the WACC, and remind me why interest gets the tax treatment it does.", "acceptedAnswer": {"@type": "Answer", "text": "After-tax cost of debt = 8% × (1 − 25%) = 6%, and WACC = 80% × 11% + 20% × 6% = 10.0%. Interest is an expense deducted before tax on the income statement, so every £1 of interest cuts taxable profit by £1 and the tax bill by 25p: the government effectively picks up a quarter of the coupon. The true cost of debt is therefore 8% × (1 − 0.25) = 6%. WACC, the weighted average cost of capital, blends that with the 11% cost of equity from the last card in proportion to how the company is funded at market value. Equity is £800m of the £1,000m total, or 80%, and debt 20%, so WACC is 0.8 × 11% + 0.2 × 6% = 8.8% + 1.2% = 10.0%, the rate every unlevered cash flow is discounted at."}}, {"@type": "Question", "name": "Talbrook’s balance sheet shows shareholders’ equity of £300m, yet you weighted WACC on £800m of market value. An MD challenges you. Why market values?", "acceptedAnswer": {"@type": "Answer", "text": "Investors price risk on what their stake is worth today, so weights use market value, and book equity is just history. Book equity is an accounting residue: share capital raised years ago plus retained profits, minus buybacks and dividends. It says nothing about what shareholders have at stake now. The 11% cost of equity is what investors demand on the £800m they could sell the shares for today, so that £800m is the weight it deserves. Book values would give 300 against 200, or 60% equity and 40% debt, and a WACC of 0.6 × 11% + 0.4 × 6% = 9.0%, a full point too low and a much higher valuation. Debt is the one place book is usually acceptable, since a loan’s carrying value sits close to its market value unless the company is in distress or rates have moved sharply."}}, {"@type": "Question", "name": "Halstead Foods, your closest peer, has a beta of 1.15 with debt equal to 20% of its equity. Windmere Foods runs debt at 60% of equity. Take me from Halstead’s beta to one you can use for Windmere, at a 25% tax rate.", "acceptedAnswer": {"@type": "Answer", "text": "βL = βU × (1 + (1 − t) × D/E): strip Halstead’s debt out to get 1.00, then relever at Windmere’s 0.6 to get 1.45. A levered beta carries two kinds of risk: the business itself, and the extra swing that debt adds to shareholders’ returns. To compare companies you strip the debt effect out. Unlever Halstead: 1.15 ÷ (1 + 0.75 × 0.2) = 1.15 ÷ 1.15 = 1.00, the pure operating risk of a food business. Then relever at Windmere’s own mix: 1.00 × (1 + 0.75 × 0.6) = 1.45. The (1 − t) is there because the tax saving on interest softens some of debt’s risk. In practice you unlever a handful of peers, take the median unlevered beta, and relever it at the target’s own or intended debt-to-equity ratio."}}, {"@type": "Question", "name": "Talbrook’s final forecast year shows £70m of free cash flow. With WACC at 10% and long-run growth of 2%, give me the perpetuity-growth terminal value and the sanity check on that 2%.", "acceptedAnswer": {"@type": "Answer", "text": "TV = FCF × (1 + g) ÷ (WACC − g) = 71.4 ÷ 0.08 = £892.5m, and g must sit below long-run nominal GDP growth. The perpetuity growth method assumes cash flow grows at a steady rate g forever after the last forecast year, and the value of that stream on that date is next year’s cash flow divided by the gap between the discount rate and growth. Next year’s flow is 70 × 1.02 = £71.4m, and 71.4 ÷ (0.10 − 0.02) gives £892.5m as at the end of year 3. The check is that g is growth forever, so it cannot exceed the long-run growth of the whole economy in money terms, roughly 2% real plus 2% inflation, about 4% in the UK. A company growing at 5% forever would one day be bigger than the economy, so most models use 1.5% to 3%."}}, {"@type": "Question", "name": "Talbrook’s year-3 EBITDA is £120m and peers trade at 8x, so your associate uses an 8x exit multiple. What terminal value does that give, and how do you check it against the growth method?", "acceptedAnswer": {"@type": "Answer", "text": "TV = 8 × 120 = £960m, and implied growth g = (TV × WACC − FCF) ÷ (TV + FCF) = 2.5%, close to the 2% assumed. The exit multiple method values the business at the end of the forecast the way a buyer would, as a multiple of its final-year EBITDA: 8 × £120m = £960m. To cross-check, solve the perpetuity formula for growth: rearranging TV = FCF × (1 + g) ÷ (WACC − g) gives g = (TV × WACC − FCF) ÷ (TV + FCF). Here that is (96 − 70) ÷ (960 + 70) = 26 ÷ 1,030 = 2.5%. That sits close to the 2% behind the growth method’s £892.5m, which in turn implies 892.5 ÷ 120 = 7.4x, so the two methods agree. Had the implied growth come out at 6%, the multiple, not the growth rate, would be the number to challenge."}}, {"@type": "Question", "name": "In your three-year Talbrook DCF the terminal value is 81% of enterprise value. The MD frowns. Is that a problem, and what do you do about it?", "acceptedAnswer": {"@type": "Answer", "text": "Terminal value is usually 60–80% of EV, so the fix is a forecast run to steady state, cross-checks and a sensitivity table. It is normal, not a bug. A company keeps earning long after year 3, so most of its value lives past the forecast, and a short forecast pushes the share higher still: three years gives 81% here, ten might give 60%. The real risk is that one growth rate or one multiple is driving four-fifths of the answer. So you extend the forecast until the business reaches a steady state, with margins, capex and growth settled at levels that can hold forever, you cross-check the terminal value both ways as in the last card, and you show a sensitivity table so the client can see how value moves as WACC and growth shift by half a point."}}, {"@type": "Question", "name": "Talbrook: free cash flow of £60m, £65m and £70m over three years, a terminal value of £892.5m, WACC 10%, £200m of debt, £40m of cash and 100m shares. Take me all the way to a share price.", "acceptedAnswer": {"@type": "Answer", "text": "PV of flows 160.8 plus PV of terminal 670.3 gives EV £831.1m, less £160m net debt is £671.1m, so £6.71 a share. Discount factors at 10% are 0.909, 0.826 and 0.751, so the three years are worth 54.5, 53.7 and 52.6, or £160.8m together. The terminal value sits at the end of year 3, so it takes the year-3 factor: 892.5 × 0.751 = £670.3m. Enterprise value is 160.8 + 670.3 = £831.1m. To reach what shareholders own, subtract net debt, the £200m owed to lenders less the £40m of cash that could repay part of it: 831.1 − 160 = £671.1m of equity value. Over 100m shares that is £6.71 each, which you then set against the market price to say whether the shares look cheap or dear."}}, {"@type": "Question", "name": "The client asks what your £831m enterprise value does if WACC goes to 9% or 11%, or long-run growth to 1% or 3%. Walk me through the direction and rough size of each move.", "acceptedAnswer": {"@type": "Answer", "text": "Value falls as WACC rises and rises with growth, and one point moves this DCF by £80m to £120m, mostly via the terminal value. A higher WACC shrinks every discount factor and widens the gap between WACC and growth in the terminal formula, so value drops on both fronts: at 11% the EV is about £738m, while at 9% it climbs to £951m. Growth works the other way but only through the terminal value, since the three explicit years are fixed: 3% lifts EV to £934m and 1% cuts it to £751m. Notice the moves are lopsided, with a point of cheaper capital adding more than a point of dearer capital removes, because the terminal formula divides by (WACC − g) and small denominators explode. That asymmetry is exactly why a sensitivity grid goes to the client rather than one number."}}, {"@type": "Question", "name": "An associate ‘finds’ £100m of value by trimming Talbrook’s year-3 capex from £30m to £20m just before the terminal value. Why does such a small cut move the number so much, and why is it not free?", "acceptedAnswer": {"@type": "Answer", "text": "A capex cut in the terminal year is capitalised forever, so £10m less capex adds about £103m, unless the assets can no longer carry the growth. Year-3 free cash flow rises from £70m to £80m, which on its own adds 10 × 0.751 = £7.5m of present value. But the terminal value is built on that same year-3 flow, so it jumps from £892.5m to 80 × 1.02 ÷ 0.08 = £1,020m, worth an extra 127.5 × 0.751 = £95.8m today, £103.3m in all. The model is now claiming Talbrook can grow at 2% forever while investing less. It cannot: if capex sits below depreciation the asset base is shrinking, and a shrinking base does not deliver growth. In the terminal year capex should at least match D&A and slightly exceed it for a growing business, so the cut has to be justified or reversed."}}, {"@type": "Question", "name": "When would you drop the WACC approach and instead discount levered free cash flow at the cost of equity, and what does that version hand you at the end?", "acceptedAnswer": {"@type": "Answer", "text": "Use a levered DCF when the debt schedule is fixed or is the point, and it gives equity value directly with no bridge. Levered free cash flow is what is left for shareholders after interest, net of its tax saving, and after debt repayments or new borrowing. Because it already reflects the financing, you discount it at the cost of equity, not WACC, and the answer is equity value straight away, with no net debt to subtract afterwards. It suits cases where the debt schedule is known and changing: a project with a fixed loan, a company paying down debt after a buyout, or a business whose capital structure is the whole story. Most bank DCFs stay unlevered because that keeps operations separate from financing and lets you compare companies with different leverage on the same footing."}}, {"@type": "Question", "name": "Your team is pitching to a mid-sized retail bank and someone opens the standard DCF template. Why does that template break for a bank, and what do you build instead?", "acceptedAnswer": {"@type": "Answer", "text": "For a bank, debt is raw material not financing, so you value the equity directly with a dividend discount model or residual income. The unlevered DCF splits operations from financing, but for a bank the two are the same thing: deposits and borrowings are the inputs it turns into loans, and interest is both its revenue and its main cost, so EBIT, unlevered free cash flow and WACC have no clean meaning. Capex and working capital barely feature either. Instead you value the equity directly. A dividend discount model forecasts the cash the bank can pay out after retaining enough capital to meet the regulator’s minimum ratios, and discounts it at the cost of equity. Residual income adds to today’s book value the present value of profits above what shareholders require. Cross-check on price to book and price to earnings, not EV multiples."}}, {"@type": "Question", "name": "Your DCF says Talbrook is worth £1.2bn but the comps put it near £850m, roughly 40% lower. Before the VP sees it, what do you check first, and in what order?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the terminal value, its implied exit multiple and growth, then the WACC inputs, then whether the forecast is heroic. Go straight to the terminal value, because that is where most of the value and most of the mistakes live. Back out the implied exit multiple and the implied growth rate and set them against the peers: an implied 12x when the sector trades at 8x, or growth above nominal GDP, usually ends the search there. Next check the WACC inputs, a beta that is too low, a stale risk-free rate, or book-value weights. Then read the forecast for heroics: margins expanding past every peer, revenue compounding faster than the market, capex drifting below depreciation. Only after that do you question the comps set itself. A 40% gap is almost never the market being wrong."}}, {"@type": "Question", "name": "Talbrook’s WACC is 10%, yet Marlstone Capital says it needs a 22% return before it will look at buying the company. Why is a PE fund’s hurdle so much higher than WACC, and how do the two connect?", "acceptedAnswer": {"@type": "Answer", "text": "WACC is the blended cost of all capital, while a PE hurdle is the required return on a thin, levered, illiquid equity slice. WACC averages the 6% lenders accept with the 11% shareholders want, weighted by a fairly safe 80/20 mix. Marlstone would buy with far more debt, perhaps two pounds for every pound of equity, and its money is the equity, the slice that absorbs every swing. Talbrook’s 1.3 beta unlevers to about 1.1 at its current 0.25 debt-to-equity; relevered at 2.0 it becomes roughly 1.1 × 2.5 = 2.7, so the cost of equity is near 4.5% + 2.7 × 5% = 18% before anything for a five-year lock-up, control risk and the fund’s own fees. A 20% to 25% hurdle is the same CAPM logic pushed to a levered corner. In an LBO nothing is discounted at it: you fix the return and solve for the price."}}]}</script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/?deck=dcf">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/commercial-awareness.html">Commercial awareness</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>

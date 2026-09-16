@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Practice Cases flashcards | ViewPrep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each. 12 free flashcards with answers, written for people with no finance background.">
+<link rel="canonical" href="https://viewprep.net/decks/cases.html">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ViewPrep">
+<meta property="og:url" content="https://viewprep.net/decks/cases.html">
+<meta property="og:title" content="Practice Cases flashcards | ViewPrep">
+<meta property="og:description" content="Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each. 12 free flashcards with answers, written for people with no finance background.">
+<meta property="og:image" content="https://viewprep.net/ogimage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Practice Cases flashcards | ViewPrep">
+<meta name="twitter:description" content="Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each. 12 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:image" content="https://viewprep.net/ogimage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
+    --surface:#FFFFFF; --surface-strong:#FFFFFF;
+    --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
+    --contrast:#FFFFFF;
+    --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+       line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .page{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem;}
+  .site-header{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.75rem 0;border-bottom:1px solid var(--line-soft);}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.03em;
+    text-decoration:none;}
+  .wordmark b{font-weight:800;color:var(--ink);}
+  .wordmark span{font-weight:400;color:var(--ink-faint);}
+  .header-cta{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line-soft);border-radius:999px;padding:.5rem 1rem;}
+  .header-cta:hover{border-color:var(--blue);color:var(--ink);}
+  .crumb{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2rem 0 .9rem;}
+  .crumb a{color:var(--ink-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--blue);}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.02;letter-spacing:-.012em;
+    margin:0 0 1rem;text-wrap:balance;}
+  .lede{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:60ch;margin:0 0 1.5rem;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-bottom:2.25rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;
+    border-radius:999px;background:var(--ink);color:var(--contrast);text-decoration:none;
+    font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;}
+  .btn:hover{background:#2A2A2E;}
+  .card{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.5rem 1.6rem;margin-bottom:1rem;}
+  .card-n{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+  .card h2{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.42;
+    letter-spacing:-.005em;margin:0 0 1rem;color:var(--ink);}
+  .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
+    color:var(--ink);margin:0 0 .7rem;}
+  .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .opts{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:.45rem;}
+  .opt{display:flex;align-items:flex-start;gap:.7rem;border:1px solid var(--line-soft);
+    border-radius:12px;padding:.6rem .8rem;font-size:.92rem;line-height:1.45;color:var(--ink-soft);}
+  .opt-k{flex:0 0 auto;width:1.3rem;height:1.3rem;border-radius:50%;border:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;
+    color:var(--ink-faint);}
+  .opt.is-right{border-color:var(--green);color:var(--ink);}
+  .opt.is-right .opt-k{border-color:var(--green);background:var(--green);color:#fff;}
+  .diagram{margin:0 0 1.1rem;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .deck-item{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.3rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;}
+  .deck-item:hover{border-color:var(--blue);}
+  .deck-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue);}
+  .deck-name{font-family:var(--display);font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.01em;color:var(--ink);}
+  .deck-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+  .deck-count{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:auto;padding-top:.3rem;}
+  h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
+    text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
+  .header-nav{display:flex;align-items:center;gap:1.1rem;}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
+  .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
+  .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
+    padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);}
+  .gl-search::placeholder{color:var(--ink-faint);}
+  .gl-count{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-faint);}
+  .gl-az{display:flex;flex-wrap:wrap;gap:.35rem;margin:.9rem 0 2rem;}
+  .gl-az a{font-family:var(--display);font-size:.78rem;font-weight:700;color:var(--ink-soft);
+    text-decoration:none;padding:.35rem .6rem;border:1px solid var(--line-soft);border-radius:8px;}
+  .gl-az a:hover{color:var(--ink);border-color:var(--line);}
+  .gl-letter{font-family:var(--display);font-weight:700;font-size:1.1rem;
+    border-left:5px solid var(--amber);padding-left:.6rem;margin:2.2rem 0 .9rem;}
+  .gl-item{border-top:1px solid var(--line-soft);padding:1.1rem 0;}
+  .gl-term{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 .35rem;}
+  .gl-def{font-size:.95rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;}
+  .gl-src{font-size:.78rem;color:var(--ink-faint);}
+  .gl-src a{color:var(--blue);text-decoration:none;}
+  .gl-src a:hover{text-decoration:underline;}
+  .gl-empty{color:var(--ink-faint);font-size:.95rem;padding:1.5rem 0;}
+  .cta-band{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
+    padding:1.6rem;margin:2.5rem 0;text-align:center;}
+  .cta-band p{margin:0 0 1.1rem;color:var(--ink-soft);font-size:.95rem;}
+  .meta-line{color:var(--ink-faint);font-size:.9rem;margin:-.4rem 0 2rem;}
+  .prose h2{font-size:1.15rem;margin:2.2rem 0 .7rem;letter-spacing:-.01em;}
+  .prose p{margin:0 0 1rem;line-height:1.75;}
+  .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
+  .prose li{margin:0 0 .55rem;line-height:1.7;}
+  .prose a{color:var(--blue);}
+  /* .prose a would otherwise beat .btn on specificity and tint the button text. */
+  .prose a.btn{color:var(--contrast);}
+  .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
+  .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
+    color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
+  .site-footer a{color:var(--ink-soft);}
+  @media (max-width:600px){
+    .page{padding:0 1.15rem 3rem;}
+    .deck-list{grid-template-columns:1fr;}
+    .card{padding:1.2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item is-active" href="https://viewprep.net/#track-ib">Investment Banking</a>
+      <a class="nav-item" href="https://viewprep.net/#track-consulting">Consulting</a>
+      <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
+      <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
+    </nav>
+    <nav class="header-nav">
+      <a class="header-cta" href="https://viewprep.net/?deck=cases">Study these cards</a>
+    </nav>
+  </header>
+
+  <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Consulting</p>
+  <h1>Practice Cases</h1>
+  <p class="lede">These twelve cards are whole cases in miniature, not questions. The front is the prompt an interviewer would give you, with the two or three numbers you need already in it. Treat each one as a rehearsal: read it, say the structure out loud in one sentence, do the arithmetic on paper, commit to a recommendation with one risk and one next step, and only then flip. The back shows a model walk-through at the same length you would have in the room, plus the wrong turn most candidates take on that specific case and the push the interviewer tends to make at the end. They rise in difficulty from a one-line profitability problem to private equity, synergies and a public-sector case where profit isn’t the goal, because interviewers use exactly that spread to see whether your method holds when the objective changes.</p>
+  <div class="meta-row"><span>12 cards</span><span>Consulting</span><span>Free, no signup</span></div>
+  <article class="card">
+    <div class="card-n">Card 1 of 12</div>
+    <h2>Ferrow Retail’s revenue has been £200m for two years, but profit fell from £20m to £12m. Cost of goods went from £120m to £128m, staff stayed at £40m and rent at £20m. What happened, and what should they do?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">£m, one line moved</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Line</text>
+  <text x="165" y="37" text-anchor="middle" class="lbl">Last year</text>
+  <text x="275" y="37" text-anchor="middle" class="lbl">This year</text>
+  <text x="385" y="37" text-anchor="middle" class="lbl">Change</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Revenue</text>
+  <text x="165" y="59" text-anchor="middle" class="val" style="font-size:10.5px">200</text>
+  <text x="275" y="59" text-anchor="middle" class="val" style="font-size:10.5px">200</text>
+  <text x="385" y="59" text-anchor="middle" class="val" style="font-size:10.5px">0</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Cost of goods</text>
+  <text x="165" y="81" text-anchor="middle" class="val" style="font-size:10.5px">120</text>
+  <text x="275" y="81" text-anchor="middle" class="val" style="font-size:10.5px">128</text>
+  <text x="385" y="81" text-anchor="middle" class="val" style="font-size:10.5px">+8</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Staff and rent</text>
+  <text x="165" y="103" text-anchor="middle" class="val" style="font-size:10.5px">60</text>
+  <text x="275" y="103" text-anchor="middle" class="val" style="font-size:10.5px">60</text>
+  <text x="385" y="103" text-anchor="middle" class="val" style="font-size:10.5px">0</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Profit</text>
+  <text x="165" y="125" text-anchor="middle" class="val" style="font-size:10.5px">20</text>
+  <text x="275" y="125" text-anchor="middle" class="val" style="font-size:10.5px">12</text>
+  <text x="385" y="125" text-anchor="middle" class="val" style="font-size:10.5px">−8</text>
+</svg></div>
+    <p class="takeaway">Flat revenue means the answer is in the costs, and here one line, cost of goods, explains the whole £8m.</p>
+    <p class="answer">Structure it as profit equals revenue minus each cost line, and since revenue hasn’t moved, walk the costs one by one. Last year 200 less 120, 40 and 20 left £20m. This year cost of goods is £128m and the other lines are flat, so the whole £8m drop sits in one line and gross margin has slipped from 40% to 36%. Only three things push cost of goods up when sales don’t: suppliers charging more, customers shifting to lower-margin products, or stock going missing. Recommendation: split cost of goods by supplier and category this week, then renegotiate if it is supplier cost and rebalance the range if it is mix. The risk is a price rise landing on customers who already traded down. Next step: a shrinkage count in the five worst stores.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 2 of 12</div>
+    <h2>Calder Foods wants to launch a chilled porridge pot in the UK. Launch costs £5m and they want it back within three years. Assume 70m people, a £2 pot, 40p of contribution per pot and a 10% share of buyers. Go or no-go?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Building the volume</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">70m people</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">1 in 5 buy</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">weekly: 14m</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">× 50 weeks</text>
+  <text x="278" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">700m pots</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">10% share</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">70m pots</text>
+</svg></div>
+    <p class="takeaway">Size the market, turn share into contribution, compare with the £5m: here it is back within months, so go.</p>
+    <p class="answer">Structure: size the pots sold, take Calder’s share, turn it into contribution, compare with £5m. Of 70m people, assume one in five buys a chilled breakfast in a typical week, 14m people. One pot a week for 50 weeks is 700m pots, £1.4bn at £2. Calder at 10% sells 70m pots, and at 40p each that is £28m of contribution a year, so the £5m is back in a little over two months. The insight is that the answer is robust: even a 1% share gives £2.8m a year and payback inside two years. Recommendation: go. The risk is that 10% assumes shelf space the big grocers may not give a new line, so the next step is to test that with two retailers before committing the £5m.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 3 of 12</div>
+    <h2>Halstead Foods sells £100m a year of soup with variable costs at 70% of revenue. Marketing wants a 10% price rise and expects volume to fall 6%. Is it worth doing?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Price +10%, volume −6%</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">£m</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">Before</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">After</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Revenue</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">100</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">103.4</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Variable cost</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">70</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">65.8</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Contribution</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">30</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">37.6</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Margin</text>
+  <text x="220" y="125" text-anchor="middle" class="val" style="font-size:10.5px">30%</text>
+  <text x="367" y="125" text-anchor="middle" class="val" style="font-size:10.5px">36%</text>
+</svg></div>
+    <p class="takeaway">Judge a price rise on contribution, not revenue: here it adds £7.6m and volume could fall 25% before it hurts.</p>
+    <p class="answer">Structure: contribution before and after, then the volume loss at which the rise stops paying. Today revenue is £100m, variable cost £70m, contribution £30m. After the rise, price is 110% of old and volume 94%, so revenue is 100 times 1.1 times 0.94, which is £103.4m. Variable cost follows volume, not price, so it falls to 70 times 0.94, £65.8m. Contribution is 103.4 less 65.8, £37.6m, up £7.6m, and margin rises from 30% to roughly 36%. Break-even check: contribution per unit goes from 30 to 40 on every 100 of old price, so volume could fall to 75% of today before you are worse off. Recommendation: raise the price. The risk is that 6% is a short-run guess, so the next step is a trial in one region.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 4 of 12</div>
+    <h2>Overton Digital wants to sell its payroll software in Germany. Build a team: £4m a year for three years, then £3m profit a year. Buy a local rival: £30m for £2m profit a year. Partner with a distributor: no cost, £1.5m a year. Which route?</h2>
+    <p class="takeaway">Put each route on one footing, money in against profit out and who owns the customer: partner, then build.</p>
+    <p class="answer">Structure: is Germany attractive, can Overton win there, and which route gets in at the best price for the least risk. Then put the three on one footing. Build sinks £12m over three years and returns £3m a year from year four, so the money is back seven years from today, but Overton owns every customer. Buy hands over £30m for £2m a year, fifteen years of profit, so it only works if Overton can double that profit quickly. Partner costs nothing and earns £1.5m a year from day one, but the distributor holds the relationships. Recommendation: partner now to prove demand, with rights to customer data and an option to build or buy later. The risk is the partner becoming the competitor. Next step: find out what the rival’s owners would really accept.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 5 of 12</div>
+    <h2>Ferrow Retail is weighing a new store: rent £300k, staff £400k and other fixed costs £100k a year. Gross margin is 40% and the average basket is £20. Similar stores serve 2,500 baskets a week. Should it open?</h2>
+    <p class="takeaway">Break-even is fixed costs over the margin: £2m of sales, or 2,000 baskets a week against a norm of 2,500.</p>
+    <p class="answer">Structure: total the fixed costs, divide by the margin for break-even sales, convert to baskets, compare with a normal store. Fixed costs are 300 plus 400 plus 100, £800k a year. Each £1 of sales leaves 40p to cover them, so break-even sales are 800 divided by 0.4, £2m. At £20 a basket that is 100,000 baskets a year, or 2,000 a week over 50 weeks, roughly 290 a day. A typical Ferrow store does 2,500 a week, so the site clears break-even with a 20% cushion, and the extra 500 baskets at £8 of contribution earn about £4,000 a week, £200k a year. Recommendation: open, provided a footfall count shows the site is typical. The risk is a below-average site, so the next step is a two-week count outside the unit.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 6 of 12</div>
+    <h2>Bramwell &amp; Co. runs a wine club earning £12 a month per member. Paid ads bring in a member for £60 who stays 12 months. Restaurant partnerships cost £120 a member, who stays 30 months. With £1.2m to spend, where should it go?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Per member, £12 a month</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Channel</text>
+  <text x="165" y="37" text-anchor="middle" class="lbl">Cost</text>
+  <text x="275" y="37" text-anchor="middle" class="lbl">Lifetime</text>
+  <text x="385" y="37" text-anchor="middle" class="lbl">Net</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Paid ads</text>
+  <text x="165" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£60</text>
+  <text x="275" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£144</text>
+  <text x="385" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£84</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Partnerships</text>
+  <text x="165" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£120</text>
+  <text x="275" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£360</text>
+  <text x="385" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£240</text>
+</svg></div>
+    <p class="takeaway">Compare lifetime contribution net of acquisition cost and payback: partners return £240 a head, ads £84.</p>
+    <p class="answer">Structure: for each channel, lifetime contribution per member less the cost to acquire them, then payback and whether the channel can absorb the money. An ad member brings 12 months times £12, £144, less £60, so £84 net, and repays the £60 in five months. A partnership member brings 30 times £12, £360, less £120, so £240 net, with payback in ten months. Put the whole £1.2m into ads and you buy 20,000 members worth £1.68m net; into partnerships, 10,000 members worth £2.4m net. Recommendation: weight the budget to partnerships, since each pound spent returns £2.00 of net contribution against £1.40 from ads. The risk is that there aren’t 10,000 members’ worth of willing restaurants, so the next step is to test whether 30-month retention holds beyond the friendliest venues.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 7 of 12</div>
+    <h2>Kestrel Components’ line has three steps: machining 100 units an hour, coating 60, assembly 80. Demand is 70 an hour, each unit earns £20 of contribution and the plant runs 4,000 hours a year. A second coating station costs £500k. Buy it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Units per hour</text>
+  <line x1="0" y1="136" x2="440" y2="136" class="axis"/>
+  <rect x="28" y="44" width="55" height="92" rx="4" fill="var(--blue)"/>
+  <text x="55" y="39" text-anchor="middle" class="val">100</text>
+  <text x="55" y="150" text-anchor="middle" class="lbl">Machining</text>
+  <rect x="138" y="81" width="55" height="55" rx="4" fill="var(--amber)"/>
+  <text x="165" y="76" text-anchor="middle" class="val">60</text>
+  <text x="165" y="150" text-anchor="middle" class="lbl">Coating</text>
+  <rect x="248" y="62" width="55" height="74" rx="4" fill="var(--blue)"/>
+  <text x="275" y="57" text-anchor="middle" class="val">80</text>
+  <text x="275" y="150" text-anchor="middle" class="lbl">Assembly</text>
+  <rect x="358" y="72" width="55" height="64" rx="4" fill="var(--ink-faint)"/>
+  <text x="385" y="67" text-anchor="middle" class="val">70</text>
+  <text x="385" y="150" text-anchor="middle" class="lbl">Demand</text>
+</svg></div>
+    <p class="takeaway">A line runs at its slowest step, so coating at 60 loses £800k a year and the £500k pays back in months.</p>
+    <p class="answer">Structure: find the bottleneck, size the demand it turns away, price the fix, then check what constrains next. A line only runs as fast as its slowest step, so output is coating’s 60 an hour, not an average. That leaves 10 an hour unserved, and machining sits at 60 out of 100, 60% utilisation. Lost contribution is 10 units times £20 times 4,000 hours, £800k a year. A second station takes coating to 120, the constraint moves to assembly at 80, above demand, so all 70 an hour ships and the £500k is back in about eight months. Recommendation: buy it, after two weeks checking that coating really runs at 60 rather than losing time to changeovers. The risk is demand growing past 80 and assembly becoming the next wall.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 8 of 12</div>
+    <h2>Northbay Logistics must cut £5m from a £50m cost base: drivers £25m, fuel £10m, depots £8m, admin £7m. Revenue is £60m at a 30% contribution margin and vans run 90% full. The COO wants to cut 20% of drivers. Your view?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Cost base, £m</text>
+  <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
+  <rect x="18" y="46" width="52" height="110" rx="3" fill="var(--ink)"/>
+  <text x="44" y="41" text-anchor="middle" class="val">50</text>
+  <text x="44" y="170" text-anchor="middle" class="lbl">Today</text>
+  <rect x="106" y="46" width="52" height="3" rx="3" fill="var(--green)"/>
+  <text x="132" y="41" text-anchor="middle" class="val">−1.5</text>
+  <text x="132" y="170" text-anchor="middle" class="lbl">Fuel</text>
+  <rect x="194" y="49" width="52" height="4" rx="3" fill="var(--green)"/>
+  <text x="220" y="44" text-anchor="middle" class="val">−2</text>
+  <text x="220" y="170" text-anchor="middle" class="lbl">Depots</text>
+  <rect x="282" y="54" width="52" height="3" rx="3" fill="var(--green)"/>
+  <text x="308" y="49" text-anchor="middle" class="val">−1.5</text>
+  <text x="308" y="170" text-anchor="middle" class="lbl">Admin</text>
+  <rect x="370" y="57" width="52" height="99" rx="3" fill="var(--ink)"/>
+  <text x="396" y="52" text-anchor="middle" class="val">45</text>
+  <text x="396" y="170" text-anchor="middle" class="lbl">Target</text>
+</svg></div>
+    <p class="takeaway">Cut the costs that don’t carry revenue: fewer drivers saves £5m on paper but gives back £1.8m and the customers.</p>
+    <p class="answer">Structure: separate costs that carry revenue from those that don’t, price the revenue each cut loses, then build the £5m from the safe lines. Cutting a fifth of drivers saves £5m, but with vans 90% full there is only 10% slack, so roughly 10% of deliveries can’t be made: £6m of revenue, £1.8m of contribution at 30%, so the real saving is £3.2m and the customers let down don’t come back. Instead, routing software and telematics usually take 15% off fuel, £1.5m; closing the two weakest of eight depots saves £2m; consolidating the back office finds £1.5m. Recommendation: take the £5m from fuel, depots and admin and leave the drivers alone. The risk is that closing depots lengthens routes and eats the fuel saving, so the next step is a depot-by-depot volume map.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 9 of 12</div>
+    <h2>Windmere Foods sells 50m pizzas a year at £4 with £2.80 of variable cost each. Its main rival has just cut price 15%. Sales think Windmere will lose 20% of volume if it holds. Match, hold, or something else?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Annual contribution, £m</text>
+  <line x1="0" y1="141" x2="440" y2="141" class="axis"/>
+  <rect x="45" y="44" width="56" height="97" rx="4" fill="var(--blue)"/>
+  <text x="73" y="39" text-anchor="middle" class="val">60</text>
+  <text x="73" y="155" text-anchor="middle" class="lbl">Today</text>
+  <rect x="192" y="63" width="56" height="78" rx="4" fill="var(--green)"/>
+  <text x="220" y="58" text-anchor="middle" class="val">48</text>
+  <text x="220" y="155" text-anchor="middle" class="lbl">Hold</text>
+  <text x="220" y="166" text-anchor="middle" class="lbl">vol −20%</text>
+  <rect x="339" y="92" width="56" height="48" rx="4" fill="var(--amber)"/>
+  <text x="367" y="88" text-anchor="middle" class="val">30</text>
+  <text x="367" y="155" text-anchor="middle" class="lbl">Match</text>
+</svg></div>
+    <p class="takeaway">Matching halves contribution per pizza for certain, holding loses 20% of volume, so hold unless volume halves.</p>
+    <p class="answer">Structure: price each option in contribution, find the volume loss where they cross, then ask what the rival can sustain. Today contribution is 50m times £1.20, £60m. Match and price drops 15% to £3.40, so contribution per pizza falls to 60p; even with volume intact that is 50m times 60p, £30m, a certain £30m loss. Hold and lose 20% of volume and it is 40m times £1.20, £48m, a £12m loss. Holding is only worse than matching if volume falls by more than half, since 25m times £1.20 is £30m. Recommendation: hold the shelf price and answer with targeted promotions on the overlapping lines, watching share weekly. The risk is a rival with a real cost advantage, so the next step is to work out whether it can afford this beyond a season.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 10 of 12</div>
+    <h2>Marlstone Capital can buy Talbrook Industries at 9x its £50m EBITDA, funding half with debt. Management plans £75m of EBITDA in five years and the business will repay £100m of debt over the hold. Marlstone wants 2.5x its money. Buy?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">£m, at 9x in and out</text>
+  <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
+  <rect x="29" y="111" width="52" height="45" rx="3" fill="var(--ink)"/>
+  <text x="55" y="106" text-anchor="middle" class="val">225</text>
+  <text x="55" y="170" text-anchor="middle" class="lbl">Entry equity</text>
+  <rect x="139" y="66" width="52" height="45" rx="3" fill="var(--green)"/>
+  <text x="165" y="61" text-anchor="middle" class="val">+225</text>
+  <text x="165" y="170" text-anchor="middle" class="lbl">EBITDA +25</text>
+  <rect x="249" y="46" width="52" height="20" rx="3" fill="var(--blue)"/>
+  <text x="275" y="41" text-anchor="middle" class="val">+100</text>
+  <text x="275" y="170" text-anchor="middle" class="lbl">Debt paydown</text>
+  <rect x="359" y="46" width="52" height="110" rx="3" fill="var(--ink)"/>
+  <text x="385" y="41" text-anchor="middle" class="val">550</text>
+  <text x="385" y="170" text-anchor="middle" class="lbl">Exit equity</text>
+</svg></div>
+    <p class="takeaway">At 9x with no multiple gain the plan returns 2.4x, so either the £75m must be proven or the price must fall.</p>
+    <p class="answer">Structure: entry, the three ways equity grows (earnings, debt paydown, multiple), exit, then stress the plan. Entry value is 9 times 50, £450m: £225m of debt and £225m of equity. At exit, £75m at the same 9x is £675m; debt has fallen from 225 to £125m, so equity is £550m. That is 550 over 225, about 2.4x, roughly 19% a year, just under the hurdle with everything going right. If EBITDA only reaches £60m, exit is £540m, equity £415m, the return 1.8x. Recommendation: do not pay 9x on management’s plan; bid around 8x, where entry equity is £200m and the same plan exits at 8 times 75, £600m, less £100m of debt, so 500 over 200, about 2.5x. The risk is buyers paying less than 9x in five years, and the next step is to rebuild the £75m customer by customer.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 11 of 12</div>
+    <h2>Halverson Industries will pay a £150m premium for Kestrel Components (revenue £200m, EBIT £20m). The board deck claims £40m of synergies: £15m of cost savings and £25m of extra revenue. Plausible, and is the premium justified?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Against a £150m premium</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">Synergy</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">Claimed</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">Credible</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Cost</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£15m</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£10m</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Revenue</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£25m</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£4m</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Total a year</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">£40m</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">£14m</text>
+  <line x1="0" y1="132" x2="440" y2="132" class="axis"/>
+  <text x="6" y="125" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Value at 10x</text>
+  <text x="220" y="125" text-anchor="middle" class="val" style="font-size:10.5px">£400m</text>
+  <text x="367" y="125" text-anchor="middle" class="val" style="font-size:10.5px">£140m</text>
+</svg></div>
+    <p class="takeaway">Test cost and revenue synergies separately, turn revenue into margin, haircut both: about £14m, not £40m.</p>
+    <p class="answer">Structure: split synergies into cost and revenue, test each against what deals usually deliver, haircut, capitalise, compare with the premium. Kestrel’s cost base is 200 less 20, £180m, so £15m is over 8% of it, when combining overlapping businesses typically finds 3–5% and delivers about two-thirds of plan, so call it £10m. The £25m of revenue is not profit: at a 30% incremental margin it is £7.5m, and cross-selling plans routinely land at half, so £4m. Credible synergies are about £14m a year, worth £140m at 10x against a £150m premium. Recommendation: the premium is not justified on synergies; cut the offer or pay for revenue synergies only through an earn-out. The risk is one-off integration costs, usually a year of cost savings, and the next step is a site-by-site build of the £10m.</p>
+  </article>
+  <article class="card">
+    <div class="card-n">Card 12 of 12</div>
+    <h2>Meridian Health has 6,000 people waiting for cataract surgery. It does 500 a month and receives 500 referrals a month. The target is a three-month wait, the spare budget is £1m and outsourcing costs £600 an operation. What is your plan?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">The plan in four boxes</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Objective</text>
+  <text x="47" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">1,500 list</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Gap</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">4,500 people</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Throughput</text>
+  <text x="278" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">+3,000</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Outsource</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">1,500, £900k</text>
+</svg></div>
+    <p class="takeaway">Set the objective first, a 1,500-person list within a year, then fix throughput before buying capacity.</p>
+    <p class="answer">Structure: state the objective, size the gap, list levers from cheapest to dearest, check the budget last. The goal is not to spend £1m but to get the list to three months of referrals, 1,500 people, within a year without lowering quality. The list sits at 6,000 because 500 in equals 500 out, a twelve-month wait, so 4,500 must come off. Outsourcing all of them costs £2.7m, nearly three times the budget, so look inside first: theatres do four cataracts a session where good units do six, and lifting output to 750 a month adds 3,000 over the year for little money. That leaves 1,500 to outsource at £600, £900k, inside the budget. Recommendation: fix throughput, buy the remainder, and validate the list first, since about 10% typically no longer need surgery. The risk is throughput gains arriving late; next step, a session-by-session count of theatre time used.</p>
+  </article>
+  <div class="cta-band">
+    <p>Reading is not the same as remembering. Study this deck with scheduled review so the cards come back before you forget them.</p>
+    <a class="btn" href="https://viewprep.net/?deck=cases">Study Practice Cases</a>
+  </div>
+  <h2 class="track">More consulting decks</h2>
+  <div class="deck-list">
+    <a class="deck-item" href="https://viewprep.net/decks/casestructuring.html"><span class="deck-tag">Case Prep</span><span class="deck-name">Case Interview Structuring</span><span class="deck-desc">How to build, communicate, and adapt a live case structure under interview pressure, not just which frameworks to memorize.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/casemaths.html"><span class="deck-tag">Mental maths</span><span class="deck-name">Quick Maths: Consulting</span><span class="deck-desc">Multiple-choice drills on the case arithmetic: percentages, growth, breakeven and sizing, done out loud.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketsizing.html"><span class="deck-tag">Estimation</span><span class="deck-name">Market Sizing &amp; Guesstimates</span><span class="deck-desc">How to structure a defensible estimate under uncertainty when an interviewer asks you to size something with no data given.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/brainstorm.html"><span class="deck-tag">Creativity</span><span class="deck-name">Brainstorming &amp; Hypotheses</span><span class="deck-desc">The creativity questions inside a case: what could be driving this, how else could they grow, what are the risks.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/profitability.html"><span class="deck-tag">Profitability</span><span class="deck-name">Profitability &amp; Cost Analysis</span><span class="deck-desc">Why profits fall, and how to find the line that actually moved.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/bizmodels.html"><span class="deck-tag">Business models</span><span class="deck-name">Business Models &amp; Unit Economics</span><span class="deck-desc">How different kinds of company actually make money, and the numbers that decide whether they do.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/stats.html"><span class="deck-tag">Statistics</span><span class="deck-name">Statistics &amp; Data Analysis for Business</span><span class="deck-desc">The core statistical concepts behind sound, defensible business analysis.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/exhibits.html"><span class="deck-tag">Exhibits</span><span class="deck-name">Charts, Exhibits &amp; Data Interpretation</span><span class="deck-desc">Reading the chart the interviewer slides across the table: what it shows, what it hides, and the so-what.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketing.html"><span class="deck-tag">Marketing</span><span class="deck-name">Marketing Fundamentals</span><span class="deck-desc">The core concepts behind how products get positioned and sold.</span><span class="deck-count">14 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/pricing.html"><span class="deck-tag">Pricing</span><span class="deck-name">Pricing Strategy</span><span class="deck-desc">How companies set prices, and why price is the sharpest profit lever.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/strategy.html"><span class="deck-tag">Strategy</span><span class="deck-name">Management &amp; Strategy Frameworks</span><span class="deck-desc">The core frameworks used to analyze markets, competitors, and business decisions.</span><span class="deck-count">14 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/digital.html"><span class="deck-tag">Digital</span><span class="deck-name">Digital &amp; Tech Cases</span><span class="deck-desc">The fastest-growing case type: funnels, cost to serve, automation and AI, sized with real numbers.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketentry.html"><span class="deck-tag">Growth</span><span class="deck-name">Growth Strategy &amp; Market Entry</span><span class="deck-desc">How to judge a new market, pick a way in, and commit to an answer.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mnacases.html"><span class="deck-tag">M&amp;A Cases</span><span class="deck-name">M&amp;A &amp; Due Diligence Cases</span><span class="deck-desc">How to judge whether a deal is worth doing and whether the value is real.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/synthesis.html"><span class="deck-tag">Synthesis</span><span class="deck-name">Synthesis &amp; Structured Communication</span><span class="deck-desc">Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">13 cards</span></a>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ferrow Retail’s revenue has been £200m for two years, but profit fell from £20m to £12m. Cost of goods went from £120m to £128m, staff stayed at £40m and rent at £20m. What happened, and what should they do?", "acceptedAnswer": {"@type": "Answer", "text": "Flat revenue means the answer is in the costs, and here one line, cost of goods, explains the whole £8m. Structure it as profit equals revenue minus each cost line, and since revenue hasn’t moved, walk the costs one by one. Last year 200 less 120, 40 and 20 left £20m. This year cost of goods is £128m and the other lines are flat, so the whole £8m drop sits in one line and gross margin has slipped from 40% to 36%. Only three things push cost of goods up when sales don’t: suppliers charging more, customers shifting to lower-margin products, or stock going missing. Recommendation: split cost of goods by supplier and category this week, then renegotiate if it is supplier cost and rebalance the range if it is mix. The risk is a price rise landing on customers who already traded down. Next step: a shrinkage count in the five worst stores."}}, {"@type": "Question", "name": "Calder Foods wants to launch a chilled porridge pot in the UK. Launch costs £5m and they want it back within three years. Assume 70m people, a £2 pot, 40p of contribution per pot and a 10% share of buyers. Go or no-go?", "acceptedAnswer": {"@type": "Answer", "text": "Size the market, turn share into contribution, compare with the £5m: here it is back within months, so go. Structure: size the pots sold, take Calder’s share, turn it into contribution, compare with £5m. Of 70m people, assume one in five buys a chilled breakfast in a typical week, 14m people. One pot a week for 50 weeks is 700m pots, £1.4bn at £2. Calder at 10% sells 70m pots, and at 40p each that is £28m of contribution a year, so the £5m is back in a little over two months. The insight is that the answer is robust: even a 1% share gives £2.8m a year and payback inside two years. Recommendation: go. The risk is that 10% assumes shelf space the big grocers may not give a new line, so the next step is to test that with two retailers before committing the £5m."}}, {"@type": "Question", "name": "Halstead Foods sells £100m a year of soup with variable costs at 70% of revenue. Marketing wants a 10% price rise and expects volume to fall 6%. Is it worth doing?", "acceptedAnswer": {"@type": "Answer", "text": "Judge a price rise on contribution, not revenue: here it adds £7.6m and volume could fall 25% before it hurts. Structure: contribution before and after, then the volume loss at which the rise stops paying. Today revenue is £100m, variable cost £70m, contribution £30m. After the rise, price is 110% of old and volume 94%, so revenue is 100 times 1.1 times 0.94, which is £103.4m. Variable cost follows volume, not price, so it falls to 70 times 0.94, £65.8m. Contribution is 103.4 less 65.8, £37.6m, up £7.6m, and margin rises from 30% to roughly 36%. Break-even check: contribution per unit goes from 30 to 40 on every 100 of old price, so volume could fall to 75% of today before you are worse off. Recommendation: raise the price. The risk is that 6% is a short-run guess, so the next step is a trial in one region."}}, {"@type": "Question", "name": "Overton Digital wants to sell its payroll software in Germany. Build a team: £4m a year for three years, then £3m profit a year. Buy a local rival: £30m for £2m profit a year. Partner with a distributor: no cost, £1.5m a year. Which route?", "acceptedAnswer": {"@type": "Answer", "text": "Put each route on one footing, money in against profit out and who owns the customer: partner, then build. Structure: is Germany attractive, can Overton win there, and which route gets in at the best price for the least risk. Then put the three on one footing. Build sinks £12m over three years and returns £3m a year from year four, so the money is back seven years from today, but Overton owns every customer. Buy hands over £30m for £2m a year, fifteen years of profit, so it only works if Overton can double that profit quickly. Partner costs nothing and earns £1.5m a year from day one, but the distributor holds the relationships. Recommendation: partner now to prove demand, with rights to customer data and an option to build or buy later. The risk is the partner becoming the competitor. Next step: find out what the rival’s owners would really accept."}}, {"@type": "Question", "name": "Ferrow Retail is weighing a new store: rent £300k, staff £400k and other fixed costs £100k a year. Gross margin is 40% and the average basket is £20. Similar stores serve 2,500 baskets a week. Should it open?", "acceptedAnswer": {"@type": "Answer", "text": "Break-even is fixed costs over the margin: £2m of sales, or 2,000 baskets a week against a norm of 2,500. Structure: total the fixed costs, divide by the margin for break-even sales, convert to baskets, compare with a normal store. Fixed costs are 300 plus 400 plus 100, £800k a year. Each £1 of sales leaves 40p to cover them, so break-even sales are 800 divided by 0.4, £2m. At £20 a basket that is 100,000 baskets a year, or 2,000 a week over 50 weeks, roughly 290 a day. A typical Ferrow store does 2,500 a week, so the site clears break-even with a 20% cushion, and the extra 500 baskets at £8 of contribution earn about £4,000 a week, £200k a year. Recommendation: open, provided a footfall count shows the site is typical. The risk is a below-average site, so the next step is a two-week count outside the unit."}}, {"@type": "Question", "name": "Bramwell & Co. runs a wine club earning £12 a month per member. Paid ads bring in a member for £60 who stays 12 months. Restaurant partnerships cost £120 a member, who stays 30 months. With £1.2m to spend, where should it go?", "acceptedAnswer": {"@type": "Answer", "text": "Compare lifetime contribution net of acquisition cost and payback: partners return £240 a head, ads £84. Structure: for each channel, lifetime contribution per member less the cost to acquire them, then payback and whether the channel can absorb the money. An ad member brings 12 months times £12, £144, less £60, so £84 net, and repays the £60 in five months. A partnership member brings 30 times £12, £360, less £120, so £240 net, with payback in ten months. Put the whole £1.2m into ads and you buy 20,000 members worth £1.68m net; into partnerships, 10,000 members worth £2.4m net. Recommendation: weight the budget to partnerships, since each pound spent returns £2.00 of net contribution against £1.40 from ads. The risk is that there aren’t 10,000 members’ worth of willing restaurants, so the next step is to test whether 30-month retention holds beyond the friendliest venues."}}, {"@type": "Question", "name": "Kestrel Components’ line has three steps: machining 100 units an hour, coating 60, assembly 80. Demand is 70 an hour, each unit earns £20 of contribution and the plant runs 4,000 hours a year. A second coating station costs £500k. Buy it?", "acceptedAnswer": {"@type": "Answer", "text": "A line runs at its slowest step, so coating at 60 loses £800k a year and the £500k pays back in months. Structure: find the bottleneck, size the demand it turns away, price the fix, then check what constrains next. A line only runs as fast as its slowest step, so output is coating’s 60 an hour, not an average. That leaves 10 an hour unserved, and machining sits at 60 out of 100, 60% utilisation. Lost contribution is 10 units times £20 times 4,000 hours, £800k a year. A second station takes coating to 120, the constraint moves to assembly at 80, above demand, so all 70 an hour ships and the £500k is back in about eight months. Recommendation: buy it, after two weeks checking that coating really runs at 60 rather than losing time to changeovers. The risk is demand growing past 80 and assembly becoming the next wall."}}, {"@type": "Question", "name": "Northbay Logistics must cut £5m from a £50m cost base: drivers £25m, fuel £10m, depots £8m, admin £7m. Revenue is £60m at a 30% contribution margin and vans run 90% full. The COO wants to cut 20% of drivers. Your view?", "acceptedAnswer": {"@type": "Answer", "text": "Cut the costs that don’t carry revenue: fewer drivers saves £5m on paper but gives back £1.8m and the customers. Structure: separate costs that carry revenue from those that don’t, price the revenue each cut loses, then build the £5m from the safe lines. Cutting a fifth of drivers saves £5m, but with vans 90% full there is only 10% slack, so roughly 10% of deliveries can’t be made: £6m of revenue, £1.8m of contribution at 30%, so the real saving is £3.2m and the customers let down don’t come back. Instead, routing software and telematics usually take 15% off fuel, £1.5m; closing the two weakest of eight depots saves £2m; consolidating the back office finds £1.5m. Recommendation: take the £5m from fuel, depots and admin and leave the drivers alone. The risk is that closing depots lengthens routes and eats the fuel saving, so the next step is a depot-by-depot volume map."}}, {"@type": "Question", "name": "Windmere Foods sells 50m pizzas a year at £4 with £2.80 of variable cost each. Its main rival has just cut price 15%. Sales think Windmere will lose 20% of volume if it holds. Match, hold, or something else?", "acceptedAnswer": {"@type": "Answer", "text": "Matching halves contribution per pizza for certain, holding loses 20% of volume, so hold unless volume halves. Structure: price each option in contribution, find the volume loss where they cross, then ask what the rival can sustain. Today contribution is 50m times £1.20, £60m. Match and price drops 15% to £3.40, so contribution per pizza falls to 60p; even with volume intact that is 50m times 60p, £30m, a certain £30m loss. Hold and lose 20% of volume and it is 40m times £1.20, £48m, a £12m loss. Holding is only worse than matching if volume falls by more than half, since 25m times £1.20 is £30m. Recommendation: hold the shelf price and answer with targeted promotions on the overlapping lines, watching share weekly. The risk is a rival with a real cost advantage, so the next step is to work out whether it can afford this beyond a season."}}, {"@type": "Question", "name": "Marlstone Capital can buy Talbrook Industries at 9x its £50m EBITDA, funding half with debt. Management plans £75m of EBITDA in five years and the business will repay £100m of debt over the hold. Marlstone wants 2.5x its money. Buy?", "acceptedAnswer": {"@type": "Answer", "text": "At 9x with no multiple gain the plan returns 2.4x, so either the £75m must be proven or the price must fall. Structure: entry, the three ways equity grows (earnings, debt paydown, multiple), exit, then stress the plan. Entry value is 9 times 50, £450m: £225m of debt and £225m of equity. At exit, £75m at the same 9x is £675m; debt has fallen from 225 to £125m, so equity is £550m. That is 550 over 225, about 2.4x, roughly 19% a year, just under the hurdle with everything going right. If EBITDA only reaches £60m, exit is £540m, equity £415m, the return 1.8x. Recommendation: do not pay 9x on management’s plan; bid around 8x, where entry equity is £200m and the same plan exits at 8 times 75, £600m, less £100m of debt, so 500 over 200, about 2.5x. The risk is buyers paying less than 9x in five years, and the next step is to rebuild the £75m customer by customer."}}, {"@type": "Question", "name": "Halverson Industries will pay a £150m premium for Kestrel Components (revenue £200m, EBIT £20m). The board deck claims £40m of synergies: £15m of cost savings and £25m of extra revenue. Plausible, and is the premium justified?", "acceptedAnswer": {"@type": "Answer", "text": "Test cost and revenue synergies separately, turn revenue into margin, haircut both: about £14m, not £40m. Structure: split synergies into cost and revenue, test each against what deals usually deliver, haircut, capitalise, compare with the premium. Kestrel’s cost base is 200 less 20, £180m, so £15m is over 8% of it, when combining overlapping businesses typically finds 3–5% and delivers about two-thirds of plan, so call it £10m. The £25m of revenue is not profit: at a 30% incremental margin it is £7.5m, and cross-selling plans routinely land at half, so £4m. Credible synergies are about £14m a year, worth £140m at 10x against a £150m premium. Recommendation: the premium is not justified on synergies; cut the offer or pay for revenue synergies only through an earn-out. The risk is one-off integration costs, usually a year of cost savings, and the next step is a site-by-site build of the £10m."}}, {"@type": "Question", "name": "Meridian Health has 6,000 people waiting for cataract surgery. It does 500 a month and receives 500 referrals a month. The target is a three-month wait, the spare budget is £1m and outsourcing costs £600 an operation. What is your plan?", "acceptedAnswer": {"@type": "Answer", "text": "Set the objective first, a 1,500-person list within a year, then fix throughput before buying capacity. Structure: state the objective, size the gap, list levers from cheapest to dearest, check the budget last. The goal is not to spend £1m but to get the list to three months of referrals, 1,500 people, within a year without lowering quality. The list sits at 6,000 because 500 in equals 500 out, a twelve-month wait, so 4,500 must come off. Outsourcing all of them costs £2.7m, nearly three times the budget, so look inside first: theatres do four cataracts a session where good units do six, and lifting output to 750 a month adds 3,000 over the year for little money. That leaves 1,500 to outsource at £600, £900k, inside the budget. Recommendation: fix throughput, buy the remainder, and validate the list first, since about 10% typically no longer need surgery. The risk is throughput gains arriving late; next step, a session-by-session count of theatre time used."}}]}</script>
+
+  <footer class="site-footer">
+    <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
+    by, or sourced from any university, employer, or prep platform.</p>
+    <p><a href="https://viewprep.net/?deck=cases">Study these cards interactively</a> &middot;
+       <a href="https://viewprep.net/decks/">All decks</a> &middot;
+       <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/commercial-awareness.html">Commercial awareness</a> &middot;
+       <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
+       <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
+       <a href="https://viewprep.net/terms.html">Terms</a></p>
+  </footer>
+</div>
+</body>
+</html>
