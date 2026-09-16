@@ -35,8 +35,8 @@ def esc(s):
 
 STYLE = """
   :root{
-    --bg:#F2F1EC; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
-    --line:rgba(12,12,13,0.20); --line-soft:rgba(12,12,13,0.085);
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
     --surface:#FFFFFF; --surface-strong:#FFFFFF;
     --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
     --contrast:#FFFFFF;
@@ -84,6 +84,14 @@ STYLE = """
   .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
     color:var(--ink);margin:0 0 .7rem;}
   .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .opts{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:.45rem;}
+  .opt{display:flex;align-items:flex-start;gap:.7rem;border:1px solid var(--line-soft);
+    border-radius:12px;padding:.6rem .8rem;font-size:.92rem;line-height:1.45;color:var(--ink-soft);}
+  .opt-k{flex:0 0 auto;width:1.3rem;height:1.3rem;border-radius:50%;border:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;
+    color:var(--ink-faint);}
+  .opt.is-right{border-color:var(--green);color:var(--ink);}
+  .opt.is-right .opt-k{border-color:var(--green);background:var(--green);color:#fff;}
   .diagram{margin:0 0 1.1rem;}
   .diagram svg{display:block;width:100%;height:auto;}
   .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
@@ -100,10 +108,25 @@ STYLE = """
   h2.track{font-family:var(--display);font-weight:700;font-size:1.2rem;
     text-transform:uppercase;letter-spacing:.04em;margin:2.5rem 0 1.2rem;
     border-left:5px solid var(--amber);padding-left:.6rem;}
+  .site-header{flex-wrap:wrap;}
+  .main-nav{display:flex;align-items:center;justify-content:center;gap:.35rem;
+    flex:1 1 auto;flex-wrap:wrap;}
+  .nav-item{font-family:var(--body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease,background .15s ease;}
+  .nav-item:hover{color:var(--ink);border-color:var(--line-soft);}
+  .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
   .header-nav{display:flex;align-items:center;gap:1.1rem;}
-  .header-nav > a:not(.header-cta){font-family:var(--body);font-size:.78rem;font-weight:700;
-    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
-  .header-nav > a:not(.header-cta):hover{color:var(--ink);}
+  @media (max-width:860px){
+    .site-header{row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
+    .nav-item{font-size:.7rem;padding:.45rem .8rem;}
+  }
+  @media (max-width:600px){
+    .nav-item{padding:.45rem .7rem;font-size:.66rem;}
+    .main-nav{gap:.25rem;}
+  }
   .gl-tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.6rem 0 .4rem;}
   .gl-search{flex:1 1 260px;min-width:220px;font-family:var(--body);font-size:.95rem;
     padding:.7rem .95rem;border:1px solid var(--line);border-radius:12px;
@@ -133,6 +156,8 @@ STYLE = """
   .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
   .prose li{margin:0 0 .55rem;line-height:1.7;}
   .prose a{color:var(--blue);}
+  /* .prose a would otherwise beat .btn on specificity and tint the button text. */
+  .prose a.btn{color:var(--contrast);}
   .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
   .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
     color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
@@ -150,7 +175,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          'family=Archivo:wght@400;500;600;700;800&display=swap">')
 
 
-def head(title, desc, canonical, deck_id=None):
+def head(title, desc, canonical, deck_id=None, section="cards"):
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -180,8 +205,13 @@ def head(title, desc, canonical, deck_id=None):
 <div class="page">
   <header class="site-header">
     <a class="wordmark" href="{SITE}/"><b>View</b><span>Prep</span></a>
+    <nav class="main-nav" aria-label="Sections">
+      <a class="nav-item{' is-active' if section == 'cards' else ''}" href="{SITE}/#track-ib">Investment Banking</a>
+      <a class="nav-item" href="{SITE}/#track-consulting">Consulting</a>
+      <a class="nav-item{' is-active' if section == 'glossary' else ''}" href="{SITE}/glossary.html">Glossary</a>
+      <a class="nav-item" href="{SITE}/#test">Test yourself</a>
+    </nav>
     <nav class="header-nav">
-      <a href="{SITE}/glossary.html">Glossary</a>
       <a class="header-cta" href="{SITE}/{('?deck=' + deck_id) if deck_id else ''}">Study these cards</a>
     </nav>
   </header>
@@ -196,6 +226,7 @@ def footer(deck_id=None):
     <p><a href="{SITE}/{('?deck=' + deck_id) if deck_id else ''}">Study these cards interactively</a> &middot;
        <a href="{SITE}/decks/">All decks</a> &middot;
        <a href="{SITE}/glossary.html">Glossary</a> &middot;
+       <a href="{SITE}/commercial-awareness.html">Commercial awareness</a> &middot;
        <a href="{SITE}/faq.html">FAQ</a> &middot;
        <a href="{SITE}/privacy.html">Privacy</a> &middot;
        <a href="{SITE}/terms.html">Terms</a></p>
@@ -226,6 +257,15 @@ def deck_page(deck, all_decks):
         out.append('  <article class="card">')
         out.append(f'    <div class="card-n">Card {i + 1} of {len(cards)}</div>')
         out.append(f'    <h2>{esc(c["q"])}</h2>')
+        if c.get("choices"):
+            # Multiple-choice card: the static page marks the right option, since
+            # there is nothing to click on a page that has to work for a crawler.
+            out.append('    <ul class="opts">')
+            for k, ch in enumerate(c["choices"]):
+                cls = " is-right" if k == c.get("answer") else ""
+                out.append(f'      <li class="opt{cls}"><span class="opt-k">{"ABCD"[k]}</span>'
+                           f'<span>{esc(ch)}</span></li>')
+            out.append("    </ul>")
         if c.get("image"):
             # Deck-authored inline SVG, not user input, so it is inserted as markup.
             out.append(f'    <div class="diagram">{c["image"]}</div>')
@@ -425,7 +465,7 @@ def glossary_page(decks):
             "from accounting basics to case structuring. Free, no account.")
     canonical = f"{SITE}/glossary.html"
 
-    out = [head(title, desc, canonical)]
+    out = [head(title, desc, canonical, section="glossary")]
     out.append(f'  <p class="crumb"><a href="{SITE}/">ViewPrep</a> / Glossary</p>')
     out.append("  <h1>Finance glossary</h1>")
     out.append(f'  <p class="lede">{len(terms)} terms, each explained in a single sentence and '

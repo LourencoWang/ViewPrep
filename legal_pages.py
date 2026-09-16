@@ -202,7 +202,7 @@ def terms_body():
 # ------------------------------------------------------------------------------- faq
 FAQ = [
     ("Is ViewPrep really free?",
-     "Yes, completely. All 546 cards across all 32 decks are free, there is no paid tier, no "
+     "Yes, completely. All 650 cards across all 40 decks are free, there is no paid tier, no "
      "trial, and no card is held back behind an account."),
     ("Do I need an account?",
      "No. You can study every card signed out, and your progress is saved in your browser. An "
@@ -229,7 +229,7 @@ FAQ = [
     ("Can I use it on my phone?",
      "Yes. The site is built to work on a phone, which is where most people actually revise."),
     ("How is this different from Anki?",
-     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 546 cards already "
+     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 650 cards already "
      "written and ordered, so there is nothing to build before you can start. If you already have "
      "a deck you like, Anki is excellent."),
     ("Will you add more cards?",
@@ -290,13 +290,101 @@ def notfound_body():
                 "moved. Nothing is broken; this address just has nothing behind it."))
     o.append(_h("Try one of these instead"))
     o.append(_ul([
-        '<a href="/">Start studying</a> &ndash; 546 free cards, no account needed',
-        '<a href="/decks/">Every deck</a> &ndash; browse all 23 and read the cards as text',
+        '<a href="/">Start studying</a> &ndash; 650 free cards, no account needed',
+        '<a href="/decks/">Every deck</a> &ndash; browse all 40 and read the cards as text',
         '<a href="/faq.html">FAQ</a> &ndash; what this is and how the review scheduling works',
     ]))
     o.append('  <div class="cta-block">')
     o.append("    <h2>Or just pick a card</h2>")
     o.append(_p("Investment banking and consulting interview fundamentals, one card at a time."))
+    o.append('    <a class="btn" href="/">Study the cards</a>')
+    o.append("  </div>")
+    return "\n".join(o)
+
+
+# ------------------------------------------------------- commercial awareness
+# Deliberately a guide and not a deck. Commercial awareness is a habit and a way
+# of talking, not a set of facts that can be memorised off a flashcard, and a
+# card written today about a live market would be wrong within a month.
+def commercial_body():
+    o = []
+    o.append('  <p class="crumb"><a href="/">ViewPrep</a> / Commercial awareness</p>')
+    o.append("  <h1>Commercial awareness, without the panic</h1>")
+    o.append(_p("Every investment banking and consulting interview contains a version of the same "
+                "question: what is going on out there, and why do you care. It is the part most "
+                "candidates prepare last and lose points on first. This is a guide rather than a "
+                "deck, because commercial awareness is a habit and a way of talking. A flashcard "
+                "that told you what interest rates are today would be wrong by the time you "
+                "sat the interview."))
+    o.append(_h("What the question is actually testing"))
+    o.append(_p("Nobody expects a first-year to have a view the desk does not already have. The "
+                "interviewer is checking three things: that you read something without being told "
+                "to, that you can explain it to someone who has not read it, and that you "
+                "understand why it matters to the person sitting opposite you. A candidate who "
+                "recites a headline fails all three. A candidate who takes one story and says "
+                "plainly what happened, why it happened now, and what it changes for a bank or a "
+                "client passes all three, even if the story is small."))
+    o.append(_p("So the goal is not coverage. It is one or two stories you can actually hold a "
+                "conversation about, plus enough of the landscape that you are not surprised by a "
+                "follow-up."))
+    o.append(_h("The weekly habit"))
+    o.append(_p("Twenty minutes a day, or an hour on a Sunday, is enough. Read a general business "
+                "paper for the front section and the companies pages, and pick one story a week "
+                "to go deeper on. Keep a single page of notes with three headings: what moved in "
+                "markets, one deal, one company or sector story. Write two sentences under each, "
+                "in your own words. The writing is the part that makes it stick, and the page is "
+                "what you re-read on the train to the interview."))
+    o.append(_p("By the fourth week you will notice the same forces turning up under different "
+                "headlines, which is the point at which it stops being revision and starts being "
+                "awareness."))
+    o.append(_h("How to talk about a deal"))
+    o.append(_p("Most banking interviews ask for a deal you have followed. Use the same five beats "
+                "every time and you will never ramble:"))
+    o.append(_ul([
+        "<b>What happened.</b> Who bought whom, for how much, announced when, cash or shares.",
+        "<b>Why now.</b> The commercial reason: consolidation in a shrinking market, a capability "
+        "the buyer could not build in time, a founder wanting out, a sponsor at the end of its hold.",
+        "<b>How it was paid for.</b> Cash off the balance sheet, new debt, issuing shares, or a "
+        "mix, and what that says about how confident the buyer is.",
+        "<b>What the market made of it.</b> Which share price moved and in which direction, and "
+        "the honest reading of that: a buyer falling on announcement usually means the market "
+        "thinks they paid too much or doubts the synergies.",
+        "<b>Your view.</b> One sentence, with a reason, and one thing that would change your mind.",
+    ]))
+    o.append(_p("Pick a deal in a sector the bank actually covers, and pick one small enough that "
+                "you can hold the detail. A mid-sized deal you can discuss properly beats the "
+                "largest deal of the year discussed vaguely."))
+    o.append(_h("How to talk about markets"))
+    o.append(_p("Macro questions sound open-ended but almost always want the same chain: what the "
+                "central bank is doing with rates, what that does to the cost of borrowing, what "
+                "that does to valuations and to the volume of deals, and who it helps or hurts. "
+                "Higher rates raise the discount rate, so future cash flows are worth less today, "
+                "which drags on valuations and hits long-duration, high-growth companies hardest. "
+                "They also make debt more expensive, which narrows what a buyout can pay and slows "
+                "leveraged deal activity. Falling rates run the same chain in reverse."))
+    o.append(_p("You do not need the exact rate to the decimal, though knowing roughly where it is "
+                "and which way it last moved is the minimum. What you need is the chain, because "
+                "the follow-up is almost always “and what does that mean for us?”"))
+    o.append(_h("The consulting version"))
+    o.append(_p("Consulting interviews rarely ask about deals. They ask what industry interests "
+                "you, or what you would worry about if you ran a business in it. The structure is "
+                "the same but the lens is the client’s: what is happening to demand, what is "
+                "happening to costs, what technology or regulation is changing the economics, and "
+                "what the firms in that industry are doing about it. Bring one industry you "
+                "genuinely find interesting and be able to name two or three forces reshaping it, "
+                "with a consequence attached to each. That is indistinguishable from the opening "
+                "of a good case."))
+    o.append(_h("Before the interview"))
+    o.append(_p("Read the firm’s own recent announcements and the sectors its office is known "
+                "for, so that when you are asked why this firm you are not guessing. Re-read your "
+                "one page. Have your deal or industry story ready in two lengths, a thirty-second "
+                "version and a two-minute version, because you will not know which one the room "
+                "wants until you are in it. And if you are asked about something you have not "
+                "followed, say so and offer what you have followed instead. That reads as honest, "
+                "which is worth more than a bluffed answer that collapses on the second question."))
+    o.append('  <div class="cta-block">')
+    o.append("    <h2>The technical half</h2>")
+    o.append(_p("Commercial awareness carries one half of the interview. The cards carry the other."))
     o.append('    <a class="btn" href="/">Study the cards</a>')
     o.append("  </div>")
     return "\n".join(o)
@@ -311,8 +399,12 @@ PAGES = [
      "What ViewPrep stores, where it goes, which third parties see anything, and how to have "
      "your data deleted.", privacy_body, None, "0.3"),
     ("404.html", "Page not found | ViewPrep",
-     "That page does not exist. Browse the decks or start studying 546 free investment "
+     "That page does not exist. Browse the decks or start studying 650 free investment "
      "banking and consulting interview flashcards.", notfound_body, None, None),
+    ("commercial-awareness.html", "Commercial awareness for banking and consulting interviews | ViewPrep",
+     "How to build commercial awareness for an investment banking or consulting interview: the "
+     "weekly habit, how to talk about a deal, and how rates feed through to valuations.",
+     commercial_body, None, "0.7"),
     ("terms.html", "Terms of use | ViewPrep",
      "Terms of use for ViewPrep, including the educational content disclaimer and acceptable "
      "use.", terms_body, None, "0.3"),

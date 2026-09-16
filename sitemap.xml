@@ -2,192 +2,237 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://viewprep.net/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://viewprep.net/glossary.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/accounting.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/statements.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/quickmaths.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/threestatement.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/ratios.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/corpfin.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/markets.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/macro.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/earnings.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/valuation.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/evbridge.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/comps.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/dcf.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/credit.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/capstructure.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/mna.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/dealmaths.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/lbo.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/ecm.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/excel.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/ibinterview.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/casestructuring.html</loc>
-    <lastmod>2026-09-14</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://viewprep.net/decks/marketsizing.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/casemaths.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/marketsizing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/brainstorm.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/microecon.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/profitability.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/bizmodels.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/stats.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/exhibits.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/marketing.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/pricing.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/strategy.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/operations.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/digital.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/marketentry.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/mnacases.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/synthesis.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viewprep.net/decks/cases.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/decks/consultinginterview.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://viewprep.net/faq.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://viewprep.net/privacy.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://viewprep.net/commercial-awareness.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://viewprep.net/terms.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

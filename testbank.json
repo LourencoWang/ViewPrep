@@ -103,6 +103,110 @@
       ]
     }
   ],
+  "quickmaths": [
+    {
+      "q": "Corrigan Foods trades on 12x earnings and is considering an all-share offer for a target on 18x. Using earnings yields, explain whether the deal would be accretive or dilutive before synergies, and why.",
+      "a": "Earnings yield is the inverse of the P/E, so Corrigan’s shares yield about 8.3% while the target’s earnings yield only about 5.6%. In an all-share deal the buyer pays with its own stock, so it is giving up shares worth 8.3% of profit per pound to acquire earnings worth 5.6% per pound. That exchange lowers earnings per share, so the deal is dilutive before synergies. The rule of thumb is that a lower-P/E buyer paying in stock for a higher-P/E target dilutes, and any premium paid on top raises the effective multiple and makes it worse.",
+      "key": [
+        "earnings yield",
+        "8.3%",
+        "dilutive",
+        "premium"
+      ]
+    },
+    {
+      "q": "A colleague claims a business that grew 15% a year for five years has doubled in size. Use the rule of 72 and a rough compounding estimate to say whether that claim is about right.",
+      "a": "The rule of 72 says money growing at 15% a year doubles in about 72 over 15, or 4.8 years, so five years at that rate should be a little more than a doubling. Checking with compounding, 1.15 to the fifth power is about 2.01, since simple addition gives 75% and the cross terms from earlier growth earning further growth add roughly another 25 points. So the claim is about right: the business has doubled, slightly more if anything. The rule is an approximation, but at 15% it sits comfortably inside the range where it works well.",
+      "key": [
+        "rule of 72",
+        "4.8 years",
+        "compounding",
+        "doubled"
+      ]
+    },
+    {
+      "q": "NorthPeak Airlines has a 25% operating margin. Revenue is expected to rise 20% and costs 10%. Without a calculator, work out the change in profit and the new margin, and name the effect at work.",
+      "a": "Scale to 100. A 25% margin means revenue of 100, costs of 75 and profit of 25. Revenue grows 20% to 120 and costs grow 10% to 82.5, so profit becomes 37.5, a rise of 50% from a 20% increase in revenue. The new margin is 37.5 over 120, which is 31.25%, up about six percentage points. The effect is operating leverage: because profit is the thin slice left after costs, a gap between revenue growth and cost growth is magnified when it reaches the bottom line, in both directions.",
+      "key": [
+        "scale to 100",
+        "37.5",
+        "50%",
+        "operating leverage"
+      ]
+    },
+    {
+      "q": "A sponsor proposes borrowing 5x EBITDA for a company earning £60m of EBITDA, at an interest rate of 9%. Work out the debt, the annual interest and the interest cover, and comment on whether the structure looks comfortable.",
+      "a": "Debt capacity at 5x on £60m of EBITDA is £300m. Interest at 9% on £300m is £27m a year, which you can also reach as 5 turns times 9% of £60m, or 5 times £5.4m. Interest cover is EBITDA over interest, £60m over £27m, about 2.2x. That is on the tight side: a 10% fall in EBITDA takes cover to 2.0x, and the business still has to fund tax, capital expenditure and scheduled repayments from the same cash. Most lenders would prefer cover closer to 3x at this leverage.",
+      "key": [
+        "£300m",
+        "£27m",
+        "interest cover",
+        "2.2x"
+      ]
+    },
+    {
+      "q": "Talbrook Industries has EBITDA of £50m and peers trade at 10x EV/EBITDA. It has £30m of net cash and 20m shares. Walk through the steps to an implied share price and explain why the cash moves the answer the way it does.",
+      "a": "Ten times £50m of EBITDA gives an enterprise value of £500m, the price of the whole operating business. Equity value is EV minus net debt, but here the company has net cash, meaning its cash exceeds its debt, so the £30m is added rather than subtracted and equity value is £530m. Dividing by 20m shares gives about £26.50 a share. The cash adds to the price because a buyer of the shares receives it on top of the operations, so it belongs to shareholders in full and sits above the business value rather than inside it.",
+      "key": [
+        "enterprise value",
+        "net cash",
+        "equity value",
+        "£26.50"
+      ]
+    }
+  ],
+  "threestatement": [
+    {
+      "q": "A company records £30 of depreciation at a 30% tax rate. Explain what happens to net income, cash and the balance sheet, and why cash and profit move in opposite directions.",
+      "a": "Depreciation is a non-cash expense. Pre-tax profit falls £30, tax falls £9, so net income falls £21. On the cash flow statement you start at −21 and add back the full £30 because no cash left, so cash rises £9, which is the tax shield. On the balance sheet, cash is up 9 and equipment is down 30, so assets fall 21, matching retained earnings down 21. Profit and cash diverge because the cash left when the asset was bought, and depreciation merely spreads that cost over its life while trimming the tax bill each year.",
+      "key": [
+        "non-cash",
+        "tax shield",
+        "retained earnings",
+        "add back"
+      ]
+    },
+    {
+      "q": "Why does buying £50 of inventory on supplier credit leave both cash and net income unchanged, and what does it do to the balance sheet?",
+      "a": "Inventory is goods held for sale, so it is an asset until sold and never touches the income statement at purchase; net income stays flat. Because the supplier hasn’t been paid, no cash moves either: on the cash flow statement the £50 rise in inventory is a working capital use, exactly offset by a £50 rise in accounts payable, a working capital source. The balance sheet grows on both sides, inventory up 50 in assets and payables up 50 in liabilities, so 50 = 50 + 0 balances. Only when the goods sell does cost of goods sold appear in profit.",
+      "key": [
+        "working capital",
+        "accounts payable",
+        "cost of goods sold",
+        "asset"
+      ]
+    },
+    {
+      "q": "A company sells a vehicle with a book value of £25 for £15 cash at a 25% tax rate. Walk through the three statements.",
+      "a": "The loss on sale is proceeds minus book value, 15 − 25 = −10, so pre-tax profit falls 10, tax falls 2.50 and net income falls 7.50. On the cash flow statement start at −7.50, add back the £10 loss because it is non-cash, then show the £15 of proceeds under investing activities, giving cash up 17.50. On the balance sheet cash rises 17.50 and the vehicle, at 25, comes off, so assets fall 7.50, matching retained earnings down 7.50. The add-back stops the sale being counted in operating cash flow as well as investing.",
+      "key": [
+        "book value",
+        "investing activities",
+        "loss on sale",
+        "add back"
+      ]
+    },
+    {
+      "q": "Explain how a deferred tax liability arises when a company uses accelerated depreciation for tax purposes, and how it appears on each statement.",
+      "a": "The accounts charge straight-line depreciation, say £10, while the tax return deducts more, say £30, in the early years. Book tax expense is based on book profit, so the income statement shows a higher tax charge than the cash actually paid; at 25% the gap is £5. That £5 is a deferred tax liability, an amount owed to the tax authority in later years when the tax deduction drops below book depreciation. On the cash flow statement the increase in the liability is added back to net income, because tax was expensed but not paid, and on the balance sheet the liability rises by 5, matching the extra cash kept.",
+      "key": [
+        "deferred tax liability",
+        "tax expense",
+        "added back",
+        "balance sheet"
+      ]
+    },
+    {
+      "q": "A candidate says paying a dividend of £30 reduces net income by £30. Correct them, and show where the dividend actually appears.",
+      "a": "A dividend is a distribution of profit to shareholders, not a cost of running the business, so it never appears on the income statement and net income is unchanged. It shows up on the cash flow statement as a £30 outflow under financing activities, and on the balance sheet cash falls 30 on the asset side while retained earnings falls 30 on the equity side, so the two sides still tie. There is no tax effect for the company because nothing touched pre-tax profit. The same logic applies to a share buyback, which also bypasses profit and reduces cash and equity together.",
+      "key": [
+        "financing activities",
+        "retained earnings",
+        "net income",
+        "buyback"
+      ]
+    }
+  ],
   "ratios": [
     {
       "q": "What is the difference between the current ratio and the quick ratio, and why does it matter for a retailer?",
@@ -414,6 +518,58 @@
       ]
     }
   ],
+  "evbridge": [
+    {
+      "q": "Windmere Foods owns 75% of a bottling subsidiary and consolidates it in full. Explain why non-controlling interest is added to enterprise value rather than ignored or subtracted.",
+      "a": "When a parent consolidates a subsidiary it reports 100% of that subsidiary’s revenue and EBITDA, even though it only owns 75%. The other 25% belongs to outside shareholders and is shown as non-controlling interest within equity. Because the EBITDA in the denominator of EV/EBITDA includes the whole subsidiary, the enterprise value in the numerator must also cover the whole subsidiary, so the outsiders’ 25% is added to equity value alongside debt. Subtracting it, or leaving it out, would pair a full-company EBITDA with a part-company EV and understate the multiple.",
+      "key": [
+        "non-controlling interest",
+        "consolidates",
+        "ebitda",
+        "subsidiary"
+      ]
+    },
+    {
+      "q": "Meridian Health trades at £20 and has 8m employee options with a £5 strike. Show how the treasury stock method converts those options into a diluted share count, and explain the logic of each step.",
+      "a": "First check that the options are in the money: a £5 strike against a £20 share price means they would be exercised. Assume all 8m are exercised, which creates 8m new shares and brings £40m of cash into the company. The treasury stock method then assumes the company uses that £40m to buy back its own shares at the £20 market price, retiring 2m shares. Net dilution is 8m less 2m, or 6m new shares, which are added to the basic count. The method matters because counting all 8m would overstate dilution and therefore overstate equity value.",
+      "key": [
+        "treasury stock method",
+        "in the money",
+        "buy back",
+        "net dilution"
+      ]
+    },
+    {
+      "q": "A UK retailer reports under IFRS 16. Explain how you keep its enterprise value and its EBITDA consistent with each other, and what goes wrong if you do not.",
+      "a": "IFRS 16 replaces rent with depreciation and interest, so reported EBITDA is higher than before, and a lease liability, the present value of future rent, appears on the balance sheet. The rule is to treat both sides the same way. If you use the reported EBITDA, which excludes rent, add the lease liability to enterprise value because the lessors are effectively funding the shops. If you deduct rent to get a pre-IFRS 16 EBITDA, leave the liability out. Mixing the bases, a rent-free EBITDA over an EV without leases, makes the company look cheaper than it is and is not consistent.",
+      "key": [
+        "lease liability",
+        "rent",
+        "ifrs 16",
+        "consistent"
+      ]
+    },
+    {
+      "q": "Explain why enterprise value divided by net income is a mismatched multiple, and describe what happens to it when a company replaces part of its equity with debt.",
+      "a": "Enterprise value is the value of the business to all of its funders, lenders and shareholders alike, so it should sit over a profit measure that is available to all of them, such as EBITDA or EBIT, which come before interest. Net income is what remains for shareholders after interest has been paid to lenders, so it belongs with equity value, not EV. If a company borrows to buy back shares, EV is unchanged because the operations are the same, but net income falls because of the new interest expense. The mismatched multiple rises even though nothing about the business changed, so capital structure distorts it.",
+      "key": [
+        "after interest",
+        "capital structure",
+        "equity value",
+        "lenders"
+      ]
+    },
+    {
+      "q": "Halsey Aerospace uses £50m of surplus cash to repay £50m of bank debt. Explain what happens to its enterprise value and its equity value, and why.",
+      "a": "Nothing changes on either measure. Net debt, which is debt minus cash, is the same after the repayment because debt falls £50m and cash falls £50m, so enterprise value, equity value plus net debt, is unchanged. Equity value is the residual after the claims ahead of shareholders, and since those net claims are the same size, the residual is the same too. The transaction is simply a reshuffle within the financing of the business: the operations that generate the cash flows have not moved, and EV only responds to changes in those operations. Future interest falls, but that is a profit effect, not a change in value today.",
+      "key": [
+        "net debt",
+        "unchanged",
+        "residual",
+        "operations"
+      ]
+    }
+  ],
   "comps": [
     {
       "q": "What is enterprise value, how is it calculated, and why is it used in comps instead of market capitalisation?",
@@ -463,6 +619,58 @@
         "risk",
         "market",
         "discount"
+      ]
+    }
+  ],
+  "dcf": [
+    {
+      "q": "A company reports EBIT of £80m, pays tax at 25%, has depreciation of £15m, spends £25m on capex and sees working capital fall by £5m. Compute unlevered free cash flow and explain why the tax charge is taken on EBIT rather than on profit after interest.",
+      "a": "Unlevered free cash flow starts with EBIT of £80m, taxed at 25% as if the company had no debt, leaving £60m. Add back the £15m of depreciation because it is a non-cash charge, subtract the £25m of capex, and add the £5m released from working capital, since a fall in working capital frees cash rather than absorbing it. That gives £55m. Tax is charged on EBIT because the cash flow is meant to be unlevered, belonging to lenders and shareholders together; the tax saving from interest is captured separately through the after-tax cost of debt inside WACC, and using the lower actual tax bill would count that shield twice.",
+      "key": [
+        "unlevered free cash flow",
+        "working capital",
+        "after-tax cost of debt",
+        "tax saving"
+      ]
+    },
+    {
+      "q": "A company’s year-5 free cash flow is £50m, its WACC is 9% and long-run growth is assumed at 2%. Calculate the perpetuity growth terminal value and explain the sanity check you would apply to the growth assumption.",
+      "a": "The perpetuity growth terminal value is next year’s cash flow divided by the spread between WACC and growth. Year 6 cash flow is 50 × 1.02 = £51m, and 51 ÷ (0.09 − 0.02) = 51 ÷ 0.07 gives £728.6m as at the end of year 5, which is then discounted back using the year-5 discount factor. The sanity check is that growth is assumed to last forever, so it must sit below the long-run growth of the economy in money terms, roughly nominal GDP of around 4% in the UK. A business growing faster than the economy indefinitely would eventually be larger than the economy, so most models keep the rate between 1.5% and 3%.",
+      "key": [
+        "terminal value",
+        "nominal gdp",
+        "728.6",
+        "discount factor"
+      ]
+    },
+    {
+      "q": "Explain why WACC should be weighted using market values rather than balance-sheet values, and describe what tends to go wrong in the valuation when book values are used instead.",
+      "a": "WACC is the return investors currently demand on the capital they have at stake, and what they have at stake is measured by what their claims are worth today, so the weights should be the market value of equity and, ideally, of debt. Book equity is a historical accounting figure, share capital plus retained profits less distributions, and usually sits well below the market value for a profitable company. Using book values therefore overweights debt, the cheaper source after its tax deduction, and produces a WACC that is too low, which inflates the present value of every cash flow and the terminal value. Debt is the one component where book value is often an acceptable stand-in, unless the borrower is distressed.",
+      "key": [
+        "market value",
+        "book equity",
+        "weights",
+        "too low"
+      ]
+    },
+    {
+      "q": "Describe how you would estimate a beta for a private company using a set of listed peers, including the formula and why the tax rate appears in it.",
+      "a": "A listed peer’s observed beta is a levered beta, reflecting both its operating risk and the extra volatility its debt adds for shareholders. For each peer, unlever it by dividing by (1 + (1 − t) × D/E), where D/E is the peer’s market debt-to-equity ratio and t its tax rate, which strips the financing effect out and leaves a pure business beta. Take the median unlevered beta across the peer set, then relever it at the private company’s own target debt-to-equity using βL = βU × (1 + (1 − t) × D/E). The (1 − t) term appears because interest is tax-deductible, so the tax shield offsets part of the risk that debt adds to equity holders.",
+      "key": [
+        "levered beta",
+        "unlever",
+        "debt-to-equity",
+        "tax shield"
+      ]
+    },
+    {
+      "q": "Why does a standard unlevered DCF fail as a valuation method for a bank, and what approach would you use in its place?",
+      "a": "An unlevered DCF relies on separating operating cash flow from financing, but for a bank the two cannot be pulled apart: deposits and wholesale borrowing are the raw material of the business, and interest is its main revenue and cost rather than a financing charge. EBIT, free cash flow and WACC therefore have no clean meaning, and neither do capex or working capital. Instead you value the equity directly with a dividend discount model, forecasting the cash the bank can distribute after retaining enough regulatory capital to satisfy its minimum ratios and discounting it at the cost of equity, or with a residual income model built on book value. Cross-checks use price to tangible book and price to earnings.",
+      "key": [
+        "dividend discount model",
+        "regulatory capital",
+        "cost of equity",
+        "residual income"
       ]
     }
   ],
@@ -619,6 +827,58 @@
         "fair value",
         "intangibles",
         "synergies"
+      ]
+    }
+  ],
+  "dealmaths": [
+    {
+      "q": "A buyer earns £300m on 150m shares and acquires a target earning £45m for £500m of cash funded entirely with new debt at 6%. Tax is 25%. Calculate pro forma EPS and explain the one-line test that reaches the same conclusion.",
+      "a": "Standalone EPS is 300 ÷ 150 = £2.00. Interest of £500m × 6% is £30m, and because interest is tax deductible at 25% the charge reaching earnings is £22.5m. Pro forma net income is 300 + 45 − 22.5 = £322.5m on an unchanged 150m shares, so EPS is £2.15, accretive by 7.5%. The one-line test compares the target’s earnings yield, 45 ÷ 500 = 9.0%, with the after-tax cost of debt of 6% × 0.75 = 4.5%. The yield is higher, so the deal is accretive, and the 4.5 point gap on £500m is the £22.5m of extra earnings.",
+      "key": [
+        "pro forma",
+        "earnings yield",
+        "cost of debt",
+        "2.15"
+      ]
+    },
+    {
+      "q": "A buyer pays £800m in cash for a company with £400m of book equity, and diligence shows its property is worth £120m more than it is carried at. Tax is 25%. Work out the goodwill and explain the deferred tax liability that appears alongside the write-up.",
+      "a": "The purchase price allocation restates the target at fair value before anything is consolidated. The property is written up by £120m, but the tax authorities will not allow depreciation on that uplift, so a deferred tax liability of 25% × 120 = £30m is booked against it. Fair value of net assets is therefore 400 + 120 − 30 = £490m, and goodwill is the premium paid over that, 800 − 490 = £310m. Omitting the deferred tax liability would understate goodwill by £30m and leave the pro forma balance sheet out of balance.",
+      "key": [
+        "purchase price allocation",
+        "fair value",
+        "deferred tax liability",
+        "goodwill"
+      ]
+    },
+    {
+      "q": "A fund buys a business on £80m of EBITDA at 9.0x, with lenders advancing 5.5x EBITDA. Five years later EBITDA is £110m, £140m of debt has been repaid and the business sells at 8.5x. Give the entry equity, the exit equity and the money multiple.",
+      "a": "Entry enterprise value is 9.0 × 80 = £720m and the debt is 5.5 × 80 = £440m, so the entry equity is the £280m plug left over. At exit the enterprise value is 8.5 × 110 = £935m, and the exit debt is 440 − 140 = £300m, so the equity is £635m. The money multiple is 635 ÷ 280 = 2.27 times, which over five years is an IRR of roughly 18%. Note that the fund lost half a turn of multiple between entry and exit, and still cleared 2.27 times on EBITDA growth and debt paydown alone.",
+      "key": [
+        "entry equity",
+        "exit debt",
+        "money multiple",
+        "2.27"
+      ]
+    },
+    {
+      "q": "Explain how you would attribute the equity gain on a buyout between EBITDA growth, debt paydown and the change in exit multiple, and say why the entry multiple is used to value the growth.",
+      "a": "Take the increase in EBITDA over the hold and value it at the entry multiple, which isolates the gain that came from running the business better. Add the debt paydown, the cash swept against the loan over the hold, which converts lender money into fund money pound for pound. Finally, value the multiple change as the difference between exit and entry multiples applied to exit-year EBITDA. The entry multiple is used on the growth precisely so the rerating sits in its own line, because valuing that growth at the exit multiple would double count the multiple change.",
+      "key": [
+        "entry multiple",
+        "debt paydown",
+        "multiple change",
+        "double count"
+      ]
+    },
+    {
+      "q": "Explain arithmetically why a dividend recapitalisation lifts a fund’s IRR by more than it lifts the money multiple, and what the trade-off is.",
+      "a": "A dividend recapitalisation raises new debt against the company and pays the proceeds to the owner mid-hold. The money multiple only adds the dividend to total cash returned, and the extra interest cost slows debt paydown, so exit equity falls by slightly more than the dividend and the multiple usually edges down. The IRR is time-weighted, so the same pounds arriving two or three years earlier are discounted far less and the rate rises. The trade-off is a more leveraged business carrying more interest, with no improvement in the underlying operations to pay for it.",
+      "key": [
+        "dividend recapitalisation",
+        "money multiple",
+        "interest cost",
+        "time-weighted"
       ]
     }
   ],
@@ -882,6 +1142,58 @@
       ]
     }
   ],
+  "casemaths": [
+    {
+      "q": "Revenue went from £820m to £900m. What is the growth rate, and what is the common mistake?",
+      "a": "The increase is £80m. Divided by the starting figure, £820m, it is a little under 10%, about 9.8%, because 80 over 800 would be exactly 10% and the real base is slightly larger. The common mistake is dividing by the new figure, £900m, which gives 8.9% and is the wrong base.",
+      "key": [
+        "80",
+        "820",
+        "starting",
+        "10%"
+      ]
+    },
+    {
+      "q": "A bakery has £2m of fixed costs, sells loaves at £2 with £1.20 of variable cost. What is breakeven, and what would you say next?",
+      "a": "Contribution per loaf is £2 minus £1.20, which is 80p. Breakeven is fixed costs over contribution, £2m divided by £0.80, which is 2.5 million loaves a year, about 7,000 a day. The next thing to say is whether that is plausible for one bakery against the local market, which it probably is not.",
+      "key": [
+        "contribution",
+        "0.80",
+        "2.5 million",
+        "fixed"
+      ]
+    },
+    {
+      "q": "Explain the rule of 72 with an example.",
+      "a": "At a steady growth rate, a quantity doubles in about 72 divided by the rate in years. Revenue growing at 8% a year doubles in about nine years; a market that doubled in four years grew at about 18% a year. It is an approximation that works well for rates under about 20%.",
+      "key": [
+        "72",
+        "double",
+        "years",
+        "rate"
+      ]
+    },
+    {
+      "q": "Why is a 3% price rise usually worth more profit than a 3% cost cut, and what is the catch?",
+      "a": "A price rise with volume held adds 3% of revenue straight to profit, while a cost cut adds 3% of costs, and costs are smaller than revenue for any profitable company. With £1bn of revenue and £900m of costs, the price rise adds £30m and the cost cut £27m. The catch is that price rises can lose customers while cost cuts usually do not, so price is the bigger lever but the riskier one.",
+      "key": [
+        "revenue",
+        "costs",
+        "volume",
+        "customers"
+      ]
+    },
+    {
+      "q": "Describe how to say a calculation out loud so an interviewer can follow it.",
+      "a": "State the formula first, then the inputs and any rounding, then each arithmetic step as you do it, then the answer with its unit, then what it means for the case. That order lets the interviewer correct an input early and never leaves them guessing what you are doing.",
+      "key": [
+        "formula",
+        "inputs",
+        "rounding",
+        "unit"
+      ]
+    }
+  ],
   "marketsizing": [
     {
       "q": "How do you approach a market sizing question from scratch?",
@@ -934,55 +1246,55 @@
       ]
     }
   ],
-  "casemaths": [
+  "brainstorm": [
     {
-      "q": "Revenue went from £820m to £900m. What is the growth rate, and what is the common mistake?",
-      "a": "The increase is £80m. Divided by the starting figure, £820m, it is a little under 10%, about 9.8%, because 80 over 800 would be exactly 10% and the real base is slightly larger. The common mistake is dividing by the new figure, £900m, which gives 8.9% and is the wrong base.",
+      "q": "Explain why an interviewer prefers a candidate with three buckets and six ideas over one with twelve unsorted ideas, and what each part of the answer is being scored on.",
+      "a": "A brainstorming question is scored on breadth first and depth second. Breadth means covering the whole space, and the only way an interviewer can see coverage is through buckets: named categories that show where each idea sits and, just as importantly, where nothing has been missed. Twelve unsorted ideas might cover the space, but nobody can tell, so they score as one long idea. Depth is then tested by asking the candidate to pick one idea and explain why it matters and how big it could be. Six ideas that each carry a so what leave room for that depth; a long list runs out of time first.",
       "key": [
-        "80",
-        "820",
-        "starting",
-        "10%"
+        "breadth",
+        "buckets",
+        "depth",
+        "so what"
       ]
     },
     {
-      "q": "A bakery has £2m of fixed costs, sells loaves at £2 with £1.20 of variable cost. What is breakeven, and what would you say next?",
-      "a": "Contribution per loaf is £2 minus £1.20, which is 80p. Breakeven is fixed costs over contribution, £2m divided by £0.80, which is 2.5 million loaves a year, about 7,000 a day. The next thing to say is whether that is plausible for one bakery against the local market, which it probably is not.",
+      "q": "Halstead Foods’ volume fell 8%. Describe how you would use supply versus demand as a spine for the possible causes, and what data request follows from it.",
+      "a": "Supply versus demand splits the causes of a volume fall into two shapes. On the demand side customers wanted less: a price rise pushed them to a rival, the category lost favour, or a supermarket delisting removed the range. On the supply side customers wanted the product but could not get it, because a line was down, packaging ran short or stock sat in the wrong depot. The halves need different fixes, so the first data request separates them: availability on shelf across the year, alongside sell-through where the product was in stock. Empty shelves point to supply, full shelves and slow sales point to demand.",
       "key": [
-        "contribution",
-        "0.80",
-        "2.5 million",
-        "fixed"
+        "supply",
+        "demand",
+        "delisting",
+        "availability"
       ]
     },
     {
-      "q": "Explain the rule of 72 with an example.",
-      "a": "At a steady growth rate, a quantity doubles in about 72 divided by the rate in years. Revenue growing at 8% a year doubles in about nine years; a market that doubled in four years grew at about 18% a year. It is an approximation that works well for rates under about 20%.",
+      "q": "Rewrite the hypothesis ‘Northbay’s costs have gone up’ into a testable form, and explain what makes the new version falsifiable.",
+      "a": "A testable hypothesis has the shape ‘profits fell because X, which we would see as Y in the data.’ For Northbay: profits fell because fuel and driver pay rose faster than the prices it charges, which we would see as cost per delivery rising over two years while revenue per delivery stayed flat. The original could not fail, because some cost always rises and no data was named. The new one is falsifiable because a specific number can disprove it: if cost per delivery is flat, the cause lies elsewhere, and if revenue per delivery fell too, it is partly a pricing story. That is what makes it worth asking for data.",
       "key": [
-        "72",
-        "double",
-        "years",
-        "rate"
+        "testable",
+        "cost per delivery",
+        "falsifiable",
+        "revenue per delivery"
       ]
     },
     {
-      "q": "Why is a 3% price rise usually worth more profit than a 3% cost cut, and what is the catch?",
-      "a": "A price rise with volume held adds 3% of revenue straight to profit, while a cost cut adds 3% of costs, and costs are smaller than revenue for any profitable company. With £1bn of revenue and £900m of costs, the price rise adds £30m and the cost cut £27m. The catch is that price rises can lose customers while cost cuts usually do not, so price is the bigger lever but the riskier one.",
+      "q": "Marlstone Capital is buying Kestrel Components. Use stakeholder brainstorming to name four deal risks, each paired with a mitigation.",
+      "a": "Stakeholder brainstorming asks who touches the business and what each group could do to it. Customers: Kestrel’s largest accounts might use the change of owner to renegotiate or leave, mitigated by meeting them before signing and locking in multi-year contracts. Competitors: a rival could poach those accounts during the distraction, mitigated by keeping the sales leadership in place with retention bonuses. Suppliers: a sole-source supplier could raise prices once it sees a fund paying, mitigated by qualifying a second supplier early. Employees: the founder’s engineers might leave when their options are cashed out, mitigated by rolling part of the payout into new equity. Each risk arrives with an action, so the list reads as a plan.",
       "key": [
-        "revenue",
-        "costs",
-        "volume",
-        "customers"
+        "stakeholder",
+        "sole-source",
+        "mitigated",
+        "retention"
       ]
     },
     {
-      "q": "Describe how to say a calculation out loud so an interviewer can follow it.",
-      "a": "State the formula first, then the inputs and any rounding, then each arithmetic step as you do it, then the answer with its unit, then what it means for the case. That order lets the interviewer correct an input early and never leaves them guessing what you are doing.",
+      "q": "You have six ideas for a client and ten minutes left. Explain how a two-by-two on impact and ease helps you choose two, and what the closing synthesis should then contain.",
+      "a": "The two-by-two scores each idea on impact, how much it could add, and ease, how quickly and cheaply it could be done. Ideas that are high impact and easy go first, easy but small ones are quick wins to mention, high impact but hard ones need a test, and low impact hard ones are dropped. Stating the two criteria before applying them shows the interviewer the choice was a rule, not a preference. The closing synthesis then has three parts: the buckets covered, so coverage is heard, the two ideas chosen with their so what attached, and the first step, ideally a data pull or a small pilot that could start this week.",
       "key": [
-        "formula",
-        "inputs",
-        "rounding",
-        "unit"
+        "impact",
+        "ease",
+        "synthesis",
+        "first step"
       ]
     }
   ],
@@ -1454,6 +1766,58 @@
       ]
     }
   ],
+  "digital": [
+    {
+      "q": "A retailer’s website gets four million visits a year, converts at 2% and the average order is £50. Show what half a point of conversion is worth against 15% more traffic, and what you would warn the client about.",
+      "a": "Online revenue is traffic times conversion times basket, so today four million visits at 2% and £50 is £4m. Fifteen percent more traffic gives 4.6 million visits at the same 2% and £50, £4.6m, so £600,000 more. Half a point of conversion, from 2% to 2.5%, gives £5m on the same visits, £1m more, and paid traffic has to be bought again every year while a checkout fix is paid for once. The warning is that half a point on a 2% base is a 25% relative improvement, which is an engineering programme rather than a tweak.",
+      "key": [
+        "traffic times conversion",
+        "half a point",
+        "paid traffic",
+        "relative improvement"
+      ]
+    },
+    {
+      "q": "A client claims that automating its service desk will save £1m a year. What do you ask before believing that number, and how would you rebuild it?",
+      "a": "Rebuild it as volume times handling time times cost, then take three deductions. Automation picks off the simple contacts, which run well under the average handling time, so the hours saved are usually about half what the deflection rate implies. A share of deflected customers makes contact again anyway, so net the saving down further. The platform itself costs money to run every year. What is left is still hours rather than cash, because agents are rostered in whole shifts, so nothing is banked until the roster shrinks. I would ask for handling time by contact type before accepting any headcount saving.",
+      "key": [
+        "handling time",
+        "deflection rate",
+        "whole shifts",
+        "headcount saving"
+      ]
+    },
+    {
+      "q": "A traditional retailer’s online sales rose £10m last year while its nearby stores fell £5m. How would you work out whether the board should be pleased?",
+      "a": "Only the sales the business would not otherwise have made are incremental, so the honest revenue figure is £5m, not £10m. Then match margins rather than revenue, because the two channels earn different amounts on the same basket: online carries picking, delivery and returns, while a lost store sale releases almost nothing, since rent and staff stay behind either way. If online contributes 13% and the store sale contributed 37%, the £10m earns £1.3m and the £5m lost carries £1.85m away, so the shift destroyed profit even as revenue grew.",
+      "key": [
+        "incremental",
+        "match margins",
+        "returns",
+        "rent and staff"
+      ]
+    },
+    {
+      "q": "A managing partner asks what a drafting model would be worth to his professional services firm. Set out how you would size it and what you would warn him about.",
+      "a": "Start from the task rather than the technology. Count the hours people spend on it, price them at a loaded rate, then take out the share the model cannot do and the review time every draft creates, which is often around 40% of the drafting time. A third of the raw figure is a realistic landing point. Then the constraints, said plainly: the firm’s own records have to be consistent enough to learn from, error tolerance is low when a wrong number reaches a client, confidentiality may stop data leaving the firm, and none of it is cash until those hours are either resold or removed.",
+      "key": [
+        "loaded rate",
+        "review time",
+        "error tolerance",
+        "confidentiality"
+      ]
+    },
+    {
+      "q": "An online channel does £40m of revenue at a £50 average order, 40% gross margin, £14 of cost to serve and £6m of fixed warehouse and technology cost. Is it viable, and what would you look at next?",
+      "a": "Turn it into contribution per order first. £40m at £50 is 800,000 orders, gross margin is £20 an order and cost to serve is £14, so each order contributes £6, the channel earns £4.8m against £6m of fixed cost, and it loses £1.2m. Break-even is £6m over £6, a million orders or £50m of revenue, a quarter above today. So it is viable, but only if the fixed base holds while volume grows, which rarely happens when marketing is buying that growth. I would look at basket size and return rate before recommending any more traffic.",
+      "key": [
+        "contribution per order",
+        "cost to serve",
+        "break-even",
+        "fixed base"
+      ]
+    }
+  ],
   "marketentry": [
     {
       "q": "How do you structure a market entry case?",
@@ -1607,6 +1971,58 @@
         "decide",
         "pilot",
         "uncertainty"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "q": "A client’s revenue is unchanged year on year but profit has fallen. Describe how you would structure the first five minutes of the case and what you would expect to find.",
+      "a": "Profit is revenue minus costs, and since revenue is flat the drop must sit in the cost lines, so I would ask for each line for both years and walk them in order rather than speculating about customers or competitors. Usually one line has moved and the others are flat, which turns a vague profit problem into a specific question: why did that line rise when sales did not. For cost of goods, the candidates are supplier prices, a shift in mix towards lower-margin products, or shrinkage. I would then propose the diagnostic that separates those causes, such as a split by supplier and category, before recommending any fix.",
+      "key": [
+        "revenue is flat",
+        "cost lines",
+        "one line",
+        "mix"
+      ]
+    },
+    {
+      "q": "Corrigan Foods sells £50m a year with variable costs of 60% of revenue. It plans a 10% price rise and expects to lose 8% of volume. Show whether the rise adds contribution and explain the break-even volume loss.",
+      "a": "Today contribution is £50m less £30m of variable cost, so £20m. After the rise, price is 110% and volume 92% of today, so revenue is 50 times 1.1 times 0.92, which is £50.6m. Variable cost follows volume, not price, so it falls to 30 times 0.92, which is £27.6m. Contribution becomes 50.6 less 27.6, or £23m, up £3m, so the rise is worth it. On every 100 of old price, contribution per unit goes from 40 to 50, so the break-even volume loss is 20%: volume could fall to 80% of today before the rise stops paying. The common error is to keep variable cost at 60% of the new revenue.",
+      "key": [
+        "variable cost follows volume",
+        "contribution",
+        "contribution per unit",
+        "break-even volume loss"
+      ]
+    },
+    {
+      "q": "Explain why a production line’s output is set by its slowest step, and how you would decide whether to spend money relieving that step.",
+      "a": "Every unit must pass through each step in turn, so the line cannot ship faster than the step with the lowest capacity, the bottleneck, and the faster steps simply sit partly idle. Adding capacity anywhere else changes nothing. To justify spending, size the demand the bottleneck turns away, multiply by contribution per unit and by operating hours to get the annual contribution lost, and compare that with the cost of the fix to get a payback period. Then check where the constraint moves next, because relieving one step can expose another below demand. Before spending, confirm the bottleneck is really running at its rated speed rather than losing time to changeovers.",
+      "key": [
+        "bottleneck",
+        "lowest capacity",
+        "contribution per unit",
+        "payback"
+      ]
+    },
+    {
+      "q": "A private equity fund buys a company at 8x EBITDA of £40m with half the price in debt, plans to exit at the same multiple, and expects EBITDA of £60m and £60m of debt repaid after five years. Work out the money multiple and name the sources of the return.",
+      "a": "Entry value is 8 times 40, £320m, so £160m of debt and £160m of equity. At exit, £60m at 8x is £480m, and debt has fallen from 160 to £100m, so equity is £380m. The money multiple is 380 over 160, about 2.4x, or roughly 19% a year. The return comes from three sources: EBITDA growth, worth 20 times 8 or £160m; debt paydown, worth £60m; and multiple expansion, which is zero here because the exit multiple equals the entry multiple. Because none of the gain relies on a higher multiple, the case rests entirely on whether the £60m of EBITDA is credible, which is where diligence should focus.",
+      "key": [
+        "money multiple",
+        "ebitda growth",
+        "debt paydown",
+        "multiple expansion"
+      ]
+    },
+    {
+      "q": "A hospital trust asks for help cutting waiting times within a fixed budget. Explain how the objective differs from a commercial case and how that changes the way you structure the answer.",
+      "a": "In a commercial case the objective is profit, so every lever is priced in contribution. Here the objective must be stated explicitly, for example a list no longer than three months of referrals within a year, without lowering quality or taking capacity from other services, and the budget is a constraint rather than the goal. The structure then runs from the gap to the levers: how many extra operations are needed per month, then the cheapest levers first, such as validating the list and raising throughput per theatre session, before buying outside capacity with the budget. The trap is to open with how to spend the money, which skips the question of what success looks like.",
+      "key": [
+        "objective",
+        "constraint rather than the goal",
+        "throughput",
+        "cheapest levers first"
       ]
     }
   ],

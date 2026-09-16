@@ -8,7 +8,7 @@
 
 <title>ViewPrep: Investment banking &amp; consulting interview flashcards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free flashcards for investment banking and consulting interviews. 650 cards across 40 decks, written so anyone can follow them with no finance background.">
+<meta name="description" content="Free flashcards for investment banking and consulting interviews. 546 cards across 32 decks, written so anyone can follow them with no finance background.">
 <link rel="canonical" href="https://viewprep.net/">
 <meta name="theme-color" content="#F4F6FA">
 
@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="ViewPrep">
 <meta property="og:url" content="https://viewprep.net/">
 <meta property="og:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta property="og:description" content="650 flashcards across 40 decks. Every card makes sense with no prior finance background. Free.">
+<meta property="og:description" content="546 flashcards across 32 decks. Every card makes sense with no prior finance background. Free.">
 <meta property="og:image" content="https://viewprep.net/ogimage.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 650 cards, 40 decks, free.">
+<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 546 cards, 32 decks, free.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta name="twitter:description" content="650 flashcards across 40 decks. Every card makes sense with no prior finance background. Free.">
+<meta name="twitter:description" content="546 flashcards across 32 decks. Every card makes sense with no prior finance background. Free.">
 <meta name="twitter:image" content="https://viewprep.net/ogimage.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
@@ -53,6 +53,7 @@
 
   /* Amber is the brand mark, but white on amber fails contrast, so anything
      filled with amber takes dark text instead of --contrast. */
+  .track-btn[data-track="consulting"].is-active{color:#fff;}
   .stamp-good:hover{color:#fff;}
   .stamp-good:hover .stamp-interval,
   .stamp-good:hover .stamp-key{color:#fff;opacity:.75;}
@@ -145,6 +146,46 @@
     margin-bottom:.65rem;
   }
   .section-sub{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.9rem;max-width:56ch;}
+  .track-toggle-wrap{margin-bottom:2rem;}
+  .track-toggle{
+    display:flex;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
+    max-width:560px;
+  }
+  .track-btn{
+    all:unset;box-sizing:border-box;cursor:pointer;flex:1;text-align:center;
+    padding:1.15rem 1rem;
+    font-family:var(--display);font-weight:800;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-soft);background:transparent;border-bottom:2px solid transparent;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .track-btn + .track-btn{border-left:1px solid var(--line-soft);}
+  .track-btn:hover{color:var(--ink);}
+  .track-btn[data-track="ib"].is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
+  .track-btn[data-track="consulting"].is-active{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
+  /* ---------- levels: a small toggle in the middle, and a quiet break between groups ---------- */
+  .level-toggle-wrap{display:flex;justify-content:center;margin:0 0 1.6rem;}
+  .level-toggle{display:inline-flex;border:1px solid var(--line-soft);border-radius:999px;overflow:hidden;background:var(--surface);}
+  .level-btn{
+    all:unset;box-sizing:border-box;cursor:pointer;padding:.55rem 1.05rem;
+    font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-soft);transition:background .15s ease,color .15s ease;
+  }
+  .level-btn + .level-btn{border-left:1px solid var(--line-soft);}
+  .level-btn:hover{color:var(--ink);}
+  .level-btn.is-active{background:var(--ink);color:#fff;}
+  .level-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+  .level-break{
+    grid-column:1 / -1;display:flex;align-items:center;gap:.8rem;
+    margin:1.1rem 0 0;scroll-margin-top:92px;
+  }
+  .level-break:first-child{margin-top:0;}
+  .level-break-label{
+    font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .level-break-count{font-size:.72rem;color:var(--ink-faint);white-space:nowrap;}
+  .level-break::after{content:'';flex:1;height:1px;background:var(--line-soft);}
+  @media (max-width:600px){ .level-btn{padding:.5rem .8rem;font-size:.72rem;} }
   /* ---------- deck intro ---------- */
   .deck-intro{padding:2.75rem 0 4rem;}
   .intro-inner{max-width:640px;}
@@ -248,35 +289,6 @@
   .face-detail{
     font-family:var(--body);font-weight:400;font-size:.94rem;line-height:1.6;color:var(--ink-soft);
   }
-  /* ---------- multiple choice ---------- */
-  .choices{display:flex;flex-direction:column;gap:.5rem;margin-top:.9rem;}
-  .choice{
-    display:flex;align-items:flex-start;gap:.7rem;text-align:left;cursor:pointer;
-    border:1px solid var(--line-soft);border-radius:12px;background:var(--surface);
-    padding:.75rem .9rem;font-family:var(--body);font-size:.95rem;line-height:1.45;
-    color:var(--ink);transition:border-color .15s,background .15s,transform .15s;
-  }
-  .choice:hover:not(:disabled){border-color:var(--blue);transform:translateY(-1px);}
-  .choice:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
-  .choice:disabled{cursor:default;}
-  .choice-key{
-    flex:0 0 auto;width:1.35rem;height:1.35rem;border-radius:50%;
-    border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;
-    font-family:var(--body);font-size:.7rem;font-weight:700;color:var(--ink-faint);
-  }
-  .choice.is-right{border-color:var(--green);background:rgba(29,138,87,.07);}
-  .choice.is-right .choice-key{border-color:var(--green);background:var(--green);color:#fff;}
-  .choice.is-wrong{border-color:var(--red);background:rgba(198,58,44,.06);}
-  .choice.is-wrong .choice-key{border-color:var(--red);background:var(--red);color:#fff;}
-  .choice.is-dim{opacity:.55;}
-  .verdict{
-    font-family:var(--body);font-size:.92rem;line-height:1.5;color:var(--ink-soft);
-    padding:.6rem .8rem;border-radius:10px;margin-bottom:.8rem;
-    background:rgba(0,0,0,.035);border-left:3px solid var(--ink-faint);
-  }
-  .verdict.is-right{border-left-color:var(--green);}
-  .verdict.is-wrong{border-left-color:var(--red);}
-  .verdict b{color:var(--ink);}
   .face-diagram{
     position:relative;z-index:1;margin:.2rem 0 1rem;
   }
@@ -475,24 +487,10 @@
   .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
 
   /* ---------- catalog, deck cards, hero demo ---------- */
-  .catalog-body{display:block;}
-  .track-head{
-    display:flex;align-items:baseline;gap:.75rem;margin:2.6rem 0 .3rem;scroll-margin-top:96px;
-    padding-bottom:.7rem;border-bottom:1px solid var(--line-soft);
+  .track-hint{
+    color:var(--ink-faint);font-size:.9rem;padding:2.75rem 1rem;text-align:center;
+    border:1px dashed var(--line-soft);border-radius:16px;
   }
-  .track-head:first-child{margin-top:.6rem;}
-  .track-head-name{
-    font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.04em;
-    text-transform:uppercase;color:var(--ink);margin:0;
-  }
-  .track-head-n{font-family:var(--body);font-size:.75rem;color:var(--ink-faint);}
-  .cat-head{display:flex;align-items:center;gap:.6rem;margin:1.6rem 0 .8rem;}
-  .cat-head-name{
-    font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;
-  }
-  .cat-head-n{font-size:.72rem;color:var(--ink-faint);}
-  .cat-head::after{content:'';flex:1;height:1px;background:var(--line-soft);}
   .deck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
   .deck-card{
     position:relative;overflow:hidden;
@@ -567,7 +565,7 @@
 
 
 
-  @media (max-width:600px){ .deck-grid{grid-template-columns:1fr;} }
+  @media (max-width:600px){ .deck-grid{grid-template-columns:1fr;} .track-toggle{max-width:100%;} }
   @media (max-width:600px){ .hero-demo .flashcard{min-height:300px;} }
   @media (prefers-reduced-motion: reduce){ .deck-progress-fill{transition:none;} }
 
@@ -595,24 +593,6 @@
   .test-cta-copy{flex:1 1 260px;}
   .test-cta-title{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.25rem;}
   .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
-  .deck-level{
-    font-family:var(--body);font-size:.6rem;font-weight:700;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line-soft);
-    border-radius:999px;padding:.15rem .45rem;margin-left:.4rem;
-  }
-  .guide-cta{display:flex;align-items:center;gap:1rem;text-decoration:none;
-    border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
-    padding:1.15rem 1.35rem;margin:1.6rem 0 .4rem;}
-  .guide-cta:hover{border-color:var(--blue);}
-  .guide-kicker{flex:0 0 auto;font-family:var(--body);font-size:.66rem;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
-    border:1px solid var(--line-soft);border-radius:999px;padding:.3rem .6rem;}
-  .guide-copy{flex:1 1 auto;display:block;}
-  .guide-title{display:block;font-family:var(--display);font-weight:700;font-size:1rem;
-    color:var(--ink);margin-bottom:.2rem;}
-  .guide-sub{display:block;font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
-  .guide-arrow{flex:0 0 auto;color:var(--ink-faint);font-size:1.05rem;}
-  @media (max-width:600px){ .guide-cta{gap:.75rem;padding:1rem 1.1rem;} .guide-kicker{display:none;} }
   @media (max-width:620px){ .test-q{font-size:1.28rem;} }
 
   /* ---------- hero actions, trust strip, the loop, study paths ---------- */
@@ -648,7 +628,7 @@
     .loop-text{max-width:none;}
   }
 
-  .paths{margin:1.3rem 0 .4rem;}
+  .paths{margin:0 0 1.6rem;}
   .paths-title{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.05em;
     text-transform:uppercase;color:var(--ink);margin:0 0 .9rem;}
   .paths-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
@@ -762,59 +742,13 @@
   .nav-item.is-active{color:var(--ink);border-color:var(--line);background:var(--surface);}
   .nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
   @media (max-width:860px){
-    /* The header is the anchor for the dropdown once .nav-drop goes static. */
-    .site-header{flex-wrap:wrap;row-gap:.65rem;position:relative;}
-    .main-nav{order:3;flex:1 0 100%;justify-content:flex-start;flex-wrap:nowrap;
-      overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
-    .main-nav::-webkit-scrollbar{display:none;}
+    .site-header{flex-wrap:wrap;row-gap:.65rem;}
+    .main-nav{order:3;flex:1 0 100%;justify-content:center;flex-wrap:nowrap;}
     .nav-item{font-size:.7rem;padding:.45rem .8rem;}
   }
   @media (max-width:600px){
     .nav-item{padding:.45rem .7rem;font-size:.66rem;}
     .main-nav{gap:.25rem;}
-  }
-  /* ---------- header menus: track, then category, then deck ---------- */
-  .nav-drop{position:relative;}
-  .nav-trigger{display:inline-flex;align-items:center;gap:.4rem;}
-  .nav-chev{
-    width:.4rem;height:.4rem;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
-    transform:rotate(45deg) translate(-1px,-1px);transition:transform .18s ease;
-  }
-  .nav-drop.is-open .nav-trigger{color:var(--ink);border-color:var(--line);background:var(--surface);}
-  .nav-drop.is-open .nav-chev{transform:rotate(-135deg) translate(-2px,-2px);}
-  .nav-panel{
-    position:absolute;top:calc(100% + .6rem);left:0;z-index:60;display:flex;align-items:flex-start;gap:.5rem;
-  }
-  .nav-cats,.nav-sub{
-    background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;
-    box-shadow:0 18px 40px var(--shadow);padding:.5rem;min-width:236px;
-  }
-  .nav-sub{max-height:min(70vh,560px);overflow-y:auto;}
-  .nav-cat,.nav-deck{
-    all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:.7rem;width:100%;
-    padding:.6rem .75rem;border-radius:10px;font-family:var(--body);font-size:.88rem;
-    color:var(--ink);white-space:nowrap;
-  }
-  .nav-cat:hover,.nav-cat.is-active,.nav-deck:hover{background:rgba(0,0,0,.045);}
-  .nav-cat:focus-visible,.nav-deck:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
-  .nav-cat-name,.nav-deck-name{flex:1 1 auto;}
-  .nav-cat-arrow{flex:0 0 auto;color:var(--ink-faint);font-size:.8rem;}
-  .nav-cat-n{flex:0 0 auto;color:var(--ink-faint);font-size:.76rem;font-weight:700;}
-  .nav-deck{color:var(--ink-soft);}
-  .nav-deck:hover{color:var(--ink);}
-  .nav-deck-n{flex:0 0 auto;color:var(--ink-faint);font-size:.74rem;white-space:nowrap;}
-  .nav-sub-head{
-    padding:.45rem .75rem .55rem;font-family:var(--body);font-size:.66rem;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
-  }
-  @media (max-width:860px){
-    /* No room for a flyout: the panel drops the full width of the header and the
-       decks stack under the category that was tapped. */
-    .nav-drop{position:static;}
-    .nav-panel{position:absolute;left:0;right:0;top:calc(100% + .4rem);flex-direction:column;gap:.4rem;}
-    .nav-cats,.nav-sub{min-width:0;width:100%;}
-    .nav-sub{max-height:44vh;}
-    .nav-cat,.nav-deck{padding:.7rem .8rem;font-size:.92rem;}
   }
   .header-actions{display:flex;align-items:center;gap:.9rem;position:relative;}
   /* Account menu: what the button opens once you are signed in. */
@@ -917,20 +851,7 @@
   <header class="site-header">
     <div class="wordmark"><svg class="wordmark-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="13" fill="#0C0C0D"/><path d="M14 13 L22.5 13 L32 38 L41.5 13 L50 13 L36.5 52 L27.5 52 Z" fill="#2C4E92"/></svg><span class="wordmark-text"><span class="wordmark-primary">View</span><span class="wordmark-secondary">Prep</span></span></div>
     <nav class="main-nav" id="main-nav" aria-label="Sections">
-      <div class="nav-drop" data-menu="ib">
-        <button class="nav-item nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">Investment Banking<span class="nav-chev" aria-hidden="true"></span></button>
-        <div class="nav-panel" hidden>
-          <div class="nav-cats"></div>
-          <div class="nav-sub" hidden></div>
-        </div>
-      </div>
-      <div class="nav-drop" data-menu="consulting">
-        <button class="nav-item nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">Consulting<span class="nav-chev" aria-hidden="true"></span></button>
-        <div class="nav-panel" hidden>
-          <div class="nav-cats"></div>
-          <div class="nav-sub" hidden></div>
-        </div>
-      </div>
+      <a class="nav-item is-active" id="nav-decks" href="#catalog" data-nav="decks">Cards</a>
       <a class="nav-item" id="nav-glossary" href="/glossary.html" data-nav="glossary">Glossary</a>
       <button class="nav-item" id="nav-test" type="button" data-nav="test">Test yourself</button>
     </nav>
@@ -969,33 +890,41 @@
         </div>
         <div class="hero-caption-row">
           <span>Free &middot; No account needed</span>
-          <span>650 cards &middot; 21 IB decks &middot; 19 consulting decks &middot; 200 written questions</span>
+          <span>546 cards &middot; 16 IB decks &middot; 16 consulting decks &middot; 160 written questions</span>
         </div>
       </div>
     </section>
 
     <section class="catalog" id="catalog">
       <h2 class="section-title">The catalog</h2>
-      <p class="section-sub">No affiliation with any course, employer or prep provider. Every deck, in the order the concepts build on each other.</p>
-      <div class="test-cta" id="test-cta">
+      <p class="section-sub">No affiliation with any course, employer or prep provider. Pick your track to see decks built for it.</p>
+      <div class="track-toggle-wrap">
+        <div class="track-toggle" role="group" aria-label="Choose your interview track">
+          <button type="button" class="track-btn" id="track-ib-btn" data-track="ib" aria-pressed="false">Investment Banking</button>
+          <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
+        </div>
+      </div>
+      <!-- 32 decks is a choice problem. These turn the catalog into a route through it. -->
+      <section class="paths" id="paths" hidden aria-labelledby="paths-title">
+        <h3 class="paths-title" id="paths-title">Not sure where to start?</h3>
+        <div class="paths-list" id="paths-list"></div>
+      </section>
+      <div class="test-cta" id="test-cta" hidden>
         <div class="test-cta-copy">
           <p class="test-cta-title">Think you know it?</p>
           <p class="test-cta-sub">Five written questions for every deck. Type your answer out, then compare it against the model answer word by word.</p>
         </div>
         <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
       </div>
-      <!-- Both tracks, laid out by category, in the same order as the header menu. -->
-      <div class="catalog-body" id="deck-grid"></div>
-      <!-- Commercial awareness is a habit, not a set of facts, so it is a written
-           guide rather than a deck. It applies to both tracks. -->
-      <a class="guide-cta" id="guide-cta" href="/commercial-awareness.html">
-        <span class="guide-kicker">Guide</span>
-        <span class="guide-copy">
-          <span class="guide-title">Commercial awareness, without the panic</span>
-          <span class="guide-sub">Not a deck, because it cannot be memorised. How to build the habit, how to talk about a deal, and how rates feed through to valuations.</span>
-        </span>
-        <span class="guide-arrow" aria-hidden="true">&#8594;</span>
-      </a>
+      <p class="track-hint" id="track-hint">Pick a track above to see its decks.</p>
+      <div class="level-toggle-wrap" id="level-toggle-wrap" hidden>
+        <div class="level-toggle" role="group" aria-label="Jump to a level">
+          <button type="button" class="level-btn" data-level="beginner">Beginner</button>
+          <button type="button" class="level-btn" data-level="intermediate">Intermediate</button>
+          <button type="button" class="level-btn" data-level="advanced">Advanced</button>
+        </div>
+      </div>
+      <div class="deck-grid" id="deck-grid" hidden></div>
     </section>
   </main>
 
@@ -1097,9 +1026,6 @@
             </div>
           </div>
         </button>
-        <!-- Multiple-choice cards put their options here rather than inside the
-             card, which is itself a button and cannot nest one. -->
-        <div class="choices" id="choices" role="group" aria-label="Choose an answer" hidden></div>
       </div>
 
       <div class="rating-row" id="rating-row" hidden>
@@ -1166,9 +1092,8 @@
 
   <footer class="site-footer">
     <p class="footer-disclaimer">ViewPrep is an independent study resource. It is not affiliated with, endorsed by, or sourced from any university, employer, or prep platform.</p>
-    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 650 cards &#8594;</a></p>
+    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 546 cards &#8594;</a></p>
     <p class="footer-links">
-      <a href="/commercial-awareness.html">Commercial awareness</a> &middot;
       <a href="/faq.html">FAQ</a> &middot;
       <a href="/privacy.html">Privacy</a> &middot;
       <a href="/terms.html">Terms</a>
@@ -1231,7 +1156,7 @@
   var decks = []; // populated at runtime from decks.json, see init() below
 
   var state = {
-    deckIndex:0, cardIndex:0, flipped:false, track:null, group:'all', picked:-1,
+    deckIndex:0, cardIndex:0, flipped:false, track:null,
     queue:[], queuePos:0,
     tally:{again:0, good:0, easy:0}
   };
@@ -1624,18 +1549,25 @@
     if (focusTarget) focusTarget.focus();
   }
 
-  // There is no track toggle any more: the header menu is the way in, and the
-  // catalog lists both tracks. Asking for a track just takes you to its heading.
   function setTrack(track){
     state.track = track;
-    var head = document.getElementById('track-' + track);
-    if (head) { head.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    els.trackIbBtn.classList.toggle('is-active', track === 'ib');
+    els.trackConsultingBtn.classList.toggle('is-active', track === 'consulting');
+    els.trackIbBtn.setAttribute('aria-pressed', String(track === 'ib'));
+    els.trackConsultingBtn.setAttribute('aria-pressed', String(track === 'consulting'));
+    if (els.testCta) { els.testCta.hidden = !track; }
+    renderCatalog();
   }
 
   var els = {
     deckGrid: document.getElementById('deck-grid'),
+    paths: document.getElementById('paths'),
+    pathsList: document.getElementById('paths-list'),
     heroIbBtn: document.getElementById('hero-ib-btn'),
     heroConsultingBtn: document.getElementById('hero-consulting-btn'),
+    trackIbBtn: document.getElementById('track-ib-btn'),
+    trackConsultingBtn: document.getElementById('track-consulting-btn'),
+    trackHint: document.getElementById('track-hint'),
     heroDemo: document.getElementById('hero-demo'),
     heroFlashcard: document.getElementById('hero-flashcard'),
     heroInner: document.getElementById('hero-flashcard-inner'),
@@ -1670,6 +1602,7 @@
     testTerms: document.getElementById('test-terms'),
     testTermsLbl: document.getElementById('test-terms-lbl'),
     testTermList: document.getElementById('test-term-list'),
+    navDecks: document.getElementById('nav-decks'),
     navTest: document.getElementById('nav-test'),
     testCta: document.getElementById('test-cta'),
     testStartBtn: document.getElementById('test-start-btn'),
@@ -1690,7 +1623,6 @@
     inner: document.getElementById('flashcard-inner'),
     front: document.getElementById('card-front-text'),
     back: document.getElementById('card-back-text'),
-    choices: document.getElementById('choices'),
     ratingRow: document.getElementById('rating-row'),
     againBtn: document.getElementById('again-btn'),
     goodBtn: document.getElementById('good-btn'),
@@ -1844,6 +1776,7 @@
     });
   }
 
+  window.__login = handleLogin;
   function handleLogout(){
     currentUser = null;
     updateAuthUI();
@@ -2009,76 +1942,36 @@
 
   // --- Recommended study paths -----------------------------------------------
   //
-  // 40 decks is a choice problem, and "pick a track" does not solve it. These are
+  // 32 decks is a choice problem, and "pick a track" does not solve it. These are
   // two opinionated routes per track: one for someone starting from nothing, one
   // for someone with a date in the diary. A step turns green once that deck has
   // been started, so the path doubles as a progress line.
-
-  // The second level of the catalog. Every deck belongs to exactly one group,
-  // and the order here is the order on the rail. '_guides' holds the written
-  // guides rather than decks, which is why it has no deck list.
-  var DECK_GROUPS = {
-    ib: [
-      { id: 'foundations', name: 'Foundations', decks: ['accounting', 'statements', 'threestatement', 'ratios'] },
-      { id: 'corpfin', name: 'Corporate finance', decks: ['corpfin', 'capstructure', 'credit', 'ecm'] },
-      { id: 'valuation', name: 'Valuation', decks: ['valuation', 'evbridge', 'comps', 'dcf', 'earnings'] },
-      { id: 'deals', name: 'Deals', decks: ['mna', 'dealmaths', 'lbo'] },
-      { id: 'markets', name: 'Markets', decks: ['markets', 'macro'] },
-      { id: 'maths', name: 'Quick maths', decks: ['quickmaths'] },
-      { id: 'craft', name: 'Craft & interview', decks: ['excel', 'ibinterview'] },
-      { id: '_guides', name: 'Guides', decks: [] }
-    ],
-    consulting: [
-      { id: 'craft', name: 'Case craft', decks: ['casestructuring', 'brainstorm', 'synthesis', 'cases'] },
-      { id: 'maths', name: 'Quick maths', decks: ['casemaths'] },
-      { id: 'data', name: 'Sizing & data', decks: ['marketsizing', 'stats', 'exhibits'] },
-      { id: 'economics', name: 'Business economics', decks: ['microecon', 'profitability', 'bizmodels', 'pricing'] },
-      { id: 'growth', name: 'Strategy & growth', decks: ['strategy', 'marketing', 'marketentry', 'operations'] },
-      { id: 'deals', name: 'Deals & digital', decks: ['mnacases', 'digital'] },
-      { id: 'interview', name: 'Interview', decks: ['consultinginterview'] },
-      { id: '_guides', name: 'Guides', decks: [] }
-    ]
-  };
 
   var STUDY_PATHS = {
     ib: [
       { name: 'New to investment banking',
         why: 'Build it in the order the concepts actually depend on each other.',
-        decks: ['accounting', 'statements', 'threestatement', 'valuation', 'evbridge', 'mna', 'lbo'] },
+        decks: ['accounting', 'statements', 'valuation', 'mna', 'lbo'] },
       { name: 'Interview next week',
         why: 'Highest-frequency ground first. Skip what is unlikely to come up in time.',
-        decks: ['ibinterview', 'accounting', 'threestatement', 'valuation', 'macro', 'mna'] },
-      { name: 'Technicals only',
-        why: 'The five decks that are pure numbers, in the order an interviewer drills them.',
-        decks: ['quickmaths', 'threestatement', 'evbridge', 'dcf', 'dealmaths'] }
+        decks: ['ibinterview', 'accounting', 'valuation', 'macro', 'mna'] }
     ],
     consulting: [
       { name: 'New to consulting',
         why: 'Structure first, then the analysis a case actually asks you to run.',
-        decks: ['casestructuring', 'profitability', 'marketsizing', 'microecon', 'brainstorm', 'strategy'] },
+        decks: ['casestructuring', 'profitability', 'marketsizing', 'microecon', 'strategy'] },
       { name: 'Interview next week',
         why: 'What a first-round case leans on, in the order you will need it.',
-        decks: ['consultinginterview', 'casestructuring', 'profitability', 'casemaths', 'cases'] },
-      { name: 'Case rehearsal',
-        why: 'Once the mechanics are there, run whole cases end to end under time.',
-        decks: ['casestructuring', 'brainstorm', 'exhibits', 'synthesis', 'cases'] }
+        decks: ['consultinginterview', 'casestructuring', 'profitability', 'marketsizing', 'mnacases'] }
     ]
   };
 
-  // Routes through a track, rendered under that track's heading in the catalog.
-  function renderPaths(trackId, container){
-    var list = STUDY_PATHS[trackId];
-    if (!list || !decks.length || !container) { return; }
-    var wrap = document.createElement('section');
-    wrap.className = 'paths';
-    var title = document.createElement('h4');
-    title.className = 'paths-title';
-    title.textContent = 'Not sure where to start?';
-    wrap.appendChild(title);
-    var pathsList = document.createElement('div');
-    pathsList.className = 'paths-list';
-    wrap.appendChild(pathsList);
-    container.appendChild(wrap);
+  function renderPaths(){
+    if (!els.paths) { return; }
+    var list = STUDY_PATHS[state.track];
+    if (!list || !decks.length) { els.paths.hidden = true; return; }
+    els.paths.hidden = false;
+    els.pathsList.innerHTML = '';
 
     list.forEach(function(path){
       var box = document.createElement('div');
@@ -2111,182 +2004,50 @@
         steps.appendChild(b);
       });
       box.appendChild(steps);
-      pathsList.appendChild(box);
+      els.pathsList.appendChild(box);
     });
   }
 
-  // ---- header menus -------------------------------------------------------
-  // Track in the bar, categories in the panel, decks in the flyout. Built from
-  // DECK_GROUPS so a new deck appears here the moment it is added to a group.
-  function buildHeaderMenus(){
-    var drops = document.querySelectorAll('.nav-drop');
-    Array.prototype.forEach.call(drops, function(drop){
-      var track = drop.dataset.menu;
-      var groups = DECK_GROUPS[track] || [];
-      var cats = drop.querySelector('.nav-cats');
-      var sub = drop.querySelector('.nav-sub');
-      cats.innerHTML = '';
-      groups.forEach(function(g){
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'nav-cat';
-        var nm = document.createElement('span');
-        nm.className = 'nav-cat-name';
-        nm.textContent = g.name;
-        b.appendChild(nm);
-        if (g.id === '_guides'){
-          var arrow = document.createElement('span');
-          arrow.className = 'nav-cat-arrow';
-          arrow.textContent = '\u2192';
-          b.appendChild(arrow);
-          b.addEventListener('click', function(){
-            window.location.href = '/commercial-awareness.html';
-          });
-        } else {
-          var n = document.createElement('span');
-          n.className = 'nav-cat-n';
-          n.textContent = g.decks.length;
-          var arrow2 = document.createElement('span');
-          arrow2.className = 'nav-cat-arrow';
-          arrow2.textContent = '\u203A';
-          b.appendChild(n); b.appendChild(arrow2);
-          var show = function(){ showSubmenu(drop, g); };
-          b.addEventListener('mouseenter', show);
-          b.addEventListener('focus', show);
-          b.addEventListener('click', show);
-        }
-        cats.appendChild(b);
-      });
-      sub.hidden = true;
-    });
-  }
-
-  function showSubmenu(drop, group){
-    var cats = drop.querySelector('.nav-cats');
-    var sub = drop.querySelector('.nav-sub');
-    Array.prototype.forEach.call(cats.querySelectorAll('.nav-cat'), function(b){
-      b.classList.toggle('is-active', b.firstChild.textContent === group.name);
-    });
-    sub.innerHTML = '';
-    var head = document.createElement('p');
-    head.className = 'nav-sub-head';
-    head.textContent = group.name;
-    sub.appendChild(head);
-    group.decks.forEach(function(id){
-      var idx = -1;
-      for (var i = 0; i < decks.length; i++){ if (decks[i].id === id) { idx = i; } }
-      if (idx === -1) { return; }
-      var d = decks[idx];
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'nav-deck';
-      var nm = document.createElement('span');
-      nm.className = 'nav-deck-name';
-      nm.textContent = d.name;
-      var n = document.createElement('span');
-      n.className = 'nav-deck-n';
-      n.textContent = d.cards.length;
-      b.appendChild(nm); b.appendChild(n);
-      b.addEventListener('click', function(){
-        closeAllMenus();
-        showDeckIntro(idx);
-      });
-      sub.appendChild(b);
-    });
-    sub.hidden = false;
-  }
-
-  function closeAllMenus(){
-    Array.prototype.forEach.call(document.querySelectorAll('.nav-drop'), function(d){
-      d.classList.remove('is-open');
-      d.querySelector('.nav-panel').hidden = true;
-      d.querySelector('.nav-sub').hidden = true;
-      d.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
-    });
-  }
-
-  function openMenu(drop){
-    var wasOpen = drop.classList.contains('is-open');
-    closeAllMenus();
-    if (wasOpen) { return; }
-    drop.classList.add('is-open');
-    drop.querySelector('.nav-panel').hidden = false;
-    drop.querySelector('.nav-trigger').setAttribute('aria-expanded', 'true');
-    // Open on the first category so the panel is never half empty.
-    var groups = DECK_GROUPS[drop.dataset.menu] || [];
-    if (groups.length && window.innerWidth > 860) { showSubmenu(drop, groups[0]); }
-  }
-
-  (function(){
-    Array.prototype.forEach.call(document.querySelectorAll('.nav-drop'), function(drop){
-      drop.querySelector('.nav-trigger').addEventListener('click', function(e){
-        e.stopPropagation();
-        openMenu(drop);
-      });
-      // Picking a deck from the menu while studying or testing should leave
-      // whatever is open first, which showDeckIntro alone does not do.
-      drop.querySelector('.nav-sub').addEventListener('click', function(){
-        if (!els.testView.hidden) { exitTest(); }
-        setNav('decks');
-      }, true);
-    });
-    document.addEventListener('click', function(e){
-      if (!e.target.closest || !e.target.closest('.nav-drop')) { closeAllMenus(); }
-    });
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape') { closeAllMenus(); }
-    });
-  })();
-
-  // The catalog is both tracks laid out by category, in the same order as the
-  // header menu, so the page and the menu never tell different stories.
   function renderCatalog(){
     els.deckGrid.innerHTML = '';
-    if (!decks.length) { return; }
+    renderPaths();
 
+    if (!state.track){
+      els.deckGrid.hidden = true;
+      els.trackHint.hidden = false;
+      var lw = document.getElementById('level-toggle-wrap');
+      if (lw) { lw.hidden = true; }
+      return;
+    }
+    els.deckGrid.hidden = false;
+    els.trackHint.hidden = true;
+    var levelWrap = document.getElementById('level-toggle-wrap');
+    if (levelWrap) { levelWrap.hidden = false; }
+
+    // Everything stays on one scroll. The levels are a quiet break between groups
+    // and a way to jump, not a filter, so nobody loses sight of what comes next.
+    var LEVEL_ORDER = ['beginner', 'intermediate', 'advanced'];
     var LEVEL_NAMES = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
-    var TRACK_NAMES = { ib: 'Investment banking', consulting: 'Consulting' };
-
-    ['ib', 'consulting'].forEach(function(track){
-      var groups = DECK_GROUPS[track] || [];
-      var count = decks.filter(function(d){ return d.track === track; }).length;
-
-      var head = document.createElement('div');
-      head.className = 'track-head';
-      head.id = 'track-' + track;
-      head.innerHTML = '<h3 class="track-head-name"></h3><span class="track-head-n"></span>';
-      head.firstChild.textContent = TRACK_NAMES[track];
-      head.lastChild.textContent = count + ' decks';
-      els.deckGrid.appendChild(head);
-      renderPaths(track, els.deckGrid);
-
-      groups.forEach(function(g){
-        if (!g.decks.length) { return; }
-        var ch = document.createElement('div');
-        ch.className = 'cat-head';
-        ch.innerHTML = '<span class="cat-head-name"></span><span class="cat-head-n"></span>';
-        ch.firstChild.textContent = g.name;
-        ch.lastChild.textContent = g.decks.length;
-        els.deckGrid.appendChild(ch);
-
-        var row = document.createElement('div');
-        row.className = 'deck-grid';
-        els.deckGrid.appendChild(row);
-
-        g.decks.forEach(function(id){
-          var i = -1;
-          for (var k = 0; k < decks.length; k++){ if (decks[k].id === id) { i = k; } }
-          if (i === -1) { return; }
-          var deck = decks[i];
-          renderDeckCard(deck, i, row, LEVEL_NAMES);
-        });
-      });
+    var visibleDecks = [];
+    LEVEL_ORDER.forEach(function(lv){
+      decks.forEach(function(d){ if (d.track === state.track && (d.level || 'beginner') === lv) { visibleDecks.push(d); } });
     });
-  }
+    var lastLevel = null;
 
-  function renderDeckCard(deck, i, grid, LEVEL_NAMES){
-    var lv = deck.level || 'beginner';
-    {
+    visibleDecks.forEach(function(deck){
+      var i = decks.indexOf(deck);
+      var lv = deck.level || 'beginner';
+      if (lv !== lastLevel){
+        lastLevel = lv;
+        var n = visibleDecks.filter(function(d){ return (d.level || 'beginner') === lv; }).length;
+        var brk = document.createElement('div');
+        brk.className = 'level-break';
+        brk.id = 'level-' + lv;
+        brk.dataset.level = lv;
+        brk.innerHTML = '<span class="level-break-label">' + LEVEL_NAMES[lv] + '</span>'
+          + '<span class="level-break-count">' + n + (n === 1 ? ' deck' : ' decks') + '</span>';
+        els.deckGrid.appendChild(brk);
+      }
       var st = deckStats(deck);
       var total = st.total;
       var studied = st.started;
@@ -2316,9 +2077,7 @@
       open.className = 'deck-open';
       open.type = 'button';
       open.innerHTML =
-        '<span class="deck-open-top"><span class="deck-tag">' + deck.tag + '</span>' +
-        '<span class="deck-level">' + LEVEL_NAMES[lv] + '</span>' +
-        '<span class="deck-open-arrow">&#8594;</span></span>' +
+        '<span class="deck-open-top"><span class="deck-tag">' + deck.tag + '</span><span class="deck-open-arrow">&#8594;</span></span>' +
         '<span class="deck-info"><span class="deck-name">' + deck.name + '</span>' +
         '<span class="deck-desc">' + deck.description + '</span></span>';
       open.addEventListener('click', function(){ showDeckIntro(i); });
@@ -2327,26 +2086,26 @@
       var progressWrap = document.createElement('div');
       progressWrap.className = 'deck-progress';
 
-      var ptrack = document.createElement('div');
-      ptrack.className = 'deck-progress-track';
+      var track = document.createElement('div');
+      track.className = 'deck-progress-track';
       var fill = document.createElement('div');
       fill.className = 'deck-progress-fill';
       fill.style.width = pct + '%';
-      ptrack.appendChild(fill);
-      progressWrap.appendChild(ptrack);
+      track.appendChild(fill);
+      progressWrap.appendChild(track);
 
-      var prow = document.createElement('div');
-      prow.className = 'deck-progress-row';
+      var row = document.createElement('div');
+      row.className = 'deck-progress-row';
       var labelEl = document.createElement('span');
       labelEl.className = 'deck-progress-label' + (complete ? ' is-complete' : '');
       labelEl.textContent = label;
-      prow.appendChild(labelEl);
+      row.appendChild(labelEl);
 
       if (studied > 0 && st.mature > 0){
         var matureEl = document.createElement('span');
         matureEl.className = 'deck-progress-label';
         matureEl.textContent = st.mature + ' learned';
-        prow.appendChild(matureEl);
+        row.appendChild(matureEl);
       }
 
       if(studied > 0){
@@ -2355,14 +2114,14 @@
         restartBtn.type = 'button';
         restartBtn.textContent = 'Restart deck';
         restartBtn.addEventListener('click', function(){ resetDeckProgress(deck); });
-        prow.appendChild(restartBtn);
+        row.appendChild(restartBtn);
       }
 
-      progressWrap.appendChild(prow);
+      progressWrap.appendChild(row);
       card.appendChild(progressWrap);
 
-      grid.appendChild(card);
-    }
+      els.deckGrid.appendChild(card);
+    });
   }
 
   function showDeckIntro(i){
@@ -2858,21 +2617,12 @@
   // summary shown first, a becomes the supporting detail text, and image is
   // trusted inline SVG markup authored as part of the deck content (never
   // user-submitted), so it's safe to insert directly.
-  function renderBackFace(card, picked){
-    if (!card.takeaway && !card.image && !card.choices){
+  function renderBackFace(card){
+    if (!card.takeaway && !card.image){
       els.back.textContent = card.a;
       return;
     }
     var html = '';
-    // Whichever option was picked, the back opens by naming the right answer.
-    // Being wrong is exactly when the reasoning underneath is worth the most.
-    if (card.choices){
-      var right = card.choices[card.answer];
-      var got = picked === card.answer;
-      html += '<div class="verdict ' + (got ? 'is-right' : 'is-wrong') + '"><b>'
-           +  (got ? 'Correct.' : 'Not quite.') + '</b> The answer is '
-           +  escapeHtml(right) + '.</div>';
-    }
     if (card.image){ html += '<div class="face-diagram">' + card.image + '</div>'; }
     if (card.takeaway){ html += '<div class="face-takeaway">' + escapeHtml(card.takeaway) + '</div>'; }
     html += '<div class="face-detail">' + escapeHtml(card.a) + '</div>';
@@ -2918,68 +2668,16 @@
     els.progressFill.style.width =
       (state.queue.length ? (state.queuePos / state.queue.length * 100) : 0) + '%';
     els.front.textContent = card.q;
-    state.picked = -1;
-    renderBackFace(card, -1);
-    renderChoices(card);
+    renderBackFace(card);
     els.flashcard.classList.toggle('has-diagram', !!card.image);
     state.flipped = false;
     els.inner.classList.remove('flipped');
     els.flashcard.setAttribute('aria-pressed', 'false');
     els.ratingRow.hidden = true;
     els.flipBtn.textContent = 'Flip card';
-    // A multiple-choice card cannot be turned over until an option is chosen,
-    // otherwise the answer is one tap away and the question is pointless, so the
-    // flip button stays out of the way until there is something to flip to.
-    els.flipBtn.hidden = !!card.choices;
     if (els.prevBtn) { els.prevBtn.disabled = state.queuePos <= 0; }
     updateIntervalPreviews();
     sizeCard();
-  }
-
-  // Multiple-choice cards (the two maths decks) show their options under the
-  // card. Picking one reveals the answer and the reasoning either way.
-  function renderChoices(card){
-    if (!els.choices) { return; }
-    var hint = els.inner.querySelector('.face-front .tap-hint');
-    els.choices.innerHTML = '';
-    if (!card.choices){
-      els.choices.hidden = true;
-      if (hint) { hint.hidden = false; }
-      return;
-    }
-    els.choices.hidden = false;
-    if (hint) { hint.hidden = true; }
-    card.choices.forEach(function(text, i){
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'choice';
-      var k = document.createElement('span');
-      k.className = 'choice-key';
-      k.textContent = 'ABCD'.charAt(i);
-      var t = document.createElement('span');
-      t.className = 'choice-text';
-      t.textContent = text;
-      b.appendChild(k); b.appendChild(t);
-      b.addEventListener('click', function(){ pickChoice(i); });
-      els.choices.appendChild(b);
-    });
-  }
-
-  function pickChoice(i){
-    if (state.picked !== -1) { return; }
-    var card = currentDeck().cards[state.cardIndex];
-    if (!card || !card.choices) { return; }
-    state.picked = i;
-    var btns = els.choices.querySelectorAll('.choice');
-    for (var k = 0; k < btns.length; k++){
-      btns[k].disabled = true;
-      if (k === card.answer) { btns[k].classList.add('is-right'); }
-      else if (k === i) { btns[k].classList.add('is-wrong'); }
-      else { btns[k].classList.add('is-dim'); }
-    }
-    renderBackFace(card, i);
-    els.flipBtn.hidden = false;
-    if (!state.flipped) { flip(); } else { sizeCard(); }
   }
 
   // Step back through the session so a card can be re-read. The earlier rating
@@ -2991,8 +2689,6 @@
   }
 
   function flip(){
-    var card = currentDeck().cards[state.cardIndex];
-    if (card && card.choices && state.picked === -1) { return; }
     state.flipped = !state.flipped;
     els.inner.classList.toggle('flipped', state.flipped);
     sizeCard();
@@ -3134,15 +2830,7 @@
       return;
     }
     if (e.key === 'ArrowLeft') { e.preventDefault(); goPrevious(); return; }
-    if (!state.flipped){
-      // On an unanswered multiple-choice card the number keys pick an option.
-      var mc = currentDeck().cards[state.cardIndex];
-      if (mc && mc.choices && state.picked === -1 && '1234'.indexOf(e.key) !== -1){
-        e.preventDefault();
-        pickChoice(parseInt(e.key, 10) - 1);
-      }
-      return;
-    }
+    if (!state.flipped) { return; }
     var map = { '1': QUALITY_AGAIN, '2': QUALITY_GOOD, '3': QUALITY_EASY };
     if (Object.prototype.hasOwnProperty.call(map, e.key)) {
       e.preventDefault();
@@ -3151,6 +2839,10 @@
   });
   els.navTest.addEventListener('click', function(){
     if (els.testView.hidden) { startTest(); }
+  });
+  els.navDecks.addEventListener('click', function(){
+    if (!els.testView.hidden || !els.study.hidden) { exitTest(); backToCatalog(); }
+    setNav('decks');
   });
   els.testStartBtn.addEventListener('click', startTest);
   els.testExitBtn.addEventListener('click', exitTest);
@@ -3165,6 +2857,38 @@
   els.prevBtn.addEventListener('click', goPrevious);
   els.backBtn.addEventListener('click', backToCatalog);
   els.catalogBtn.addEventListener('click', backToCatalog);
+
+  // Level toggle: a jump, not a filter. Click scrolls to that group's break; as
+  // the page scrolls, whichever group is under the reader lights up.
+  (function(){
+    var wrap = document.getElementById('level-toggle-wrap');
+    if (!wrap) { return; }
+    var btns = Array.prototype.slice.call(wrap.querySelectorAll('.level-btn'));
+    function setActive(level){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b.dataset.level === level); });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var target = document.getElementById('level-' + b.dataset.level);
+        if (!target) { return; }
+        setActive(b.dataset.level);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if (ticking || wrap.hidden) { return; }
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var breaks = Array.prototype.slice.call(document.querySelectorAll('.level-break'));
+        if (!breaks.length) { return; }
+        var line = 140, current = breaks[0].dataset.level;
+        breaks.forEach(function(br){ if (br.getBoundingClientRect().top <= line) { current = br.dataset.level; } });
+        setActive(current);
+      });
+    }, { passive: true });
+  })();
 
   els.introBackBtn.addEventListener('click', backToCatalog);
   els.introStartBtn.addEventListener('click', function(){
@@ -3189,6 +2913,8 @@
   }
   if (els.heroIbBtn) { els.heroIbBtn.addEventListener('click', function(){ startTrack('ib'); }); }
   if (els.heroConsultingBtn) { els.heroConsultingBtn.addEventListener('click', function(){ startTrack('consulting'); }); }
+  els.trackIbBtn.addEventListener('click', function(){ setTrack('ib'); });
+  els.trackConsultingBtn.addEventListener('click', function(){ setTrack('consulting'); });
 
   // Deep link. viewprep.net/?deck=marketsizing opens that deck straight away, so a
   // link from a social post or from one of the static deck pages lands on the cards
@@ -3229,12 +2955,6 @@
   function openFromHash(){
     var h = (window.location.hash || '').toLowerCase();
     if (h === '#test') { startTest(); return true; }
-    // The static deck pages link back to a track heading, which only exists once
-    // the catalog has rendered, so the scroll happens here rather than natively.
-    if (h === '#track-ib' || h === '#track-consulting'){
-      setTrack(h.slice(7));
-      return true;
-    }
     return false;
   }
 
@@ -3303,8 +3023,7 @@
       })
       .then(function(data){
         decks = data;
-        buildHeaderMenus();
-        renderCatalog();
+        setTrack('ib');
         track('catalog_view', { decks: decks.length });
         initHeroCard();
         if (!openFromQuery()) { openFromHash(); }
