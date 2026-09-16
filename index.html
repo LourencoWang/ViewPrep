@@ -8,7 +8,7 @@
 
 <title>ViewPrep: Investment banking &amp; consulting interview flashcards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free flashcards for investment banking and consulting interviews. 650 cards across 40 decks, written so anyone can follow them with no finance background.">
+<meta name="description" content="Free flashcards for investment banking and consulting interviews. 618 cards across 38 decks, written so anyone can follow them with no finance background.">
 <link rel="canonical" href="https://viewprep.net/">
 <meta name="theme-color" content="#F4F6FA">
 
@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="ViewPrep">
 <meta property="og:url" content="https://viewprep.net/">
 <meta property="og:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta property="og:description" content="650 flashcards across 40 decks. Every card makes sense with no prior finance background. Free.">
+<meta property="og:description" content="618 flashcards across 38 decks. Every card makes sense with no prior finance background. Free.">
 <meta property="og:image" content="https://viewprep.net/ogimage.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 650 cards, 40 decks, free.">
+<meta property="og:image:alt" content="ViewPrep: flip the card, know the numbers. 618 cards, 38 decks, free.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ViewPrep: Investment banking &amp; consulting interview flashcards">
-<meta name="twitter:description" content="650 flashcards across 40 decks. Every card makes sense with no prior finance background. Free.">
+<meta name="twitter:description" content="618 flashcards across 38 decks. Every card makes sense with no prior finance background. Free.">
 <meta name="twitter:image" content="https://viewprep.net/ogimage.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
@@ -149,6 +149,8 @@
   .deck-intro{padding:2.75rem 0 4rem;}
   .intro-inner{max-width:640px;}
   .intro-inner h2:focus{outline:none;}
+  /* These headings are focused programmatically to move the reader, not clicked. */
+  .test-q:focus,.test-h:focus{outline:none;}
   .intro-inner .deck-tag{margin-top:1.75rem;display:inline-block;}
   .intro-title{
     font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.01em;
@@ -270,10 +272,14 @@
   .choice.is-wrong .choice-key{border-color:var(--red);background:var(--red);color:#fff;}
   .choice.is-dim{opacity:.55;}
   .verdict{
-    font-family:var(--body);font-size:.92rem;line-height:1.5;color:var(--ink-soft);
-    padding:.6rem .8rem;border-radius:10px;margin-bottom:.8rem;
+    font-family:var(--body);font-size:.95rem;line-height:1.5;color:var(--ink-soft);
+    padding:.7rem .9rem;border-radius:10px;margin-bottom:1rem;
     background:rgba(0,0,0,.035);border-left:3px solid var(--ink-faint);
   }
+  .test-choices{margin:1.4rem 0 0;}
+  .test-diagram{margin:0 0 1.2rem;max-width:520px;}
+  .test-diagram svg{display:block;width:100%;height:auto;}
+  .quiz-lede-n{color:var(--ink-faint);}
   .verdict.is-right{border-left-color:var(--green);}
   .verdict.is-wrong{border-left-color:var(--red);}
   .verdict b{color:var(--ink);}
@@ -475,18 +481,25 @@
   .footer-reset:hover{color:var(--amber-ink);text-decoration-color:var(--amber-ink);}
 
   /* ---------- catalog, deck cards, hero demo ---------- */
+  .track-toggle-wrap{margin:1.6rem 0 1.8rem;scroll-margin-top:96px;}
+  .track-toggle{
+    display:flex;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
+    max-width:560px;
+  }
+  .track-btn{
+    all:unset;box-sizing:border-box;cursor:pointer;flex:1;text-align:center;
+    padding:1.15rem 1rem;
+    font-family:var(--display);font-weight:800;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-soft);background:transparent;border-bottom:2px solid transparent;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .track-btn + .track-btn{border-left:1px solid var(--line-soft);}
+  .track-btn:hover{color:var(--ink);}
+  .track-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+  .track-btn.is-active{background:var(--ink);color:#fff;border-bottom-color:var(--ink);}
   .catalog-body{display:block;}
-  .track-head{
-    display:flex;align-items:baseline;gap:.75rem;margin:2.6rem 0 .3rem;scroll-margin-top:96px;
-    padding-bottom:.7rem;border-bottom:1px solid var(--line-soft);
-  }
-  .track-head:first-child{margin-top:.6rem;}
-  .track-head-name{
-    font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.04em;
-    text-transform:uppercase;color:var(--ink);margin:0;
-  }
-  .track-head-n{font-family:var(--body);font-size:.75rem;color:var(--ink-faint);}
-  .cat-head{display:flex;align-items:center;gap:.6rem;margin:1.6rem 0 .8rem;}
+  .cat-head{display:flex;align-items:center;gap:.6rem;margin:1.9rem 0 .8rem;}
+  .cat-head:first-child{margin-top:.2rem;}
   .cat-head-name{
     font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;
@@ -595,15 +608,11 @@
   .test-cta-copy{flex:1 1 260px;}
   .test-cta-title{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.25rem;}
   .test-cta-sub{font-size:.86rem;line-height:1.5;color:var(--ink-soft);}
-  .deck-level{
-    font-family:var(--body);font-size:.6rem;font-weight:700;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line-soft);
-    border-radius:999px;padding:.15rem .45rem;margin-left:.4rem;
-  }
-  .guide-cta{display:flex;align-items:center;gap:1rem;text-decoration:none;
+  .guide-cta{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:1rem;text-decoration:none;
     border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
     padding:1.15rem 1.35rem;margin:1.6rem 0 .4rem;}
   .guide-cta:hover{border-color:var(--blue);}
+  .guide-cta:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
   .guide-kicker{flex:0 0 auto;font-family:var(--body);font-size:.66rem;font-weight:700;
     letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
     border:1px solid var(--line-soft);border-radius:999px;padding:.3rem .6rem;}
@@ -647,25 +656,6 @@
     .loop-row{grid-template-columns:1fr;gap:1.4rem;padding-top:1.8rem;}
     .loop-text{max-width:none;}
   }
-
-  .paths{margin:1.3rem 0 .4rem;}
-  .paths-title{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.05em;
-    text-transform:uppercase;color:var(--ink);margin:0 0 .9rem;}
-  .paths-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
-  .path{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);
-    padding:1.1rem 1.2rem 1.2rem;}
-  .path-name{font-family:var(--display);font-weight:700;font-size:.95rem;margin:0 0 .2rem;}
-  .path-why{font-size:.82rem;line-height:1.5;color:var(--ink-soft);margin:0 0 .9rem;}
-  .path-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;}
-  .path-step{all:unset;cursor:pointer;box-sizing:border-box;font-family:var(--body);
-    font-size:.78rem;font-weight:600;color:var(--ink);white-space:nowrap;
-    padding:.34rem .6rem;border-radius:8px;border:1px solid var(--line-soft);
-    transition:border-color .15s ease,color .15s ease;}
-  .path-step:hover{border-color:var(--blue);color:var(--blue);}
-  .path-step:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
-  .path-step.is-done{color:var(--green);border-color:var(--green);}
-  .path-arrow{color:var(--ink-faint);font-size:.75rem;}
-  @media (max-width:760px){ .paths-list{grid-template-columns:1fr;} }
 
   /* ---------- test yourself ---------- */
   .test-h{font-family:var(--display);font-weight:700;text-transform:uppercase;
@@ -969,14 +959,14 @@
         </div>
         <div class="hero-caption-row">
           <span>Free &middot; No account needed</span>
-          <span>650 cards &middot; 21 IB decks &middot; 19 consulting decks &middot; 200 written questions</span>
+          <span>618 cards &middot; 20 IB decks &middot; 18 consulting decks &middot; 190 written questions</span>
         </div>
       </div>
     </section>
 
     <section class="catalog" id="catalog">
       <h2 class="section-title">The catalog</h2>
-      <p class="section-sub">No affiliation with any course, employer or prep provider. Every deck, in the order the concepts build on each other.</p>
+      <p class="section-sub">No affiliation with any course, employer or prep provider. Pick your track to see decks built for it.</p>
       <div class="test-cta" id="test-cta">
         <div class="test-cta-copy">
           <p class="test-cta-title">Think you know it?</p>
@@ -984,8 +974,24 @@
         </div>
         <button class="btn-solid" id="test-start-btn" type="button">Test yourself</button>
       </div>
-      <!-- Both tracks, laid out by category, in the same order as the header menu. -->
+      <div class="track-toggle-wrap">
+        <div class="track-toggle" role="group" aria-label="Choose your interview track">
+          <button type="button" class="track-btn" id="track-ib-btn" data-track="ib" aria-pressed="false">Investment Banking</button>
+          <button type="button" class="track-btn" id="track-consulting-btn" data-track="consulting" aria-pressed="false">Consulting</button>
+        </div>
+      </div>
+      <!-- The chosen track, laid out by category, in the same order as the header menu. -->
       <div class="catalog-body" id="deck-grid"></div>
+      <!-- Quick maths is questions rather than cards, so it sits with the other
+           questions under Test yourself rather than in the deck list. -->
+      <button class="guide-cta" id="quiz-cta" type="button">
+        <span class="guide-kicker">Questions</span>
+        <span class="guide-copy">
+          <span class="guide-title">Quick maths</span>
+          <span class="guide-sub">Sixteen multiple-choice drills on the arithmetic an analyst does out loud. Pick an answer and the working appears either way.</span>
+        </span>
+        <span class="guide-arrow" aria-hidden="true">&#8594;</span>
+      </button>
       <!-- Commercial awareness is a habit, not a set of facts, so it is a written
            guide rather than a deck. It applies to both tracks. -->
       <a class="guide-cta" id="guide-cta" href="/commercial-awareness.html">
@@ -1017,9 +1023,10 @@
       <div id="test-decks">
         <button class="link-back" id="test-exit-btn" type="button">&larr; Back to catalog</button>
         <h2 class="test-h" id="test-h" tabindex="-1">Test yourself</h2>
-        <p class="test-lede">Five questions per deck. Write your answer out, then compare it
-          with the model answer. Your answers are kept so you can read them back, and nothing
-          here changes your review schedule.</p>
+        <p class="test-lede">Quick maths is multiple choice: pick one and the working appears
+          either way. Every deck also has five written questions &mdash; type your answer out, then
+          compare it with the model answer. Your answers are kept so you can read them back, and
+          nothing here changes your review schedule.</p>
         <div id="test-deck-groups"></div>
       </div>
 
@@ -1039,6 +1046,12 @@
         </div>
         <h2 class="test-q" id="test-q" tabindex="-1"></h2>
 
+        <!-- Quick maths asks the same way the interviewer does: pick one, and the
+             reasoning appears whichever one you pick. -->
+        <div class="test-choices" id="test-choices" hidden>
+          <div class="choices" id="quiz-choices" role="group" aria-label="Choose an answer"></div>
+        </div>
+
         <div class="test-write" id="test-write">
           <label class="test-write-lbl" for="test-input">Write your answer</label>
           <textarea id="test-input" class="test-input" rows="5" spellcheck="false"
@@ -1047,6 +1060,8 @@
         </div>
 
         <div class="test-answer" id="test-answer" hidden>
+          <div class="verdict" id="test-verdict" hidden></div>
+          <div class="test-diagram" id="test-diagram" hidden></div>
           <div class="test-yours" id="test-yours" hidden>
             <p class="test-a-label">What you wrote</p>
             <p class="test-yours-text" id="test-yours-text"></p>
@@ -1097,9 +1112,6 @@
             </div>
           </div>
         </button>
-        <!-- Multiple-choice cards put their options here rather than inside the
-             card, which is itself a button and cannot nest one. -->
-        <div class="choices" id="choices" role="group" aria-label="Choose an answer" hidden></div>
       </div>
 
       <div class="rating-row" id="rating-row" hidden>
@@ -1166,7 +1178,7 @@
 
   <footer class="site-footer">
     <p class="footer-disclaimer">ViewPrep is an independent study resource. It is not affiliated with, endorsed by, or sourced from any university, employer, or prep platform.</p>
-    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 650 cards &#8594;</a></p>
+    <p class="footer-browse"><a href="/decks/">Browse every deck and read all 618 cards &#8594;</a></p>
     <p class="footer-links">
       <a href="/commercial-awareness.html">Commercial awareness</a> &middot;
       <a href="/faq.html">FAQ</a> &middot;
@@ -1231,7 +1243,7 @@
   var decks = []; // populated at runtime from decks.json, see init() below
 
   var state = {
-    deckIndex:0, cardIndex:0, flipped:false, track:null, group:'all', picked:-1,
+    deckIndex:0, cardIndex:0, flipped:false, track:null,
     queue:[], queuePos:0,
     tally:{again:0, good:0, easy:0}
   };
@@ -1624,12 +1636,19 @@
     if (focusTarget) focusTarget.focus();
   }
 
-  // There is no track toggle any more: the header menu is the way in, and the
-  // catalog lists both tracks. Asking for a track just takes you to its heading.
-  function setTrack(track){
+  function setTrack(track, scroll){
     state.track = track;
-    var head = document.getElementById('track-' + track);
-    if (head) { head.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (els.trackIbBtn){
+      els.trackIbBtn.classList.toggle('is-active', track === 'ib');
+      els.trackConsultingBtn.classList.toggle('is-active', track === 'consulting');
+      els.trackIbBtn.setAttribute('aria-pressed', String(track === 'ib'));
+      els.trackConsultingBtn.setAttribute('aria-pressed', String(track === 'consulting'));
+    }
+    renderCatalog();
+    if (scroll){
+      var w = document.querySelector('.track-toggle-wrap');
+      if (w) { w.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
   }
 
   var els = {
@@ -1665,6 +1684,10 @@
     testView: document.getElementById('test'),
     testInput: document.getElementById('test-input'),
     testWrite: document.getElementById('test-write'),
+    testChoices: document.getElementById('test-choices'),
+    quizChoices: document.getElementById('quiz-choices'),
+    testVerdict: document.getElementById('test-verdict'),
+    testDiagram: document.getElementById('test-diagram'),
     testYours: document.getElementById('test-yours'),
     testYoursText: document.getElementById('test-yours-text'),
     testTerms: document.getElementById('test-terms'),
@@ -1672,6 +1695,8 @@
     testTermList: document.getElementById('test-term-list'),
     navTest: document.getElementById('nav-test'),
     testCta: document.getElementById('test-cta'),
+    trackIbBtn: document.getElementById('track-ib-btn'),
+    trackConsultingBtn: document.getElementById('track-consulting-btn'),
     testStartBtn: document.getElementById('test-start-btn'),
     testExitBtn: document.getElementById('test-exit-btn'),
     testProgress: document.getElementById('test-progress'),
@@ -1690,7 +1715,6 @@
     inner: document.getElementById('flashcard-inner'),
     front: document.getElementById('card-front-text'),
     back: document.getElementById('card-back-text'),
-    choices: document.getElementById('choices'),
     ratingRow: document.getElementById('rating-row'),
     againBtn: document.getElementById('again-btn'),
     goodBtn: document.getElementById('good-btn'),
@@ -2009,7 +2033,7 @@
 
   // --- Recommended study paths -----------------------------------------------
   //
-  // 40 decks is a choice problem, and "pick a track" does not solve it. These are
+  // 38 decks is a choice problem, and "pick a track" does not solve it. These are
   // two opinionated routes per track: one for someone starting from nothing, one
   // for someone with a date in the diary. A step turns green once that deck has
   // been started, so the path doubles as a progress line.
@@ -2024,13 +2048,12 @@
       { id: 'valuation', name: 'Valuation', decks: ['valuation', 'evbridge', 'comps', 'dcf', 'earnings'] },
       { id: 'deals', name: 'Deals', decks: ['mna', 'dealmaths', 'lbo'] },
       { id: 'markets', name: 'Markets', decks: ['markets', 'macro'] },
-      { id: 'maths', name: 'Quick maths', decks: ['quickmaths'] },
+      { id: '_quiz', name: 'Quick maths', quiz: 'quickmaths', decks: [] },
       { id: 'craft', name: 'Craft & interview', decks: ['excel', 'ibinterview'] },
       { id: '_guides', name: 'Guides', decks: [] }
     ],
     consulting: [
       { id: 'craft', name: 'Case craft', decks: ['casestructuring', 'brainstorm', 'synthesis', 'cases'] },
-      { id: 'maths', name: 'Quick maths', decks: ['casemaths'] },
       { id: 'data', name: 'Sizing & data', decks: ['marketsizing', 'stats', 'exhibits'] },
       { id: 'economics', name: 'Business economics', decks: ['microecon', 'profitability', 'bizmodels', 'pricing'] },
       { id: 'growth', name: 'Strategy & growth', decks: ['strategy', 'marketing', 'marketentry', 'operations'] },
@@ -2039,81 +2062,6 @@
       { id: '_guides', name: 'Guides', decks: [] }
     ]
   };
-
-  var STUDY_PATHS = {
-    ib: [
-      { name: 'New to investment banking',
-        why: 'Build it in the order the concepts actually depend on each other.',
-        decks: ['accounting', 'statements', 'threestatement', 'valuation', 'evbridge', 'mna', 'lbo'] },
-      { name: 'Interview next week',
-        why: 'Highest-frequency ground first. Skip what is unlikely to come up in time.',
-        decks: ['ibinterview', 'accounting', 'threestatement', 'valuation', 'macro', 'mna'] },
-      { name: 'Technicals only',
-        why: 'The five decks that are pure numbers, in the order an interviewer drills them.',
-        decks: ['quickmaths', 'threestatement', 'evbridge', 'dcf', 'dealmaths'] }
-    ],
-    consulting: [
-      { name: 'New to consulting',
-        why: 'Structure first, then the analysis a case actually asks you to run.',
-        decks: ['casestructuring', 'profitability', 'marketsizing', 'microecon', 'brainstorm', 'strategy'] },
-      { name: 'Interview next week',
-        why: 'What a first-round case leans on, in the order you will need it.',
-        decks: ['consultinginterview', 'casestructuring', 'profitability', 'casemaths', 'cases'] },
-      { name: 'Case rehearsal',
-        why: 'Once the mechanics are there, run whole cases end to end under time.',
-        decks: ['casestructuring', 'brainstorm', 'exhibits', 'synthesis', 'cases'] }
-    ]
-  };
-
-  // Routes through a track, rendered under that track's heading in the catalog.
-  function renderPaths(trackId, container){
-    var list = STUDY_PATHS[trackId];
-    if (!list || !decks.length || !container) { return; }
-    var wrap = document.createElement('section');
-    wrap.className = 'paths';
-    var title = document.createElement('h4');
-    title.className = 'paths-title';
-    title.textContent = 'Not sure where to start?';
-    wrap.appendChild(title);
-    var pathsList = document.createElement('div');
-    pathsList.className = 'paths-list';
-    wrap.appendChild(pathsList);
-    container.appendChild(wrap);
-
-    list.forEach(function(path){
-      var box = document.createElement('div');
-      box.className = 'path';
-      var head = '<p class="path-name">' + escHtml(path.name) + '</p>' +
-                 '<p class="path-why">' + escHtml(path.why) + '</p>';
-      box.innerHTML = head;
-
-      var steps = document.createElement('div');
-      steps.className = 'path-steps';
-      path.decks.forEach(function(id, n){
-        var idx = -1;
-        for (var i = 0; i < decks.length; i++){ if (decks[i].id === id) { idx = i; break; } }
-        if (idx === -1) { return; }   // a renamed deck drops out rather than breaking the row
-        if (n > 0){
-          var arrow = document.createElement('span');
-          arrow.className = 'path-arrow';
-          arrow.textContent = '→';
-          steps.appendChild(arrow);
-        }
-        var st = deckStats(decks[idx]);
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'path-step' + (st.started > 0 ? ' is-done' : '');
-        b.textContent = decks[idx].name;
-        b.addEventListener('click', function(){
-          track('path_click', { path: path.name, deck: id });
-          showDeckIntro(idx);
-        });
-        steps.appendChild(b);
-      });
-      box.appendChild(steps);
-      pathsList.appendChild(box);
-    });
-  }
 
   // ---- header menus -------------------------------------------------------
   // Track in the bar, categories in the panel, decks in the flyout. Built from
@@ -2134,13 +2082,15 @@
         nm.className = 'nav-cat-name';
         nm.textContent = g.name;
         b.appendChild(nm);
-        if (g.id === '_guides'){
+        if (g.id === '_guides' || g.quiz){
           var arrow = document.createElement('span');
           arrow.className = 'nav-cat-arrow';
           arrow.textContent = '\u2192';
           b.appendChild(arrow);
           b.addEventListener('click', function(){
-            window.location.href = '/commercial-awareness.html';
+            closeAllMenus();
+            if (g.quiz) { openQuiz(g.quiz); }
+            else { window.location.href = '/commercial-awareness.html'; }
           });
         } else {
           var n = document.createElement('span');
@@ -2189,6 +2139,7 @@
       b.appendChild(nm); b.appendChild(n);
       b.addEventListener('click', function(){
         closeAllMenus();
+        if (d.track !== state.track) { setTrack(d.track); }
         showDeckIntro(idx);
       });
       sub.appendChild(b);
@@ -2238,54 +2189,36 @@
     });
   })();
 
-  // The catalog is both tracks laid out by category, in the same order as the
-  // header menu, so the page and the menu never tell different stories.
+  // One track at a time, chosen by the toggle, laid out by category in the same
+  // order as the header menu so the page and the menu never disagree.
   function renderCatalog(){
     els.deckGrid.innerHTML = '';
     if (!decks.length) { return; }
+    var groups = DECK_GROUPS[state.track] || [];
 
-    var LEVEL_NAMES = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
-    var TRACK_NAMES = { ib: 'Investment banking', consulting: 'Consulting' };
+    groups.forEach(function(g){
+      if (!g.decks.length) { return; }
+      var ch = document.createElement('div');
+      ch.className = 'cat-head';
+      ch.innerHTML = '<span class="cat-head-name"></span><span class="cat-head-n"></span>';
+      ch.firstChild.textContent = g.name;
+      ch.lastChild.textContent = g.decks.length;
+      els.deckGrid.appendChild(ch);
 
-    ['ib', 'consulting'].forEach(function(track){
-      var groups = DECK_GROUPS[track] || [];
-      var count = decks.filter(function(d){ return d.track === track; }).length;
+      var row = document.createElement('div');
+      row.className = 'deck-grid';
+      els.deckGrid.appendChild(row);
 
-      var head = document.createElement('div');
-      head.className = 'track-head';
-      head.id = 'track-' + track;
-      head.innerHTML = '<h3 class="track-head-name"></h3><span class="track-head-n"></span>';
-      head.firstChild.textContent = TRACK_NAMES[track];
-      head.lastChild.textContent = count + ' decks';
-      els.deckGrid.appendChild(head);
-      renderPaths(track, els.deckGrid);
-
-      groups.forEach(function(g){
-        if (!g.decks.length) { return; }
-        var ch = document.createElement('div');
-        ch.className = 'cat-head';
-        ch.innerHTML = '<span class="cat-head-name"></span><span class="cat-head-n"></span>';
-        ch.firstChild.textContent = g.name;
-        ch.lastChild.textContent = g.decks.length;
-        els.deckGrid.appendChild(ch);
-
-        var row = document.createElement('div');
-        row.className = 'deck-grid';
-        els.deckGrid.appendChild(row);
-
-        g.decks.forEach(function(id){
-          var i = -1;
-          for (var k = 0; k < decks.length; k++){ if (decks[k].id === id) { i = k; } }
-          if (i === -1) { return; }
-          var deck = decks[i];
-          renderDeckCard(deck, i, row, LEVEL_NAMES);
-        });
+      g.decks.forEach(function(id){
+        var i = -1;
+        for (var k = 0; k < decks.length; k++){ if (decks[k].id === id) { i = k; } }
+        if (i === -1) { return; }
+        renderDeckCard(decks[i], i, row);
       });
     });
   }
 
-  function renderDeckCard(deck, i, grid, LEVEL_NAMES){
-    var lv = deck.level || 'beginner';
+  function renderDeckCard(deck, i, grid){
     {
       var st = deckStats(deck);
       var total = st.total;
@@ -2317,7 +2250,6 @@
       open.type = 'button';
       open.innerHTML =
         '<span class="deck-open-top"><span class="deck-tag">' + deck.tag + '</span>' +
-        '<span class="deck-level">' + LEVEL_NAMES[lv] + '</span>' +
         '<span class="deck-open-arrow">&#8594;</span></span>' +
         '<span class="deck-info"><span class="deck-name">' + deck.name + '</span>' +
         '<span class="deck-desc">' + deck.description + '</span></span>';
@@ -2598,6 +2530,10 @@
     saveAnswers(answers);
   }
 
+  function clearAnswer(deckId, qi){
+    if (answers[deckId]) { delete answers[deckId][qi]; saveAnswers(answers); }
+  }
+
   function answeredCount(deckId){
     var d = answers[deckId], n = 0;
     if (!d) { return 0; }
@@ -2605,7 +2541,34 @@
     return n;
   }
 
-  function bankFor(deckId){ return (TEST_BANK && TEST_BANK[deckId]) || []; }
+  function bankFor(deckId){
+    var q = quizById(deckId);
+    if (q) { return q.questions; }
+    return (TEST_BANK && TEST_BANK[deckId]) || [];
+  }
+
+  // Quick maths is questions, not cards: multiple choice, no review schedule, and
+  // it lives here with the other questions rather than in the deck catalog.
+  var QUIZZES = null;
+  function quizById(id){
+    if (!QUIZZES) { return null; }
+    for (var i = 0; i < QUIZZES.length; i++){ if (QUIZZES[i].id === id) { return QUIZZES[i]; } }
+    return null;
+  }
+  function loadQuizzes(){
+    if (QUIZZES) { return Promise.resolve(QUIZZES); }
+    return fetch('quizzes.json')
+      .then(function(r){ if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
+      .then(function(data){ QUIZZES = data; return QUIZZES; })
+      .catch(function(err){ console.error('Failed to load quizzes.json:', err); QUIZZES = []; return QUIZZES; });
+  }
+  function openQuiz(id){
+    startTest();
+    loadQuizzes().then(function(){
+      renderTestDecks();
+      if (quizById(id)) { showTestQuestions(id); }
+    });
+  }
 
   // --- A. the deck grid ----------------------------------------------------------
 
@@ -2624,6 +2587,29 @@
       wrap.innerHTML = '<p style="color:var(--ink-soft);">Loading questions&hellip;</p>';
       return;
     }
+    (QUIZZES || []).forEach(function(q){
+      var lbl = document.createElement('p');
+      lbl.className = 'test-group-lbl';
+      lbl.textContent = q.name;
+      wrap.appendChild(lbl);
+      var grid = document.createElement('div');
+      grid.className = 'test-deck-grid';
+      var total = q.questions.length;
+      var done = Math.min(answeredCount(q.id), total);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'test-deck' + (done === total ? ' is-done' : '');
+      btn.innerHTML =
+        '<span class="test-deck-nm">' + escHtml(q.name) + '</span>' +
+        '<span class="test-deck-meta"><span>Answered</span>' +
+        '<span>' + done + ' / ' + total + '</span></span>' +
+        '<span class="test-bar"><span class="test-bar-fill" style="width:' +
+        Math.round(done / total * 100) + '%"></span></span>';
+      btn.addEventListener('click', function(){ showTestQuestions(q.id); });
+      grid.appendChild(btn);
+      wrap.appendChild(grid);
+    });
+
     ['ib', 'consulting'].forEach(function(tr){
       var group = decks.filter(function(d){ return d.track === tr && bankFor(d.id).length; });
       if (!group.length) { return; }
@@ -2662,7 +2648,8 @@
 
   function showTestQuestions(deckId){
     testView.deckId = deckId;
-    var deck = deckById(deckId), items = bankFor(deckId);
+    var quiz = quizById(deckId);
+    var deck = quiz || deckById(deckId), items = bankFor(deckId);
     var done = Math.min(answeredCount(deckId), items.length);
     els.testDecks.hidden = true;
     els.testOne.hidden = true;
@@ -2682,8 +2669,10 @@
         '<span class="test-q-n">' + (saved ? '&#10003;' : (qi + 1)) + '</span>' +
         '<span class="test-q-body"><span class="test-q-text">' + escHtml(item.q) + '</span>' +
         '<span class="test-q-state">' +
-        (saved ? 'Answered &middot; ' + saved.hits + ' of ' + saved.of + ' key terms &middot; read it back'
-               : 'Not answered yet') +
+        (saved
+          ? (quiz ? (saved.correct ? 'Answered &middot; correct' : 'Answered &middot; read the working again')
+                  : 'Answered &middot; ' + saved.hits + ' of ' + saved.of + ' key terms &middot; read it back')
+          : 'Not answered yet') +
         '</span></span>';
       btn.addEventListener('click', function(){ showTestOne(deckId, qi); });
       li.appendChild(btn);
@@ -2698,7 +2687,8 @@
     var items = bankFor(deckId);
     if (!items[qi]) { return; }
     testView.deckId = deckId; testView.qIndex = qi;
-    var deck = deckById(deckId), item = items[qi], saved = getAnswer(deckId, qi);
+    var quiz = quizById(deckId);
+    var deck = quiz || deckById(deckId), item = items[qi], saved = getAnswer(deckId, qi);
 
     els.testDecks.hidden = true;
     els.testQuestions.hidden = true;
@@ -2706,26 +2696,99 @@
     els.testBackLabel.textContent = deck ? deck.name : 'Back';
     els.testProgress.textContent = (qi + 1) + ' of ' + items.length;
     els.testQ.textContent = item.q;
-    els.testInput.value = saved ? saved.text : '';
+    els.testVerdict.hidden = true;
+    els.testDiagram.hidden = true;
+    els.testDiagram.innerHTML = '';
 
-    if (saved) {
-      // Coming back to something already answered should show the marking again
-      // rather than make them retype it.
-      renderAnswerFeedback(item, saved.text, false);
+    if (item.choices){
       els.testWrite.hidden = true;
-      els.testAnswer.hidden = false;
+      els.testChoices.hidden = false;
       els.testRevealBtn.hidden = true;
-      els.testOnenav.hidden = false;
+      renderQuizChoices(item, saved ? saved.picked : -1);
+      if (saved){
+        showQuizAnswer(item, saved.picked);
+        els.testOnenav.hidden = false;
+      } else {
+        els.testAnswer.hidden = true;
+        els.testOnenav.hidden = true;
+      }
     } else {
-      els.testWrite.hidden = false;
-      els.testAnswer.hidden = true;
-      els.testYours.hidden = true;
-      els.testTerms.hidden = true;
-      els.testRevealBtn.hidden = false;
-      els.testOnenav.hidden = true;
+      els.testChoices.hidden = true;
+      els.testInput.value = saved ? saved.text : '';
+      if (saved) {
+        // Coming back to something already answered should show the marking again
+        // rather than make them retype it.
+        renderAnswerFeedback(item, saved.text, false);
+        els.testWrite.hidden = true;
+        els.testAnswer.hidden = false;
+        els.testRevealBtn.hidden = true;
+        els.testOnenav.hidden = false;
+      } else {
+        els.testWrite.hidden = false;
+        els.testAnswer.hidden = true;
+        els.testYours.hidden = true;
+        els.testTerms.hidden = true;
+        els.testRevealBtn.hidden = false;
+        els.testOnenav.hidden = true;
+      }
     }
     els.testNextBtn.hidden = (qi + 1 >= items.length);
     els.testQ.focus();
+  }
+
+  function renderQuizChoices(item, picked){
+    var wrap = els.quizChoices;
+    wrap.innerHTML = '';
+    item.choices.forEach(function(text, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'choice';
+      var k = document.createElement('span');
+      k.className = 'choice-key';
+      k.textContent = 'ABCD'.charAt(i);
+      var t = document.createElement('span');
+      t.className = 'choice-text';
+      t.textContent = text;
+      b.appendChild(k); b.appendChild(t);
+      if (picked === -1){
+        b.addEventListener('click', function(){ pickQuizChoice(i); });
+      } else {
+        b.disabled = true;
+        if (i === item.answer) { b.classList.add('is-right'); }
+        else if (i === picked) { b.classList.add('is-wrong'); }
+        else { b.classList.add('is-dim'); }
+      }
+      wrap.appendChild(b);
+    });
+  }
+
+  // Right or wrong, the working appears. Being wrong is when it is worth most.
+  function pickQuizChoice(i){
+    var item = bankFor(testView.deckId)[testView.qIndex];
+    if (!item) { return; }
+    renderQuizChoices(item, i);
+    showQuizAnswer(item, i);
+    putAnswer(testView.deckId, testView.qIndex,
+              { picked: i, correct: i === item.answer, ts: Date.now() });
+    track('quiz_answered', { quiz: testView.deckId, q: testView.qIndex, correct: i === item.answer });
+    els.testOnenav.hidden = false;
+  }
+
+  function showQuizAnswer(item, picked){
+    var right = item.choices[item.answer], got = picked === item.answer;
+    els.testVerdict.className = 'verdict ' + (got ? 'is-right' : 'is-wrong');
+    els.testVerdict.innerHTML = '<b>' + (got ? 'Correct.' : 'Not quite.') + '</b> The answer is '
+      + escHtml(right) + '.';
+    els.testVerdict.hidden = false;
+    if (item.image){
+      // Deck-authored inline SVG, not user input.
+      els.testDiagram.innerHTML = item.image;
+      els.testDiagram.hidden = false;
+    }
+    els.testYours.hidden = true;
+    els.testTerms.hidden = true;
+    els.testAText.textContent = item.a;
+    els.testAnswer.hidden = false;
   }
 
   function renderAnswerFeedback(item, raw, persist){
@@ -2774,6 +2837,14 @@
   }
 
   function retryTest(){
+    var item = bankFor(testView.deckId)[testView.qIndex];
+    if (item && item.choices){
+      // Re-answering a multiple-choice question means clearing the pick, not
+      // retyping, so it goes back to a clean set of options.
+      clearAnswer(testView.deckId, testView.qIndex);
+      showTestOne(testView.deckId, testView.qIndex);
+      return;
+    }
     els.testWrite.hidden = false;
     els.testAnswer.hidden = true;
     els.testRevealBtn.hidden = false;
@@ -2808,7 +2879,8 @@
   function loadTestBank(){
     fetch('testbank.json')
       .then(function(r){ if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
-      .then(function(data){ TEST_BANK = data; renderTestDecks(); })
+      .then(function(data){ TEST_BANK = data; return loadQuizzes(); })
+      .then(function(){ renderTestDecks(); })
       .catch(function(err){
         els.testDeckGroups.innerHTML =
           '<p style="color:var(--ink-soft);">Couldn&rsquo;t load the questions right now. ' +
@@ -2858,21 +2930,12 @@
   // summary shown first, a becomes the supporting detail text, and image is
   // trusted inline SVG markup authored as part of the deck content (never
   // user-submitted), so it's safe to insert directly.
-  function renderBackFace(card, picked){
-    if (!card.takeaway && !card.image && !card.choices){
+  function renderBackFace(card){
+    if (!card.takeaway && !card.image){
       els.back.textContent = card.a;
       return;
     }
     var html = '';
-    // Whichever option was picked, the back opens by naming the right answer.
-    // Being wrong is exactly when the reasoning underneath is worth the most.
-    if (card.choices){
-      var right = card.choices[card.answer];
-      var got = picked === card.answer;
-      html += '<div class="verdict ' + (got ? 'is-right' : 'is-wrong') + '"><b>'
-           +  (got ? 'Correct.' : 'Not quite.') + '</b> The answer is '
-           +  escapeHtml(right) + '.</div>';
-    }
     if (card.image){ html += '<div class="face-diagram">' + card.image + '</div>'; }
     if (card.takeaway){ html += '<div class="face-takeaway">' + escapeHtml(card.takeaway) + '</div>'; }
     html += '<div class="face-detail">' + escapeHtml(card.a) + '</div>';
@@ -2918,68 +2981,16 @@
     els.progressFill.style.width =
       (state.queue.length ? (state.queuePos / state.queue.length * 100) : 0) + '%';
     els.front.textContent = card.q;
-    state.picked = -1;
-    renderBackFace(card, -1);
-    renderChoices(card);
+    renderBackFace(card);
     els.flashcard.classList.toggle('has-diagram', !!card.image);
     state.flipped = false;
     els.inner.classList.remove('flipped');
     els.flashcard.setAttribute('aria-pressed', 'false');
     els.ratingRow.hidden = true;
     els.flipBtn.textContent = 'Flip card';
-    // A multiple-choice card cannot be turned over until an option is chosen,
-    // otherwise the answer is one tap away and the question is pointless, so the
-    // flip button stays out of the way until there is something to flip to.
-    els.flipBtn.hidden = !!card.choices;
     if (els.prevBtn) { els.prevBtn.disabled = state.queuePos <= 0; }
     updateIntervalPreviews();
     sizeCard();
-  }
-
-  // Multiple-choice cards (the two maths decks) show their options under the
-  // card. Picking one reveals the answer and the reasoning either way.
-  function renderChoices(card){
-    if (!els.choices) { return; }
-    var hint = els.inner.querySelector('.face-front .tap-hint');
-    els.choices.innerHTML = '';
-    if (!card.choices){
-      els.choices.hidden = true;
-      if (hint) { hint.hidden = false; }
-      return;
-    }
-    els.choices.hidden = false;
-    if (hint) { hint.hidden = true; }
-    card.choices.forEach(function(text, i){
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'choice';
-      var k = document.createElement('span');
-      k.className = 'choice-key';
-      k.textContent = 'ABCD'.charAt(i);
-      var t = document.createElement('span');
-      t.className = 'choice-text';
-      t.textContent = text;
-      b.appendChild(k); b.appendChild(t);
-      b.addEventListener('click', function(){ pickChoice(i); });
-      els.choices.appendChild(b);
-    });
-  }
-
-  function pickChoice(i){
-    if (state.picked !== -1) { return; }
-    var card = currentDeck().cards[state.cardIndex];
-    if (!card || !card.choices) { return; }
-    state.picked = i;
-    var btns = els.choices.querySelectorAll('.choice');
-    for (var k = 0; k < btns.length; k++){
-      btns[k].disabled = true;
-      if (k === card.answer) { btns[k].classList.add('is-right'); }
-      else if (k === i) { btns[k].classList.add('is-wrong'); }
-      else { btns[k].classList.add('is-dim'); }
-    }
-    renderBackFace(card, i);
-    els.flipBtn.hidden = false;
-    if (!state.flipped) { flip(); } else { sizeCard(); }
   }
 
   // Step back through the session so a card can be re-read. The earlier rating
@@ -2991,8 +3002,6 @@
   }
 
   function flip(){
-    var card = currentDeck().cards[state.cardIndex];
-    if (card && card.choices && state.picked === -1) { return; }
     state.flipped = !state.flipped;
     els.inner.classList.toggle('flipped', state.flipped);
     sizeCard();
@@ -3134,15 +3143,7 @@
       return;
     }
     if (e.key === 'ArrowLeft') { e.preventDefault(); goPrevious(); return; }
-    if (!state.flipped){
-      // On an unanswered multiple-choice card the number keys pick an option.
-      var mc = currentDeck().cards[state.cardIndex];
-      if (mc && mc.choices && state.picked === -1 && '1234'.indexOf(e.key) !== -1){
-        e.preventDefault();
-        pickChoice(parseInt(e.key, 10) - 1);
-      }
-      return;
-    }
+    if (!state.flipped) { return; }
     var map = { '1': QUALITY_AGAIN, '2': QUALITY_GOOD, '3': QUALITY_EASY };
     if (Object.prototype.hasOwnProperty.call(map, e.key)) {
       e.preventDefault();
@@ -3187,6 +3188,12 @@
     var c = document.getElementById('catalog');
     if (c) { c.scrollIntoView({ behavior: 'smooth' }); }
   }
+  (function(){
+    var qc = document.getElementById('quiz-cta');
+    if (qc) { qc.addEventListener('click', function(){ openQuiz('quickmaths'); }); }
+  })();
+  els.trackIbBtn.addEventListener('click', function(){ setTrack('ib'); });
+  els.trackConsultingBtn.addEventListener('click', function(){ setTrack('consulting'); });
   if (els.heroIbBtn) { els.heroIbBtn.addEventListener('click', function(){ startTrack('ib'); }); }
   if (els.heroConsultingBtn) { els.heroConsultingBtn.addEventListener('click', function(){ startTrack('consulting'); }); }
 
@@ -3232,7 +3239,7 @@
     // The static deck pages link back to a track heading, which only exists once
     // the catalog has rendered, so the scroll happens here rather than natively.
     if (h === '#track-ib' || h === '#track-consulting'){
-      setTrack(h.slice(7));
+      setTrack(h.slice(7), true);
       return true;
     }
     return false;
@@ -3304,7 +3311,7 @@
       .then(function(data){
         decks = data;
         buildHeaderMenus();
-        renderCatalog();
+        setTrack('ib');
         track('catalog_view', { decks: decks.length });
         initHeroCard();
         if (!openFromQuery()) { openFromHash(); }

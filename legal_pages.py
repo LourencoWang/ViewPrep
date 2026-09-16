@@ -202,7 +202,7 @@ def terms_body():
 # ------------------------------------------------------------------------------- faq
 FAQ = [
     ("Is ViewPrep really free?",
-     "Yes, completely. All 650 cards across all 40 decks are free, there is no paid tier, no "
+     "Yes, completely. All 618 cards across all 38 decks are free, there is no paid tier, no "
      "trial, and no card is held back behind an account."),
     ("Do I need an account?",
      "No. You can study every card signed out, and your progress is saved in your browser. An "
@@ -229,7 +229,7 @@ FAQ = [
     ("Can I use it on my phone?",
      "Yes. The site is built to work on a phone, which is where most people actually revise."),
     ("How is this different from Anki?",
-     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 650 cards already "
+     "Anki is a powerful empty container: you supply the cards. ViewPrep ships 618 cards already "
      "written and ordered, so there is nothing to build before you can start. If you already have "
      "a deck you like, Anki is excellent."),
     ("Will you add more cards?",
@@ -290,8 +290,8 @@ def notfound_body():
                 "moved. Nothing is broken; this address just has nothing behind it."))
     o.append(_h("Try one of these instead"))
     o.append(_ul([
-        '<a href="/">Start studying</a> &ndash; 650 free cards, no account needed',
-        '<a href="/decks/">Every deck</a> &ndash; browse all 40 and read the cards as text',
+        '<a href="/">Start studying</a> &ndash; 618 free cards, no account needed',
+        '<a href="/decks/">Every deck</a> &ndash; browse all 38 and read the cards as text',
         '<a href="/faq.html">FAQ</a> &ndash; what this is and how the review scheduling works',
     ]))
     o.append('  <div class="cta-block">')
@@ -399,7 +399,7 @@ PAGES = [
      "What ViewPrep stores, where it goes, which third parties see anything, and how to have "
      "your data deleted.", privacy_body, None, "0.3"),
     ("404.html", "Page not found | ViewPrep",
-     "That page does not exist. Browse the decks or start studying 650 free investment "
+     "That page does not exist. Browse the decks or start studying 618 free investment "
      "banking and consulting interview flashcards.", notfound_body, None, None),
     ("commercial-awareness.html", "Commercial awareness for banking and consulting interviews | ViewPrep",
      "How to build commercial awareness for an investment banking or consulting interview: the "

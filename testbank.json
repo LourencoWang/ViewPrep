@@ -103,58 +103,6 @@
       ]
     }
   ],
-  "quickmaths": [
-    {
-      "q": "Corrigan Foods trades on 12x earnings and is considering an all-share offer for a target on 18x. Using earnings yields, explain whether the deal would be accretive or dilutive before synergies, and why.",
-      "a": "Earnings yield is the inverse of the P/E, so Corrigan’s shares yield about 8.3% while the target’s earnings yield only about 5.6%. In an all-share deal the buyer pays with its own stock, so it is giving up shares worth 8.3% of profit per pound to acquire earnings worth 5.6% per pound. That exchange lowers earnings per share, so the deal is dilutive before synergies. The rule of thumb is that a lower-P/E buyer paying in stock for a higher-P/E target dilutes, and any premium paid on top raises the effective multiple and makes it worse.",
-      "key": [
-        "earnings yield",
-        "8.3%",
-        "dilutive",
-        "premium"
-      ]
-    },
-    {
-      "q": "A colleague claims a business that grew 15% a year for five years has doubled in size. Use the rule of 72 and a rough compounding estimate to say whether that claim is about right.",
-      "a": "The rule of 72 says money growing at 15% a year doubles in about 72 over 15, or 4.8 years, so five years at that rate should be a little more than a doubling. Checking with compounding, 1.15 to the fifth power is about 2.01, since simple addition gives 75% and the cross terms from earlier growth earning further growth add roughly another 25 points. So the claim is about right: the business has doubled, slightly more if anything. The rule is an approximation, but at 15% it sits comfortably inside the range where it works well.",
-      "key": [
-        "rule of 72",
-        "4.8 years",
-        "compounding",
-        "doubled"
-      ]
-    },
-    {
-      "q": "NorthPeak Airlines has a 25% operating margin. Revenue is expected to rise 20% and costs 10%. Without a calculator, work out the change in profit and the new margin, and name the effect at work.",
-      "a": "Scale to 100. A 25% margin means revenue of 100, costs of 75 and profit of 25. Revenue grows 20% to 120 and costs grow 10% to 82.5, so profit becomes 37.5, a rise of 50% from a 20% increase in revenue. The new margin is 37.5 over 120, which is 31.25%, up about six percentage points. The effect is operating leverage: because profit is the thin slice left after costs, a gap between revenue growth and cost growth is magnified when it reaches the bottom line, in both directions.",
-      "key": [
-        "scale to 100",
-        "37.5",
-        "50%",
-        "operating leverage"
-      ]
-    },
-    {
-      "q": "A sponsor proposes borrowing 5x EBITDA for a company earning £60m of EBITDA, at an interest rate of 9%. Work out the debt, the annual interest and the interest cover, and comment on whether the structure looks comfortable.",
-      "a": "Debt capacity at 5x on £60m of EBITDA is £300m. Interest at 9% on £300m is £27m a year, which you can also reach as 5 turns times 9% of £60m, or 5 times £5.4m. Interest cover is EBITDA over interest, £60m over £27m, about 2.2x. That is on the tight side: a 10% fall in EBITDA takes cover to 2.0x, and the business still has to fund tax, capital expenditure and scheduled repayments from the same cash. Most lenders would prefer cover closer to 3x at this leverage.",
-      "key": [
-        "£300m",
-        "£27m",
-        "interest cover",
-        "2.2x"
-      ]
-    },
-    {
-      "q": "Talbrook Industries has EBITDA of £50m and peers trade at 10x EV/EBITDA. It has £30m of net cash and 20m shares. Walk through the steps to an implied share price and explain why the cash moves the answer the way it does.",
-      "a": "Ten times £50m of EBITDA gives an enterprise value of £500m, the price of the whole operating business. Equity value is EV minus net debt, but here the company has net cash, meaning its cash exceeds its debt, so the £30m is added rather than subtracted and equity value is £530m. Dividing by 20m shares gives about £26.50 a share. The cash adds to the price because a buyer of the shares receives it on top of the operations, so it belongs to shareholders in full and sits above the business value rather than inside it.",
-      "key": [
-        "enterprise value",
-        "net cash",
-        "equity value",
-        "£26.50"
-      ]
-    }
-  ],
   "threestatement": [
     {
       "q": "A company records £30 of depreciation at a 30% tax rate. Explain what happens to net income, cash and the balance sheet, and why cash and profit move in opposite directions.",
@@ -1139,58 +1087,6 @@
         "reasons",
         "risk",
         "answer first"
-      ]
-    }
-  ],
-  "casemaths": [
-    {
-      "q": "Revenue went from £820m to £900m. What is the growth rate, and what is the common mistake?",
-      "a": "The increase is £80m. Divided by the starting figure, £820m, it is a little under 10%, about 9.8%, because 80 over 800 would be exactly 10% and the real base is slightly larger. The common mistake is dividing by the new figure, £900m, which gives 8.9% and is the wrong base.",
-      "key": [
-        "80",
-        "820",
-        "starting",
-        "10%"
-      ]
-    },
-    {
-      "q": "A bakery has £2m of fixed costs, sells loaves at £2 with £1.20 of variable cost. What is breakeven, and what would you say next?",
-      "a": "Contribution per loaf is £2 minus £1.20, which is 80p. Breakeven is fixed costs over contribution, £2m divided by £0.80, which is 2.5 million loaves a year, about 7,000 a day. The next thing to say is whether that is plausible for one bakery against the local market, which it probably is not.",
-      "key": [
-        "contribution",
-        "0.80",
-        "2.5 million",
-        "fixed"
-      ]
-    },
-    {
-      "q": "Explain the rule of 72 with an example.",
-      "a": "At a steady growth rate, a quantity doubles in about 72 divided by the rate in years. Revenue growing at 8% a year doubles in about nine years; a market that doubled in four years grew at about 18% a year. It is an approximation that works well for rates under about 20%.",
-      "key": [
-        "72",
-        "double",
-        "years",
-        "rate"
-      ]
-    },
-    {
-      "q": "Why is a 3% price rise usually worth more profit than a 3% cost cut, and what is the catch?",
-      "a": "A price rise with volume held adds 3% of revenue straight to profit, while a cost cut adds 3% of costs, and costs are smaller than revenue for any profitable company. With £1bn of revenue and £900m of costs, the price rise adds £30m and the cost cut £27m. The catch is that price rises can lose customers while cost cuts usually do not, so price is the bigger lever but the riskier one.",
-      "key": [
-        "revenue",
-        "costs",
-        "volume",
-        "customers"
-      ]
-    },
-    {
-      "q": "Describe how to say a calculation out loud so an interviewer can follow it.",
-      "a": "State the formula first, then the inputs and any rounding, then each arithmetic step as you do it, then the answer with its unit, then what it means for the case. That order lets the interviewer correct an input early and never leaves them guessing what you are doing.",
-      "key": [
-        "formula",
-        "inputs",
-        "rounding",
-        "unit"
       ]
     }
   ],
