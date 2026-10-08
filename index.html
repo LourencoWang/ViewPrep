@@ -506,7 +506,11 @@
   }
   .cat-head-n{font-size:.72rem;color:var(--ink-faint);}
   .cat-head::after{content:'';flex:1;height:1px;background:var(--line-soft);}
-  .deck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+  /* Fill the row rather than sitting at a fixed two columns, which left an
+     iPad in landscape and any laptop with two very wide tiles and a lot of
+     empty page. 260px is about the narrowest a deck name plus its one-line
+     description still reads at. */
+  .deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
   .deck-card{
     position:relative;overflow:hidden;
     display:flex;flex-direction:column;gap:1.15rem;
@@ -2186,7 +2190,10 @@
     drop.querySelector('.nav-trigger').setAttribute('aria-expanded', 'true');
     // Open on the first category so the panel is never half empty.
     var groups = DECK_GROUPS[drop.dataset.menu] || [];
-    if (groups.length && window.innerWidth > 860) { showSubmenu(drop, groups[0]); }
+    // A tablet has room for the category list and the deck flyout side by side
+    // (about 480px of the two panels), so open the first category there too and
+    // not just on a laptop. Phones still expand on tap.
+    if (groups.length && window.innerWidth > 720) { showSubmenu(drop, groups[0]); }
   }
 
   (function(){
