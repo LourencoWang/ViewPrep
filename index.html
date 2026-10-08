@@ -586,7 +586,10 @@
 
   /* ---------- test mode ---------- */
   .test{padding:2.5rem 0 4rem;}
-  .test-inner{max-width:700px;margin:0 auto;}
+  /* The deck picker wants the whole page so the tiles spread; the reading and
+     typing views stay narrow, because a 1200px line of prose is unreadable. */
+  .test-inner{max-width:1200px;margin:0 auto;}
+  #test-questions, #test-one{max-width:700px;margin:0 auto;}
   .test-topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
     padding-bottom:1rem;border-bottom:1px solid var(--line-soft);margin-bottom:1.8rem;
     flex-wrap:wrap;}
@@ -665,7 +668,7 @@
   .test-group-lbl{font-family:var(--display);font-weight:700;font-size:.86rem;
     text-transform:uppercase;letter-spacing:.06em;color:var(--ink);
     border-left:4px solid var(--amber);padding-left:.55rem;margin:2rem 0 .9rem;}
-  .test-deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  .test-deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));
     gap:.8rem;}
   .test-deck{all:unset;cursor:pointer;box-sizing:border-box;display:flex;
     flex-direction:column;gap:.55rem;padding:1rem 1.1rem 1.05rem;border-radius:14px;
@@ -709,8 +712,10 @@
     text-decoration:underline;text-underline-offset:3px;}
   .test-retry:hover{color:var(--ink);}
   .test-retry:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+  /* Two up on a large phone in landscape and on small tablets, one up on a
+     phone held normally. */
   @media (max-width:620px){
-    .test-deck-grid{grid-template-columns:1fr;}
+    .test-deck-grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));}
     .test-onenav{width:100%;}
     .test-onenav button{flex:1 1 auto;justify-content:center;text-align:center;}
   }
@@ -2147,6 +2152,22 @@
     sub.hidden = false;
   }
 
+  // Leave whatever view is open and land on the catalog with this track
+  // selected. Study sessions go out through backToCatalog so the session is
+  // ended and counted rather than just hidden.
+  function goToCatalogTrack(track){
+    if (!els.testView.hidden) {
+      exitTest();
+    } else if (!els.study.hidden) {
+      backToCatalog();
+    } else if (!els.introSection.hidden) {
+      els.introSection.hidden = true;
+      els.mainView.hidden = false;
+      setNav('decks');
+    }
+    setTrack(track, false);
+  }
+
   function closeAllMenus(){
     Array.prototype.forEach.call(document.querySelectorAll('.nav-drop'), function(d){
       d.classList.remove('is-open');
@@ -2172,6 +2193,11 @@
     Array.prototype.forEach.call(document.querySelectorAll('.nav-drop'), function(drop){
       drop.querySelector('.nav-trigger').addEventListener('click', function(e){
         e.stopPropagation();
+        // The track button is navigation first and a menu second. From Test
+        // yourself, a deck or an intro it goes back to the catalog on that
+        // track, so the header is always a way out; otherwise the dropdown
+        // opens over whatever you were on and there is no way back.
+        if (!drop.classList.contains('is-open')) { goToCatalogTrack(drop.dataset.menu); }
         openMenu(drop);
       });
       // Picking a deck from the menu while studying or testing should leave
