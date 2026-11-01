@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 19</div>
     <h2>Operating expenses go up by £40. Tax rate 25%. In what order do you walk the three statements, and why that order?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-0" viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-0 .on{fill:var(--contrast);}#dg-threestatement-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The route, every time</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -525,15 +522,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 19</div>
     <h2>£40 of revenue is booked on credit at a 25% tax rate. Show me the check you run before answering “does it balance?”</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-1" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-1 .on{fill:var(--contrast);}#dg-threestatement-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£40 sale on credit, 25% tax</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -569,15 +559,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 19</div>
     <h2>A week later the retailer sells that £30 of inventory to a trade customer for £50, payable in 30 days. Tax rate 25%. Walk me through it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-3" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-3 .on{fill:var(--contrast);}#dg-threestatement-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£50 credit sale, £30 cost</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -618,15 +601,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 19</div>
     <h2>On 1 January, the food manufacturer pays £24 up front for a year’s rent on a warehouse. Tax rate 25%. Walk me through the day of payment and then the year as a whole.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-5" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-5 .on{fill:var(--contrast);}#dg-threestatement-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£24 rent, paid in advance</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -656,15 +632,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 19</div>
     <h2>A software company sells a £120 annual software subscription and the customer pays the whole year on day one. Tax rate 25%. Walk me through the receipt, then the year.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-6" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-6 .on{fill:var(--contrast);}#dg-threestatement-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£120 subscription, paid up front</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -694,15 +663,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 19</div>
     <h2>A haulage company buys a £100 sorting machine for cash on 1 January and depreciates it straight-line over five years. Tax rate 25%. Walk me through the purchase and the first year.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-7" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-7 .on{fill:var(--contrast);}#dg-threestatement-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£100 machine, 5-year life</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -750,15 +712,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 19</div>
     <h2>A software company grants employees £12 of stock-based compensation this year, tax-deductible at 25%. Walk me through it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-11" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-11 .on{fill:var(--contrast);}#dg-threestatement-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£12 stock comp, 25% tax</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -794,15 +749,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 19</div>
     <h2>A components maker sells an old press with a book value of £40 for £50 in cash. Tax rate 25%. Walk me through it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-13" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-13 .on{fill:var(--contrast);}#dg-threestatement-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£40 asset sold for £50</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -832,15 +780,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 19</div>
     <h2>At year end, the firm has earned its staff a £20 bonus that won’t be paid until February. Tax rate 25%. Walk me through the year-end statements.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-14" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-14 .on{fill:var(--contrast);}#dg-threestatement-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£20 bonus earned, unpaid</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -870,15 +811,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 19</div>
     <h2>A machinery company depreciates a machine £20 a year in its accounts, but the tax authority lets it deduct £40 this year. Tax rate 25%. Walk me through it, including the deferred tax.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-15" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-15 .on{fill:var(--contrast);}#dg-threestatement-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Book dep. £20, tax dep. £40</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -913,15 +847,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 17 of 19</div>
     <h2>Two at once: in the same year, the hospital group invoices £40 of services that remain unpaid at year end and records £16 of depreciation. Tax rate 25%. Walk me through it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-16" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-16 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-16 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-16 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-16 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-16 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-16 .on{fill:var(--contrast);}#dg-threestatement-16 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Two events, one walk-through</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -956,15 +883,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 18 of 19</div>
     <h2>Name a single change that has no effect on the income statement but reduces cash. Then tell me the family it belongs to.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-17" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-17 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-17 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-17 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-17 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-17 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-17 .on{fill:var(--contrast);}#dg-threestatement-17 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--amber)">No profit hit, cash down</text>
@@ -986,15 +906,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 19 of 19</div>
     <h2>A UK company reporting under IFRS sits next to a US one in your comps. Where does each put the £10 of interest it paid on the cash flow statement, and why does that matter?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-threestatement-18" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-threestatement-18 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-threestatement-18 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-threestatement-18 .val{font:700 12px Arial;fill:var(--ink);}#dg-threestatement-18 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-threestatement-18 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-threestatement-18 .on{fill:var(--contrast);}#dg-threestatement-18 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£10 interest paid, 25% tax</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>

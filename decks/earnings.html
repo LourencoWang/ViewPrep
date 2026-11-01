@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is an earnings release, and what is in it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-0" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-0 .on{fill:var(--contrast);}#dg-earnings-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">What is in a results release</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -524,15 +521,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>What is consensus, and where does it come from?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-1" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-1 .on{fill:var(--contrast);}#dg-earnings-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Fifteen analysts, one average: the number already in the price</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -547,15 +537,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What does it mean to beat or miss, and why does a beat not guarantee the share price rises?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-2" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-2 .on{fill:var(--contrast);}#dg-earnings-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">A beat on consensus, a miss on the whisper</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -575,15 +558,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>What is guidance, and why does it often move the share price more than the results themselves?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-3" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-3 .on{fill:var(--contrast);}#dg-earnings-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--ink-faint)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--ink-faint)">Results</text>
@@ -602,26 +578,19 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>A food manufacturer reports record profit, beats consensus by 3%, and the shares fall 6% by lunchtime. Explain to a client what happened.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-4" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-4 .on{fill:var(--contrast);}#dg-earnings-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Up 15% into results, down 6% on a beat</text>
-  <line x1="30" y1="140" x2="430" y2="140" class="axis"/>
+  <line x1="30" y1="140" x2="420" y2="140" class="axis"/>
   <line x1="30" y1="30" x2="30" y2="140" class="axis"/>
   <text x="30" y="154" text-anchor="middle" class="lbl">4 wks out</text>
-  <text x="130" y="154" text-anchor="middle" class="lbl">3</text>
-  <text x="230" y="154" text-anchor="middle" class="lbl">2</text>
-  <text x="330" y="154" text-anchor="middle" class="lbl">results</text>
-  <text x="430" y="154" text-anchor="middle" class="lbl">lunch</text>
-  <polyline points="30,53 130,50 230,45 330,40 430,46" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="430" y="38" text-anchor="end" class="lbl-strong" style="font-size:10px;fill:var(--blue)">FOOD MANUFACTURER share price</text>
+  <text x="127.5" y="154" text-anchor="middle" class="lbl">3</text>
+  <text x="225" y="154" text-anchor="middle" class="lbl">2</text>
+  <text x="322.5" y="154" text-anchor="middle" class="lbl">results</text>
+  <text x="420" y="154" text-anchor="middle" class="lbl">lunch</text>
+  <polyline points="30,53 127.5,50 225,45 322.5,40 420,46" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="420" y="38" text-anchor="end" class="lbl-strong" style="font-size:10px;fill:var(--blue)">Share price</text>
 </svg></div>
     <p class="takeaway">The market prices the surprise, not the result, and a beat that was smaller than hoped, or paired with weaker guidance, is a negative surprise.</p>
     <p class="answer">Start with what was priced in: the shares had run up 15% into results, so investors were expecting more than consensus, and a 3% beat was less than the whisper number. Then look at what else was in the statement: guidance for next year was held rather than raised, margins fell despite the profit growth, and on the call management sounded cautious about input costs. The record profit was true and already known to be likely; the new information was that growth is slowing. The price moves on new information. This is the single most useful idea in the whole topic, and interviewers love it.</p>
@@ -629,15 +598,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>What is the whisper number?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-5" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-5 .on{fill:var(--contrast);}#dg-earnings-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Beat the number, missed the whisper</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -662,15 +624,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>What are adjusted earnings, and why should you be sceptical of them?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-7" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-7 .on{fill:var(--contrast);}#dg-earnings-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£15m of &quot;one-offs&quot; removed. Does the gap ever close?</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -687,15 +642,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>What is a profit warning, and why does the share price react so violently to one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-8" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-8 .on{fill:var(--contrast);}#dg-earnings-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">A profit warning: expectations reset and trust goes with them</text>
   <line x1="30" y1="140" x2="430" y2="140" class="axis"/>
@@ -715,15 +663,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is the difference between organic growth and reported growth, and why do analysts strip out acquisitions and currency?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-9 .on{fill:var(--contrast);}#dg-earnings-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">12% reported, 1% organic (percentage points)</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -748,15 +689,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>Why do companies buy back their own shares around results, and how does it affect earnings per share?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-10" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-10 .on{fill:var(--contrast);}#dg-earnings-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Profit unchanged, EPS up 11%</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -788,15 +722,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>How do results feed into a bank&#x27;s day-to-day work, in advisory and in research?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-12" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-12 .on{fill:var(--contrast);}#dg-earnings-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Where a quarter goes inside a bank</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -821,15 +748,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>A retailer reports a 4% revenue miss but raises full-year profit guidance. What is the market likely to do, and why?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-13" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-13 .on{fill:var(--contrast);}#dg-earnings-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--amber)">Miss</text>
@@ -848,15 +768,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>What should you read on a company before an interview at the bank that covers it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-earnings-14" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-earnings-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-earnings-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-earnings-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-earnings-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-earnings-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-earnings-14 .on{fill:var(--contrast);}#dg-earnings-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">An evening of prep for any company</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

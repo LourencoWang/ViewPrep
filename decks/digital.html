@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,15 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>A haulage company wants to move its booking process online. The software company wants to launch a new logistics marketplace. Why do those two need completely different structures, even though both get called digital?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-1" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-1 .on{fill:var(--contrast);}#dg-digital-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Digitise what exists</text>
@@ -528,15 +525,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>The retailer&#x27;s website had five million visits last year and 125,000 orders at an average basket of £60. Walk me down that funnel and tell me where a digital case usually breaks.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-2" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-2 .on{fill:var(--contrast);}#dg-digital-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">RETAILER online, one year</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -570,15 +560,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>The retailer&#x27;s head of e-commerce wants £1m of extra media spend to buy 20% more visits. Your analyst thinks the team could add a point of conversion instead. Off the same £7.5m base, which is worth more?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-3" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-3 .on{fill:var(--contrast);}#dg-digital-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Revenue £m, same basket</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -600,15 +583,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>The retailer&#x27;s CFO says every order pushed online saves the cost of a shop. Talk her through the cost to serve on a £60 order in store and the same order online.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-4" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-4 .on{fill:var(--contrast);}#dg-digital-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">In store: £14.00</text>
@@ -631,15 +607,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>The retailer&#x27;s online sales grew £12m last year and the board is delighted. The stores within five miles of those customers fell £6.6m. What did that £12m actually earn?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-5" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-5 .on{fill:var(--contrast);}#dg-digital-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Not all growth is incremental</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -671,15 +640,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>A vendor tells the retailer that automating its contact centre will deflect 40% of 1.2 million contacts and save £864,000 a year. Show me how that number is built and what is wrong with it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-7" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-7 .on{fill:var(--contrast);}#dg-digital-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£k a year, claimed vs real</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -711,15 +673,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>A retailer needs a product recommendation engine. Building it is £2.5m and eighteen months, then £600k a year to run. Licensing one is £900k a year and live in eight weeks. How do you decide?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-9" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-9 .on{fill:var(--contrast);}#dg-digital-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Build, buy or partner</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -759,15 +714,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>The client’s IT director says a simple price change will take four months. The commercial director thinks he is stalling. Explain legacy systems and technical debt to her in plain words.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-10" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-10 .on{fill:var(--contrast);}#dg-digital-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">A two-week change, in weeks</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Write the code</text>
@@ -796,15 +744,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>A software company wants a free tier. It would have 500,000 free users at 75p a month to serve, and its paid plan earns £14 a month of contribution. What conversion does freemium need before it works here?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-12" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-12 .on{fill:var(--contrast);}#dg-digital-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">What freemium has to convert</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -832,15 +773,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>The retailer&#x27;s app redesign lifted time in app by 18% and the team is calling it a success. Orders per visitor went from 2.5% to 2.3%. Which two or three metrics should the programme be judged on?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-13" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-13 .on{fill:var(--contrast);}#dg-digital-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Engagement up, orders down</text>
   <line x1="30" y1="150" x2="430" y2="150" class="axis"/>
@@ -867,15 +801,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>The retailer&#x27;s online channel did £54m last year at a £60 average order, 40% gross margin and £16.20 of cost to serve, against £10m of warehouse, technology and marketing. It grew a fifth and lost about £3m. What do you do?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-digital-15" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-digital-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-digital-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-digital-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-digital-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-digital-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-digital-15 .on{fill:var(--contrast);}#dg-digital-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Why the channel loses £3m</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>A food manufacturer has EBIT of £100m, a 25% tax rate, £20m of depreciation, £30m of capex, and working capital that grows by £5m this year. Build me its unlevered free cash flow and give me the number.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-0" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-0 .on{fill:var(--contrast);}#dg-dcf-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Unlevered free cash flow build</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -533,15 +530,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>A cash flow of £60m arrives in three years and the discount rate is 10%. What is the discount factor, what is the present value, and what does that factor actually represent?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-2" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-2 .on{fill:var(--contrast);}#dg-dcf-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Discounting one cash flow</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -568,15 +558,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 18</div>
     <h2>Build me the industrial target&#x27;s cost of equity. The ten-year gilt yields 4.5%, its beta is 1.3 and the house equity risk premium is 5%. Show the number and tell me where each input comes from.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-4" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-4 .on{fill:var(--contrast);}#dg-dcf-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">CAPM inputs</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -606,15 +589,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 18</div>
     <h2>A hedge fund borrows at 8% and pays 25% tax. Its shares are worth £800m in total and its debt £200m. Give me the after-tax cost of debt and the WACC, and remind me why interest gets the tax treatment it does.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-5" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-5 .on{fill:var(--contrast);}#dg-dcf-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">WACC at market-value weights</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -650,15 +626,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 18</div>
     <h2>A listed food company, your closest peer, has a beta of 1.15 with debt equal to 20% of its equity. The food company runs debt at 60% of equity. Take me from the listed food company&#x27;s beta to one you can use for the food company, at a 25% tax rate.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-7" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-7 .on{fill:var(--contrast);}#dg-dcf-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Unlever, then relever</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -679,15 +648,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 18</div>
     <h2>The industrial target&#x27;s final forecast year shows £70m of free cash flow. With WACC at 10% and long-run growth of 2%, give me the perpetuity-growth terminal value and the sanity check on that 2%.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-8" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-8 .on{fill:var(--contrast);}#dg-dcf-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Perpetuity growth terminal value</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -708,15 +670,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 18</div>
     <h2>Year-3 EBITDA is £120m and peers trade at 8x, so you use an 8x exit multiple. What terminal value does that give, and how do you check it against the growth method?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-9" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-9 .on{fill:var(--contrast);}#dg-dcf-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Growth implied by an 8x exit</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -737,15 +692,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>In a three-year DCF the terminal value is 81% of enterprise value. Is that a problem, and what do you do about it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-10" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-10 .on{fill:var(--contrast);}#dg-dcf-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Terminal value as a share of EV</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -762,15 +710,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 18</div>
     <h2>The industrial target: free cash flow of £60m, £65m and £70m over three years, a terminal value of £892.5m, WACC 10%, £200m of debt, £40m of cash and 100m shares. Take me all the way to a share price.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-11" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-11 .on{fill:var(--contrast);}#dg-dcf-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">INDUSTRIAL TARGET mini-DCF at 10%</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -810,36 +751,29 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 18</div>
     <h2>What does an £831m enterprise value do if WACC goes to 9% or 11%, or long-run growth to 1% or 3%? Walk me through the direction and rough size of each move.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-12" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-12 .on{fill:var(--contrast);}#dg-dcf-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Enterprise value, £m</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">WACC 9%</text>
-  <rect x="140" y="26" width="220" height="18" rx="4" fill="var(--green)"/>
-  <text x="366" y="39" class="val">951.1</text>
+  <rect x="140" y="26" width="195.8" height="18" rx="4" fill="var(--green)"/>
+  <text x="341.8" y="39" class="val">951.1</text>
   <text x="440" y="39" text-anchor="end" class="cap">g at 2%</text>
   <text x="0" y="69" class="lbl-strong" style="font-size:10px">Base case</text>
-  <rect x="140" y="56" width="192" height="18" rx="4" fill="var(--blue)"/>
-  <text x="338" y="69" class="val">831.1</text>
+  <rect x="140" y="56" width="170.9" height="18" rx="4" fill="var(--blue)"/>
+  <text x="316.9" y="69" class="val">831.1</text>
   <text x="440" y="69" text-anchor="end" class="cap">WACC 10%, g 2%</text>
   <text x="0" y="99" class="lbl-strong" style="font-size:10px">WACC 11%</text>
-  <rect x="140" y="86" width="171" height="18" rx="4" fill="var(--amber)"/>
-  <text x="317" y="99" class="val">738.0</text>
+  <rect x="140" y="86" width="152.2" height="18" rx="4" fill="var(--amber)"/>
+  <text x="298.2" y="99" class="val">738.0</text>
   <text x="440" y="99" text-anchor="end" class="cap">g at 2%</text>
   <text x="0" y="129" class="lbl-strong" style="font-size:10px">Growth 3%</text>
-  <rect x="140" y="116" width="216" height="18" rx="4" fill="var(--green)"/>
-  <text x="362" y="129" class="val">934.3</text>
+  <rect x="140" y="116" width="192.3" height="18" rx="4" fill="var(--green)"/>
+  <text x="338.3" y="129" class="val">934.3</text>
   <text x="440" y="129" text-anchor="end" class="cap">WACC at 10%</text>
   <text x="0" y="159" class="lbl-strong" style="font-size:10px">Growth 1%</text>
-  <rect x="140" y="146" width="174" height="18" rx="4" fill="var(--amber)"/>
-  <text x="320" y="159" class="val">750.8</text>
+  <rect x="140" y="146" width="154.9" height="18" rx="4" fill="var(--amber)"/>
+  <text x="300.9" y="159" class="val">750.8</text>
   <text x="440" y="159" text-anchor="end" class="cap">WACC at 10%</text>
 </svg></div>
     <p class="takeaway">Value falls as WACC rises and rises with growth, and one point moves this DCF by £80m to £120m, mostly via the terminal value.</p>
@@ -860,15 +794,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>Why does the standard DCF template break for a bank, and what do you build instead?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-15" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-15 .on{fill:var(--contrast);}#dg-dcf-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Bank DDM: what gets valued</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -898,15 +825,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 18 of 18</div>
     <h2>A company’s WACC is 10%, yet a private equity buyer says it needs a 22% return before it will look at buying the business. Why is a PE fund’s hurdle so much higher than WACC, and how do the two connect?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dcf-17" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dcf-17 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dcf-17 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dcf-17 .val{font:700 12px Arial;fill:var(--ink);}#dg-dcf-17 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dcf-17 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dcf-17 .on{fill:var(--contrast);}#dg-dcf-17 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Required return, lowest to highest</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>

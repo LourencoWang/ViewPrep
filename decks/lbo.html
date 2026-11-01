@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,12 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 18</div>
     <h2>How is a private equity firm buying a company like a person buying a house with a mortgage?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .inbar{font:700 9px Arial;fill:var(--contrast);}
+    <div class="diagram"><svg id="dg-lbo-1" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-1 .sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-lbo-1 .inbar{font:700 9px Arial;fill:var(--contrast);}
   </style>
   <line x1="30" y1="140" x2="410" y2="140" stroke="var(--line-soft)" stroke-width="1.5"/>
   <rect x="60" y="60" width="110" height="80" fill="var(--blue)" opacity="0.8"/>
@@ -524,12 +524,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>What actually happens in a leveraged buyout, step by step?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.02em;}
-    .arw{fill:none;stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-lbo-2" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-2 .sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.02em;}#dg-lbo-2 .arw{fill:none;stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="220" y="16" text-anchor="middle" class="lbl">THE LBO IN FOUR MOVES</text>
   <rect x="4" y="30" width="96" height="56" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -555,15 +551,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 18</div>
     <h2>Where does the money in a private equity fund really come from, and how does the firm get paid?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .c{font:600 9px Arial;fill:var(--ink);text-transform:uppercase;text-anchor:middle;}
-    .soft{fill:var(--ink-soft);}
-    .on{fill:var(--contrast);}
-    .lp{fill:var(--surface);stroke:var(--blue);stroke-width:1.3;}
-    .pc{fill:var(--surface);stroke:var(--line);stroke-width:1;}
-    .conn{stroke:var(--line-soft);stroke-width:1.3;}
+    <div class="diagram"><svg id="dg-lbo-3" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-lbo-3 .c{font:600 9px Arial;fill:var(--ink);text-transform:uppercase;text-anchor:middle;}#dg-lbo-3 .soft{fill:var(--ink-soft);}#dg-lbo-3 .on{fill:var(--contrast);}#dg-lbo-3 .lp{fill:var(--surface);stroke:var(--blue);stroke-width:1.3;}#dg-lbo-3 .pc{fill:var(--surface);stroke:var(--line);stroke-width:1;}#dg-lbo-3 .conn{stroke:var(--line-soft);stroke-width:1.3;}
   </style>
   <text x="220" y="16" class="lbl">LIMITED PARTNERS SUPPLY ALMOST ALL THE CAPITAL</text>
   <rect class="lp" x="12" y="24" width="128" height="28" rx="6"/>
@@ -601,13 +590,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 18</div>
     <h2>What is a sources and uses table, and what has to be true of it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.row{font:600 10.5px Arial;fill:var(--ink-soft);}
-    .num{font:700 10.5px Arial;fill:var(--ink);}
-    .rule{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-lbo-5" viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-5 .row{font:600 10.5px Arial;fill:var(--ink-soft);}#dg-lbo-5 .num{font:700 10.5px Arial;fill:var(--ink);}#dg-lbo-5 .rule{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <text x="14" y="20" class="lbl" style="fill:var(--blue);">SOURCES</text>
   <text x="234" y="20" class="lbl" style="fill:var(--amber);">USES</text>
@@ -632,12 +616,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>What sits in an LBO capital structure, and who gets paid first if things go wrong?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.bar{font:700 11px Arial;fill:var(--contrast);}
-    .side{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-lbo-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-6 .bar{font:700 11px Arial;fill:var(--contrast);}#dg-lbo-6 .side{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
   </style>
   <text x="220" y="16" text-anchor="middle" class="lbl">WHO GETS PAID, IN ORDER</text>
   <line x1="62" y1="28" x2="62" y2="164" stroke="var(--line-soft)" stroke-width="1.5"/>
@@ -662,11 +642,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 18</div>
     <h2>Why does debt magnify buyout returns in both directions?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.02em;}
+    <div class="diagram"><svg id="dg-lbo-7" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-7 .sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.02em;}
   </style>
   <text x="220" y="18" text-anchor="middle" class="lbl">SAME 30 PERCENT MOVE, VERY DIFFERENT EQUITY</text>
   <line x1="20" y1="150" x2="420" y2="150" stroke="var(--line-soft)" stroke-width="1.5"/>
@@ -691,12 +668,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 18</div>
     <h2>What do IRR and multiple of money each measure, and why do sponsors always quote both?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .badge{font:700 12px Arial;}
+    <div class="diagram"><svg id="dg-lbo-8" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-8 .sub{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-lbo-8 .badge{font:700 12px Arial;}
   </style>
   <rect x="10" y="52" width="88" height="62" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="54" y="76" text-anchor="middle" class="sub">SAME</text>
@@ -719,10 +692,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 18</div>
     <h2>Where does the cash a portfolio company generates actually go each year while a sponsor owns it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-lbo-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <text x="220" y="18" text-anchor="middle" class="lbl">SAME ENTERPRISE VALUE, A BIGGER SLICE IS YOURS</text>
   <rect x="40" y="30" width="50" height="33.0" fill="var(--amber)"/>
@@ -755,13 +726,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>What are the three levers of value creation in a buyout, and which one would you not lean on?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
-    .nm{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;text-anchor:middle;}
-    .dash{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-lbo-10" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-10 .val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}#dg-lbo-10 .nm{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;text-anchor:middle;}#dg-lbo-10 .dash{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="4" y1="150" x2="436" y2="150" stroke="var(--line-soft)" stroke-width="1.5"/>
   <rect x="9" y="111" width="70" height="39" fill="var(--blue)"/>
@@ -795,13 +761,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 18</div>
     <h2>What is a paper LBO, and what is the interviewer actually asking you to do?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.row{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .num{font:700 11px Arial;fill:var(--ink);}
-    .rule{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-lbo-11" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-11 .row{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-lbo-11 .num{font:700 11px Arial;fill:var(--ink);}#dg-lbo-11 .rule{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <text x="250" y="22" text-anchor="middle" class="lbl" style="fill:var(--blue);">ENTRY</text>
   <text x="380" y="22" text-anchor="middle" class="lbl" style="fill:var(--amber);">EXIT, YEAR 5</text>
@@ -861,12 +822,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 18 of 18</div>
     <h2>A model shows 2.7x exiting at 8.0x EBITDA. What happens if you exit at 7.0x instead, and does the deal still work?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-.num{font:700 12px Arial;fill:var(--ink);}
-    .head{font:700 13px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-lbo-17" viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-lbo-17 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-lbo-17 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-lbo-17 .num{font:700 12px Arial;fill:var(--ink);}#dg-lbo-17 .head{font:700 13px Arial;fill:var(--ink);}
   </style>
   <text x="220" y="16" text-anchor="middle" class="lbl">SAME COMPANY, SAME DEBT, ONLY THE EXIT MULTIPLE MOVES</text>
   <rect x="118" y="26" width="96" height="28" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>

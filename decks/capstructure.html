@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,24 +495,17 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is capital structure?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-0" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-0 .on{fill:var(--contrast);}#dg-capstructure-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
-  <text x="0" y="14" class="lbl">FIRM &amp; Co.: how the assets are paid for</text>
+  <text x="0" y="14" class="lbl">How a company’s assets are paid for</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Debt</text>
-  <rect x="140" y="26" width="94" height="18" rx="4" fill="var(--amber)"/>
-  <text x="240" y="39" class="val">30%</text>
+  <rect x="140" y="26" width="72.9" height="18" rx="4" fill="var(--amber)"/>
+  <text x="218.9" y="39" class="val">30%</text>
   <text x="440" y="39" text-anchor="end" class="cap">£300m of loans</text>
   <text x="0" y="69" class="lbl-strong" style="font-size:10px">Equity</text>
-  <rect x="140" y="56" width="220" height="18" rx="4" fill="var(--blue)"/>
-  <text x="366" y="69" class="val">70%</text>
+  <rect x="140" y="56" width="170.5" height="18" rx="4" fill="var(--blue)"/>
+  <text x="316.5" y="69" class="val">70%</text>
   <text x="440" y="69" text-anchor="end" class="cap">£700m from owners</text>
 </svg></div>
     <p class="takeaway">The mix of debt and equity a company uses to fund its assets.</p>
@@ -517,15 +514,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>Why is debt cheaper than equity?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-1" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-1 .on{fill:var(--contrast);}#dg-capstructure-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Lenders take less risk and interest is tax-deductible</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -547,15 +537,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>If debt is cheaper, why not fund the company entirely with debt?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-2 .on{fill:var(--contrast);}#dg-capstructure-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Cheaper debt pulls WACC down, distress costs push it back up</text>
   <line x1="30" y1="140" x2="430" y2="140" class="axis"/>
@@ -577,15 +560,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>What is the cost of equity, and how is it usually estimated?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-3" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-3 .on{fill:var(--contrast);}#dg-capstructure-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">CAPM</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -606,15 +582,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>What is the cost of debt, and why is it taken after tax?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-4" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-4 .on{fill:var(--contrast);}#dg-capstructure-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Interest is deducted before tax, so the real cost is lower</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
@@ -635,15 +604,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>What is WACC, and what is it used for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-5" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-5 .on{fill:var(--contrast);}#dg-capstructure-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The hurdle every investment has to clear</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
@@ -664,15 +626,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>Why does WACC use market values of debt and equity rather than book values?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-6" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-6 .on{fill:var(--contrast);}#dg-capstructure-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Weight by what the claims are worth today</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -697,15 +652,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>What is financial leverage, and how does it magnify returns to shareholders in both directions?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-8" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-8 .on{fill:var(--contrast);}#dg-capstructure-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Return on equity: leverage widens both outcomes</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -727,15 +675,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is a credit rating, and how does it feed back into capital structure decisions?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-9" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-9 .on{fill:var(--contrast);}#dg-capstructure-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Investment grade is left of BBB−; costs jump across it</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -756,15 +697,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>What is the pecking order theory, and what does it predict about how companies actually raise money?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-10" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-10 .on{fill:var(--contrast);}#dg-capstructure-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Pecking order: cheapest signal first, equity last</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
@@ -784,28 +718,21 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>Why do companies in different industries carry such different amounts of debt?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-11" viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-11 .on{fill:var(--contrast);}#dg-capstructure-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Typical net debt ÷ EBITDA by industry</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Regulated utility</text>
-  <rect x="140" y="26" width="220" height="18" rx="4" fill="var(--blue)"/>
-  <text x="366" y="39" class="val">5x</text>
+  <rect x="140" y="26" width="157.9" height="18" rx="4" fill="var(--blue)"/>
+  <text x="303.9" y="39" class="val">5x</text>
   <text x="440" y="39" text-anchor="end" class="cap">steady cash, hard assets</text>
   <text x="0" y="69" class="lbl-strong" style="font-size:10px">Retailer</text>
-  <rect x="140" y="56" width="110" height="18" rx="4" fill="var(--amber)"/>
-  <text x="256" y="69" class="val">2.5x</text>
+  <rect x="140" y="56" width="78.9" height="18" rx="4" fill="var(--amber)"/>
+  <text x="224.9" y="69" class="val">2.5x</text>
   <text x="440" y="69" text-anchor="end" class="cap">seasonal, some property</text>
   <text x="0" y="99" class="lbl-strong" style="font-size:10px">Software</text>
-  <rect x="140" y="86" width="22" height="18" rx="4" fill="var(--green)"/>
-  <text x="168" y="99" class="val">0.5x</text>
+  <rect x="140" y="86" width="15.8" height="18" rx="4" fill="var(--green)"/>
+  <text x="161.8" y="99" class="val">0.5x</text>
   <text x="440" y="99" text-anchor="end" class="cap">volatile, people and code</text>
 </svg></div>
     <p class="takeaway">Stable, asset-heavy businesses can borrow a lot; volatile or intangible ones cannot, because lenders want predictable cash and something to seize.</p>
@@ -814,15 +741,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>What is a leveraged recapitalisation, and why would a company do one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-12" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-12 .on{fill:var(--contrast);}#dg-capstructure-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Leveraged recap: same business, swapped funding</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -848,15 +768,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>A company is considering funding a £200m acquisition with either new shares or a new loan. What are the arguments each way?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-13" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-13 .on{fill:var(--contrast);}#dg-capstructure-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--amber)">Fund with debt</text>
@@ -877,15 +790,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>How does capital structure connect to an LBO?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-14" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-14 .on{fill:var(--contrast);}#dg-capstructure-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">LBO: the debt is repaid, the equity grows 75%</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -911,15 +817,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>What discount rate would you use for a DCF, and how would you get it? Give the answer in order.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-capstructure-15" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-capstructure-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-capstructure-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-capstructure-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-capstructure-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-capstructure-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-capstructure-15 .on{fill:var(--contrast);}#dg-capstructure-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">What discount rate, and how</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,11 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 15</div>
     <h2>How is a consultant’s job on an M&amp;A case different from a banker’s?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 172" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .hd{font:700 11px Arial;text-anchor:middle;text-transform:uppercase;letter-spacing:.05em;}
-    .ln{font:400 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-mnacases-0" viewBox="0 0 440 172" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-0 .hd{font:700 11px Arial;text-anchor:middle;text-transform:uppercase;letter-spacing:.05em;}#dg-mnacases-0 .ln{font:400 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
   </style>
   <rect x="18" y="30" width="192" height="122" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
   <rect x="230" y="30" width="192" height="122" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
@@ -517,12 +518,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 15</div>
     <h2>An interviewer gives you almost nothing: “our client wants to buy this company, should they?” What is the core structure for an acquisition case?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 168" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .t1{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.02em;}
-    .t2{font:400 9px Arial;fill:var(--contrast);text-anchor:middle;}
-    .arw{stroke:var(--line);stroke-width:1.4;}
+    <div class="diagram"><svg id="dg-mnacases-1" viewBox="0 0 440 168" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-1 .t1{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.02em;}#dg-mnacases-1 .t2{font:400 9px Arial;fill:var(--contrast);text-anchor:middle;}#dg-mnacases-1 .arw{stroke:var(--line);stroke-width:1.4;}
   </style>
   <text x="220" y="22" class="lbl" text-anchor="middle">Answer them in order</text>
   <rect x="10" y="38" width="96" height="60" rx="8" fill="var(--blue)"/>
@@ -562,12 +559,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 15</div>
     <h2>What are the main diligence workstreams on an acquisition, and what does each one own?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 206" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .nm{font:700 10.5px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .qs{font:400 9px Arial;fill:var(--ink-faint);}
-    .cell{fill:var(--surface);stroke:var(--line-soft);stroke-width:1.2;}
+    <div class="diagram"><svg id="dg-mnacases-4" viewBox="0 0 440 206" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-4 .nm{font:700 10.5px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-mnacases-4 .qs{font:400 9px Arial;fill:var(--ink-faint);}#dg-mnacases-4 .cell{fill:var(--surface);stroke:var(--line-soft);stroke-width:1.2;}
   </style>
   <text x="220" y="18" class="lbl" text-anchor="middle">Six workstreams, six ways a deal fails</text>
   <rect x="12" y="30" width="132" height="70" rx="7" class="cell"/>
@@ -608,12 +601,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 15</div>
     <h2>“We’ll save money by combining the two head offices.” How would you turn that sentence into a number you would actually defend?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .val{font:700 9.5px Arial;fill:var(--ink);text-anchor:middle;}
-    .yr{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-mnacases-6" viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-mnacases-6 .val{font:700 9.5px Arial;fill:var(--ink);text-anchor:middle;}#dg-mnacases-6 .yr{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
   </style>
   <rect x="48" y="12" width="10" height="10" rx="2" fill="var(--blue)"/>
   <text x="64" y="21" class="lbl">Recurring saving</text>
@@ -646,12 +635,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 15</div>
     <h2>A team has stacked up $90 million of synergies on a target. What has to come back out of that number before it goes in front of the client?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 192" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
-    .conn{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-mnacases-7" viewBox="0 0 440 192" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-7 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-mnacases-7 .val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}#dg-mnacases-7 .conn{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}#dg-mnacases-7 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="20" y1="150" x2="420" y2="150" class="axis"/>
   <rect x="30" y="50" width="70" height="100" rx="3" fill="var(--blue)"/>
@@ -680,11 +665,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 15</div>
     <h2>A target’s three largest customers are 55% of revenue, and two of those already buy from your client. Why does that combination worry you more than either fact alone?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .seg{font:700 9.5px Arial;text-anchor:middle;}
-    .note{font:400 9.5px Arial;fill:var(--ink-soft);}
+    <div class="diagram"><svg id="dg-mnacases-8" viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-8 .seg{font:700 9.5px Arial;text-anchor:middle;}#dg-mnacases-8 .note{font:400 9.5px Arial;fill:var(--ink-soft);}
   </style>
   <text x="30" y="22" class="lbl">Target revenue by customer</text>
   <rect x="30" y="46" width="122" height="34" rx="3" fill="var(--amber)"/>
@@ -716,12 +698,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 15</div>
     <h2>What does integration planning cover, and where does it usually go wrong?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 176" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .hd{font:700 10px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;}
-    .sub{font:400 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-mnacases-10" viewBox="0 0 440 176" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-10 .hd{font:700 10px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;}#dg-mnacases-10 .sub{font:400 9px Arial;fill:var(--ink-faint);text-anchor:middle;}#dg-mnacases-10 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="28" y1="78" x2="412" y2="78" class="axis"/>
   <circle cx="60" cy="78" r="7" fill="var(--blue)"/>
@@ -748,12 +726,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 15</div>
     <h2>A target is an excellent business and a perfect strategic fit, and the client is ready to pay a 60% premium. Why is that still not a recommendation to buy?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .in{font:700 10px Arial;fill:var(--contrast);text-anchor:middle;}
-    .cap{font:700 10px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-mnacases-11" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-mnacases-11 .in{font:700 10px Arial;fill:var(--contrast);text-anchor:middle;}#dg-mnacases-11 .cap{font:700 10px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;}#dg-mnacases-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="30" y1="155" x2="410" y2="155" class="axis"/>
   <rect x="75" y="65" width="100" height="90" rx="3" fill="var(--blue)"/>
@@ -779,12 +753,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 15</div>
     <h2>Why is buying one division of a larger group harder to diligence than buying a standalone business?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
-    .conn{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-mnacases-13" viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-mnacases-13 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-mnacases-13 .val{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}#dg-mnacases-13 .conn{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}#dg-mnacases-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="220" y="20" class="lbl">What running the division alone really costs</text>
   <line x1="24" y1="140" x2="416" y2="140" class="axis"/>

@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,12 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>“Walk me through your resume.” What is the interviewer actually testing, and how should the answer be shaped?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 172" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .tag{font:700 10px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-ibinterview-1" viewBox="0 0 440 172" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ibinterview-1 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-ibinterview-1 .tag{font:700 10px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}#dg-ibinterview-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="4" y="18" class="lbl">Airtime you give each step</text>
   <line x1="4" y1="120" x2="300" y2="120" class="axis"/>
@@ -543,11 +543,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>Asked for a time you handled a difficult deadline: what is the shape of a strong behavioural answer, and how do you use that shape without sounding like you are reciting it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 162" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .seg{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-ibinterview-5" viewBox="0 0 440 162" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ibinterview-5 .seg{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-ibinterview-5 .cap{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="4" y="16" class="lbl">What most answers do</text>
   <rect x="4" y="24" width="246" height="28" rx="5" fill="var(--amber)"/>
@@ -589,12 +586,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>“So, what deal or market have you been following?” How do you talk about it in a way that shows judgement rather than recall?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .box{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .sub{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
-    .step{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
+    <div class="diagram"><svg id="dg-ibinterview-9" viewBox="0 0 440 186" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ibinterview-9 .box{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-ibinterview-9 .sub{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}#dg-ibinterview-9 .step{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
   </style>
   <text x="4" y="16" class="lbl">Depth of answer</text>
   <rect x="6" y="28" width="132" height="38" rx="7" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"/>
@@ -622,11 +615,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>Mid-interview you’re asked a multi-step technical question, and for a second your mind goes completely blank. How do you think out loud instead of freezing?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 152" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .b{font:700 9.5px Arial;text-anchor:middle;letter-spacing:.02em;fill:var(--ink);}
-    .conn{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
+    <div class="diagram"><svg id="dg-ibinterview-11" viewBox="0 0 440 152" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-ibinterview-11 .b{font:700 9.5px Arial;text-anchor:middle;letter-spacing:.02em;fill:var(--ink);}#dg-ibinterview-11 .conn{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
   </style>
   <path class="conn" d="M250,58 C250,30 298,30 298,58"/>
   <text x="274" y="22" class="lbl">Name each assumption</text>
@@ -656,12 +646,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>An interviewer asks you something technical you have genuinely never seen before. What’s the best available move, and why is answering confidently anyway the worst one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .b{font:700 9.5px Arial;text-anchor:middle;letter-spacing:.02em;fill:var(--ink);}
-    .up{stroke:var(--amber);stroke-width:1.6;fill:none;}
-    .dn{stroke:var(--green);stroke-width:1.6;fill:none;}
+    <div class="diagram"><svg id="dg-ibinterview-12" viewBox="0 0 440 178" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ibinterview-12 .b{font:700 9.5px Arial;text-anchor:middle;letter-spacing:.02em;fill:var(--ink);}#dg-ibinterview-12 .up{stroke:var(--amber);stroke-width:1.6;fill:none;}#dg-ibinterview-12 .dn{stroke:var(--green);stroke-width:1.6;fill:none;}
   </style>
   <rect x="4" y="62" width="106" height="48" rx="8" fill="var(--surface)" stroke="var(--line)" stroke-width="1.3"/>
   <text x="57" y="81" class="b">A QUESTION</text>
@@ -689,12 +675,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>You’ve been invited to a superday: five back-to-back thirty-minute interviews with people at different levels. What does that format change about how you prepare?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 168" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .n{font:700 13px Arial;text-anchor:middle;fill:var(--ink);}
-    .b{font:700 10px Arial;text-anchor:middle;letter-spacing:.04em;}
-    .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
+    <div class="diagram"><svg id="dg-ibinterview-13" viewBox="0 0 440 168" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ibinterview-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ibinterview-13 .n{font:700 13px Arial;text-anchor:middle;fill:var(--ink);}#dg-ibinterview-13 .b{font:700 10px Arial;text-anchor:middle;letter-spacing:.04em;}#dg-ibinterview-13 .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
   </style>
   <text x="4" y="16" class="lbl">Five short interviews, one day</text>
   <rect x="6" y="24" width="72" height="32" rx="7" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>

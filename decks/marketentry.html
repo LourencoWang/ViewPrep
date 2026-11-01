@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,13 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>A regional milk producer is thinking about entering the plant-based drinks category. How would you structure this?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:400 9.5px Arial;fill:var(--ink-faint);}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}
-    .conn{stroke:var(--line-soft);stroke-width:1.4;fill:none;}
-    .root{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-marketentry-1" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-1 .lbl{font:400 9.5px Arial;fill:var(--ink-faint);}#dg-marketentry-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-marketentry-1 .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}#dg-marketentry-1 .conn{stroke:var(--line-soft);stroke-width:1.4;fill:none;}#dg-marketentry-1 .root{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}
   </style>
   <rect x="10" y="76" width="106" height="48" rx="8" class="box"/>
   <text x="63" y="97" class="root">SHOULD</text>
@@ -536,11 +535,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>An interviewer stops you and asks for the size of the prize for the gym chain in TAM, SAM and SOM terms. What are those three, in plain language?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 182" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .note{font:400 9.5px Arial;fill:var(--ink-soft);}
-    .tag{font:700 13px Arial;fill:var(--contrast);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-marketentry-3" viewBox="0 0 440 182" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-3 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketentry-3 .note{font:400 9.5px Arial;fill:var(--ink-soft);}#dg-marketentry-3 .tag{font:700 13px Arial;fill:var(--contrast);text-anchor:middle;}
   </style>
   <rect x="12" y="16" width="252" height="42" rx="7" fill="var(--blue)"/>
   <text x="138" y="43" class="tag">TAM</text>
@@ -567,13 +563,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>A food manufacturer has decided the market is worth entering. What are its options for how to actually get in, and what is the trade-off between them?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 206" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .row{font:700 10.5px Arial;fill:var(--ink);}
-    .b{fill:var(--blue);}.a{fill:var(--amber);}.g{fill:var(--green);}
-    .r{stroke:var(--line-soft);stroke-width:0.8;}
-    .g2{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
+    <div class="diagram"><svg id="dg-marketentry-5" viewBox="0 0 440 206" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-5 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketentry-5 .row{font:700 10.5px Arial;fill:var(--ink);}#dg-marketentry-5 .b{fill:var(--blue);}#dg-marketentry-5 .a{fill:var(--amber);}#dg-marketentry-5 .g{fill:var(--green);}#dg-marketentry-5 .r{stroke:var(--line-soft);stroke-width:0.8;}#dg-marketentry-5 .g2{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
   </style>
   <text x="196" y="24" class="lbl">Speed in</text>
   <text x="276" y="24" class="lbl">Upfront cost</text>
@@ -614,13 +605,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>A haulage company could build a warehouse network in the new region or buy a mid-size local operator. Why is buying faster, and why does it almost always cost more?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curveA{fill:none;stroke:var(--blue);stroke-width:2;}
-    .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
-    .tag{font:700 10.5px Arial;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-marketentry-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketentry-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-marketentry-6 .curveA{fill:none;stroke:var(--blue);stroke-width:2;}#dg-marketentry-6 .curveB{fill:none;stroke:var(--amber);stroke-width:2;}#dg-marketentry-6 .tag{font:700 10.5px Arial;letter-spacing:.03em;}
   </style>
   <line x1="48" y1="24" x2="48" y2="152" class="axis"/>
   <line x1="48" y1="152" x2="418" y2="152" class="axis"/>
@@ -646,12 +632,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>You have built a model showing the retailer at 6 percent share in three years. Your partner asks what the incumbents are doing while that happens. Why does that question matter so much?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .cap{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
-    .inbar{font:700 9.5px Arial;fill:var(--ink-soft);text-anchor:middle;}
-    .val{font:700 10px Arial;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-marketentry-8" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-8 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-marketentry-8 .cap{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}#dg-marketentry-8 .inbar{font:700 9.5px Arial;fill:var(--ink-soft);text-anchor:middle;}#dg-marketentry-8 .val{font:700 10px Arial;text-anchor:middle;}
   </style>
   <line x1="30" y1="156" x2="410" y2="156" class="axis" stroke="var(--line-soft)" stroke-width="1.5"/>
   <rect x="95" y="68" width="72" height="88" rx="3" fill="var(--surface-strong)" stroke="var(--line)" stroke-width="1"/>
@@ -679,12 +661,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>A client is already in its market and simply wants to grow. What is the full menu of growth levers, and how do you make sure you have not missed one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 192" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .leaf{font:400 10px Arial;fill:var(--ink);}
-    .mid{font:700 9.5px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}
-    .box{fill:var(--surface);stroke:var(--line);stroke-width:1.1;}
-    .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
+    <div class="diagram"><svg id="dg-marketentry-10" viewBox="0 0 440 192" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-10 .leaf{font:400 10px Arial;fill:var(--ink);}#dg-marketentry-10 .mid{font:700 9.5px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.03em;}#dg-marketentry-10 .box{fill:var(--surface);stroke:var(--line);stroke-width:1.1;}#dg-marketentry-10 .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
   </style>
   <rect x="8" y="88" width="104" height="28" rx="7" class="box"/>
   <text x="60" y="99" class="mid">REVENUE</text>
@@ -726,14 +704,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>The client is nervous about committing $200 million to a full launch, so you suggest piloting first. What should that pilot actually be designed to test?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 176" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.04em;}
-    .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}
-    .conn{stroke:var(--line-soft);stroke-width:1.4;fill:none;}
-    .gate{font:700 9px Arial;fill:var(--amber);text-anchor:middle;letter-spacing:.03em;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-marketentry-12" viewBox="0 0 440 176" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-12 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-marketentry-12 .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;letter-spacing:.04em;}#dg-marketentry-12 .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}#dg-marketentry-12 .conn{stroke:var(--line-soft);stroke-width:1.4;fill:none;}#dg-marketentry-12 .gate{font:700 9px Arial;fill:var(--amber);text-anchor:middle;letter-spacing:.03em;}#dg-marketentry-12 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
   </style>
   <rect x="16" y="34" width="124" height="48" rx="8" class="box"/>
   <rect x="18" y="37" width="3.5" height="42" fill="var(--blue)"/>
@@ -763,12 +735,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>The client is going to spend real money on the back of your work. What does a defensible market-entry business case actually contain?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 196" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curve{fill:none;stroke:var(--blue);stroke-width:2.2;}
-    .zero{stroke:var(--line);stroke-width:1;stroke-dasharray:4 4;}
+    <div class="diagram"><svg id="dg-marketentry-13" viewBox="0 0 440 196" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-13 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketentry-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-marketentry-13 .curve{fill:none;stroke:var(--blue);stroke-width:2.2;}#dg-marketentry-13 .zero{stroke:var(--line);stroke-width:1;stroke-dasharray:4 4;}
   </style>
   <line x1="46" y1="20" x2="46" y2="172" class="axis"/>
   <line x1="46" y1="108" x2="420" y2="108" class="zero"/>
@@ -788,11 +756,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>Halfway through the case the numbers stop supporting entry. How do you say don’t enter without sounding like you gave up?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 232" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}
-    .cell{font:700 11.5px Arial;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-marketentry-14" viewBox="0 0 440 232" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-14 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-marketentry-14 .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}#dg-marketentry-14 .cell{font:700 11.5px Arial;text-anchor:middle;}
   </style>
   <text x="18" y="112" text-anchor="middle" class="axis" transform="rotate(-90 18 112)">Market Attractiveness</text>
   <text x="230" y="222" text-anchor="middle" class="axis">Our Right To Win</text>
@@ -817,13 +782,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>A gym chain can enter a $900 million market where the top two hold 70 percent, needs $120 million up front, and models 5 percent share by year four. Go or no go?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:400 9.5px Arial;fill:var(--ink-soft);text-anchor:middle;}
-    .hd{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.04em;}
-    .sup{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
-    .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}
-    .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
+    <div class="diagram"><svg id="dg-marketentry-15" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketentry-15 .lbl{font:400 9.5px Arial;fill:var(--ink-soft);text-anchor:middle;}#dg-marketentry-15 .hd{font:700 11px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.04em;}#dg-marketentry-15 .sup{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}#dg-marketentry-15 .box{fill:var(--surface);stroke:var(--line);stroke-width:1.2;}#dg-marketentry-15 .conn{stroke:var(--line-soft);stroke-width:1.3;fill:none;}
   </style>
   <rect x="60" y="12" width="320" height="34" rx="8" fill="var(--amber)"/>
   <text x="220" y="34" class="hd">RECOMMENDATION: DO NOT ENTER</text>

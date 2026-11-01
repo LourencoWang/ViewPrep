@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,12 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>Before anything else: what is profit, and why is a company with enormous revenue not automatically a profitable one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .hop{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
+    <div class="diagram"><svg id="dg-profitability-0" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-0 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-0 .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-profitability-0 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-0 .hop{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
   </style>
   <line x1="28" y1="150" x2="412" y2="150" class="axis"/>
   <rect x="35" y="50" width="70" height="100" rx="3" fill="var(--blue)"/>
@@ -521,12 +521,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 18</div>
     <h2>A company lost 12% of its profit last year. How would you break the problem apart, and what does the profit equation look like drawn as a tree?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 205" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .node{font:700 11px Arial;text-anchor:middle;}
-    .leaf{font:700 10px Arial;text-anchor:middle;fill:var(--ink);}
-    .line{stroke:var(--line-soft);stroke-width:1.5;}
-    .eq{font:600 10px Arial;fill:var(--ink-faint);text-anchor:middle;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-profitability-1" viewBox="0 0 440 205" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-1 .node{font:700 11px Arial;text-anchor:middle;}#dg-profitability-1 .leaf{font:700 10px Arial;text-anchor:middle;fill:var(--ink);}#dg-profitability-1 .line{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-1 .eq{font:600 10px Arial;fill:var(--ink-faint);text-anchor:middle;letter-spacing:.04em;}
   </style>
   <line x1="220" y1="46" x2="115" y2="76" class="line"/>
   <line x1="220" y1="46" x2="325" y2="76" class="line"/>
@@ -568,12 +564,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 18</div>
     <h2>How do you work out whether a profit decline is a revenue problem or a cost problem, and what is the first data you ask for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .rev{fill:none;stroke:var(--blue);stroke-width:2;}
-    .cost{fill:none;stroke:var(--amber);stroke-width:2;}
+    <div class="diagram"><svg id="dg-profitability-4" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-profitability-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-4 .rev{fill:none;stroke:var(--blue);stroke-width:2;}#dg-profitability-4 .cost{fill:none;stroke:var(--amber);stroke-width:2;}
   </style>
   <line x1="45" y1="30" x2="45" y2="140" class="axis"/>
   <line x1="45" y1="140" x2="405" y2="140" class="axis"/>
@@ -591,13 +583,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 18</div>
     <h2>Revenue fell from 500 million to 450 million. Is that a price story or a volume story, and how do you separate the two?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .hop{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
+    <div class="diagram"><svg id="dg-profitability-5" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-5 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-profitability-5 .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-profitability-5 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-5 .hop{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 3;}
   </style>
   <text x="30" y="26" class="lbl">Revenue bridge, scale starts at 400</text>
   <line x1="28" y1="155" x2="412" y2="155" class="axis"/>
@@ -623,12 +610,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>The total cost line looks unremarkable, and then you are handed a table of profit by region. What are you looking for, and how do you decide where to dig?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-profitability-6" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-6 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-profitability-6 .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-profitability-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="24" y="24" class="lbl">Profit by region</text>
   <line x1="24" y1="115" x2="416" y2="115" class="axis"/>
@@ -657,12 +640,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 18</div>
     <h2>What is contribution margin, and what does it tell you that the headline profit number does not?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .inb{font:700 10px Arial;text-anchor:middle;fill:var(--contrast);}
-    .rule{stroke:var(--line-soft);stroke-width:1.2;}
+    <div class="diagram"><svg id="dg-profitability-8" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-profitability-8 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-8 .inb{font:700 10px Arial;text-anchor:middle;fill:var(--contrast);}#dg-profitability-8 .rule{stroke:var(--line-soft);stroke-width:1.2;}
   </style>
   <text x="70" y="24" class="lbl">One jar sold at 6.00</text>
   <line x1="70" y1="44" x2="370" y2="44" class="rule"/>
@@ -683,15 +662,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 18</div>
     <h2>A food manufacturer is weighing up a new sauce line, and the plant it would need costs 1.9 million a year to run whether it makes one jar or a million. How do you find the break-even volume?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .rev{fill:none;stroke:var(--blue);stroke-width:2;}
-    .tc{fill:none;stroke:var(--amber);stroke-width:2;}
-    .fc{stroke:var(--line);stroke-width:1.2;stroke-dasharray:4 3;}
-    .drop{stroke:var(--green);stroke-width:1.2;stroke-dasharray:3 3;}
+    <div class="diagram"><svg id="dg-profitability-9" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-profitability-9 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-9 .rev{fill:none;stroke:var(--blue);stroke-width:2;}#dg-profitability-9 .tc{fill:none;stroke:var(--amber);stroke-width:2;}#dg-profitability-9 .fc{stroke:var(--line);stroke-width:1.2;stroke-dasharray:4 3;}#dg-profitability-9 .drop{stroke:var(--green);stroke-width:1.2;stroke-dasharray:3 3;}
   </style>
   <line x1="50" y1="26" x2="50" y2="155" class="axis"/>
   <line x1="50" y1="155" x2="405" y2="155" class="axis"/>
@@ -713,13 +685,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>Two rivals each lose 10% of their volume in the same year. One owns a large factory, the other pays an outside supplier to make everything. Why does the identical volume drop hurt one far more?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .ttl{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .div{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-profitability-10" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-10 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-10 .ttl{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-profitability-10 .val{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-profitability-10 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-10 .div{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <text x="220" y="22" class="lblc">Profit after the same 10% volume drop</text>
   <text x="110" y="44" class="ttl">HIGH FIXED COSTS</text>
@@ -746,13 +713,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 18</div>
     <h2>A company sold the same number of units this year as last, and has not cut a single price, yet profit fell 9%. What is the most likely explanation?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .inb{font:700 9px Arial;text-anchor:middle;fill:var(--contrast);}
-    .val{font:700 10px Arial;text-anchor:middle;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .arw{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
+    <div class="diagram"><svg id="dg-profitability-11" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-11 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-11 .inb{font:700 9px Arial;text-anchor:middle;fill:var(--contrast);}#dg-profitability-11 .val{font:700 10px Arial;text-anchor:middle;fill:var(--ink);}#dg-profitability-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-profitability-11 .arw{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
   </style>
   <text x="220" y="24" class="lblc">Same units, different mix</text>
   <line x1="55" y1="145" x2="385" y2="145" class="axis"/>
@@ -795,12 +757,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>One of the haulage company&#x27;s twelve depots reports a 200,000 loss once its share of head-office cost is charged against it. Should the client close it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .rt{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:end;}
-    .vl{font:700 10px Arial;fill:var(--ink);}
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-profitability-15" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-15 .rt{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:end;}#dg-profitability-15 .vl{font:700 10px Arial;fill:var(--ink);}#dg-profitability-15 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-15 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="24" y="24" class="lblc" style="text-anchor:start;">One depot, one year</text>
   <line x1="110" y1="38" x2="110" y2="158" class="axis"/>
@@ -828,11 +786,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 18 of 18</div>
     <h2>A food manufacturer’s profit fell from 40 million to 28 million. Revenue is flat, units are flat, no price changed, and no single cost line looks unusual. Walk me through how you would hunt down the missing 12 million.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 155" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .step{font:700 9px Arial;text-anchor:middle;fill:var(--contrast);}
-    .arw{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
+    <div class="diagram"><svg id="dg-profitability-17" viewBox="0 0 440 155" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-profitability-17 .lblc{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-profitability-17 .step{font:700 9px Arial;text-anchor:middle;fill:var(--contrast);}#dg-profitability-17 .arw{stroke:var(--line-soft);stroke-width:1.5;fill:none;}
   </style>
   <text x="220" y="26" class="lblc">When every headline number looks flat</text>
   <rect x="14" y="55" width="90" height="44" rx="7" fill="var(--blue)"/>

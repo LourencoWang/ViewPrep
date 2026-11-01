@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -503,11 +507,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 14</div>
     <h2>A regional eyewear retailer is expanding into a new market and isn&#x27;t sure which customers to go after first or how to stand out once it&#x27;s there. What three-step process would you walk the client through?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 96" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}
-    .sub{font:600 9px Arial;fill:var(--ink-faint);}
-    .arrow{stroke:var(--ink-faint);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-marketing-2" viewBox="0 0 440 96" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-2 .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}#dg-marketing-2 .sub{font:600 9px Arial;fill:var(--ink-faint);}#dg-marketing-2 .arrow{stroke:var(--ink-faint);stroke-width:1.5;}
   </style>
   <rect x="6" y="20" width="128" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="70" y="42" text-anchor="middle" class="lbl">SEGMENT</text>
@@ -529,10 +530,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 14</div>
     <h2>A retailer is about to launch a new private-label snack line and wants a structured way to plan it. What framework would you reach for, and what does it cover?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-marketing-3" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-3 .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}#dg-marketing-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <rect x="7" y="20" width="96" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="55" y="47" text-anchor="middle" class="lbl">PRODUCT</text>
@@ -563,11 +562,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 14</div>
     <h2>What&#x27;s the difference between a push strategy and a pull strategy, and when would each one make sense?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .box{font:700 11px Arial;fill:var(--ink);letter-spacing:.02em;}
-    .sub{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-marketing-5" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-5 .box{font:700 11px Arial;fill:var(--ink);letter-spacing:.02em;}#dg-marketing-5 .sub{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="70" y="30" text-anchor="middle" class="lbl" style="fill:var(--blue);">PUSH</text>
   <line x1="110" y1="26" x2="330" y2="26" stroke="var(--blue)" stroke-width="1.5"/>
@@ -602,12 +598,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 14</div>
     <h2>A haulage company Fitness is spending heavily on ads and getting plenty of website traffic, but sales are flat. How would you use a funnel to work out where the money is leaking?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .val{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .bench{stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4 3;}
+    <div class="diagram"><svg id="dg-marketing-8" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-8 .val{font:700 11px Arial;fill:var(--ink);}#dg-marketing-8 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-marketing-8 .bench{stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4 3;}
   </style>
   <text x="20" y="16" class="lbl">CONVERSION AT EACH STEP</text>
   <line x1="20" y1="150" x2="420" y2="150" class="axis"/>
@@ -632,12 +624,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 14</div>
     <h2>Vantry Appliances says its flagship blender has gone flat after five years of strong growth, and the team wants to spend more on advertising. How would you think about where that product sits in its life?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .div{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 4;}
-    .curve{fill:none;stroke:var(--blue);stroke-width:2;}
+    <div class="diagram"><svg id="dg-marketing-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-marketing-9 .div{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3 4;}#dg-marketing-9 .curve{fill:none;stroke:var(--blue);stroke-width:2;}
   </style>
   <text x="14" y="20" class="lbl">SALES</text>
   <line x1="34" y1="26" x2="34" y2="150" class="axis"/>
@@ -664,12 +652,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 14</div>
     <h2>Larkspur Meals spent nine million dollars on marketing last year and added 150,000 subscribers. Finance says a subscriber is worth 180 dollars over their life. What do you calculate, and what does it tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .row{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 11px Arial;fill:var(--ink);}
-    .note{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-marketing-11" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-11 .row{font:700 11px Arial;fill:var(--ink);}#dg-marketing-11 .val{font:700 11px Arial;fill:var(--ink);}#dg-marketing-11 .note{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="20" y="20" class="lbl">PER SUBSCRIBER</text>
   <text x="86" y="55" text-anchor="end" class="row">CAC</text>
@@ -689,10 +673,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 14</div>
     <h2>A retailer runs search ads, a podcast sponsorship and an email program all at once, and sales are up 12 percent. The CMO wants to know which one worked. Why is that so hard to answer honestly?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .box{font:700 10px Arial;fill:var(--ink);letter-spacing:.02em;}
+    <div class="diagram"><svg id="dg-marketing-12" viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-12 .box{font:700 10px Arial;fill:var(--ink);letter-spacing:.02em;}
   </style>
   <rect x="12" y="18" width="96" height="32" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
   <text x="60" y="38" text-anchor="middle" class="box">PODCAST</text>
@@ -727,12 +709,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 14</div>
     <h2>A discount chain undercuts the firm’s mid-price eyewear by 30 percent, and the firm’s CEO wants to match. Walk me through the trade-off you&#x27;d put in front of him.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .name{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .move{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4 3;}
+    <div class="diagram"><svg id="dg-marketing-13" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-marketing-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-marketing-13 .name{font:700 11px Arial;fill:var(--ink);}#dg-marketing-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-marketing-13 .move{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4 3;}
   </style>
   <text x="12" y="22" class="lbl">PRICE</text>
   <line x1="52" y1="28" x2="52" y2="158" class="axis"/>

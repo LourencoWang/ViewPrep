@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,15 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>What is the current ratio, and what does it tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-1" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-1 .on{fill:var(--contrast);}#dg-ratios-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Can it pay what falls due this year?</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -526,15 +523,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What is the quick ratio, and why would you use it instead of the current ratio?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-2" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-2 .on{fill:var(--contrast);}#dg-ratios-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Same test, without selling any stock</text>
   <rect x="0" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -558,28 +548,21 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>What is the debt-to-equity ratio, and what does a high number mean?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-3" viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-3 .on{fill:var(--contrast);}#dg-ratios-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Debt to equity, by industry</text>
-  <text x="0" y="39" class="lbl-strong" style="font-size:10px">Redhill Utilities</text>
-  <rect x="140" y="26" width="220" height="18" rx="4" fill="var(--blue)"/>
-  <text x="366" y="39" class="val">2.5x</text>
+  <text x="0" y="39" class="lbl-strong" style="font-size:10px">Utility</text>
+  <rect x="140" y="26" width="166.4" height="18" rx="4" fill="var(--blue)"/>
+  <text x="312.4" y="39" class="val">2.5x</text>
   <text x="440" y="39" text-anchor="end" class="cap">regulated cash flows</text>
-  <text x="0" y="69" class="lbl-strong" style="font-size:10px">RETAILER</text>
-  <rect x="140" y="56" width="70" height="18" rx="4" fill="var(--amber)"/>
-  <text x="216" y="69" class="val">0.8x</text>
+  <text x="0" y="69" class="lbl-strong" style="font-size:10px">Retailer</text>
+  <rect x="140" y="56" width="52.9" height="18" rx="4" fill="var(--amber)"/>
+  <text x="198.9" y="69" class="val">0.8x</text>
   <text x="440" y="69" text-anchor="end" class="cap">seasonal sales</text>
-  <text x="0" y="99" class="lbl-strong" style="font-size:10px">Software firm</text>
-  <rect x="140" y="86" width="9" height="18" rx="4" fill="var(--green)"/>
-  <text x="155" y="99" class="val">0.1x</text>
+  <text x="0" y="99" class="lbl-strong" style="font-size:10px">Software</text>
+  <rect x="140" y="86" width="6.8" height="18" rx="4" fill="var(--green)"/>
+  <text x="152.8" y="99" class="val">0.1x</text>
   <text x="440" y="99" text-anchor="end" class="cap">few assets to lend against</text>
 </svg></div>
     <p class="takeaway">Total debt over shareholders&#x27; equity: how much of the company is funded by lenders rather than owners.</p>
@@ -588,15 +571,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>What is net debt to EBITDA, and why do lenders prefer it to debt to equity?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-4" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-4 .on{fill:var(--contrast);}#dg-ratios-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Net debt ÷ EBITDA: years of earnings to repay the debt</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -615,15 +591,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>What is interest cover, and what level starts to worry a lender?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-5" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-5 .on{fill:var(--contrast);}#dg-ratios-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Interest cover = 60 ÷ 30 = 2.0x. The bank is watching</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -640,15 +609,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>What are gross margin, operating margin and net margin, and why look at all three?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-6 .on{fill:var(--contrast);}#dg-ratios-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Gross 45%, operating 4%, net 3%: where the money goes</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -677,15 +639,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>What is return on equity, and why can a high ROE be a warning sign as well as a good one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-7" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-7 .on{fill:var(--contrast);}#dg-ratios-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Same business, same profit: leverage flatters ROE</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -715,15 +670,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>What is return on capital employed, and why do many analysts prefer it to ROE?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-8" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-8 .on{fill:var(--contrast);}#dg-ratios-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Return on all the capital, whoever provided it</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -742,15 +690,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is asset turnover, and how does it explain why a supermarket and a luxury brand can earn the same return?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-9" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-9 .on{fill:var(--contrast);}#dg-ratios-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">DuPont: two routes to the same return</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -775,15 +716,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>What are receivable days, inventory days and payable days, and what does the working capital cycle tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-10" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-10 .on{fill:var(--contrast);}#dg-ratios-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">HAULAGE COMPANY: days of its own cash tied up</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Receivable days</text>
@@ -809,15 +743,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>What is earnings per share, and why does a company&#x27;s EPS matter more to the share price than its total profit?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-11" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-11 .on{fill:var(--contrast);}#dg-ratios-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The profit that belongs to one share</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -837,15 +764,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>What is the price-to-earnings ratio, and what does a high one actually tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-12" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-12 .on{fill:var(--contrast);}#dg-ratios-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">How many years of this year&#x27;s earnings the market is paying for</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -871,15 +791,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>A retailer has a current ratio of 0.8, net debt to EBITDA of 4.5x and interest cover of 1.8x. What is the picture, and what would you ask next?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-14" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-14 .on{fill:var(--contrast);}#dg-ratios-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Three numbers, one story</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -905,15 +818,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>How would you structure a comparison of two companies in the same sector using ratios?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ratios-15" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ratios-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ratios-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ratios-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-ratios-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-ratios-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-ratios-15 .on{fill:var(--contrast);}#dg-ratios-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Compare family by family, then say what the gaps mean</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

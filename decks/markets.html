@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,11 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 17</div>
     <h2>What is a bond, and what do the words coupon, par value and maturity mean?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-markets-1" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="0" y="16" class="lbl">WHAT A BOND PAYS YOU</text>
   <line x1="24" y1="125" x2="416" y2="125" class="axis"/>
@@ -523,12 +524,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 17</div>
     <h2>What’s the difference between a primary market and a secondary market?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .line-blue{stroke:var(--blue);stroke-width:1.5;}
-    .line-amber{stroke:var(--amber);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-markets-2" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-2 .line-blue{stroke:var(--blue);stroke-width:1.5;}#dg-markets-2 .line-amber{stroke:var(--amber);stroke-width:1.5;}
   </style>
   <text x="0" y="14" class="lbl">PRIMARY MARKET</text>
   <rect x="0" y="24" width="96" height="44" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -566,12 +563,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 17</div>
     <h2>Someone taps buy on their phone and the shares appear in their account. What does a broker do, and what does an exchange do?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .flow{stroke:var(--blue);stroke-width:1.5;fill:none;}
-    .back{stroke:var(--amber);stroke-width:1.5;fill:none;}
+    <div class="diagram"><svg id="dg-markets-4" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-4 .flow{stroke:var(--blue);stroke-width:1.5;fill:none;}#dg-markets-4 .back{stroke:var(--amber);stroke-width:1.5;fill:none;}
   </style>
   <rect x="8" y="34" width="110" height="44" rx="8" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
   <text x="63" y="60" text-anchor="middle" class="lbl-strong">YOU</text>
@@ -596,11 +589,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 17</div>
     <h2>What is the bid-ask spread?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 120" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
-    .price{font:700 13px Arial;}
+    <div class="diagram"><svg id="dg-markets-5" viewBox="0 0 440 120" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-5 .lbl-strong{font:700 12px Arial;fill:var(--ink);}#dg-markets-5 .price{font:700 13px Arial;}
   </style>
   <line x1="20" y1="70" x2="420" y2="70" stroke="var(--line-soft)" stroke-width="1.5"/>
   <rect x="150" y="64" width="140" height="12" fill="var(--ink)" opacity="0.12"/>
@@ -618,11 +608,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 17</div>
     <h2>You buy the haulage company at the market and the fill comes back three cents worse than the price on your screen. What’s the difference between a market order and a limit order?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .row{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-markets-6" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-6 .row{font:700 11px Arial;fill:var(--ink);}
   </style>
   <text x="110" y="16" text-anchor="middle" class="lbl-strong" style="fill:var(--blue);">MARKET ORDER</text>
   <rect x="50" y="30" width="120" height="20" rx="4" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
@@ -661,10 +648,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 17</div>
     <h2>Redhill Utilities is raising money and you can buy either its bonds or its shares. As the investor, how do the two differ in risk, return, and where you stand if the company fails?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-markets-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <rect x="0" y="6" width="440" height="32" rx="6" fill="var(--surface-strong)" stroke="var(--line)" stroke-width="1.5"/>
   <text x="220" y="26" text-anchor="middle" class="lbl-strong">WHAT THE BUSINESS IS WORTH IN A WIND-DOWN</text>
@@ -696,11 +681,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 17</div>
     <h2>A bond’s price drops overnight and the client asks why the yield just moved. How do you explain the relationship between a bond’s yield and its price?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 12px Arial;}
-    .beam{stroke:var(--ink-soft);stroke-width:2;}
+    <div class="diagram"><svg id="dg-markets-11" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-11 .lbl-strong{font:700 12px Arial;}#dg-markets-11 .beam{stroke:var(--ink-soft);stroke-width:2;}
   </style>
   <line x1="70" y1="95" x2="370" y2="65" class="beam"/>
   <polygon points="220,80 200,120 240,120" fill="var(--ink)"/>
@@ -716,10 +698,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 17</div>
     <h2>A new bond issue is rated one notch below investment grade. What does a credit rating tell investors, and why does it matter for pricing the deal?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .pct{font:700 11px Arial;fill:var(--contrast);}
+    <div class="diagram"><svg id="dg-markets-12" viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-markets-12 .pct{font:700 11px Arial;fill:var(--contrast);}
   </style>
   <text x="0" y="18" class="lbl">AAA</text>
   <text x="440" y="18" text-anchor="end" class="lbl">D</text>
@@ -737,13 +717,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 17</div>
     <h2>At the morning meeting someone says the curve just inverted and the desk reacts. What is the yield curve, and why does an inverted one get that much attention?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curveA{fill:none;stroke:var(--blue);stroke-width:2;}
-    .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
+    <div class="diagram"><svg id="dg-markets-13" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-markets-13 .curveA{fill:none;stroke:var(--blue);stroke-width:2;}#dg-markets-13 .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
   </style>
   <text x="34" y="22" class="lbl">YIELD</text>
   <line x1="40" y1="30" x2="40" y2="130" class="axis"/>
@@ -766,14 +741,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 17</div>
     <h2>Rates move a quarter of a point and a thirty-year bond falls far more than a two-year. Why does maturity change how much a bond’s price moves?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .longb{fill:none;stroke:var(--amber);stroke-width:2;}
-    .shortb{fill:none;stroke:var(--blue);stroke-width:2;}
-    .dash{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-markets-14" viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-markets-14 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-markets-14 .longb{fill:none;stroke:var(--amber);stroke-width:2;}#dg-markets-14 .shortb{fill:none;stroke:var(--blue);stroke-width:2;}#dg-markets-14 .dash{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="54" y="34" text-anchor="end" class="lbl">PRICE</text>
   <line x1="60" y1="30" x2="60" y2="150" class="axis"/>
@@ -801,14 +770,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 17 of 17</div>
     <h2>What is the difference between a call option and a put option, and how would a fund use one to protect a long position ahead of earnings?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .payoff-call{stroke:var(--blue);stroke-width:2;fill:none;}
-    .payoff-put{stroke:var(--amber);stroke-width:2;fill:none;}
-    .strike{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:2,2;}
+    <div class="diagram"><svg id="dg-markets-16" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-markets-16 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-markets-16 .lbl-strong{font:700 12px Arial;fill:var(--ink);}#dg-markets-16 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-markets-16 .payoff-call{stroke:var(--blue);stroke-width:2;fill:none;}#dg-markets-16 .payoff-put{stroke:var(--amber);stroke-width:2;fill:none;}#dg-markets-16 .strike{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:2,2;}
   </style>
   <text x="110" y="18" text-anchor="middle" class="lbl-strong" style="fill:var(--blue);">CALL OPTION</text>
   <line x1="10" y1="130" x2="210" y2="130" class="axis"/>

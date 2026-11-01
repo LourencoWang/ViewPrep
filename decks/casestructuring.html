@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -503,11 +507,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>It’s the morning of your first consulting interview and you have no idea how the next forty minutes are meant to go. What are the phases of a case, and roughly how long does each one take?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:end;}
-    .val{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-casestructuring-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:end;}#dg-casestructuring-2 .val{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-casestructuring-2 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
   </style>
   <text x="140" y="20" class="cap" style="text-anchor:end;">Phase</text>
   <text x="152" y="20" class="cap">Typical Minutes</text>
@@ -538,10 +539,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 18</div>
     <h2>You’ve just been given the prompt: the food manufacturer is thinking about buying a smaller rival. Before you start structuring, what should you ask, and which questions are actually worth the interviewer’s time?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .hd{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .q{font:600 9px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-casestructuring-3" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-3 .hd{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-casestructuring-3 .q{font:600 9px Arial;fill:var(--ink);text-anchor:middle;}
   </style>
   <text x="110" y="20" class="hd" style="fill:var(--green);">Changes Your Structure</text>
   <rect x="15" y="32" width="190" height="34" rx="6" fill="var(--surface)" stroke="var(--green)" stroke-width="1.2"/>
@@ -567,10 +566,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 18</div>
     <h2>What does MECE actually mean, and why does it matter for how you structure a case?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .tag{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-casestructuring-4" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-casestructuring-4 .tag{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}
   </style>
   <text x="100" y="20" class="lbl">Overlapping Buckets</text>
   <circle cx="75" cy="90" r="45" fill="var(--amber)" style="opacity:0.55;"/>
@@ -589,11 +586,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 18</div>
     <h2>The airline, a regional airline, comes to you because profits fell 20% last year and the CEO wants to know why. How do you build an issue tree to break that question down?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 225" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .node{font:700 11px Arial;text-anchor:middle;}
-    .sub{font:600 9px Arial;text-anchor:middle;}
-    .line{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-casestructuring-5" viewBox="0 0 440 225" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-5 .node{font:700 11px Arial;text-anchor:middle;}#dg-casestructuring-5 .sub{font:600 9px Arial;text-anchor:middle;}#dg-casestructuring-5 .line{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="220" y1="55" x2="120" y2="95" class="line"/>
   <line x1="220" y1="55" x2="320" y2="95" class="line"/>
@@ -625,10 +619,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>You&#x27;ve just heard the prompt and taken your silent structuring time. How should you actually lay out and walk the interviewer through your structure in the next few minutes?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .track{stroke:var(--line-soft);stroke-width:2;}
+    <div class="diagram"><svg id="dg-casestructuring-6" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-6 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-casestructuring-6 .track{stroke:var(--line-soft);stroke-width:2;}
   </style>
   <line x1="35" y1="85" x2="395" y2="85" class="track"/>
   <polygon points="405,85 393,80 393,90" fill="var(--line-soft)"/>
@@ -650,11 +642,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 18</div>
     <h2>Someone hands you a list of case frameworks: profitability, the 3Cs, the 4Ps, Porter’s Five Forces. What is each one actually for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 220" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .name{font:700 11px Arial;letter-spacing:.03em;}
-    .parts{font:600 9px Arial;fill:var(--ink);}
-    .use{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-casestructuring-7" viewBox="0 0 440 220" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-7 .name{font:700 11px Arial;letter-spacing:.03em;}#dg-casestructuring-7 .parts{font:600 9px Arial;fill:var(--ink);}#dg-casestructuring-7 .use{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
   </style>
   <rect x="14" y="16" width="198" height="88" rx="7" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1"/>
   <text x="28" y="38" class="name" style="fill:var(--blue);">PROFITABILITY</text>
@@ -698,12 +687,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>Your first interview was a back-and-forth where the interviewer drove every step, and your second let you run the case yourself. What’s the difference between those two styles, and what changes for you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .hd{font:700 10.5px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .sub{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
-    .box{font:600 9px Arial;text-anchor:middle;}
-    .line{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-casestructuring-10" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-10 .hd{font:700 10.5px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-casestructuring-10 .sub{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}#dg-casestructuring-10 .box{font:600 9px Arial;text-anchor:middle;}#dg-casestructuring-10 .line{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="110" y="20" class="hd" style="fill:var(--blue);">INTERVIEWER-LED</text>
   <text x="110" y="34" class="sub">they pick each next step</text>
@@ -749,12 +734,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 18</div>
     <h2>You have laid out four branches and the interviewer asks where you would like to start. How do you choose, and what do you actually say?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .cell{font:600 9px Arial;fill:var(--ink-soft);text-anchor:middle;}
-    .hit{font:700 10px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-casestructuring-12" viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-12 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-casestructuring-12 .cell{font:600 9px Arial;fill:var(--ink-soft);text-anchor:middle;}#dg-casestructuring-12 .hit{font:700 10px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.04em;}#dg-casestructuring-12 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="14" y="20" class="lbl">Could explain most of the gap</text>
 
@@ -792,11 +773,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>The prompt is about falling margins at a specialty chemicals distributor and you have never heard of that industry in your life. How do you structure it without faking knowledge you don’t have?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .box{font:700 10.5px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.03em;}
-    .note{font:600 9px Arial;fill:var(--ink-soft);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-casestructuring-15" viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-casestructuring-15 .box{font:700 10.5px Arial;fill:var(--contrast);text-anchor:middle;letter-spacing:.03em;}#dg-casestructuring-15 .note{font:600 9px Arial;fill:var(--ink-soft);text-anchor:middle;}
   </style>
   <text x="220" y="22" class="lbl">Any Business, Any Industry</text>
   <rect x="18" y="40" width="118" height="42" rx="7" fill="var(--blue)"/>
@@ -821,11 +799,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 17 of 18</div>
     <h2>A hospital group, a hospital group, wants to cut the time patients wait in its emergency department. There’s no profit in the objective at all. How do you structure a case like that?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .step{font:600 9px Arial;text-anchor:middle;}
-    .flag{font:700 9.5px Arial;fill:var(--amber);text-anchor:middle;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-casestructuring-16" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-16 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-casestructuring-16 .step{font:600 9px Arial;text-anchor:middle;}#dg-casestructuring-16 .flag{font:700 9.5px Arial;fill:var(--amber);text-anchor:middle;letter-spacing:.04em;}
   </style>
   <text x="220" y="20" class="lbl">Metric: Minutes From Arrival To Care</text>
   <text x="183" y="38" class="flag">WHERE THE QUEUE BUILDS</text>
@@ -855,13 +830,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 18 of 18</div>
     <h2>A machinery company is losing money on its core manufacturing business and separately weighing whether to enter a new overseas market. How do you build a structure that handles both a profitability problem and a market-entry decision in the same case?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 145" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .root{font:700 10px Arial;text-anchor:middle;}
-    .leaf{font:600 8.5px Arial;text-anchor:middle;}
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .line{stroke:var(--line-soft);stroke-width:1.5;}
-    .arrow{stroke:var(--green);stroke-width:2;fill:none;}
+    <div class="diagram"><svg id="dg-casestructuring-17" viewBox="0 0 440 145" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-casestructuring-17 .root{font:700 10px Arial;text-anchor:middle;}#dg-casestructuring-17 .leaf{font:600 8.5px Arial;text-anchor:middle;}#dg-casestructuring-17 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-casestructuring-17 .line{stroke:var(--line-soft);stroke-width:1.5;}#dg-casestructuring-17 .arrow{stroke:var(--green);stroke-width:2;fill:none;}
   </style>
 
   <rect x="50" y="20" width="120" height="38" rx="7" fill="var(--blue)"/>

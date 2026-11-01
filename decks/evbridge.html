@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is enterprise value, what is equity value, and who does each one belong to?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-0" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-0 .on{fill:var(--contrast);}#dg-evbridge-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The house: who owns what</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
@@ -532,15 +529,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>A software company trades at £10 and has 100m basic shares plus 10m employee options with a £4 strike. Walk me through the treasury stock method and give me the diluted share count.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-3" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-3 .on{fill:var(--contrast);}#dg-evbridge-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Treasury stock method</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -570,15 +560,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>A components maker has a £100m convertible bond that converts into shares at £20 each. How do you handle it in the bridge, and does your answer change if the share price is £25 versus £15?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-4" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-4 .on{fill:var(--contrast);}#dg-evbridge-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£100m convertible at £20</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -603,15 +586,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>Beyond plain debt, what are preferred stock and non-controlling interest, and why do they belong on the debt side of the bridge?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-5" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-5 .on{fill:var(--contrast);}#dg-evbridge-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The full bridge</text>
   <rect x="0" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -636,15 +612,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>A haulage company reports under IFRS and leases its whole fleet of trucks. Do the lease liabilities go into EV, and what does that decision have to do with EBITDA?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-6" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-6 .on{fill:var(--contrast);}#dg-evbridge-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Leases inside EV</text>
@@ -670,15 +639,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>A company holds, alongside its cash, £80m of treasury bills, a 10% stake in a listed supplier, and £25m locked in escrow for a customer contract. Which of these come off in the bridge?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-8" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-8 .on{fill:var(--contrast);}#dg-evbridge-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Debt-like: add</text>
@@ -701,15 +663,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>A haulage company: share price £8, 150m diluted shares, £500m debt, £50m preferred, £30m NCI, £120m lease liabilities and £200m cash. Build the bridge to EV, then walk it back to a share price.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-9 .on{fill:var(--contrast);}#dg-evbridge-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">HAULAGE COMPANY bridge (£m)</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -748,15 +703,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>A comps table divides EV by net income. Why is that wrong, and how do you decide which metrics pair with EV and which with equity value?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-11" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-11 .on{fill:var(--contrast);}#dg-evbridge-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Match the claimants</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -790,15 +738,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>An industrial target does three things in one quarter: raises £100m by issuing new shares, pays a £50m dividend, and buys a rival for £300m in cash. Take each in turn: what happens to equity value and EV?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-12" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-12 .on{fill:var(--contrast);}#dg-evbridge-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">INDUSTRIAL TARGET, £m</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -834,15 +775,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>A company’s EV/EBITDA moved from 10.0x to 9.7x the year IFRS 16 came in, with no change in trading. Show me why the multiple moved when nothing real happened.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-14" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-14 .on{fill:var(--contrast);}#dg-evbridge-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">RETAILER, £m</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -872,15 +806,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>A comps sheet shows a company’s equity value as exactly £12 times its 200m basic shares, yet the filing shows 20m options struck at £6. What is wrong, and what does the fix do to its 10.0x EV/EBITDA?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-evbridge-15" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-evbridge-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-evbridge-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-evbridge-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-evbridge-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-evbridge-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-evbridge-15 .on{fill:var(--contrast);}#dg-evbridge-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">FOOD COMPANY, £m</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>

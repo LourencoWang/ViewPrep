@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,11 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>A food manufacturer is profitable, sitting on cash, and carries no debt at all. Its CFO is about to sign $200 million of loans anyway. Why would a healthy company deliberately borrow money?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-credit-0" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-0 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="0" y="14" class="lbl">ALL EQUITY</text>
   <rect x="0" y="22" width="280" height="26" rx="5" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -519,13 +520,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>Debt is cheaper than its interest rate suggests, because of the tax shield. Walk through what that means for a company paying $10 million of interest at a 25% tax rate.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .row{font:600 10px Arial;fill:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
-    .num{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-credit-1" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-1 .row{font:600 10px Arial;fill:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-1 .num{font:700 11px Arial;fill:var(--ink);}
   </style>
   <text x="0" y="14" class="lbl">$ MILLIONS</text>
   <text x="250" y="14" text-anchor="middle" class="lbl">NO DEBT</text>
@@ -562,11 +558,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What is the difference between a revolver, a term loan, and a bond?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-credit-2" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-2 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="0" y="30" class="lbl-strong" style="fill:var(--blue);">REVOLVER</text>
   <text x="0" y="46" class="lbl">DRAW, REPAY, REDRAW</text>
@@ -603,15 +596,11 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>A food manufacturer files for bankruptcy with $600 million of cash to distribute against $900 million of claims. In what order does that money go out, and who is likely to end up with nothing?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .amt{font:700 11px Arial;fill:var(--ink);}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-credit-4" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-4 .amt{font:700 11px Arial;fill:var(--ink);}#dg-credit-4 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
   </style>
   <text x="0" y="14" class="lbl">$600M OF CASH AGAINST $900M OF CLAIMS</text>
+  <g transform="translate(0,10)">
   <line x1="0" y1="150" x2="430" y2="150" class="axis"/>
 
   <rect x="15" y="30" width="62" height="120" rx="3" fill="var(--blue)"/>
@@ -635,6 +624,7 @@ a{color:inherit;}
   <text x="386" y="144" text-anchor="middle" class="amt" style="fill:var(--ink-faint);">$0</text>
   <text x="386" y="166" text-anchor="middle" class="cap">JUNIOR</text>
   <text x="386" y="180" text-anchor="middle" class="cap">+ EQUITY</text>
+</g>
 </svg></div>
     <p class="takeaway">Cash flows down a strict seniority ladder and equity is paid only once every creditor is made whole.</p>
     <p class="answer">Recoveries follow a waterfall: the costs of running the process first, then secured lenders up to the value of their collateral, then senior unsecured bonds, then subordinated or junior debt, then preferred shares, and common equity last. Each tier must be paid in full before the next one receives anything at all. With $600 million against $900 million of claims the money runs dry partway down, so the senior unsecured lenders take a partial recovery and everything below them is wiped out. That ranking is precisely why lenders negotiate so hard over where in the structure they sit.</p>
@@ -642,12 +632,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>What is the difference between amortising debt and a bullet maturity, and why does the choice matter for a company’s cash flow?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .yr{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-credit-5" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-5 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-5 .yr{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="100" y="16" text-anchor="middle" class="lbl-strong" style="fill:var(--blue);">AMORTISING</text>
   <line x1="14" y1="130" x2="196" y2="130" class="axis"/>
@@ -679,12 +665,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>A company is described as four and a half turns levered. What is being measured, and what does that number actually tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .band{font:700 9px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-credit-6" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-6 .band{font:700 9px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
   </style>
   <text x="245" y="26" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">HAULAGE COMPANY 4.5x</text>
   <polygon points="245,34 238,46 252,46" fill="var(--amber)"/>
@@ -715,14 +697,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>The retailer&#x27;s loan caps leverage at 4.0x, tested every quarter, and this quarter it comes in at 4.2x. What kind of covenant is that, and what actually happens next?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .tick{font:600 9px Arial;fill:var(--ink-faint);}
-    .cap-line{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:5,4;}
-    .act-line{fill:none;stroke:var(--blue);stroke-width:2;}
+    <div class="diagram"><svg id="dg-credit-8" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-8 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-8 .tick{font:600 9px Arial;fill:var(--ink-faint);}#dg-credit-8 .cap-line{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:5,4;}#dg-credit-8 .act-line{fill:none;stroke:var(--blue);stroke-width:2;}
   </style>
   <line x1="52" y1="26" x2="52" y2="146" class="axis"/>
   <line x1="52" y1="146" x2="412" y2="146" class="axis"/>
@@ -752,14 +728,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is the difference between fixed-rate and floating-rate debt, and who is carrying the interest rate risk in each one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .bench{fill:none;stroke:var(--line-soft);stroke-width:1.5;stroke-dasharray:4,3;}
-    .float{fill:none;stroke:var(--amber);stroke-width:2;}
-    .fixed{fill:none;stroke:var(--blue);stroke-width:2;}
+    <div class="diagram"><svg id="dg-credit-9" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-9 .bench{fill:none;stroke:var(--line-soft);stroke-width:1.5;stroke-dasharray:4,3;}#dg-credit-9 .float{fill:none;stroke:var(--amber);stroke-width:2;}#dg-credit-9 .fixed{fill:none;stroke:var(--blue);stroke-width:2;}
   </style>
   <line x1="40" y1="24" x2="40" y2="130" class="axis"/>
   <line x1="40" y1="130" x2="412" y2="130" class="axis"/>
@@ -788,13 +758,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>A haulage company has comfortable leverage and pays its interest easily, but $700 million of its $900 million of debt matures in a single year. Why does your credit analyst still call that a risky structure?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .amt{font:700 11px Arial;fill:var(--ink);}
-    .small{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-credit-11" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-11 .amt{font:700 11px Arial;fill:var(--ink);}#dg-credit-11 .small{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="215" y="16" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">MATURITY WALL</text>
   <line x1="20" y1="140" x2="420" y2="140" class="axis"/>
@@ -839,13 +804,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>A retailer reports record EBITDA, sits comfortably inside every covenant, and still runs out of money by December. How is that possible?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .amt{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-credit-15" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-credit-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-credit-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-credit-15 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-credit-15 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-credit-15 .amt{font:700 11px Arial;fill:var(--ink);}
   </style>
   <line x1="20" y1="150" x2="420" y2="150" class="axis"/>
   <rect x="30" y="50" width="55" height="100" fill="var(--blue)"/>

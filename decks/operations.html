@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,12 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>A food manufacturer buys wheat and sells boxed cereal. Walk me through its supply chain, stage by stage, and tell me why the stages are worth naming out loud.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .thing{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;}
-    .node{fill:var(--surface);stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-operations-1" viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-1 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-1 .thing{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;}#dg-operations-1 .node{fill:var(--surface);stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="3" y="20" class="lbl-strong">GOODS FLOW THIS WAY</text>
   <rect x="3" y="44" width="64" height="38" rx="7" class="node"/>
@@ -529,12 +529,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What do “cycle time” and “throughput” mean on a production line, and how do the two connect?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .tick{stroke:var(--line-soft);stroke-width:1.2;}
+    <div class="diagram"><svg id="dg-operations-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-2 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-2 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-operations-2 .tick{stroke:var(--line-soft);stroke-width:1.2;}
   </style>
   <text x="20" y="22" class="lbl-strong">FINISHED UNITS COMING OFF THE LINE</text>
   <line class="axis" x1="20" y1="99" x2="420" y2="99"/>
@@ -558,11 +554,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>At the assembly plant’s plant, three of four stations sit idle for stretches during the shift, yet the plant still can&#x27;t hit its daily output target. Where should you start looking, and why?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .box-lbl{font:700 12px Arial;fill:var(--ink);}
-    .chev{fill:none;stroke:var(--ink-faint);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    <div class="diagram"><svg id="dg-operations-3" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-3 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-3 .box-lbl{font:700 12px Arial;fill:var(--ink);}#dg-operations-3 .chev{fill:none;stroke:var(--ink-faint);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   </style>
   <line x1="15" y1="80" x2="440" y2="80" stroke="var(--line-soft)" stroke-width="1.5"/>
   <rect x="35" y="38" width="50" height="42" rx="4" fill="var(--blue)" opacity="0.75"/>
@@ -597,11 +590,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>A haulage company’s CFO points at a full warehouse and asks why the company is sitting on stock that earns nothing today. Why hold inventory at all, and what does holding it cost?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-operations-5" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-5 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-5 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="45" y="20" class="lbl-strong">STOCK ON HAND</text>
   <line class="axis" x1="45" y1="30" x2="45" y2="132"/>
@@ -633,12 +623,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>What is Economic Order Quantity (EOQ), and why is it a useful reflex in an operations case?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curve{fill:none;stroke-width:2;}
+    <div class="diagram"><svg id="dg-operations-8" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-8 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-8 .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-8 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-operations-8 .curve{fill:none;stroke-width:2;}
   </style>
   <line class="axis" x1="45" y1="20" x2="45" y2="140"/>
   <line class="axis" x1="45" y1="140" x2="420" y2="140"/>
@@ -666,12 +652,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>A mid-sized furniture maker is debating whether to keep building sofas against a demand forecast or switch to starting production only once a customer order comes in. What are the two production models on the table, and what&#x27;s the tradeoff?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 10.5px Arial;text-transform:uppercase;letter-spacing:.03em;}
-    .box-lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;}
-    .chev{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    <div class="diagram"><svg id="dg-operations-10" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-10 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-10 .lbl-strong{font:700 10.5px Arial;text-transform:uppercase;letter-spacing:.03em;}#dg-operations-10 .box-lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;}#dg-operations-10 .chev{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   </style>
 
   <text x="0" y="18" class="lbl-strong" style="fill:var(--amber);">PUSH &#183; BUILT TO FORECAST</text>
@@ -704,12 +686,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>Vantor Appliances wants to cut a two-dollar-per-unit inspection at the end of its line to save money. How would you frame the cost of quality for them?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-operations-11" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-11 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-operations-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="20" y="20" class="lbl-strong">COST TO FIX ONE DEFECT</text>
   <line class="axis" x1="20" y1="140" x2="420" y2="140"/>
@@ -742,11 +720,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>A retailer Group&#x27;s category buyers see it every quarter: a small uptick in weekend foot traffic at stores turns into wildly swinging order quantities from their manufacturers a few weeks later. What&#x27;s happening, and what&#x27;s it called?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .stem{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-operations-14" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-14 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-14 .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-14 .stem{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="20" y1="95" x2="420" y2="95" stroke="var(--line-soft)" stroke-width="1.5" stroke-dasharray="2,4"/>
   <path d="M40,95 C80,89 123,101 163,95 C203,79 246,111 286,95 C323,63 363,127 400,95" fill="none" stroke="var(--blue)" stroke-width="2"/>
@@ -770,11 +745,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>Grenwood Instruments&#x27; on-time delivery has slipped from 96 percent to 74 percent over two quarters with no change in total demand. Walk me through how you&#x27;d diagnose it end to end.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .stage{font:600 9.5px Arial;fill:var(--ink-soft);text-transform:uppercase;}
+    <div class="diagram"><svg id="dg-operations-15" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-operations-15 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-operations-15 .stage{font:600 9.5px Arial;fill:var(--ink-soft);text-transform:uppercase;}
   </style>
   <text x="20" y="18" class="lbl-strong">ONE ORDER, STAGE BY STAGE</text>
   <rect x="255" y="10" width="10" height="8" rx="2" fill="var(--blue)" opacity="0.8"/>

@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,10 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 14</div>
     <h2>A mid-size apparel chain is deciding whether to expand into a new region. Before anyone builds a recommendation, what framework do you reach for to lay out where the client stands today?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 220" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .cell{font:700 12px Arial;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-strategy-1" viewBox="0 0 440 220" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-strategy-1 .cell{font:700 12px Arial;text-anchor:middle;}
   </style>
   <text x="125" y="18" text-anchor="middle" class="lbl">Helpful</text>
   <text x="315" y="18" text-anchor="middle" class="lbl">Harmful</text>
@@ -527,12 +529,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 14</div>
     <h2>A company is considering entering the packaged foods industry and has hired your firm to assess whether it&#x27;s an attractive market to enter. What framework would you use to size up industry attractiveness, and what does it look at?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 260" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .center{font:700 12px Arial;fill:var(--contrast);text-anchor:middle;}
-    .arrow{stroke:var(--blue);stroke-width:2;}
-    .head{fill:var(--blue);}
+    <div class="diagram"><svg id="dg-strategy-3" viewBox="0 0 440 260" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-3 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-strategy-3 .center{font:700 12px Arial;fill:var(--contrast);text-anchor:middle;}#dg-strategy-3 .arrow{stroke:var(--blue);stroke-width:2;}#dg-strategy-3 .head{fill:var(--blue);}
   </style>
   <rect x="150" y="105" width="140" height="52" rx="8" fill="var(--ink)"/>
   <text x="220" y="127" class="center">INDUSTRY</text>
@@ -560,11 +558,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 14</div>
     <h2>Merrowfield Bakery knows its costs are too high but can’t say where the money actually goes, or what customers are really paying for. How would a value chain help you answer both questions?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .box{font:700 9px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.02em;}
-    .flow{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-strategy-4" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-strategy-4 .box{font:700 9px Arial;fill:var(--ink);text-anchor:middle;text-transform:uppercase;letter-spacing:.02em;}#dg-strategy-4 .flow{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <rect x="16" y="26" width="409" height="26" rx="6" fill="none" stroke="var(--line-soft)" stroke-width="1.3"/>
   <text x="220" y="43" class="lbl" text-anchor="middle">Support: technology, people, procurement</text>
@@ -593,11 +588,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 14</div>
     <h2>A mid-market furniture retailer competes against both big-box discounters and boutique design brands. What are Michael Porter’s three generic strategies, and how might you frame that choice?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}
-    .cell{font:700 11px Arial;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-strategy-5" viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-5 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-strategy-5 .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}#dg-strategy-5 .cell{font:700 11px Arial;text-anchor:middle;}
   </style>
   <text x="18" y="110" text-anchor="middle" class="axis" transform="rotate(-90 18 110)">Type of Advantage</text>
   <text x="145" y="24" text-anchor="middle" class="lbl">Broad Target</text>
@@ -624,13 +616,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 14</div>
     <h2>A company earns far higher margins than its rivals. Will that still be true in five years, and how do you test whether an advantage lasts?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curveA{fill:none;stroke:var(--blue);stroke-width:2;}
-    .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
+    <div class="diagram"><svg id="dg-strategy-6" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-strategy-6 .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}#dg-strategy-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-strategy-6 .curveA{fill:none;stroke:var(--blue);stroke-width:2;}#dg-strategy-6 .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
   </style>
   <line x1="50" y1="22" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="415" y2="140" class="axis"/>
@@ -647,11 +634,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 14</div>
     <h2>A consumer goods client, Cassidy Home Goods, sells six product lines and wants help deciding where to keep investing versus where to cut. What framework helps sort a portfolio like this into clear buckets?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}
-    .cell{font:700 12px Arial;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-strategy-7" viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-7 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-strategy-7 .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}#dg-strategy-7 .cell{font:700 12px Arial;text-anchor:middle;}
   </style>
   <text x="18" y="110" text-anchor="middle" class="axis" transform="rotate(-90 18 110)">Market Growth</text>
   <text x="230" y="220" text-anchor="middle" class="axis">Relative Market Share</text>
@@ -674,12 +658,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 14</div>
     <h2>A company wants to grow but has no view on how. How would you lay out the full set of growth options on one page, and which one carries the most risk?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}
-    .cell{font:700 11px Arial;text-anchor:middle;}
-    .note{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-strategy-8" viewBox="0 0 440 240" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-8 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-strategy-8 .axis{font:700 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}#dg-strategy-8 .cell{font:700 11px Arial;text-anchor:middle;}#dg-strategy-8 .note{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;letter-spacing:.04em;}
   </style>
   <text x="18" y="110" text-anchor="middle" class="axis" transform="rotate(-90 18 110)">Product</text>
   <text x="230" y="222" text-anchor="middle" class="axis">Market</text>
@@ -708,11 +688,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 14</div>
     <h2>A coffee chain, a client of your firm, is weighing whether to buy its own bean farms and also open branded retail cafes. What strategic move is this, and how would you frame the options for the client?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .box{font:700 10px Arial;text-anchor:middle;text-transform:uppercase;letter-spacing:.02em;}
-    .flow{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-strategy-9" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-9 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-strategy-9 .box{font:700 10px Arial;text-anchor:middle;text-transform:uppercase;letter-spacing:.02em;}#dg-strategy-9 .flow{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <rect x="23" y="80" width="85" height="50" rx="7" fill="none" stroke="var(--ink-faint)" stroke-width="1.3"/>
   <text x="65.5" y="109" class="box" style="fill:var(--ink-faint);">Supplier</text>
@@ -732,11 +709,13 @@ a{color:inherit;}
 
   <path d="M168.5,74 C168.5,52 120,46 66,46" fill="none" stroke="var(--amber)" stroke-width="1.5"/>
   <polygon points="60,46 70,41 70,51" fill="var(--amber)"/>
-  <text x="115" y="34" class="lbl" style="fill:var(--amber);">Backward Integration</text>
+  <text x="108" y="24" class="lbl" style="fill:var(--amber);">Backward</text>
+  <text x="108" y="35" class="lbl" style="fill:var(--amber);">integration</text>
 
   <path d="M168.5,74 C168.5,52 220,46 271,46" fill="none" stroke="var(--green)" stroke-width="1.5"/>
   <polygon points="277,46 267,41 267,51" fill="var(--green)"/>
-  <text x="223" y="34" class="lbl" style="fill:var(--green);">Forward Integration</text>
+  <text x="230" y="24" class="lbl" style="fill:var(--green);">Forward</text>
+  <text x="230" y="35" class="lbl" style="fill:var(--green);">integration</text>
 </svg></div>
     <p class="takeaway">Vertical integration means owning more of your own supply chain, upstream or downstream.</p>
     <p class="answer">This is vertical integration, taking ownership of additional stages of your own supply chain. Backward integration would mean the coffee chain acquiring bean farms, moving upstream toward raw materials; forward integration would mean opening its own retail cafes, moving downstream toward the customer. Clients pursue it to control costs, secure supply, or capture margin that would otherwise go to an outside partner, though each direction comes with its own execution risk worth flagging.</p>
@@ -750,14 +729,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 14</div>
     <h2>A client’s CMO keeps calling a small new competitor “disruptive.” Your partner asks you to be precise about the word. What does disruption actually mean, and why does the distinction change the response?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .tag{font:700 9px Arial;text-transform:uppercase;letter-spacing:.03em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .inc{fill:none;stroke:var(--blue);stroke-width:2;}
-    .ent{fill:none;stroke:var(--amber);stroke-width:2;}
-    .need{fill:none;stroke:var(--line);stroke-width:1.4;stroke-dasharray:5 4;}
+    <div class="diagram"><svg id="dg-strategy-11" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-strategy-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-strategy-11 .tag{font:700 9px Arial;text-transform:uppercase;letter-spacing:.03em;}#dg-strategy-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-strategy-11 .inc{fill:none;stroke:var(--blue);stroke-width:2;}#dg-strategy-11 .ent{fill:none;stroke:var(--amber);stroke-width:2;}#dg-strategy-11 .need{fill:none;stroke:var(--line);stroke-width:1.4;stroke-dasharray:5 4;}
   </style>
   <line x1="44" y1="22" x2="44" y2="150" class="axis"/>
   <line x1="44" y1="150" x2="430" y2="150" class="axis"/>

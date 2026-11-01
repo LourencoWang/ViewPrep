@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,15 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>A gym owner asks how she could raise revenue. Show me the “buckets first, then ideas” technique on that question, out loud, the way you would in the room.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-1" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-1 .on{fill:var(--contrast);}#dg-brainstorm-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Gym revenue: buckets, then ideas</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -531,15 +528,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>A retailer’s like-for-like sales have slipped for three quarters. What is the simplest first split you can reach for, and why does it work?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-2" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-2 .on{fill:var(--contrast);}#dg-brainstorm-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Internal</text>
@@ -562,15 +552,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>A software company sells accounting software on a monthly subscription and wants more revenue. You have offered the usual buckets. What is the customer journey, and how does it surface ideas you would otherwise miss?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-3" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-3 .on{fill:var(--contrast);}#dg-brainstorm-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Customer journey as a spine</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -595,15 +578,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>A maker of industrial pumps is having its margins squeezed. Walk me through the value chain as a way to organise where cost could be taken out.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-4" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-4 .on{fill:var(--contrast);}#dg-brainstorm-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Value chain as a spine</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -631,15 +607,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>A food company sold 8% fewer cases of its frozen range last year. Why is supply versus demand a better spine here than internal versus external?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-5" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-5 .on{fill:var(--contrast);}#dg-brainstorm-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--amber)">Demand: wanted less</text>
@@ -660,15 +629,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>A private equity buyer, a private equity fund, is about to buy the components maker, and the partner asks you for the risks of the deal. How do you use stakeholders to make sure the list is complete?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-6" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-6 .on{fill:var(--contrast);}#dg-brainstorm-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Risks by stakeholder</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -702,15 +664,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>You have given ten ideas for growing a business and the interviewer says nothing. What is missing from your answer, and what is the “so what” rule?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-7" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-7 .on{fill:var(--contrast);}#dg-brainstorm-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="160" y="4" width="120" height="41" rx="6" fill="var(--blue)"/>
   <text x="220" y="28" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Buckets: three names</text>
@@ -725,15 +680,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>You have six revenue ideas on the table and ten minutes left. How do you choose two to work on without it sounding like a coin toss?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-8" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-8 .on{fill:var(--contrast);}#dg-brainstorm-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Impact vs ease</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -755,15 +703,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>Asked for your hypothesis on why profits have fallen, you say “I think costs have gone up.” Why is that a weak hypothesis, and what does a strong one look like?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-9" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-9 .on{fill:var(--contrast);}#dg-brainstorm-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Weak vs strong hypothesis</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -801,15 +742,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>A food company wants to launch a premium ready-meal range through supermarkets. Why should every risk arrive with a mitigation attached, and what does that sound like?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-12" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-12 .on{fill:var(--contrast);}#dg-brainstorm-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Risks with mitigations</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -847,15 +781,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 16</div>
     <h2>The airline, a regional carrier, wants to lift revenue per passenger from its current £90 average. Run the whole brainstorm for me, end to end: buckets, ideas, sizes, the two you would pursue, a hypothesis and a first step.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-brainstorm-15" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-brainstorm-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-brainstorm-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-brainstorm-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-brainstorm-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-brainstorm-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-brainstorm-15 .on{fill:var(--contrast);}#dg-brainstorm-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">AIRLINE: sized ideas</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>

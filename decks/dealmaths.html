@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>A food manufacturer earns £200m on 100m shares. It is buying the listed food company, which earns £50m, for £600m of cash funded entirely with new debt at 6%. Tax is 25%. Is the deal accretive, and by how much?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-0" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-0 .on{fill:var(--contrast);}#dg-dealmaths-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">All-cash accretion, step by step</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -527,15 +524,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 18</div>
     <h2>Same deal, but the food manufacturer pays in shares. The food manufacturer trades at £30.00 and the offer is £15.00 for each of the listed food company&#x27;s 40m shares. Give me the exchange ratio, the new share count and pro forma EPS.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-1" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-1 .on{fill:var(--contrast);}#dg-dealmaths-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Exchange ratio from two prices</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -543,7 +533,7 @@ a{color:inherit;}
   <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£15.00</text>
   <text x="139" y="76" text-anchor="middle" class="op">÷</text>
   <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
-  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">FOOD MANUFACTURER price</text>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Acquirer price</text>
   <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">£30.00</text>
   <text x="301" y="76" text-anchor="middle" class="op">=</text>
   <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
@@ -556,15 +546,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>Now the middle case: half the £600m in cash funded with 6% debt, half in acquirer shares at £30.00. Tax is 25%. What is pro forma EPS, and is it simply the average of the two pure cases?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-2" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-2 .on{fill:var(--contrast);}#dg-dealmaths-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">One deal, three currencies</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -590,15 +573,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 18</div>
     <h2>What is the quick test for whether an all-cash deal is accretive? Run it on the £600m deal funded with 6% debt at a 25% tax rate.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-3" viewBox="0 0 440 130" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-3 .on{fill:var(--contrast);}#dg-dealmaths-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Cash deal: yield against cost</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Target yield</text>
@@ -632,15 +608,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>Back to the £600m cash deal. The listed food company&#x27;s book equity is £250m and its warehouses are worth £80m more than they are carried at. Tax is 25%. Walk me through the purchase price allocation and the goodwill.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-6" viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-6 .on{fill:var(--contrast);}#dg-dealmaths-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Goodwill on the LISTED FOOD COMPANY deal</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -677,15 +646,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 18</div>
     <h2>A listed food company trades at £12.00 and the food manufacturer is offering £15.00 a share in stock. The food manufacturer&#x27;s own shares then slide from £30.00 to £27.00 before closing. Who loses under a fixed exchange ratio, and who loses under a floating one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-8" viewBox="0 0 440 132" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-8 .on{fill:var(--contrast);}#dg-dealmaths-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="124" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Fixed ratio</text>
@@ -708,15 +670,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 18</div>
     <h2>A private equity buyer is buying the haulage company on £100m of EBITDA at an 8.0x entry multiple, with lenders willing to advance 5.0x EBITDA. Set the deal up and tell me what the private equity buyer actually writes a cheque for.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-9" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-9 .on{fill:var(--contrast);}#dg-dealmaths-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Entry: the equity is the plug</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -737,15 +692,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>A haulage company grows EBITDA 6% a year. The debt costs 7%, depreciation is £30m, capex £30m, working capital absorbs £5m a year and tax is 25%. Build me year one’s cash available to repay debt.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-10" viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-10 .on{fill:var(--contrast);}#dg-dealmaths-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Year 1 cash for debt paydown</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -776,15 +724,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 18</div>
     <h2>Carry that build out to year five for me, holding the assumptions flat, and tell me what the haulage company still owes on the day the private equity buyer sells.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-11" viewBox="0 0 440 188" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-11 .on{fill:var(--contrast);}#dg-dealmaths-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Five-year debt paydown</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -834,15 +775,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 18</div>
     <h2>Rerun the exit at 7.0x and at 9.0x rather than 8.0x. What does each one do to the return?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-14" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-14 .on{fill:var(--contrast);}#dg-dealmaths-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Exit equity by exit multiple</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -865,15 +799,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>Split the £450m of equity gain between EBITDA growth, debt paydown and the change in multiple.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-15" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-15 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-15 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-15 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-15 .on{fill:var(--contrast);}#dg-dealmaths-15 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Where the £450m of gain came from</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -898,15 +825,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 17 of 18</div>
     <h2>A private equity buyer will not invest below a 25% IRR. Everything else about the haulage company plan holds. What is the most it can pay for the business, and what multiple does that work out at?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-dealmaths-16" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-dealmaths-16 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-dealmaths-16 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-dealmaths-16 .val{font:700 12px Arial;fill:var(--ink);}#dg-dealmaths-16 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-dealmaths-16 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-dealmaths-16 .on{fill:var(--contrast);}#dg-dealmaths-16 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Max price for a 25% IRR</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

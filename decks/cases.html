@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 12</div>
     <h2>The retailer&#x27;s revenue has been £200m for two years, but profit fell from £20m to £12m. Cost of goods went from £120m to £128m, staff stayed at £40m and rent at £20m. What happened, and what should they do?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-0" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-0 .on{fill:var(--contrast);}#dg-cases-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£m, one line moved</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -534,15 +531,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 12</div>
     <h2>A food manufacturer wants to launch a chilled porridge pot in the UK. Launch costs £5m and they want it back within three years. Assume 70m people, a £2 pot, 40p of contribution per pot and a 10% share of buyers. Go or no-go?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-1" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-1 .on{fill:var(--contrast);}#dg-cases-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Building the volume</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -566,15 +556,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 12</div>
     <h2>A listed food company sells £100m a year of soup with variable costs at 70% of revenue. Marketing wants a 10% price rise and expects volume to fall 6%. Is it worth doing?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-2" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-2 .on{fill:var(--contrast);}#dg-cases-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Price +10%, volume −6%</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -616,15 +599,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 12</div>
     <h2>A company runs a wine club earning £12 a month per member. Paid ads bring in a member for £60 who stays 12 months. Restaurant partnerships cost £120 a member, who stays 30 months. With £1.2m to spend, where should it go?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-5" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-5 .on{fill:var(--contrast);}#dg-cases-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Per member, £12 a month</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -649,15 +625,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 12</div>
     <h2>A components maker’s line has three steps: machining 100 units an hour, coating 60, assembly 80. Demand is 70 an hour, each unit earns £20 of contribution and the plant runs 4,000 hours a year. A second coating station costs £500k. Buy it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-6" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-6 .on{fill:var(--contrast);}#dg-cases-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Units per hour</text>
   <line x1="0" y1="136" x2="440" y2="136" class="axis"/>
@@ -680,15 +649,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 12</div>
     <h2>A haulage company must cut £5m from a £50m cost base: drivers £25m, fuel £10m, depots £8m, admin £7m. Revenue is £60m at a 30% contribution margin and vans run 90% full. The COO wants to cut 20% of drivers. Your view?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-7" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-7 .on{fill:var(--contrast);}#dg-cases-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Cost base, £m</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -714,15 +676,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 12</div>
     <h2>A food company sells 50m pizzas a year at £4 with £2.80 of variable cost each. Its main rival has just cut price 15%. Sales think the food company will lose 20% of volume if it holds. Match, hold, or something else?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-8" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-8 .on{fill:var(--contrast);}#dg-cases-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Annual contribution, £m</text>
   <line x1="0" y1="141" x2="440" y2="141" class="axis"/>
@@ -743,15 +698,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 12</div>
     <h2>A private equity buyer can buy the industrial target at 9x its £50m EBITDA, funding half with debt. Management plans £75m of EBITDA in five years and the business will repay £100m of debt over the hold. The private equity buyer wants 2.5x its money. Buy?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-9" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-9 .on{fill:var(--contrast);}#dg-cases-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£m, at 9x in and out</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -774,15 +722,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 12</div>
     <h2>A machinery company will pay a £150m premium for the components maker (revenue £200m, EBIT £20m). The board deck claims £40m of synergies: £15m of cost savings and £25m of extra revenue. Plausible, and is the premium justified?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-10" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-10 .on{fill:var(--contrast);}#dg-cases-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Against a £150m premium</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -812,15 +753,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 12</div>
     <h2>A hospital group has 6,000 people waiting for cataract surgery. It does 500 a month and receives 500 referrals a month. The target is a three-month wait, the spare budget is £1m and outsourcing costs £600 an operation. What is your plan?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-cases-11" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-cases-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-cases-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-cases-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-cases-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-cases-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-cases-11 .on{fill:var(--contrast);}#dg-cases-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The plan in four boxes</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

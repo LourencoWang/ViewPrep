@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,12 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 13</div>
     <h2>You get an invitation to a first round at a consulting firm and the email just says two interviews, forty-five minutes each. What does a full recruiting process actually look like, and what is each round for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}
-    .tag{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .track{stroke:var(--line-soft);stroke-width:2;}
+    <div class="diagram"><svg id="dg-consultinginterview-0" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-consultinginterview-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;text-anchor:middle;}#dg-consultinginterview-0 .cap{font:600 9px Arial;fill:var(--ink-faint);text-anchor:middle;}#dg-consultinginterview-0 .tag{font:700 10px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-consultinginterview-0 .track{stroke:var(--line-soft);stroke-width:2;}
   </style>
   <text x="6" y="16" class="lbl" style="text-anchor:start;">The process</text>
   <line x1="40" y1="52" x2="393" y2="52" class="track"/>
@@ -539,13 +539,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 13</div>
     <h2>Some firms call it the fit interview, another calls it the personal experience interview. Underneath the different names, what is that half of the conversation really probing?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .col{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
-    .row{font:700 10px Arial;fill:var(--ink);}
-    .rule{stroke:var(--line-soft);stroke-width:1.2;}
-    .off{fill:none;stroke:var(--line);stroke-width:1.2;}
+    <div class="diagram"><svg id="dg-consultinginterview-3" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-consultinginterview-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-consultinginterview-3 .col{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-consultinginterview-3 .row{font:700 10px Arial;fill:var(--ink);}#dg-consultinginterview-3 .rule{stroke:var(--line-soft);stroke-width:1.2;}#dg-consultinginterview-3 .off{fill:none;stroke:var(--line);stroke-width:1.2;}
   </style>
   <text x="6" y="18" class="lbl">A few stories, most of the questions</text>
 
@@ -581,11 +576,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 13</div>
     <h2>You are two minutes into describing a project you ran and the interviewer has not written anything down. How should a fit answer be shaped so the result lands, without it sounding memorised?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .seg{font:700 9px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-consultinginterview-4" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-consultinginterview-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-consultinginterview-4 .seg{font:700 9px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-consultinginterview-4 .cap{font:600 9px Arial;fill:var(--ink-faint);}
   </style>
   <text x="6" y="18" class="lbl">What most answers do</text>
   <rect x="6" y="26" width="226" height="28" rx="5" fill="var(--amber)"/>
@@ -624,11 +616,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 13</div>
     <h2>A company sells 1.8 million units a year at $23 each and you need revenue, with no calculator on the table. How should arithmetic under pressure actually sound?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .tag{font:700 9px Arial;text-anchor:middle;letter-spacing:.03em;}
-    .ex{font:600 10px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-consultinginterview-7" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-consultinginterview-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-consultinginterview-7 .tag{font:700 9px Arial;text-anchor:middle;letter-spacing:.03em;}#dg-consultinginterview-7 .ex{font:600 10px Arial;fill:var(--ink);}
   </style>
   <text x="6" y="20" class="lbl">Three habits that hold up under pressure</text>
 
@@ -664,11 +653,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 13</div>
     <h2>Your final round includes a written case: forty minutes with a pack of exhibits, then a short presentation. How is that different from a live case, and what does a group case add on top?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .min{font:700 11px Arial;text-anchor:middle;}
-    .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
+    <div class="diagram"><svg id="dg-consultinginterview-10" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-consultinginterview-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-consultinginterview-10 .min{font:700 11px Arial;text-anchor:middle;}#dg-consultinginterview-10 .cap{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
   </style>
   <text x="6" y="20" class="lbl">Budget a 40-minute written case first</text>
 
