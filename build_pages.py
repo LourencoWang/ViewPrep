@@ -100,10 +100,11 @@ STYLE = """
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -172,8 +173,32 @@ STYLE = """
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Archivo:wght@400;600;700;800&display=swap">\n'
-         '<link rel="stylesheet" href="/assets/vp.css">')
+         'family=Archivo:wght@400;600;700;800&display=swap">')
+
+# The shared design system. It is inlined into every page rather than linked, so
+# a page can never load without it (a missing /assets folder once left the whole
+# site unstyled).
+VP_CSS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "vp.css"),
+              encoding="utf-8").read()
+VP_BEGIN = "/* vp.css:begin - copied from assets/vp.css by build_pages.py; edit that file and rebuild */"
+VP_END = "/* vp.css:end */"
+
+
+def sync_app_css(path="index.html"):
+    """Refresh the copy of assets/vp.css inside index.html. Only the text between
+    the two markers changes; the app's own styles and scripts are left alone."""
+    s = open(path, encoding="utf-8").read()
+    a, b = s.index(VP_BEGIN), s.index(VP_END)
+    assert s.count(VP_BEGIN) == 1 and s.count(VP_END) == 1 and a < b
+    new = s[:a] + VP_BEGIN + "\n" + VP_CSS + s[b:]
+    if new != s:
+        open(path, "w", encoding="utf-8").write(new)
+
+
+def level_tag(deck):
+    """The difficulty marker, styled by .deck-level in assets/vp.css."""
+    lv = deck.get("level")
+    return f'<span class="deck-level" data-level="{esc(lv)}">{esc(lv.capitalize())}</span>' if lv else ''
 
 
 def head(title, desc, canonical, deck_id=None, section="cards"):
@@ -203,7 +228,7 @@ if(d){{document.documentElement.setAttribute('data-theme','dark');}}}}catch(e){{
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{SITE}/ogimage.png">
 {FONTS}
-<style>{STYLE}</style>
+<style>{VP_CSS}{STYLE}</style>
 </head>
 <body>
 <div class="page">
@@ -281,6 +306,7 @@ def deck_page(deck, all_decks):
     out.append(f"  <h1>{esc(deck['name'])}</h1>")
     out.append(f'  <p class="lede">{esc(deck["intro"])}</p>')
     out.append('  <div class="meta-row">'
+               f'{level_tag(deck)}'
                f'<span>{len(cards)} cards</span>'
                f'<span>{esc(TRACK_NAME[deck["track"]])}</span>'
                '<span>Free, no signup</span></div>')
@@ -321,6 +347,7 @@ def deck_page(deck, all_decks):
             out.append(
                 f'    <a class="deck-item" href="{SITE}/{OUT_DIR}/{s["id"]}.html">'
                 f'<span class="deck-tag">{esc(s["tag"])}</span>'
+                f'{level_tag(s)}'
                 f'<span class="deck-name">{esc(s["name"])}</span>'
                 f'<span class="deck-desc">{esc(s["description"])}</span>'
                 f'<span class="deck-count">{len(s["cards"])} cards</span></a>')
@@ -368,6 +395,7 @@ def hub_page(decks):
             out.append(
                 f'    <a class="deck-item" href="{SITE}/{OUT_DIR}/{d["id"]}.html">'
                 f'<span class="deck-tag">{esc(d["tag"])}</span>'
+                f'{level_tag(d)}'
                 f'<span class="deck-name">{esc(d["name"])}</span>'
                 f'<span class="deck-desc">{esc(d["description"])}</span>'
                 f'<span class="deck-count">{len(d["cards"])} cards</span></a>')
@@ -588,6 +616,17 @@ def main():
     written.append("sitemap.xml")
     open("robots.txt", "w", encoding="utf-8").write(ROBOTS)
     written.append("robots.txt")
+
+    # Older builds wrote each deck page to the site root as well. Those copies are
+    # still served (viewprep.net/accounting.html), so keep them identical to
+    # decks/ rather than letting them serve stale text.
+    for d in decks:
+        root_copy = f"{d['id']}.html"
+        if os.path.exists(root_copy):
+            open(root_copy, "w", encoding="utf-8").write(deck_page(d, decks))
+            written.append(root_copy)
+
+    sync_app_css()
 
     total_cards = sum(len(d["cards"]) for d in decks)
     total_kb = sum(os.path.getsize(p) for p in written) / 1024

@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>Excel for Financial Modeling</h1>
   <p class="lede">Excel is the quiet backbone of every IB analyst seat, and interviewers use it as a proxy for whether you can actually build and check a model under time pressure, not just talk about one. This deck covers the linking discipline, formatting conventions, and modeling habits that come up constantly: keeping a 3-statement model tied together, handling circular references cleanly, building sensitivity tables, and the small checks that separate a clean model from a fragile one. If you&#x27;ve mostly used Excel for basic formulas so far, start here.</p>
-  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="advanced">Advanced</span><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>What actually is a financial model?</h2>
@@ -625,25 +922,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What actually is a financial model?", "acceptedAnswer": {"@type": "Answer", "text": "A model is a spreadsheet that turns a handful of assumptions into a projected set of financials. Strip away the formatting and a model is a spreadsheet that takes a small set of assumptions, how fast revenue grows, what margin the business holds, how much it spends on equipment, and projects the company’s financial statements forward five or ten years. Every projected number is a formula that traces back to one of those assumptions, so changing a single input rewrites the entire forecast in front of you. That’s the point of building one: it lets a deal team ask what a business is worth, or how much debt it could carry, and show exactly which assumptions are driving the answer."}}, {"@type": "Question", "name": "How should a model be laid out across tabs, and why does that structure matter more than it sounds like it should?", "acceptedAnswer": {"@type": "Answer", "text": "Inputs on one tab, calculations in the middle, outputs at the end, with information only flowing forward. The convention is to move left to right: an assumptions tab holding every input the model needs, then the calculation tabs, the three financial statements plus supporting schedules for debt and fixed assets, then an outputs tab carrying the handful of numbers that actually end up in the deck. Information should travel in that one direction, so a calculation tab never reaches forward into an output tab for a value. It matters because models get handed around constantly, and the first thing anyone opening yours will do is hunt for where the inputs live."}}, {"@type": "Question", "name": "Why do banker-built models color hardcoded inputs blue and formulas black, and what does a green cell usually mean?", "acceptedAnswer": {"@type": "Answer", "text": "Color-coding cells by type lets anyone audit a model's logic at a glance, without opening the formula bar. On the Street, font color is a substitute for documentation: blue marks a hardcoded input typed directly into the cell, black marks a formula that calculates from other cells, and green marks a link pulling in a value from another worksheet or workbook. That convention lets anyone glance at a tab and instantly separate the assumptions someone is allowed to change from the calculations that shouldn't be touched by hand. Breaking it, a blue cell that's secretly a formula, or a formula colored blue, is one of the fastest ways to look sloppy in front of an MD, because it hides where the model's real control panel is."}}, {"@type": "Question", "name": "A revenue build has =1200*1.05 typed straight into a cell, and the number it produces is correct. Why is that still wrong?", "acceptedAnswer": {"@type": "Answer", "text": "A number typed inside a formula is an assumption nobody can find and nobody can flex. The 1.05 is a growth assumption, and burying it inside a formula makes it invisible: the cell displays black like every other calculation, so a reviewer scanning the tab has no way of knowing an input is hiding in there. When the MD asks to see 3% growth instead, you have to hunt through formulas one cell at a time rather than retyping one labelled number. The fix is to put 5.0% in its own blue input cell and write =B4*(1+$B$2). Reviewers genuinely go looking for buried hardcodes, and finding one costs you the benefit of the doubt on everything else in the file."}}, {"@type": "Question", "name": "You drag your growth formula across the forecast row and every year after the first comes back as zero, even though the growth rate is sitting right there in cell B2. What happened?", "acceptedAnswer": {"@type": "Answer", "text": "Copying a formula shifts every reference along with it unless dollar signs pin it in place. Excel references are relative by default, meaning they describe a direction rather than an address: a formula in C4 pointing at B2 really says “two rows up, one column left,” so dragging it right turns B2 into C2, then D2, both of which are empty, and anything multiplied by an empty cell is zero. Typing dollar signs, $B$2, locks the column and the row so the reference stays put wherever the formula lands, and F4 cycles a highlighted reference through the variants. The mixed forms matter too: B$2 locks only the row, which is what you want when the same formula gets copied both across and down a grid."}}, {"@type": "Question", "name": "Why do IB analysts build models almost entirely with the keyboard, and which shortcuts should you know cold?", "acceptedAnswer": {"@type": "Answer", "text": "Mouse-free navigation is faster and steadier, and interviewers watch for it directly in a live Excel test. Analysts spend most of the workweek inside Excel, so a second saved on every cell-to-cell move compounds fast, and reaching for the mouse breaks the train of thought while building a formula. Interviewers watch how a candidate moves around the sheet almost as closely as whether the final number is right, because mouse-heavy navigation is a tell for inexperience. Know cold: Ctrl+Arrow to jump to the edge of a data block, Ctrl+Shift+Arrow to select to that edge, F4 to cycle a reference between relative and absolute, Ctrl+Alt+V for Paste Special, and Ctrl+` to toggle formula view. These aren't optional polish, they're assumed baseline fluency by the time you're in the room."}}, {"@type": "Question", "name": "Walk me through the errors you run into most often in a model, #REF!, #DIV/0!, #VALUE! and #N/A. What is each one actually telling you?", "acceptedAnswer": {"@type": "Answer", "text": "Each Excel error names its own cause, so the text in the cell tells you where to start looking. #REF! means a formula is pointing at a cell that no longer exists, almost always because someone deleted a row, a column or a whole tab, and it’s the most destructive of the four because it spreads to everything downstream. #DIV/0! means you divided by zero or by a blank, which turns up constantly in margin and growth lines for a period with no data yet. #VALUE! means you did arithmetic on text, usually a pasted figure carrying a footnote marker or a stray space. #N/A means a lookup ran but found no match, typically a name spelled differently on the two tabs."}}, {"@type": "Question", "name": "A model should only repay its loan in years when the company actually throws off spare cash. How do you write that, and where do IF statements start to get dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "IF chooses between two outcomes based on a test, but MIN or MAX usually reads better than nesting them. An IF takes three arguments, a test, the result if the test is true, and the result if it’s false, so =IF(D18>0,D18,0) says sweep the year’s spare cash into the loan if there is any, otherwise pay nothing. You’d also want to cap that payment at the loan still outstanding, and that’s where MIN, which simply returns the smaller of two numbers, is cleaner than a second IF nested inside the first: =MIN(D18,D25). That’s the real point. Two or three IFs stacked inside each other become almost impossible to audit, so reach for MIN or MAX whenever the logic is really just a cap or a floor."}}, {"@type": "Question", "name": "You need to pull a comp company's EV/EBITDA multiple from a Comps tab into your output page, but the row order won't stay fixed as companies get added or re-sorted. What's the safer approach?", "acceptedAnswer": {"@type": "Answer", "text": "INDEX/MATCH or XLOOKUP survives inserted rows and reordering; a hardcoded row reference does not. Use INDEX/MATCH, or in modern Excel, XLOOKUP, rather than pointing directly at a specific row, because comps lists get re-sorted, re-ranked, or have companies added mid-deal. MATCH, or XLOOKUP's lookup argument, finds the row position of the company name, and INDEX, or XLOOKUP's return array, pulls the multiple from that row in whichever column you choose, so the formula still finds the right value even after the list changes shape. XLOOKUP is the newer single-function version of the same idea, defaults to an exact match, and can search in either direction, but INDEX/MATCH is still worth knowing cold since not every bank's template or Excel version has XLOOKUP available."}}, {"@type": "Question", "name": "You've pulled comps output for the retailer into a summary page using live formulas, and now need to send a static snapshot to the deal team that won't change later. What's the move?", "acceptedAnswer": {"@type": "Answer", "text": "Paste Special > Values converts live formulas into fixed numbers, severing the link to their source cells. Copy the range, then Paste Special (Ctrl+Alt+V, or the classic Alt+E, S, V) and choose \"Values\" instead of a normal paste, which pastes the calculated result as a static number and strips out the underlying formula along with any link to the source cells or tabs. That's the standard way to freeze a snapshot before sending a model externally, turning a live comps pull into a fixed exhibit that won't silently change if someone edits the source tab later, and it's also the way to break a link when copying data between workbooks so the destination file doesn't stay dependent on a file that might get moved or deleted. It gets used constantly inside a model too, for example hardcoding a final negotiated purchase price so it stops moving every time a live market-data pull updates."}}, {"@type": "Question", "name": "How should a debt schedule be laid out so the balances genuinely carry forward from year to year?", "acceptedAnswer": {"@type": "Answer", "text": "Every schedule reads beginning balance, plus and minus the period’s activity, equals ending balance. Every roll-forward uses the same four lines: a beginning balance, the additions during the period, the reductions during the period, and an ending balance that is just those three added together. What makes it a schedule rather than a table is that the next period’s beginning balance is a direct reference to the prior period’s ending balance and nothing else, no retyping and no arithmetic in that cell. The identical block works for debt, where the activity is borrowings and repayments, for fixed assets, where it’s capital spending and depreciation, and for share count. Interviewers like it because any wrong number traces back to one line in one year."}}, {"@type": "Question", "name": "How would you build a clean scenario toggle in a model, say switching between a Base Case and Downside Case set of assumptions, without breaking anything downstream?", "acceptedAnswer": {"@type": "Answer", "text": "A single toggle cell, driven by one dropdown, should be the only thing every downstream formula reads. The clean pattern is one dedicated toggle cell, built with a data validation dropdown. Number the cases, 1 for Base and 2 for Downside, and every assumption with more than one version can be written as =CHOOSE($B$2,BaseValue,DownsideValue). If you would rather the dropdown showed the words, use =IF($B$2=\"Base\",BaseValue,DownsideValue) instead, since CHOOSE needs a number from 1 upwards and errors on text or on zero. Either way every such formula reads that same single toggle, so flipping the dropdown once cascades through the entire model instantly. The discipline is that no downstream formula ever hardcodes its own scenario choice; everything points back to the one switch, so there's exactly one cell to check to know which case the model is currently showing."}}, {"@type": "Question", "name": "Changing the D&A assumption doesn’t move the ending cash balance. What is the likely problem?", "acceptedAnswer": {"@type": "Answer", "text": "In a properly linked model, one input change ripples through all three statements to the cash balance. In a correctly built model, D&A hits the income statement, reducing pre-tax income and taxes, flows into the cash flow statement as a non-cash add-back, and reduces the PP&E balance on the balance sheet; the cash flow statement's ending cash then becomes the balance sheet's cash line. If changing D&A doesn't move ending cash, a link is broken somewhere in that chain, most often the CFS add-back is hardcoded instead of pulling from the income statement, or the balance sheet's cash cell isn't actually pointing at the CFS's ending-cash line. Trace it cell by cell with Ctrl+[ to find precedents rather than guessing, confirming each statement genuinely pulls live from the one before it."}}, {"@type": "Question", "name": "How do you sanity-check that a model isn’t secretly broken before it goes out?", "acceptedAnswer": {"@type": "Answer", "text": "A visible balance check and error traps catch a broken model before your MD does. Every balance sheet should carry a check row, typically =Total Assets - Total Liabilities and Equity, wrapped in something like =IF(ROUND(Assets-Liabilities,0)=0,\"OK\",\"ERROR\") so it's impossible to miss the moment the sheet stops balancing. Beyond that, wrap fragile formulas, lookups, divisions, anything that depends on an input existing, in IFERROR so a missing value produces a visible flag instead of a #N/A or #DIV/0! buried in a cell nobody's looking at, and scan the model with Ctrl+` or Excel's formula-auditing tools before circulating it. The habit that actually matters in an interview is naming this discipline unprompted: a model that runs without errors but was never checked for balance is not considered done on the Street."}}, {"@type": "Question", "name": "While building the debt schedule for the firm LBO, Excel throws a circular reference warning. Why did that happen, and how do you handle it?", "acceptedAnswer": {"@type": "Answer", "text": "Interest on an average or closing debt balance creates the loop; interest on the opening balance avoids it entirely. The loop appears when interest expense is calculated on a debt balance that the interest itself helps determine. Compute interest on the average or closing balance for the period and you get a genuine circle: interest reduces the cash flow available to repay debt, the repayment changes the closing balance, and the closing balance changes the interest. Excel cannot resolve that on its own, so it throws a circular reference warning, or returns zeros and errors. It is worth being precise here, because it is a modelling choice rather than something inherent to debt schedules: calculating interest on the opening balance breaks the loop completely, which is why plenty of models do exactly that and never see a circular reference at all. If you do want average-balance interest, turn on iterative calculation (File > Options > Formulas > Enable iterative calculation) so Excel recalculates until it converges, and build in a circularity breaker switch, a cell or checkbox that can force interest expense to zero, so an unrelated error elsewhere does not spin the whole model into cascading #REF or #VALUE errors."}}, {"@type": "Question", "name": "What Excel feature builds a table of exit IRR across a range of exit multiples and entry leverage levels in one shot?", "acceptedAnswer": {"@type": "Answer", "text": "A two-variable data table recalculates one output across every combination of two input ranges automatically. Excel's Data Table, under What-If Analysis, recalculates a single output formula across every combination of two input ranges without you writing a formula in each cell. You lay out a grid with one variable's values down the left column (say, exit multiples), the other across the top row (leverage levels), put the output formula, like IRR, in the top-left corner cell, then select the whole grid and tell Excel which cell each axis should feed as the row input and column input. Excel substitutes each combination in turn and fills the grid, which is also why large data tables can noticeably slow down recalculation. It's the standard way to hand an MD a range of outcomes instead of a single point estimate."}}, {"@type": "Question", "name": "The MD wants to know what gross margin the food manufacturer has to reach for EBITDA to break even. The model is built, but it only runs forwards. What do you reach for?", "acceptedAnswer": {"@type": "Answer", "text": "Goal Seek runs a model backwards, solving for the one input that lands an output on a chosen target. Goal Seek, under What-If Analysis, asks for exactly three things: the cell holding the output, the value you want that cell to equal, and the single input cell Excel is allowed to change. It then iterates until the output hits the target. Think of it as the mirror image of a data table: a data table shows you many outputs across a grid of inputs, while Goal Seek fixes the output and hands you back the input. Two cautions worth saying out loud in an interview, it overwrites the input cell permanently, so note the original value first, and it solves for one variable only."}}, {"@type": "Question", "name": "You inherit a half-finished model the night before it goes to the client. How do you get comfortable with it?", "acceptedAnswer": {"@type": "Answer", "text": "Find the inputs first, then trace one important output all the way back to them before touching anything. Orient before you edit. Read the tab order to see how the model is meant to flow, then find the blue cells, since those are the control panel and they tell you what the builder treated as an assumption. Pick one number that matters, ending cash or the final value, and walk it backwards with Ctrl+[ or Trace Precedents until you land on those inputs, which tells you quickly whether the plumbing is live or partly typed in. F5 then Special then Constants will surface hardcoded values typed loose into cells. It will not catch a number buried inside a formula, because that cell counts as a formula rather than a constant; for those, Ctrl+` toggles Show Formulas so you can scan a row and see them. Finally, flex an assumption whose direction you already know and confirm the outputs move the right way."}}]}</script>
 
