@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -503,13 +507,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 17</div>
     <h2>A client sees $100,000 due in three years shown as roughly $79,000 on your summary page and asks why. What’s the difference between present value and future value?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .grow{fill:none;stroke:var(--blue);stroke-width:2;}
-    .back{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:5,3;}
+    <div class="diagram"><svg id="dg-corpfin-2" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-2 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-2 .grow{fill:none;stroke:var(--blue);stroke-width:2;}#dg-corpfin-2 .back{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:5,3;}
   </style>
   <text x="224" y="20" text-anchor="middle" class="lbl-strong" style="fill:var(--blue);">FUTURE VALUE</text>
   <text x="224" y="34" text-anchor="middle" class="lbl">GROW ×1.08 EACH YEAR</text>
@@ -533,14 +532,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 17</div>
     <h2>What’s the difference between simple and compound interest, and why does compounding matter so much over a long horizon?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .simple{fill:none;stroke:var(--amber);stroke-width:2;}
-    .compound{fill:none;stroke:var(--blue);stroke-width:2;}
-    .gap{stroke:var(--green);stroke-width:4;}
+    <div class="diagram"><svg id="dg-corpfin-3" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-3 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-3 .simple{fill:none;stroke:var(--amber);stroke-width:2;}#dg-corpfin-3 .compound{fill:none;stroke:var(--blue);stroke-width:2;}#dg-corpfin-3 .gap{stroke:var(--green);stroke-width:4;}
   </style>
   <line x1="44" y1="24" x2="44" y2="140" class="axis"/>
   <line x1="44" y1="140" x2="412" y2="140" class="axis"/>
@@ -560,11 +553,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 17</div>
     <h2>You’re setting up the discounting row on a project model and an intern asks where the 9% came from. What does a discount rate actually represent?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-corpfin-4" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="24" y="20" class="lbl">PRESENT VALUE OF $100 RECEIVED IN 5 YEARS</text>
   <line x1="24" y1="150" x2="416" y2="150" class="axis"/>
@@ -585,13 +575,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 17</div>
     <h2>What is Net Present Value, and how would you use it to tell a client whether a $40mm plant expansion is worth funding?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .stem{stroke:var(--line-soft);stroke-width:1.5;}
-    .arc{fill:none;stroke:var(--blue);stroke-width:1.5;opacity:.55;}
-    .arc-neg{fill:none;stroke:var(--amber);stroke-width:1.5;opacity:.75;stroke-dasharray:4,3;}
+    <div class="diagram"><svg id="dg-corpfin-5" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-5 .stem{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-5 .arc{fill:none;stroke:var(--blue);stroke-width:1.5;opacity:.55;}#dg-corpfin-5 .arc-neg{fill:none;stroke:var(--amber);stroke-width:1.5;opacity:.75;stroke-dasharray:4,3;}
   </style>
   <rect x="14" y="60" width="96" height="50" rx="10" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="62" y="80" text-anchor="middle" class="lbl">NPV</text>
@@ -630,13 +615,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 17</div>
     <h2>What does the IRR line in a leveraged buyout model actually represent?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curve{fill:none;stroke:var(--blue);stroke-width:2;}
-    .hurdle{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-corpfin-7" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-7 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-7 .curve{fill:none;stroke:var(--blue);stroke-width:2;}#dg-corpfin-7 .hurdle{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3,3;}
   </style>
   <line x1="40" y1="20" x2="40" y2="140" class="axis"/>
   <line x1="40" y1="100" x2="420" y2="100" class="axis"/>
@@ -662,13 +642,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 17</div>
     <h2>Why do riskier investments have to offer higher expected returns?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .path{fill:none;stroke:var(--blue);stroke-width:2;}
-    .rf{stroke:var(--amber);stroke-width:1.3;stroke-dasharray:4,3;}
+    <div class="diagram"><svg id="dg-corpfin-9" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-9 .path{fill:none;stroke:var(--blue);stroke-width:2;}#dg-corpfin-9 .rf{stroke:var(--amber);stroke-width:1.3;stroke-dasharray:4,3;}
   </style>
   <line x1="48" y1="22" x2="48" y2="152" class="axis"/>
   <line x1="48" y1="152" x2="414" y2="152" class="axis"/>
@@ -692,13 +667,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 17</div>
     <h2>How much of a balance sheet is funded with debt versus equity, and why is the mix worth flagging?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
-    .tag{font:700 11px Arial;fill:var(--contrast);}
-    .note{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-corpfin-10" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-10 .lbl-strong{font:700 12px Arial;fill:var(--ink);}#dg-corpfin-10 .tag{font:700 11px Arial;fill:var(--contrast);}#dg-corpfin-10 .note{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-corpfin-10 .conn{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="170" y="12" class="lbl">FUNDING STACK</text>
   <rect x="170" y="18" width="100" height="66" rx="6" fill="var(--blue)"/>
@@ -727,15 +697,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 17</div>
     <h2>A junior notices the Marden Chemical model carries cost of debt at 5% and cost of equity at 11%, and asks why equity is the more expensive of the two. What do you tell her?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .tag{font:700 12px Arial;fill:var(--contrast);}
-    .sub{font:600 9.5px Arial;fill:var(--contrast);letter-spacing:.03em;}
-    .val{font:700 13px Arial;}
-    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-corpfin-12" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-12 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-12 .tag{font:700 12px Arial;fill:var(--contrast);}#dg-corpfin-12 .sub{font:600 9.5px Arial;fill:var(--contrast);letter-spacing:.03em;}#dg-corpfin-12 .val{font:700 13px Arial;}#dg-corpfin-12 .conn{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="22" y="18" class="lbl">WHO GETS PAID FIRST</text>
   <rect x="22" y="26" width="150" height="42" rx="6" fill="var(--amber)"/>
@@ -766,11 +729,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 17</div>
     <h2>Two mutually exclusive projects: one has the higher NPV, the other the higher IRR, and you can only fund one. Which do you recommend, and why?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-corpfin-14" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-14 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <text x="16" y="86" class="lbl">NPV</text>
   <line x1="16" y1="140" x2="416" y2="140" class="axis"/>
@@ -778,10 +738,10 @@ a{color:inherit;}
   <text x="310" y="24" text-anchor="middle" class="lbl-strong">PROJECT B</text>
   <text x="130" y="40" text-anchor="middle" class="lbl">IRR 40%</text>
   <text x="310" y="40" text-anchor="middle" class="lbl">IRR 18%</text>
-  <rect x="100" y="120" width="60" height="20" rx="3" fill="var(--blue)"/>
-  <rect x="280" y="50" width="60" height="90" rx="3" fill="var(--amber)"/>
-  <text x="130" y="114" text-anchor="middle" class="lbl-strong">$4MM</text>
-  <text x="310" y="44" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">$18MM</text>
+  <rect x="100" y="122" width="60" height="18" rx="3" fill="var(--blue)"/>
+  <rect x="280" y="59" width="60" height="81" rx="3" fill="var(--amber)"/>
+  <text x="130" y="116" text-anchor="middle" class="lbl-strong">$4MM</text>
+  <text x="310" y="53" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">$18MM</text>
   <text x="130" y="156" text-anchor="middle" class="lbl">INVEST $10MM</text>
   <text x="310" y="156" text-anchor="middle" class="lbl">INVEST $100MM</text>
   <text x="220" y="180" text-anchor="middle" class="lbl-strong" style="fill:var(--amber);">DOLLARS OF VALUE WIN, NOT THE PERCENTAGE</text>
@@ -792,12 +752,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 17</div>
     <h2>A company is sitting on $200mm of cash with no obvious acquisition in sight. What can management actually do with it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .conn{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-corpfin-15" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-corpfin-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-corpfin-15 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-corpfin-15 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-corpfin-15 .conn{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <rect x="160" y="14" width="120" height="34" rx="8" fill="var(--surface-strong)" stroke="var(--ink)" stroke-width="1.3"/>
   <text x="220" y="36" text-anchor="middle" class="lbl-strong">SPARE CASH</text>

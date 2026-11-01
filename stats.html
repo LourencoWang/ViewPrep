@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,13 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>Average weekly revenue across 40 stores is $84K, but one flagship store does 5x the volume of any other. What is the risk in leaning on that number, and how do mean, median and mode differ?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}
-    .bar{fill:var(--blue);opacity:.5;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .marker{stroke-width:1.5;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-stats-0" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-0 .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}#dg-stats-0 .bar{fill:var(--blue);opacity:.5;}#dg-stats-0 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-stats-0 .marker{stroke-width:1.5;stroke-dasharray:3,3;}
   </style>
   <line x1="10" y1="140" x2="430" y2="140" class="axis"/>
   <rect class="bar" x="14" y="122" width="26" height="18"/>
@@ -527,12 +526,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>A company’s operating margin went from 4% to 5%, and the page says “margins up 1%”. What is wrong with that, and what is a percentage point change?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .val{font:700 12px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-stats-1" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-stats-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-stats-1 .val{font:700 12px Arial;fill:var(--ink);}
   </style>
   <line x1="25" y1="128" x2="205" y2="128" class="axis"/>
   <rect x="60" y="68" width="40" height="60" fill="var(--blue)" opacity=".6"/>
@@ -555,12 +550,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>What does standard deviation tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);}
-    .lbl-strong{font:700 10px Arial;fill:var(--ink);}
-    .curve{fill:none;stroke:var(--blue);stroke-width:1.5;}
-    .tick{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-stats-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-2 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);}#dg-stats-2 .lbl-strong{font:700 10px Arial;fill:var(--ink);}#dg-stats-2 .curve{fill:none;stroke:var(--blue);stroke-width:1.5;}#dg-stats-2 .tick{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <clipPath id="bell">
     <path d="M20,140 C80,140 100,40 220,40 C340,40 360,140 420,140 Z"/>
@@ -589,14 +580,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>The average call-centre wait is 4 minutes, but the 90th percentile is 19 minutes. What is a percentile, and why does that number change the story?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .marker{stroke-width:1.5;stroke-dasharray:3,3;}
-    .b{fill:var(--blue);opacity:.5;}
-    .t{fill:var(--amber);opacity:.9;}
+    <div class="diagram"><svg id="dg-stats-3" viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-3 .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}#dg-stats-3 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-stats-3 .marker{stroke-width:1.5;stroke-dasharray:3,3;}#dg-stats-3 .b{fill:var(--blue);opacity:.5;}#dg-stats-3 .t{fill:var(--amber);opacity:.9;}
   </style>
   <line x1="14" y1="132" x2="428" y2="132" class="axis"/>
   <rect class="b" x="22" y="124" width="14" height="8"/>
@@ -631,13 +616,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>Four million delivery records and a two-day deadline. What is a sample, and why can a few thousand records tell you anything about four million?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .d{fill:var(--blue);opacity:.32;}
-    .h{fill:var(--amber);}
-    .c{text-anchor:middle;}
+    <div class="diagram"><svg id="dg-stats-4" viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-stats-4 .d{fill:var(--blue);opacity:.32;}#dg-stats-4 .h{fill:var(--amber);}#dg-stats-4 .c{text-anchor:middle;}
   </style>
   <text x="26" y="28" class="lbl">POPULATION — 4M RECORDS</text>
   <circle class="d" cx="34" cy="48" r="5"/>
@@ -688,11 +668,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>The retailer&#x27;s franchising head studies the 40 franchisees still trading after ten years, finds most run a large-format store, and calls large format the winning formula. Your manager calls this survivorship bias. What did the study miss?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.04em;}
-    .on{font:700 11px Arial;fill:var(--contrast);text-transform:uppercase;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-stats-6" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-6 .on{font:700 11px Arial;fill:var(--contrast);text-transform:uppercase;letter-spacing:.04em;}
   </style>
   <text x="24" y="26" class="lbl">YEAR 0 — EVERY FRANCHISEE THAT EVER OPENED</text>
   <rect x="24" y="34" width="392" height="30" rx="7" fill="var(--surface-strong)" stroke="var(--line-soft)"/>
@@ -719,11 +696,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>A retailer Group&#x27;s e-commerce lead wants to know whether a redesigned checkout page increases conversion before rolling it out site-wide. How would you design a test to answer that fairly?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--contrast);text-transform:uppercase;letter-spacing:.03em;}
-    .pct{font:700 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-stats-8" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-8 .lbl{font:600 9.5px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-stats-8 .lbl-strong{font:700 11px Arial;fill:var(--contrast);text-transform:uppercase;letter-spacing:.03em;}#dg-stats-8 .pct{font:700 10px Arial;fill:var(--ink-faint);}
   </style>
   <circle cx="55" cy="75" r="38" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
   <text x="55" y="72" text-anchor="middle" class="lbl">RANDOM</text>
@@ -743,12 +717,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is a p-value, in plain terms?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-amber{font:700 10px Arial;fill:var(--amber);text-transform:uppercase;letter-spacing:.03em;}
-    .curve{fill:none;stroke:var(--blue);stroke-width:1.5;}
-    .marker{stroke-width:1.5;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-stats-9" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-9 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-stats-9 .lbl-amber{font:700 10px Arial;fill:var(--amber);text-transform:uppercase;letter-spacing:.03em;}#dg-stats-9 .curve{fill:none;stroke:var(--blue);stroke-width:1.5;}#dg-stats-9 .marker{stroke-width:1.5;stroke-dasharray:3,3;}
   </style>
   <clipPath id="tail">
     <path d="M10,140 C60,140 80,35 190,35 C300,35 330,140 430,140 Z"/>
@@ -782,12 +752,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>A company wants to know how much of the airline’s recent revenue uptick came from its new marketing campaign versus other factors, like added routes or seasonal demand. What tool would you reach for, and what would it tell the client?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .pt{fill:var(--blue);opacity:.75;}
-    .line{stroke:var(--amber);stroke-width:2;}
+    <div class="diagram"><svg id="dg-stats-12" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-12 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-stats-12 .pt{fill:var(--blue);opacity:.75;}#dg-stats-12 .line{stroke:var(--amber);stroke-width:2;}
   </style>
   <line x1="30" y1="150" x2="420" y2="150" class="axis"/>
   <line x1="30" y1="150" x2="30" y2="20" class="axis"/>
@@ -814,11 +780,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>A food manufacturer put its 20 worst-performing stores through a new training program. Six months later those stores improved more than the rest of the chain, and the client wants to roll training out everywhere. Why would you be sceptical?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-stats-13" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-13 .lbl-strong{font:700 10px Arial;text-transform:uppercase;letter-spacing:.04em;}#dg-stats-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="120" y1="26" x2="120" y2="140" class="axis"/>
   <line x1="330" y1="26" x2="330" y2="140" class="axis"/>
@@ -842,13 +805,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>A haulage company’s new routing software has a worse on-time rate than the old one overall, yet it wins on short-haul routes and wins again on long-haul routes looked at separately. How is that possible, and which number goes in the deck?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.04em;}
-    .val{font:700 10px Arial;fill:var(--ink-soft);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .c{text-anchor:middle;}
+    <div class="diagram"><svg id="dg-stats-14" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-stats-14 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-stats-14 .lbl-strong{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.04em;}#dg-stats-14 .val{font:700 10px Arial;fill:var(--ink-soft);}#dg-stats-14 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-stats-14 .c{text-anchor:middle;}
   </style>
   <text x="14" y="20" class="lbl" style="fill:var(--blue);">OLD SYSTEM</text>
   <text x="100" y="20" class="lbl" style="fill:var(--amber);">NEW SYSTEM</text>

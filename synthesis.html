@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 15</div>
     <h2>What does &#x27;answer first&#x27; mean, and why do consulting firms insist on it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-0" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-0 .on{fill:var(--contrast);}#dg-synthesis-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--ink-faint)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--ink-faint)">Essay</text>
@@ -518,15 +515,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 15</div>
     <h2>What is the pyramid principle?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-1" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-1 .on{fill:var(--contrast);}#dg-synthesis-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="160" y="4" width="120" height="41" rx="6" fill="var(--ink)"/>
   <text x="220" y="28" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">One main message</text>
@@ -541,15 +531,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 15</div>
     <h2>How do you deliver the final recommendation in a case, in order?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-2" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-2 .on{fill:var(--contrast);}#dg-synthesis-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The synthesis, under a minute</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -597,15 +580,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 15</div>
     <h2>What is the difference between being concise and being brief?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-7" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-7 .on{fill:var(--contrast);}#dg-synthesis-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--amber)">Brief</text>
@@ -625,15 +601,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 15</div>
     <h2>How should you structure a verbal answer to a question you did not expect?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-8" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-8 .on{fill:var(--contrast);}#dg-synthesis-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">A question you did not expect</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -656,15 +625,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 15</div>
     <h2>What does a good consulting slide title look like, and why does it matter for how you talk?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-9" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-9 .on{fill:var(--contrast);}#dg-synthesis-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--ink-faint)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--ink-faint)">Weak title</text>
@@ -682,15 +644,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 15</div>
     <h2>How do you present a number so it lands with a client?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-10" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-10 .on{fill:var(--contrast);}#dg-synthesis-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">How a number lands</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -729,15 +684,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 15</div>
     <h2>Give a complete, timed case synthesis for a client deciding whether to acquire a smaller rival.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-synthesis-14" viewBox="0 0 440 144" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-synthesis-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-synthesis-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-synthesis-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-synthesis-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-synthesis-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-synthesis-14 .on{fill:var(--contrast);}#dg-synthesis-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">A timed synthesis</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>

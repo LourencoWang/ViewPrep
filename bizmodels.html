@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 15</div>
     <h2>What is a business model, and why does a consultant start by asking about it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-0" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-0 .on{fill:var(--contrast);}#dg-bizmodels-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Four questions that define a business model</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -524,19 +521,12 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 15</div>
     <h2>What are unit economics, and why do investors and consultants obsess over them?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-1" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-1 .on{fill:var(--contrast);}#dg-bizmodels-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--green)">Unit makes money</text>
-  <text x="12" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Each customer earns more than it cost to win</text>
+  <text x="12" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Each customer pays back its cost</text>
   <text x="12" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Growth adds profit</text>
   <text x="12" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Add units</text>
   <rect x="226" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
@@ -551,15 +541,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 15</div>
     <h2>What are customer acquisition cost and lifetime value, and what ratio between them is healthy?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-2" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-2 .on{fill:var(--contrast);}#dg-bizmodels-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">£7 × 20 months = £140 LTV against £50 CAC: 2.8x</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -576,15 +559,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 15</div>
     <h2>What is churn, and why does a small change in it move a subscription business so much?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-3" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-3 .on{fill:var(--contrast);}#dg-bizmodels-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Customer lifetime, months: halve churn, double it</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -603,15 +579,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 15</div>
     <h2>How does a retailer make money, and what are the two numbers that decide it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-4" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-4 .on{fill:var(--contrast);}#dg-bizmodels-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Retailer: 40% gross margin, 35 of fixed store cost</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -642,15 +611,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 15</div>
     <h2>Why is software so profitable once it works, and what does that do to how the company grows?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-6" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-6 .on{fill:var(--contrast);}#dg-bizmodels-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Gross margin: copying code is free, making things is not</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -667,26 +629,19 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 15</div>
     <h2>How does an airline make money, and why are its economics so brutal?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-7" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-7 .on{fill:var(--contrast);}#dg-bizmodels-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Airline: profit lives in the last 20% of seats</text>
-  <line x1="30" y1="140" x2="430" y2="140" class="axis"/>
+  <line x1="30" y1="140" x2="420" y2="140" class="axis"/>
   <line x1="30" y1="30" x2="30" y2="140" class="axis"/>
   <text x="30" y="154" text-anchor="middle" class="lbl">60%</text>
-  <text x="130" y="154" text-anchor="middle" class="lbl">70%</text>
-  <text x="230" y="154" text-anchor="middle" class="lbl">80%</text>
-  <text x="330" y="154" text-anchor="middle" class="lbl">90%</text>
-  <text x="430" y="154" text-anchor="middle" class="lbl">100%</text>
-  <polyline points="30,140 130,114 230,90 330,66 430,40" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="430" y="32" text-anchor="end" class="lbl-strong" style="font-size:10px;fill:var(--blue)">Profit per flight</text>
+  <text x="127.5" y="154" text-anchor="middle" class="lbl">70%</text>
+  <text x="225" y="154" text-anchor="middle" class="lbl">80%</text>
+  <text x="322.5" y="154" text-anchor="middle" class="lbl">90%</text>
+  <text x="420" y="154" text-anchor="middle" class="lbl">100%</text>
+  <polyline points="30,140 127.5,114 225,90 322.5,66 420,40" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="420" y="32" text-anchor="end" class="lbl-strong" style="font-size:10px;fill:var(--blue)">Profit per flight</text>
 </svg></div>
     <p class="takeaway">It sells seats on flights whose cost is almost entirely fixed once they take off, so a few empty seats decide the profit.</p>
     <p class="answer">The cost of a flight, the aircraft, the crew, the fuel, the landing fees, is nearly the same whether the plane is full or half empty. Revenue depends on how many seats are sold and at what price. So the whole business comes down to load factor, the share of seats filled, and yield, revenue per seat. A plane that breaks even at 80% full makes all its profit from the last 20% of seats, which is why airlines cut prices at the last minute rather than fly empty. Add fuel prices they cannot control and fierce competition on every route, and you have an industry that loses money in most downturns.</p>
@@ -694,15 +649,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 15</div>
     <h2>How does a bank make money?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-8" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-8 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-8 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-8 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-8 .on{fill:var(--contrast);}#dg-bizmodels-8 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">How a bank makes money, before fees and bad loans</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -723,15 +671,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 15</div>
     <h2>What is a franchise model, and why do companies like fast-food chains use it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-9" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-9 .on{fill:var(--contrast);}#dg-bizmodels-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Parent</text>
@@ -752,15 +693,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 15</div>
     <h2>What is the difference between a high-volume, low-margin business and a low-volume, high-margin one, and how does a case differ for each?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-10" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-10 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-10 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-10 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-10 .on{fill:var(--contrast);}#dg-bizmodels-10 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Two ways to earn the same return; two different cases</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -785,15 +719,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 15</div>
     <h2>A food manufacturer sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-11" viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-11 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-11 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-11 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-11 .on{fill:var(--contrast);}#dg-bizmodels-11 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Keeping the retailer&#x27;s margin means doing the retailer&#x27;s work</text>
   <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
@@ -819,15 +746,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 15</div>
     <h2>What is a two-sided subsidy, like a free service paid for by advertisers, and what is its weakness?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-12" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-12 .on{fill:var(--contrast);}#dg-bizmodels-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Free to the user, paid for by attention</text>
   <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -848,15 +768,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 15</div>
     <h2>How do you work out whether a new store, route or product is worth opening, in a case?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-13" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-13 .on{fill:var(--contrast);}#dg-bizmodels-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Is the new store worth opening?</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -884,15 +797,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 15</div>
     <h2>How does a company you admire make money, and how do you answer that in under a minute?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-bizmodels-14" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-bizmodels-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-bizmodels-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-bizmodels-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-bizmodels-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-bizmodels-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-bizmodels-14 .on{fill:var(--contrast);}#dg-bizmodels-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">How any company makes money, in six sentences</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

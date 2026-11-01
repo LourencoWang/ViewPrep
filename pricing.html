@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,16 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is a price actually doing for a business, and what sets the floor and the ceiling it has to sit between?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.v{stroke:var(--green);stroke-width:2.5;}
-    .p{stroke:var(--amber);stroke-width:2.5;}
-    .c{stroke:var(--blue);stroke-width:2.5;}
-    .brk{stroke:var(--line);stroke-width:1;}
-    .cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-0" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-0 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-0 .v{stroke:var(--green);stroke-width:2.5;}#dg-pricing-0 .p{stroke:var(--amber);stroke-width:2.5;}#dg-pricing-0 .c{stroke:var(--blue);stroke-width:2.5;}#dg-pricing-0 .brk{stroke:var(--line);stroke-width:1;}#dg-pricing-0 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <line x1="40" y1="38" x2="300" y2="38" class="v"/>
   <text x="40" y="30" class="lbl-strong" style="fill:var(--green);">VALUE TO THE CUSTOMER</text>
@@ -528,15 +524,10 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>Two people buy the same $4 coffee, and one of them would happily have paid $7. What is willingness to pay, and why does it vary so much between customers?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.price{stroke:var(--amber);stroke-width:1.5;stroke-dasharray:4,3;}
-    .cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-1" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-1 .price{stroke:var(--amber);stroke-width:1.5;stroke-dasharray:4,3;}#dg-pricing-1 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
-  <text x="40" y="18" class="lbl">Most each buyer would pay</text>
+  <text x="40" y="11" class="lbl">Most each buyer would pay</text>
   <line x1="40" y1="140" x2="410" y2="140" class="axis"/>
   <rect x="55" y="32" width="40" height="108" rx="2" fill="var(--blue)"/>
   <text x="75" y="27" class="lbl" text-anchor="middle">$9</text>
@@ -545,7 +536,7 @@ a{color:inherit;}
   <rect x="171" y="68" width="40" height="72" rx="2" fill="var(--blue)"/>
   <text x="191" y="63" class="lbl" text-anchor="middle">$6</text>
   <rect x="229" y="92" width="40" height="48" rx="2" fill="var(--surface-strong)" stroke="var(--line)"/>
-  <text x="249" y="87" class="lbl" text-anchor="middle">$4</text>
+  <text x="249" y="89.5" class="lbl" text-anchor="middle">$4</text>
   <rect x="287" y="104" width="40" height="36" rx="2" fill="var(--surface-strong)" stroke="var(--line)"/>
   <text x="307" y="99" class="lbl" text-anchor="middle">$3</text>
   <rect x="345" y="116" width="40" height="24" rx="2" fill="var(--surface-strong)" stroke="var(--line)"/>
@@ -569,13 +560,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>Cost-plus pricing is the weakest of the three approaches, yet it is everywhere. Why do so many companies use it, and what goes wrong when demand softens?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.flow{stroke:var(--amber);stroke-width:1.5;fill:none;}
-    .head{fill:var(--amber);}
+    <div class="diagram"><svg id="dg-pricing-3" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-3 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-3 .flow{stroke:var(--amber);stroke-width:1.5;fill:none;}#dg-pricing-3 .head{fill:var(--amber);}
   </style>
   <rect x="40" y="28" width="150" height="44" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="115" y="54" class="lbl-strong" text-anchor="middle">VOLUME FALLS</text>
@@ -603,12 +589,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>Your partner claims a 1% price increase beats a 1% volume increase. Ardleigh Cycles sells 100 units at $100, with $60 of variable cost a unit and $3,000 of fixed costs. Show her the math.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-4" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-4 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <text x="40" y="24" class="lbl">Change in profit from a 1% move</text>
   <line x1="170" y1="34" x2="170" y2="146" class="axis"/>
@@ -635,21 +617,17 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>Talbridge Software keeps arguing about which single price is right. Someone suggests offering three plans instead. What is versioning, and what makes a good-better-best ladder actually work?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-6 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <text x="40" y="22" class="lbl">One product, three versions</text>
-  <rect x="45" y="125" width="110" height="45" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
-  <text x="100" y="145" class="lbl-strong" text-anchor="middle" style="fill:var(--blue);">GOOD</text>
-  <text x="100" y="167" text-anchor="middle" style="font:700 15px Arial;fill:var(--ink);">$9</text>
+  <rect x="45" y="110" width="110" height="60" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="100" y="129" class="lbl-strong" text-anchor="middle" style="fill:var(--blue);">GOOD</text>
+  <text x="100" y="149" text-anchor="middle" style="font:700 15px Arial;fill:var(--ink);">$9</text>
   <text x="100" y="164" class="lbl" text-anchor="middle">1 SEAT</text>
-  <rect x="165" y="95" width="110" height="75" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
-  <text x="220" y="115" class="lbl-strong" text-anchor="middle" style="fill:var(--blue);">BETTER</text>
-  <text x="220" y="137" text-anchor="middle" style="font:700 15px Arial;fill:var(--ink);">$19</text>
+  <rect x="165" y="85" width="110" height="85" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="220" y="104" class="lbl-strong" text-anchor="middle" style="fill:var(--blue);">BETTER</text>
+  <text x="220" y="126" text-anchor="middle" style="font:700 15px Arial;fill:var(--ink);">$19</text>
   <text x="220" y="164" class="lbl" text-anchor="middle">5 SEATS, SUPPORT</text>
   <rect x="285" y="60" width="110" height="110" rx="4" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
   <text x="340" y="80" class="lbl-strong" text-anchor="middle" style="fill:var(--amber);">BEST</text>
@@ -664,12 +642,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>A publisher sells a news subscription and a puzzle app separately. Some readers care about news, others about puzzles. Why might selling both together for one price make more money than selling them apart?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-7" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-7 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-7 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <text x="40" y="20" class="lbl">Most each reader would pay</text>
   <text x="190" y="46" class="lbl" text-anchor="middle">NEWS</text>
@@ -696,13 +670,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>Ashcombe Devices is launching something nobody else sells yet. Should it come in low to grab the market, or start high and walk the price down? Make the case for each.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.skim{fill:none;stroke:var(--amber);stroke-width:2;}
-    .pen{fill:none;stroke:var(--blue);stroke-width:2;}
+    <div class="diagram"><svg id="dg-pricing-8" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-8 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-8 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-8 .skim{fill:none;stroke:var(--amber);stroke-width:2;}#dg-pricing-8 .pen{fill:none;stroke:var(--blue);stroke-width:2;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -727,14 +696,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>Sales at Pallant Paper wants a 10% discount to hit the quarter-end target. Gross margin is 40%. How much extra volume does that discount have to generate just to break even on profit?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
-    .cost{fill:var(--surface-strong);stroke:var(--line);stroke-width:1;}
-    .contrib{fill:var(--amber);}
+    <div class="diagram"><svg id="dg-pricing-10" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-10 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-10 .cap{font:600 10px Arial;fill:var(--ink-faint);}#dg-pricing-10 .cost{fill:var(--surface-strong);stroke:var(--line);stroke-width:1;}#dg-pricing-10 .contrib{fill:var(--amber);}
   </style>
   <text x="40" y="22" class="lbl">What a 10% discount does to margin</text>
   <rect x="60" y="45" width="64" height="44" class="contrib"/>
@@ -767,12 +730,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 16</div>
     <h2>Two hardware chains on the same highway keep undercutting each other until neither one makes money. Why do price wars start so easily, and why is winning one so hard?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-12" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-12 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-12 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <text x="40" y="22" class="lbl">Profit if both act</text>
   <rect x="150" y="62" width="110" height="50" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
@@ -802,12 +761,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 16</div>
     <h2>A company’s invoices show the average customer paying 22% below list. What is a pocket price waterfall, and what would you look for in it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-.cap{font:600 10px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-pricing-14" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-pricing-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-pricing-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-pricing-14 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-pricing-14 .cap{font:600 10px Arial;fill:var(--ink-faint);}
   </style>
   <text x="30" y="20" class="lbl">List price down to pocket price</text>
   <rect x="30" y="53.0" width="46" height="105.0" rx="2" fill="var(--blue)"/>

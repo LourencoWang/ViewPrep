@@ -111,7 +111,7 @@ STYLE = """
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -193,6 +193,23 @@ def sync_app_css(path="index.html"):
     new = s[:a] + VP_BEGIN + "\n" + VP_CSS + s[b:]
     if new != s:
         open(path, "w", encoding="utf-8").write(new)
+
+
+def scope_diagram(svg, uid):
+    """Confine a diagram's own <style> rules to that diagram.
+
+    Each diagram ships a stylesheet, and different diagrams reuse class names
+    with different meanings (.lbl alone has 23 versions). In the app only one
+    diagram is ever on screen, but a deck page shows them all, and unscoped
+    rules are global: every diagram was restyled by whichever loaded last.
+    Prefixing each selector with the diagram's id keeps each one as drawn."""
+    svg = svg.replace('<svg ', f'<svg id="{uid}" ', 1)
+    def scope_block(m):
+        rules = re.sub(r'([^{}]+)\{',
+                       lambda r: ', '.join(f'#{uid} {sel.strip()}' for sel in r.group(1).split(',')) + '{',
+                       m.group(1))
+        return f'<style>{rules}</style>'
+    return re.sub(r'<style>(.*?)</style>', scope_block, svg, flags=re.S)
 
 
 def level_tag(deck):
@@ -326,7 +343,7 @@ def deck_page(deck, all_decks):
             out.append("    </ul>")
         if c.get("image"):
             # Deck-authored inline SVG, not user input, so it is inserted as markup.
-            out.append(f'    <div class="diagram">{c["image"]}</div>')
+            out.append(f'    <div class="diagram">{scope_diagram(c["image"], f"dg-{deck['id']}-{i}")}</div>')
         if c.get("takeaway"):
             out.append(f'    <p class="takeaway">{esc(c["takeaway"])}</p>')
         out.append(f'    <p class="answer">{esc(c["a"])}</p>')

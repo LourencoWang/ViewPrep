@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,13 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 16</div>
     <h2>What does the law of demand state?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curve{fill:none;stroke:var(--blue);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-1" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-1 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-1 .curve{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-1 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -528,13 +527,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>The demand curve slopes down. Why does the supply curve slope up?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curve{fill:none;stroke:var(--amber);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-2 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-2 .curve{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-2 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -560,14 +554,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>What is equilibrium price?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .demand{fill:none;stroke:var(--blue);stroke-width:2;}
-    .supply{fill:none;stroke:var(--amber);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-3" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-3 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-3 .demand{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-3 .supply{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-3 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -590,15 +578,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>A city regulator caps the rent on the regional dairy. Square apartments well below what the market would charge. What happens to the number of apartments available, and why?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .demand{fill:none;stroke:var(--blue);stroke-width:2;}
-    .supply{fill:none;stroke:var(--amber);stroke-width:2;}
-    .cap{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:4,3;}
-    .gap{stroke:var(--green);stroke-width:2.5;}
+    <div class="diagram"><svg id="dg-microecon-4" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-4 .demand{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-4 .supply{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-4 .cap{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:4,3;}#dg-microecon-4 .gap{stroke:var(--green);stroke-width:2.5;}
   </style>
   <line x1="40" y1="25" x2="40" y2="135" class="axis"/>
   <line x1="40" y1="135" x2="200" y2="135" class="axis"/>
@@ -631,14 +612,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 16</div>
     <h2>The price of coffee rises and people buy less of it. Has demand for coffee fallen? Why is this the classic trap?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .d1{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4,3;}
-    .d2{fill:none;stroke:var(--blue);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-5" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-5 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-5 .d1{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4,3;}#dg-microecon-5 .d2{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-5 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="40" y1="25" x2="40" y2="130" class="axis"/>
   <line x1="40" y1="130" x2="200" y2="130" class="axis"/>
@@ -666,15 +641,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>A retailer Group sells a mid-range kitchen gadget. A viral video sends its customer base sharply higher overnight, while nothing has changed about its costs or supply conditions. What happens to equilibrium price and quantity?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .supply{fill:none;stroke:var(--amber);stroke-width:2;}
-    .d1{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4,3;}
-    .d2{fill:none;stroke:var(--blue);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-6" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-6 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-6 .supply{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-6 .d1{fill:none;stroke:var(--ink-faint);stroke-width:1.5;stroke-dasharray:4,3;}#dg-microecon-6 .d2{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-6 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -700,13 +668,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>What is price elasticity of demand?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .curveA{fill:none;stroke:var(--blue);stroke-width:2;}
-    .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
+    <div class="diagram"><svg id="dg-microecon-7" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-7 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-7 .curveA{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-7 .curveB{fill:none;stroke:var(--amber);stroke-width:2;}
   </style>
   <line x1="40" y1="30" x2="40" y2="130" class="axis"/>
   <line x1="40" y1="130" x2="205" y2="130" class="axis"/>
@@ -731,14 +694,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>The CEO of the firm asks you how many units of a new product line the company should manufacture to maximize profit. How would you use marginal cost and marginal revenue to find that point?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .mc{fill:none;stroke:var(--blue);stroke-width:2;}
-    .mr{fill:none;stroke:var(--amber);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-9" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-9 .mc{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-9 .mr{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-9 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -759,14 +716,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>What are economies of scale, and how can a company get too big for its own good?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .down{fill:none;stroke:var(--blue);stroke-width:2;}
-    .up{fill:none;stroke:var(--amber);stroke-width:2;}
-    .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-microecon-10" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-10 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-microecon-10 .down{fill:none;stroke:var(--blue);stroke-width:2;}#dg-microecon-10 .up{fill:none;stroke:var(--amber);stroke-width:2;}#dg-microecon-10 .guide{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -800,12 +751,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>A client runs one of forty coffee shops in a city, each with its own menu and its own regulars. Where does that sit among the four market structures, and how do the four compare?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .box{fill:var(--surface);stroke:var(--line-soft);}
-    .bar{fill:var(--amber);}
+    <div class="diagram"><svg id="dg-microecon-13" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-microecon-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-microecon-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-microecon-13 .box{fill:var(--surface);stroke:var(--line-soft);}#dg-microecon-13 .bar{fill:var(--amber);}
   </style>
   <text x="60" y="16" class="lbl" text-anchor="middle">Perfect comp</text>
   <text x="165" y="16" class="lbl" text-anchor="middle">Monop. comp</text>

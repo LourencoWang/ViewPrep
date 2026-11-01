@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -503,11 +507,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 16</div>
     <h2>You’re drafting the offering summary for the food manufacturer and the CFO asks who actually receives the money from each share sold. How do you explain primary versus secondary shares?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .flow{stroke:var(--line);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-ecm-2" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-2 .flow{stroke:var(--line);stroke-width:1.5;}
   </style>
   <rect x="140" y="8" width="160" height="30" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
   <text x="220" y="27" text-anchor="middle" class="lbl-strong">OFFERING: 10.0M SHARES</text>
@@ -537,12 +538,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 16</div>
     <h2>What does the underwriting bank actually do in an IPO, and what is it being paid for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .sh{stroke:var(--blue);stroke-width:1.5;}
-    .cs{stroke:var(--green);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-ecm-3" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-3 .sh{stroke:var(--blue);stroke-width:1.5;}#dg-ecm-3 .cs{stroke:var(--green);stroke-width:1.5;}
   </style>
   <rect x="0" y="44" width="110" height="52" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
   <text x="55" y="75" text-anchor="middle" class="lbl-strong">COMPANY</text>
@@ -572,11 +569,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 16</div>
     <h2>How long does an IPO take end to end, and what happens in between?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-ecm-4" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-4 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="24" y1="74" x2="416" y2="74" class="axis"/>
   <polygon points="420,74 410,69 410,79" fill="var(--line-soft)"/>
@@ -612,11 +606,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 16</div>
     <h2>You’re a week into the roadshow for the food manufacturer when the syndicate desk says the book is three times covered. What is a roadshow, what does building a book mean, and what did they just tell you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .cov{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-ecm-6" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-6 .cov{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="0" y="14" class="lbl">ORDERS IN THE BOOK AT EACH PRICE</text>
   <text x="0" y="52" class="lbl-strong">$22</text>
@@ -641,12 +632,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 16</div>
     <h2>How does the IPO price actually get set, and why does the price range narrow as the deal goes on?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .tick{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-ecm-7" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-7 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-ecm-7 .tick{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <text x="40" y="30" class="lbl">FILED RANGE</text>
   <rect x="116" y="36" width="152" height="18" rx="4" fill="var(--surface-strong)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -677,12 +664,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 16</div>
     <h2>A food manufacturer prices at $23 and closes its first day at $30. The CFO calls and asks whether the bank left $7 a share on the table. What do you say?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 12px Arial;fill:var(--ink);}
-    .base{stroke:var(--line-soft);stroke-width:1.5;}
-    .dash{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-ecm-8" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-8 .lbl-strong{font:700 12px Arial;fill:var(--ink);}#dg-ecm-8 .base{stroke:var(--line-soft);stroke-width:1.5;}#dg-ecm-8 .dash{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <line x1="60" y1="140" x2="420" y2="140" class="base"/>
   <rect x="90" y="48" width="70" height="92" rx="4" fill="var(--blue)"/>
@@ -704,12 +687,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 16</div>
     <h2>What is a lock-up period in an IPO, and why do underwriters insist on one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .cut{stroke:var(--amber);stroke-width:1.5;stroke-dasharray:4,3;}
+    <div class="diagram"><svg id="dg-ecm-9" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-ecm-9 .cut{stroke:var(--amber);stroke-width:1.5;stroke-dasharray:4,3;}
   </style>
   <line x1="20" y1="80" x2="420" y2="80" class="axis"/>
   <rect x="20" y="66" width="280" height="28" rx="5" fill="var(--blue)" opacity="0.3"/>
@@ -728,11 +707,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 16</div>
     <h2>Two weeks after the haulage company prices, the syndicate desk mentions they’ve exercised the shoe. What is the greenshoe, and why does every deal have one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-ecm-10" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-10 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-10 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-10 .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="0" y="14" class="lbl">THE BANK SELLS 115% OF THE DEAL</text>
   <rect x="0" y="26" width="280" height="30" rx="5" fill="var(--blue)"/>
@@ -759,11 +735,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 16</div>
     <h2>A founder who owns 2 million of the haulage company&#x27;s 8 million shares asks what the IPO does to her stake if the company issues 2 million new shares. Walk her through it.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .inbar{font:700 11px Arial;fill:var(--contrast);}
+    <div class="diagram"><svg id="dg-ecm-11" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-ecm-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-ecm-11 .inbar{font:700 11px Arial;fill:var(--contrast);}
   </style>
   <text x="0" y="20" class="lbl">BEFORE: 8.0M SHARES OUTSTANDING</text>
   <rect x="0" y="28" width="80" height="32" rx="4" fill="var(--blue)"/>
@@ -793,10 +766,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 16</div>
     <h2>How do a direct listing and a SPAC differ from a traditional IPO, and when would a company pick one?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .hd{font:700 11px Arial;}
+    <div class="diagram"><svg id="dg-ecm-13" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-ecm-13 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-ecm-13 .hd{font:700 11px Arial;}
   </style>
   <text x="0" y="14" class="lbl">THREE ROUTES TO A PUBLIC LISTING</text>
   <rect x="0" y="24" width="140" height="140" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

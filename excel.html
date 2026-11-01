@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,11 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>What actually is a financial model?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
- .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
- .val{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-0" viewBox="0 0 440 165" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-excel-0 .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}#dg-excel-0 .val{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
  </style>
  <text x="220" y="16" text-anchor="middle" class="lbl">WHAT A MODEL DOES</text>
  <rect x="12" y="30" width="126" height="90" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -525,10 +526,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 18</div>
     <h2>How should a model be laid out across tabs, and why does that structure matter more than it sounds like it should?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
- .tab{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-1" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-1 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-excel-1 .tab{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
  </style>
  <text x="220" y="16" text-anchor="middle" class="lbl">WORKBOOK TABS, LEFT TO RIGHT</text>
  <rect x="12" y="30" width="100" height="36" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -553,10 +552,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>Why do banker-built models color hardcoded inputs blue and formulas black, and what does a green cell usually mean?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-excel-2" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-excel-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-excel-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <text x="20" y="18" class="lbl">CELL</text>
   <text x="145" y="18" class="lbl">MEANS</text>
@@ -582,11 +579,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 18</div>
     <h2>A revenue build has =1200*1.05 typed straight into a cell, and the number it produces is correct. Why is that still wrong?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}
- .hd{font:700 11px Arial;text-anchor:middle;}
- .cell{font:700 12px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-3" viewBox="0 0 440 175" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-3 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;text-anchor:middle;}#dg-excel-3 .hd{font:700 11px Arial;text-anchor:middle;}#dg-excel-3 .cell{font:700 12px Arial;fill:var(--ink);text-anchor:middle;}
  </style>
  <text x="220" y="16" text-anchor="middle" class="lbl">SAME ANSWER, VERY DIFFERENT MODEL</text>
  <rect x="12" y="26" width="200" height="134" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.2"/>
@@ -610,12 +604,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 18</div>
     <h2>You drag your growth formula across the forecast row and every year after the first comes back as zero, even though the growth rate is sitting right there in cell B2. What happened?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
- .fm{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
- .rs{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}
- .div{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-excel-4" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-4 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-excel-4 .fm{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-excel-4 .rs{font:600 10px Arial;fill:var(--ink-soft);text-anchor:middle;}#dg-excel-4 .div{stroke:var(--line-soft);stroke-width:1;}
  </style>
  <text x="14" y="16" class="lbl">GROWTH RATE LIVES IN B2</text>
  <rect x="14" y="24" width="70" height="24" rx="5" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.3"/>
@@ -657,11 +647,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>Walk me through the errors you run into most often in a model, #REF!, #DIV/0!, #VALUE! and #N/A. What is each one actually telling you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
- .code{font:700 11px Arial;fill:var(--amber);text-anchor:middle;}
- .mean{font:700 10.5px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-excel-6" viewBox="0 0 440 195" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-6 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-excel-6 .code{font:700 11px Arial;fill:var(--amber);text-anchor:middle;}#dg-excel-6 .mean{font:700 10.5px Arial;fill:var(--ink);}
  </style>
  <text x="14" y="16" class="lbl">WHAT THE ERROR IS TELLING YOU</text>
  <rect x="14" y="26" width="96" height="32" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.3"/>
@@ -705,13 +692,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 18</div>
     <h2>How should a debt schedule be laid out so the balances genuinely carry forward from year to year?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
- <style>
- .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
- .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
- .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
- .div{stroke:var(--line-soft);stroke-width:1;}
- .arw{stroke:var(--green);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    <div class="diagram"><svg id="dg-excel-10" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+ <style>#dg-excel-10 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-excel-10 .hd{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}#dg-excel-10 .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}#dg-excel-10 .div{stroke:var(--line-soft);stroke-width:1;}#dg-excel-10 .arw{stroke:var(--green);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
  </style>
  <text x="187" y="42" class="hd">YEAR 1</text>
  <text x="285" y="42" class="hd">YEAR 2</text>
@@ -756,10 +738,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 18</div>
     <h2>Changing the D&amp;A assumption doesn’t move the ending cash balance. What is the likely problem?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .box-lbl{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-12" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-excel-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-excel-12 .box-lbl{font:700 10.5px Arial;fill:var(--ink);text-anchor:middle;}
   </style>
   <text x="220" y="14" text-anchor="middle" class="lbl">HOW ONE CHANGE FLOWS THROUGH</text>
 
@@ -791,10 +771,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 18</div>
     <h2>How do you sanity-check that a model isn’t secretly broken before it goes out?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .val{font:600 11px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-13" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-excel-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-excel-13 .val{font:600 11px Arial;fill:var(--ink);text-anchor:middle;}
   </style>
   <text x="20" y="16" class="lbl">CHECK ROW</text>
 
@@ -820,10 +798,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 18</div>
     <h2>While building the debt schedule for the firm LBO, Excel throws a circular reference warning. Why did that happen, and how do you handle it?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 230" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}
-    .box-lbl{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-14" viewBox="0 0 440 230" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-excel-14 .lbl{font:600 9.5px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;}#dg-excel-14 .box-lbl{font:700 10px Arial;fill:var(--ink);text-anchor:middle;}
   </style>
   <rect x="155" y="10" width="130" height="44" rx="8" fill="var(--surface)" stroke="var(--line-soft)" stroke-width="1.5"/>
   <text x="220" y="36" class="box-lbl">INTEREST EXPENSE</text>
@@ -854,11 +830,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>What Excel feature builds a table of exit IRR across a range of exit multiples and entry leverage levels in one shot?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}
-    .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
+    <div class="diagram"><svg id="dg-excel-15" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-excel-15 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-excel-15 .hd{font:700 11px Arial;fill:var(--ink);text-anchor:middle;}#dg-excel-15 .val{font:600 11px Arial;fill:var(--ink-soft);text-anchor:middle;}
   </style>
   <text x="250" y="16" text-anchor="middle" class="lbl">COLUMN INPUT: LEVERAGE</text>
   <text x="30" y="105" text-anchor="middle" class="lbl" transform="rotate(-90 30 105)">ROW INPUT: EXIT MULTIPLE</text>

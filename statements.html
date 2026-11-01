@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -497,11 +501,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 17</div>
     <h2>Read an income statement from the top line to the bottom line. What is each step telling you?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .bar-lbl{font:700 11px Arial;fill:var(--ink);}
-    .cut{font:600 10px Arial;fill:var(--amber);text-transform:uppercase;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-statements-1" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-1 .bar-lbl{font:700 11px Arial;fill:var(--ink);}#dg-statements-1 .cut{font:600 10px Arial;fill:var(--amber);text-transform:uppercase;letter-spacing:.04em;}
   </style>
   <rect x="20" y="20" width="300" height="30" rx="6" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="32" y="40" class="bar-lbl">REVENUE</text>
@@ -528,23 +529,21 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 17</div>
     <h2>Why quote three different margins rather than just one? What does each one tell you that the others don’t?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .pct{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-statements-3" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-3 .pct{font:700 11px Arial;fill:var(--ink);}
   </style>
-  <text x="100" y="44" text-anchor="end" class="lbl">REVENUE</text>
-  <rect x="110" y="30" width="300" height="20" rx="4" fill="var(--surface-strong)"/>
-  <text x="100" y="76" text-anchor="end" class="lbl">GROSS PROFIT</text>
-  <rect x="110" y="62" width="126" height="20" rx="4" fill="var(--blue)"/>
-  <text x="244" y="76" class="pct">42%</text>
-  <text x="100" y="108" text-anchor="end" class="lbl">OPERATING INCOME</text>
-  <rect x="110" y="94" width="45" height="20" rx="4" fill="var(--amber)"/>
-  <text x="163" y="108" class="pct">15%</text>
-  <text x="100" y="140" text-anchor="end" class="lbl">NET INCOME</text>
-  <rect x="110" y="126" width="27" height="20" rx="4" fill="var(--green)"/>
-  <text x="145" y="140" class="pct">9%</text>
-  <text x="110" y="162" class="lbl">EACH MARGIN STRIPS OUT ONE MORE LAYER OF COST</text>
+  <text x="112" y="44" text-anchor="end" class="lbl">REVENUE</text>
+  <rect x="122" y="30" width="300" height="20" rx="4" fill="var(--surface-strong)"/>
+  <text x="112" y="76" text-anchor="end" class="lbl">GROSS PROFIT</text>
+  <rect x="122" y="62" width="126" height="20" rx="4" fill="var(--blue)"/>
+  <text x="256" y="76" class="pct">42%</text>
+  <text x="112" y="108" text-anchor="end" class="lbl">OPERATING INCOME</text>
+  <rect x="122" y="94" width="45" height="20" rx="4" fill="var(--amber)"/>
+  <text x="175" y="108" class="pct">15%</text>
+  <text x="112" y="140" text-anchor="end" class="lbl">NET INCOME</text>
+  <rect x="122" y="126" width="27" height="20" rx="4" fill="var(--green)"/>
+  <text x="157" y="140" class="pct">9%</text>
+  <text x="122" y="162" class="lbl">EACH MARGIN STRIPS OUT ONE MORE LAYER OF COST</text>
 </svg></div>
     <p class="takeaway">Gross, operating, and net margin show what’s left after each successive layer of cost.</p>
     <p class="answer">A margin is just a profit line divided by revenue. Gross margin, gross profit over revenue, shows pricing power and how cheaply the company can make what it sells. Operating margin, operating income over revenue, adds the cost of actually running the business, so it captures how efficient the whole operation is. Net margin, net income over revenue, comes after interest and tax, so it reflects how much debt the company carries and where it pays tax. That’s why operating margin usually gives the cleaner read across peers.</p>
@@ -552,11 +551,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 17</div>
     <h2>What does it mean when a balance sheet line is labeled current rather than non-current?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .dash{stroke:var(--line-soft);stroke-width:1.5;stroke-dasharray:5,4;}
+    <div class="diagram"><svg id="dg-statements-4" viewBox="0 0 440 210" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-statements-4 .dash{stroke:var(--line-soft);stroke-width:1.5;stroke-dasharray:5,4;}
   </style>
   <text x="115" y="24" text-anchor="middle" class="lbl">ASSETS</text>
   <text x="325" y="24" text-anchor="middle" class="lbl">LIABILITIES + EQUITY</text>
@@ -590,12 +586,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 17</div>
     <h2>How do the three financial statements tie together?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .stem{stroke:var(--line-soft);stroke-width:1.5;}
-    .badge{font:700 10px Arial;fill:var(--contrast);letter-spacing:.03em;}
+    <div class="diagram"><svg id="dg-statements-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-statements-6 .stem{stroke:var(--line-soft);stroke-width:1.5;}#dg-statements-6 .badge{font:700 10px Arial;fill:var(--contrast);letter-spacing:.03em;}
   </style>
   <rect x="130" y="14" width="180" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="220" y="33" text-anchor="middle" class="lbl-strong">INCOME</text>
@@ -620,10 +612,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 17</div>
     <h2>What are the three sections of the cash flow statement?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-statements-7" viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-7 .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}#dg-statements-7 .op{font:700 16px Arial;fill:var(--ink-faint);}
   </style>
   <rect x="0" y="28" width="96" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="48" y="48" text-anchor="middle" class="lbl">OPERATING</text>
@@ -653,10 +643,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 17</div>
     <h2>A company’s net income looks strong but its cash balance keeps falling. Why can the two diverge in the same period?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 158" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-statements-9" viewBox="0 0 440 158" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <line x1="40" y1="100" x2="400" y2="100" stroke="var(--line-soft)" stroke-width="1.5"/>
   <circle cx="110" cy="100" r="7" fill="var(--blue)"/>
@@ -676,11 +664,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 11 of 17</div>
     <h2>A company earns 40 million and pays a 10 million dividend in the same year. What does that do to equity on the balance sheet?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-statements-10" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-10 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-10 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-statements-10 .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <rect x="20" y="70" width="80" height="80" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <rect x="120" y="30" width="80" height="40" rx="4" fill="var(--green)"/>
@@ -703,10 +688,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 17</div>
     <h2>A retailer grew revenue 30% but its operating cash flow fell. How does a change in working capital show up in cash flow?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    <div class="diagram"><svg id="dg-statements-11" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-11 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-11 .lbl-strong{font:700 11px Arial;fill:var(--ink);}
   </style>
   <rect x="20" y="26" width="220" height="44" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="130" y="46" text-anchor="middle" class="lbl-strong">RECEIVABLES OR INVENTORY</text>
@@ -730,10 +713,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 17</div>
     <h2>What does EBITDA actually capture?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    <div class="diagram"><svg id="dg-statements-12" viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-12 .lbl{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.02em;}#dg-statements-12 .op{font:700 16px Arial;fill:var(--ink-faint);}
   </style>
   <rect x="0" y="28" width="96" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="48" y="48" text-anchor="middle" class="lbl">NET</text>
@@ -755,12 +736,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 17</div>
     <h2>What is free cash flow, and how do you build it from the statements?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .title{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-statements-13" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-13 .lbl{font:600 9px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-13 .title{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-13 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-statements-13 .link{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="15" y="18" class="title">UNLEVERED FREE CASH FLOW BUILD</text>
   <rect x="15" y="50" width="70" height="100" rx="4" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -773,8 +750,9 @@ a{color:inherit;}
   <line x1="255" y1="60" x2="270" y2="60" class="link"/>
   <line x1="340" y1="70" x2="355" y2="70" class="link"/>
   <line x1="10" y1="150" x2="430" y2="150" class="axis"/>
-  <text x="50" y="166" text-anchor="middle" class="lbl">OPERATING PROFIT</text>
-  <text x="50" y="177" text-anchor="middle" class="lbl">AFTER TAX</text>
+  <text x="50" y="166" text-anchor="middle" class="lbl">OPERATING</text>
+  <text x="50" y="177" text-anchor="middle" class="lbl">PROFIT</text>
+  <text x="50" y="188" text-anchor="middle" class="lbl">AFTER TAX</text>
   <text x="135" y="166" text-anchor="middle" class="lbl" style="fill:var(--green);">+ DEPRECIATION</text>
   <text x="135" y="177" text-anchor="middle" class="lbl" style="fill:var(--green);">&amp; AMORTIZATION</text>
   <text x="220" y="166" text-anchor="middle" class="lbl" style="fill:var(--amber);">&#8722; CAPITAL</text>
@@ -802,13 +780,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 17 of 17</div>
     <h2>Depreciation goes up by 10. Tax rate 25%. Walk me through all three statements, and tell me where you start.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .hdr{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}
-    .num{font:600 10px Arial;fill:var(--ink-soft);}
-    .res{font:700 11px Arial;fill:var(--ink);}
-    .rule{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-statements-16" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-statements-16 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-statements-16 .hdr{font:700 10px Arial;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em;}#dg-statements-16 .num{font:600 10px Arial;fill:var(--ink-soft);}#dg-statements-16 .res{font:700 11px Arial;fill:var(--ink);}#dg-statements-16 .rule{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <rect x="8" y="18" width="136" height="140" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="76" y="38" text-anchor="middle" class="hdr">INCOME STATEMENT</text>

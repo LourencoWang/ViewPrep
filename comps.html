@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -491,15 +495,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 1 of 15</div>
     <h2>What is comparable companies analysis, and what question is it actually answering?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-0" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-0 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-0 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-0 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-0 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-0 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-0 .on{fill:var(--contrast);}#dg-comps-0 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Trading comps in four moves</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -524,15 +521,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 2 of 15</div>
     <h2>How do you choose the peer group, and why is it the step that matters most?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-1" viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-1 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-1 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-1 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-1 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-1 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-1 .on{fill:var(--contrast);}#dg-comps-1 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
   <text x="12" y="24" class="lbl-strong" style="fill:var(--green)">Good peer</text>
@@ -553,15 +543,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 15</div>
     <h2>What is enterprise value, and how is it different from market capitalisation?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-2" viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-2 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-2 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-2 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-2 .on{fill:var(--contrast);}#dg-comps-2 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The price of the whole business, whoever funded it</text>
   <rect x="0" y="46" width="76" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -584,15 +567,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 15</div>
     <h2>What is EV/EBITDA, and why is it the multiple bankers reach for first?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-3" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-3 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-3 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-3 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-3 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-3 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-3 .on{fill:var(--contrast);}#dg-comps-3 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">EV/EBITDA sits above what differs between peers</text>
   <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
@@ -615,15 +591,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 15</div>
     <h2>When would you use P/E, EV/Sales, or EV/EBIT instead of EV/EBITDA?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 124" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-4" viewBox="0 0 440 124" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-4 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-4 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-4 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-4 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-4 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-4 .on{fill:var(--contrast);}#dg-comps-4 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <rect x="0" y="6" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
   <text x="6" y="21" text-anchor="start" class="lbl">Multiple</text>
@@ -647,15 +616,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 6 of 15</div>
     <h2>What does LTM mean, and why do analysts show both LTM and forward multiples?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-5" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-5 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-5 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-5 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-5 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-5 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-5 .on{fill:var(--contrast);}#dg-comps-5 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Same price, higher forecast earnings: ~40% growth expected</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -674,15 +636,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 15</div>
     <h2>What does it mean to normalise or adjust a company&#x27;s earnings before running comps?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-6" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-6 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-6 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-6 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-6 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-6 .on{fill:var(--contrast);}#dg-comps-6 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">FOOD MANUFACTURER: add back the one-off before applying a multiple</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -705,15 +660,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 15</div>
     <h2>You have a peer range of 8x to 12x EV/EBITDA. How do you decide where in the range your company sits?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-7" viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-7 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-7 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-7 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-7 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-7 .on{fill:var(--contrast);}#dg-comps-7 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Where in the peer range does your company sit?</text>
   <line x1="20" y1="52" x2="420" y2="52" stroke="var(--line)" stroke-width="2"/>
@@ -738,15 +686,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 15</div>
     <h2>What is the difference between trading comps and precedent transactions?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-9" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-9 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-9 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-9 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-9 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-9 .on{fill:var(--contrast);}#dg-comps-9 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The control premium: precedents run 20–40% higher</text>
   <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
@@ -777,15 +718,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 13 of 15</div>
     <h2>A hedge fund asks for a quick comps valuation of the firm. Peers trade at 10x EBITDA. The firm has EBITDA of £80m, debt of £300m, cash of £50m and 100m shares. What is the share price implied?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-12" viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-12 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-12 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-12 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-12 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-12 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-12 .on{fill:var(--contrast);}#dg-comps-12 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">FIRM: 10x × £80m = £800m EV → £550m equity → £5.50 a share</text>
   <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
@@ -810,15 +744,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 15</div>
     <h2>What is a football field chart, and what is it for?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-13" viewBox="0 0 440 166" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-13 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-13 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-13 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-13 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-13 .on{fill:var(--contrast);}#dg-comps-13 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">The football field: where the methods overlap is the range</text>
   <text x="0" y="39" class="lbl-strong" style="font-size:10px">Trading comps</text>
@@ -848,15 +775,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 15</div>
     <h2>Walk me through how you would value a company using comps. Give the answer in order.</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .val{font:700 12px Arial;fill:var(--ink);}
-    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
-    .op{font:700 16px Arial;fill:var(--ink-faint);}
-    .on{fill:var(--contrast);}
-    .axis{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-comps-14" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-comps-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-comps-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-comps-14 .val{font:700 12px Arial;fill:var(--ink);}#dg-comps-14 .cap{font:600 9.5px Arial;fill:var(--ink-soft);}#dg-comps-14 .op{font:700 16px Arial;fill:var(--ink-faint);}#dg-comps-14 .on{fill:var(--contrast);}#dg-comps-14 .axis{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="0" y="14" class="lbl">Walk me through comps</text>
   <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>

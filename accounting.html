@@ -311,10 +311,14 @@ a{color:inherit;}
     order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
     margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;-ms-overflow-style:none;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
-            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
   }
   .main-nav::-webkit-scrollbar{display:none;}
+  /* Fade the strip's right edge with a painted gradient, not a mask: a mask on
+     the nav would also hide the dropdown menus that open from it. */
+  .main-nav::after{
+    content:'';flex:0 0 2rem;align-self:stretch;position:sticky;right:0;margin-left:-.5rem;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;
+  }
   .header-actions,.header-nav{margin-left:auto;}
 }
 /* On a phone the logo, the theme switch and one action must share a line. */
@@ -401,7 +405,7 @@ a{color:inherit;}
   }
   .deck-desc{grid-column:2;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.5;}
   .deck-count{grid-column:3;grid-row:1;padding-top:.3rem;white-space:nowrap;}
-  .deck-item:hover .deck-name{color:var(--link);}
+  @media (hover:hover){ .deck-item:hover .deck-name{color:var(--link);} }
   .deck-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* ---------- glossary ---------- */
@@ -503,12 +507,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 3 of 18</div>
     <h2>What is the difference between revenue and profit?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .seg{font:700 10px Arial;fill:var(--contrast);}
-    .lead{stroke:var(--line);stroke-width:1;fill:none;}
+    <div class="diagram"><svg id="dg-accounting-2" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-2 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-2 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-accounting-2 .seg{font:700 10px Arial;fill:var(--contrast);}#dg-accounting-2 .lead{stroke:var(--line);stroke-width:1;fill:none;}
   </style>
   <text x="20" y="26" class="lbl-strong">REVENUE $40M</text>
   <line x1="20" y1="36" x2="420" y2="36" class="lead"/>
@@ -519,7 +519,7 @@ a{color:inherit;}
   <rect x="360" y="48" width="20" height="36" fill="var(--blue)" opacity="0.3"/>
   <rect x="380" y="48" width="40" height="36" fill="var(--green)"/>
   <text x="130" y="71" text-anchor="middle" class="seg">COGS $22M</text>
-  <text x="300" y="71" text-anchor="middle" class="seg">OPEX $12M</text>
+  <text x="300" y="71" text-anchor="middle" style="fill:var(--ink);" class="seg">OPEX $12M</text>
   <polyline points="370,84 370,104 358,104" class="lead"/>
   <text x="352" y="108" text-anchor="end" class="lbl">INTEREST + TAX $2M</text>
   <polyline points="400,84 400,132 386,132" class="lead"/>
@@ -533,11 +533,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 4 of 18</div>
     <h2>What do “debit” and “credit” actually mean in accounting?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .hdr{font:700 13px Arial;letter-spacing:.06em;}
-    .item{font:600 11px Arial;}
-    .side{font:600 9px Arial;text-transform:uppercase;letter-spacing:.04em;}
+    <div class="diagram"><svg id="dg-accounting-3" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-3 .hdr{font:700 13px Arial;letter-spacing:.06em;}#dg-accounting-3 .item{font:600 11px Arial;}#dg-accounting-3 .side{font:600 9px Arial;text-transform:uppercase;letter-spacing:.04em;}
   </style>
   <rect x="10" y="14" width="200" height="122" rx="10" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="110" y="36" text-anchor="middle" class="hdr" style="fill:var(--blue);">DEBIT</text>
@@ -559,10 +556,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 5 of 18</div>
     <h2>What is double-entry bookkeeping?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 10.5px Arial;text-transform:uppercase;letter-spacing:.02em;}
-    .op{font:700 16px Arial;}
+    <div class="diagram"><svg id="dg-accounting-4" viewBox="0 0 440 110" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-4 .lbl{font:700 10.5px Arial;text-transform:uppercase;letter-spacing:.02em;}#dg-accounting-4 .op{font:700 16px Arial;}
   </style>
   <rect x="0" y="28" width="140" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
   <text x="70" y="56" text-anchor="middle" class="lbl" style="fill:var(--ink);">LIABILITIES</text>
@@ -585,12 +580,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 7 of 18</div>
     <h2>A haulage company pays $30,000 in cash for a forklift. What are the two lines of the journal entry, and how do you know which side each account goes on?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .acct{font:600 11px Arial;fill:var(--ink);}
-    .amt{font:700 11px Arial;}
-    .rule{stroke:var(--line-soft);stroke-width:1;}
+    <div class="diagram"><svg id="dg-accounting-6" viewBox="0 0 440 160" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-6 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-6 .acct{font:600 11px Arial;fill:var(--ink);}#dg-accounting-6 .amt{font:700 11px Arial;}#dg-accounting-6 .rule{stroke:var(--line-soft);stroke-width:1;}
   </style>
   <text x="20" y="24" class="lbl">ACCOUNT</text>
   <text x="330" y="24" text-anchor="end" class="lbl" style="fill:var(--blue);">DEBIT</text>
@@ -612,12 +603,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 8 of 18</div>
     <h2>A retailer ships $2 million of goods in December and collects the cash in February. Which year does that sale belong to, and why is accrual accounting the standard rather than simply tracking cash?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .row{font:700 11px Arial;}
-    .tl{stroke:var(--line-soft);stroke-width:1.5;}
-    .dash{stroke:var(--line);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-accounting-7" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-7 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-7 .row{font:700 11px Arial;}#dg-accounting-7 .tl{stroke:var(--line-soft);stroke-width:1.5;}#dg-accounting-7 .dash{stroke:var(--line);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="150" y="22" text-anchor="middle" class="lbl" style="fill:var(--ink-soft);">GOODS SHIPPED</text>
   <text x="370" y="22" text-anchor="middle" class="lbl" style="fill:var(--ink-soft);">CASH ARRIVES</text>
@@ -641,11 +628,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 9 of 18</div>
     <h2>What are accounts receivable and accounts payable, and why does almost every real business have both sitting on its balance sheet?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .bx{font:700 10.5px Arial;fill:var(--ink);}
-    .arrow{stroke:var(--line);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    <div class="diagram"><svg id="dg-accounting-8" viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-8 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-8 .bx{font:700 10.5px Arial;fill:var(--ink);}#dg-accounting-8 .arrow{stroke:var(--line);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   </style>
   <text x="8" y="24" class="lbl" style="fill:var(--blue);">MONEY COMING IN</text>
   <rect x="8" y="32" width="118" height="42" rx="8" fill="var(--surface)" stroke="var(--line-soft)"/>
@@ -674,13 +658,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 10 of 18</div>
     <h2>A software company collects a full year of subscription fees every January. Why can’t it record all of that as revenue in January, and what appears on the balance sheet instead?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .seg{font:700 10px Arial;fill:var(--contrast);}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
-    .fall{stroke:var(--amber);stroke-width:2;stroke-dasharray:4,3;fill:none;}
-    .arrow{stroke:var(--line);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    <div class="diagram"><svg id="dg-accounting-9" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-9 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-9 .seg{font:700 10px Arial;fill:var(--contrast);}#dg-accounting-9 .axis{stroke:var(--line-soft);stroke-width:1.5;}#dg-accounting-9 .fall{stroke:var(--amber);stroke-width:2;stroke-dasharray:4,3;fill:none;}#dg-accounting-9 .arrow{stroke:var(--line);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   </style>
   <text x="20" y="22" class="lbl" style="fill:var(--blue);">CASH COLLECTED</text>
   <rect x="20" y="30" width="76" height="100" fill="var(--blue)"/>
@@ -716,10 +695,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 12 of 18</div>
     <h2>What is depreciation, and why is straight-line depreciation the simplest method?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;text-transform:uppercase;letter-spacing:.04em;}
-    .axis{stroke:var(--line-soft);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-accounting-11" viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-11 .lbl{font:600 10px Arial;text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-11 .axis{stroke:var(--line-soft);stroke-width:1.5;}
   </style>
   <line x1="50" y1="20" x2="50" y2="140" class="axis"/>
   <line x1="50" y1="140" x2="410" y2="140" class="axis"/>
@@ -749,12 +726,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 14 of 18</div>
     <h2>What is working capital, and why can a company be profitable every quarter and still run short of cash?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .seg{font:700 9.5px Arial;fill:var(--contrast);}
-    .cap{font:700 10px Arial;}
-    .dash{stroke:var(--line);stroke-width:1;stroke-dasharray:3,3;}
+    <div class="diagram"><svg id="dg-accounting-13" viewBox="0 0 440 185" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-13 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-13 .seg{font:700 9.5px Arial;fill:var(--contrast);}#dg-accounting-13 .cap{font:700 10px Arial;}#dg-accounting-13 .dash{stroke:var(--line);stroke-width:1;stroke-dasharray:3,3;}
   </style>
   <text x="105" y="28" text-anchor="middle" class="lbl" style="fill:var(--blue);">CURRENT ASSETS</text>
   <rect x="60" y="40" width="90" height="30" fill="var(--blue)"/>
@@ -762,7 +735,7 @@ a{color:inherit;}
   <rect x="60" y="110" width="90" height="40" fill="var(--blue)" opacity="0.45"/>
   <text x="105" y="59" text-anchor="middle" class="seg">CASH</text>
   <text x="105" y="94" text-anchor="middle" class="seg">RECEIVABLES</text>
-  <text x="105" y="134" text-anchor="middle" class="seg">INVENTORY</text>
+  <text x="105" y="134" text-anchor="middle" style="fill:var(--ink);" class="seg">INVENTORY</text>
   <text x="295" y="28" text-anchor="middle" class="lbl" style="fill:var(--amber);">CURRENT LIABILITIES</text>
   <rect x="250" y="90" width="90" height="35" fill="var(--amber)"/>
   <rect x="250" y="125" width="90" height="25" fill="var(--amber)" opacity="0.6"/>
@@ -782,12 +755,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 15 of 18</div>
     <h2>A company buys a rival for $500 million when the rival’s identifiable net assets are worth $320 million at fair value. Where do the extra $180 million go on the balance sheet?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
-    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
-    .seg{font:700 10px Arial;fill:var(--contrast);}
-    .rule{stroke:var(--line);stroke-width:1;}
+    <div class="diagram"><svg id="dg-accounting-14" viewBox="0 0 440 150" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-14 .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}#dg-accounting-14 .lbl-strong{font:700 11px Arial;fill:var(--ink);}#dg-accounting-14 .seg{font:700 10px Arial;fill:var(--contrast);}#dg-accounting-14 .rule{stroke:var(--line);stroke-width:1;}
   </style>
   <text x="220" y="24" text-anchor="middle" class="lbl-strong">PURCHASE PRICE $500M</text>
   <line x1="40" y1="34" x2="400" y2="34" class="rule"/>
@@ -807,11 +776,8 @@ a{color:inherit;}
   <article class="card">
     <div class="card-n">Card 16 of 18</div>
     <h2>What is the difference between FIFO and LIFO inventory valuation, and what has to be adjusted before two companies’ margins can be compared?</h2>
-    <div class="diagram"><svg viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .lbl{font:700 12px Arial;letter-spacing:.04em;}
-    .sub{font:700 9px Arial;letter-spacing:.03em;text-transform:uppercase;}
-    .layer{stroke:var(--surface);stroke-width:1.5;}
+    <div class="diagram"><svg id="dg-accounting-15" viewBox="0 0 440 200" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>#dg-accounting-15 .lbl{font:700 12px Arial;letter-spacing:.04em;}#dg-accounting-15 .sub{font:700 9px Arial;letter-spacing:.03em;text-transform:uppercase;}#dg-accounting-15 .layer{stroke:var(--surface);stroke-width:1.5;}
   </style>
   <text x="90" y="20" text-anchor="middle" class="lbl" style="fill:var(--ink);">FIFO</text>
   <rect x="30" y="36" width="120" height="28" class="layer" fill="var(--blue)" opacity="0.25"/>
