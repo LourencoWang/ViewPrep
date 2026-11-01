@@ -468,7 +468,7 @@
   ],
   "evbridge": [
     {
-      "q": "Windmere Foods owns 75% of a bottling subsidiary and consolidates it in full. Explain why non-controlling interest is added to enterprise value rather than ignored or subtracted.",
+      "q": "A food company owns 75% of a bottling subsidiary and consolidates it in full. Explain why non-controlling interest is added to enterprise value rather than ignored or subtracted.",
       "a": "When a parent consolidates a subsidiary it reports 100% of that subsidiary’s revenue and EBITDA, even though it only owns 75%. The other 25% belongs to outside shareholders and is shown as non-controlling interest within equity. Because the EBITDA in the denominator of EV/EBITDA includes the whole subsidiary, the enterprise value in the numerator must also cover the whole subsidiary, so the outsiders’ 25% is added to equity value alongside debt. Subtracting it, or leaving it out, would pair a full-company EBITDA with a part-company EV and understate the multiple.",
       "key": [
         "non-controlling interest",
@@ -478,7 +478,7 @@
       ]
     },
     {
-      "q": "Meridian Health trades at £20 and has 8m employee options with a £5 strike. Show how the treasury stock method converts those options into a diluted share count, and explain the logic of each step.",
+      "q": "A hospital group trades at £20 and has 8m employee options with a £5 strike. Show how the treasury stock method converts those options into a diluted share count, and explain the logic of each step.",
       "a": "First check that the options are in the money: a £5 strike against a £20 share price means they would be exercised. Assume all 8m are exercised, which creates 8m new shares and brings £40m of cash into the company. The treasury stock method then assumes the company uses that £40m to buy back its own shares at the £20 market price, retiring 2m shares. Net dilution is 8m less 2m, or 6m new shares, which are added to the basic count. The method matters because counting all 8m would overstate dilution and therefore overstate equity value.",
       "key": [
         "treasury stock method",
@@ -508,7 +508,7 @@
       ]
     },
     {
-      "q": "Halsey Aerospace uses £50m of surplus cash to repay £50m of bank debt. Explain what happens to its enterprise value and its equity value, and why.",
+      "q": "An aerospace company uses £50m of surplus cash to repay £50m of bank debt. Explain what happens to its enterprise value and its equity value, and why.",
       "a": "Nothing changes on either measure. Net debt, which is debt minus cash, is the same after the repayment because debt falls £50m and cash falls £50m, so enterprise value, equity value plus net debt, is unchanged. Equity value is the residual after the claims ahead of shareholders, and since those net claims are the same size, the residual is the same too. The transaction is simply a reshuffle within the financing of the business: the operations that generate the cash flows have not moved, and EV only responds to changes in those operations. Future interest falls, but that is a profit effect, not a change in value today.",
       "key": [
         "net debt",
@@ -1154,7 +1154,7 @@
       ]
     },
     {
-      "q": "Halstead Foods’ volume fell 8%. Describe how you would use supply versus demand as a spine for the possible causes, and what data request follows from it.",
+      "q": "A listed food company’s volume fell 8%. Describe how you would use supply versus demand as a spine for the possible causes, and what data request follows from it.",
       "a": "Supply versus demand splits the causes of a volume fall into two shapes. On the demand side customers wanted less: a price rise pushed them to a rival, the category lost favour, or a supermarket delisting removed the range. On the supply side customers wanted the product but could not get it, because a line was down, packaging ran short or stock sat in the wrong depot. The halves need different fixes, so the first data request separates them: availability on shelf across the year, alongside sell-through where the product was in stock. Empty shelves point to supply, full shelves and slow sales point to demand.",
       "key": [
         "supply",
@@ -1164,8 +1164,8 @@
       ]
     },
     {
-      "q": "Rewrite the hypothesis ‘Northbay’s costs have gone up’ into a testable form, and explain what makes the new version falsifiable.",
-      "a": "A testable hypothesis has the shape ‘profits fell because X, which we would see as Y in the data.’ For Northbay: profits fell because fuel and driver pay rose faster than the prices it charges, which we would see as cost per delivery rising over two years while revenue per delivery stayed flat. The original could not fail, because some cost always rises and no data was named. The new one is falsifiable because a specific number can disprove it: if cost per delivery is flat, the cause lies elsewhere, and if revenue per delivery fell too, it is partly a pricing story. That is what makes it worth asking for data.",
+      "q": "Rewrite the hypothesis ‘the haulage company’s costs have gone up’ into a testable form, and explain what makes the new version falsifiable.",
+      "a": "A testable hypothesis has the shape ‘profits fell because X, which we would see as Y in the data.’ For the haulage company: profits fell because fuel and driver pay rose faster than the prices it charges, which we would see as cost per delivery rising over two years while revenue per delivery stayed flat. The original could not fail, because some cost always rises and no data was named. The new one is falsifiable because a specific number can disprove it: if cost per delivery is flat, the cause lies elsewhere, and if revenue per delivery fell too, it is partly a pricing story. That is what makes it worth asking for data.",
       "key": [
         "testable",
         "cost per delivery",
@@ -1174,8 +1174,8 @@
       ]
     },
     {
-      "q": "Marlstone Capital is buying Kestrel Components. Use stakeholder brainstorming to name four deal risks, each paired with a mitigation.",
-      "a": "Stakeholder brainstorming asks who touches the business and what each group could do to it. Customers: Kestrel’s largest accounts might use the change of owner to renegotiate or leave, mitigated by meeting them before signing and locking in multi-year contracts. Competitors: a rival could poach those accounts during the distraction, mitigated by keeping the sales leadership in place with retention bonuses. Suppliers: a sole-source supplier could raise prices once it sees a fund paying, mitigated by qualifying a second supplier early. Employees: the founder’s engineers might leave when their options are cashed out, mitigated by rolling part of the payout into new equity. Each risk arrives with an action, so the list reads as a plan.",
+      "q": "A private equity buyer is buying the components maker. Use stakeholder brainstorming to name four deal risks, each paired with a mitigation.",
+      "a": "Stakeholder brainstorming asks who touches the business and what each group could do to it. Customers: the components maker’s largest accounts might use the change of owner to renegotiate or leave, mitigated by meeting them before signing and locking in multi-year contracts. Competitors: a rival could poach those accounts during the distraction, mitigated by keeping the sales leadership in place with retention bonuses. Suppliers: a sole-source supplier could raise prices once it sees a fund paying, mitigated by qualifying a second supplier early. Employees: the founder’s engineers might leave when their options are cashed out, mitigated by rolling part of the payout into new equity. Each risk arrives with an action, so the list reads as a plan.",
       "key": [
         "stakeholder",
         "sole-source",
@@ -1882,7 +1882,7 @@
       ]
     },
     {
-      "q": "Corrigan Foods sells £50m a year with variable costs of 60% of revenue. It plans a 10% price rise and expects to lose 8% of volume. Show whether the rise adds contribution and explain the break-even volume loss.",
+      "q": "A food company sells £50m a year with variable costs of 60% of revenue. It plans a 10% price rise and expects to lose 8% of volume. Show whether the rise adds contribution and explain the break-even volume loss.",
       "a": "Today contribution is £50m less £30m of variable cost, so £20m. After the rise, price is 110% and volume 92% of today, so revenue is 50 times 1.1 times 0.92, which is £50.6m. Variable cost follows volume, not price, so it falls to 30 times 0.92, which is £27.6m. Contribution becomes 50.6 less 27.6, or £23m, up £3m, so the rise is worth it. On every 100 of old price, contribution per unit goes from 40 to 50, so the break-even volume loss is 20%: volume could fall to 80% of today before the rise stops paying. The common error is to keep variable cost at 60% of the new revenue.",
       "key": [
         "variable cost follows volume",

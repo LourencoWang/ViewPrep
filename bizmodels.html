@@ -4,9 +4,12 @@
 <meta charset="utf-8">
 <title>Business Models &amp; Unit Economics flashcards | ViewPrep</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 16 free flashcards with answers, written for people with no finance background.">
+<meta name="description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 15 free flashcards with answers, written for people with no finance background.">
 <link rel="canonical" href="https://viewprep.net/decks/bizmodels.html">
 <meta name="theme-color" content="#F2F1EC">
+<script>(function(){try{var s=localStorage.getItem('vp-theme');
+var d=s?s==='dark':window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/appletouchicon.png">
@@ -14,25 +17,46 @@
 <meta property="og:site_name" content="ViewPrep">
 <meta property="og:url" content="https://viewprep.net/decks/bizmodels.html">
 <meta property="og:title" content="Business Models &amp; Unit Economics flashcards | ViewPrep">
-<meta property="og:description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 16 free flashcards with answers, written for people with no finance background.">
+<meta property="og:description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 15 free flashcards with answers, written for people with no finance background.">
 <meta property="og:image" content="https://viewprep.net/ogimage.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Business Models &amp; Unit Economics flashcards | ViewPrep">
-<meta name="twitter:description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 16 free flashcards with answers, written for people with no finance background.">
+<meta name="twitter:description" content="How different kinds of company actually make money, and the numbers that decide whether they do. 15 free flashcards with answers, written for people with no finance background.">
 <meta name="twitter:image" content="https://viewprep.net/ogimage.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
-    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#8A8A90;
+    --bg:#F4F6FA; --ink:#0C0C0D; --ink-soft:#54545A; --ink-faint:#686E7A;
     --line:rgba(12,12,13,0.20); --line-soft:rgba(28,36,60,0.10);
     --surface:#FFFFFF; --surface-strong:#FFFFFF;
     --blue:#2F5FE0; --amber:#2C4E92; --amber-ink:#2C4E92; --green:#1D8A57; --red:#C63A2C;
     --contrast:#FFFFFF;
+    --ink-hover:#2A2A2E;
     --display:'Archivo',-apple-system,'Segoe UI',sans-serif;
     --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
+  /* Same token swap as the app, so a dark visitor stays dark when they click
+     through to a deck page or the glossary. */
+  :root[data-theme="dark"]{
+    --bg:#0E1117; --ink:#F1F3F8; --ink-soft:#A9AFBD; --ink-faint:#7C8392;
+    --line:rgba(241,243,248,0.24); --line-soft:rgba(241,243,248,0.13);
+    --surface:#171B24; --surface-strong:#1E2330;
+    --blue:#7BA3FF; --amber:#93B2FF; --amber-ink:#93B2FF;
+    --green:#4FCB8E; --red:#FF7F6E;
+    --contrast:#0E1117; --ink-hover:#DDE0E8;
+  }
+  .theme-btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;
+    align-items:center;justify-content:center;width:2.1rem;height:2.1rem;
+    border-radius:999px;border:1px solid var(--line-soft);color:var(--ink-soft);
+    background:var(--surface);flex:0 0 auto;}
+  .theme-btn:hover{color:var(--ink);border-color:var(--ink);}
+  .theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .theme-btn svg{width:1rem;height:1rem;display:block;}
+  .theme-btn .ic-moon{display:none;}
+  :root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+  :root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
   *,*::before,*::after{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
        line-height:1.6;-webkit-font-smoothing:antialiased;}
@@ -74,6 +98,14 @@
   .takeaway{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.45;
     color:var(--ink);margin:0 0 .7rem;}
   .answer{font-size:.95rem;line-height:1.65;color:var(--ink-soft);margin:0;}
+  .opts{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:.45rem;}
+  .opt{display:flex;align-items:flex-start;gap:.7rem;border:1px solid var(--line-soft);
+    border-radius:12px;padding:.6rem .8rem;font-size:.92rem;line-height:1.45;color:var(--ink-soft);}
+  .opt-k{flex:0 0 auto;width:1.3rem;height:1.3rem;border-radius:50%;border:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;
+    color:var(--ink-faint);}
+  .opt.is-right{border-color:var(--green);color:var(--ink);}
+  .opt.is-right .opt-k{border-color:var(--green);background:var(--green);color:#fff;}
   .diagram{margin:0 0 1.1rem;}
   .diagram svg{display:block;width:100%;height:auto;}
   .deck-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;}
@@ -138,6 +170,8 @@
   .prose ul{margin:0 0 1.2rem;padding-left:1.15rem;}
   .prose li{margin:0 0 .55rem;line-height:1.7;}
   .prose a{color:var(--blue);}
+  /* .prose a would otherwise beat .btn on specificity and tint the button text. */
+  .prose a.btn{color:var(--contrast);}
   .cta-block{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-soft);}
   .site-footer{border-top:1px solid var(--line-soft);padding:1.5rem 0 0;margin-top:3rem;
     color:var(--ink-faint);font-size:.82rem;line-height:1.6;}
@@ -154,11 +188,21 @@
   <header class="site-header">
     <a class="wordmark" href="https://viewprep.net/"><b>View</b><span>Prep</span></a>
     <nav class="main-nav" aria-label="Sections">
-      <a class="nav-item is-active" href="https://viewprep.net/#catalog">Cards</a>
+      <a class="nav-item is-active" href="https://viewprep.net/#track-ib">Investment Banking</a>
+      <a class="nav-item" href="https://viewprep.net/#track-consulting">Consulting</a>
       <a class="nav-item" href="https://viewprep.net/glossary.html">Glossary</a>
       <a class="nav-item" href="https://viewprep.net/#test">Test yourself</a>
     </nav>
     <nav class="header-nav">
+      <button class="theme-btn" id="theme-btn" type="button" aria-pressed="false"
+              title="Switch between light and dark" aria-label="Switch between light and dark">
+        <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
       <a class="header-cta" href="https://viewprep.net/?deck=bizmodels">Study these cards</a>
     </nav>
   </header>
@@ -166,100 +210,434 @@
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Consulting</p>
   <h1>Business Models &amp; Unit Economics</h1>
   <p class="lede">A case is easier when you already know how the client&#x27;s kind of business works: what it sells, what it costs, where the margin comes from and what can go wrong. This deck walks through the models that come up most, from retailers and subscription businesses to marketplaces, airlines and banks, and the unit economics behind each one: the profit on a single customer, a single seat, a single store. With that in your head you ask better questions in the first two minutes of a case and spot the problem faster in the last ten.</p>
-  <div class="meta-row"><span>16 cards</span><span>Consulting</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span>15 cards</span><span>Consulting</span><span>Free, no signup</span></div>
   <article class="card">
-    <div class="card-n">Card 1 of 16</div>
+    <div class="card-n">Card 1 of 15</div>
     <h2>What is a business model, and why does a consultant start by asking about it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Four questions that define a business model</text>
+  <rect x="0" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="47" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Who is the</text>
+  <text x="47" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">customer?</text>
+  <path d="M98 49 L110 49 M104 44 L110 49 L104 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="116" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="162" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">What do</text>
+  <text x="162" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">they get?</text>
+  <path d="M213 49 L225 49 M220 44 L225 49 L220 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="278" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">How is it</text>
+  <text x="278" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">delivered?</text>
+  <path d="M328 49 L340 49 M336 44 L340 49 L336 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="346" y="24" width="94" height="50" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+  <text x="393" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">How does it</text>
+  <text x="393" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">get paid?</text>
+</svg></div>
     <p class="takeaway">How a company creates value for customers and captures some of it as profit; every case problem sits somewhere in that chain.</p>
-    <p class="answer">A business model is the answer to four questions: who the customer is, what they get, how the company delivers it, and how it gets paid. Ferrow Retail sells clothes to shoppers through stores and a website and earns the gap between what it pays suppliers and what customers pay. A subscription software firm sells access to a tool to businesses through a sales team and earns recurring monthly fees. Consultants ask first because the diagnosis depends on it: falling profit means something different at a retailer, where it is usually margin or footfall, than at a software company, where it is usually churn or sales cost.</p>
+    <p class="answer">A business model is the answer to four questions: who the customer is, what they get, how the company delivers it, and how it gets paid. The retailer sells clothes to shoppers through stores and a website and earns the gap between what it pays suppliers and what customers pay. A subscription software firm sells access to a tool to businesses through a sales team and earns recurring monthly fees. Consultants ask first because the diagnosis depends on it: falling profit means something different at a retailer, where it is usually margin or footfall, than at a software company, where it is usually churn or sales cost.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 2 of 16</div>
+    <div class="card-n">Card 2 of 15</div>
     <h2>What are unit economics, and why do investors and consultants obsess over them?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <rect x="0" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="12" y="24" class="lbl-strong" style="fill:var(--green)">Unit makes money</text>
+  <text x="12" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Each customer earns more than it cost to win</text>
+  <text x="12" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Growth adds profit</text>
+  <text x="12" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Add units</text>
+  <rect x="226" y="4" width="214" height="92" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="238" y="24" class="lbl-strong" style="fill:var(--amber)">Unit loses money</text>
+  <text x="238" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Each customer costs more than it pays</text>
+  <text x="238" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Growth adds losses</text>
+  <text x="238" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Fix the unit first</text>
+</svg></div>
     <p class="takeaway">The profit or loss on one unit of the business, a customer, an order, a store, which tells you whether growth helps or hurts.</p>
     <p class="answer">Unit economics are the revenue and cost of one unit: one customer over their lifetime, one delivery, one seat on one flight, one shop. If a unit makes money, the company can grow by adding units and each one adds profit. If a unit loses money, growth makes the losses bigger, and the company is buying revenue. Total profit can hide this, because a business can show growing revenue and shrinking losses while each new customer still costs more to win than they ever pay. Asking for the numbers on one unit is the fastest way to see whether a business is fundamentally sound.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 3 of 16</div>
+    <div class="card-n">Card 3 of 15</div>
     <h2>What are customer acquisition cost and lifetime value, and what ratio between them is healthy?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">£7 × 20 months = £140 LTV against £50 CAC: 2.8x</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="110" width="56" height="36" rx="4" fill="var(--amber)"/>
+  <text x="110" y="105" text-anchor="middle" class="val">50£</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">CAC</text>
+  <rect x="302" y="44" width="56" height="102" rx="4" fill="var(--green)"/>
+  <text x="330" y="39" text-anchor="middle" class="val">140£</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">LTV</text>
+</svg></div>
     <p class="takeaway">CAC is what it costs to win a customer; LTV is the profit they generate before they leave; LTV should be about three times CAC.</p>
     <p class="answer">Customer acquisition cost is total sales and marketing spend divided by the number of new customers won. Lifetime value is the profit a customer generates over their time with the company: contribution per period, times how long they stay. If a subscription costs £10 a month with £7 of contribution and the average customer stays 20 months, LTV is £140. If it cost £50 to win them, LTV to CAC is about 3, which is the usual benchmark for a healthy business. Below 1 the company loses money on every customer; a very high ratio suggests it is underinvesting in growth.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 4 of 16</div>
+    <div class="card-n">Card 4 of 15</div>
     <h2>What is churn, and why does a small change in it move a subscription business so much?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Customer lifetime, months: halve churn, double it</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="95" width="56" height="51" rx="4" fill="var(--amber)"/>
+  <text x="110" y="90" text-anchor="middle" class="val">20 mo</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">5% monthly</text>
+  <text x="110" y="171" text-anchor="middle" class="lbl">churn</text>
+  <rect x="302" y="44" width="56" height="102" rx="4" fill="var(--green)"/>
+  <text x="330" y="39" text-anchor="middle" class="val">40 mo</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">2.5% monthly</text>
+  <text x="330" y="171" text-anchor="middle" class="lbl">churn</text>
+</svg></div>
     <p class="takeaway">Churn is the share of customers who leave each period; because lifetime is one over churn, halving churn doubles lifetime value.</p>
     <p class="answer">Churn is the percentage of customers lost in a period. A monthly churn of 5% means one in twenty customers leaves each month, so the average customer stays about 20 months. Cut churn to 2.5% and the average customer stays 40 months, doubling revenue per customer without winning anyone new. That is why subscription companies spend so heavily on retention, and why a case about a struggling streaming service or gym is almost always about churn before it is about acquisition. Always ask for churn early in any recurring-revenue case.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 5 of 16</div>
+    <div class="card-n">Card 5 of 15</div>
     <h2>How does a retailer make money, and what are the two numbers that decide it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 190" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Retailer: 40% gross margin, 35 of fixed store cost</text>
+  <line x1="0" y1="156" x2="440" y2="156" class="axis"/>
+  <rect x="29" y="46" width="52" height="110" rx="3" fill="var(--ink)"/>
+  <text x="55" y="41" text-anchor="middle" class="val">100</text>
+  <text x="55" y="170" text-anchor="middle" class="lbl">Sales</text>
+  <rect x="139" y="46" width="52" height="66" rx="3" fill="var(--amber)"/>
+  <text x="165" y="41" text-anchor="middle" class="val">−60</text>
+  <text x="165" y="170" text-anchor="middle" class="lbl">Cost of</text>
+  <text x="165" y="181" text-anchor="middle" class="lbl">goods</text>
+  <rect x="249" y="112" width="52" height="38" rx="3" fill="var(--amber)"/>
+  <text x="275" y="107" text-anchor="middle" class="val">−35</text>
+  <text x="275" y="170" text-anchor="middle" class="lbl">Store costs</text>
+  <text x="275" y="181" text-anchor="middle" class="lbl">(fixed)</text>
+  <rect x="359" y="150" width="52" height="6" rx="3" fill="var(--ink)"/>
+  <text x="385" y="146" text-anchor="middle" class="val">5</text>
+  <text x="385" y="170" text-anchor="middle" class="lbl">Profit</text>
+</svg></div>
     <p class="takeaway">Gross margin on what it sells, and sales per square foot or per store, against a largely fixed cost of stores and staff.</p>
     <p class="answer">A retailer buys goods and sells them for more; the gap is gross margin, typically 30% to 60% depending on the category. Against that sit costs that barely move with sales: rent, staff, energy, the website. So profit depends on pushing enough sales through each store to cover its fixed cost, which is why sales per square foot and like-for-like growth are the metrics retailers live by. A store with falling footfall goes from profitable to loss-making quickly because its costs do not fall with it. In a retail case, ask for margin and store-level sales before anything else.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 6 of 16</div>
+    <div class="card-n">Card 6 of 15</div>
     <h2>How does a marketplace like an app connecting drivers and riders make money, and what is the chicken-and-egg problem?</h2>
     <p class="takeaway">A marketplace takes a cut of each transaction between two sides, and it only works once both sides are big enough to attract each other.</p>
     <p class="answer">A marketplace does not own the product; it connects buyers and sellers and takes a percentage of each deal, the take rate, usually 10% to 30%. Its cost is mainly technology and the marketing to bring both sides in. The difficulty is that riders only come if there are drivers, and drivers only come if there are riders, so a new marketplace has to subsidise one side, often heavily, until the other arrives. Once it works, it is hard to dislodge, because everyone is where everyone else is. Cases about marketplaces are usually about take rate, subsidies, or whether a market is big enough to reach that tipping point.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 7 of 16</div>
+    <div class="card-n">Card 7 of 15</div>
     <h2>Why is software so profitable once it works, and what does that do to how the company grows?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 180" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Gross margin: copying code is free, making things is not</text>
+  <line x1="0" y1="146" x2="440" y2="146" class="axis"/>
+  <rect x="82" y="44" width="56" height="102" rx="4" fill="var(--blue)"/>
+  <text x="110" y="39" text-anchor="middle" class="val">85%</text>
+  <text x="110" y="160" text-anchor="middle" class="lbl">Software</text>
+  <rect x="302" y="98" width="56" height="48" rx="4" fill="var(--amber)"/>
+  <text x="330" y="93" text-anchor="middle" class="val">40%</text>
+  <text x="330" y="160" text-anchor="middle" class="lbl">Manufacturer</text>
+</svg></div>
     <p class="takeaway">The product costs almost nothing to copy, so gross margins are 80% or more and most spending goes on winning customers.</p>
     <p class="answer">Writing software is expensive; serving one more customer is nearly free, because it is the same code. That gives gross margins of 70% to 90%, compared with 30% to 50% for a company that makes physical things. So a software firm&#x27;s cost base is people, mostly engineers building the product and salespeople selling it. Early on, it spends far more on sales and marketing than it earns, betting that each customer&#x27;s lifetime value repays the acquisition cost many times over. A software case is usually about that bet: is CAC falling, is churn low, is the sales team productive, and when does the company stop needing outside money.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 8 of 16</div>
+    <div class="card-n">Card 8 of 15</div>
     <h2>How does an airline make money, and why are its economics so brutal?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Airline: profit lives in the last 20% of seats</text>
+  <line x1="30" y1="140" x2="430" y2="140" class="axis"/>
+  <line x1="30" y1="30" x2="30" y2="140" class="axis"/>
+  <text x="30" y="154" text-anchor="middle" class="lbl">60%</text>
+  <text x="130" y="154" text-anchor="middle" class="lbl">70%</text>
+  <text x="230" y="154" text-anchor="middle" class="lbl">80%</text>
+  <text x="330" y="154" text-anchor="middle" class="lbl">90%</text>
+  <text x="430" y="154" text-anchor="middle" class="lbl">100%</text>
+  <polyline points="30,140 130,114 230,90 330,66 430,40" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="430" y="32" text-anchor="end" class="lbl-strong" style="font-size:10px;fill:var(--blue)">Profit per flight</text>
+</svg></div>
     <p class="takeaway">It sells seats on flights whose cost is almost entirely fixed once they take off, so a few empty seats decide the profit.</p>
     <p class="answer">The cost of a flight, the aircraft, the crew, the fuel, the landing fees, is nearly the same whether the plane is full or half empty. Revenue depends on how many seats are sold and at what price. So the whole business comes down to load factor, the share of seats filled, and yield, revenue per seat. A plane that breaks even at 80% full makes all its profit from the last 20% of seats, which is why airlines cut prices at the last minute rather than fly empty. Add fuel prices they cannot control and fierce competition on every route, and you have an industry that loses money in most downturns.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 9 of 16</div>
+    <div class="card-n">Card 9 of 15</div>
     <h2>How does a bank make money?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">How a bank makes money, before fees and bad loans</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Lending rate</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">6%</text>
+  <text x="139" y="76" text-anchor="middle" class="op">−</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Deposit rate</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">2%</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Net interest</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">margin 4%</text>
+</svg></div>
     <p class="takeaway">Mostly from the gap between what it pays depositors and what it charges borrowers, plus fees; its risk is that borrowers do not pay back.</p>
     <p class="answer">A bank takes deposits, paying savers a low rate, and lends the money out at a higher rate. The difference is net interest income, and the gap as a percentage of assets is the net interest margin, usually one to three per cent. On top sit fees, for accounts, cards, advice and transactions. The costs are branches, staff and technology, and the big variable is credit losses: loans that are not repaid. That is why banks do well when rates rise, because the margin widens, and badly in recessions, because defaults rise. A bank case is usually about margin, cost-to-income ratio, or bad loans.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 10 of 16</div>
+    <div class="card-n">Card 10 of 15</div>
     <h2>What is a franchise model, and why do companies like fast-food chains use it?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 116" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <rect x="0" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="12" y="24" class="lbl-strong" style="fill:var(--blue)">Parent</text>
+  <text x="12" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Owns brand and system</text>
+  <text x="12" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Earns fee + 4–8% royalty</text>
+  <text x="12" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Grows without capital</text>
+  <text x="12" y="90" class="cap" style="font-size:10px;fill:var(--ink)">Loses some control</text>
+  <rect x="226" y="4" width="214" height="108" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="238" y="24" class="lbl-strong" style="fill:var(--amber)">Franchisee</text>
+  <text x="238" y="42" class="cap" style="font-size:10px;fill:var(--ink)">Owns the outlet</text>
+  <text x="238" y="58" class="cap" style="font-size:10px;fill:var(--ink)">Pays for fit-out and staff</text>
+  <text x="238" y="74" class="cap" style="font-size:10px;fill:var(--ink)">Keeps most of the profit</text>
+  <text x="238" y="90" class="cap" style="font-size:10px;fill:var(--ink)">Gets a proven format</text>
+</svg></div>
     <p class="takeaway">The company licenses its brand and system to local operators who put up the capital and take the operating risk, in return for a royalty.</p>
     <p class="answer">In a franchise, the parent owns the brand, the recipes and the rules, and a franchisee owns the individual outlet, pays for the fit-out, hires the staff and keeps most of the profit. The parent earns an upfront fee and a royalty, typically 4% to 8% of sales, plus rent if it owns the property. The parent grows fast without spending its own capital and earns a high-margin, steady income; the franchisee gets a proven format. The tension is control: the parent cannot manage every outlet, so quality can slip. Cases about franchise chains usually turn on the split of economics between the two sides.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 11 of 16</div>
+    <div class="card-n">Card 11 of 15</div>
     <h2>What is the difference between a high-volume, low-margin business and a low-volume, high-margin one, and how does a case differ for each?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 100" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Two ways to earn the same return; two different cases</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl"></text>
+  <text x="165" y="37" text-anchor="middle" class="lbl">Margin</text>
+  <text x="275" y="37" text-anchor="middle" class="lbl">Volume</text>
+  <text x="385" y="37" text-anchor="middle" class="lbl">Lever</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Supermarket</text>
+  <text x="165" y="59" text-anchor="middle" class="val" style="font-size:10.5px">2–3%</text>
+  <text x="275" y="59" text-anchor="middle" class="val" style="font-size:10.5px">enormous</text>
+  <text x="385" y="59" text-anchor="middle" class="val" style="font-size:10.5px">efficiency, scale</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Luxury brand</text>
+  <text x="165" y="81" text-anchor="middle" class="val" style="font-size:10.5px">50%</text>
+  <text x="275" y="81" text-anchor="middle" class="val" style="font-size:10.5px">small</text>
+  <text x="385" y="81" text-anchor="middle" class="val" style="font-size:10.5px">pricing, brand</text>
+</svg></div>
     <p class="takeaway">The first lives on efficiency and scale, the second on pricing and brand; the levers you pull are different.</p>
     <p class="answer">A supermarket makes two or three pence on every pound of sales and survives by selling enormous volumes efficiently: logistics, buying power, store productivity. A luxury brand makes fifty pence on every pound and survives by protecting the price: brand, scarcity, control of distribution. In a case about the first, look at costs, throughput and scale; in a case about the second, look at pricing, positioning and whether growth is diluting the brand. Applying the wrong lens is a common error, like recommending a luxury house cut prices to win volume, which would destroy the thing it sells.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 12 of 16</div>
-    <h2>What is operating leverage, and why does it explain why some companies&#x27; profits swing so much more than their sales?</h2>
-    <p class="takeaway">The higher the share of fixed costs, the more a small change in sales moves profit, up or down.</p>
-    <p class="answer">If most of a company&#x27;s costs are fixed, extra sales come with almost no extra cost, so profit rises much faster than revenue; but a fall in sales cuts profit just as sharply, because the costs stay. A cinema with 90% fixed costs might see profit double on a 10% rise in ticket sales and vanish on a 10% fall. A consultancy with mostly variable costs, its staff can be flexed, sees much smaller swings. In a case, high operating leverage means volume is everything, and a small forecast error matters enormously. It is worth naming explicitly when you see a business with big fixed costs.</p>
-  </article>
-  <article class="card">
-    <div class="card-n">Card 13 of 16</div>
-    <h2>Calder Foods sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?</h2>
+    <div class="card-n">Card 12 of 15</div>
+    <h2>A food manufacturer sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 122" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Keeping the retailer&#x27;s margin means doing the retailer&#x27;s work</text>
+  <rect x="0" y="22" width="440" height="22" rx="4" fill="var(--surface-strong)"/>
+  <text x="6" y="37" text-anchor="start" class="lbl">£3 jar of sauce</text>
+  <text x="220" y="37" text-anchor="middle" class="lbl">Via supermarket</text>
+  <text x="367" y="37" text-anchor="middle" class="lbl">Direct online</text>
+  <line x1="0" y1="66" x2="440" y2="66" class="axis"/>
+  <text x="6" y="59" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Price kept</text>
+  <text x="220" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£1.95</text>
+  <text x="367" y="59" text-anchor="middle" class="val" style="font-size:10.5px">£3.00</text>
+  <line x1="0" y1="88" x2="440" y2="88" class="axis"/>
+  <text x="6" y="81" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Delivery + marketing</text>
+  <text x="220" y="81" text-anchor="middle" class="val" style="font-size:10.5px">—</text>
+  <text x="367" y="81" text-anchor="middle" class="val" style="font-size:10.5px">£2.10</text>
+  <line x1="0" y1="110" x2="440" y2="110" class="axis"/>
+  <text x="6" y="103" text-anchor="start" class="lbl-strong" style="font-size:10.5px">Left for FOOD MANUFACTURER</text>
+  <text x="220" y="103" text-anchor="middle" class="val" style="font-size:10.5px">£1.95</text>
+  <text x="367" y="103" text-anchor="middle" class="val" style="font-size:10.5px">£0.90</text>
+</svg></div>
     <p class="takeaway">Direct sales keep the retailer&#x27;s margin but add the costs the retailer used to bear: marketing, delivery, returns and customer service.</p>
-    <p class="answer">Selling direct means Calder keeps the full retail price instead of 65% of it, which looks like a huge gain. But the supermarket was doing work for that margin: putting the product in front of millions of shoppers, holding stock, handling the sale and delivery. Direct, Calder must win customers itself, which costs marketing; ship small orders, which costs more per unit than pallets to a warehouse; and handle returns and queries. For a £3 jar of sauce, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and as a way to learn about customers; for cheap groceries it rarely does.</p>
+    <p class="answer">Selling direct means the food manufacturer keeps the full retail price instead of 65% of it, which looks like a huge gain. But the supermarket was doing work for that margin: putting the product in front of millions of shoppers, holding stock, handling the sale and delivery. Direct, the food manufacturer must win customers itself, which costs marketing; ship small orders, which costs more per unit than pallets to a warehouse; and handle returns and queries. For a £3 jar of sauce, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and as a way to learn about customers; for cheap groceries it rarely does.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 14 of 16</div>
+    <div class="card-n">Card 13 of 15</div>
     <h2>What is a two-sided subsidy, like a free service paid for by advertisers, and what is its weakness?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 128" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Free to the user, paid for by attention</text>
+  <rect x="0" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="58" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Audience</text>
+  <text x="58" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">views</text>
+  <text x="139" y="76" text-anchor="middle" class="op">×</text>
+  <rect x="162" y="46" width="116" height="46" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="66" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">Price per</text>
+  <text x="220" y="80" text-anchor="middle" class="lbl-strong" style="font-size:10.5px">1,000 views</text>
+  <text x="301" y="76" text-anchor="middle" class="op">=</text>
+  <rect x="324" y="38" width="116" height="62" rx="8" fill="var(--ink)"/>
+  <text x="382" y="66" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">Ad</text>
+  <text x="382" y="80" text-anchor="middle" class="lbl-strong on" style="font-size:10.5px">revenue</text>
+</svg></div>
     <p class="takeaway">Users get the product free and advertisers pay for access to them; the model depends on attention that competitors can steal.</p>
     <p class="answer">Many media and internet businesses charge the user nothing and sell the user&#x27;s attention to advertisers. Revenue is audience size times the price advertisers pay per thousand views. The costs are content and technology. It scales well, because a bigger audience commands both more views and a higher price. The weakness is that attention is fickle and advertisers follow it; a rival with a better product takes users, and revenue follows immediately. It also ties the company&#x27;s fortunes to the advertising market, which collapses in recessions. Cases here are about audience growth, engagement, and whether to add a paid tier.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 15 of 16</div>
+    <div class="card-n">Card 14 of 15</div>
     <h2>How do you work out whether a new store, route or product is worth opening, in a case?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">Is the new store worth opening?</text>
+  <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">Expected</text>
+  <text x="66" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">sales</text>
+  <path d="M136 49 L148 49 M143 44 L148 49 L143 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">× gross</text>
+  <text x="220" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">margin</text>
+  <path d="M290 49 L302 49 M297 44 L302 49 L297 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="47" text-anchor="middle" class="lbl-strong" style="font-size:10px">− store</text>
+  <text x="374" y="59" text-anchor="middle" class="lbl-strong" style="font-size:10px">costs</text>
+  <rect x="0" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="104" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">= store profit</text>
+  <text x="104" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">vs investment</text>
+  <path d="M213 119 L225 119 M220 114 L225 119 L220 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="231" y="94" width="209" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="336" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Cannibalisation?</text>
+  <text x="336" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">Better use?</text>
+</svg></div>
     <p class="takeaway">Estimate its unit economics, revenue against its own costs, then compare the return on the investment with what the client could do instead.</p>
-    <p class="answer">Build the case for one unit. For a new Ferrow store: expected sales, from footfall or comparable stores, times gross margin, minus the store&#x27;s own costs, rent, staff, energy, gives store-level profit. Compare it with the upfront investment for a payback or return. Then ask three questions: is the forecast sales figure plausible against nearby stores; does the new store steal sales from existing ones, called cannibalisation; and could the money earn more elsewhere. A recommendation that covers those, with a number and the biggest risk named, is a complete answer.</p>
+    <p class="answer">Build the case for one unit. For a new the retailer store: expected sales, from footfall or comparable stores, times gross margin, minus the store&#x27;s own costs, rent, staff, energy, gives store-level profit. Compare it with the upfront investment for a payback or return. Then ask three questions: is the forecast sales figure plausible against nearby stores; does the new store steal sales from existing ones, called cannibalisation; and could the money earn more elsewhere. A recommendation that covers those, with a number and the biggest risk named, is a complete answer.</p>
   </article>
   <article class="card">
-    <div class="card-n">Card 16 of 16</div>
-    <h2>An interviewer asks how a company you admire makes money. How do you answer in under a minute?</h2>
+    <div class="card-n">Card 15 of 15</div>
+    <h2>How does a company you admire make money, and how do you answer that in under a minute?</h2>
+    <div class="diagram"><svg viewBox="0 0 440 170" class="card-diagram" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lbl{font:600 10px Arial;fill:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;}
+    .lbl-strong{font:700 11px Arial;fill:var(--ink);}
+    .val{font:700 12px Arial;fill:var(--ink);}
+    .cap{font:600 9.5px Arial;fill:var(--ink-soft);}
+    .op{font:700 16px Arial;fill:var(--ink-faint);}
+    .on{fill:var(--contrast);}
+    .axis{stroke:var(--line);stroke-width:1;}
+  </style>
+  <text x="0" y="14" class="lbl">How any company makes money, in six sentences</text>
+  <rect x="0" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">Customer</text>
+  <path d="M136 49 L148 49 M143 44 L148 49 L143 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">Product</text>
+  <path d="M290 49 L302 49 M297 44 L302 49 L297 54" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="24" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="53" text-anchor="middle" class="lbl-strong" style="font-size:10px">Channel</text>
+  <rect x="0" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5"/>
+  <text x="66" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Revenue</text>
+  <text x="66" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">model</text>
+  <path d="M136 119 L148 119 M143 114 L148 119 L143 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="154" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5"/>
+  <text x="220" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">Cost</text>
+  <text x="220" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">structure</text>
+  <path d="M290 119 L302 119 M297 114 L302 119 L297 124" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+  <rect x="308" y="94" width="132" height="50" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+  <text x="374" y="117" text-anchor="middle" class="lbl-strong" style="font-size:10px">The one</text>
+  <text x="374" y="129" text-anchor="middle" class="lbl-strong" style="font-size:10px">metric</text>
+</svg></div>
     <p class="takeaway">Customer, product, channel, revenue model, cost structure, and the one number that drives it.</p>
     <p class="answer">Use a fixed order. Who buys it and why. What they get. How it reaches them. How the company is paid: per unit, subscription, commission, advertising. What its main costs are and whether they are fixed or variable. Then the single metric that decides success: load factor for an airline, churn for a subscription, sales per square foot for a retailer, net interest margin for a bank. Finish with what could go wrong. That is six sentences, it works for any company, and it shows the interviewer that you think about businesses as systems rather than brands.</p>
   </article>
@@ -271,21 +649,23 @@
   <div class="deck-list">
     <a class="deck-item" href="https://viewprep.net/decks/casestructuring.html"><span class="deck-tag">Case Prep</span><span class="deck-name">Case Interview Structuring</span><span class="deck-desc">How to build, communicate, and adapt a live case structure under interview pressure, not just which frameworks to memorize.</span><span class="deck-count">18 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/marketsizing.html"><span class="deck-tag">Estimation</span><span class="deck-name">Market Sizing &amp; Guesstimates</span><span class="deck-desc">How to structure a defensible estimate under uncertainty when an interviewer asks you to size something with no data given.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/casemaths.html"><span class="deck-tag">Case maths</span><span class="deck-name">Case Maths &amp; Mental Arithmetic</span><span class="deck-desc">The arithmetic cases actually ask for, done quickly, out loud and without a calculator.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/brainstorm.html"><span class="deck-tag">Creativity</span><span class="deck-name">Brainstorming &amp; Hypotheses</span><span class="deck-desc">The creativity questions inside a case: what could be driving this, how else could they grow, what are the risks.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/profitability.html"><span class="deck-tag">Profitability</span><span class="deck-name">Profitability &amp; Cost Analysis</span><span class="deck-desc">Why profits fall, and how to find the line that actually moved.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/stats.html"><span class="deck-tag">Statistics</span><span class="deck-name">Statistics &amp; Data Analysis for Business</span><span class="deck-desc">The core statistical concepts behind sound, defensible business analysis.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/stats.html"><span class="deck-tag">Statistics</span><span class="deck-name">Statistics &amp; Data Analysis for Business</span><span class="deck-desc">The core statistical concepts behind sound, defensible business analysis.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/exhibits.html"><span class="deck-tag">Exhibits</span><span class="deck-name">Charts, Exhibits &amp; Data Interpretation</span><span class="deck-desc">Reading the chart the interviewer slides across the table: what it shows, what it hides, and the so-what.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/marketing.html"><span class="deck-tag">Marketing</span><span class="deck-name">Marketing Fundamentals</span><span class="deck-desc">The core concepts behind how products get positioned and sold.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketing.html"><span class="deck-tag">Marketing</span><span class="deck-name">Marketing Fundamentals</span><span class="deck-desc">The core concepts behind how products get positioned and sold.</span><span class="deck-count">14 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/pricing.html"><span class="deck-tag">Pricing</span><span class="deck-name">Pricing Strategy</span><span class="deck-desc">How companies set prices, and why price is the sharpest profit lever.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/strategy.html"><span class="deck-tag">Strategy</span><span class="deck-name">Management &amp; Strategy Frameworks</span><span class="deck-desc">The core frameworks used to analyze markets, competitors, and business decisions.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/strategy.html"><span class="deck-tag">Strategy</span><span class="deck-name">Management &amp; Strategy Frameworks</span><span class="deck-desc">The core frameworks used to analyze markets, competitors, and business decisions.</span><span class="deck-count">14 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/digital.html"><span class="deck-tag">Digital</span><span class="deck-name">Digital &amp; Tech Cases</span><span class="deck-desc">The fastest-growing case type: funnels, cost to serve, automation and AI, sized with real numbers.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/marketentry.html"><span class="deck-tag">Growth</span><span class="deck-name">Growth Strategy &amp; Market Entry</span><span class="deck-desc">How to judge a new market, pick a way in, and commit to an answer.</span><span class="deck-count">16 cards</span></a>
     <a class="deck-item" href="https://viewprep.net/decks/mnacases.html"><span class="deck-tag">M&amp;A Cases</span><span class="deck-name">M&amp;A &amp; Due Diligence Cases</span><span class="deck-desc">How to judge whether a deal is worth doing and whether the value is real.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/synthesis.html"><span class="deck-tag">Synthesis</span><span class="deck-name">Synthesis &amp; Structured Communication</span><span class="deck-desc">Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/synthesis.html"><span class="deck-tag">Synthesis</span><span class="deck-name">Synthesis &amp; Structured Communication</span><span class="deck-desc">Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/cases.html"><span class="deck-tag">Full cases</span><span class="deck-name">Practice Cases</span><span class="deck-desc">Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each.</span><span class="deck-count">12 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">13 cards</span></a>
   </div>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a business model, and why does a consultant start by asking about it?", "acceptedAnswer": {"@type": "Answer", "text": "How a company creates value for customers and captures some of it as profit; every case problem sits somewhere in that chain. A business model is the answer to four questions: who the customer is, what they get, how the company delivers it, and how it gets paid. Ferrow Retail sells clothes to shoppers through stores and a website and earns the gap between what it pays suppliers and what customers pay. A subscription software firm sells access to a tool to businesses through a sales team and earns recurring monthly fees. Consultants ask first because the diagnosis depends on it: falling profit means something different at a retailer, where it is usually margin or footfall, than at a software company, where it is usually churn or sales cost."}}, {"@type": "Question", "name": "What are unit economics, and why do investors and consultants obsess over them?", "acceptedAnswer": {"@type": "Answer", "text": "The profit or loss on one unit of the business, a customer, an order, a store, which tells you whether growth helps or hurts. Unit economics are the revenue and cost of one unit: one customer over their lifetime, one delivery, one seat on one flight, one shop. If a unit makes money, the company can grow by adding units and each one adds profit. If a unit loses money, growth makes the losses bigger, and the company is buying revenue. Total profit can hide this, because a business can show growing revenue and shrinking losses while each new customer still costs more to win than they ever pay. Asking for the numbers on one unit is the fastest way to see whether a business is fundamentally sound."}}, {"@type": "Question", "name": "What are customer acquisition cost and lifetime value, and what ratio between them is healthy?", "acceptedAnswer": {"@type": "Answer", "text": "CAC is what it costs to win a customer; LTV is the profit they generate before they leave; LTV should be about three times CAC. Customer acquisition cost is total sales and marketing spend divided by the number of new customers won. Lifetime value is the profit a customer generates over their time with the company: contribution per period, times how long they stay. If a subscription costs £10 a month with £7 of contribution and the average customer stays 20 months, LTV is £140. If it cost £50 to win them, LTV to CAC is about 3, which is the usual benchmark for a healthy business. Below 1 the company loses money on every customer; a very high ratio suggests it is underinvesting in growth."}}, {"@type": "Question", "name": "What is churn, and why does a small change in it move a subscription business so much?", "acceptedAnswer": {"@type": "Answer", "text": "Churn is the share of customers who leave each period; because lifetime is one over churn, halving churn doubles lifetime value. Churn is the percentage of customers lost in a period. A monthly churn of 5% means one in twenty customers leaves each month, so the average customer stays about 20 months. Cut churn to 2.5% and the average customer stays 40 months, doubling revenue per customer without winning anyone new. That is why subscription companies spend so heavily on retention, and why a case about a struggling streaming service or gym is almost always about churn before it is about acquisition. Always ask for churn early in any recurring-revenue case."}}, {"@type": "Question", "name": "How does a retailer make money, and what are the two numbers that decide it?", "acceptedAnswer": {"@type": "Answer", "text": "Gross margin on what it sells, and sales per square foot or per store, against a largely fixed cost of stores and staff. A retailer buys goods and sells them for more; the gap is gross margin, typically 30% to 60% depending on the category. Against that sit costs that barely move with sales: rent, staff, energy, the website. So profit depends on pushing enough sales through each store to cover its fixed cost, which is why sales per square foot and like-for-like growth are the metrics retailers live by. A store with falling footfall goes from profitable to loss-making quickly because its costs do not fall with it. In a retail case, ask for margin and store-level sales before anything else."}}, {"@type": "Question", "name": "How does a marketplace like an app connecting drivers and riders make money, and what is the chicken-and-egg problem?", "acceptedAnswer": {"@type": "Answer", "text": "A marketplace takes a cut of each transaction between two sides, and it only works once both sides are big enough to attract each other. A marketplace does not own the product; it connects buyers and sellers and takes a percentage of each deal, the take rate, usually 10% to 30%. Its cost is mainly technology and the marketing to bring both sides in. The difficulty is that riders only come if there are drivers, and drivers only come if there are riders, so a new marketplace has to subsidise one side, often heavily, until the other arrives. Once it works, it is hard to dislodge, because everyone is where everyone else is. Cases about marketplaces are usually about take rate, subsidies, or whether a market is big enough to reach that tipping point."}}, {"@type": "Question", "name": "Why is software so profitable once it works, and what does that do to how the company grows?", "acceptedAnswer": {"@type": "Answer", "text": "The product costs almost nothing to copy, so gross margins are 80% or more and most spending goes on winning customers. Writing software is expensive; serving one more customer is nearly free, because it is the same code. That gives gross margins of 70% to 90%, compared with 30% to 50% for a company that makes physical things. So a software firm's cost base is people, mostly engineers building the product and salespeople selling it. Early on, it spends far more on sales and marketing than it earns, betting that each customer's lifetime value repays the acquisition cost many times over. A software case is usually about that bet: is CAC falling, is churn low, is the sales team productive, and when does the company stop needing outside money."}}, {"@type": "Question", "name": "How does an airline make money, and why are its economics so brutal?", "acceptedAnswer": {"@type": "Answer", "text": "It sells seats on flights whose cost is almost entirely fixed once they take off, so a few empty seats decide the profit. The cost of a flight, the aircraft, the crew, the fuel, the landing fees, is nearly the same whether the plane is full or half empty. Revenue depends on how many seats are sold and at what price. So the whole business comes down to load factor, the share of seats filled, and yield, revenue per seat. A plane that breaks even at 80% full makes all its profit from the last 20% of seats, which is why airlines cut prices at the last minute rather than fly empty. Add fuel prices they cannot control and fierce competition on every route, and you have an industry that loses money in most downturns."}}, {"@type": "Question", "name": "How does a bank make money?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly from the gap between what it pays depositors and what it charges borrowers, plus fees; its risk is that borrowers do not pay back. A bank takes deposits, paying savers a low rate, and lends the money out at a higher rate. The difference is net interest income, and the gap as a percentage of assets is the net interest margin, usually one to three per cent. On top sit fees, for accounts, cards, advice and transactions. The costs are branches, staff and technology, and the big variable is credit losses: loans that are not repaid. That is why banks do well when rates rise, because the margin widens, and badly in recessions, because defaults rise. A bank case is usually about margin, cost-to-income ratio, or bad loans."}}, {"@type": "Question", "name": "What is a franchise model, and why do companies like fast-food chains use it?", "acceptedAnswer": {"@type": "Answer", "text": "The company licenses its brand and system to local operators who put up the capital and take the operating risk, in return for a royalty. In a franchise, the parent owns the brand, the recipes and the rules, and a franchisee owns the individual outlet, pays for the fit-out, hires the staff and keeps most of the profit. The parent earns an upfront fee and a royalty, typically 4% to 8% of sales, plus rent if it owns the property. The parent grows fast without spending its own capital and earns a high-margin, steady income; the franchisee gets a proven format. The tension is control: the parent cannot manage every outlet, so quality can slip. Cases about franchise chains usually turn on the split of economics between the two sides."}}, {"@type": "Question", "name": "What is the difference between a high-volume, low-margin business and a low-volume, high-margin one, and how does a case differ for each?", "acceptedAnswer": {"@type": "Answer", "text": "The first lives on efficiency and scale, the second on pricing and brand; the levers you pull are different. A supermarket makes two or three pence on every pound of sales and survives by selling enormous volumes efficiently: logistics, buying power, store productivity. A luxury brand makes fifty pence on every pound and survives by protecting the price: brand, scarcity, control of distribution. In a case about the first, look at costs, throughput and scale; in a case about the second, look at pricing, positioning and whether growth is diluting the brand. Applying the wrong lens is a common error, like recommending a luxury house cut prices to win volume, which would destroy the thing it sells."}}, {"@type": "Question", "name": "What is operating leverage, and why does it explain why some companies' profits swing so much more than their sales?", "acceptedAnswer": {"@type": "Answer", "text": "The higher the share of fixed costs, the more a small change in sales moves profit, up or down. If most of a company's costs are fixed, extra sales come with almost no extra cost, so profit rises much faster than revenue; but a fall in sales cuts profit just as sharply, because the costs stay. A cinema with 90% fixed costs might see profit double on a 10% rise in ticket sales and vanish on a 10% fall. A consultancy with mostly variable costs, its staff can be flexed, sees much smaller swings. In a case, high operating leverage means volume is everything, and a small forecast error matters enormously. It is worth naming explicitly when you see a business with big fixed costs."}}, {"@type": "Question", "name": "Calder Foods sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?", "acceptedAnswer": {"@type": "Answer", "text": "Direct sales keep the retailer's margin but add the costs the retailer used to bear: marketing, delivery, returns and customer service. Selling direct means Calder keeps the full retail price instead of 65% of it, which looks like a huge gain. But the supermarket was doing work for that margin: putting the product in front of millions of shoppers, holding stock, handling the sale and delivery. Direct, Calder must win customers itself, which costs marketing; ship small orders, which costs more per unit than pallets to a warehouse; and handle returns and queries. For a £3 jar of sauce, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and as a way to learn about customers; for cheap groceries it rarely does."}}, {"@type": "Question", "name": "What is a two-sided subsidy, like a free service paid for by advertisers, and what is its weakness?", "acceptedAnswer": {"@type": "Answer", "text": "Users get the product free and advertisers pay for access to them; the model depends on attention that competitors can steal. Many media and internet businesses charge the user nothing and sell the user's attention to advertisers. Revenue is audience size times the price advertisers pay per thousand views. The costs are content and technology. It scales well, because a bigger audience commands both more views and a higher price. The weakness is that attention is fickle and advertisers follow it; a rival with a better product takes users, and revenue follows immediately. It also ties the company's fortunes to the advertising market, which collapses in recessions. Cases here are about audience growth, engagement, and whether to add a paid tier."}}, {"@type": "Question", "name": "How do you work out whether a new store, route or product is worth opening, in a case?", "acceptedAnswer": {"@type": "Answer", "text": "Estimate its unit economics, revenue against its own costs, then compare the return on the investment with what the client could do instead. Build the case for one unit. For a new Ferrow store: expected sales, from footfall or comparable stores, times gross margin, minus the store's own costs, rent, staff, energy, gives store-level profit. Compare it with the upfront investment for a payback or return. Then ask three questions: is the forecast sales figure plausible against nearby stores; does the new store steal sales from existing ones, called cannibalisation; and could the money earn more elsewhere. A recommendation that covers those, with a number and the biggest risk named, is a complete answer."}}, {"@type": "Question", "name": "An interviewer asks how a company you admire makes money. How do you answer in under a minute?", "acceptedAnswer": {"@type": "Answer", "text": "Customer, product, channel, revenue model, cost structure, and the one number that drives it. Use a fixed order. Who buys it and why. What they get. How it reaches them. How the company is paid: per unit, subscription, commission, advertising. What its main costs are and whether they are fixed or variable. Then the single metric that decides success: load factor for an airline, churn for a subscription, sales per square foot for a retailer, net interest margin for a bank. Finish with what could go wrong. That is six sentences, it works for any company, and it shows the interviewer that you think about businesses as systems rather than brands."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a business model, and why does a consultant start by asking about it?", "acceptedAnswer": {"@type": "Answer", "text": "How a company creates value for customers and captures some of it as profit; every case problem sits somewhere in that chain. A business model is the answer to four questions: who the customer is, what they get, how the company delivers it, and how it gets paid. The retailer sells clothes to shoppers through stores and a website and earns the gap between what it pays suppliers and what customers pay. A subscription software firm sells access to a tool to businesses through a sales team and earns recurring monthly fees. Consultants ask first because the diagnosis depends on it: falling profit means something different at a retailer, where it is usually margin or footfall, than at a software company, where it is usually churn or sales cost."}}, {"@type": "Question", "name": "What are unit economics, and why do investors and consultants obsess over them?", "acceptedAnswer": {"@type": "Answer", "text": "The profit or loss on one unit of the business, a customer, an order, a store, which tells you whether growth helps or hurts. Unit economics are the revenue and cost of one unit: one customer over their lifetime, one delivery, one seat on one flight, one shop. If a unit makes money, the company can grow by adding units and each one adds profit. If a unit loses money, growth makes the losses bigger, and the company is buying revenue. Total profit can hide this, because a business can show growing revenue and shrinking losses while each new customer still costs more to win than they ever pay. Asking for the numbers on one unit is the fastest way to see whether a business is fundamentally sound."}}, {"@type": "Question", "name": "What are customer acquisition cost and lifetime value, and what ratio between them is healthy?", "acceptedAnswer": {"@type": "Answer", "text": "CAC is what it costs to win a customer; LTV is the profit they generate before they leave; LTV should be about three times CAC. Customer acquisition cost is total sales and marketing spend divided by the number of new customers won. Lifetime value is the profit a customer generates over their time with the company: contribution per period, times how long they stay. If a subscription costs £10 a month with £7 of contribution and the average customer stays 20 months, LTV is £140. If it cost £50 to win them, LTV to CAC is about 3, which is the usual benchmark for a healthy business. Below 1 the company loses money on every customer; a very high ratio suggests it is underinvesting in growth."}}, {"@type": "Question", "name": "What is churn, and why does a small change in it move a subscription business so much?", "acceptedAnswer": {"@type": "Answer", "text": "Churn is the share of customers who leave each period; because lifetime is one over churn, halving churn doubles lifetime value. Churn is the percentage of customers lost in a period. A monthly churn of 5% means one in twenty customers leaves each month, so the average customer stays about 20 months. Cut churn to 2.5% and the average customer stays 40 months, doubling revenue per customer without winning anyone new. That is why subscription companies spend so heavily on retention, and why a case about a struggling streaming service or gym is almost always about churn before it is about acquisition. Always ask for churn early in any recurring-revenue case."}}, {"@type": "Question", "name": "How does a retailer make money, and what are the two numbers that decide it?", "acceptedAnswer": {"@type": "Answer", "text": "Gross margin on what it sells, and sales per square foot or per store, against a largely fixed cost of stores and staff. A retailer buys goods and sells them for more; the gap is gross margin, typically 30% to 60% depending on the category. Against that sit costs that barely move with sales: rent, staff, energy, the website. So profit depends on pushing enough sales through each store to cover its fixed cost, which is why sales per square foot and like-for-like growth are the metrics retailers live by. A store with falling footfall goes from profitable to loss-making quickly because its costs do not fall with it. In a retail case, ask for margin and store-level sales before anything else."}}, {"@type": "Question", "name": "How does a marketplace like an app connecting drivers and riders make money, and what is the chicken-and-egg problem?", "acceptedAnswer": {"@type": "Answer", "text": "A marketplace takes a cut of each transaction between two sides, and it only works once both sides are big enough to attract each other. A marketplace does not own the product; it connects buyers and sellers and takes a percentage of each deal, the take rate, usually 10% to 30%. Its cost is mainly technology and the marketing to bring both sides in. The difficulty is that riders only come if there are drivers, and drivers only come if there are riders, so a new marketplace has to subsidise one side, often heavily, until the other arrives. Once it works, it is hard to dislodge, because everyone is where everyone else is. Cases about marketplaces are usually about take rate, subsidies, or whether a market is big enough to reach that tipping point."}}, {"@type": "Question", "name": "Why is software so profitable once it works, and what does that do to how the company grows?", "acceptedAnswer": {"@type": "Answer", "text": "The product costs almost nothing to copy, so gross margins are 80% or more and most spending goes on winning customers. Writing software is expensive; serving one more customer is nearly free, because it is the same code. That gives gross margins of 70% to 90%, compared with 30% to 50% for a company that makes physical things. So a software firm's cost base is people, mostly engineers building the product and salespeople selling it. Early on, it spends far more on sales and marketing than it earns, betting that each customer's lifetime value repays the acquisition cost many times over. A software case is usually about that bet: is CAC falling, is churn low, is the sales team productive, and when does the company stop needing outside money."}}, {"@type": "Question", "name": "How does an airline make money, and why are its economics so brutal?", "acceptedAnswer": {"@type": "Answer", "text": "It sells seats on flights whose cost is almost entirely fixed once they take off, so a few empty seats decide the profit. The cost of a flight, the aircraft, the crew, the fuel, the landing fees, is nearly the same whether the plane is full or half empty. Revenue depends on how many seats are sold and at what price. So the whole business comes down to load factor, the share of seats filled, and yield, revenue per seat. A plane that breaks even at 80% full makes all its profit from the last 20% of seats, which is why airlines cut prices at the last minute rather than fly empty. Add fuel prices they cannot control and fierce competition on every route, and you have an industry that loses money in most downturns."}}, {"@type": "Question", "name": "How does a bank make money?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly from the gap between what it pays depositors and what it charges borrowers, plus fees; its risk is that borrowers do not pay back. A bank takes deposits, paying savers a low rate, and lends the money out at a higher rate. The difference is net interest income, and the gap as a percentage of assets is the net interest margin, usually one to three per cent. On top sit fees, for accounts, cards, advice and transactions. The costs are branches, staff and technology, and the big variable is credit losses: loans that are not repaid. That is why banks do well when rates rise, because the margin widens, and badly in recessions, because defaults rise. A bank case is usually about margin, cost-to-income ratio, or bad loans."}}, {"@type": "Question", "name": "What is a franchise model, and why do companies like fast-food chains use it?", "acceptedAnswer": {"@type": "Answer", "text": "The company licenses its brand and system to local operators who put up the capital and take the operating risk, in return for a royalty. In a franchise, the parent owns the brand, the recipes and the rules, and a franchisee owns the individual outlet, pays for the fit-out, hires the staff and keeps most of the profit. The parent earns an upfront fee and a royalty, typically 4% to 8% of sales, plus rent if it owns the property. The parent grows fast without spending its own capital and earns a high-margin, steady income; the franchisee gets a proven format. The tension is control: the parent cannot manage every outlet, so quality can slip. Cases about franchise chains usually turn on the split of economics between the two sides."}}, {"@type": "Question", "name": "What is the difference between a high-volume, low-margin business and a low-volume, high-margin one, and how does a case differ for each?", "acceptedAnswer": {"@type": "Answer", "text": "The first lives on efficiency and scale, the second on pricing and brand; the levers you pull are different. A supermarket makes two or three pence on every pound of sales and survives by selling enormous volumes efficiently: logistics, buying power, store productivity. A luxury brand makes fifty pence on every pound and survives by protecting the price: brand, scarcity, control of distribution. In a case about the first, look at costs, throughput and scale; in a case about the second, look at pricing, positioning and whether growth is diluting the brand. Applying the wrong lens is a common error, like recommending a luxury house cut prices to win volume, which would destroy the thing it sells."}}, {"@type": "Question", "name": "A food manufacturer sells through supermarkets, which take a 35% margin, and is considering selling direct online. What changes in the economics?", "acceptedAnswer": {"@type": "Answer", "text": "Direct sales keep the retailer's margin but add the costs the retailer used to bear: marketing, delivery, returns and customer service. Selling direct means the food manufacturer keeps the full retail price instead of 65% of it, which looks like a huge gain. But the supermarket was doing work for that margin: putting the product in front of millions of shoppers, holding stock, handling the sale and delivery. Direct, the food manufacturer must win customers itself, which costs marketing; ship small orders, which costs more per unit than pallets to a warehouse; and handle returns and queries. For a £3 jar of sauce, delivery alone can exceed the margin gained. Direct works for high-value, repeat-purchase products and as a way to learn about customers; for cheap groceries it rarely does."}}, {"@type": "Question", "name": "What is a two-sided subsidy, like a free service paid for by advertisers, and what is its weakness?", "acceptedAnswer": {"@type": "Answer", "text": "Users get the product free and advertisers pay for access to them; the model depends on attention that competitors can steal. Many media and internet businesses charge the user nothing and sell the user's attention to advertisers. Revenue is audience size times the price advertisers pay per thousand views. The costs are content and technology. It scales well, because a bigger audience commands both more views and a higher price. The weakness is that attention is fickle and advertisers follow it; a rival with a better product takes users, and revenue follows immediately. It also ties the company's fortunes to the advertising market, which collapses in recessions. Cases here are about audience growth, engagement, and whether to add a paid tier."}}, {"@type": "Question", "name": "How do you work out whether a new store, route or product is worth opening, in a case?", "acceptedAnswer": {"@type": "Answer", "text": "Estimate its unit economics, revenue against its own costs, then compare the return on the investment with what the client could do instead. Build the case for one unit. For a new the retailer store: expected sales, from footfall or comparable stores, times gross margin, minus the store's own costs, rent, staff, energy, gives store-level profit. Compare it with the upfront investment for a payback or return. Then ask three questions: is the forecast sales figure plausible against nearby stores; does the new store steal sales from existing ones, called cannibalisation; and could the money earn more elsewhere. A recommendation that covers those, with a number and the biggest risk named, is a complete answer."}}, {"@type": "Question", "name": "How does a company you admire make money, and how do you answer that in under a minute?", "acceptedAnswer": {"@type": "Answer", "text": "Customer, product, channel, revenue model, cost structure, and the one number that drives it. Use a fixed order. Who buys it and why. What they get. How it reaches them. How the company is paid: per unit, subscription, commission, advertising. What its main costs are and whether they are fixed or variable. Then the single metric that decides success: load factor for an airline, churn for a subscription, sales per square foot for a retailer, net interest margin for a bank. Finish with what could go wrong. That is six sentences, it works for any company, and it shows the interviewer that you think about businesses as systems rather than brands."}}]}</script>
 
   <footer class="site-footer">
     <p>ViewPrep is an independent study resource. It is not affiliated with, endorsed
@@ -293,10 +673,30 @@
     <p><a href="https://viewprep.net/?deck=bizmodels">Study these cards interactively</a> &middot;
        <a href="https://viewprep.net/decks/">All decks</a> &middot;
        <a href="https://viewprep.net/glossary.html">Glossary</a> &middot;
+       <a href="https://viewprep.net/commercial-awareness.html">Commercial awareness</a> &middot;
        <a href="https://viewprep.net/faq.html">FAQ</a> &middot;
        <a href="https://viewprep.net/privacy.html">Privacy</a> &middot;
        <a href="https://viewprep.net/terms.html">Terms</a></p>
   </footer>
 </div>
+<script>
+(function(){
+  var btn=document.getElementById('theme-btn');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function paint(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    if(btn){btn.setAttribute('aria-pressed',String(d));}
+    if(meta){meta.setAttribute('content', d?'#0E1117':'#F2F1EC');}
+  }
+  paint();
+  if(btn){btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    if(d){document.documentElement.removeAttribute('data-theme');}
+    else{document.documentElement.setAttribute('data-theme','dark');}
+    try{localStorage.setItem('vp-theme', d?'light':'dark');}catch(e){}
+    paint();
+  });}
+})();
+</script>
 </body>
 </html>
