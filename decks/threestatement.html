@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>Three-Statement Drills</h1>
   <p class="lede">‘X changes by ten, walk me through the three statements’ is the most reliable question in an investment banking interview, because it cannot be bluffed: either the numbers tie or they don’t. This deck assumes you know what the income statement, cash flow statement and balance sheet each show, but have never actually run an event through all three. The first three cards fix the method: the order, why the tax rate matters, and the balancing check. The middle cards take one event at a time, buying inventory, booking a sale, paying interest, a write-down, deferred tax, each worked in pounds at a 25% tax rate with the arithmetic shown. The last three combine events and add the IFRS wrinkle that catches UK candidates.</p>
-  <div class="meta-row"><span>19 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="intermediate">Intermediate</span><span>19 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 19</div>
     <h2>Operating expenses go up by £40. Tax rate 25%. In what order do you walk the three statements, and why that order?</h2>
@@ -730,25 +1027,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Operating expenses go up by £40. Tax rate 25%. In what order do you walk the three statements, and why that order?", "acceptedAnswer": {"@type": "Answer", "text": "Income statement first, then net income into the cash flow statement, then prove the balance sheet ties. Always the same route. Income statement first, because that is where profit is worked out: pre-tax profit falls £40, tax falls £10 at 25%, so net income falls £30. Cash flow statement second, starting from that net income, then adjusting for anything in it that wasn’t cash and for working capital, the money tied up in unpaid bills and stock; here nothing needs adjusting, so cash falls £30. Balance sheet last: cash is down £30 on the asset side and retained earnings, the profit kept in the business, is down £30 on the equity side, so it balances. Each statement hands the next one the number it needs."}}, {"@type": "Question", "name": "£40 of revenue is booked on credit at a 25% tax rate. Show me the check you run before answering “does it balance?”", "acceptedAnswer": {"@type": "Answer", "text": "The change in assets must equal the change in liabilities plus equity, and equity moves by net income. Income statement: revenue up £40, tax up £10, net income up £30. Cash flow: start at £30, but the customer hasn’t paid, so the £40 sitting in receivables (money owed to you) is subtracted as working capital, leaving cash down £10, the tax you paid on profit you haven’t collected. Balance sheet: cash −10 and receivables +40 puts assets up £30, liabilities are unchanged, and retained earnings is up £30 from net income, so 30 = 0 + 30 and it balances. That equation is the check: if the two sides differ, you dropped a line somewhere, usually the cash figure."}}, {"@type": "Question", "name": "A retailer buys £30 of inventory and pays cash on the spot. Walk me through the three statements.", "acceptedAnswer": {"@type": "Answer", "text": "Buying inventory swaps one asset for another, so nothing hits the income statement until the goods are sold. Income statement: nothing. Inventory is goods held for sale, and it only becomes an expense, cost of goods sold, when the goods are sold, so pre-tax profit, tax and net income are all unchanged. Cash flow statement: net income is zero, but inventory rising by £30 is cash tied up in working capital, so it is subtracted and cash falls £30. Balance sheet: cash is down £30 and inventory is up £30, both assets, so total assets are flat, liabilities and equity are untouched, and 0 = 0 + 0 balances. No tax effect, because nothing touched profit."}}, {"@type": "Question", "name": "A week later the retailer sells that £30 of inventory to a trade customer for £50, payable in 30 days. Tax rate 25%. Walk me through it.", "acceptedAnswer": {"@type": "Answer", "text": "Revenue and cost of goods sold both hit profit, but cash only moves by the tax until the customer pays. Income statement: revenue up £50, cost of goods sold up £30, so pre-tax profit rises £20, tax rises £5 and net income rises £15. Cash flow statement: start at £15, subtract the £50 increase in receivables because the customer hasn’t paid, add back the £30 fall in inventory because those goods were paid for last week, so cash falls £5, the tax bill. Balance sheet: cash −5, receivables +50, inventory −30, so assets are up £15, liabilities unchanged, retained earnings up £15, and 15 = 0 + 15 balances."}}, {"@type": "Question", "name": "Thirty days on, the customer pays the retailer the £50 it owes. What moves?", "acceptedAnswer": {"@type": "Answer", "text": "Collecting a receivable converts one asset into cash and touches nothing on the income statement. Income statement: nothing, because the revenue was recognised when the sale was made, not when the money arrived; booking it again would count the same sale twice. Cash flow statement: net income is unchanged, receivables fall by £50, and a falling receivable is a working capital release, so cash rises £50. Balance sheet: cash +50, receivables −50, total assets flat, liabilities and equity untouched, so it balances at 0 = 0 + 0. Across the three the retailer cards, the £15 of profit and the £15 of cash have now caught up with each other, which is the whole point of accrual accounting."}}, {"@type": "Question", "name": "On 1 January, the food manufacturer pays £24 up front for a year’s rent on a warehouse. Tax rate 25%. Walk me through the day of payment and then the year as a whole.", "acceptedAnswer": {"@type": "Answer", "text": "A prepayment is an asset on the day you pay, and turns into an expense a month at a time. Day of payment: nothing on the income statement. You have bought twelve months of future use, an asset called a prepaid expense, so cash falls £24 and prepaids rise £24, assets flat, balanced. Over the year the prepaid is released as rent expense, £2 a month: for the full year, rent of £24 cuts pre-tax profit £24, tax falls £6 and net income falls £18. Cash flow: start at −18, add back the £24 fall in prepaids, so cash rises £6, the tax saved. Balance sheet: cash +6, prepaid −24, assets −18, retained earnings −18, balances. Over the whole year, cash −18 and profit −18."}}, {"@type": "Question", "name": "A software company sells a £120 annual software subscription and the customer pays the whole year on day one. Tax rate 25%. Walk me through the receipt, then the year.", "acceptedAnswer": {"@type": "Answer", "text": "Cash in advance is a liability called deferred revenue until delivery, then it turns into revenue. Receipt: nothing on the income statement, because the software company hasn’t delivered anything yet. It owes the customer a year of service, so deferred revenue, a liability, rises £120, and cash rises £120 as a working capital source. Balance sheet: cash +120, liabilities +120, balances. Over the year £10 a month is recognised: revenue for the full year is £120, tax £30, net income £90. Cash flow: start at 90, subtract the £120 fall in deferred revenue because that cash arrived earlier, so cash falls £30, the tax. Balance sheet: cash −30, deferred revenue −120, retained earnings +90, and −30 = −120 + 90 balances."}}, {"@type": "Question", "name": "A haulage company buys a £100 sorting machine for cash on 1 January and depreciates it straight-line over five years. Tax rate 25%. Walk me through the purchase and the first year.", "acceptedAnswer": {"@type": "Answer", "text": "Capex skips the income statement and sits in investing cash flow, then depreciation drips through profit. Purchase: nothing on the income statement, because the machine is an asset that will be used for years, not an expense. Cash flow: £100 goes out under investing activities, the section for buying and selling long-lived assets. Balance sheet: cash −100, equipment +100, balances. Year one depreciation is £100 over five years, £20: pre-tax profit falls £20, tax falls £5, net income falls £15. Cash flow: start at −15, add back the £20 because it is a non-cash charge, so cash rises £5. Balance sheet: cash +5, equipment −20, assets −15, retained earnings −15, balances. After the year, cash is −95 and equipment +80."}}, {"@type": "Question", "name": "A listed food company draws £100 on a bank loan on 1 January and repays it in full on 31 December, ignoring interest. Walk me through both legs.", "acceptedAnswer": {"@type": "Answer", "text": "Borrowing and repaying principal are financing cash flows that swap cash for debt and never touch profit. Drawdown: nothing on the income statement, because borrowing is not income and repaying is not an expense. Cash flow: £100 comes in under financing activities, the section for money raised from or returned to lenders and shareholders. Balance sheet: cash +100, debt +100, and 100 = 100 + 0 balances. Repayment is the mirror image: no income statement effect, £100 out under financing, cash −100 and debt −100, balances again. The only thing that ever reaches profit is the interest charged for the time the money was borrowed, which is the next card."}}, {"@type": "Question", "name": "A listed food company pays £10 of interest on that loan during the year. Tax rate 25%. Walk me through it, and tell me what the interest really costs.", "acceptedAnswer": {"@type": "Answer", "text": "Interest is tax-deductible, so £10 of interest costs the company £7.50 of cash after the tax saving. Income statement: interest expense of £10 sits below operating profit, pre-tax profit falls £10, tax falls £2.50, net income falls £7.50. Cash flow statement: start at −7.50 and there is nothing to adjust, because the interest was paid in cash and the tax saving was real, so cash falls £7.50. Under US GAAP that sits in operating cash flow; IFRS allows a choice, which gets a card of its own later. Balance sheet: cash −7.50, retained earnings −7.50, balances. The after-tax cost, 10 × (1 − 25%) = 7.50, is why debt is called cheaper than it looks."}}, {"@type": "Question", "name": "An industrial target has £20 of spare cash. The board is choosing between paying a £20 dividend and buying back £20 of its own shares. Walk me through each, and tell me what differs.", "acceptedAnswer": {"@type": "Answer", "text": "Dividends and buybacks both leave the income statement alone and reduce cash and equity by the same amount. Neither touches the income statement, because they are payments to owners rather than costs of running the business, so there is no tax effect for the company either. Cash flow: £20 out under financing either way. Balance sheet: cash −20 on the asset side and equity −20, so −20 = 0 − 20 balances in both cases. The difference is which equity line moves: a dividend reduces retained earnings, while a buyback creates treasury stock, a negative equity line for shares the company has bought back. A buyback also cuts the share count, so earnings per share rise even though net income hasn’t moved."}}, {"@type": "Question", "name": "A software company grants employees £12 of stock-based compensation this year, tax-deductible at 25%. Walk me through it.", "acceptedAnswer": {"@type": "Answer", "text": "Stock-based comp is an expense that cuts profit, but no cash leaves, so it is added back and lands in equity. Income statement: the £12 is a compensation expense, so pre-tax profit falls £12, tax falls £3, net income falls £9. Cash flow: start at −9, add back the full £12 because employees were paid in shares rather than cash, so cash rises £3, the tax saving. Balance sheet: cash +3, so assets are up £3; on the equity side retained earnings falls £9 and additional paid-in capital, the line for value contributed by shareholders, rises £12, so equity is up £3 and 3 = 0 + 3 balances. Real-world tax timing is messier, but the drill assumes a deduction now."}}, {"@type": "Question", "name": "A food company finds £20 of stock that has gone past its sell-by date and writes it down to zero. Tax rate 25%. Walk me through it.", "acceptedAnswer": {"@type": "Answer", "text": "A write-down is a non-cash expense: profit falls after tax, cash rises by the tax saved, inventory shrinks. Income statement: the £20 write-down is booked as an expense, usually inside cost of goods sold, so pre-tax profit falls £20, tax falls £5, net income falls £15. Cash flow: start at −15, add back the £20 because nothing was paid, the goods simply lost value, so cash rises £5. Balance sheet: cash +5, inventory −20, assets −15, retained earnings −15, balances. Show the add-back once only, either as a non-cash charge or through the inventory line in working capital, never both. Under IFRS a later recovery in value can be written back up; under US GAAP the write-down is permanent."}}, {"@type": "Question", "name": "A components maker sells an old press with a book value of £40 for £50 in cash. Tax rate 25%. Walk me through it.", "acceptedAnswer": {"@type": "Answer", "text": "The gain hits profit, but the full proceeds land in investing, so the gain comes out of operating cash flow. Income statement: the gain is proceeds minus book value, £50 − £40 = £10, so pre-tax profit rises £10, tax rises £2.50, net income rises £7.50. Cash flow: start at 7.50, subtract the £10 gain from operating activities because it isn’t operating cash, then show the full £50 of proceeds under investing, so cash rises 7.50 − 10 + 50 = £47.50. Balance sheet: cash +47.50, equipment −40, assets +7.50, retained earnings +7.50, balances. The subtraction exists so the £50 is counted once, in investing, instead of partly in operating as well."}}, {"@type": "Question", "name": "At year end, the firm has earned its staff a £20 bonus that won’t be paid until February. Tax rate 25%. Walk me through the year-end statements.", "acceptedAnswer": {"@type": "Answer", "text": "An accrued expense cuts profit now and sits as a liability, so cash actually rises by the tax saved. Income statement: the bonus was earned this year, so accrual accounting books the £20 expense now, pre-tax profit falls £20, tax falls £5, net income falls £15. Cash flow: start at −15, then add back the £20 because it hasn’t been paid; an accrued liability rising is a working capital source. Cash rises £5, the tax saving, assuming the drill treats the bonus as deductible when accrued. Balance sheet: cash +5, so assets +5; accrued liabilities +20 and retained earnings −15, so liabilities plus equity is +5 and 5 = 20 − 15 balances. Profit down while cash is up, which is why the two never move together."}}, {"@type": "Question", "name": "A machinery company depreciates a machine £20 a year in its accounts, but the tax authority lets it deduct £40 this year. Tax rate 25%. Walk me through it, including the deferred tax.", "acceptedAnswer": {"@type": "Answer", "text": "Faster tax depreciation cuts cash tax now, and the difference is parked as a deferred tax liability for later. The income statement uses book depreciation: £20 of expense, tax expense falls £5, net income falls £15. But the tax return deducts £40, so cash tax actually falls £10. The £5 gap is a deferred tax liability, a debt to the tax authority that comes due later, once the tax deductions run out. Cash flow: start at −15, add back the £20 of depreciation, add the £5 increase in the deferred tax liability because that tax was expensed but not paid, so cash rises £10. Balance sheet: cash +10, equipment −20, assets −10; deferred tax liability +5, retained earnings −15, so −10 = 5 − 15 balances."}}, {"@type": "Question", "name": "Two at once: in the same year, the hospital group invoices £40 of services that remain unpaid at year end and records £16 of depreciation. Tax rate 25%. Walk me through it.", "acceptedAnswer": {"@type": "Answer", "text": "Run both events through the income statement together, then adjust once per non-cash and working capital item. Income statement: revenue +40 and depreciation −16, so pre-tax profit rises £24, tax rises £6, net income rises £18. Cash flow: start at 18, add back the £16 of depreciation because it is non-cash, subtract the £40 increase in receivables because the customer hasn’t paid, so cash falls £6, the tax bill on uncollected profit. Balance sheet: cash −6, receivables +40, equipment −16, so assets are up £18; liabilities unchanged; retained earnings +18, and 18 = 0 + 18 balances. The discipline is to do the income statement once for both events, then take the adjustments one at a time and add them up."}}, {"@type": "Question", "name": "Name a single change that has no effect on the income statement but reduces cash. Then tell me the family it belongs to.", "acceptedAnswer": {"@type": "Answer", "text": "Swapping cash for another asset, or using cash to shrink a liability or equity, never touches profit. Buying a machine is the classic answer: cash falls, equipment rises, and profit is untouched until depreciation starts. The family is everything that happens on the balance sheet only. Cash for another asset: buying inventory, prepaying rent, capex. Cash to shrink a liability: repaying debt, paying down a supplier. Cash to shrink equity: dividends, buybacks. The mirror family matters just as much, an income statement hit with no cash leaving: depreciation, a write-down, stock-based comp, an accrued bonus. Interviewers use the pair to test whether you have really separated profit from cash, which is what the whole drill is for."}}, {"@type": "Question", "name": "A UK company reporting under IFRS sits next to a US one in your comps. Where does each put the £10 of interest it paid on the cash flow statement, and why does that matter?", "acceptedAnswer": {"@type": "Answer", "text": "US GAAP puts interest paid in operating cash flow but IFRS allows operating or financing, so check first. Under US GAAP, interest paid is always operating. Under IAS 7, the IFRS cash flow standard, a company chooses operating or financing for interest paid, as long as it is consistent. With £10 of interest at 25% tax, total cash falls £7.50 either way, but the US company shows operating cash flow of −7.50, while an IFRS company that picks financing shows operating +2.50 (the tax saving) and financing −10. That changes any free cash flow built from operating cash flow, so read the policy note before comparing. IFRS 18, effective from 2027, largely removes the choice by moving interest paid into financing for most companies."}}]}</script>
 

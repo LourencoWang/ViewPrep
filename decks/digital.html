@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Consulting</p>
   <h1>Digital &amp; Tech Cases</h1>
   <p class="lede">Digital is the case type that has grown fastest, and it is the one candidates most often answer with vocabulary instead of arithmetic. A digital case is an ordinary business case in which the lever happens to be technology, so it is still settled by traffic, conversion, cost to serve, incrementality and payback. This deck covers what the question is really asking, the online funnel worked with numbers, why a point of conversion beats a fifth more traffic, what an order costs to serve online against in a shop, cannibalisation, data, automation and AI sized honestly, build against buy, legacy systems, digital pricing and the metrics worth reporting. It closes with a full mini-case on a retailer whose online channel is growing and losing money.</p>
-  <div class="meta-row"><span>16 cards</span><span>Consulting</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="intermediate">Intermediate</span><span>16 cards</span><span>Consulting</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is a digital case actually asking you to do, and why is “we should use AI” never the answer?</h2>
@@ -602,23 +899,23 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More consulting decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/casestructuring.html"><span class="deck-tag">Case Prep</span><span class="deck-name">Case Interview Structuring</span><span class="deck-desc">How to build, communicate, and adapt a live case structure under interview pressure, not just which frameworks to memorize.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/marketsizing.html"><span class="deck-tag">Estimation</span><span class="deck-name">Market Sizing &amp; Guesstimates</span><span class="deck-desc">How to structure a defensible estimate under uncertainty when an interviewer asks you to size something with no data given.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/brainstorm.html"><span class="deck-tag">Creativity</span><span class="deck-name">Brainstorming &amp; Hypotheses</span><span class="deck-desc">The creativity questions inside a case: what could be driving this, how else could they grow, what are the risks.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/profitability.html"><span class="deck-tag">Profitability</span><span class="deck-name">Profitability &amp; Cost Analysis</span><span class="deck-desc">Why profits fall, and how to find the line that actually moved.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/bizmodels.html"><span class="deck-tag">Business models</span><span class="deck-name">Business Models &amp; Unit Economics</span><span class="deck-desc">How different kinds of company actually make money, and the numbers that decide whether they do.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/stats.html"><span class="deck-tag">Statistics</span><span class="deck-name">Statistics &amp; Data Analysis for Business</span><span class="deck-desc">The core statistical concepts behind sound, defensible business analysis.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/exhibits.html"><span class="deck-tag">Exhibits</span><span class="deck-name">Charts, Exhibits &amp; Data Interpretation</span><span class="deck-desc">Reading the chart the interviewer slides across the table: what it shows, what it hides, and the so-what.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/marketing.html"><span class="deck-tag">Marketing</span><span class="deck-name">Marketing Fundamentals</span><span class="deck-desc">The core concepts behind how products get positioned and sold.</span><span class="deck-count">14 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/pricing.html"><span class="deck-tag">Pricing</span><span class="deck-name">Pricing Strategy</span><span class="deck-desc">How companies set prices, and why price is the sharpest profit lever.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/strategy.html"><span class="deck-tag">Strategy</span><span class="deck-name">Management &amp; Strategy Frameworks</span><span class="deck-desc">The core frameworks used to analyze markets, competitors, and business decisions.</span><span class="deck-count">14 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/marketentry.html"><span class="deck-tag">Growth</span><span class="deck-name">Growth Strategy &amp; Market Entry</span><span class="deck-desc">How to judge a new market, pick a way in, and commit to an answer.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mnacases.html"><span class="deck-tag">M&amp;A Cases</span><span class="deck-name">M&amp;A &amp; Due Diligence Cases</span><span class="deck-desc">How to judge whether a deal is worth doing and whether the value is real.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/synthesis.html"><span class="deck-tag">Synthesis</span><span class="deck-name">Synthesis &amp; Structured Communication</span><span class="deck-desc">Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/cases.html"><span class="deck-tag">Full cases</span><span class="deck-name">Practice Cases</span><span class="deck-desc">Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each.</span><span class="deck-count">12 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">13 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/casestructuring.html"><span class="deck-tag">Case Prep</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Case Interview Structuring</span><span class="deck-desc">How to build, communicate, and adapt a live case structure under interview pressure, not just which frameworks to memorize.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketsizing.html"><span class="deck-tag">Estimation</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Market Sizing &amp; Guesstimates</span><span class="deck-desc">How to structure a defensible estimate under uncertainty when an interviewer asks you to size something with no data given.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/brainstorm.html"><span class="deck-tag">Creativity</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Brainstorming &amp; Hypotheses</span><span class="deck-desc">The creativity questions inside a case: what could be driving this, how else could they grow, what are the risks.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/microecon.html"><span class="deck-tag">Microeconomics</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Microeconomics &amp; Market Structures</span><span class="deck-desc">Supply, demand, and how competition shapes a market.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/profitability.html"><span class="deck-tag">Profitability</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Profitability &amp; Cost Analysis</span><span class="deck-desc">Why profits fall, and how to find the line that actually moved.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/bizmodels.html"><span class="deck-tag">Business models</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Business Models &amp; Unit Economics</span><span class="deck-desc">How different kinds of company actually make money, and the numbers that decide whether they do.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/stats.html"><span class="deck-tag">Statistics</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Statistics &amp; Data Analysis for Business</span><span class="deck-desc">The core statistical concepts behind sound, defensible business analysis.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/exhibits.html"><span class="deck-tag">Exhibits</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Charts, Exhibits &amp; Data Interpretation</span><span class="deck-desc">Reading the chart the interviewer slides across the table: what it shows, what it hides, and the so-what.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketing.html"><span class="deck-tag">Marketing</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Marketing Fundamentals</span><span class="deck-desc">The core concepts behind how products get positioned and sold.</span><span class="deck-count">14 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/pricing.html"><span class="deck-tag">Pricing</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Pricing Strategy</span><span class="deck-desc">How companies set prices, and why price is the sharpest profit lever.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/strategy.html"><span class="deck-tag">Strategy</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Management &amp; Strategy Frameworks</span><span class="deck-desc">The core frameworks used to analyze markets, competitors, and business decisions.</span><span class="deck-count">14 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/operations.html"><span class="deck-tag">Operations</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Operations &amp; Supply Chain Management</span><span class="deck-desc">How companies manage inventory, production, and the flow of goods.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/marketentry.html"><span class="deck-tag">Growth</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Growth Strategy &amp; Market Entry</span><span class="deck-desc">How to judge a new market, pick a way in, and commit to an answer.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mnacases.html"><span class="deck-tag">M&amp;A Cases</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A &amp; Due Diligence Cases</span><span class="deck-desc">How to judge whether a deal is worth doing and whether the value is real.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/synthesis.html"><span class="deck-tag">Synthesis</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Synthesis &amp; Structured Communication</span><span class="deck-desc">Answer first, then the reasons: how to close a case, summarise a finding and speak like a consultant.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/cases.html"><span class="deck-tag">Full cases</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Practice Cases</span><span class="deck-desc">Twelve miniature cases, prompt to recommendation, with the maths worked by hand and the wrong turn named on each.</span><span class="deck-count">12 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/consultinginterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Consulting Interview</span><span class="deck-desc">The case day, the fit questions, and holding your nerve in the room.</span><span class="deck-count">13 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a digital case actually asking you to do, and why is “we should use AI” never the answer?", "acceptedAnswer": {"@type": "Answer", "text": "A digital case is an ordinary business case where the lever is technology, and the test is still profit. Strip the word digital out and the question is the same as any other: what problem is the client trying to fix, who has to behave differently, what does the change cost, and what does it earn. Technology is a lever, not an objective, so “we should use AI” answers none of those four. A good opening names the business outcome first, that the retailer wants more of its shoppers to finish an order, then asks which step is failing, then asks what tool fixes that step and what it costs. Interviewers like digital cases precisely because they separate candidates who reason about profit from candidates who recite technology words."}}, {"@type": "Question", "name": "A haulage company wants to move its booking process online. The software company wants to launch a new logistics marketplace. Why do those two need completely different structures, even though both get called digital?", "acceptedAnswer": {"@type": "Answer", "text": "Digitising an existing business is a cost problem, while building a new one is a demand problem. Digitising means taking work customers already give you and doing it through software instead of people. The customers exist, the volumes are known, so you structure around the process steps, the cost to serve before and after, how many customers actually switch, and the old channel you still have to run for the ones who do not. Building a new digital business means there are no customers yet, so you structure around market size, how you acquire, what one customer earns against what one costs, and why anyone would leave what they use now. They also need different owners and different patience: a digitisation pays back in a year or two inside the business unit, a new venture in four or five outside it."}}, {"@type": "Question", "name": "The retailer's website had five million visits last year and 125,000 orders at an average basket of £60. Walk me down that funnel and tell me where a digital case usually breaks.", "acceptedAnswer": {"@type": "Answer", "text": "Online revenue is traffic times conversion times basket, and the break is almost always one step of the funnel. Five million people landed, two million reached a product page, half a million built a basket, 250,000 started checkout and 125,000 ordered. That is 2.5% overall and £7.5m of revenue. The number worth holding in your head is that a shop converts perhaps a quarter of the people who walk in and a website converts one in forty, so the interesting question is never the total, it is which step leaks. Here three quarters of the people who reached a product page never built a basket, and half of the baskets that did never reached checkout, which is usually delivery cost shown late or a forced account. Diagnose the step before prescribing anything."}}, {"@type": "Question", "name": "The retailer's head of e-commerce wants £1m of extra media spend to buy 20% more visits. Your analyst thinks the team could add a point of conversion instead. Off the same £7.5m base, which is worth more?", "acceptedAnswer": {"@type": "Answer", "text": "A point on a 2.5% conversion rate is worth twice a 20% traffic gain, and it does not have to be bought again. Revenue is visits times conversion times basket, so today five million times 2.5% times £60 is £7.5m. Twenty percent more traffic gives six million visits at the same 2.5% and £60, which is £9m, so £1.5m more. A point of conversion, 2.5% to 3.5%, gives five million times 3.5% times £60, which is £10.5m, so £3m more. Conversion wins twice over, and media has to be rebought every year while a checkout fix is paid for once. The honest caveat is that a point on a 2.5% base is a 40% relative improvement, which is a programme rather than a tweak. A quarter of a point is the realistic version and still worth £750,000."}}, {"@type": "Question", "name": "The retailer's CFO says every order pushed online saves the cost of a shop. Talk her through the cost to serve on a £60 order in store and the same order online.", "acceptedAnswer": {"@type": "Answer", "text": "Online is rarely cheaper per order, because delivery and returns are variable while shop rent is fixed. In store, a £60 basket carries about £5.30 of rent share, £7.10 of store staff, 90p of card fees and 70p of till and stock loss, £14.00 in all. The same order online carries £3.60 of picking and packing, £4.80 of delivery, £5.10 of returns, the same 90p of fees and £1.80 of customer service and technology, £16.20. So online costs more per order, not less. The CFO is half right, though: £12.40 of the shop’s £14.00 is rent and staff that do not move when one more basket goes through the till, so an extra basket in an existing store is almost free, while every online order carries its full £16.20. Online only wins when it closes a shop or fills a warehouse you are already paying for."}}, {"@type": "Question", "name": "The retailer's online sales grew £12m last year and the board is delighted. The stores within five miles of those customers fell £6.6m. What did that £12m actually earn?", "acceptedAnswer": {"@type": "Answer", "text": "Only the sales the business would not otherwise have made are incremental, and here the growth lost money. Match margins, not revenue. An online order contributes £7.80 on a £60 basket, which is 13% of revenue, so £12m of online sales earns £1.56m. The store sales that vanished carried 40% gross margin less card fees and stock loss, about 37%, and the rent and staff stay behind whether the sale happens or not, so the whole 37% is lost: £6.6m times 37% is £2.44m. The channel added £5.4m of net revenue and took £880,000 of profit away. Before congratulating anyone on online growth, find out whether it came from new customers or from the same customers in a channel that happens to cost more to serve."}}, {"@type": "Question", "name": "A partner says the client is sitting on a goldmine of data. What would you actually check before agreeing with him?", "acceptedAnswer": {"@type": "Answer", "text": "Data is worth something only when it is unique, tied to an outcome, joinable and legally usable. The haulage company has nine years of delivery records: timestamps, postcodes, vehicle, weather and whether each drop arrived late. Four tests. Is it unique, since anyone can buy postcode data but nobody else has the haulage company's late-delivery history. Is it tied to an outcome you care about, because records with no result attached teach nothing. Can it be joined, because if a customer is spelled three ways across four systems there is no single record to learn from. And is it usable, meaning the consent and the contracts cover this use and not just billing. Most goldmines fail the third and fourth tests, which is why so much of a digital programme turns out to be plumbing rather than cleverness."}}, {"@type": "Question", "name": "A vendor tells the retailer that automating its contact centre will deflect 40% of 1.2 million contacts and save £864,000 a year. Show me how that number is built and what is wrong with it.", "acceptedAnswer": {"@type": "Answer", "text": "Automation saves volume times handling time times cost, and the deflected contacts are always the cheap ones. The build is volume times handling time times hourly cost. One point two million contacts at six minutes each is 120,000 hours, at £18 fully loaded that is £2.16m, and 40% of it is £864,000. Three corrections. A bot picks off the simple contacts, which run about three minutes rather than six, so the hours saved halve and the figure falls to £432,000. Roughly 15% of deflected customers make contact again anyway, taking it to about £367,000. The platform costs £150,000 a year to run, leaving £217,000, a quarter of the claim. And even that is hours rather than cash until about fourteen of the eighty agent roles genuinely leave the roster."}}, {"@type": "Question", "name": "The firm’s managing partner wants to know what a drafting model is worth to the firm. Forty analysts each spend nine hours a week on first drafts, at £55 an hour. How do you size it, and what do you tell him honestly?", "acceptedAnswer": {"@type": "Answer", "text": "Size AI like any automation, subtract the review time, then say plainly that hours are not yet cash. Start from the task, not the tool. Forty analysts at nine hours for forty-five weeks is 16,200 hours, £891,000 at £55. Say the model can genuinely draft 60% of it, 9,720 hours, but every draft has to be read back against the source, which costs roughly 40% of the drafting time, 3,888 hours. The net is 5,832 hours, about £321,000, a third of the raw figure. Then the constraints, said out loud rather than buried. The firm’s own past reports have to be consistent enough to learn from, a wrong number in a client report is not a tolerable error, client data may not be allowed to leave, and none of it lands unless partners change how work is reviewed."}}, {"@type": "Question", "name": "A retailer needs a product recommendation engine. Building it is £2.5m and eighteen months, then £600k a year to run. Licensing one is £900k a year and live in eight weeks. How do you decide?", "acceptedAnswer": {"@type": "Answer", "text": "Build only what customers pay you for, buy the plumbing, and partner when you want proof before capital. On money alone the licence wins: building costs £2.5m plus five years of £600k, £5.5m, against £4.5m for the licence, and it arrives sixteen months earlier. The decision is usually not money, though. Ask whether the capability is what makes the client different, and shoppers choose the retailer for its ranges and its prices rather than its algorithm, so this is plumbing and you buy it. Then ask who owns the data afterwards, how painful it would be to switch vendors in three years, and whether the retailer employs anyone who could run what it builds. Build when the capability is the product itself, and partner when you want a market proved before you commit capital."}}, {"@type": "Question", "name": "The client’s IT director says a simple price change will take four months. The commercial director thinks he is stalling. Explain legacy systems and technical debt to her in plain words.", "acceptedAnswer": {"@type": "Answer", "text": "Technical debt is the cost of every shortcut still sitting in the system, and it is paid in testing. The haulage company's prices live in a system written in 2004, and four later systems read prices out of it, plus two overnight batch jobs. Writing the change takes two weeks. Testing the five systems that depend on it takes eight, fixing the batch jobs four, and moving the old price records three, so seventeen weeks is honest and four months is not stalling. Technical debt is the accumulated shortcut: every time someone took the quick fix, the next change got dearer. This matters twice in a case. Read every estimate in an old estate as code plus testing, and treat any plan that assumes a clean rebuild as a plan with an unfunded line in it."}}, {"@type": "Question", "name": "What is a network effect, and how do you tell a genuine platform from a company that simply has a website?", "acceptedAnswer": {"@type": "Answer", "text": "A network effect means each new user makes the product better for the existing ones, which is rare. The test is one question: does user one million make the product better for user five. For the software company’s payroll software the answer is no, because my payroll is not improved by your company using the same tool. The software company does get cheaper per customer as it grows, since the code is written once and sold many times, but that is a scale economy and it does not stop a rival doing the same. Compare a reviews site, where every extra review makes the next search more useful. Two qualifiers are worth saying out loud in a case. Many network effects are local, so a city delivery app gains nothing from users in another city, and they can run backwards as fast as they built."}}, {"@type": "Question", "name": "A software company wants a free tier. It would have 500,000 free users at 75p a month to serve, and its paid plan earns £14 a month of contribution. What conversion does freemium need before it works here?", "acceptedAnswer": {"@type": "Answer", "text": "Freemium only works when paid conversion covers the cost of serving everyone who never pays. Serving the free base is 500,000 times 75p times twelve, £4.5m a year. Each paying user brings £14 times twelve, £168. Break-even is £4.5m over £168, about 26,800 paying users, which is 5.4% of the base, and that is before a penny of sales or marketing. Freemium products typically convert somewhere between 2% and 5%, so this design is under water unless the free tier gets cheaper to serve or a usage cap makes it smaller. The three digital models solve different problems: tiering sorts customers who value more and will pay more, usage-based pricing lets a small customer start cheap and grow into the bill, and freemium buys distribution, which only pays when a non-customer costs almost nothing."}}, {"@type": "Question", "name": "The retailer's app redesign lifted time in app by 18% and the team is calling it a success. Orders per visitor went from 2.5% to 2.3%. Which two or three metrics should the programme be judged on?", "acceptedAnswer": {"@type": "Answer", "text": "Judge it on contribution, the one behaviour that drives it, and the cost of getting that behaviour. Three numbers. Contribution from the channel rather than revenue, because revenue can grow while the margin behind it does not. The single behaviour that causes that contribution, which for a retailer is conversion rate and for a service business is completed tasks per customer. And what it costs to get, whether that is cost per order acquired or cost to serve. Engagement fails as a measure because it moves without the money moving, and often in the wrong direction for a good reason: a better search bar cuts time on site and raises orders. Here time rose 18% while conversion fell from 2.5% to 2.3%, an 8% fall in orders on the same traffic, so the app got stickier and poorer."}}, {"@type": "Question", "name": "You are about to recommend that the retailer move its customer database to a new analytics vendor. How do you handle cyber and data-protection risk without either ignoring it or hiding behind it?", "acceptedAnswer": {"@type": "Answer", "text": "Price the breach, price the outage, name who is accountable, and put the control cost in your numbers. Three plain questions. What does it cost if the data gets out: under UK GDPR the regulator can fine up to 4% of worldwide turnover or £17.5m, whichever is higher, and notification, remediation and lost trust usually cost more than the fine itself. What does it cost if the system stops: the retailer's £7.5m online channel is about £20,500 of revenue a day, though a fortnight down in peak trading costs far more than fourteen average days. And who is accountable, because the client stays the data controller even when a vendor holds the records. Then put the control cost into the business case rather than onto a risks slide at the end, where nobody prices it."}}, {"@type": "Question", "name": "The retailer's online channel did £54m last year at a £60 average order, 40% gross margin and £16.20 of cost to serve, against £10m of warehouse, technology and marketing. It grew a fifth and lost about £3m. What do you do?", "acceptedAnswer": {"@type": "Answer", "text": "Growth does not rescue a channel that loses money on every order, so lift contribution per order first. Structure: contribution per order, then what the fixed base needs, then the levers. At £60 a basket, £54m is 900,000 orders. Gross margin is £24 and cost to serve is £16.20, so each order contributes £7.80 and the channel earns £7.0m against £10m of fixed cost, which is the £3m loss. Break-even is £10m over £7.80, about 1.28m orders and £77m of revenue, 42% above today, so growth only fixes this if the fixed base holds, and it will not while marketing is buying the traffic. Recommendation: stop chasing revenue and lift contribution per order. A free-delivery threshold at £75 and a fifth off the 30% return rate take contribution from £7.80 to roughly £11, which is about £10m at today’s volume and clears the fixed base. The risk is that the threshold costs orders, and 5% fewer takes it back to £9.5m. Next step: split last year’s orders by basket size and return rate before committing to either lever."}}]}</script>
 

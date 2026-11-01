@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>Merger &amp; LBO Maths</h1>
   <p class="lede">Knowing what accretion is gets you through the first question. The second one comes with numbers attached: the buyer earns two hundred million, the target fifty, you are funding it with debt at six percent, is it accretive and by how much. This deck is that arithmetic, worked end to end. The first nine cards run a single deal, the food manufacturer buying the listed food company, through cash, stock and mixed funding, the earnings-yield shortcut, foregone interest, the synergies needed to break even, and the goodwill and write-up that follow. The last nine build a paper LBO on the haulage company from entry multiple to exit IRR, covering multiple expansion, returns attribution, the maximum price for a target return, and a dividend recap.</p>
-  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="advanced">Advanced</span><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>A food manufacturer earns £200m on 100m shares. It is buying the listed food company, which earns £50m, for £600m of cash funded entirely with new debt at 6%. Tax is 25%. Is the deal accretive, and by how much?</h2>
@@ -639,25 +936,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "A food manufacturer earns £200m on 100m shares. It is buying the listed food company, which earns £50m, for £600m of cash funded entirely with new debt at 6%. Tax is 25%. Is the deal accretive, and by how much?", "acceptedAnswer": {"@type": "Answer", "text": "Pro forma EPS is £2.23 against £2.00 standalone, so the deal is accretive by 11.5%. Earnings per share is net income divided by the share count, so the food manufacturer stands alone at 200 ÷ 100 = £2.00. Combining adds the listed food company's £50m of earnings but also the cost of the money used to buy them. New debt of £600m at 6% costs £36m of interest a year, and because interest is deducted before tax at 25%, the cost that actually reaches net income is 36 × 0.75 = £27m. Pro forma net income is 200 + 50 − 27 = £223m, and since no shares were issued the count stays at 100m, so EPS is £2.23, or 11.5% above standalone."}}, {"@type": "Question", "name": "Same deal, but the food manufacturer pays in shares. The food manufacturer trades at £30.00 and the offer is £15.00 for each of the listed food company's 40m shares. Give me the exchange ratio, the new share count and pro forma EPS.", "acceptedAnswer": {"@type": "Answer", "text": "The ratio is 15 ÷ 30 = 0.50, so 20m new shares take EPS to 250 ÷ 120 = £2.08, accretive by 4.2%. An exchange ratio is how many buyer shares a target holder receives for one of their own, and it is the offer price per share divided by the buyer’s share price: 15.00 ÷ 30.00 = 0.50. The listed food company's 40m shares therefore become 40 × 0.50 = 20m new the food manufacturer shares, the same answer as £600m ÷ £30.00. No debt is raised, so there is no interest and pro forma net income is the straight sum, 200 + 50 = £250m. Divide by 100m + 20m = 120m shares and EPS is £2.08, accretive by 4.2%, well short of the 11.5% the cash version gave."}}, {"@type": "Question", "name": "Now the middle case: half the £600m in cash funded with 6% debt, half in acquirer shares at £30.00. Tax is 25%. What is pro forma EPS, and is it simply the average of the two pure cases?", "acceptedAnswer": {"@type": "Answer", "text": "Half and half gives £2.15, up 7.5%, which sits between the pure cases but is not their average. Split the price down the middle. The £300m cash half is borrowed at 6%, so interest is £18m and, after the 25% deduction, £13.5m of real cost. The £300m stock half issues 300 ÷ 30 = 10m shares, taking the count to 110m. Pro forma net income is 200 + 50 − 13.5 = £236.5m, and 236.5 ÷ 110 = £2.15, accretive by 7.5%. The average of 11.5% and 4.2% would be 7.9%, close but wrong, because the earnings and the share count both move and a ratio of two moving numbers does not blend in a straight line."}}, {"@type": "Question", "name": "What is the quick test for whether an all-cash deal is accretive? Run it on the £600m deal funded with 6% debt at a 25% tax rate.", "acceptedAnswer": {"@type": "Answer", "text": "Cash deals are accretive when the target’s earnings yield beats the after-tax cost of debt, 8.3% against 4.5%. Earnings yield is the target’s net income divided by what you are paying for it, the inverse of the price-to-earnings multiple: 50 ÷ 600 = 8.33%. That is the return the purchased earnings throw off. The cost of funding them is 6% interest less the 25% tax deduction, so 6 × 0.75 = 4.5%. Every pound borrowed buys 8.33p of earnings and costs 4.5p, and that 3.83p gap is the accretion: 600 × 3.83% = £23m of extra earnings on an unchanged share count, which is exactly the £0.23 of EPS the long version produced."}}, {"@type": "Question", "name": "An acquirer sitting on £200m of cash earning 2% uses it for part of the £600m purchase instead of borrowing the whole amount. Tax is 25% and the debt costs 6%. What happens to EPS?", "acceptedAnswer": {"@type": "Answer", "text": "Spending cash costs only the 1.5% after-tax interest it was earning, so EPS rises to £2.29 from £2.23. Using cash is not free. The company gives up the interest that cash was earning, which is called foregone interest and is a real charge in a merger model. Here £200m at 2% is £4m of lost income, or £3m after the 25% tax that income would have paid, an after-tax cost of 1.5%. The remaining £400m is borrowed at 6%, costing £24m, or £18m after tax. Total funding cost is £21m, so pro forma net income is 200 + 50 − 21 = £229m and EPS is £2.29, up 14.5%. Cash is the cheapest of the three currencies, which is why it goes first."}}, {"@type": "Question", "name": "The listed food company's board holds out for £22.50 a share, £900m in the food manufacturer stock at £30.00. The food manufacturer earns £200m on 100m shares and the listed food company £50m. Show me the dilution and the synergies needed to break even.", "acceptedAnswer": {"@type": "Answer", "text": "Thirty million new shares take EPS to £1.92, so you need £10m of after-tax synergies to get back to £2.00. At £900m the deal issues 900 ÷ 30 = 30m shares, so the count becomes 130m while net income is still 200 + 50 = £250m. EPS is 250 ÷ 130 = £1.92, dilutive by 3.8%, because the food manufacturer is paying 900 ÷ 50 = 18 times earnings while its own shares trade at 15 times. To break even, solve for the earnings that give £2.00 on 130m shares: 130 × 2.00 = £260m, so you need £10m more. Synergies are taxed like any other profit, so that means 10 ÷ 0.75 = £13.3m of pre-tax savings, and that is the number diligence has to stand behind."}}, {"@type": "Question", "name": "Back to the £600m cash deal. The listed food company's book equity is £250m and its warehouses are worth £80m more than they are carried at. Tax is 25%. Walk me through the purchase price allocation and the goodwill.", "acceptedAnswer": {"@type": "Answer", "text": "Goodwill is £600m less the £310m fair value of net assets, so £290m lands on the pro forma balance sheet. When one company buys another, the target’s balance sheet is restated to fair value before anything is consolidated, and that exercise is the purchase price allocation. The listed food company's book equity is £250m, but the warehouses are written up by £80m to what they would fetch today. That write-up is not taxed now, yet it produces depreciation the taxman will not allow, so a deferred tax liability of 25% × 80 = £20m goes up alongside it. Fair value of net assets is 250 + 80 − 20 = £310m, and goodwill is whatever the buyer paid over that, 600 − 310 = £290m."}}, {"@type": "Question", "name": "That £80m warehouse write-up depreciates over ten years. Tax is 25%. What does it do to the accretion you calculated on the all-cash deal, and does the goodwill behave the same way?", "acceptedAnswer": {"@type": "Answer", "text": "Extra depreciation of £8m a year costs £6m after tax, cutting EPS to £2.17 and accretion to 8.5%. The warehouses now sit on the books at a higher value, so they are depreciated off a higher base: £80m over ten years is £8m a year of depreciation the listed food company never charged. It cuts pre-tax profit by £8m and, at 25% tax, net income by £6m. Pro forma net income falls from £223m to £217m, EPS from £2.23 to £2.17, and accretion from 11.5% to 8.5%. Goodwill behaves differently. Under both IFRS and US GAAP it is not amortised at all, only tested each year for impairment, so it leaves EPS alone unless the business disappoints badly enough to force a write-down."}}, {"@type": "Question", "name": "A listed food company trades at £12.00 and the food manufacturer is offering £15.00 a share in stock. The food manufacturer's own shares then slide from £30.00 to £27.00 before closing. Who loses under a fixed exchange ratio, and who loses under a floating one?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed ratio locks the share count and moves the value, a floating ratio locks the value and moves the count. The premium is the offer over the undisturbed price, 15 ÷ 12 − 1 = 25%. Under a fixed ratio the target gets 0.50 the food manufacturer shares per share, so at £27.00 the package is worth 0.50 × 27 = £13.50 and the premium shrinks to 12.5%: the target carries the price risk. Under a floating ratio the target is promised £15.00 of value, so the ratio rises to 15 ÷ 27 = 0.556 and the food manufacturer issues 22.2m shares rather than 20m, pushing pro forma EPS from £2.08 to £2.05: the buyer carries it, through dilution. Most large deals fix the ratio and add a collar at the edges."}}, {"@type": "Question", "name": "A private equity buyer is buying the haulage company on £100m of EBITDA at an 8.0x entry multiple, with lenders willing to advance 5.0x EBITDA. Set the deal up and tell me what the private equity buyer actually writes a cheque for.", "acceptedAnswer": {"@type": "Answer", "text": "Enterprise value is 8 × 100 = £800m, debt is 5 × 100 = £500m, and the £300m of equity is the plug. A buyout is priced off EBITDA, earnings before interest, tax, depreciation and amortisation, because that is the cash the assets throw off before anyone decides how to fund them. Paying 8.0 times £100m makes the enterprise value £800m, the price of the whole business free of its old debt. Lenders will advance 5.0 times EBITDA, or £500m, sized on the cash flow rather than on the price. The fund puts in whatever is left, so equity is 800 − 500 = £300m. In an LBO you never assume the equity, you solve for it, and a live model would add perhaps £20m of fees the equity also funds."}}, {"@type": "Question", "name": "A haulage company grows EBITDA 6% a year. The debt costs 7%, depreciation is £30m, capex £30m, working capital absorbs £5m a year and tax is 25%. Build me year one’s cash available to repay debt.", "acceptedAnswer": {"@type": "Answer", "text": "EBITDA of £106m less £35m interest, £10.3m tax, £30m capex and £5m of working capital leaves £25.8m. Grow the £100m by 6% to £106m. Take off £30m of depreciation to reach EBIT of £76m, then £500m × 7% = £35m of interest to reach pre-tax profit of £41m. Tax at 25% is £10.3m, so net income is £30.8m. Add the £30m of depreciation back because no cash left the building, subtract £30m of capex and £5m for the rise in working capital, and £25.8m is available to hand the lenders. Since capex and depreciation are equal here, the shortcut is EBITDA less interest, cash tax, capex and working capital, which gets there in one line."}}, {"@type": "Question", "name": "Carry that build out to year five for me, holding the assumptions flat, and tell me what the haulage company still owes on the day the private equity buyer sells.", "acceptedAnswer": {"@type": "Answer", "text": "Five years of cash sweep repays £179.4m, so the £500m of entry debt leaves £320.6m outstanding at exit. Run the same line every year with EBITDA compounding at 6%: £106m, £112.4m, £119.1m, £126.2m and £133.8m. Depreciation, capex and working capital stay flat, and the simplification worth saying out loud is that interest is held at £35m on the opening £500m rather than falling as the debt is repaid. That understates the cash slightly, which is the conservative direction, and keeps the arithmetic doable in your head. Cash available runs £25.8m, £30.5m, £35.6m, £40.9m and £46.6m, £179.4m in total, and every pound sweeps against the loan, so £500m − £179.4m = £320.6m is still owed."}}, {"@type": "Question", "name": "A private equity buyer exits the haulage company in year five at the same 8.0x it paid. What is the exit enterprise value, and what does the fund’s equity come out at?", "acceptedAnswer": {"@type": "Answer", "text": "Exit EV is 8 × £133.8m = £1,070.6m, and taking off £320.6m of debt leaves £750m of equity. The exit works exactly like the entry, just with the grown numbers. Year-five EBITDA is £133.8m, and the same 8.0 times gives an enterprise value of £1,070.6m, the price a new buyer pays for the whole business. Out of that the lenders are repaid first, and £320.6m is still owed, so what belongs to the fund is 1,070.6 − 320.6 = £750m. The private equity buyer put £300m in five years earlier, so £450m of value has been created, and the next few cards take that apart. Exiting at the entry multiple is a modelling choice, not a fact, and an interviewer will test whether you know that."}}, {"@type": "Question", "name": "Give me the money multiple and the IRR on that, and then tell me how you would get to the IRR without reaching for a calculator.", "acceptedAnswer": {"@type": "Answer", "text": "£750m back on £300m in is 2.5 times money, and 2.5 times over five years is roughly 20% a year. The money multiple, or MoM, is cash out over cash in: 750 ÷ 300 = 2.5 times. The internal rate of return is the compound annual rate that turns £300m into £750m over five years, so it solves 2.5 to the power of one fifth, which is 20.1%. Nobody computes that in their head, so learn three anchors for a five-year hold: 2.0 times is about 15% a year, 2.5 times about 20%, and 3.0 times about 25%. Interpolate between them and you will land within a point, which is all an interviewer is checking."}}, {"@type": "Question", "name": "Rerun the exit at 7.0x and at 9.0x rather than 8.0x. What does each one do to the return?", "acceptedAnswer": {"@type": "Answer", "text": "One turn either way moves the equity between £616m and £884m, swinging the IRR from 15.5% to 24.1%. Debt at exit is £320.6m whatever the business sells for, so every turn of EBITDA drops straight through to the equity. At 7.0 times, enterprise value is £936.8m and equity is £616.2m, a 2.05 times return and about 15.5% a year. At the 8.0 times base it is £750m, 2.50 times and 20.1%. At 9.0 times it is £1,204.4m less the same debt, so £883.8m, 2.95 times and 24.1%. A single turn is worth £133.8m of equity, close to half the original cheque, which is why funds underwrite flat or lower exits and treat any expansion as upside."}}, {"@type": "Question", "name": "Split the £450m of equity gain between EBITDA growth, debt paydown and the change in multiple.", "acceptedAnswer": {"@type": "Answer", "text": "EBITDA growth gives £271m and debt paydown £179m, and at a flat exit multiple the third lever is nil. Value the growth at the entry multiple: EBITDA rose from £100m to £133.8m, and 33.8 × 8.0 = £270.6m of the gain. Debt paydown is the £179.4m of cash swept against the loan, which converts lender money into fund money pound for pound. The two add to exactly £450m, the whole gain, because the exit multiple matched the entry multiple and the third lever contributed nothing. Had the haulage company sold at 9.0 times, the multiple change would add one turn on exit EBITDA, 1.0 × 133.8 = £133.8m, and the gain would have been £583.8m instead."}}, {"@type": "Question", "name": "A private equity buyer will not invest below a 25% IRR. Everything else about the haulage company plan holds. What is the most it can pay for the business, and what multiple does that work out at?", "acceptedAnswer": {"@type": "Answer", "text": "A 25% IRR needs 3.05 times over five years, so the equity caps at £246m and the price at £746m, or 7.5x. Work backwards from the exit. A 25% return compounded over five years is 1.25 to the fifth, or 3.05 times money, so if the equity is still worth £750m on exit the most the private equity buyer can put in today is 750 ÷ 3.05 = £245.8m. The lenders size their £500m off EBITDA rather than off the price, so that piece does not move when the price does, and the maximum enterprise value is 245.8 + 500 = £745.8m, or 7.46 times the £100m of EBITDA. Paying the asking 8.0 times gets you 20.1%, so either the price comes down half a turn or the plan has to work harder."}}, {"@type": "Question", "name": "Three years in, the haulage company owes £408m and a lender offers £150m of fresh debt to fund a dividend straight to the private equity buyer. Work through what that does to the money multiple and to the IRR.", "acceptedAnswer": {"@type": "Answer", "text": "A recap pulls cash forward, so the IRR rises to about 21.9% even as the multiple slips from 2.50 to 2.45. A dividend recapitalisation borrows against the company and pays the proceeds to the owner, so the private equity buyer takes £150m out in year three. Debt rises to £558m, and the extra £150m at 7% costs £10.5m of interest a year, £7.9m after 25% tax, so years four and five sweep £15.8m less and exit debt is £486m rather than £321m. Exit equity falls to 1,070.6 − 486 = £584m. Cash back in total is 150 + 584 = £734m, a multiple of 2.45 instead of 2.50, yet because £150m of it arrived two years early the IRR climbs from 20.1% to about 21.9%."}}]}</script>
 

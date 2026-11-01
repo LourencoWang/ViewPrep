@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>IPOs &amp; Equity Capital Markets</h1>
   <p class="lede">Equity capital markets is the part of a bank that helps companies sell shares to investors, and the initial public offering is its signature product: the moment a private company becomes one anyone can buy on an exchange. This deck walks you through what going public actually changes, who receives the money when shares are sold, what the underwriting bank is being paid for, and how a price that starts as a wide range becomes a single number the night before trading. You’ll also meet the pieces interviewers love to probe, lock-ups, greenshoes, follow-ons and the first-day pop. No deal experience assumed.</p>
-  <div class="meta-row"><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="intermediate">Intermediate</span><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What does it actually mean for a company to go public, and what changes the day it does?</h2>
@@ -542,25 +839,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does it actually mean for a company to go public, and what changes the day it does?", "acceptedAnswer": {"@type": "Answer", "text": "Going public means selling shares to public investors and living under public disclosure from then on. A private company’s shares are held by a small, closed group, founders, employees, maybe a private equity firm, and nobody else can buy in. Going public means selling shares to public investors so that anyone can own a piece and trade it on an exchange. From that day the company has thousands of owners it has never met, a share price that moves every second, and a legal duty to publish audited financial results on a fixed schedule. The business is the same, the accountability around it is not."}}, {"@type": "Question", "name": "A haulage company’s founder asks why she should go public at all when a private equity firm has offered to fund the business quietly. What do you tell her about both sides?", "acceptedAnswer": {"@type": "Answer", "text": "An IPO buys capital, currency and liquidity in exchange for control, cost and permanent scrutiny. The case for is real money and real optionality: cash to fund growth or repay debt, a traded share price that can be used to pay for acquisitions and compensate employees, and a way for early owners to eventually sell down. The case against is just as real: underwriting fees, ongoing audit, legal and compliance costs, competitors reading your margins in a public filing, and a management team judged every quarter on numbers it cannot always control. Plenty of good companies stay private for exactly those reasons, and a thoughtful answer says so."}}, {"@type": "Question", "name": "You’re drafting the offering summary for the food manufacturer and the CFO asks who actually receives the money from each share sold. How do you explain primary versus secondary shares?", "acceptedAnswer": {"@type": "Answer", "text": "Primary shares raise new cash for the company, secondary shares just cash out existing holders. Primary shares are brand-new shares the company creates and sells in the offering, so the proceeds land on the company’s balance sheet and the total share count rises. Secondary shares already exist and are being sold by current owners, founders or a private equity sponsor, so that cash goes to them and the company receives nothing and issues nothing. Most deals mix the two. If the food manufacturer sells 10 million shares, 6 million primary and 4 million secondary, only the 6 million funds the business, which is the first thing to check before you model what the proceeds pay for."}}, {"@type": "Question", "name": "What does the underwriting bank actually do in an IPO, and what is it being paid for?", "acceptedAnswer": {"@type": "Answer", "text": "The underwriter prepares, prices and markets the deal, then buys it and carries the risk of unsold shares. An underwriter is the investment bank that runs the offering. It does the diligence, helps draft the disclosure document, builds the valuation, organises the investor marketing, gathers orders, sets the final price with the company and decides which investors get shares. In the standard US structure, a firm commitment, the bank then buys the whole block from the company at the offer price less its fee and resells it, so anything it cannot place stays on its own books. That fee, the gross spread, is often around five to seven percent on a mid-size deal and lower on very large ones."}}, {"@type": "Question", "name": "How long does an IPO take end to end, and what happens in between?", "acceptedAnswer": {"@type": "Answer", "text": "A traditional IPO usually runs four to nine months from kickoff to the first day of trading. It starts with an organisational meeting where the company, banks, lawyers and auditors agree the plan. Then comes the long stretch: diligence, audited financials and drafting the registration statement, which is filed with the regulator and goes through rounds of written comments. Once that clears, the deal launches publicly with a price range, management spends one to two weeks meeting investors, and the bank collects orders. The deal is priced the night before trading begins, and the stock opens the next morning. Market conditions and the state of the company’s accounts move that timeline more than anything else."}}, {"@type": "Question", "name": "What is the prospectus, or registration statement, and why does a deal team spend months on one document?", "acceptedAnswer": {"@type": "Answer", "text": "The prospectus is the company’s full public disclosure and the legal basis on which investors buy the deal. It is the document a company files with the securities regulator, called an S-1 in the United States, before it can sell shares to the public. Inside are the business description, audited financial statements, management’s discussion of the results, a long list of risk factors, how the proceeds will be used, and who owns what. Investors are legally entitled to rely on it, and the company and the banks can be sued if it is materially wrong or incomplete. That liability is exactly why diligence is exhaustive and why sentences get argued over line by line."}}, {"@type": "Question", "name": "You’re a week into the roadshow for the food manufacturer when the syndicate desk says the book is three times covered. What is a roadshow, what does building a book mean, and what did they just tell you?", "acceptedAnswer": {"@type": "Answer", "text": "A roadshow builds a book of investor orders at each price, showing what demand the deal can really bear. The roadshow is one to two weeks of management meeting institutional investors, funds, pensions, insurers, to tell the story and answer hard questions. As those meetings happen, the bank’s syndicate desk builds the book: a running record of who wants how many shares and up to what price. Three times covered means orders total roughly three times the shares on offer, which sounds emphatic but is only a starting point. Orders are non-binding and often padded to win an allocation, so bankers discount them and weigh who is asking as heavily as how much."}}, {"@type": "Question", "name": "How does the IPO price actually get set, and why does the price range narrow as the deal goes on?", "acceptedAnswer": {"@type": "Answer", "text": "The range starts as a valuation estimate and narrows as real orders replace guesswork. Bankers start from valuation, comparable public companies and a discounted cash flow, then cut that by an IPO discount because investors want to be paid for backing a company with no trading history. That produces the range printed in the prospectus, which is deliberately an opening anchor rather than a forecast. As the book fills in, guesswork gets replaced with actual limits real investors will pay, so the range gets revised up or down and finally collapses to one number agreed the night before trading. The goal is not the highest possible price, it’s the highest price that still leaves committed buyers behind it."}}, {"@type": "Question", "name": "A food manufacturer prices at $23 and closes its first day at $30. The CFO calls and asks whether the bank left $7 a share on the table. What do you say?", "acceptedAnswer": {"@type": "Answer", "text": "A first-day pop is partly deliberate underpricing and partly information the deal could not fully see. The pop is the gap between the offer price and where the stock settles on day one. On the company’s side it is straightforward arithmetic: that gap times the primary shares sold is cash the business could have raised and didn’t. On the bank’s side, a modest discount is intentional, it compensates long-term investors for taking an untested stock, encourages them to hold, and reduces the chance of a broken deal trading below issue, which damages the shareholder base and every future raise. Only a small slice of the company trades on day one, so that opening price is also thin evidence. Reasonable people genuinely disagree here."}}, {"@type": "Question", "name": "What is a lock-up period in an IPO, and why do underwriters insist on one?", "acceptedAnswer": {"@type": "Answer", "text": "A lock-up stops insiders selling for a set window so early supply cannot swamp a newly listed stock. A lock-up is a contract between insiders, founders, executives and pre-IPO shareholders, and the underwriters, agreeing not to sell shares for a period after listing, most commonly around 180 days. It exists because only a small fraction of the company is floated at IPO, so unrestricted insider selling into that thin market would overwhelm it and it would signal that the people who know the business best want out. Expiry dates get watched closely, though the effect on price is usually smaller than expected because everyone can see the date coming."}}, {"@type": "Question", "name": "Two weeks after the haulage company prices, the syndicate desk mentions they’ve exercised the shoe. What is the greenshoe, and why does every deal have one?", "acceptedAnswer": {"@type": "Answer", "text": "The greenshoe lets underwriters sell fifteen percent extra shares and cover it from the company or the market. The greenshoe, formally the over-allotment option, lets the underwriters buy up to fifteen percent more shares from the company at the offer price for about thirty days after pricing. Mechanically the bank sells 115 percent of the deal on day one, leaving itself short that extra slice. If the stock trades up, it exercises the option, buys the shares from the company and delivers them, and the company raises more money. If the stock trades down, it buys shares in the open market instead, which covers the short and steadies the price. One structure, two useful outcomes."}}, {"@type": "Question", "name": "A founder who owns 2 million of the haulage company's 8 million shares asks what the IPO does to her stake if the company issues 2 million new shares. Walk her through it.", "acceptedAnswer": {"@type": "Answer", "text": "Issuing new shares takes nothing from you, it shrinks the fraction each share you hold represents. Before the deal she owns 2 million of 8 million shares, which is 25 percent. Issue 2 million primary shares and the count becomes 10 million, so her unchanged 2 million is now 20 percent. That is dilution: same certificates, smaller share of the votes and of every future dollar of earnings, and earnings per share spread thinner too. Whether she is worse off depends entirely on what the proceeds do, since a smaller slice of a better-funded company can be worth more than a bigger slice of the old one. Secondary shares cause no dilution at all, because they already existed."}}, {"@type": "Question", "name": "What is a follow-on offering, and why does a stock often dip when one is announced?", "acceptedAnswer": {"@type": "Answer", "text": "A follow-on sells more shares after the IPO, and both new supply and the signal usually push the price down. A follow-on is any offering by an already-listed company, whether the company issues new shares to raise cash, existing holders sell down, or both. It can be marketed over days or done overnight as a block. The price almost always clears at a discount to the last close, because you’re asking the market to absorb a large slug of stock at once and buyers need an incentive. There’s a signalling effect too, since management chooses when to sell and tends to do it when the shares feel fully valued. A sponsor exiting reads differently from a company funding a defined project, and interviewers will ask you to tell them apart."}}, {"@type": "Question", "name": "How do a direct listing and a SPAC differ from a traditional IPO, and when would a company pick one?", "acceptedAnswer": {"@type": "Answer", "text": "A direct listing floats existing shares without raising cash, a SPAC goes public by merging into a shell. In a direct listing, existing shares simply start trading, with no underwritten offering and, classically, no new money raised, so the opening price comes from an auction rather than a book. It suits a well-known, well-funded company whose holders mainly want liquidity. A SPAC is a listed shell that already raised cash in its own IPO and then merges with a private target, which becomes public at a negotiated price, usually faster but with sponsor shares and investor redemptions eating into the cash that actually arrives. A traditional IPO stays the default when the goal is raising real capital at a marketed price."}}, {"@type": "Question", "name": "Two near-identical logistics companies with the same financials price nine months apart at very different multiples. Your analyst asks how that’s possible. What’s going on?", "acceptedAnswer": {"@type": "Answer", "text": "An IPO prices off the market’s appetite in that window, not off the company’s fundamentals alone. An IPO is priced against what investors will pay right now, and right now moves. The comparable companies you value against trade at different multiples in different quarters, so the anchor itself shifts. Calm markets let buyers accept a slim discount while volatile ones make them demand a fat one, and higher interest rates push down what any future cash flow is worth today. Recent listings matter too: a run of deals that traded up creates appetite, a run of broken ones closes the door. Add fixed constraints like earnings blackouts and the shelf life of audited accounts, and you get real windows a company can miss."}}, {"@type": "Question", "name": "Curveball: the food manufacturer has 40 million shares and comparable companies imply $1.5 billion of equity value. It needs $300 million of primary proceeds. How many new shares is that, and where does the IPO discount come in?", "acceptedAnswer": {"@type": "Answer", "text": "New shares equal proceeds divided by the offer price, which is the comps value less an IPO discount. Comps imply about $37.50 a share on the existing 40 million. You don’t offer there, though: an IPO discount of roughly ten to fifteen percent buys the demand, so call the offer price $32. Raising $300 million at $32 takes about 9.4 million new primary shares, lifting the count to roughly 49.4 million, and those new investors end up owning about nineteen percent of the company. Notice what the discount cost: $5.50 a share on 9.4 million shares is around $50 million of value handed to buyers to get the deal done. That trade, certainty of execution against price, is the whole conversation in the pricing meeting."}}]}</script>
 

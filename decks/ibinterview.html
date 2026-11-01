@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>The Investment Banking Interview</h1>
   <p class="lede">You’ve worked through ten decks of technical material, which means the harder half of the preparation is already behind you. This deck is about the other half: the questions that have nothing to do with valuation, and the delivery that decides whether your technical work ever gets seen. None of it is about performing a character, and nothing here will tell you what your story should be, because that part is yours. What it covers is what each question is really testing, the shape of an answer that lands, and how to stay steady when a conversation goes somewhere you didn’t plan for. Read it once early, then again the week of.</p>
-  <div class="meta-row"><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="beginner">Beginner</span><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>An interviewer opens with “so, tell me about yourself.” You have a resume walk prepared and ready to go. Are these the same question, and if not, how do they differ?</h2>
@@ -442,25 +739,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "An interviewer opens with “so, tell me about yourself.” You have a resume walk prepared and ready to go. Are these the same question, and if not, how do they differ?", "acceptedAnswer": {"@type": "Answer", "text": "Tell me about yourself asks who you are now, the resume walk asks how you got here. They overlap, but the scope is different. Tell me about yourself invites a short, present-tense framing: what you’re doing now, what pulled you toward finance, and what you’re looking for next, usually inside a minute. The resume walk is chronological and longer, tracing the decisions that connect one line of the page to the next. If you answer the opener with a full four-minute history you’ve misread the room, and most interviewers will politely let you keep going rather than stop you."}}, {"@type": "Question", "name": "“Walk me through your resume.” What is the interviewer actually testing, and how should the answer be shaped?", "acceptedAnswer": {"@type": "Answer", "text": "A resume walk is a story about choices, not a list of jobs, and it should end pointing at this seat. Nobody needs the page read back to them, they have it in front of them. What’s being tested is whether your path has a logic to it and whether you can narrate something clearly under mild pressure, which is a fair share of what a junior banker does on a call. Move roughly forward in time, give the most airtime to the two most recent and most relevant experiences, and at each step say why you made the move rather than only what the role was. Land the last sentence on why that path leads here."}}, {"@type": "Question", "name": "“Why investment banking?” What does a credible answer actually contain, and which answers quietly hurt you?", "acceptedAnswer": {"@type": "Answer", "text": "A credible answer names the work you want to do, not the prestige, the pay, or the pace. Two things are being checked: that you understand what the job really involves day to day, and that your reasons will survive a bad month. The answers that fall flat are the interchangeable ones, that you like finance, that you’ll learn a lot, that it’s fast-paced, because they would apply equally to a dozen other jobs. Stronger answers point at something specific: the analytical work of putting a value on a business, seeing how large decisions actually get made, a moment in a class or a role that made that concrete. Pay and prestige are real motivations, they just don’t predict who stays."}}, {"@type": "Question", "name": "You’re interviewing with a mid-sized bank on Thursday and a much larger one on Friday, and both will ask “why us?” How do you get specific without sliding into flattery?", "acceptedAnswer": {"@type": "Answer", "text": "Name something true about the bank that would change your actual day, not its reputation. Telling a bank that it’s excellent tells them nothing, since every candidate says it. Useful specifics are the things that genuinely differentiate the seat: the group’s sector focus, the size of deals a first-year would touch, how lean the teams run, whether the programme is generalist or you’re placed straight into a group. Anything concrete you learned from someone who works there counts, provided you can say what you learned and not just who you spoke to. The simplest test is to paste a rival bank’s name into your answer, and if it still reads fine, you don’t have an answer yet."}}, {"@type": "Question", "name": "“What’s your greatest weakness?” Why does a polished answer like “I care too much about getting things right” usually cost you more than an honest one?", "acceptedAnswer": {"@type": "Answer", "text": "The weakness question tests self-awareness, so a disguised strength answers a different question badly. Interviewers have heard the perfectionist answer hundreds of times and read it as either a genuine lack of self-knowledge or an unwillingness to be candid, and both matter in a job where you have to flag your own mistakes quickly and without being asked. A real answer names something true but survivable, ideally not the central requirement of the role, then spends most of its length on what you’ve done about it and what changed. Strengths work the same way in reverse: claim one, then give the evidence, because an adjective with nothing behind it is only a word."}}, {"@type": "Question", "name": "Asked for a time you handled a difficult deadline: what is the shape of a strong behavioural answer, and how do you use that shape without sounding like you are reciting it?", "acceptedAnswer": {"@type": "Answer", "text": "Set the scene fast, spend the answer on what you personally did, then close on a concrete result. Most behavioural answers work in three parts: a brief situation so the listener knows the stakes, then the actions you took, then the outcome. The common failure is two minutes of background and thirty seconds on your own contribution, when that middle stretch is the only part being assessed. Keep the setup to a couple of sentences, say I rather than we when describing what you did, and finish with something specific enough to picture, a number, a decision that got made, a deadline that got met. Rehearsing the shape is sensible, memorising the sentences is what makes an answer sound canned."}}, {"@type": "Question", "name": "“Tell me about a time you disagreed with someone on a team.” The interviewer will never check the story, so what are they actually listening for?", "acceptedAnswer": {"@type": "Answer", "text": "Conflict questions test how you talk about people you disagree with, not whether you won. The substance of the disagreement matters far less than how you describe the other person. An answer that casts a teammate as lazy or slow tells the interviewer roughly how you’ll sound about a colleague at two in the morning in a deal room, which is exactly the risk being screened for. What lands is a story where the other side held a reasonable position, you did something concrete to understand or resolve it, and the working relationship came out intact. A real, modest disagreement beats a dramatic one, and a resolution where you changed your own mind is not the weak version."}}, {"@type": "Question", "name": "“Tell me about a time you failed.” Why does the reflection at the end of that answer carry more weight than the failure at the start of it?", "acceptedAnswer": {"@type": "Answer", "text": "The failure is only the setup, what you changed afterwards is the actual answer. Everyone has failed at something, so the failure by itself carries almost no information. What the question separates is people who can own an outcome and learn from it from people who deflect, quietly blame someone else, or reach for something so trivial that nothing was ever at stake. Pick something that genuinely went wrong, state your own part in it without an alibi, then give the back half of the answer to what you understood afterwards and what you did differently the next time. In a job where juniors make real mistakes on live documents, that pattern is the entire point of asking."}}, {"@type": "Question", "name": "“Where do you see yourself in five years?” Analyst programmes typically run two or three, and everyone in the room knows it. What is the question really getting at?", "acceptedAnswer": {"@type": "Answer", "text": "Five-year questions test whether your ambitions and this job point in a compatible direction. There’s an honest tension here and interviewers are aware of it: the programme is finite, plenty of people move on afterwards, and nobody expects someone in their early twenties to have the next decade mapped out. What’s being checked is that the next few years are a deliberate choice rather than a default, and that you aren’t describing a plan this seat plainly cannot serve. A workable answer commits to doing the analyst job well and being genuinely useful to a team, then describes the direction you’re drawn to in terms of the work rather than a job title. Claiming you’ll be a lifer tends to read as false."}}, {"@type": "Question", "name": "“So, what deal or market have you been following?” How do you talk about it in a way that shows judgement rather than recall?", "acceptedAnswer": {"@type": "Answer", "text": "Say what happened, why it happened, and what you think, with the last part carrying the weight. Facts anyone could take from a headline prove nothing, because the interviewer has read the same headline. A good answer moves in three steps: what happened, in about two sentences, then why the buyer or the market did it, meaning the strategic or financial logic, then your own view, including where you think the risk sits or what would have to be true for it to work. Only that third step shows judgement. Choose something you actually find interesting and can hold up under two follow-up questions, rather than the biggest transaction of the year that you only skimmed."}}, {"@type": "Question", "name": "“We’ve got five minutes left, do you have any questions for me?” What does the question you pick actually signal?", "acceptedAnswer": {"@type": "Answer", "text": "Your question shows what you think the job is, so ask something only this person could answer. This is still part of the assessment, and passing entirely tends to read as indifference. Questions whose answers sit on the bank’s website, or that ask what an analyst does all day, suggest you haven’t done the reading. What works is drawn from the person in front of you: how a recent staffing actually ran, what surprised them in their first year, how feedback reaches juniors in their group, what they’d want a new analyst to be good at on day one. Ask because you want to know, then listen, because the follow-up you ask says more than the opening question did."}}, {"@type": "Question", "name": "Mid-interview you’re asked a multi-step technical question, and for a second your mind goes completely blank. How do you think out loud instead of freezing?", "acceptedAnswer": {"@type": "Answer", "text": "Say the first true thing you know out loud, then reason forward one step at a time. Silence is the expensive part, because from the other side of the table thinking and drowning look identical. Buy a beat honestly, repeating the question back or asking a clarifying question is perfectly acceptable, then start from something you’re certain of and build outward one step at a time, naming each assumption as you make it. Being talked through a wrong turn is normal, and often reads better than a fast correct answer, since much of the actual job is reasoning aloud with someone more senior. Close by checking the result against common sense rather than stopping the moment a number appears."}}, {"@type": "Question", "name": "An interviewer asks you something technical you have genuinely never seen before. What’s the best available move, and why is answering confidently anyway the worst one?", "acceptedAnswer": {"@type": "Answer", "text": "Say what you don’t know, offer how you’d work it out, and let the interviewer take it from there. Every interviewer knows there are things you haven’t covered yet, so one gap is rarely fatal on its own. Bluffing is closer to fatal, because it’s usually transparent, and it suggests you might do the same on a live model where a wrong number reaches a client. Say plainly that you’re not sure, then give whatever you do have, an adjacent concept, the logic you’d reason from, or how you’d go and find out. Then let it go and answer the next question well, because carrying the last one around with you costs more than the gap ever did."}}, {"@type": "Question", "name": "You’ve been invited to a superday: five back-to-back thirty-minute interviews with people at different levels. What does that format change about how you prepare?", "acceptedAnswer": {"@type": "Answer", "text": "Five interviewers compare notes afterwards, so it has to be the same story every time. A superday is a run of short interviews on one day, and afterwards those people sit in a room and compare impressions before anyone gets a call. That makes consistency matter more than polish: if your reason for wanting banking shifts between the second conversation and the fourth, someone will notice it in the debrief. It also means each conversation starts from nothing, so repeating your best material is expected rather than lazy, and the energy you bring to the fifth counts as much as the first. Treat the repetition as an advantage, you get several attempts at landing the same point."}}, {"@type": "Question", "name": "You’re two sentences into an answer when the interviewer cuts across you and says flatly, “I don’t think that’s right.” What’s happening, and how do you handle it?", "acceptedAnswer": {"@type": "Answer", "text": "Pushback tests composure, so answer the challenge itself and ignore the tone it arrived in. Sometimes the interviewer genuinely disagrees, sometimes they’re testing whether you collapse or dig in irrationally when someone senior pushes back, which happens constantly in the real job. Either way the move is the same: don’t rush to agree, and don’t defend by talking louder. Ask which part they’re questioning, restate your reasoning in a single sentence, and change your answer if their point is better than yours, saying so plainly. Being persuaded is a good outcome, and so is holding a position calmly with a reason attached. What reads badly is instant collapse, or visible irritation."}}, {"@type": "Question", "name": "Two candidates handle the technical questions equally well and only one gets the offer. What tends to separate them, and why does the other one usually never find out?", "acceptedAnswer": {"@type": "Answer", "text": "Most close rejections turn on whether people wanted you next to them at 1am, not a missed question. Underneath the structure, interviewers are answering something unglamorous: would I want this person on my team at one in the morning on a Sunday. The things that quietly cost people offers are rarely technical, they’re being hard to talk to, treating a junior interviewer or a recruiter differently from a senior one, sounding so rehearsed that nothing about you is readable, showing no curiosity about the work, or being unable to say anything specific about why you’re there. Almost none of it gets fed back, because recruiting feedback is thin and the honest version is awkward to give. It’s also the most fixable part."}}]}</script>
 

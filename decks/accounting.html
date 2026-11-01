@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>Accounting Fundamentals</h1>
   <p class="lede">Accounting is the record-keeping system behind every financial statement, and understanding it, even at a basic level, makes everything else in finance click into place faster. This deck starts from the actual mechanics: what double-entry bookkeeping means, how debits and credits work, and how the books get built up from a single transaction. It is written for someone who has never taken an accounting class, not as a shortcut around learning it, but as a clear first pass.</p>
-  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="beginner">Beginner</span><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>What are a company’s “books”, literally?</h2>
@@ -554,25 +851,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are a company’s “books”, literally?", "acceptedAnswer": {"@type": "Answer", "text": "The books are a set of accounts, each one a running tally of a single thing a company owns or owes. When people say a company’s books they mean its accounting records, and the basic unit of those records is an account: a running tally of one specific thing, such as cash in the bank, inventory sitting in a warehouse, or money owed to a supplier. A midsize business might keep hundreds of them. The complete collection is called the general ledger, and every financial statement you will ever look at is built by totalling those accounts and arranging the results. So asking for the books means asking for the underlying tallies rather than the polished summary."}}, {"@type": "Question", "name": "What does Assets = Liabilities + Equity actually say, and why can it never go out of balance?", "acceptedAnswer": {"@type": "Answer", "text": "Everything a company owns was funded either by money it borrowed or by money its owners put in. Assets are everything the company owns that has value, like cash, buildings and inventory. Liabilities are what it owes to outsiders, mostly loans and unpaid bills. Equity is what would be left over for the owners if every asset were sold and every debt repaid. If the food manufacturer raises $100,000 from its owners and borrows $400,000, it holds $500,000 of assets funded by $400,000 of liabilities and $100,000 of equity. The equation holds by construction: the left side lists what the company has, the right side lists where every dollar of it came from."}}, {"@type": "Question", "name": "What is the difference between revenue and profit?", "acceptedAnswer": {"@type": "Answer", "text": "Revenue is what customers paid you, profit is what is left after every cost of earning it. Revenue, also called sales or the top line, is the total amount customers were charged for goods and services during the period. Profit is what survives after subtracting costs: first the direct cost of the things sold, then salaries, rent, marketing, interest on any debt, and tax. A company with $40 million of revenue and $39 million of costs earned $1 million, while a smaller company with $12 million of revenue and $6 million of costs earned far more. Interviewers press on this because anyone who treats the two words as interchangeable will misread every income statement they touch."}}, {"@type": "Question", "name": "What do “debit” and “credit” actually mean in accounting?", "acceptedAnswer": {"@type": "Answer", "text": "Debit means left, credit means right — which one grows an account depends on the account type. Debit and credit aren't inherently \"increase\" or \"decrease\" — they just mean the left and right side of an account. What each one does depends on the account type: debits increase assets and expenses (and decrease liabilities, equity, and revenue), while credits increase liabilities, equity, and revenue (and decrease assets and expenses). Memorize which accounts move which way, and the rest of double-entry bookkeeping follows from that."}}, {"@type": "Question", "name": "What is double-entry bookkeeping?", "acceptedAnswer": {"@type": "Answer", "text": "Every transaction hits two accounts of equal value, so the books always stay in balance. Every transaction gets recorded twice, once as a debit and once as a credit, always for the same amount. That's what keeps the accounting equation, Assets = Liabilities + Equity, in balance no matter how many transactions pile up. It also builds in a natural error check: if total debits and credits ever stop matching, you know something was recorded wrong somewhere — the same logic that has to hold in every model you'll ever build off a company's books."}}, {"@type": "Question", "name": "What is the difference between a journal entry and the general ledger?", "acceptedAnswer": {"@type": "Answer", "text": "Journal entries record transactions in order; the ledger re-sorts them by account. A journal entry is the raw, chronological record of a transaction: it shows exactly which accounts were debited and credited as the transaction happened. The general ledger then reorganizes those entries by account, pulling every transaction that touched \"Cash\" or \"Revenue,\" for example, into one place so you can track that account's running balance. Think of the journal as the diary and the ledger as the filing system built from it — the distinction that matters when you're handed a target's books and need to trace a number back to the transaction that created it."}}, {"@type": "Question", "name": "A haulage company pays $30,000 in cash for a forklift. What are the two lines of the journal entry, and how do you know which side each account goes on?", "acceptedAnswer": {"@type": "Answer", "text": "Debit what the company gains, credit what it gives up, and the two amounts have to match. Two lines. Debit Equipment for $30,000, because equipment is an asset and debits increase assets, then credit Cash for $30,000, because cash is also an asset and credits decrease it. The company is no richer or poorer than it was that morning, one asset simply turned into another, which is why the accounting equation still balances. Had the haulage company bought the forklift on credit instead, the second line would be a $30,000 credit to accounts payable, the liability that tracks bills owed to suppliers, and both assets and liabilities would rise together."}}, {"@type": "Question", "name": "A retailer ships $2 million of goods in December and collects the cash in February. Which year does that sale belong to, and why is accrual accounting the standard rather than simply tracking cash?", "acceptedAnswer": {"@type": "Answer", "text": "Accrual books revenue when it is earned and costs when they are incurred, not when cash moves. December, because accrual accounting records revenue once the company has actually done the work and delivered the goods, and records the costs of earning that revenue in the same period, a rule known as the matching principle. Cash accounting instead records everything only when money changes hands, which is simpler but lets one slow-paying customer swing a whole year of reported profit. Accrual gives a truer picture of how a period really went, which is why it is the standard basis under both IFRS and US GAAP, and it is also what creates the gaps between profit and cash that the cash flow statement exists to explain."}}, {"@type": "Question", "name": "What are accounts receivable and accounts payable, and why does almost every real business have both sitting on its balance sheet?", "acceptedAnswer": {"@type": "Answer", "text": "Receivables are sales you have not been paid for, payables are bills you have not paid yet. Accounts receivable is money customers owe for goods or services already delivered, so it sits on the balance sheet as an asset, a claim on cash that has not arrived yet. Accounts payable is the mirror image, bills from suppliers that have been received but not yet settled, recorded as a liability. Both exist because accrual accounting books the sale or the cost when the work happens while the cash follows weeks later. Comparing how fast those two balances turn over is one of the quickest ways to see whether a business collects from its customers sooner than it pays its own suppliers."}}, {"@type": "Question", "name": "A software company collects a full year of subscription fees every January. Why can’t it record all of that as revenue in January, and what appears on the balance sheet instead?", "acceptedAnswer": {"@type": "Answer", "text": "Cash collected before the work is done is a liability, not revenue, until you actually deliver. Because it has the cash but has not earned it yet. If a customer pays $12,000 in January for twelve months of service, the company recognizes $1,000 of revenue in January and parks the other $11,000 as deferred revenue, a liability representing service it still owes, releasing $1,000 into revenue each month as it delivers. Deferred revenue is the rare liability you like to see growing, since it means customers are paying ahead of the work. It is also why a subscription business can be sitting on a pile of cash long before that cash has become profit."}}, {"@type": "Question", "name": "What is an adjusting entry, and why is it needed at the end of a period?", "acceptedAnswer": {"@type": "Answer", "text": "Adjusting entries true up the books so revenue and expenses land in the right period. An adjusting entry updates account balances at the end of a period to capture revenue that's been earned, or an expense that's been incurred, but hasn't been recorded yet — think accrued interest, or a prepaid expense that's now been used up. They're needed because plenty of transactions span multiple periods, and without them, revenue and expenses would land in the wrong period and distort the financial statements. In a deal context that's not academic: financials handed over mid-period, like the ones the seller's controller just sent, need these entries booked before you can trust them enough to build a model on top of."}}, {"@type": "Question", "name": "What is depreciation, and why is straight-line depreciation the simplest method?", "acceptedAnswer": {"@type": "Answer", "text": "Depreciation spreads an asset's cost over its useful life instead of expensing it all at once. Depreciation spreads the cost of a long-term asset, like equipment or a building, across its useful life instead of expensing the full purchase price the year it's bought, matching the expense to the years the asset actually helps generate revenue. Straight-line depreciation is the simplest version: it expenses an equal amount every year, which makes it easy to calculate and forecast, even though many assets really lose value faster in their early years than a straight line implies. That simplicity is exactly why it's the default assumption in a base-case model unless there's a specific reason to build something more granular."}}, {"@type": "Question", "name": "What is the difference between depreciation and amortization, and does either one actually move cash out the door?", "acceptedAnswer": {"@type": "Answer", "text": "Same idea, different assets: depreciation covers physical ones, amortization covers intangible ones. Mechanically they are the same move, taking the cost of something the company bought and spreading it across the years it stays useful rather than expensing it all at once. Depreciation applies to tangible assets you can physically touch, such as machinery, vehicles and buildings. Amortization applies to intangible assets, things with no physical form like a patent, a software license or a customer list picked up in an acquisition. Neither one moves cash: the money left when the asset was bought, so both are non-cash expenses that reduce reported profit in years when nothing is actually paid, which is why both get added back on the cash flow statement."}}, {"@type": "Question", "name": "What is working capital, and why can a company be profitable every quarter and still run short of cash?", "acceptedAnswer": {"@type": "Answer", "text": "Working capital is short-term assets minus short-term bills, the cash locked up running the business. Working capital is current assets minus current liabilities, where current means expected to turn into cash, or fall due, within a year. On the asset side that is mostly cash, receivables and inventory, the goods a company is holding to sell. On the liability side it is mostly payables and other bills coming due shortly. A profitable company can still be starved of cash if too much of its money is sitting in unsold inventory and uncollected receivables. Keep one distinction straight, because interviewers test it: that is the accounting definition. When a banker models working capital they normally mean operating, or net, working capital, which deliberately excludes cash and any short-term debt, since those are financing items rather than part of running the business. Measured that way, the figure isolates the cash that growth actually eats."}}, {"@type": "Question", "name": "A company buys a rival for $500 million when the rival’s identifiable net assets are worth $320 million at fair value. Where do the extra $180 million go on the balance sheet?", "acceptedAnswer": {"@type": "Answer", "text": "Goodwill is the premium a buyer pays above the fair value of what the target actually owns. They become goodwill, an intangible asset that only exists because one company bought another. The buyer first restates the target’s identifiable assets and liabilities at fair value, meaning what they would fetch today rather than whatever the old books said, and anything the purchase price exceeds that net figure becomes goodwill, $180 million in this case. Be careful about what actually sits inside that residual. Identifiable intangibles belong in the $320 million, not in the goodwill: under IFRS 3, and equally under US GAAP’s ASC 805, things like brand names and customer relationships are recognised separately whenever they are separable or arise from contractual or legal rights. What is left in goodwill is the genuinely unmeasurable part, an assembled workforce and expected synergies, neither of which can be recognised on its own. Goodwill is not amortized on a schedule, it is tested at least annually for impairment and written down if the deal proves worth less than what was paid."}}, {"@type": "Question", "name": "What is the difference between FIFO and LIFO inventory valuation, and what has to be adjusted before two companies’ margins can be compared?", "acceptedAnswer": {"@type": "Answer", "text": "FIFO sells your oldest inventory first; LIFO sells the newest — and rising prices make the choice matter. FIFO (first in, first out) assumes the oldest units in inventory get sold first, so cost of goods sold reflects older, typically cheaper, costs. LIFO (last in, first out) assumes the newest units get sold first, so cost of goods sold reflects more recent, typically higher, costs. When prices are rising, that difference shows up on the financials: FIFO tends to report higher profit and a higher inventory value, while LIFO reports lower profit but a smaller tax bill. That’s exactly why you can’t line up the retailer's margins against a FIFO comp without adjusting for the accounting difference first. One point that matters the moment you look outside the US: LIFO is a US GAAP concept and is not permitted under IFRS at all. IAS 2 allows FIFO or weighted average cost for inventories that are ordinarily interchangeable, so if a comp is on LIFO, it is a US filer."}}, {"@type": "Question", "name": "What is the difference between capitalizing a cost and expensing it, and how does capitalizing flatter reported EBITDA?", "acceptedAnswer": {"@type": "Answer", "text": "Capitalize a cost if its value lasts years; expense it if the benefit ends this period. Capitalizing a cost means recording it as an asset on the balance sheet and spreading it over time through depreciation or amortization, because it creates value beyond the current period — buying equipment, for instance. Expensing a cost means recording the full amount immediately on the income statement, because the benefit is used up in the current period, like office supplies. The choice affects both the balance sheet and how quickly a cost hits reported profit — and it's a classic spot for quality-of-earnings adjustments in diligence, since capitalizing a cost that should have been expensed makes near-term EBITDA look better than it really is."}}, {"@type": "Question", "name": "Two competitors run nearly identical operations and report clearly different net income, and neither has done anything wrong. How is that possible?", "acceptedAnswer": {"@type": "Answer", "text": "Accounting rules leave real choices, so two honest companies can report different profits. Because the rules leave room for judgement. One might use FIFO while the other uses weighted average cost (or LIFO, if it is a US GAAP filer), so identical rising input costs land in cost of goods sold differently. One might depreciate the same machine over ten years and the other over seven, changing the annual expense on identical equipment. One might capitalize a software build the other expenses outright. None of that is fraud, it is policy choice, which is why analysts spend so long normalizing financials before comparing two companies, and why this question is really testing whether you understand that reported profit is an opinion built on assumptions while cash is much closer to a fact."}}]}</script>
 

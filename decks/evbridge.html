@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>Enterprise &amp; Equity Value</h1>
   <p class="lede">Every valuation ends in a bridge. A DCF hands you an enterprise value and the client wants a share price, a comps table needs an EV over EBITDA for every peer, and a buyer wants to know what a business really costs once debt and cash are accounted for. Interviewers like this topic because it separates people who have memorised ‘EV equals equity plus debt minus cash’ from people who understand why each item sits where it does. This deck starts with a house and a mortgage, works through diluted shares, convertibles, preferred stock, non-controlling interest, IFRS 16 leases and pension deficits to a worked bridge that reconciles both ways, then finishes on the curveballs: negative EV, mismatched multiples, and a comps peer valued on the wrong share count.</p>
-  <div class="meta-row"><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="intermediate">Intermediate</span><span>16 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 16</div>
     <h2>What is enterprise value, what is equity value, and who does each one belong to?</h2>
@@ -616,25 +913,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dcf.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">DCF &amp; WACC Drills</span><span class="deck-desc">The numbers behind a DCF: FCF builds, discount factors, CAPM, WACC, beta, terminal value and the follow-ups.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is enterprise value, what is equity value, and who does each one belong to?", "acceptedAnswer": {"@type": "Answer", "text": "EV is the price of the whole business, equity value is the slice left for shareholders after the lenders. Think of a house worth £400k with a £300k mortgage on it. The house price is the enterprise value: what the entire asset is worth, regardless of who financed it. Your equity is the £100k you would walk away with after the bank was repaid, and that is the equity value. A company works the same way: enterprise value is what the operating business is worth to everyone who funded it, lenders and shareholders together, while equity value is what belongs to the shareholders alone. If the house rises to £440k the whole gain lands on your £100k, which is why equity is the riskier, more volatile slice."}}, {"@type": "Question", "name": "A food manufacturer’s shares are worth £500m in total, it owes £200m to lenders and has £100m sitting in the bank. Why is that £100m subtracted when you work out enterprise value, rather than added?", "acceptedAnswer": {"@type": "Answer", "text": "Cash is subtracted because a buyer gets it back on day one, so it lowers the real cost of the operations. Imagine you buy every the food manufacturer share for £500m. You now own a company that owes £200m, which you must eventually repay, so your commitment is really £700m. But you also own the £100m in its bank account, and on day one you could pay it straight out to yourself or use it to clear part of the debt. Your net cost for the actual food business, the factories, brands and contracts, is 500 plus 200 minus 100, or £600m, and that is the enterprise value. Cash isn’t part of the operations that earn the profit, it is stored value that comes with the keys, so it lowers the price."}}, {"@type": "Question", "name": "Are “market cap” and “equity value” interchangeable, and which one goes into a valuation?", "acceptedAnswer": {"@type": "Answer", "text": "Market cap uses today’s share count, equity value uses the diluted count with options and convertibles. Market capitalisation is the share price multiplied by basic shares outstanding, the shares actually issued and held by investors today. Equity value, as bankers use it, is the share price multiplied by diluted shares: the basic count plus the extra shares that would appear if in-the-money options, restricted stock units and convertible bonds were turned into shares. The software company at £10 with 100m basic shares has a £1,000m market cap, but with 6m net extra shares from its options its equity value is £1,060m. A buyer has to pay for those future shares too, so the diluted figure goes into the bridge and into any multiple."}}, {"@type": "Question", "name": "A software company trades at £10 and has 100m basic shares plus 10m employee options with a £4 strike. Walk me through the treasury stock method and give me the diluted share count.", "acceptedAnswer": {"@type": "Answer", "text": "Assume in-the-money options are exercised, spend the cash on a buyback, and count only the net new shares. An option is the right to buy a share at a fixed strike price, and it only matters when the strike is below the share price, so £4 against £10 is in the money. Assume all 10m are exercised: the company issues 10m new shares and receives 10m times £4, or £40m. The treasury stock method assumes that £40m buys back shares at the £10 market price, retiring 4m. Net dilution is 6m, so the diluted count is 106m and equity value is £1,060m. Options struck above the share price are ignored, and restricted stock units count in full because their strike is zero."}}, {"@type": "Question", "name": "A components maker has a £100m convertible bond that converts into shares at £20 each. How do you handle it in the bridge, and does your answer change if the share price is £25 versus £15?", "acceptedAnswer": {"@type": "Answer", "text": "Share price above the conversion price means treat it as shares, below means treat it as debt, never both. A convertible bond is debt that the holder can swap for a fixed number of shares, here £100m divided by £20, or 5m shares. Compare the conversion price with the share price. At £25 the bond is in the money, since converting gives shares worth £125m for £100m of face value, so assume it converts: add 5m shares to the diluted count and leave the £100m out of debt, otherwise you count one claim twice. At £15 nobody would convert, so it stays as £100m of debt and adds no shares. There is no buyback step, because the company receives no cash on conversion, it simply cancels the bond."}}, {"@type": "Question", "name": "Beyond plain debt, what are preferred stock and non-controlling interest, and why do they belong on the debt side of the bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Any claim on the business ahead of or alongside the common shareholders is added to equity value to reach EV. Preferred stock is a class of shares that receives a fixed dividend and is paid before ordinary shareholders if the company is wound up, so it behaves like debt with a claim ahead of the common equity, and it is added. Non-controlling interest arises when a company owns, say, 80% of a subsidiary: the accounts consolidate 100% of that subsidiary’s revenue and EBITDA, but the 20% owned by outsiders sits as a separate line in equity. Since the EBITDA you divide EV by includes the whole subsidiary, EV must include it too, so the outsiders’ 20% is added. The full bridge is equity plus all debt-like claims, minus cash-like assets."}}, {"@type": "Question", "name": "A haulage company reports under IFRS and leases its whole fleet of trucks. Do the lease liabilities go into EV, and what does that decision have to do with EBITDA?", "acceptedAnswer": {"@type": "Answer", "text": "Put lease liabilities in EV only when the EBITDA you pair with it excludes rent, so both sides agree. Since 2019, IFRS 16 puts almost every lease on the balance sheet as a lease liability, the present value of future rent, with a matching right-of-use asset. Rent expense is replaced by depreciation and interest, so reported EBITDA goes up. That liability is financing in all but name, a lessor has funded the trucks the way a bank would, so a post-IFRS 16 EBITDA must be paired with an EV that includes the leases. If you deduct rent to get a pre-IFRS 16 EBITDA, leave the leases out. US GAAP also puts operating leases on the balance sheet but keeps rent in operating costs, so US comps usually exclude them."}}, {"@type": "Question", "name": "A machinery company runs a final-salary pension scheme with £500m of promised payouts and £380m of assets set aside. Does that go in the bridge, and for how much?", "acceptedAnswer": {"@type": "Answer", "text": "A pension deficit is money owed to staff that future cash flows must fund, so add it like debt, net of tax. A defined benefit scheme promises employees a set pension, and the company must make up any gap between what it promised and what the fund holds. That gap, £500m less £380m, or a £120m deficit, sits on the balance sheet as a liability under both IFRS and US GAAP, and it will be paid from the same cash flows that service the bank debt, so it is a debt-like claim and is added. Because top-up contributions are tax deductible, most banks add the deficit after tax: at 25%, £120m becomes £90m. Never add the gross £500m promise, because the £380m set aside already covers most of it."}}, {"@type": "Question", "name": "A company holds, alongside its cash, £80m of treasury bills, a 10% stake in a listed supplier, and £25m locked in escrow for a customer contract. Which of these come off in the bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract what a buyer could turn into cash on day one, and leave restricted cash in because it is locked. The test is whether the item is non-operating and could be handed to the owner without harming the business. Treasury bills and other short-term investments are cash in all but name, sold within days, so they are subtracted. The 10% stake in the supplier is a non-operating investment: it earns no EBITDA in the firm’s accounts, so many banks subtract its market value too, and you should say which you did. The £25m in escrow is restricted cash: it is pledged to a contract and cannot be paid out, so it is not cash-like and stays in EV. Read the cash note before subtracting the headline figure."}}, {"@type": "Question", "name": "A haulage company: share price £8, 150m diluted shares, £500m debt, £50m preferred, £30m NCI, £120m lease liabilities and £200m cash. Build the bridge to EV, then walk it back to a share price.", "acceptedAnswer": {"@type": "Answer", "text": "Add the debt-like claims, subtract the cash, and reverse every step to get from EV back to a price per share. Equity value is 150m shares times £8, or £1,200m. Add the claims that rank ahead of or alongside shareholders: £500m debt, £50m preferred, £30m NCI and £120m leases, £700m in total, to reach £1,900m, then subtract the £200m cash to land on an enterprise value of £1,700m. Going the other way, which is what a DCF or a comps valuation needs, start with £1,700m, subtract the £700m of debt-like items, add back the £200m cash to get equity value of £1,200m, and divide by 150m diluted shares for £8. If the reverse leg doesn’t return your starting price, you dropped an item somewhere."}}, {"@type": "Question", "name": "A company has an equity value of £300m, no debt and £350m of cash. Its EV comes out at minus £50m. Is that possible, and what is the market saying?", "acceptedAnswer": {"@type": "Answer", "text": "EV goes negative when cash exceeds equity value plus debt, so the market values the operations below zero. It is arithmetically possible and it does happen: 300 plus 0 minus 350 is minus £50m. The market is saying the operating business is worth less than nothing, which usually means one of three things. The company is burning that cash and investors expect much of it to be lost before it reaches them, or the cash is trapped, in a foreign subsidiary or ring-fenced by a regulator, so it isn’t really cash-like, or the shares are simply mispriced, which is what a value investor would argue. Either way a negative EV makes EV/EBITDA meaningless, so you would drop that peer from a comps set."}}, {"@type": "Question", "name": "A comps table divides EV by net income. Why is that wrong, and how do you decide which metrics pair with EV and which with equity value?", "acceptedAnswer": {"@type": "Answer", "text": "Pair EV with profit before interest and equity value with profit after interest, so both sides match. Enterprise value belongs to everyone who funded the business, so it must sit over a metric that is also available to everyone: revenue, EBITDA, EBIT and unlevered free cash flow, all of which come before interest is paid to lenders. Equity value belongs only to shareholders, so it sits over what is left after interest: net income, book equity, dividends and levered free cash flow. EV over net income mixes the two and breaks in practice: if a company replaces equity with debt, EV is unchanged but net income falls because of the new interest, so the multiple jumps though the business hasn’t changed."}}, {"@type": "Question", "name": "An industrial target does three things in one quarter: raises £100m by issuing new shares, pays a £50m dividend, and buys a rival for £300m in cash. Take each in turn: what happens to equity value and EV?", "acceptedAnswer": {"@type": "Answer", "text": "Cash moving between a company and its owners leaves EV alone, but buying a business adds its EV to yours. The share issue brings in £100m of cash and creates £100m of new equity value, so cash and equity rise by the same amount and EV, equity plus net debt, is unchanged: nothing about the operating business moved. The dividend is the mirror image, cash down £50m and equity value down £50m, EV unchanged again. The acquisition is different. The industrial target swaps £300m of cash for a business worth £300m, so its equity value holds, but net debt rises by £300m and EV rises by £300m, because the industrial target now owns more operations. Paying in shares instead would lift equity value and EV by £300m each."}}, {"@type": "Question", "name": "A listed food company is worth £900m as a business, with £800m of equity value and £100m of net debt. It borrows £200m and uses all of it to buy back shares. What happens to each value, and why does the rule work that way?", "acceptedAnswer": {"@type": "Answer", "text": "EV tracks the operations, so any reshuffle of who funds them moves equity value without moving EV. After the buyback, net debt is £300m and equity value is £600m, but the factories, brands and cash flows are exactly what they were, so EV stays at £900m. Equity value is a residual, EV minus the claims ahead of it, so it moves whenever value shifts between claimants: borrowing to buy back shares, paying a dividend, issuing shares, or simply piling up cash from a year of trading all change the equity slice without changing the size of the business. Only news about the operations, a lost contract or a new product, changes EV, and then equity value moves by the same pound amount."}}, {"@type": "Question", "name": "A company’s EV/EBITDA moved from 10.0x to 9.7x the year IFRS 16 came in, with no change in trading. Show me why the multiple moved when nothing real happened.", "acceptedAnswer": {"@type": "Answer", "text": "Capitalising leases adds rent back to EBITDA and a lease liability to EV, and the two rarely move in step. Before IFRS 16, the retailer had £100m of EBITDA after paying £40m of shop rent, and an EV of £1,000m, so 10.0x. Under IFRS 16 the rent leaves operating costs, so EBITDA rises to £140m, and a £360m lease liability, the present value of future rent, is added to EV, taking it to £1,360m and the multiple to 9.7x. It falls because the leases were capitalised at £360m over £40m, or 9x rent, while the business trades at 10x, so blending in a cheaper block lowers the average. The real damage comes from mixing bases: the new £140m EBITDA over the old £1,000m EV gives 7.1x, which flatters the retailer badly."}}, {"@type": "Question", "name": "A comps sheet shows a company’s equity value as exactly £12 times its 200m basic shares, yet the filing shows 20m options struck at £6. What is wrong, and what does the fix do to its 10.0x EV/EBITDA?", "acceptedAnswer": {"@type": "Answer", "text": "Basic shares understate a peer’s equity value and EV, so its multiple and anything valued off it come out low. The analyst used market cap, not diluted equity value, so the options were ignored. Run the treasury stock method: 20m options at £6 bring in £120m, which buys back 10m shares at £12, so net dilution is 10m and the diluted count is 210m. Equity value rises from £2,400m to £2,520m, and with £400m of net debt EV rises from £2,800m to £2,920m. Over £280m of EBITDA the multiple moves from 10.0x to 10.4x. It matters beyond one cell: if the sheet is used to value your client, a low peer multiple produces a low client valuation, and that error lands in the number an MD shows a board."}}]}</script>
 

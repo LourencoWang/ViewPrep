@@ -26,8 +26,304 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/vp.css">
-<style>
+<style>/* ViewPrep design system
+   ---------------------------------------------------------------------------
+   The one place the site's shared look is defined. build_pages.py copies this
+   file into every page it builds and into index.html, between the vp.css
+   markers, so the live site never depends on a separate stylesheet being
+   uploaded. Edit this file, then run build_pages.py; never edit the copies.
+   Page-specific layout lives with each page; anything that should look the
+   same everywhere lives here.
+
+   The idea is a ledger, not a dashboard: structure comes from hairline rules,
+   alignment and numbering rather than floating boxes, soft shadows and glows.
+   Surfaces are reserved for things you actually handle, like the flashcard.
+
+   Rules worth keeping:
+   - Sizes come from the scales below. A new value means the scale is wrong, not
+     that the component is special.
+   - Three radii only: 0 for structure, 3px for controls, 6px for objects.
+   - Navy (--accent) is the brand and marks structure: indexes, section rules.
+     Blue (--link) means "this is interactive". Green and red mean right and wrong
+     and nothing else.
+   - Motion is for state changes (hover, focus, the flip), never for decoration. */
+
+:root{
+  /* colour: light */
+  --bg:#F4F6FA;
+  --ink:#0C0C0D;
+  --ink-soft:#4E535C;
+  --ink-faint:#646A76;
+  --line:rgba(12,12,13,.18);
+  --line-soft:rgba(28,36,60,.11);
+  --surface:#FFFFFF;
+  --surface-strong:#FFFFFF;
+  --hover:rgba(28,36,60,.045);
+  --blue:#2F5FE0;
+  --amber:#2C4E92; --amber-ink:#2C4E92;   /* historical name for the brand navy */
+  --green:#1B7E50;   /* was #1D8A57, which fell short of 4.5:1 for small text */
+  --red:#C63A2C;
+  --contrast:#FFFFFF;
+  --ink-hover:#2A2A2E;
+  --shadow:rgba(12,12,13,.10);
+  --focus:#2F5FE0;
+  --accent:var(--amber);
+  --link:var(--blue);
+
+  /* type */
+  --display:'Archivo',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --fs-label:.6875rem;   /* 11 - uppercase labels, metadata, indexes */
+  --fs-xs:.8125rem;      /* 13 - fine print */
+  --fs-sm:.9375rem;      /* 15 - secondary text, descriptions */
+  --fs-md:1rem;          /* 16 - body */
+  --fs-lg:1.125rem;      /* 18 - lead text, the answer's takeaway */
+  --fs-xl:clamp(1.25rem,1.05rem + .9vw,1.5rem);        /* 20-24 - the question */
+  --fs-2xl:clamp(1.75rem,1.2rem + 2.2vw,2.75rem);      /* 28-44 - page titles */
+  --fs-display:clamp(2.75rem,1.4rem + 6.4vw,6.25rem);  /* 44-100 - the hero */
+  --tr-label:.08em;
+  --tr-display:-.025em;
+  --tr-heading:-.012em;
+
+  /* space: 4px steps up to 16, then each step roughly 1.5x */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --gutter:clamp(1rem,.6rem + 2vw,2rem);
+
+  /* shape */
+  --r-1:3px;
+  --r-2:6px;
+  --rule:1px solid var(--line-soft);
+  --rule-strong:1px solid var(--line);
+  --shadow-card:0 1px 2px rgba(12,12,13,.04),0 18px 36px -22px var(--shadow);
+  --shadow-pop:0 18px 44px -20px rgba(12,12,13,.28);
+  --scroll-shade:rgba(12,12,13,.14);
+
+  /* motion */
+  --t-fast:.12s ease;
+  --t-med:.2s cubic-bezier(.2,.8,.2,1);
+  --control-h:2.75rem;   /* 44px: the minimum comfortable touch target */
+}
+
+/* Dark is a token swap, so nothing below has to be restyled for it. Ink flips to
+   near-white, which turns the solid buttons white; --contrast flips the other way
+   so their labels stay readable. Blue, green and red are lifted because the
+   light-mode values do not carry enough contrast on a dark surface. */
+:root[data-theme="dark"]{
+  --bg:#0E1117;
+  --ink:#F1F3F8;
+  --ink-soft:#AEB4C2;
+  --ink-faint:#868D9C;
+  --line:rgba(241,243,248,.24);
+  --line-soft:rgba(241,243,248,.12);
+  --surface:#161A23;
+  --surface-strong:#1E2330;
+  --hover:rgba(241,243,248,.05);
+  --blue:#7BA3FF;
+  --amber:#93B2FF; --amber-ink:#93B2FF;
+  --green:#4FCB8E;
+  --red:#FF7F6E;
+  --contrast:#0E1117;
+  --ink-hover:#DDE0E8;
+  --shadow:rgba(0,0,0,.7);
+  --focus:#7BA3FF;
+  --shadow-pop:0 18px 44px -18px rgba(0,0,0,.8);
+  --scroll-shade:rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:var(--fs-md);line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p{margin:0;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s !important;animation-duration:0s !important;animation-iteration-count:1 !important;}
+}
+
+/* ---------- labels ----------
+   One recipe for every piece of uppercase metadata on the site. It used to exist
+   as a dozen near-identical variants; these selectors now share it. */
+.vp-label,
+.crumb,.meta-row,.card-n,.deck-count,.gl-count,
+.hero-eyebrow,.intro-meta,.study-progress,.face-label,.tap-hint,
+.deck-tag,.deck-progress-label,.cat-head-name,.cat-head-n,
+.test-progress,.test-tag,.test-a-label,.test-deck-meta,.test-q-state,
+.test-write-lbl,.test-terms-lbl,.am-label,.am-l,.nav-sub-head,
+.auth-label,.auth-or,.guide-kicker,.footer-reset,.link-back{
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- difficulty ----------
+   Three rising bars filled up to the deck's level, then the word. Not green,
+   amber and red: on this site those colours mean right and wrong. The bars are
+   gradients, so the marker needs no images and no extra markup. */
+:where(.deck-level,.intro-meta[data-level]){--l1:var(--accent);--l2:var(--line);--l3:var(--line);}   /* zero weight, so the level rules below always win */
+[data-level="intermediate"]{--l2:var(--accent);}
+[data-level="advanced"]{--l2:var(--accent);--l3:var(--accent);}
+.deck-level{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;line-height:1.35;
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-soft);
+}
+.deck-level::before{
+  content:'';flex:0 0 auto;width:14px;height:10px;
+  background:
+    linear-gradient(var(--l1),var(--l1)) 0 100% / 3px 4px no-repeat,
+    linear-gradient(var(--l2),var(--l2)) 5.5px 100% / 3px 7px no-repeat,
+    linear-gradient(var(--l3),var(--l3)) 11px 100% / 3px 10px no-repeat;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:var(--s-5);
+  min-height:4.5rem;padding:var(--s-3) 0;
+  border-bottom:var(--rule);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:var(--s-2);flex:0 0 auto;
+  font-family:var(--display);font-size:1.1875rem;line-height:1;letter-spacing:-.005em;
+  text-decoration:none;color:var(--ink);
+}
+.wordmark-mark{display:block;flex:0 0 auto;width:26px;height:26px;border-radius:var(--r-1);}
+.wm-sq{fill:var(--ink);}
+.wordmark-primary,.wordmark b{font-weight:800;color:var(--ink);}
+.wordmark-secondary,.wordmark > span:not([class]){font-weight:400;color:var(--ink-faint);}
+
+.main-nav{display:flex;align-items:center;gap:var(--s-1);flex:1 1 auto;justify-content:center;min-width:0;}
+.nav-item{
+  all:unset;box-sizing:border-box;cursor:pointer;position:relative;
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-3);
+  font-family:var(--body);font-size:var(--fs-label);font-weight:600;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;
+  transition:color var(--t-fast);
+}
+/* The active section is marked with a rule, the way a tab is, rather than a
+   pill: it reads as position in the site, not as a button. */
+.nav-item::after{
+  content:'';position:absolute;left:var(--s-3);right:var(--s-3);bottom:.55rem;height:2px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-med);
+}
+.nav-item:hover{color:var(--ink);}
+.nav-item.is-active,.nav-drop.is-open > .nav-trigger{color:var(--ink);}
+.nav-item.is-active::after,.nav-drop.is-open > .nav-trigger::after{transform:scaleX(1);}
+.nav-item:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:var(--r-1);}
+
+.header-actions,.header-nav{display:flex;align-items:center;gap:var(--s-2);flex:0 0 auto;position:relative;}
+.header-arrow{display:none;}   /* duplicated the catalog link; the nav already carries it */
+
+/* secondary controls are quiet on purpose: the page content is the point */
+.theme-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 auto;
+  display:inline-grid;place-items:center;width:var(--control-h);height:var(--control-h);
+  border-radius:var(--r-1);color:var(--ink-soft);
+  transition:color var(--t-fast),background-color var(--t-fast);
+}
+.theme-btn:hover{color:var(--ink);background:var(--hover);}
+.theme-btn:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;}
+.theme-btn svg{width:1.05rem;height:1.05rem;display:block;}
+.theme-btn .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-btn .ic-moon{display:block;}
+
+/* ---------- buttons ----------
+   Solid ink for the one action that matters on a screen; an outline for
+   everything secondary. Square-cornered, label type, 44px tall. */
+.btn,.btn-primary,.btn-solid,
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  min-height:var(--control-h);padding:0 var(--s-5);border-radius:var(--r-1);
+  font-family:var(--body);font-size:.75rem;font-weight:700;line-height:1;
+  letter-spacing:var(--tr-label);text-transform:uppercase;white-space:nowrap;
+  text-decoration:none;
+  transition:background-color var(--t-fast),border-color var(--t-fast),color var(--t-fast);
+}
+.btn,.btn-primary,.btn-solid{background:var(--ink);color:var(--contrast);border:1px solid var(--ink);}
+.btn:hover,.btn-primary:hover,.btn-solid:hover{background:var(--ink-hover);border-color:var(--ink-hover);}
+.btn-ghost,.flip-btn,.prev-btn,.am-out,.header-cta,.account-btn{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.btn-ghost:hover,.flip-btn:hover,.prev-btn:hover:not([disabled]),.am-out:hover,
+.header-cta:hover,.account-btn:hover{border-color:var(--ink);background:var(--hover);}
+.prev-btn[disabled]{opacity:.35;cursor:default;}
+.btn:focus-visible,.btn-primary:focus-visible,.btn-solid:focus-visible,.btn-ghost:focus-visible,
+.flip-btn:focus-visible,.prev-btn:focus-visible,.am-out:focus-visible,.header-cta:focus-visible,
+.account-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
+.btn:active,.btn-primary:active,.btn-solid:active,.btn-ghost:active,.flip-btn:active,
+.prev-btn:active:not([disabled]){transform:translateY(1px);}
+
+.link-back{
+  appearance:none;background:none;border:0;margin:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:var(--s-2);
+  min-height:2rem;color:var(--ink-soft);transition:color var(--t-fast);
+}
+.link-back:hover{color:var(--ink);}
+.link-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--r-1);}
+
+/* ---------- section heading ----------
+   A short navy rule above the heading, the brand mark, instead of the heavy
+   left bar: it sits on the text's own left edge, so headings and body align. */
+.section-title,h2.track,.gl-letter,.test-group-lbl{
+  position:relative;padding-top:var(--s-4);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:var(--tr-heading);color:var(--ink);
+}
+.section-title::before,h2.track::before,.gl-letter::before,.test-group-lbl::before{
+  content:'';position:absolute;left:0;top:0;width:var(--s-6);height:3px;background:var(--accent);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:var(--s-8);padding:var(--s-6) 0 var(--s-7);border-top:var(--rule);
+  font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint);
+}
+.site-footer a{color:var(--ink-soft);text-decoration:none;}
+.site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+.site-footer p{max-width:62ch;}
+.site-footer p + p{margin-top:var(--s-3);}
+.footer-reset{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;display:inline-block;margin-top:var(--s-5);
+  color:var(--ink-faint);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;
+}
+.footer-reset:hover{color:var(--red);text-decoration-color:var(--red);}
+.footer-reset:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+/* ---------- small screens ----------
+   The section nav becomes its own scrolling strip under the logo instead of
+   pushing the whole page wider than the phone. */
+@media (max-width:860px){
+  .site-header{flex-wrap:wrap;row-gap:0;padding-bottom:0;position:relative;}
+  .main-nav{
+    order:3;flex:1 0 100%;justify-content:flex-start;gap:0;
+    margin:0 calc(-1 * var(--s-3));overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 2rem),transparent);
+  }
+  .main-nav::-webkit-scrollbar{display:none;}
+  .header-actions,.header-nav{margin-left:auto;}
+}
+/* On a phone the logo, the theme switch and one action must share a line. */
+@media (max-width:640px){
+  .site-header{column-gap:var(--s-3);}
+  .header-actions,.header-nav{gap:var(--s-1);}
+  .header-cta,.account-btn{padding:0 var(--s-3);font-size:.6875rem;letter-spacing:.06em;}
+}
+
   /* Generated pages. Tokens, labels, header, nav, buttons and footer come from
      /assets/vp.css, shared with the app. The frame matches the app's width so
      the header does not jump when you move between them; the reading column
@@ -94,10 +390,11 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   }
   .deck-item:first-child{border-top:var(--rule-strong);}
   .deck-item::before{
-    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;padding-top:.15rem;
+    content:counter(deck,decimal-leading-zero);grid-column:1;grid-row:1 / span 3;padding-top:.15rem;
     font-family:var(--display);font-weight:700;font-size:var(--fs-sm);font-variant-numeric:tabular-nums;color:var(--accent);
   }
   .deck-item .deck-tag{display:none;}
+  .deck-item .deck-level{grid-column:2;margin-bottom:var(--s-1);}
   .deck-name{
     grid-column:2;font-family:var(--display);font-weight:700;font-size:1.1875rem;line-height:1.3;
     letter-spacing:-.01em;color:var(--ink);transition:color var(--t-fast);
@@ -190,7 +487,7 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   <p class="crumb"><a href="https://viewprep.net/">ViewPrep</a> / <a href="https://viewprep.net/decks/">Decks</a> / Investment banking</p>
   <h1>DCF &amp; WACC Drills</h1>
   <p class="lede">Knowing what a DCF is gets you through the first question. The second question is always a number: build me the free cash flow, give me the cost of equity, what does the terminal value come to, what happens if WACC moves a point. Interviewers drill this because a candidate who can run the arithmetic out loud has clearly built one, and a candidate who cannot has only read about it. This deck is that drill. It starts with a single cash flow build and a single discount factor, assembles a cost of equity and a WACC from their inputs, unlevers and relevers a beta, values a terminal year both ways, then runs a full three-year DCF through to a share price. The closing cards cover the follow-up chains: sensitivities, the capex trick, levered DCFs, banks, a DCF that disagrees with the comps, and why a PE fund’s hurdle rate looks nothing like WACC.</p>
-  <div class="meta-row"><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
+  <div class="meta-row"><span class="deck-level" data-level="advanced">Advanced</span><span>18 cards</span><span>Investment banking</span><span>Free, no signup</span></div>
   <article class="card">
     <div class="card-n">Card 1 of 18</div>
     <h2>A food manufacturer has EBIT of £100m, a 25% tax rate, £20m of depreciation, £30m of capex, and working capital that grows by £5m this year. Build me its unlevered free cash flow and give me the number.</h2>
@@ -633,25 +930,25 @@ if(d){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})(
   </div>
   <h2 class="track">More investment banking decks</h2>
   <div class="deck-list">
-    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
-    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/accounting.html"><span class="deck-tag">Accounting</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Accounting Fundamentals</span><span class="deck-desc">Debits, credits, and how the books actually get built.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/statements.html"><span class="deck-tag">Statements</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Reading Financial Statements</span><span class="deck-desc">How the income statement, balance sheet, and cash flow statement fit together.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/threestatement.html"><span class="deck-tag">Drills</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Three-Statement Drills</span><span class="deck-desc">The classic ‘walk me through the three statements’ events, each worked at a 25% tax rate with a balance check.</span><span class="deck-count">19 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ratios.html"><span class="deck-tag">Ratios</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Ratio Analysis</span><span class="deck-desc">Liquidity, leverage, profitability, efficiency: the numbers you pull first and what they mean.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/corpfin.html"><span class="deck-tag">Corporate Finance</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Corporate Finance &amp; Investment Basics</span><span class="deck-desc">Time value of money, NPV, IRR, and how companies decide where to put capital.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/markets.html"><span class="deck-tag">Markets</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">Financial Markets &amp; Instruments</span><span class="deck-desc">How stocks, bonds, and other instruments actually trade.</span><span class="deck-count">17 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/macro.html"><span class="deck-tag">Macro</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Markets &amp; Macro Awareness</span><span class="deck-desc">Rates, inflation, FX and what they do to markets, so you can talk about the news coherently.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/earnings.html"><span class="deck-tag">Earnings</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Earnings &amp; Guidance</span><span class="deck-desc">What happens on results day, why stocks fall on a beat, and how to read what a company says about its future.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/valuation.html"><span class="deck-tag">Valuation</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Valuation Basics</span><span class="deck-desc">DCF, comps, and the multiples analysts actually use.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/evbridge.html"><span class="deck-tag">Bridge</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Enterprise &amp; Equity Value</span><span class="deck-desc">From equity value to enterprise value and back: diluted shares, debt-like claims, cash, and the traps that break comps.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/comps.html"><span class="deck-tag">Comps</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Comparable Companies</span><span class="deck-desc">Building a comps set, choosing the multiples, and reading the answer they give.</span><span class="deck-count">15 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/credit.html"><span class="deck-tag">Credit</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">Debt, Credit &amp; Leverage</span><span class="deck-desc">How companies borrow, what lenders check, and what leverage really costs.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/capstructure.html"><span class="deck-tag">Capital structure</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Capital Structure &amp; Leverage</span><span class="deck-desc">Debt versus equity, the cost of each, WACC, and why more leverage is not simply more risk.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/mna.html"><span class="deck-tag">M&amp;A</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">M&amp;A Fundamentals</span><span class="deck-desc">How deals actually get done, from the first pitch to goodwill.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/dealmaths.html"><span class="deck-tag">Deal maths</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Merger &amp; LBO Maths</span><span class="deck-desc">One merger model and one paper LBO, worked number by number from opening EPS through to exit IRR.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/lbo.html"><span class="deck-tag">Private Equity</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">LBOs &amp; Private Equity Basics</span><span class="deck-desc">How buyouts work, from borrowed money to the returns math.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ecm.html"><span class="deck-tag">Capital Markets</span><span class="deck-level" data-level="intermediate">Intermediate</span><span class="deck-name">IPOs &amp; Equity Capital Markets</span><span class="deck-desc">How companies go public, and how those offerings get priced.</span><span class="deck-count">16 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/excel.html"><span class="deck-tag">Excel</span><span class="deck-level" data-level="advanced">Advanced</span><span class="deck-name">Excel for Financial Modeling</span><span class="deck-desc">The modeling habits and shortcuts a first-year analyst is expected to know cold.</span><span class="deck-count">18 cards</span></a>
+    <a class="deck-item" href="https://viewprep.net/decks/ibinterview.html"><span class="deck-tag">Interview</span><span class="deck-level" data-level="beginner">Beginner</span><span class="deck-name">The Investment Banking Interview</span><span class="deck-desc">The resume walk, the behavioural questions, and how to handle both well.</span><span class="deck-count">16 cards</span></a>
   </div>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "A food manufacturer has EBIT of £100m, a 25% tax rate, £20m of depreciation, £30m of capex, and working capital that grows by £5m this year. Build me its unlevered free cash flow and give me the number.", "acceptedAnswer": {"@type": "Answer", "text": "UFCF = EBIT × (1 − tax) + D&A − capex − increase in NWC, which here comes to £60m. EBIT is operating profit before interest and tax. Tax it as if there were no debt: £100m less 25% leaves £75m. Depreciation and amortisation (D&A) was deducted to reach EBIT but no cash left the building, so add the £20m back for £95m. Capex, the cash spent on plant and equipment, is real money out, so subtract £30m to reach £65m. Net working capital (NWC) is stock plus unpaid customer invoices minus unpaid supplier bills, and when it grows by £5m that cash is tied up in the business, so subtract it too. Unlevered free cash flow is £60m, the cash available to everyone who funded the company before a penny goes to lenders."}}, {"@type": "Question", "name": "A model charges 25% tax on EBIT, but the company actually paid £18m of tax last year rather than £25m. Why not just use the real tax bill?", "acceptedAnswer": {"@type": "Answer", "text": "Unlevered means debt-free, so you tax EBIT as if no interest existed and let WACC carry the interest tax saving. Unlevered cash flow is the cash the business would throw off if it carried no debt at all. The food manufacturer's real bill is lower because interest is deducted before tax, and that saving, called the tax shield, only exists because of how the company is financed, not how it operates. In a WACC-based DCF the benefit of debt is already built into the discount rate through the after-tax cost of debt, so if you also used the lower real tax bill you would count the same saving twice and overstate value. You tax EBIT at the rate the company would pay on operating profit alone, usually the statutory or long-run effective rate."}}, {"@type": "Question", "name": "A cash flow of £60m arrives in three years and the discount rate is 10%. What is the discount factor, what is the present value, and what does that factor actually represent?", "acceptedAnswer": {"@type": "Answer", "text": "Discount factor = 1 ÷ (1 + r) to the power n, so £60m in year 3 at 10% is worth 60 × 0.751 = £45.1m today. The discount rate is the yearly return investors demand for waiting and for bearing risk, and for a whole company it is usually WACC, the blended rate across its lenders and shareholders, which the next few cards build. The discount factor for year n is 1 divided by (1 + r) to the power n. At 10%, 1.10 cubed is 1.331, so the factor is 1 ÷ 1.331 = 0.751, and 60 × 0.751 gives a present value of £45.1m. The factor answers ‘how much would I need today, growing at 10% a year, to have exactly £60m in three years’, and every line of a DCF is that same sum repeated."}}, {"@type": "Question", "name": "What is the mid-year convention, and what does switching to it do to the valuation?", "acceptedAnswer": {"@type": "Answer", "text": "Mid-year discounting uses n − 0.5 as the exponent, lifting the explicit years by about (1 + r) to the half, roughly 5% at 10%. End-of-year discounting pretends each year’s cash lands on 31 December, which is too harsh when it really arrives steadily through the year. The mid-year convention treats it as arriving halfway on average, so year 1 is discounted over 0.5 years, year 2 over 1.5 and so on. At 10% the year-1 factor rises from 0.909 to 0.953 and the year-3 factor from 0.751 to 0.788, and since every year moves the same way the explicit forecast is worth about 4.9% more. Terminal value follows its method: a perpetuity-growth value shifts half a year too, but an exit-multiple value stays at the full year, because a sale is a single event at the end."}}, {"@type": "Question", "name": "Build me the industrial target's cost of equity. The ten-year gilt yields 4.5%, its beta is 1.3 and the house equity risk premium is 5%. Show the number and tell me where each input comes from.", "acceptedAnswer": {"@type": "Answer", "text": "Cost of equity = risk-free rate + beta × equity risk premium, so 4.5% + 1.3 × 5% = 11.0%. The cost of equity is the return shareholders need to hold the shares, and the capital asset pricing model builds it from three parts. The risk-free rate is what you earn with no risk at all, taken from a government bond in the same currency and with a similar life to the cash flows, here a ten-year gilt at 4.5%. The equity risk premium is the extra return the whole stock market has delivered over that safe rate, around 5% from long-run data or the bank’s house number. Beta measures how hard the share moves with the market, from regressing its returns against the index or from peers, and 1.3 means it swings 30% harder. So 4.5% plus 1.3 times 5% is 11.0%."}}, {"@type": "Question", "name": "A hedge fund borrows at 8% and pays 25% tax. Its shares are worth £800m in total and its debt £200m. Give me the after-tax cost of debt and the WACC, and remind me why interest gets the tax treatment it does.", "acceptedAnswer": {"@type": "Answer", "text": "After-tax cost of debt = 8% × (1 − 25%) = 6%, and WACC = 80% × 11% + 20% × 6% = 10.0%. Interest is an expense deducted before tax on the income statement, so every £1 of interest cuts taxable profit by £1 and the tax bill by 25p: the government effectively picks up a quarter of the coupon. The true cost of debt is therefore 8% × (1 − 0.25) = 6%. WACC, the weighted average cost of capital, blends that with the 11% cost of equity from the last card in proportion to how the company is funded at market value. Equity is £800m of the £1,000m total, or 80%, and debt 20%, so WACC is 0.8 × 11% + 0.2 × 6% = 8.8% + 1.2% = 10.0%, the rate every unlevered cash flow is discounted at."}}, {"@type": "Question", "name": "A company’s balance sheet shows shareholders’ equity of £300m, yet you weighted WACC on £800m of market value. Why market values?", "acceptedAnswer": {"@type": "Answer", "text": "Investors price risk on what their stake is worth today, so weights use market value, and book equity is just history. Book equity is an accounting residue: share capital raised years ago plus retained profits, minus buybacks and dividends. It says nothing about what shareholders have at stake now. The 11% cost of equity is what investors demand on the £800m they could sell the shares for today, so that £800m is the weight it deserves. Book values would give 300 against 200, or 60% equity and 40% debt, and a WACC of 0.6 × 11% + 0.4 × 6% = 9.0%, a full point too low and a much higher valuation. Debt is the one place book is usually acceptable, since a loan’s carrying value sits close to its market value unless the company is in distress or rates have moved sharply."}}, {"@type": "Question", "name": "A listed food company, your closest peer, has a beta of 1.15 with debt equal to 20% of its equity. The food company runs debt at 60% of equity. Take me from the listed food company's beta to one you can use for the food company, at a 25% tax rate.", "acceptedAnswer": {"@type": "Answer", "text": "βL = βU × (1 + (1 − t) × D/E): strip the listed food company's debt out to get 1.00, then relever at the food company's 0.6 to get 1.45. A levered beta carries two kinds of risk: the business itself, and the extra swing that debt adds to shareholders’ returns. To compare companies you strip the debt effect out. Unlever the listed food company: 1.15 ÷ (1 + 0.75 × 0.2) = 1.15 ÷ 1.15 = 1.00, the pure operating risk of a food business. Then relever at the food company's own mix: 1.00 × (1 + 0.75 × 0.6) = 1.45. The (1 − t) is there because the tax saving on interest softens some of debt’s risk. In practice you unlever a handful of peers, take the median unlevered beta, and relever it at the target’s own or intended debt-to-equity ratio."}}, {"@type": "Question", "name": "The industrial target's final forecast year shows £70m of free cash flow. With WACC at 10% and long-run growth of 2%, give me the perpetuity-growth terminal value and the sanity check on that 2%.", "acceptedAnswer": {"@type": "Answer", "text": "TV = FCF × (1 + g) ÷ (WACC − g) = 71.4 ÷ 0.08 = £892.5m, and g must sit below long-run nominal GDP growth. The perpetuity growth method assumes cash flow grows at a steady rate g forever after the last forecast year, and the value of that stream on that date is next year’s cash flow divided by the gap between the discount rate and growth. Next year’s flow is 70 × 1.02 = £71.4m, and 71.4 ÷ (0.10 − 0.02) gives £892.5m as at the end of year 3. The check is that g is growth forever, so it cannot exceed the long-run growth of the whole economy in money terms, roughly 2% real plus 2% inflation, about 4% in the UK. A company growing at 5% forever would one day be bigger than the economy, so most models use 1.5% to 3%."}}, {"@type": "Question", "name": "Year-3 EBITDA is £120m and peers trade at 8x, so you use an 8x exit multiple. What terminal value does that give, and how do you check it against the growth method?", "acceptedAnswer": {"@type": "Answer", "text": "TV = 8 × 120 = £960m, and implied growth g = (TV × WACC − FCF) ÷ (TV + FCF) = 2.5%, close to the 2% assumed. The exit multiple method values the business at the end of the forecast the way a buyer would, as a multiple of its final-year EBITDA: 8 × £120m = £960m. To cross-check, solve the perpetuity formula for growth: rearranging TV = FCF × (1 + g) ÷ (WACC − g) gives g = (TV × WACC − FCF) ÷ (TV + FCF). Here that is (96 − 70) ÷ (960 + 70) = 26 ÷ 1,030 = 2.5%. That sits close to the 2% behind the growth method’s £892.5m, which in turn implies 892.5 ÷ 120 = 7.4x, so the two methods agree. Had the implied growth come out at 6%, the multiple, not the growth rate, would be the number to challenge."}}, {"@type": "Question", "name": "In a three-year DCF the terminal value is 81% of enterprise value. Is that a problem, and what do you do about it?", "acceptedAnswer": {"@type": "Answer", "text": "Terminal value is usually 60–80% of EV, so the fix is a forecast run to steady state, cross-checks and a sensitivity table. It is normal, not a bug. A company keeps earning long after year 3, so most of its value lives past the forecast, and a short forecast pushes the share higher still: three years gives 81% here, ten might give 60%. The real risk is that one growth rate or one multiple is driving four-fifths of the answer. So you extend the forecast until the business reaches a steady state, with margins, capex and growth settled at levels that can hold forever, you cross-check the terminal value both ways as in the last card, and you show a sensitivity table so the client can see how value moves as WACC and growth shift by half a point."}}, {"@type": "Question", "name": "The industrial target: free cash flow of £60m, £65m and £70m over three years, a terminal value of £892.5m, WACC 10%, £200m of debt, £40m of cash and 100m shares. Take me all the way to a share price.", "acceptedAnswer": {"@type": "Answer", "text": "PV of flows 160.8 plus PV of terminal 670.3 gives EV £831.1m, less £160m net debt is £671.1m, so £6.71 a share. Discount factors at 10% are 0.909, 0.826 and 0.751, so the three years are worth 54.5, 53.7 and 52.6, or £160.8m together. The terminal value sits at the end of year 3, so it takes the year-3 factor: 892.5 × 0.751 = £670.3m. Enterprise value is 160.8 + 670.3 = £831.1m. To reach what shareholders own, subtract net debt, the £200m owed to lenders less the £40m of cash that could repay part of it: 831.1 − 160 = £671.1m of equity value. Over 100m shares that is £6.71 each, which you then set against the market price to say whether the shares look cheap or dear."}}, {"@type": "Question", "name": "What does an £831m enterprise value do if WACC goes to 9% or 11%, or long-run growth to 1% or 3%? Walk me through the direction and rough size of each move.", "acceptedAnswer": {"@type": "Answer", "text": "Value falls as WACC rises and rises with growth, and one point moves this DCF by £80m to £120m, mostly via the terminal value. A higher WACC shrinks every discount factor and widens the gap between WACC and growth in the terminal formula, so value drops on both fronts: at 11% the EV is about £738m, while at 9% it climbs to £951m. Growth works the other way but only through the terminal value, since the three explicit years are fixed: 3% lifts EV to £934m and 1% cuts it to £751m. Notice the moves are lopsided, with a point of cheaper capital adding more than a point of dearer capital removes, because the terminal formula divides by (WACC − g) and small denominators explode. That asymmetry is exactly why a sensitivity grid goes to the client rather than one number."}}, {"@type": "Question", "name": "Trimming year-3 capex from £30m to £20m just before the terminal value “finds” £100m of value. Why does such a small cut move the number so much, and why is it not free?", "acceptedAnswer": {"@type": "Answer", "text": "A capex cut in the terminal year is capitalised forever, so £10m less capex adds about £103m, unless the assets can no longer carry the growth. Year-3 free cash flow rises from £70m to £80m, which on its own adds 10 × 0.751 = £7.5m of present value. But the terminal value is built on that same year-3 flow, so it jumps from £892.5m to 80 × 1.02 ÷ 0.08 = £1,020m, worth an extra 127.5 × 0.751 = £95.8m today, £103.3m in all. The model is now claiming the industrial target can grow at 2% forever while investing less. It cannot: if capex sits below depreciation the asset base is shrinking, and a shrinking base does not deliver growth. In the terminal year capex should at least match D&A and slightly exceed it for a growing business, so the cut has to be justified or reversed."}}, {"@type": "Question", "name": "When would you drop the WACC approach and instead discount levered free cash flow at the cost of equity, and what does that version hand you at the end?", "acceptedAnswer": {"@type": "Answer", "text": "Use a levered DCF when the debt schedule is fixed or is the point, and it gives equity value directly with no bridge. Levered free cash flow is what is left for shareholders after interest, net of its tax saving, and after debt repayments or new borrowing. Because it already reflects the financing, you discount it at the cost of equity, not WACC, and the answer is equity value straight away, with no net debt to subtract afterwards. It suits cases where the debt schedule is known and changing: a project with a fixed loan, a company paying down debt after a buyout, or a business whose capital structure is the whole story. Most bank DCFs stay unlevered because that keeps operations separate from financing and lets you compare companies with different leverage on the same footing."}}, {"@type": "Question", "name": "Why does the standard DCF template break for a bank, and what do you build instead?", "acceptedAnswer": {"@type": "Answer", "text": "For a bank, debt is raw material not financing, so you value the equity directly with a dividend discount model or residual income. The unlevered DCF splits operations from financing, but for a bank the two are the same thing: deposits and borrowings are the inputs it turns into loans, and interest is both its revenue and its main cost, so EBIT, unlevered free cash flow and WACC have no clean meaning. Capex and working capital barely feature either. Instead you value the equity directly. A dividend discount model forecasts the cash the bank can pay out after retaining enough capital to meet the regulator’s minimum ratios, and discounts it at the cost of equity. Residual income adds to today’s book value the present value of profits above what shareholders require. Cross-check on price to book and price to earnings, not EV multiples."}}, {"@type": "Question", "name": "A DCF says a company is worth £1.2bn but the comps put it near £850m, roughly 40% lower. What do you check first, and in what order?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the terminal value, its implied exit multiple and growth, then the WACC inputs, then whether the forecast is heroic. Go straight to the terminal value, because that is where most of the value and most of the mistakes live. Back out the implied exit multiple and the implied growth rate and set them against the peers: an implied 12x when the sector trades at 8x, or growth above nominal GDP, usually ends the search there. Next check the WACC inputs, a beta that is too low, a stale risk-free rate, or book-value weights. Then read the forecast for heroics: margins expanding past every peer, revenue compounding faster than the market, capex drifting below depreciation. Only after that do you question the comps set itself. A 40% gap is almost never the market being wrong."}}, {"@type": "Question", "name": "A company’s WACC is 10%, yet a private equity buyer says it needs a 22% return before it will look at buying the business. Why is a PE fund’s hurdle so much higher than WACC, and how do the two connect?", "acceptedAnswer": {"@type": "Answer", "text": "WACC is the blended cost of all capital, while a PE hurdle is the required return on a thin, levered, illiquid equity slice. WACC averages the 6% lenders accept with the 11% shareholders want, weighted by a fairly safe 80/20 mix. The private equity buyer would buy with far more debt, perhaps two pounds for every pound of equity, and its money is the equity, the slice that absorbs every swing. The industrial target's 1.3 beta unlevers to about 1.1 at its current 0.25 debt-to-equity; relevered at 2.0 it becomes roughly 1.1 × 2.5 = 2.7, so the cost of equity is near 4.5% + 2.7 × 5% = 18% before anything for a five-year lock-up, control risk and the fund’s own fees. A 20% to 25% hurdle is the same CAPM logic pushed to a levered corner. In an LBO nothing is discounted at it: you fix the return and solve for the price."}}]}</script>
 
